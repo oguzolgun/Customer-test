@@ -80,7 +80,8 @@ export function SeoHead({
     }
 
     upsertMeta("name", "description", description);
-    upsertMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow");
+    upsertMeta("name", "robots", "noindex, nofollow");
+    upsertMeta("name", "googlebot", "noindex, nofollow");
     upsertMeta("property", "og:title", title);
     upsertMeta("property", "og:description", description);
     upsertMeta("property", "og:locale", lang === "en" ? "en_US" : "de_DE");
