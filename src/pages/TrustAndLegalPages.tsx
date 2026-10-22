@@ -20,7 +20,6 @@ import {
 
 const PRIMARY = "#e51a59";
 const DARK = "#1a1d2e";
-const CREAM = "#f8f5f1";
 const SOFT_BG = "#f6f7fb";
 
 /* ============================================================================
@@ -45,7 +44,10 @@ export function AboutPage() {
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
       <Breadcrumb items={[{ label: isEn ? "About Us" : "Über uns" }]} />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
@@ -216,7 +218,10 @@ export function SuccessStoriesPage() {
         items={[{ label: isEn ? "Success Stories" : "Erfolgsgeschichten" }]}
       />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
@@ -317,7 +322,10 @@ export function CareerManagementPage() {
         items={[{ label: isEn ? "Career Management" : "Karriere-Management" }]}
       />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
@@ -530,7 +538,10 @@ export function EventsPage() {
       />
       <Breadcrumb items={[{ label: "Events" }]} />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
@@ -702,7 +713,10 @@ export function ConsultationPage() {
         ]}
       />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-start">
             {/* Left Info */}
@@ -995,7 +1009,7 @@ export function ReferFriendPage() {
       <Breadcrumb
         items={[{ label: isEn ? "Refer a Friend" : "Freunde werben" }]}
       />
-      <section style={{ backgroundColor: CREAM }} className="py-16">
+      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
             {isEn
@@ -1042,7 +1056,7 @@ export function ContactPage() {
       />
       <Breadcrumb items={[{ label: isEn ? "Contact" : "Kontakt" }]} />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14">
+      <section style={{ backgroundColor: SOFT_BG }} className="py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-6">
             {isEn ? "Contact Clarusway Germany" : "Kontakt zu Clarusway Deutschland"}

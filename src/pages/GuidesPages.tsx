@@ -15,7 +15,6 @@ import {
 
 const PRIMARY = "#e51a59";
 const DARK = "#1a1d2e";
-const CREAM = "#f8f5f1";
 const SOFT_BG = "#f6f7fb";
 
 /* ============================================================================
@@ -48,7 +47,10 @@ export function GuidesHubPage() {
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
       <Breadcrumb items={[{ label: isEn ? "Guides" : "Ratgeber" }]} />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
@@ -228,7 +230,10 @@ export function GuideArticlePage() {
       />
 
       {/* ARTICLE HERO + AUTHOR/DATE/TOC BOX (Component B15) */}
-      <section style={{ backgroundColor: CREAM }} className="py-12 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-12 border-b border-gray-100"
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1 rounded-full mb-4">
             <BookOpenIcon className="w-3.5 h-3.5" />
@@ -330,7 +335,7 @@ export function GuideArticlePage() {
                 </thead>
                 <tbody className="divide-y divide-gray-200 text-xs sm:text-sm">
                   {article.tableRows.map((row, rIdx) => (
-                    <tr key={rIdx} className={rIdx % 2 === 0 ? "bg-white" : "bg-[#f8f5f1]/60"}>
+                    <tr key={rIdx} className={rIdx % 2 === 0 ? "bg-white" : "bg-[#f6f7fb]"}>
                       {row.map((cell, cIdx) => (
                         <td
                           key={cIdx}
@@ -375,7 +380,7 @@ export function GuideArticlePage() {
                     {sec.h3Cards.map((c, i) => (
                       <div
                         key={i}
-                        style={{ backgroundColor: CREAM }}
+                        style={{ backgroundColor: SOFT_BG }}
                         className="rounded-xl p-5 border border-gray-200"
                       >
                         <h3 className="text-base font-bold text-[#1a1d2e] mb-1.5">{c.title}</h3>
@@ -463,8 +468,8 @@ export function GuideArticlePage() {
                   return (
                     <div
                       key={rel.slug}
-                      style={{ backgroundColor: CREAM }}
-                      className="rounded-2xl p-5 border border-gray-200 flex flex-col justify-between"
+                      style={{ backgroundColor: SOFT_BG }}
+                      className="rounded-2xl p-5 border border-gray-100 flex flex-col justify-between"
                     >
                       <div>
                         <span className="text-[11px] font-bold text-[#e51a59] block mb-1">

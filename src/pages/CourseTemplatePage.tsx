@@ -17,13 +17,11 @@ import {
   CalendarIcon,
   ClockIcon,
   GlobeIcon,
-  AwardIcon,
   ExternalLinkIcon,
 } from "../components/Icons";
 
 const PRIMARY = "#e51a59";
 const DARK = "#1a1d2e";
-const CREAM = "#f8f5f1";
 const SOFT_BG = "#f6f7fb";
 
 interface CourseTemplatePageProps {
@@ -163,142 +161,139 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       <Breadcrumb items={breadcrumbItems} />
 
       {/* =====================================================================
-          1. HERO (Component B1) — Single H1 per page
+          1. HERO (Component B1) — Exact Figma Make Gradient & Layout
           ===================================================================== */}
-      <section style={{ backgroundColor: CREAM }} className="py-12 md:py-18 border-b border-gray-200/70">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            {/* Left Column (7 cols) */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
-                <span>{data.eyebrow}</span>
+      <section
+        className="relative overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+      >
+        <div className="max-w-[1200px] mx-auto px-5 py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Left Column */}
+          <div>
+            {/* Tech Badges at Top (Exact Figma Make position) */}
+            <div className="flex flex-wrap gap-2 mb-5">
+              {data.heroBadges.map((badge) => (
+                <span
+                  key={badge}
+                  className="text-xs font-bold px-3 py-1 rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+
+            <h1
+              className="font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.15] mb-4"
+              style={{ color: DARK }}
+            >
+              {data.h1}
+            </h1>
+
+            {/* 5 Pink Stars + Career Karma Rating (Visual only, no AggregateRating schema) */}
+            <div className="flex items-center gap-2 mb-4">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="16" height="16" viewBox="0 0 16 16" fill={PRIMARY}>
+                    <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z" />
+                  </svg>
+                ))}
+              </div>
+              <span className="text-sm font-semibold text-gray-700">
+                {lang === "en" ? "4.9/5 — Career Karma Rating" : "4,9/5 — Career Karma Bewertung"}
+              </span>
+            </div>
+
+            <p className="text-gray-500 text-base leading-relaxed mb-4 max-w-[520px]">
+              {data.heroIntro}
+            </p>
+
+            <p className="text-xs sm:text-sm text-gray-500 mb-7 flex items-center gap-2">
+              <ShieldCheckIcon className="w-4 h-4 text-[#e51a59] shrink-0" />
+              <span>{data.heroSubnote}</span>
+            </p>
+
+            {/* Primary & Secondary CTAs (rounded-xl per Figma Make) */}
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to={consultPath}
+                onClick={() =>
+                  trackClaruswayEvent("beratung_angefragt", {
+                    source: `hero_${data.key}`,
+                    lang,
+                  })
+                }
+                style={{ background: PRIMARY }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-sm"
+              >
+                <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
+                <ArrowRightIcon className="w-4 h-4" />
+              </Link>
+
+              <a
+                href="#syllabus-download"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm border-2 transition-colors hover:bg-gray-50"
+                style={{ borderColor: DARK, color: DARK }}
+              >
+                <DownloadIcon className="w-4 h-4" />
+                <span>{lang === "en" ? "Download syllabus" : "Lehrplan herunterladen"}</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column — Figma Terminal + 2 Floating White Cards */}
+          <div className="relative flex justify-center">
+            <div className="w-full max-w-[440px] rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-[#1e1e2e] p-6 text-white">
+              <div className="flex items-center gap-2 mb-5">
+                <span className="w-3 h-3 rounded-full bg-red-500" />
+                <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                <span className="w-3 h-3 rounded-full bg-green-400" />
+                <span className="ml-2 text-xs text-gray-400 font-mono">
+                  {data.terminalTitle}
+                </span>
               </div>
 
-              <h1
-                style={{ color: DARK, lineHeight: 1.15 }}
-                className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-5 tracking-tight"
-              >
-                {data.h1}
-              </h1>
-
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-4">
-                {data.heroIntro}
-              </p>
-
-              <p className="text-xs sm:text-sm text-gray-500 mb-6 flex items-center gap-2">
-                <ShieldCheckIcon className="w-4 h-4 text-[#e51a59] shrink-0" />
-                <span>{data.heroSubnote}</span>
-              </p>
-
-              {/* Tech Stack Badges (span, no heading tags) */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {data.heroBadges.map((badge) => (
-                  <span
-                    key={badge}
-                    className="bg-white border border-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-full shadow-2xs"
-                  >
-                    {badge}
-                  </span>
+              <div className="font-mono text-xs sm:text-sm space-y-2 leading-relaxed">
+                {data.terminalLines.map((line, i) => (
+                  <p key={i} style={{ color: line.color }}>
+                    {line.text}
+                  </p>
                 ))}
               </div>
 
-              {/* Primary & Secondary CTAs (Standardized per SEO Plan) */}
-              <div className="flex flex-wrap gap-3.5 items-center">
-                <Link
-                  to={consultPath}
-                  onClick={() =>
-                    trackClaruswayEvent("beratung_angefragt", {
-                      source: `hero_${data.key}`,
-                      lang,
-                    })
-                  }
-                  style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-lg hover:opacity-95 transition-opacity"
-                >
-                  <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
-                  <ArrowRightIcon className="w-4 h-4" />
-                </Link>
-
-                <a
-                  href="#syllabus-download"
-                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
-                >
-                  <DownloadIcon className="w-4 h-4" />
-                  <span>{lang === "en" ? "Download syllabus" : "Lehrplan herunterladen"}</span>
-                </a>
+              {/* Progress Bars inside Terminal Card */}
+              <div className="mt-6 pt-4 border-t border-gray-700 grid grid-cols-2 gap-3 text-xs">
+                <div className="bg-white/5 rounded-xl p-3">
+                  <div className="text-gray-400 mb-0.5">
+                    {lang === "en" ? "Hands-on Live Labs" : "Praxis-Labs & Projekte"}
+                  </div>
+                  <div className="text-white font-bold">100% Live</div>
+                </div>
+                <div className="bg-white/5 rounded-xl p-3">
+                  <div className="text-gray-400 mb-0.5">
+                    {lang === "en" ? "Voucher Coverage" : "Bildungsgutschein"}
+                  </div>
+                  <div className="text-emerald-400 font-bold">100% (0 €)</div>
+                </div>
               </div>
             </div>
 
-            {/* Right Column (5 cols) — Figma Terminal + Floating Badges */}
-            <div className="lg:col-span-5 relative">
-              <div
-                style={{ backgroundColor: DARK }}
-                className="rounded-2xl p-6 text-white shadow-2xl border border-white/10"
-              >
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-400 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-yellow-400 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-green-400 inline-block" />
-                    <span className="text-gray-400 text-xs ml-2 font-mono">
-                      {data.terminalTitle}
-                    </span>
-                  </div>
-                  <span className="text-[11px] bg-white/10 text-gray-300 px-2.5 py-0.5 rounded-full">
-                    {lang === "en" ? "Live Lab" : "Live-Praxis"}
-                  </span>
-                </div>
-
-                <div className="font-mono text-xs sm:text-sm space-y-2 mb-6 leading-relaxed">
-                  {data.terminalLines.map((line, i) => (
-                    <p key={i} style={{ color: line.color }}>
-                      {line.text}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Progress Bars inside Terminal Card */}
-                <div className="space-y-2.5 pt-3 border-t border-white/10">
-                  <div>
-                    <div className="flex justify-between text-xs text-gray-300 mb-1">
-                      <span>{lang === "en" ? "Hands-on Live Labs & Projects" : "Praxis-Labs & Reale Projekte"}</span>
-                      <span className="text-[#4ade80] font-semibold">100%</span>
-                    </div>
-                    <div className="w-full bg-white/10 rounded-full h-1.5">
-                      <div style={{ width: "100%", backgroundColor: PRIMARY }} className="h-1.5 rounded-full" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-xs text-gray-300 mb-1">
-                      <span>{lang === "en" ? "Bildungsgutschein Coverage" : "Förderung mit Bildungsgutschein"}</span>
-                      <span className="text-[#4ade80] font-semibold">100%</span>
-                    </div>
-                    <div className="w-full bg-white/10 rounded-full h-1.5">
-                      <div className="bg-emerald-400 h-1.5 rounded-full w-full" />
-                    </div>
-                  </div>
-                </div>
+            {/* Floating Badge Top-Right (15 Plätze pro Kurs) */}
+            <div className="hidden sm:block absolute -top-3 -right-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100">
+              <div className="text-2xl font-extrabold" style={{ color: PRIMARY }}>
+                15
               </div>
+              <div className="text-xs text-gray-500">
+                {lang === "en" ? "Seats per Cohort" : "Plätze pro Kurs"}
+              </div>
+            </div>
 
-              {/* Floating Badge Bottom-Left */}
-              <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-4 sm:-left-4 bg-white rounded-xl px-4 py-3 shadow-lg border border-gray-100 flex items-center gap-3">
-                <div
-                  style={{ backgroundColor: "#fde8ef", color: PRIMARY }}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                >
-                  <AwardIcon className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-[#1a1d2e]">
-                    {lang === "en" ? "AZAV Certified" : "AZAV-Zertifiziert"}
-                  </p>
-                  <p className="text-[11px] text-gray-500">
-                    {lang === "en"
-                      ? "100% funded with Bildungsgutschein"
-                      : "100 % Förderung über Arbeitsagentur / Jobcenter"}
-                  </p>
-                </div>
+            {/* Floating Badge Bottom-Left (AZAV zertifiziert & förderfähig) */}
+            <div className="hidden sm:block absolute -bottom-3 -left-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100">
+              <div className="text-sm font-bold" style={{ color: DARK }}>
+                AZAV
+              </div>
+              <div className="text-xs font-semibold" style={{ color: PRIMARY }}>
+                {lang === "en" ? "certified & 100% funded" : "zertifiziert & förderfähig"}
               </div>
             </div>
           </div>
@@ -306,49 +301,45 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          2. INFO STRIP / ECKDATEN-LEISTE (Component B2) — No heading tags!
+          2. STATS BAR / ECKDATEN-LEISTE (Component B2) — Exact Figma Make Bar
           ===================================================================== */}
-      <section style={{ backgroundColor: DARK }} className="py-7 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
-            {data.infoStrip.map(([val, label], idx) => (
-              <div key={idx} className="px-2">
-                <p style={{ color: PRIMARY }} className="text-xl sm:text-2xl font-bold mb-0.5">
-                  {val}
-                </p>
-                <p className="text-gray-300 text-xs">{label}</p>
-              </div>
-            ))}
-          </div>
+      <section style={{ background: DARK }} className="py-5">
+        <div className="max-w-[1200px] mx-auto px-5 flex flex-wrap justify-between gap-y-3 gap-x-6">
+          {data.infoStrip.map(([val, label], idx) => (
+            <div key={idx} className="flex items-baseline gap-2">
+              <span className="text-xl font-bold text-white">{val}</span>
+              <span className="text-sm text-gray-400">{label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* =====================================================================
-          3. TARGET AUDIENCE (Component B3) — H2 + 2 H3 Cards
+          3. TARGET AUDIENCE (Component B3) — Pure White Section (#ffffff)
           ===================================================================== */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1200px] mx-auto px-5">
           <div className="max-w-3xl mb-10">
-            <span
+            <div
+              className="text-xs font-bold uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
             >
               {lang === "en" ? "Target Audience & Prerequisites" : "Zielgruppe & Voraussetzungen"}
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+            </div>
+            <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
               {data.audienceH2}
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
               {data.audienceIntro}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-7">
+          <div className="grid md:grid-cols-2 gap-6">
             {data.audienceCards.map((card, i) => (
               <div
                 key={i}
-                style={{ backgroundColor: i === 0 ? CREAM : SOFT_BG }}
-                className="rounded-2xl p-7 border border-gray-200/80 flex flex-col justify-between"
+                style={{ background: SOFT_BG }}
+                className="rounded-2xl p-7 border border-gray-100 shadow-sm flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
@@ -381,7 +372,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          4. PROGRAM SELECTOR (Component B4) — Interactive + Initial HTML DOM
+          4. PROGRAM SELECTOR (Component B4) — ONLY Section with #f8f5f1 Cream!
           ===================================================================== */}
       {!data.isOrientation ? (
         <>
@@ -396,10 +387,10 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
 
           {/* Direct Entry / Technical Assessment Box (AI Engineering & Cyber Security) */}
           {data.directEntryInfo && (
-            <section style={{ backgroundColor: SOFT_BG }} className="pb-14">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-white rounded-2xl p-7 border-2 border-[#e51a59]/30 shadow-xs">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[#e51a59] uppercase tracking-wider mb-2">
+            <section className="py-10 bg-white border-b border-gray-100">
+              <div className="max-w-[1200px] mx-auto px-5">
+                <div className="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm">
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#e51a59] uppercase tracking-wider mb-2">
                     <SparklesIcon className="w-4 h-4" />
                     <span>
                       {lang === "en"
@@ -410,14 +401,15 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   <h3 className="text-xl font-bold text-[#1a1d2e] mb-2">
                     {data.directEntryInfo.h3}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-sm text-gray-600 mb-5 leading-relaxed">
                     {data.directEntryInfo.desc}
                   </p>
                   <ul className="grid md:grid-cols-3 gap-4">
                     {data.directEntryInfo.bullets.map((b, idx) => (
                       <li
                         key={idx}
-                        className="bg-[#f8f5f1] rounded-xl p-4 text-xs sm:text-sm text-gray-700 border border-gray-200/70 flex items-start gap-2.5"
+                        style={{ background: SOFT_BG }}
+                        className="rounded-xl p-4 text-xs sm:text-sm text-gray-700 border border-gray-100 flex items-start gap-2.5"
                       >
                         <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0 mt-0.5" />
                         <span>{b}</span>
@@ -433,80 +425,80 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
 
       {/* =====================================================================
           5 & 6. CURRICULUM + SYLLABUS PDF DOWNLOAD (Components B5 + B6)
+          Exact Figma Make Stacked Module Cards on Pure White (#ffffff)
           ===================================================================== */}
-      <section id="curriculum" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <span
+      <section id="curriculum" className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div
+              className="text-xs font-bold uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
             >
-              {lang === "en" ? "Curriculum & Modules" : "Lehrplan & Module"}
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+              {lang === "en" ? "CURRICULUM" : "LEHRPLAN"}
+            </div>
+            <h2 className="font-bold text-3xl md:text-4xl mb-3" style={{ color: DARK }}>
               {data.curriculumH2}
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
               {data.curriculumIntro}
             </p>
           </div>
 
-          {/* Module Cards (H3 per Module — Real HTML text) */}
+          {/* Full-Width Stacked Module Bars (Exact Figma Make WasWirstDuLernen Design) */}
           {data.modules.length > 0 && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div className="space-y-5 mb-12">
               {data.modules.map((mod) => (
                 <div
                   key={mod.id}
-                  className="rounded-2xl border border-gray-200 bg-white p-6 shadow-xs flex flex-col justify-between"
+                  className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm bg-white"
                 >
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span
-                        style={{ backgroundColor: mod.color }}
-                        className="text-white text-xs font-bold px-3 py-1 rounded-full"
-                      >
-                        {mod.label}
-                      </span>
-                      <span className="text-xs font-semibold text-gray-500 flex items-center gap-1">
+                  {/* Tinted Header Bar (mod.color + "18") */}
+                  <div
+                    className="px-6 py-3.5 flex flex-wrap items-center justify-between gap-3"
+                    style={{ background: mod.color + "18", color: mod.color }}
+                  >
+                    <h3 className="font-bold text-sm sm:text-base" style={{ color: mod.color }}>
+                      {mod.title.startsWith("Modul") || mod.title.startsWith("Module")
+                        ? mod.title
+                        : `${mod.label} — ${mod.title}`}
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold">
+                      <span className="inline-flex items-center gap-1 bg-white/80 px-2.5 py-1 rounded-full">
                         <ClockIcon className="w-3.5 h-3.5" />
                         {mod.duration}
                       </span>
+                      {mod.prerequisite && (
+                        <span className="hidden sm:inline-block bg-white/80 px-2.5 py-1 rounded-full text-gray-700 font-medium">
+                          {lang === "en" ? "Entry: " : "Einstieg: "}
+                          {mod.prerequisite}
+                        </span>
+                      )}
                     </div>
-
-                    <h3 className="text-lg font-bold text-[#1a1d2e] mb-3 leading-snug">
-                      {mod.title.startsWith("Modul") || mod.title.startsWith("Module")
-                        ? mod.title
-                        : `${mod.label}: ${mod.title}`}
-                    </h3>
-
-                    {mod.prerequisite && (
-                      <p className="text-xs text-gray-500 bg-gray-50 rounded-lg p-2.5 mb-4 border border-gray-100">
-                        <strong className="text-gray-700">
-                          {lang === "en" ? "Prerequisite: " : "Voraussetzung: "}
-                        </strong>
-                        {mod.prerequisite}
-                      </p>
-                    )}
-
-                    <ul className="space-y-2 mb-5">
-                      {mod.topics.map((topic, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                          <CheckCircleIcon
-                            style={{ color: mod.color }}
-                            className="w-4 h-4 shrink-0 mt-0.5"
-                          />
-                          <span>{topic}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
 
+                  {/* 2-Column Topic Grid with Colored Dots */}
+                  <div className="px-6 py-5 grid grid-cols-1 md:grid-cols-2 gap-y-2.5 gap-x-8 bg-white">
+                    {mod.topics.map((topic, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-sm text-gray-700">
+                        <span
+                          className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                          style={{ background: mod.color }}
+                        />
+                        <span>{topic}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Capstone Project Footer */}
                   {mod.project && (
-                    <div className="pt-4 border-t border-gray-100">
-                      <p className="text-[11px] font-semibold uppercase tracking-wider text-[#e51a59] mb-1">
-                        {lang === "en" ? "Capstone Project" : "Praxisprojekt"}
-                      </p>
-                      <p className="text-xs font-medium text-gray-800">{mod.project}</p>
+                    <div
+                      style={{ background: SOFT_BG }}
+                      className="px-6 py-3 border-t border-gray-100 flex flex-wrap items-center gap-2 text-xs text-gray-600"
+                    >
+                      <span className="font-bold uppercase tracking-wider text-[#e51a59]">
+                        {lang === "en" ? "Capstone Project:" : "Praxisprojekt:"}
+                      </span>
+                      <span className="font-medium text-gray-800">{mod.project}</span>
                     </div>
                   )}
                 </div>
@@ -517,8 +509,8 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
           {/* Special Feature Box (AI Tools in Full Stack / KI im SOC / Upgrade Path) */}
           {data.specialFeature && (
             <div
-              style={{ backgroundColor: CREAM }}
-              className="rounded-2xl p-7 sm:p-9 border border-gray-200 mb-12"
+              style={{ background: SOFT_BG }}
+              className="rounded-2xl p-7 sm:p-9 border border-gray-100 mb-12"
             >
               {lang === "en" && data.key === "full-stack" ? (
                 <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
@@ -537,7 +529,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 {data.specialFeature.cards.map((c, idx) => (
                   <div
                     key={idx}
-                    className="bg-white rounded-xl p-5 border border-gray-200/80 shadow-2xs"
+                    className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm"
                   >
                     <span className="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59] mb-2">
                       {c.badge}
@@ -606,7 +598,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     <Link
                       to={consultPath}
                       style={{ backgroundColor: PRIMARY }}
-                      className="inline-flex items-center gap-2 text-white text-xs font-semibold px-4 py-2 rounded-full"
+                      className="inline-flex items-center gap-2 text-white text-xs font-bold px-4 py-2.5 rounded-xl"
                     >
                       <span>
                         {lang === "en"
@@ -644,7 +636,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     <button
                       type="submit"
                       style={{ backgroundColor: PRIMARY }}
-                      className="inline-flex items-center justify-center gap-2 text-white font-semibold px-5 py-2.5 rounded-xl text-sm hover:opacity-95 transition-opacity cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 text-white font-bold px-5 py-2.5 rounded-xl text-sm hover:opacity-90 transition-opacity cursor-pointer"
                     >
                       <DownloadIcon className="w-4 h-4" />
                       <span>
@@ -660,80 +652,171 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          7. COURSE FORMAT & SCHEDULE (Component B7) — H2 + HTML Table
+          7. COURSE OVERVIEW & FORMAT (Component B7) — #f6f7fb Soft Cool BG
+          Exact Figma Make Kursübersicht 2-Column Layout
           ===================================================================== */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-6">
-              <span
-                style={{ color: PRIMARY }}
-                className="text-xs font-semibold uppercase tracking-widest block mb-2"
-              >
-                {lang === "en" ? "Schedule & Learning Format" : "Tagesablauf & Format"}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
-                {data.formatH2}
-              </h2>
-              <p className="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed">
-                {data.formatIntro}
-              </p>
-
-              <div className="space-y-4">
-                {data.formatHighlights.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-xl p-5 border border-gray-200/80 shadow-2xs"
-                  >
-                    <h3 className="text-base font-bold text-[#1a1d2e] mb-1">{item.title}</h3>
-                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
+      <section className="py-16" style={{ background: SOFT_BG }}>
+        <div className="max-w-[1200px] mx-auto px-5 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          <div>
+            <div
+              className="text-xs font-bold uppercase tracking-widest mb-2"
+              style={{ color: PRIMARY }}
+            >
+              {lang === "en" ? "COURSE OVERVIEW" : "KURSÜBERSICHT"}
             </div>
+            <h2 className="font-bold text-3xl mb-4" style={{ color: DARK }}>
+              {data.formatH2}
+            </h2>
+            <p className="text-gray-600 text-sm leading-relaxed mb-5">
+              {data.formatIntro}
+            </p>
 
-            {/* Real HTML Table (Course Key Facts) */}
-            <div className="lg:col-span-6">
-              <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs">
-                <div style={{ backgroundColor: DARK }} className="px-6 py-4 text-white">
-                  <p className="font-bold text-sm">
-                    {lang === "en"
-                      ? "Program Overview & Key Facts"
-                      : "Programm-Eckdaten im Überblick"}
-                  </p>
+            <div className="space-y-3">
+              {data.formatHighlights.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm"
+                >
+                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e] mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                 </div>
-                <table className="w-full text-left border-collapse">
-                  <tbody>
-                    {data.summaryTable.map(([label, val], idx) => (
-                      <tr
-                        key={idx}
-                        className={idx % 2 === 0 ? "bg-white" : "bg-[#f8f5f1]/60"}
-                      >
-                        <th className="py-3.5 px-6 text-xs sm:text-sm font-semibold text-gray-600 border-b border-gray-100 w-2/5">
-                          {label}
-                        </th>
-                        <td className="py-3.5 px-6 text-xs sm:text-sm font-medium text-[#1a1d2e] border-b border-gray-100">
-                          {val}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              ))}
             </div>
+          </div>
+
+          {/* Right Column: Clean White Key-Value Card + Pink Rounded-XL CTA */}
+          <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+            <table className="w-full text-left border-collapse mb-6">
+              <tbody>
+                {data.summaryTable.map(([label, val], idx) => (
+                  <tr key={idx} className="border-b border-gray-100 last:border-b-0">
+                    <th className="py-2.5 pr-3 text-sm font-semibold text-gray-700 align-top min-w-[140px]">
+                      {label}:
+                    </th>
+                    <td className="py-2.5 text-sm text-gray-600 align-top">{val}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <Link
+              to={consultPath}
+              onClick={() =>
+                trackClaruswayEvent("beratung_angefragt", {
+                  source: `overview_${data.key}`,
+                  lang,
+                })
+              }
+              style={{ background: PRIMARY }}
+              className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
+            >
+              {lang === "en" ? "Free consultation" : "Kostenlose Beratung"}
+            </Link>
           </div>
         </div>
       </section>
 
       {/* =====================================================================
-          8. FUNDING BOX (Component B8) — Bildungsgutschein & QCG
+          8. CAREER & SALARIES (Component B9) — Pure White (#ffffff)
           ===================================================================== */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5">
+          <div className="max-w-3xl mb-10">
+            <div
+              className="text-xs font-bold uppercase tracking-widest mb-2"
+              style={{ color: PRIMARY }}
+            >
+              {lang === "en" ? "CAREER & SALARIES" : "KARRIERE & GEHALT"}
+            </div>
+            <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
+              {data.careerH2}
+            </h2>
+            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+              {data.careerIntro}
+            </p>
+          </div>
+
           <div
-            style={{ backgroundColor: CREAM }}
-            className="rounded-3xl p-8 sm:p-11 border-2 border-[#e51a59]/25"
+            className={`grid gap-6 ${
+              data.careerRoles.length === 4
+                ? "md:grid-cols-2 lg:grid-cols-4"
+                : data.careerRoles.length === 3
+                ? "md:grid-cols-3"
+                : "md:grid-cols-2"
+            }`}
           >
+            {data.careerRoles.map((role, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <div className="w-9 h-9 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center">
+                      <BriefcaseIcon className="w-4 h-4" />
+                    </div>
+                    <a
+                      href={role.salarySourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-gray-400 hover:text-[#e51a59] inline-flex items-center gap-1"
+                    >
+                      <span>{role.salarySource}</span>
+                      <ExternalLinkIcon className="w-3 h-3" />
+                    </a>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                    <Link
+                      to={role.guideUrl}
+                      className="hover:text-[#e51a59] transition-colors"
+                    >
+                      {role.title}
+                    </Link>
+                  </h3>
+
+                  <div
+                    style={{ background: SOFT_BG }}
+                    className="rounded-xl p-3 mb-4 border border-gray-100"
+                  >
+                    <p className="text-[11px] text-gray-500">
+                      {lang === "en" ? "Median Salary (Germany)" : "Median-Gehalt (Deutschland)"}
+                    </p>
+                    <p style={{ color: PRIMARY }} className="text-xl font-bold">
+                      {role.salaryMedian}
+                    </p>
+                    <p className="text-[11px] text-gray-500">
+                      {lang === "en" ? "Range: " : "Spanne: "}
+                      {role.salaryRange}
+                    </p>
+                  </div>
+
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">
+                    {role.desc}
+                  </p>
+                </div>
+
+                <Link
+                  to={role.guideUrl}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-100"
+                >
+                  <span>{role.guideLabel}</span>
+                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          9. FUNDING BOX (Component B8) — #f6f7fb Soft Cool BG
+          ===================================================================== */}
+      <section style={{ background: SOFT_BG }} className="py-16">
+        <div className="max-w-[1200px] mx-auto px-5">
+          <div className="bg-white rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-sm">
             <div className="grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8">
                 <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-bold px-3.5 py-1 rounded-full mb-3">
@@ -749,7 +832,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   {data.fundingH2}
                 </h2>
 
-                <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-5">
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-5">
                   {data.fundingText}{" "}
                   {lang === "en" ? (
                     <>
@@ -790,9 +873,9 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   )}
                 </p>
 
-                <ul className="space-y-2.5 mb-6">
+                <ul className="space-y-2.5">
                   {data.fundingBullets.map((b, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-sm text-gray-800">
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-gray-700">
                       <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0 mt-0.5" />
                       <span>{b}</span>
                     </li>
@@ -800,7 +883,10 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 </ul>
               </div>
 
-              <div className="lg:col-span-4 bg-white rounded-2xl p-6 border border-gray-200 shadow-sm text-center">
+              <div
+                style={{ background: SOFT_BG }}
+                className="lg:col-span-4 rounded-2xl p-6 border border-gray-100 text-center"
+              >
                 <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">
                   {lang === "en" ? "Tuition with Voucher" : "Kursgebühr mit Gutschein"}
                 </p>
@@ -814,8 +900,8 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 </p>
                 <Link
                   to={consultPath}
-                  style={{ backgroundColor: PRIMARY }}
-                  className="w-full inline-flex items-center justify-center gap-2 text-white font-semibold px-5 py-3 rounded-full text-sm hover:opacity-95 transition-opacity mb-2.5"
+                  style={{ background: PRIMARY }}
+                  className="w-full inline-flex items-center justify-center gap-2 text-white font-bold px-5 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity mb-3"
                 >
                   <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -835,168 +921,21 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          9. CAREER & SALARIES (Component B9) — Sourced Salaries + Guide Links
+          10. WHY CLARUSWAY — Pure White (#ffffff) + Clean White Cards
           ===================================================================== */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <span
+      <section className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div
+              className="text-xs font-bold uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
             >
-              {lang === "en" ? "Career Outcomes & Salaries" : "Karriereperspektiven & Gehalt"}
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
-              {data.careerH2}
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              {data.careerIntro}
-            </p>
-          </div>
-
-          <div
-            className={`grid gap-6 ${
-              data.careerRoles.length === 4
-                ? "md:grid-cols-2 lg:grid-cols-4"
-                : data.careerRoles.length === 3
-                ? "md:grid-cols-3"
-                : "md:grid-cols-2"
-            }`}
-          >
-            {data.careerRoles.map((role, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#fde8ef] text-[#e51a59] flex items-center justify-center">
-                      <BriefcaseIcon className="w-4 h-4" />
-                    </div>
-                    <a
-                      href={role.salarySourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[11px] text-gray-400 hover:text-[#e51a59] inline-flex items-center gap-1"
-                    >
-                      <span>{role.salarySource}</span>
-                      <ExternalLinkIcon className="w-3 h-3" />
-                    </a>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
-                    <Link
-                      to={role.guideUrl}
-                      className="hover:text-[#e51a59] transition-colors"
-                    >
-                      {role.title}
-                    </Link>
-                  </h3>
-
-                  <div className="bg-[#f8f5f1] rounded-xl p-3 mb-4 border border-gray-200/60">
-                    <p className="text-[11px] text-gray-500">
-                      {lang === "en" ? "Median Salary (Germany)" : "Median-Gehalt (Deutschland)"}
-                    </p>
-                    <p style={{ color: PRIMARY }} className="text-xl font-bold">
-                      {role.salaryMedian}
-                    </p>
-                    <p className="text-[11px] text-gray-500">
-                      {lang === "en" ? "Range: " : "Spanne: "}
-                      {role.salaryRange}
-                    </p>
-                  </div>
-
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">
-                    {role.desc}
-                  </p>
-                </div>
-
-                <Link
-                  to={role.guideUrl}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-100"
-                >
-                  <span>{role.guideLabel}</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          9b. TOPIC CLUSTER GUIDES (Component B17) — Clickable H3<Link> Cards
-          ===================================================================== */}
-      {data.clusterGuides.length > 0 && (
-        <section className="py-16 bg-white border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-10">
-              <span
-                style={{ color: PRIMARY }}
-                className="text-xs font-semibold uppercase tracking-widest block mb-2"
-              >
-                {lang === "en" ? "Knowledge Hub & Career Guides" : "Wissensdatenbank & Ratgeber"}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
-                {data.clusterH2}
-              </h2>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                {data.clusterIntro}
-              </p>
+              {lang === "en" ? "THE CLARUSWAY ADVANTAGE" : "DEINE VORTEILE"}
             </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {data.clusterGuides.map((g, i) => (
-                <article
-                  key={i}
-                  style={{ backgroundColor: CREAM }}
-                  className="rounded-2xl p-6 border border-gray-200/80 hover:border-[#e51a59] transition-colors flex flex-col justify-between"
-                >
-                  <div>
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3">
-                      <BookOpenIcon className="w-3.5 h-3.5" />
-                      <span>{g.badge}</span>
-                    </span>
-                    <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 leading-snug">
-                      <Link to={g.to} className="hover:text-[#e51a59] transition-colors">
-                        {g.title}
-                      </Link>
-                    </h3>
-                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">
-                      {g.desc}
-                    </p>
-                  </div>
-
-                  <Link
-                    to={g.to}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline"
-                  >
-                    <span>{g.title}</span>
-                    <ArrowRightIcon className="w-3.5 h-3.5" />
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* =====================================================================
-          10. WHY CLARUSWAY — H2 + H3 Cards + Optional AWS Partner Box
-          ===================================================================== */}
-      <section style={{ backgroundColor: CREAM }} className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <span
-              style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
-            >
-              {lang === "en" ? "The Clarusway Advantage" : "Deine Vorteile"}
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+            <h2 className="font-bold text-3xl md:text-4xl mb-3" style={{ color: DARK }}>
               {data.whyH2}
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
               {data.whyIntro}
             </p>
           </div>
@@ -1004,7 +943,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
           {data.partnerHighlight && (
             <div
               style={{ backgroundColor: DARK }}
-              className="rounded-2xl p-6 sm:p-8 text-white mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+              className="rounded-2xl p-6 sm:p-8 text-white mb-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
             >
               <div>
                 <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e51a59] text-white mb-2">
@@ -1022,17 +961,19 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </div>
           )}
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.whyItems.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 border border-gray-200/80 shadow-2xs"
+                className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#fde8ef] text-[#e51a59] flex items-center justify-center mb-3">
+                <div className="w-9 h-9 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center mb-3">
                   <CheckCircleIcon className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-1.5">{item.title}</h3>
-                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="font-bold text-base mb-1.5" style={{ color: DARK }}>
+                  {item.title}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -1040,26 +981,26 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          11. GRADUATE REVIEWS (Component B12) — Real Platform Attribution
+          11. GRADUATE REVIEWS / ALUMNI (Component B12) — #f6f7fb Soft Cool BG
           ===================================================================== */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20" style={{ background: SOFT_BG }}>
+        <div className="max-w-[1200px] mx-auto px-5">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-              <span
+              <div
+                className="text-xs font-bold uppercase tracking-widest mb-2"
                 style={{ color: PRIMARY }}
-                className="text-xs font-semibold uppercase tracking-widest block mb-2"
               >
-                {lang === "en" ? "Verified Graduate Reviews" : "Verifizierte Bewertungen"}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
+                {lang === "en" ? "ALUMNI" : "ALUMNI"}
+              </div>
+              <h2 className="font-bold text-3xl" style={{ color: DARK }}>
                 {data.reviewsH2}
               </h2>
             </div>
 
-            {/* Visual-only rating badge (Never marked up with AggregateRating schema per SEO rule) */}
-            <div className="inline-flex items-center gap-3 bg-[#f8f5f1] border border-gray-200 rounded-xl px-4 py-2.5">
-              <div className="flex text-amber-400">
+            {/* Visual-only rating badge */}
+            <div className="inline-flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-2.5 shadow-sm">
+              <div className="flex text-[#e51a59]">
                 {[1, 2, 3, 4, 5].map((s) => (
                   <StarIcon key={s} className="w-4 h-4" />
                 ))}
@@ -1070,27 +1011,28 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {data.reviews.map((rev, idx) => (
               <div
                 key={idx}
-                style={{ backgroundColor: SOFT_BG }}
-                className="rounded-2xl p-7 border border-gray-200/80 flex flex-col justify-between"
+                className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm flex flex-col justify-between"
               >
-                <p className="text-gray-700 text-sm sm:text-base italic leading-relaxed mb-6">
+                <p className="text-gray-600 text-sm leading-relaxed mb-5">
                   “{rev.quote}”
                 </p>
-                <div className="flex items-center justify-between pt-4 border-t border-gray-200/70">
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <div className="flex items-center gap-3">
                     <div
-                      style={{ backgroundColor: PRIMARY }}
-                      className="w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center"
+                      style={{ background: PRIMARY }}
+                      className="w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center shrink-0"
                     >
                       {rev.initials}
                     </div>
                     <div>
-                      <p className="font-bold text-sm text-[#1a1d2e]">{rev.name}</p>
-                      <p className="text-xs text-gray-500">{rev.role}</p>
+                      <div className="font-bold text-sm" style={{ color: DARK }}>
+                        {rev.name}
+                      </div>
+                      <div className="text-xs text-gray-400">{rev.role}</div>
                     </div>
                   </div>
                   <a
@@ -1110,58 +1052,79 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          12. COURSE-SPECIFIC FAQ (Component B13) — <details><summary><h3>
+          11b. TOPIC CLUSTER GUIDES (Component B17) — Pure White (#ffffff)
           ===================================================================== */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <span
-              style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
-            >
-              FAQ
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
-              {data.faqH2}
-            </h2>
-          </div>
-
-          <div className="space-y-3.5">
-            {data.faqs.map((faq, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-2xs"
+      {data.clusterGuides.length > 0 && (
+        <section className="py-16 bg-white">
+          <div className="max-w-[1200px] mx-auto px-5">
+            <div className="max-w-3xl mb-10">
+              <div
+                className="text-xs font-bold uppercase tracking-widest mb-2"
+                style={{ color: PRIMARY }}
               >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e] text-left">
-                    {faq.q}
-                  </h3>
-                  <span
-                    style={{ color: PRIMARY }}
-                    className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm group-open:rotate-45 transition-transform"
+                {lang === "en" ? "KNOWLEDGE HUB & GUIDES" : "WISSENSDATENBANK & RATGEBER"}
+              </div>
+              <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
+                {data.clusterH2}
+              </h2>
+              <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+                {data.clusterIntro}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {data.clusterGuides.map((g, i) => (
+                <article
+                  key={i}
+                  className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#e51a59]/40 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3">
+                      <BookOpenIcon className="w-3.5 h-3.5" />
+                      <span>{g.badge}</span>
+                    </span>
+                    <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 leading-snug">
+                      <Link to={g.to} className="hover:text-[#e51a59] transition-colors">
+                        {g.title}
+                      </Link>
+                    </h3>
+                    <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">
+                      {g.desc}
+                    </p>
+                  </div>
+
+                  <Link
+                    to={g.to}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-100"
                   >
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {faq.a}
-                </div>
-              </details>
-            ))}
+                    <span>{g.title}</span>
+                    <ArrowRightIcon className="w-3.5 h-3.5" />
+                  </Link>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* =====================================================================
-          13. RELATED COURSES & FINAL CTA BANNER (Components B14 + B16)
+          12. RELATED COURSES (Component B14) — #f6f7fb Soft Cool BG
+          Exact Figma Make WeitereKurse Layout
           ===================================================================== */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
-              {data.relatedH2}
-            </h2>
+      <section className="py-16" style={{ background: SOFT_BG }}>
+        <div className="max-w-[1200px] mx-auto px-5">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
+            <div>
+              <div
+                className="text-xs font-bold uppercase tracking-widest mb-2"
+                style={{ color: PRIMARY }}
+              >
+                {lang === "en" ? "OTHER COURSES" : "WEITERE KURSE"}
+              </div>
+              <h2 className="font-bold text-3xl" style={{ color: DARK }}>
+                {data.relatedH2}
+              </h2>
+            </div>
             <Link
               to={coursesHubPath}
               className="text-xs sm:text-sm font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1.5"
@@ -1173,23 +1136,25 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {data.relatedCourses.map((rc, i) => (
               <div
                 key={i}
-                style={{ backgroundColor: CREAM }}
-                className="rounded-2xl p-6 border border-gray-200 hover:border-[#e51a59] transition-colors flex flex-col justify-between"
+                className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <span className="inline-block text-[11px] font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3">
+                  <span
+                    className="text-xs font-bold px-3 py-1 rounded-full self-start inline-block mb-3"
+                    style={{ background: "#fff0f4", color: PRIMARY }}
+                  >
                     {rc.badge}
                   </span>
-                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                  <h3 className="font-bold text-base mb-2" style={{ color: DARK }}>
                     <Link to={rc.to} className="hover:text-[#e51a59] transition-colors">
                       {rc.title}
                     </Link>
                   </h3>
-                  <div className="flex flex-wrap gap-4 text-xs text-gray-600 mb-4">
+                  <div className="flex flex-wrap gap-3 text-xs text-gray-500 mb-5">
                     <span className="inline-flex items-center gap-1">
                       <ClockIcon className="w-3.5 h-3.5 text-[#e51a59]" />
                       {rc.duration}
@@ -1200,56 +1165,142 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     </span>
                     <span className="inline-flex items-center gap-1">
                       <GlobeIcon className="w-3.5 h-3.5 text-[#e51a59]" />
-                      {lang === "en" ? "Taught in English" : "Englisch"}
+                      {lang === "en" ? "English" : "Englisch"}
                     </span>
                   </div>
                 </div>
 
                 <Link
                   to={rc.to}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-200/70"
+                  className="text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all pt-3 border-t border-gray-100"
+                  style={{ color: PRIMARY }}
                 >
-                  <span>{rc.title}</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                  <span>{rc.title} →</span>
                 </Link>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Component B16: Final CTA Banner */}
-          <div
-            style={{
-              background: "linear-gradient(135deg, #1a1d2e 0%, #2d1b3d 55%, #8a1c4a 100%)",
-            }}
-            className="rounded-3xl p-8 sm:p-12 text-white text-center shadow-xl"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3">{data.ctaH2}</h2>
-            <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-7 leading-relaxed">
-              {data.ctaText}
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                to={consultPath}
-                onClick={() =>
-                  trackClaruswayEvent("beratung_angefragt", {
-                    source: `bottom_cta_${data.key}`,
-                    lang,
-                  })
-                }
-                style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-lg hover:opacity-95 transition-opacity"
-              >
-                <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
-                <ArrowRightIcon className="w-4 h-4" />
-              </Link>
-              <a
-                href="#syllabus-download"
-                className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-white/10 transition-colors"
-              >
-                <DownloadIcon className="w-4 h-4" />
-                <span>{lang === "en" ? "Download syllabus" : "Lehrplan herunterladen"}</span>
-              </a>
+      {/* =====================================================================
+          13. COURSE-SPECIFIC FAQ (Component B13) — Pure White (#ffffff)
+          2-Column Figma Make Layout + Semantic <details><summary><h3>
+          ===================================================================== */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5 grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+          {/* Left Column (4 cols) */}
+          <div className="md:col-span-5">
+            <div
+              className="text-xs font-bold uppercase tracking-widest mb-2"
+              style={{ color: PRIMARY }}
+            >
+              FAQ
             </div>
+            <h2 className="font-bold text-3xl mb-4" style={{ color: DARK }}>
+              {data.faqH2}
+            </h2>
+            <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+              {lang === "en"
+                ? "Have questions about the curriculum, English live classes, or how to apply for your Bildungsgutschein in Germany? Our advisory team is happy to help."
+                : "Hast du Fragen zum Lehrplan, zum Live-Unterricht oder zur Förderung mit Bildungsgutschein? Unsere Studienberatung hilft dir gerne persönlich weiter."}
+            </p>
+            <div className="space-y-2.5 text-sm text-gray-600 mb-6">
+              <div className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
+                <span>Hellersbergstraße 14, 41460 Neuss</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
+                <span>info@clarusway.de</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
+                <span>+49 2131 776 2749</span>
+              </div>
+            </div>
+            <Link
+              to={consultPath}
+              style={{ background: PRIMARY }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
+            >
+              <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
+              <ArrowRightIcon className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {/* Right Column (7 cols): Semantic <details><summary><h3> */}
+          <div className="md:col-span-7 space-y-3">
+            {data.faqs.map((faq, idx) => (
+              <details
+                key={idx}
+                open={idx === 0}
+                className="group rounded-xl overflow-hidden border border-gray-200 bg-white"
+              >
+                <summary
+                  style={{ background: PRIMARY }}
+                  className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none select-none text-white hover:opacity-95 transition-opacity"
+                >
+                  <h3 className="text-sm font-semibold text-white text-left">
+                    {faq.q}
+                  </h3>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    className="shrink-0 transition-transform duration-200 group-open:rotate-180"
+                  >
+                    <path
+                      d="M2 4l4 4 4-4"
+                      stroke="white"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </summary>
+                <div className="px-5 py-4 text-sm text-gray-600 leading-relaxed bg-white">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          14. FINAL CTA BANNER (Component B16) — Exact Figma Make CtaBanner
+          ===================================================================== */}
+      <section
+        className="py-14"
+        style={{ background: `linear-gradient(135deg, ${DARK} 0%, #2d1b3d 100%)` }}
+      >
+        <div className="max-w-[800px] mx-auto px-5 text-center">
+          <h2 className="font-bold text-3xl text-white mb-4">{data.ctaH2}</h2>
+          <p className="text-gray-300 text-base mb-8">{data.ctaText}</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              to={consultPath}
+              onClick={() =>
+                trackClaruswayEvent("beratung_angefragt", {
+                  source: `bottom_cta_${data.key}`,
+                  lang,
+                })
+              }
+              style={{ background: PRIMARY }}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
+            >
+              <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
+              <ArrowRightIcon className="w-4 h-4" />
+            </Link>
+            <a
+              href="#syllabus-download"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm border-2 border-white/30 text-white hover:border-white/70 transition-colors"
+            >
+              <DownloadIcon className="w-4 h-4" />
+              <span>{lang === "en" ? "Download syllabus" : "Lehrplan herunterladen"}</span>
+            </a>
           </div>
         </div>
       </section>

@@ -18,7 +18,6 @@ import {
 
 const PRIMARY = "#e51a59";
 const DARK = "#1a1d2e";
-const CREAM = "#f8f5f1";
 const SOFT_BG = "#f6f7fb";
 
 export function HomePage() {
@@ -336,10 +335,13 @@ export function HomePage() {
       <SeoHead title={metaTitle} description={metaDescription} path="/" schema={schema} />
 
       {/* =====================================================================
-          HERO SECTION (Component B1) — Single H1
+          HERO SECTION (Component B1) — Single H1 · Exact Figma Make Gradient
           ===================================================================== */}
-      <section style={{ backgroundColor: CREAM }} className="py-14 md:py-20 border-b border-gray-200/70">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 md:py-20"
+      >
+        <div className="max-w-[1200px] mx-auto px-5">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-5">
@@ -353,27 +355,41 @@ export function HomePage() {
 
               <h1
                 style={{ color: DARK, lineHeight: 1.15 }}
-                className="text-3xl sm:text-4xl lg:text-[44px] font-bold mb-5 tracking-tight"
+                className="text-3xl sm:text-4xl lg:text-[44px] font-bold mb-4 tracking-tight"
               >
                 {isEn
                   ? "Start your IT career in Germany, trained in English"
                   : "IT Weiterbildung mit Bildungsgutschein: online, live und praxisnah"}
               </h1>
 
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+              {/* 5 Pink Stars + Career Karma Rating */}
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} width="16" height="16" viewBox="0 0 16 16" fill={PRIMARY}>
+                      <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-sm font-semibold text-gray-700">
+                  {isEn ? "4.9/5 — Career Karma Rating" : "4,9/5 — Career Karma Bewertung"}
+                </span>
+              </div>
+
+              <p className="text-gray-500 text-base leading-relaxed mb-6">
                 {isEn
                   ? "Clarusway trains career changers and tech professionals in Germany through live online IT bootcamps in English — covering AI Engineering, Data Analytics, AI-Assisted Full Stack Development, Cyber Security, AWS & DevOps, and Software Testing. All programs are AZAV-certified and 100% fundable with a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter."
                   : "Qualifiziere dich im Live-Online-Unterricht für gefragte IT-Berufe in Deutschland: AI Engineering & Data Science, Full Stack Webentwicklung, Cyber Security, AWS & DevOps oder Software Testing. Unsere modularen Programme sind AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein der Agentur für Arbeit oder des Jobcenters förderbar."}
               </p>
 
-              <div className="flex flex-wrap gap-3.5 items-center mb-7">
+              <div className="flex flex-wrap gap-3 items-center mb-7">
                 <Link
                   to={consultPath}
                   onClick={() =>
                     trackClaruswayEvent("beratung_angefragt", { source: "home_hero", lang })
                   }
                   style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-lg hover:opacity-95 transition-opacity"
+                  className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl text-sm shadow-sm hover:opacity-90 transition-opacity"
                 >
                   <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -381,7 +397,7 @@ export function HomePage() {
 
                 <Link
                   to={isEn ? "/it-courses/" : "/it-kurse/"}
-                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-bold px-6 py-3 rounded-xl text-sm hover:bg-gray-50 transition-colors"
                 >
                   <span>{isEn ? "Compare all IT courses" : "Alle IT-Kurse vergleichen"}</span>
                 </Link>
@@ -407,7 +423,7 @@ export function HomePage() {
             <div className="lg:col-span-5">
               <div
                 style={{ backgroundColor: DARK }}
-                className="rounded-3xl p-7 text-white shadow-2xl border border-white/10"
+                className="rounded-2xl p-7 text-white shadow-2xl border border-white/10"
               >
                 <div className="flex items-center justify-between pb-4 mb-5 border-b border-white/10">
                   <div>
@@ -467,26 +483,22 @@ export function HomePage() {
       </section>
 
       {/* =====================================================================
-          STATS STRIP (Component B2) — No heading tags
+          STATS STRIP (Component B2) — Exact Figma Make StatsBar
           ===================================================================== */}
-      <section style={{ backgroundColor: DARK }} className="py-7">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-            {[
-              ["100 %", isEn ? "Funded with Bildungsgutschein" : "Förderbar mit Bildungsgutschein"],
-              ["Max. 15", isEn ? "Students per Live Cohort" : "Teilnehmende pro Live-Klasse"],
-              [isEn ? "English" : "Englisch", isEn ? "Taught in English" : "Unterrichtssprache (mit DE-Beratung)"],
-              ["AWS Partner", isEn ? "Select Tier Consulting Partner" : "Select Tier Consulting Partner"],
-              ["4.9 / 5", isEn ? "Course Report & Career Karma" : "Course Report & Career Karma"],
-            ].map(([val, label], i) => (
-              <div key={i}>
-                <p style={{ color: PRIMARY }} className="text-xl sm:text-2xl font-bold">
-                  {val}
-                </p>
-                <p className="text-gray-300 text-xs">{label}</p>
-              </div>
-            ))}
-          </div>
+      <section style={{ backgroundColor: DARK }} className="py-5">
+        <div className="max-w-[1200px] mx-auto px-5 flex flex-wrap justify-between gap-y-3 gap-x-6">
+          {[
+            ["100 %", isEn ? "Funded with Bildungsgutschein" : "Förderbar mit Bildungsgutschein"],
+            ["Max. 15", isEn ? "Students per Live Cohort" : "Teilnehmende pro Live-Klasse"],
+            [isEn ? "English" : "Englisch", isEn ? "Taught in English" : "Unterrichtssprache (mit DE-Beratung)"],
+            ["AWS Partner", isEn ? "Select Tier Consulting Partner" : "Select Tier Consulting Partner"],
+            ["4.9 / 5", isEn ? "Course Report & Career Karma" : "Course Report & Career Karma"],
+          ].map(([val, label], i) => (
+            <div key={i} className="flex items-baseline gap-2">
+              <span className="text-xl font-bold text-white">{val}</span>
+              <span className="text-sm text-gray-400">{label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -527,8 +539,7 @@ export function HomePage() {
             {courses.map((course) => (
               <article
                 key={course.to}
-                style={{ backgroundColor: CREAM }}
-                className="rounded-2xl p-6 border border-gray-200 hover:border-[#e51a59] transition-colors flex flex-col justify-between"
+                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#e51a59]/40 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
@@ -697,11 +708,12 @@ export function HomePage() {
           </div>
 
           {/* Funding Pillar Links */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/bildungsgutschein/"
-                className="text-xs sm:text-sm font-semibold text-[#1a1d2e] bg-[#f8f5f1] hover:bg-[#fde8ef] hover:text-[#e51a59] px-4 py-2.5 rounded-xl border border-gray-200 transition-colors"
+                style={{ backgroundColor: SOFT_BG }}
+                className="text-xs sm:text-sm font-semibold text-[#1a1d2e] hover:bg-[#fde8ef] hover:text-[#e51a59] px-4 py-2.5 rounded-xl border border-gray-100 transition-colors"
               >
                 {isEn
                   ? "→ Bildungsgutschein Guide (100% Tuition)"
@@ -709,13 +721,15 @@ export function HomePage() {
               </Link>
               <Link
                 to="/avgs/"
-                className="text-xs sm:text-sm font-semibold text-[#1a1d2e] bg-[#f8f5f1] hover:bg-[#fde8ef] hover:text-[#e51a59] px-4 py-2.5 rounded-xl border border-gray-200 transition-colors"
+                style={{ backgroundColor: SOFT_BG }}
+                className="text-xs sm:text-sm font-semibold text-[#1a1d2e] hover:bg-[#fde8ef] hover:text-[#e51a59] px-4 py-2.5 rounded-xl border border-gray-100 transition-colors"
               >
                 {isEn ? "→ AVGS Voucher (Orientation)" : "→ AVGS Gutschein (Orientierung)"}
               </Link>
               <Link
                 to="/qualifizierungschancengesetz/"
-                className="text-xs sm:text-sm font-semibold text-[#1a1d2e] bg-[#f8f5f1] hover:bg-[#fde8ef] hover:text-[#e51a59] px-4 py-2.5 rounded-xl border border-gray-200 transition-colors"
+                style={{ backgroundColor: SOFT_BG }}
+                className="text-xs sm:text-sm font-semibold text-[#1a1d2e] hover:bg-[#fde8ef] hover:text-[#e51a59] px-4 py-2.5 rounded-xl border border-gray-100 transition-colors"
               >
                 {isEn
                   ? "→ Qualifizierungschancengesetz (Employees)"
@@ -794,8 +808,8 @@ export function HomePage() {
                 ).map((item, i) => (
                   <div
                     key={i}
-                    style={{ backgroundColor: CREAM }}
-                    className="rounded-2xl p-6 border border-gray-200/80"
+                    style={{ backgroundColor: SOFT_BG }}
+                    className="rounded-2xl p-6 border border-gray-100"
                   >
                     <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{item.title}</h3>
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{item.desc}</p>
@@ -867,7 +881,7 @@ export function HomePage() {
       {/* =====================================================================
           SECTION 4: GRADUATE REVIEWS (Component B12)
           ===================================================================== */}
-      <section style={{ backgroundColor: CREAM }} className="py-16">
+      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>

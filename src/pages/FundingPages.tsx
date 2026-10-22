@@ -14,7 +14,6 @@ import {
 
 const PRIMARY = "#e51a59";
 const DARK = "#1a1d2e";
-const CREAM = "#f8f5f1";
 const SOFT_BG = "#f6f7fb";
 
 /* ============================================================================
@@ -69,7 +68,10 @@ export function FinancingHubPage() {
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
       <Breadcrumb items={[{ label: isEn ? "Financing & Tuition" : "Finanzierung" }]} />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
@@ -136,7 +138,7 @@ export function FinancingHubPage() {
                     {isEn ? "All main IT bootcamps & modules" : "Alle IT-Weiterbildungen & Module"}
                   </td>
                 </tr>
-                <tr className="bg-[#f8f5f1]/60">
+                <tr className="bg-[#f6f7fb]">
                   <td className="py-4 px-5 font-bold">
                     <Link to="/avgs/" className="text-[#e51a59] hover:underline">
                       AVGS Voucher
@@ -173,7 +175,7 @@ export function FinancingHubPage() {
                     {isEn ? "All bootcamps & short courses (CKAD)" : "Alle Haupt- & Kurzkurse (z. B. CKAD)"}
                   </td>
                 </tr>
-                <tr className="bg-[#f8f5f1]/60">
+                <tr className="bg-[#f6f7fb]">
                   <td className="py-4 px-5 font-bold">
                     {isEn ? "Self-Pay & Installments" : "Selbstzahler & Ratenzahlung"}
                   </td>
@@ -220,7 +222,7 @@ export function FinancingHubPage() {
             ].map((card) => (
               <div
                 key={card.to}
-                style={{ backgroundColor: CREAM }}
+                style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl p-6 border border-gray-200 flex flex-col justify-between"
               >
                 <div>
@@ -424,7 +426,10 @@ export function BildungsgutscheinPage() {
       />
 
       {/* HERO */}
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
@@ -517,7 +522,7 @@ export function BildungsgutscheinPage() {
               </p>
             </div>
 
-            <div style={{ backgroundColor: CREAM }} className="rounded-2xl p-7 border border-gray-200">
+            <div style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-7 border border-gray-200">
               <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
                 {isEn
                   ? "Who is eligible for a Bildungsgutschein?"
@@ -584,7 +589,7 @@ export function BildungsgutscheinPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
-            <div style={{ backgroundColor: CREAM }} className="rounded-2xl p-7 border border-gray-200">
+            <div style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-7 border border-gray-200">
               <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
                 {isEn
                   ? "How to prepare for your appointment with the Agentur für Arbeit or Jobcenter"
@@ -652,7 +657,7 @@ export function BildungsgutscheinPage() {
       </section>
 
       {/* SECTION 4: Eligible Courses (Component B14) */}
-      <section style={{ backgroundColor: CREAM }} className="py-16">
+      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
             {isEn
@@ -762,7 +767,10 @@ export function AvgsPage() {
         ]}
       />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
@@ -824,7 +832,7 @@ export function AvgsPage() {
                     {isEn ? "Full vocational qualification (IT Bootcamp)" : "Fachliche Qualifizierung (IT-Weiterbildung)"}
                   </td>
                 </tr>
-                <tr className="bg-[#f8f5f1]/60">
+                <tr className="bg-[#f6f7fb]">
                   <th className="py-3.5 px-5 font-semibold">{isEn ? "Clarusway Program" : "Clarusway Kurs"}</th>
                   <td className="py-3.5 px-5">
                     <Link
@@ -903,7 +911,10 @@ export function QcgPage() {
         ]}
       />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4 leading-tight">
@@ -945,7 +956,7 @@ export function QcgPage() {
                   <td className="py-4 px-5 font-bold text-emerald-700">100 %</td>
                   <td className="py-4 px-5 font-bold text-emerald-700">75 %</td>
                 </tr>
-                <tr className="bg-[#f8f5f1]/60">
+                <tr className="bg-[#f6f7fb]">
                   <td className="py-4 px-5 font-semibold">
                     {isEn ? "50 to 499 employees (Medium)" : "50 bis 499 Mitarbeitende (Mittelstand)"}
                   </td>
@@ -1047,7 +1058,10 @@ export function CorporateTrainingPage() {
         items={[{ label: isEn ? "For Companies" : "Für Unternehmen" }]}
       />
 
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
@@ -1127,7 +1141,7 @@ export function CorporateTrainingPage() {
             ].map((item) => (
               <div
                 key={item.to}
-                style={{ backgroundColor: CREAM }}
+                style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl p-6 border border-gray-200 flex flex-col justify-between"
               >
                 <div>

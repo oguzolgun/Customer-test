@@ -13,7 +13,6 @@ import {
 
 const PRIMARY = "#e51a59";
 const DARK = "#1a1d2e";
-const CREAM = "#f8f5f1";
 const SOFT_BG = "#f6f7fb";
 
 export function CoursesHubPage() {
@@ -425,10 +424,13 @@ export function CoursesHubPage() {
       <Breadcrumb items={[{ label: isEn ? "IT Courses" : "IT-Kurse" }]} />
 
       {/* =====================================================================
-          HERO SECTION — Single H1
+          HERO SECTION — Single H1 · Exact Figma Make Gradient
           ===================================================================== */}
-      <section style={{ backgroundColor: CREAM }} className="py-14 border-b border-gray-200/70">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 md:py-18"
+      >
+        <div className="max-w-[1200px] mx-auto px-5">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
               <ShieldCheckIcon className="w-4 h-4" />
@@ -445,7 +447,7 @@ export function CoursesHubPage() {
                 : "IT-Kurse mit Bildungsgutschein im Überblick"}
             </h1>
 
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+            <p className="text-gray-500 text-base sm:text-lg leading-relaxed mb-6">
               {isEn
                 ? "Compare all AZAV-certified IT courses at Clarusway. Every program is taught live online in English (Monday–Friday, 09:00–16:45 CET) and is 100% fundable in Germany with a Bildungsgutschein (education voucher), AVGS, or Qualifizierungschancengesetz."
                 : "Vergleiche alle geförderten IT-Weiterbildungen von Clarusway. Jedes Programm wird im Live-Online-Unterricht durchgeführt und kann dank modularer AZAV-Zulassung individuell an dein Vorwissen und deinen Bildungsgutschein angepasst werden."}
@@ -455,14 +457,14 @@ export function CoursesHubPage() {
               <Link
                 to={consultPath}
                 style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-sm shadow-md hover:opacity-95"
+                className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl text-sm shadow-sm hover:opacity-90"
               >
                 <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
                 <ArrowRightIcon className="w-4 h-4" />
               </Link>
               <Link
                 to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-                className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-bold px-6 py-3 rounded-xl text-sm hover:bg-gray-50 transition-colors"
               >
                 <span>
                   {isEn ? "Not sure yet? IT Orientation Course" : "Noch unsicher? IT-Orientierungskurs"}
@@ -511,7 +513,7 @@ export function CoursesHubPage() {
                 {comparisonRows.map((row, idx) => (
                   <tr
                     key={row.to}
-                    className={idx % 2 === 0 ? "bg-white hover:bg-[#fde8ef]/25" : "bg-[#f8f5f1]/60 hover:bg-[#fde8ef]/25"}
+                    className={idx % 2 === 0 ? "bg-white hover:bg-[#fde8ef]/25" : "bg-[#f6f7fb] hover:bg-[#fde8ef]/25"}
                   >
                     <td className="py-4 px-5 font-bold text-[#1a1d2e]">
                       <Link to={row.to} className="text-[#e51a59] hover:underline">
@@ -565,8 +567,8 @@ export function CoursesHubPage() {
                   {grp.items.map((item) => (
                     <div
                       key={item.to}
-                      style={{ backgroundColor: CREAM }}
-                      className="rounded-2xl p-6 border border-gray-200 hover:border-[#e51a59] transition-colors flex flex-col justify-between"
+                      style={{ backgroundColor: SOFT_BG }}
+                      className="rounded-2xl p-6 border border-gray-100 hover:border-[#e51a59] transition-colors flex flex-col justify-between"
                     >
                       <div>
                         <span className="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59] mb-2.5">
@@ -635,8 +637,8 @@ export function CoursesHubPage() {
             </div>
 
             <div
-              style={{ backgroundColor: CREAM }}
-              className="lg:col-span-6 rounded-2xl p-7 border border-gray-200"
+              style={{ backgroundColor: SOFT_BG }}
+              className="lg:col-span-6 rounded-2xl p-7 border border-gray-100"
             >
               <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-2">
                 {isEn
