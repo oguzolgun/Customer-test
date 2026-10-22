@@ -386,6 +386,8 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       {!data.isOrientation ? (
         <>
           <ProgramSelector
+            key={`${data.key}-${lang}`}
+            title={data.programSelectorH2}
             heading={data.programSelectorH2}
             subtitle={data.programSelectorSubtitle}
             modules={data.modules}

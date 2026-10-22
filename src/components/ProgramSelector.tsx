@@ -444,13 +444,15 @@ export default function ProgramSelector({
   programs,
   modules,
   title,
+  heading,
   subtitle,
   directEntry,
   onOpenPdfModal,
 }: {
   programs: CourseProgram[];
   modules: CourseModule[];
-  title: string;
+  title?: string;
+  heading?: string;
   subtitle?: string;
   directEntry?: DirectEntryInfo;
   onOpenPdfModal?: (programTitle: string, pdfName: string) => void;
@@ -459,16 +461,28 @@ export default function ProgramSelector({
   const location = useLocation();
   const [selectedId, setSelectedId] = useState(programs[0]?.id ?? "");
 
+  // Always guarantee the first program is active if selectedId is not in the current programs list
+  const activeId = programs.some((p) => p.id === selectedId)
+    ? selectedId
+    : programs[0]?.id ?? "";
+
   // Support legacy anchor links (#cs-for-beginner, #aws-eng-for-pro, #ds-for-pro, etc.)
+  // and reset to first program when switching between course pages
   useEffect(() => {
     if (location.hash) {
       const hashId = location.hash.replace("#", "");
       const matched = programs.find((p) => p.anchorId === hashId || p.id === hashId);
       if (matched) {
         setSelectedId(matched.id);
+        return;
       }
     }
-  }, [location.hash, programs]);
+    if (programs.length > 0 && !programs.some((p) => p.id === selectedId)) {
+      setSelectedId(programs[0].id);
+    }
+  }, [location.hash, programs, selectedId]);
+
+  const resolvedTitle = title || heading || "";
 
   return (
     <section
@@ -485,7 +499,7 @@ export default function ProgramSelector({
           {lang === "de" ? "Programmübersicht" : "Program variants & start dates"}
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3">
-          {title}
+          {resolvedTitle}
         </h2>
         <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
           {subtitle ||
@@ -506,7 +520,7 @@ export default function ProgramSelector({
               key={p.id}
               program={p}
               modules={modules}
-              selected={selectedId === p.id}
+              selected={activeId === p.id}
               onSelect={() => setSelectedId(p.id)}
             />
           ))}
@@ -520,8 +534,8 @@ export default function ProgramSelector({
           {programs.map((p) => (
             <div
               key={p.id}
-              className={selectedId === p.id ? "block" : "hidden"}
-              aria-hidden={selectedId !== p.id}
+              className={activeId === p.id ? "block" : "hidden"}
+              aria-hidden={activeId !== p.id}
             >
               <ProgramDetail
                 program={p}
