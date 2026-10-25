@@ -146,11 +146,9 @@ function SeoSitemapDrawer() {
                     ["Home (EN)", "/"],
                     ["IT Courses Hub", "/it-courses/"],
                     ["AI Engineering", "/it-courses/ai-engineering/"],
-                    ["Data Analytics", "/it-courses/data-analytics/"],
                     ["Full Stack Dev", "/it-courses/full-stack-developer/"],
                     ["Cyber Security", "/it-courses/cyber-security/"],
                     ["AWS & DevOps", "/it-courses/devops-aws/"],
-                    ["AWS Architect", "/it-courses/aws-solutions-architect/"],
                     ["SDET Testing", "/it-courses/software-development-engineer-in-test/"],
                     ["Kubernetes CKAD", "/it-courses/kubernetes-ckad-certification-course/"],
                     ["IT Orientation", "/it-orientation-course/"],
@@ -159,10 +157,10 @@ function SeoSitemapDrawer() {
                     ["AVGS Voucher", "/avgs/"],
                     ["QCG Employees", "/qualifizierungschancengesetz/"],
                     ["Guides Hub", "/guides/"],
-                    ["Unemployed Expat", "/guides/unemployed-in-germany/"],
-                    ["Agentur & Jobcenter", "/guides/agentur-fur-arbeit-jobcenter/"],
-                    ["IT Jobs English", "/guides/it-jobs-in-germany-english-speakers/"],
-                    ["German CV Guide", "/guides/german-cv-template/"],
+                    ["Data Analyst Guide", "/guides/data-analyst/"],
+                    ["AI Engineer Guide", "/guides/ai-engineer/"],
+                    ["Full Stack Guide", "/guides/full-stack-developer/"],
+                    ["SOC Analyst Guide", "/guides/soc-analyst/"],
                     ["Free Consultation", "/application-form/"],
                     ["Events", "/events/"],
                   ]
@@ -324,7 +322,7 @@ export default function App() {
               />
               <Route
                 path="/it-courses/data-analytics/*"
-                element={<CourseTemplatePage courseKey="data-analytics" />}
+                element={<Navigate to="/it-courses/ai-engineering/" replace />}
               />
               <Route
                 path="/it-courses/full-stack-developer/*"
@@ -340,7 +338,7 @@ export default function App() {
               />
               <Route
                 path="/it-courses/aws-solutions-architect/*"
-                element={<CourseTemplatePage courseKey="aws-solutions-architect" />}
+                element={<Navigate to="/it-courses/devops-aws/" replace />}
               />
               <Route
                 path="/it-courses/software-development-engineer-in-test/*"
@@ -506,6 +504,40 @@ export default function App() {
               <Route path="/faq/*" element={<Navigate to="/bildungsgutschein/" replace />} />
               <Route path="/uber-uns/*" element={<Navigate to="/ueber-uns/" replace />} />
               <Route path="/about-us/*" element={<Navigate to="/about/" replace />} />
+
+              {/* Excluded English Guides -> Guides Hub or Cluster Guide */}
+              <Route
+                path="/guides/unemployed-in-germany/*"
+                element={<Navigate to="/guides/" replace />}
+              />
+              <Route
+                path="/guides/agentur-fur-arbeit-jobcenter/*"
+                element={<Navigate to="/guides/" replace />}
+              />
+              <Route
+                path="/guides/it-jobs-in-germany-english-speakers/*"
+                element={<Navigate to="/guides/" replace />}
+              />
+              <Route
+                path="/guides/german-cv-template/*"
+                element={<Navigate to="/guides/" replace />}
+              />
+              <Route
+                path="/guides/data-analyst-salary-germany/*"
+                element={<Navigate to="/guides/data-analyst/" replace />}
+              />
+              <Route
+                path="/guides/software-developer-salary-germany/*"
+                element={<Navigate to="/guides/full-stack-developer/" replace />}
+              />
+              <Route
+                path="/guides/what-is-agentic-ai/*"
+                element={<Navigate to="/guides/ai-engineer/" replace />}
+              />
+              <Route
+                path="/guides/agentic-ai/*"
+                element={<Navigate to="/guides/ai-engineer/" replace />}
+              />
 
               {/* Fallback */}
               <Route path="*" element={<Navigate to="/" replace />} />

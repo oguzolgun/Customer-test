@@ -344,28 +344,28 @@ export function BildungsgutscheinPage() {
   const faqs = isEn
     ? [
         {
-          q: "What does a Bildungsgutschein cover?",
-          a: "A Bildungsgutschein covers 100% of the approved course tuition fees, learning materials, and — depending on your agency's approval — required certification exam fees.",
+          q: "What is a Bildungsgutschein and who is eligible?",
+          a: "A Bildungsgutschein (education voucher) is a training voucher issued under § 81 SGB III by the Agentur für Arbeit or Jobcenter. It is designed for residents in Germany who are currently unemployed, employees facing impending layoffs or contract expirations, or career changers whose skills need modernizing to maintain employment.",
         },
         {
-          q: "Is there a legal right to a Bildungsgutschein?",
-          a: "A Bildungsgutschein is a discretionary benefit (Ermessensleistung) under § 81 SGB III. Your advisor approves it when training is necessary to end unemployment or prevent impending unemployment. Good preparation and a clear career plan significantly increase approval rates.",
+          q: "Does a Bildungsgutschein cover 100% of the tuition?",
+          a: "Yes. When approved, 100% of your course tuition, required software licenses, learning materials, and approved certification exam vouchers are paid directly to Clarusway by the government agency. There are 0 € out-of-pocket costs for you.",
         },
         {
-          q: "Can I get a Bildungsgutschein on an EU Blue Card or residence permit?",
-          a: "Yes, provided your residence permit allows access to the German labor market and you are registered as job-seeking or unemployed with the Agentur für Arbeit or Jobcenter.",
+          q: "Can I get a Bildungsgutschein if I only speak English?",
+          a: "Yes. All Clarusway bootcamps are conducted 100% in English and are officially AZAV-certified in Germany. Clarusway prepares all official German documentation (Maßnahmeangebot) for your advisor appointment and guides you step by step.",
         },
         {
-          q: "How long is a Bildungsgutschein valid?",
-          a: "Usually a Bildungsgutschein is valid for up to 3 months from the date of issue and specifies the approved duration and educational goal (Bildungsziel).",
+          q: "What is the difference between Agentur für Arbeit and Jobcenter?",
+          a: "The Agentur für Arbeit handles individuals who have contributed to German unemployment insurance and receive Arbeitslosengeld I (ALG I), or employees seeking qualifications. The Jobcenter supports recipients of Bürgergeld (Citizen's Benefit). Both agencies can issue a Bildungsgutschein for Clarusway courses.",
         },
         {
-          q: "Do I receive unemployment benefits during the course?",
-          a: "Yes. While attending an approved full-time Weiterbildung with a Bildungsgutschein, your Arbeitslosengeld I (ALG I) or Bürgergeld continues to be paid, plus you may qualify for a monthly Weiterbildungsgeld bonus.",
+          q: "How long does it take to get a Bildungsgutschein approved?",
+          a: "The process typically takes 2 to 4 weeks: you book a free consultation at Clarusway, receive your customized German course offer within 24 hours, schedule your appointment with your agency caseworker, and submit the voucher to start your cohort.",
         },
         {
-          q: "What if my application is rejected?",
-          a: "Ask for a written explanation and contact your Clarusway advisor. Often an application succeeds on a second attempt when adjusted to a shorter module (such as the 13-week Data Analytics course) or preceded by an AVGS orientation course.",
+          q: "What documents does Clarusway provide for my appointment?",
+          a: "Clarusway provides an official German course offer (Maßnahmeangebot) containing the AZAV Maßnahmenummer, detailed module breakdown, start dates, and written labor market justification demonstrating high demand for your chosen IT role.",
         },
       ]
     : [
@@ -491,21 +491,14 @@ export function BildungsgutscheinPage() {
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                 {isEn ? (
                   <>
-                    If you recently lost your job or your contract is ending, read the{" "}
+                    To explore our approved IT training curricula and career outcomes, read our{" "}
                     <Link
-                      to="/guides/unemployed-in-germany/"
+                      to="/guides/"
                       className="text-[#e51a59] font-semibold underline"
                     >
-                      Unemployed in Germany guide for expats
+                      IT career and certification guides
                     </Link>{" "}
-                    and the{" "}
-                    <Link
-                      to="/guides/agentur-fur-arbeit-jobcenter/"
-                      className="text-[#e51a59] font-semibold underline"
-                    >
-                      Agentur für Arbeit & Jobcenter guide
-                    </Link>
-                    .
+                    or speak with an advisor.
                   </>
                 ) : (
                   <>
@@ -669,11 +662,11 @@ export function BildungsgutscheinPage() {
             {(isEn
               ? [
                   { title: "AI Engineering Bootcamp", to: "/it-courses/ai-engineering/", meta: "32 Weeks · Data, ML & Agentic AI" },
-                  { title: "Data Analytics Course", to: "/it-courses/data-analytics/", meta: "13 Weeks · Python, SQL & Power BI" },
                   { title: "AI-Assisted Full Stack Developer Course", to: "/it-courses/full-stack-developer/", meta: "4 Modules · React, Next.js & Node.js" },
-                  { title: "Cyber Security Analyst Course", to: "/it-courses/cyber-security/", meta: "4 Modules · Security+, SOC & Cloud" },
-                  { title: "AWS & DevOps Engineer Course", to: "/it-courses/devops-aws/", meta: "3–8 Months · AWS, K8s & Terraform" },
+                  { title: "AI-Enhanced Cyber Security Analyst Course", to: "/it-courses/cyber-security/", meta: "4 Modules · Security+, SOC & Cloud" },
+                  { title: "AWS Solutions Architect & DevOps Training", to: "/it-courses/devops-aws/", meta: "3–8 Months · AWS, K8s & Terraform" },
                   { title: "SDET Course: Software Testing", to: "/it-courses/software-development-engineer-in-test/", meta: "Full-Time · QA & Test Automation" },
+                  { title: "Kubernetes CKAD Certification Course", to: "/it-courses/kubernetes-ckad-certification-course/", meta: "4 Weeks · CNCF CKAD Prep" },
                 ]
               : [
                   { title: "AI Engineer Weiterbildung", to: "/it-kurse/ai-engineer-weiterbildung/", meta: "32 Wochen · Data, ML & Agentic AI" },

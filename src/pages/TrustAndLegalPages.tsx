@@ -1071,9 +1071,9 @@ export function ContactPage() {
               <p className="text-sm text-gray-600">
                 Clarusway GmbH
                 <br />
-                Hellersbergstraße 14
+                Bataver Str. 84
                 <br />
-                41460 Neuss, Germany
+                41462 Neuss, Germany
               </p>
             </div>
 
@@ -1138,9 +1138,9 @@ export function ImprintPage() {
           <p>
             <strong>Clarusway GmbH</strong>
             <br />
-            Hellersbergstraße 14
+            Bataver Str. 84
             <br />
-            41460 Neuss, Deutschland
+            41462 Neuss, Deutschland
           </p>
           <p>
             <strong>{isEn ? "Contact:" : "Kontakt:"}</strong>
@@ -1181,7 +1181,7 @@ export function PrivacyPage() {
             {isEn ? "1. Controller" : "1. Verantwortliche Stelle"}
           </h2>
           <p>
-            Clarusway GmbH, Hellersbergstraße 14, 41460 Neuss, Deutschland (info@clarusway.de).
+            Clarusway GmbH, Bataver Str. 84, 41462 Neuss, Deutschland (info@clarusway.de).
           </p>
           <h2 className="text-lg font-bold text-[#1a1d2e]">
             {isEn

@@ -35,11 +35,11 @@ export function GuidesHubPage() {
   }
 
   const metaTitle = isEn
-    ? "IT Career, Expat & Funding Guides in Germany | Clarusway"
+    ? "IT Career and Certification Guides in Germany | Clarusway"
     : "IT-Ratgeber: Berufsbilder, Gehälter & Förderung | Clarusway";
 
   const metaDescription = isEn
-    ? "Guides in English on IT careers in Germany, salaries, AWS & CompTIA certifications, Agentur für Arbeit, Jobcenter, and Bildungsgutschein funding."
+    ? "Guides in English on IT careers, cloud certifications, and tech skills in Germany. Data, AI, Web Development, Cyber Security and DevOps."
     : "Alle Clarusway IT-Ratgeber im Überblick: Berufsbilder (AI Engineer, Data Analyst, Full Stack, SOC Analyst, DevOps), Gehälter, Zertifizierungen und Förderung.";
 
   return (
@@ -56,19 +56,19 @@ export function GuidesHubPage() {
             <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
               <BookOpenIcon className="w-4 h-4" />
               <span>
-                {isEn ? "Knowledge Hub for Expats & Career Changers" : "Wissensdatenbank & Karriere-Kompass"}
+                {isEn ? "IT Career & Certification Guides" : "Wissensdatenbank & Karriere-Kompass"}
               </span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
               {isEn
-                ? "IT career, certification and funding guides for Germany"
+                ? "IT career and certification guides for Germany"
                 : "IT-Ratgeber: Berufsbilder, Gehälter und Förderung in Deutschland"}
             </h1>
 
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
               {isEn
-                ? "Explore Clarusway's in-depth guides on navigating the Agentur für Arbeit and Jobcenter, applying for a Bildungsgutschein, formatting a German tech CV, and comparing IT roles, salaries, and certifications."
+                ? "Explore Clarusway's practical guides on tech roles, certifications (AWS, CompTIA), and in-demand skills in Germany — written for English speakers."
                 : "Orientierung für deinen Einstieg und Aufstieg in die IT: Vergleiche Berufsbilder, aktuelle Gehälter nach StepStone 2026, internationale Zertifizierungen (AWS, CompTIA, ISTQB) und staatliche Förderwege."}
             </p>
           </div>

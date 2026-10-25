@@ -70,80 +70,121 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
     }))
   );
 
-  const schema = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      name: data.h1,
-      description: data.metaDescription,
-      url: `${origin}${currentPath}`,
-      inLanguage: "en",
-      provider: {
+  const canonicalPageUrl = `${origin}${currentPath}`;
+  const breadcrumbListElement = data.isOrientation
+    ? [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: lang === "en" ? "Home" : "Startseite",
+          item: `${origin}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: data.breadcrumbLabel,
+          item: canonicalPageUrl,
+        },
+      ]
+    : [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: lang === "en" ? "Home" : "Startseite",
+          item: `${origin}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: coursesHubLabel,
+          item: `${origin}${coursesHubPath}`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: data.breadcrumbLabel,
+          item: canonicalPageUrl,
+        },
+      ];
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
         "@type": "EducationalOrganization",
+        "@id": "https://clarusway.de/#organization",
         name: "Clarusway GmbH",
-        sameAs: "https://clarusway.de",
+        url: "https://clarusway.de",
+        logo: "https://clarusway.de/assets/clarusway-logo.png",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Hellersbergstraße 14",
+          streetAddress: "Bataverstraße 84",
           addressLocality: "Neuss",
-          postalCode: "41460",
+          postalCode: "41462",
           addressCountry: "DE",
         },
       },
-      hasCourseInstance: courseInstances,
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: data.faqs.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: f.a,
+      {
+        "@type": "WebPage",
+        "@id": `${canonicalPageUrl}#webpage`,
+        url: canonicalPageUrl,
+        name: data.metaTitle,
+        description: data.metaDescription,
+        inLanguage: lang,
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${origin}/#website`,
+          name: "Clarusway Germany",
+          url: origin,
         },
-      })),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: data.isOrientation
-        ? [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: lang === "en" ? "Home" : "Startseite",
-              item: `${origin}/`,
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: data.breadcrumbLabel,
-              item: `${origin}${currentPath}`,
-            },
-          ]
-        : [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: lang === "en" ? "Home" : "Startseite",
-              item: `${origin}/`,
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: coursesHubLabel,
-              item: `${origin}${coursesHubPath}`,
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: data.breadcrumbLabel,
-              item: `${origin}${currentPath}`,
-            },
-          ],
-    },
-  ];
+        breadcrumb: {
+          "@id": `${canonicalPageUrl}#breadcrumb`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalPageUrl}#breadcrumb`,
+        itemListElement: breadcrumbListElement,
+      },
+      {
+        "@type": "Course",
+        "@id": `${canonicalPageUrl}#course`,
+        name: data.h1,
+        alternateName: data.metaTitle,
+        description: data.metaDescription,
+        url: canonicalPageUrl,
+        inLanguage: lang,
+        provider: {
+          "@id": "https://clarusway.de/#organization",
+        },
+        syllabusSections: data.modules?.map((m) => ({
+          "@type": "Syllabus",
+          name: m.title,
+          timeRequired: m.duration,
+          description: m.topics?.join(", ") || m.project || "",
+        })),
+        hasCourseInstance: courseInstances,
+        offers: {
+          "@type": "Offer",
+          category: data.isOrientation ? "AVGS" : "Bildungsgutschein",
+          priceCurrency: "EUR",
+          url: canonicalPageUrl,
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${canonicalPageUrl}#faq`,
+        mainEntity: data.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      },
+    ],
+  };
 
   const breadcrumbItems = data.isOrientation
     ? [{ label: data.breadcrumbLabel }]
@@ -1208,7 +1249,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             <div className="space-y-2.5 text-sm text-gray-600 mb-6">
               <div className="flex items-center gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
-                <span>Hellersbergstraße 14, 41460 Neuss</span>
+                <span>Bataver Str. 84, 41462 Neuss</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-[#e51a59]" />

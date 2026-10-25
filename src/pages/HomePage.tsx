@@ -45,15 +45,6 @@ export function HomePage() {
           tags: ["Python & SQL", "Power BI", "PyTorch", "RAG & Agentic AI"],
         },
         {
-          title: "Data Analytics Course",
-          badge: "Module 1 Standalone · 13 Weeks",
-          duration: "13 Weeks (520 Units)",
-          nextStart: "27 Jul 2026",
-          desc: "Fast 13-week qualification as a Data Analyst or BI Analyst in Germany with Python, SQL, Statistics, Power BI, and Tableau.",
-          to: "/it-courses/data-analytics/",
-          tags: ["Python", "SQL", "Power BI", "Tableau"],
-        },
-        {
           title: "AI-Assisted Full Stack Developer Course",
           badge: "Web Development + AI Workflows",
           duration: "3 – 12 Months (4 Modules)",
@@ -72,7 +63,7 @@ export function HomePage() {
           tags: ["CompTIA Security+", "SIEM & SOC", "Agentic AI", "AWS Security"],
         },
         {
-          title: "AWS & DevOps Engineer Course",
+          title: "AWS Solutions Architect & DevOps Training",
           badge: "AWS Select Tier Partner",
           duration: "3 – 8 Months (5 Combinations)",
           nextStart: "24 Aug 2026",
@@ -88,6 +79,24 @@ export function HomePage() {
           desc: "Automate web, API, and database testing with Java, Selenium, Cypress, Playwright, Postman, and Jenkins CI/CD.",
           to: "/it-courses/software-development-engineer-in-test/",
           tags: ["Java", "Selenium & Playwright", "API Testing", "CI/CD"],
+        },
+        {
+          title: "Kubernetes CKAD Certification Course",
+          badge: "4-Week CNCF Specialization",
+          duration: "4 Weeks Intensive",
+          nextStart: "12 Oct 2026",
+          desc: "Prepare for the CNCF Certified Kubernetes Application Developer exam with hands-on CLI terminal labs.",
+          to: "/it-courses/kubernetes-ckad-certification-course/",
+          tags: ["Kubernetes", "CKAD Prep", "Helm", "NetworkPolicies"],
+        },
+        {
+          title: "IT Orientation Course",
+          badge: "Find Your IT Path · AVGS Funded",
+          duration: "4 Weeks Orientation",
+          nextStart: "03 Aug 2026",
+          desc: "Hands-on discovery across Data & AI, Web Development, Cyber Security, and Cloud/DevOps before committing to a bootcamp.",
+          to: "/it-orientation-course/",
+          tags: ["Career Orientation", "Try Coding & Cloud", "AVGS / Free", "Advisor Roadmap"],
         },
       ]
     : [
@@ -196,28 +205,28 @@ export function HomePage() {
   const guides = isEn
     ? [
         {
-          title: "Unemployed in Germany: Step-by-Step Guide for Expats",
-          badge: "Expat Guide",
-          desc: "How to register with the Agentur für Arbeit, understand ALG I & Bürgergeld, and qualify for funded IT training.",
-          to: "/guides/unemployed-in-germany/",
+          title: "What Does a Data Analyst Do? Tasks, Skills and Salary",
+          badge: "Data & AI",
+          desc: "Daily responsibilities, SQL and Python requirements, and StepStone 2026 salary benchmarks in Germany.",
+          to: "/guides/data-analyst/",
         },
         {
-          title: "Agentur für Arbeit & Jobcenter Guide for English Speakers",
-          badge: "Funding Guide",
-          desc: "How the two agencies work, how to prepare for your appointment, and how to request a Bildungsgutschein.",
-          to: "/guides/agentur-fur-arbeit-jobcenter/",
+          title: "What Is an AI Engineer? Role, Skills and Roadmap",
+          badge: "Data & AI",
+          desc: "Production LLMs, RAG architectures, and agent orchestration skills expected by German employers.",
+          to: "/guides/ai-engineer/",
         },
         {
-          title: "IT Jobs in Germany for English Speakers: Where to Start",
-          badge: "Career Guide",
-          desc: "Which IT roles hire in English across Germany and what salaries to expect.",
-          to: "/guides/it-jobs-in-germany-english-speakers/",
+          title: "What Is a Full Stack Developer? Skills and Tools in 2026",
+          badge: "Software",
+          desc: "React, Next.js, TypeScript, and modern AI coding workflows (Cursor, Claude Code) in web engineering.",
+          to: "/guides/full-stack-developer/",
         },
         {
-          title: "German CV Template (Lebenslauf) for IT & Tech Roles",
-          badge: "Application Guide",
-          desc: "How to format a German-standard tech CV in English that passes ATS filters and convinces HR teams.",
-          to: "/guides/german-cv-template/",
+          title: "What Does a SOC Analyst Do? Role, Tools and Salary",
+          badge: "Cyber Security",
+          desc: "Monitoring SIEM alerts, incident containment, CompTIA Security+, and German cybersecurity demand.",
+          to: "/guides/soc-analyst/",
         },
       ]
     : [
@@ -304,9 +313,9 @@ export function HomePage() {
       email: "info@clarusway.de",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Hellersbergstraße 14",
+        streetAddress: "Bataverstraße 84",
         addressLocality: "Neuss",
-        postalCode: "41460",
+        postalCode: "41462",
         addressCountry: "DE",
       },
     },

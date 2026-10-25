@@ -45,7 +45,6 @@ const enCoursesGroups = [
     groupLabel: "Data & AI",
     items: [
       { label: "AI Engineering", sub: "Data Analytics to Agentic AI", to: "/it-courses/ai-engineering/" },
-      { label: "Data Analytics", sub: "Data Analysis & BI (Module 1)", to: "/it-courses/data-analytics/" },
     ],
   },
   {
@@ -59,8 +58,7 @@ const enCoursesGroups = [
     groupLabel: "Cloud & Security",
     items: [
       { label: "AI-Enhanced Cyber Security", sub: "SOC Analyst & Cloud Security", to: "/it-courses/cyber-security/" },
-      { label: "AWS & DevOps", sub: "Cloud & DevOps Engineering", to: "/it-courses/devops-aws/" },
-      { label: "AWS Solutions Architect", sub: "AWS Certification Prep", to: "/it-courses/aws-solutions-architect/" },
+      { label: "AI-Enhanced AWS & DevOps", sub: "AWS Architect & DevOps Engineering", to: "/it-courses/devops-aws/" },
       { label: "Kubernetes CKAD", sub: "4-Week Certification Prep", to: "/it-courses/kubernetes-ckad-certification-course/" },
     ],
   },
@@ -96,10 +94,11 @@ const deRatgeberItems = [
 ];
 
 const enGuidesItems = [
-  { label: "Guides hub", sub: "All career, expat & funding guides", to: "/guides/" },
-  { label: "IT jobs in Germany for English speakers", sub: "Market overview & hiring requirements", to: "/guides/it-jobs-in-germany-english-speakers/" },
-  { label: "Unemployed in Germany: benefits & training", sub: "Arbeitslosengeld, Jobcenter & funded courses", to: "/guides/unemployed-in-germany/" },
-  { label: "Agentur für Arbeit and Jobcenter guide", sub: "How to register & talk to your advisor", to: "/guides/agentur-fur-arbeit-jobcenter/" },
+  { label: "Guides hub", sub: "All career & certification guides", to: "/guides/" },
+  { label: "What does a Data Analyst do?", sub: "Daily tasks, Python, SQL & salary", to: "/guides/data-analyst/" },
+  { label: "What is an AI Engineer?", sub: "Production LLMs, RAG & agents", to: "/guides/ai-engineer/" },
+  { label: "What is a Full Stack Developer?", sub: "React, TypeScript & AI coding tools", to: "/guides/full-stack-developer/" },
+  { label: "What does a SOC Analyst do?", sub: "Incident triage, SIEM & salary", to: "/guides/soc-analyst/" },
 ];
 
 const deAboutItems = [

@@ -10,6 +10,208 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/it-courses/data-analytics",
+      "destination": "/it-courses/ai-engineering/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/data-analytics/(.*)",
+      "destination": "/it-courses/ai-engineering/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/aws-solutions-architect",
+      "destination": "/it-courses/devops-aws/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/aws-solutions-architect/(.*)",
+      "destination": "/it-courses/devops-aws/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/applied-ai-data-science/(.*)",
+      "destination": "/it-courses/ai-engineering/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/applied-ai-data-science",
+      "destination": "/it-courses/ai-engineering/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/data-science/(.*)",
+      "destination": "/it-courses/ai-engineering/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/data-science",
+      "destination": "/it-courses/ai-engineering/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/cyber-security-for-beginners/(.*)",
+      "destination": "/it-courses/cyber-security/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/cyber-security-for-beginners",
+      "destination": "/it-courses/cyber-security/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/cyber-security-for-professionals/(.*)",
+      "destination": "/it-courses/cyber-security/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/cyber-security-for-professionals",
+      "destination": "/it-courses/cyber-security/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/devops-aws-for-beginners/(.*)",
+      "destination": "/it-courses/devops-aws/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/devops-aws-for-beginners",
+      "destination": "/it-courses/devops-aws/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/devops-aws-for-professionals/(.*)",
+      "destination": "/it-courses/devops-aws/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/devops-aws-for-professionals",
+      "destination": "/it-courses/devops-aws/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/software-development-engineer-in-test-for-beginners/(.*)",
+      "destination": "/it-courses/software-development-engineer-in-test/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/software-development-engineer-in-test-for-beginners",
+      "destination": "/it-courses/software-development-engineer-in-test/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/software-development-engineer-in-test-for-professionals/(.*)",
+      "destination": "/it-courses/software-development-engineer-in-test/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses/software-development-engineer-in-test-for-professionals",
+      "destination": "/it-courses/software-development-engineer-in-test/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses-for-beginners/(.*)",
+      "destination": "/it-courses/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses-for-beginners",
+      "destination": "/it-courses/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses-for-professionals/(.*)",
+      "destination": "/it-courses/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses-for-professionals",
+      "destination": "/it-courses/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/unemployed-in-germany/(.*)",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/unemployed-in-germany",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/agentur-fur-arbeit-jobcenter/(.*)",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/agentur-fur-arbeit-jobcenter",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/it-jobs-in-germany-english-speakers/(.*)",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/it-jobs-in-germany-english-speakers",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/german-cv-template/(.*)",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/german-cv-template",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/data-analyst-salary-germany/(.*)",
+      "destination": "/guides/data-analyst/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/data-analyst-salary-germany",
+      "destination": "/guides/data-analyst/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/software-developer-salary-germany/(.*)",
+      "destination": "/guides/full-stack-developer/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/software-developer-salary-germany",
+      "destination": "/guides/full-stack-developer/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/what-is-agentic-ai/(.*)",
+      "destination": "/guides/ai-engineer/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/what-is-agentic-ai",
+      "destination": "/guides/ai-engineer/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/agentic-ai/(.*)",
+      "destination": "/guides/ai-engineer/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/agentic-ai",
+      "destination": "/guides/ai-engineer/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!robots\\.txt|_redirects|assets/).*)",

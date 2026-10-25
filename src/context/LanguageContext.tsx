@@ -20,12 +20,6 @@ export const HREFLANG_PAIRS: HreflangPair[] = [
     hasCounterpart: true,
   },
   {
-    deNew: "/it-kurse/data-analyst-weiterbildung/",
-    deLegacy: "/it-kurse/data-science/",
-    en: "/it-courses/data-analytics/",
-    hasCounterpart: true,
-  },
-  {
     deNew: "/it-kurse/full-stack-entwickler-weiterbildung/",
     deLegacy: "/it-kurse/webentwicklungskurse/",
     en: "/it-courses/full-stack-developer/",
@@ -41,12 +35,6 @@ export const HREFLANG_PAIRS: HreflangPair[] = [
     deNew: "/it-kurse/aws-devops-weiterbildung/",
     deLegacy: "/it-kurse/devops-aws/",
     en: "/it-courses/devops-aws/",
-    hasCounterpart: true,
-  },
-  {
-    deNew: "/it-kurse/aws-solutions-architect-weiterbildung/",
-    deLegacy: "/it-kurse/devops-aws/",
-    en: "/it-courses/aws-solutions-architect/",
     hasCounterpart: true,
   },
   {
@@ -92,9 +80,21 @@ export const HREFLANG_PAIRS: HreflangPair[] = [
     hasCounterpart: true,
   },
   {
-    deNew: "/fuer-unternehmen/",
-    deLegacy: "/it-fortbildung-enterprise/",
-    en: "/enterprise-corporate-training/",
+    deNew: "/ueber-uns/",
+    deLegacy: "/uber-uns/",
+    en: "/about/",
+    hasCounterpart: true,
+  },
+  {
+    deNew: "/freunde-werben/",
+    deLegacy: "/freunde-werben/",
+    en: "/refer-a-friend/",
+    hasCounterpart: true,
+  },
+  {
+    deNew: "/datenschutz/",
+    deLegacy: "/datenschutz/",
+    en: "/privacy-policy/",
     hasCounterpart: true,
   },
   {

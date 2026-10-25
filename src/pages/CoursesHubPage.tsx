@@ -41,15 +41,6 @@ export function CoursesHubPage() {
           start: "27 Jul 2026",
         },
         {
-          title: "Data Analytics Course",
-          to: "/it-courses/data-analytics/",
-          duration: "13 Weeks (520 Units)",
-          entry: "Beginner (No Coding Needed)",
-          roles: "Data Analyst, BI Analyst",
-          funding: "100% Bildungsgutschein / QCG",
-          start: "27 Jul 2026",
-        },
-        {
           title: "AI-Assisted Full Stack Developer Course",
           to: "/it-courses/full-stack-developer/",
           duration: "3 – 12 Months (4 Modules)",
@@ -59,7 +50,7 @@ export function CoursesHubPage() {
           start: "27 Jul 2026",
         },
         {
-          title: "Cyber Security Analyst Course",
+          title: "AI-Enhanced Cyber Security Analyst Course",
           to: "/it-courses/cyber-security/",
           duration: "4 Modules (Full or M2+)",
           entry: "Beginner (M1) or Assessment (M2)",
@@ -68,20 +59,11 @@ export function CoursesHubPage() {
           start: "24 Aug 2026",
         },
         {
-          title: "AWS & DevOps Engineer Course",
+          title: "AWS Solutions Architect & DevOps Training",
           to: "/it-courses/devops-aws/",
           duration: "3 – 8 Months (5 Options)",
           entry: "Beginner (M1) or Cloud Basics (M2/M3)",
           roles: "DevOps Engineer, Cloud Engineer, AWS Architect",
-          funding: "100% Bildungsgutschein / QCG",
-          start: "24 Aug 2026",
-        },
-        {
-          title: "AWS Solutions Architect Course",
-          to: "/it-courses/aws-solutions-architect/",
-          duration: "3 Months (Module 1)",
-          entry: "Beginner Friendly",
-          roles: "AWS Solutions Architect, Cloud Engineer",
           funding: "100% Bildungsgutschein / QCG",
           start: "24 Aug 2026",
         },
@@ -207,13 +189,7 @@ export function CoursesHubPage() {
               title: "AI Engineering Bootcamp",
               to: "/it-courses/ai-engineering/",
               meta: "32 Weeks · Modules 1 + 2 + 3",
-              summary: "Python, SQL, Power BI, Classical ML, PyTorch, RAG, LangGraph & MCP.",
-            },
-            {
-              title: "Data Analytics Course",
-              to: "/it-courses/data-analytics/",
-              meta: "13 Weeks · Module 1 Standalone",
-              summary: "Python, SQL, Statistics, Power BI, and Tableau for Data Analyst roles.",
+              summary: "Python, SQL, Power BI (13-Wk M1), Classical ML, PyTorch, RAG, LangGraph & MCP.",
             },
           ],
         },
@@ -240,16 +216,10 @@ export function CoursesHubPage() {
           desc: "Design resilient cloud infrastructure on AWS & Azure and automate container deployments.",
           items: [
             {
-              title: "AWS & DevOps Engineer Course",
+              title: "AWS Solutions Architect & DevOps Training",
               to: "/it-courses/devops-aws/",
-              meta: "3 – 8 Months · 5 Modular Combinations",
-              summary: "AWS Solutions Architect, Docker, Kubernetes, Terraform, CI/CD & Azure.",
-            },
-            {
-              title: "AWS Solutions Architect Course",
-              to: "/it-courses/aws-solutions-architect/",
-              meta: "3 Months · Module 1 Standalone",
-              summary: "AWS core infrastructure and SAA-C03 certification preparation.",
+              meta: "3 – 8 Months · AWS, DevOps & Azure",
+              summary: "AI-Enhanced AWS Cloud Engineer, DevOps Engineer & Azure Basics.",
             },
             {
               title: "Kubernetes CKAD Certification Course",
@@ -264,7 +234,7 @@ export function CoursesHubPage() {
           desc: "Protect enterprise networks, investigate incidents in the SIEM lab, and secure cloud workloads.",
           items: [
             {
-              title: "Cyber Security Analyst Course",
+              title: "AI-Enhanced Cyber Security Analyst Course",
               to: "/it-courses/cyber-security/",
               meta: "4 Modules · Beginner or Direct Entry (M2)",
               summary: "CompTIA Security+, AI-Enhanced SOC Analyst, Agentic AI SecOps & AWS Security.",

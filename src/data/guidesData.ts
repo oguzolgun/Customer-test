@@ -1101,568 +1101,256 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
    ENGLISH GUIDES & BLOGS (/guides/:slug) — Expat Cluster + Career/Cert Guides
    ============================================================================ */
 export const EN_GUIDES: Record<string, GuideArticleData> = {
-  "unemployed-in-germany": {
-    slug: "unemployed-in-germany",
-    lang: "en",
-    cluster: "Expat Jobs & Funding in Germany",
-    badge: "Expat Guide (Essential)",
-    metaTitle: "Unemployed in Germany: A Guide for Expats | Clarusway",
-    metaDescription:
-      "Lost your job in Germany or contract ending? Step-by-step guide in English to registering with Agentur für Arbeit, ALG I benefits, and free IT training with a Bildungsgutschein.",
-    h1: "Unemployed in Germany: step-by-step guide for expats",
-    author: "Clarusway Germany Advisory Team",
-    updatedAt: "October 22, 2026",
-    readTime: "8 min read",
-    introParagraph1:
-      "Losing a job or facing the end of a fixed-term contract in Germany as an expat can feel overwhelming — especially when official letters arrive in German. However, Germany's social security system offers strong financial protection and 100% funded professional training to help you transition into high-demand English-speaking tech roles.",
-    introCourseLinkLabel: "English-taught IT bootcamps in Germany",
-    introCourseLinkTo: "/it-courses/",
-    introFundingLinkLabel: "how to get a Bildungsgutschein (education voucher)",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "This guide walks you through the exact deadlines, the difference between Arbeitslosengeld I (ALG I) and Bürgergeld, how unemployment affects your visa or EU Blue Card, and how to use your time between jobs to complete an AZAV-certified IT course for free.",
-    tableTitle: "Key Deadlines & Benefits When Becoming Unemployed in Germany",
-    tableHeaders: ["Step / Benefit", "Official German Term", "Rule & Deadline"],
-    tableRows: [
-      ["1. Register as Job-Seeking", "Arbeitssuchend melden", "At least 3 months before contract ends (or within 3 days of receiving notice)"],
-      ["2. Register as Unemployed", "Arbeitslos melden", "No later than your first day without employment"],
-      ["3. Unemployment Benefit I", "Arbeitslosengeld I (ALG I)", "60% of net salary (67% with children) if you paid in for 12+ months in the last 30 months"],
-      ["4. Citizen's Benefit", "Bürgergeld (Jobcenter)", "Basic income support if you do not qualify for ALG I or after ALG I expires"],
-      ["5. Education Voucher", "Bildungsgutschein", "100% tuition coverage for AZAV-certified IT training while continuing to receive benefits"],
-    ],
-    sections: [
-      {
-        id: "deadlines",
-        h2: "Step 1: Meet the mandatory 3-day / 3-month registration deadline",
-        paragraphs: [
-          "As soon as you receive a termination letter (Kündigung), sign a mutual termination agreement, or are 3 months away from the end of a fixed-term contract, you must register as job-seeking (arbeitssuchend) with the Agentur für Arbeit (Federal Employment Agency). If you learn about the termination less than 3 months in advance, you have exactly 3 calendar days to register online or by phone.",
-        ],
-        bullets: [
-          "Registering on time prevents a blocking period (Sperrzeit) on your unemployment benefits.",
-          "You can complete the initial registration online via the official Bundesagentur für Arbeit portal.",
-        ],
-      },
-      {
-        id: "residence-permit",
-        h2: "Step 2: Check your EU Blue Card or residence permit rules",
-        paragraphs: [
-          "If you live in Germany on an EU Blue Card or skilled worker residence permit (§ 18a / § 18b AufenthG), you are generally required to notify the local Foreigners' Authority (Ausländerbehörde) within two weeks of job loss. The authority typically grants a job-search period of 3 to 6 months — and receiving Arbeitslosengeld I (which you earned through your social security contributions) does not jeopardize an EU Blue Card.",
-        ],
-      },
-      {
-        id: "free-it-training",
-        h2: "Step 3: Turn unemployment into a funded IT career upgrade",
-        paragraphs: [
-          "Instead of sending hundreds of applications to shrinking roles, you can request a Bildungsgutschein (education voucher) from your advisor. With a Bildungsgutschein, the Agentur für Arbeit or Jobcenter pays 100% of your tuition at Clarusway while your monthly unemployment benefits continue.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Can I get a Bildungsgutschein if I don't speak fluent German?",
-        a: "Yes. Clarusway's IT bootcamps are taught 100% in English, and Clarusway provides the official German Maßnahmeangebot and justification documents required by your Agentur für Arbeit or Jobcenter advisor.",
-      },
-      {
-        q: "Does taking a full-time course with a Bildungsgutschein stop my ALG I payments?",
-        a: "No. During an approved full-time Weiterbildung with a Bildungsgutschein, your ALG I or Bürgergeld continues to be paid in full.",
-      },
-    ],
-    ctaCourseTitle: "Get your German Bildungsgutschein offer in 24 hours",
-    ctaCourseDesc:
-      "Book a free consultation in English — Clarusway helps you choose the right IT bootcamp and prepares all documents for your Agentur für Arbeit advisor.",
-    ctaCourseTo: "/bildungsgutschein/",
-    relatedSlugs: ["agentur-fur-arbeit-jobcenter", "it-jobs-in-germany-english-speakers", "german-cv-template"],
-  },
-
-  "agentur-fur-arbeit-jobcenter": {
-    slug: "agentur-fur-arbeit-jobcenter",
-    lang: "en",
-    cluster: "Expat Jobs & Funding in Germany",
-    badge: "Funding Guide",
-    metaTitle: "Agentur für Arbeit & Jobcenter Guide for Expats | Clarusway",
-    metaDescription:
-      "How the Agentur für Arbeit and Jobcenter work in Germany: difference between the two agencies, how to prepare for your appointment, and how to get a Bildungsgutschein.",
-    h1: "Agentur für Arbeit and Jobcenter: a guide for English speakers in Germany",
-    author: "Clarusway Germany Advisory Team",
-    updatedAt: "October 22, 2026",
-    readTime: "7 min read",
-    introParagraph1:
-      "In Germany, two public agencies support job seekers and fund career training: the Agentur für Arbeit (Federal Employment Agency) and the local Jobcenter. Both agencies issue the Bildungsgutschein (education voucher) and the AVGS voucher to cover 100% of approved IT courses.",
-    introCourseLinkLabel: "AZAV-certified IT courses in English",
-    introCourseLinkTo: "/it-courses/",
-    introFundingLinkLabel: "how to get a Bildungsgutschein",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "Here is how to know which agency is responsible for you and how to prepare for your advisor appointment.",
-    tableTitle: "Agentur für Arbeit vs. Jobcenter: Which Agency Handles Your Case?",
-    tableHeaders: ["Criterion", "Agentur für Arbeit", "Jobcenter"],
-    tableRows: [
-      ["Who is covered?", "Employees who paid unemployment insurance for 12+ months (or job seekers without benefits)", "Residents eligible for Bürgergeld (Citizen's Benefit)"],
-      ["Financial benefit", "Arbeitslosengeld I (ALG I)", "Bürgergeld (basic living & housing support)"],
-      ["Education vouchers issued", "Bildungsgutschein, AVGS & QCG", "Bildungsgutschein & AVGS"],
-      ["Coverage for Clarusway courses", "100% of tuition fees", "100% of tuition fees"],
-    ],
-    sections: [
-      {
-        id: "appointment-prep",
-        h2: "How to prepare for your advisor appointment (Beratungsgespräch)",
-        paragraphs: [
-          "Caseworkers (Vermittlungsfachkräfte) evaluate whether a training program will help you find stable employment faster. Come prepared with:",
-        ],
-        bullets: [
-          "Your official German course offer (Maßnahmeangebot) from Clarusway, which includes the AZAV certification number (Maßnahmenummer).",
-          "5 to 10 English-language job ads from LinkedIn or StepStone showing strong demand in Germany for your target IT role.",
-          "If your German is limited, you are allowed to bring a German-speaking friend or interpreter to the appointment.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Do both the Agentur für Arbeit and the Jobcenter fund English-taught IT courses?",
-        a: "Yes. Because Clarusway's English-taught programs are officially AZAV-certified in Germany, both the Agentur für Arbeit and all Jobcenters can fund them 100% with a Bildungsgutschein.",
-      },
-    ],
-    ctaCourseTitle: "Need a German Maßnahmeangebot for your appointment?",
-    ctaCourseDesc: "Book a free consultation in English and receive your personalized advisor package within 24 hours.",
-    ctaCourseTo: "/bildungsgutschein/",
-    relatedSlugs: ["unemployed-in-germany", "it-jobs-in-germany-english-speakers", "german-cv-template"],
-  },
-
-  "it-jobs-in-germany-english-speakers": {
-    slug: "it-jobs-in-germany-english-speakers",
-    lang: "en",
-    cluster: "Expat Jobs & Funding in Germany",
-    badge: "Expat Career Guide",
-    metaTitle: "IT Jobs in Germany for English Speakers | Clarusway",
-    metaDescription:
-      "Which IT jobs in Germany hire English speakers? Compare salaries, demand, and career paths in Data Analytics, AI Engineering, Web Development, Cloud/DevOps, and Cyber Security.",
-    h1: "IT jobs in Germany for English speakers: where to start",
-    author: "Clarusway Career Services",
-    updatedAt: "October 22, 2026",
-    readTime: "7 min read",
-    introParagraph1:
-      "While many traditional professions in Germany require C1 German, the technology sector operates differently: international startups, scale-ups, and global engineering hubs in Berlin, Munich, Frankfurt, Hamburg, and remote teams across Germany use English as their daily working language.",
-    introCourseLinkLabel: "IT bootcamps in English",
-    introCourseLinkTo: "/it-courses/",
-    introFundingLinkLabel: "funded 100% with a Bildungsgutschein",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "Compare the five most accessible English-speaking IT career tracks in Germany below.",
-    tableTitle: "Top 5 English-Speaking IT Roles in Germany (StepStone 2026)",
-    tableHeaders: ["IT Role", "English Job Share", "Median Salary (Germany)", "Clarusway Program"],
-    tableRows: [
-      ["AI Engineer / Data Scientist", "Very High", "€62,400 – €69,500", "AI Engineering Bootcamp (32 Weeks)"],
-      ["Data Analyst", "High", "€54,800", "Data Analytics Course (13 Weeks)"],
-      ["Full Stack Developer", "Very High", "€58,500", "AI-Assisted Full Stack Course"],
-      ["DevOps / Cloud Engineer", "Very High", "€61,500 – €64,800", "AWS & DevOps Engineer Course"],
-      ["SOC / Cyber Security Analyst", "High", "€52,400 – €65,200", "Cyber Security Analyst Course"],
-    ],
-    sections: [
-      {
-        id: "how-to-choose",
-        h2: "How to choose the right IT career track as an expat",
-        paragraphs: [
-          "Leverage your existing background: if you worked in finance, operations, or marketing, Data Analytics and AI Engineering build naturally on your domain knowledge. If you enjoy building products, choose Full Stack Development; if you prefer infrastructure or defense, choose AWS & DevOps or Cyber Security.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Can I really find an IT job in Germany with only English?",
-        a: "Yes. Technical teams in international companies and startups across Germany conduct code reviews, standups, and documentation in English. Basic German (A2/B1) is helpful for everyday life, while strong technical skills and a GitHub portfolio get you hired.",
-      },
-    ],
-    ctaCourseTitle: "Not sure which IT career fits you best?",
-    ctaCourseDesc: "Compare all English-taught Clarusway bootcamps or try the 4-week IT Orientation Course.",
-    ctaCourseTo: "/it-courses/",
-    relatedSlugs: ["unemployed-in-germany", "german-cv-template", "ai-engineer"],
-  },
-
-  "german-cv-template": {
-    slug: "german-cv-template",
-    lang: "en",
-    cluster: "Expat Jobs & Funding in Germany",
-    badge: "Application Guide",
-    metaTitle: "German CV Template & Format in English | Clarusway",
-    metaDescription:
-      "How to write a German-style CV (Lebenslauf) in English for IT and tech jobs in Germany: structure, ATS rules, photo rules, and portfolio tips.",
-    h1: "German CV format and template in English (for tech jobs)",
-    author: "Clarusway Career Services",
-    updatedAt: "October 22, 2026",
-    readTime: "6 min read",
-    introParagraph1:
-      "Applying to tech companies in Germany requires a clean, reverse-chronological tabular CV (tabellarischer Lebenslauf) in English that highlights verifiable technical projects, GitHub links, and certifications without unexplained gaps.",
-    introCourseLinkLabel: "IT bootcamps with included Career Coaching",
-    introCourseLinkTo: "/it-courses/",
-    introFundingLinkLabel: "100% funded with a Bildungsgutschein",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "Here is how German tech recruiters and Applicant Tracking Systems (ATS) evaluate your English CV.",
-    tableTitle: "German Tech CV (Lebenslauf) Checklist for English Speakers",
-    tableHeaders: ["Section", "German Recruiter Expectation"],
-    tableRows: [
-      ["Header & Contact", "Name, city in Germany, phone, email, LinkedIn, GitHub portfolio link, work permit / EU Blue Card status"],
-      ["Professional Summary", "3 concise lines stating your target role, core tech stack, and domain strengths"],
-      ["Technical Skills & Certs", "Grouped clearly (e.g., Languages, Frameworks, Cloud/DevOps, Certifications like AWS SAA-C03 or Security+)"],
-      ["Capstone Projects", "2–3 hands-on projects with live/GitHub links and measurable technical outcomes"],
-      ["Work Experience & Education", "Reverse-chronological (MM/YYYY – MM/YYYY) with no unexplained timeline gaps"],
-    ],
-    sections: [
-      {
-        id: "work-permit-line",
-        h2: "Always state your German work authorization clearly",
-        paragraphs: [
-          "One of the most effective ways for expats to increase interview callbacks in Germany is to include a single line in the CV header confirming your work status (e.g., 'EU Citizen', 'Permanent Residence / Niederlassungserlaubnis', or 'Valid German Work Permit — No Sponsorship Required').",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Should I include a photo on an English tech CV in Germany?",
-        a: "For international tech companies in Germany, a photo is optional. If you include one, use a modern, professional headshot.",
-      },
-    ],
-    ctaCourseTitle: "Build a job-ready German tech CV & GitHub portfolio",
-    ctaCourseDesc: "Every Clarusway bootcamp includes 1-on-1 Career Management for the German job market.",
-    ctaCourseTo: "/career-management/",
-    relatedSlugs: ["it-jobs-in-germany-english-speakers", "unemployed-in-germany"],
-  },
-
-  "ai-engineer": {
-    slug: "ai-engineer",
-    lang: "en",
-    cluster: "Data & AI",
-    badge: "Career Guide (AI)",
-    metaTitle: "AI Engineer: Role, Skills and Salary in Germany | Clarusway",
-    metaDescription:
-      "How to become an AI Engineer in Germany: daily tasks, required skills (Python, PyTorch, LLMs, RAG, Agentic AI), salary benchmarks, and funded bootcamp.",
-    h1: "AI Engineer in Germany: role, skills and salary",
-    author: "Clarusway Data & AI Team",
-    updatedAt: "October 22, 2026",
-    readTime: "7 min read",
-    introParagraph1:
-      "AI Engineers are among the most sought-after tech specialists in Germany. While traditional Data Scientists focus on statistical modeling, AI Engineers build production software powered by Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and autonomous Agentic AI workflows.",
-    introCourseLinkLabel: "AI Engineering Bootcamp in English",
-    introCourseLinkTo: "/it-courses/ai-engineering/",
-    introFundingLinkLabel: "how to get a Bildungsgutschein",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "Compare Data Analyst, Data Scientist, and AI Engineer roles and salaries in Germany below.",
-    tableTitle: "Data Analyst vs. Data Scientist vs. AI Engineer in Germany",
-    tableHeaders: ["Role", "Core Focus", "Key Stack", "Median Salary (StepStone 2026)"],
-    tableRows: [
-      ["Data Analyst", "Business data analysis & BI dashboards", "SQL, Python (Pandas), Power BI, Tableau", "€54,800"],
-      ["Data Scientist", "Predictive machine learning models", "Python, Scikit-Learn, XGBoost, Statistics", "€62,400"],
-      ["AI Engineer", "Production LLMs, RAG & Agentic AI systems", "PyTorch, LangChain, LangGraph, MCP, AWS Bedrock", "€69,500"],
-    ],
-    sections: [
-      {
-        id: "skills",
-        h2: "Which skills do German employers expect from an AI Engineer?",
-        paragraphs: [
-          "Companies hiring AI Engineers look for strong Python skills, experience with vector databases and RAG pipelines, agent orchestration frameworks (LangGraph, CrewAI, MCP), and API deployment with FastAPI and Docker.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "How much does an AI Engineer earn in Germany?",
-        a: "According to the StepStone Salary Report 2026, the median salary for AI Engineers in Germany is €69,500 (ranging from €56,000 to €86,000).",
-      },
-    ],
-    ctaCourseTitle: "AI Engineering Bootcamp: From Data Analytics to Agentic AI",
-    ctaCourseDesc: "32 weeks full-time in English (or direct entry to Module 2/3) — 100% funded with a Bildungsgutschein.",
-    ctaCourseTo: "/it-courses/ai-engineering/",
-    relatedSlugs: ["data-analyst", "what-is-agentic-ai", "data-analyst-salary-germany"],
-  },
-
   "data-analyst": {
     slug: "data-analyst",
     lang: "en",
     cluster: "Data & AI",
-    badge: "Career Guide (Data)",
-    metaTitle: "Data Analyst: Tasks, Salary and How to Start | Clarusway",
+    badge: "Career Guide",
+    metaTitle: "What Does a Data Analyst Do? Tasks & Salary in Germany | Clarusway",
     metaDescription:
-      "How to become a Data Analyst in Germany as an English speaker: SQL, Python, Power BI, salary ranges, and 13-week course funded with a Bildungsgutschein.",
-    h1: "Data Analyst in Germany: tasks, salary and how to start",
+      "What does a data analyst do in Germany? Daily tasks, SQL & Python skills, salary ranges (StepStone 2026), and 100% funded training with a Bildungsgutschein.",
+    h1: "What does a data analyst do? Tasks, skills and salary in Germany",
     author: "Clarusway Data & AI Team",
-    updatedAt: "October 22, 2026",
+    updatedAt: "October 24, 2026",
     readTime: "6 min read",
     introParagraph1:
-      "Data Analysts turn raw company data into clear insights using SQL, Python, Power BI, and Tableau. For English-speaking career changers in Germany, Data Analytics offers one of the fastest 13-week paths into tech.",
-    introCourseLinkLabel: "13-week Data Analytics Course",
-    introCourseLinkTo: "/it-courses/data-analytics/",
+      "Data Analysts turn raw company data into actionable business decisions using SQL, Python, Power BI, and Tableau. For English-speaking professionals and career changers in Germany, Data Analytics offers one of the most accessible and in-demand paths into tech.",
+    introCourseLinkLabel: "AI Engineering Bootcamp (Module 1: Data Analytics)",
+    introCourseLinkTo: "/it-courses/ai-engineering/",
     introFundingLinkLabel: "how to get a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Here are the essential skills and career progression paths for Data Analysts in Germany.",
-    tableTitle: "Core Skills of a Data Analyst in Germany",
-    tableHeaders: ["Skill Area", "Tools", "Business Impact"],
+      "Here is a comprehensive breakdown of what Data Analysts actually do day-to-day, what German employers expect, and what salaries you can anticipate.",
+    tableTitle: "Core Skills and Tools of a Data Analyst in Germany",
+    tableHeaders: ["Skill Area", "Primary Tools", "Business Impact"],
     tableRows: [
-      ["Database Querying", "SQL (PostgreSQL)", "Extract and join millions of customer and revenue records"],
-      ["Data Wrangling", "Python (Pandas, NumPy)", "Automate data cleaning and exploratory analysis"],
-      ["Business Intelligence", "Power BI (DAX) & Tableau", "Build interactive KPI dashboards for leadership teams"],
-      ["Statistics", "Hypothesis & A/B Testing", "Validate product and marketing decisions"],
+      ["Database Querying", "SQL (PostgreSQL, MySQL)", "Extract, filter, and join complex business transactions"],
+      ["Data Wrangling & Cleaning", "Python (Pandas, NumPy)", "Automate data pipelines, clean missing values, and transform datasets"],
+      ["Business Intelligence (BI)", "Power BI (DAX), Tableau", "Build automated executive KPI dashboards for leadership teams"],
+      ["Statistical Analysis", "Hypothesis & A/B Testing", "Validate product features, conversion funnels, and marketing ROI"],
     ],
     sections: [
       {
-        id: "upgrade-path",
-        h2: "Start in 13 weeks — or continue to Data Science & AI Engineering",
+        id: "daily-tasks",
+        h2: "What does a Data Analyst do on a typical day?",
         paragraphs: [
-          "At Clarusway, the 13-week Data Analytics Course is Module 1 of the 32-week AI Engineering Bootcamp. You can enter the job market after 13 weeks or seamlessly add Machine Learning (Module 2) and Agentic AI (Module 3).",
+          "A Data Analyst acts as the bridge between technical database architectures and business stakeholders. Daily tasks typically include writing SQL queries to pull customer and sales data, cleaning raw CSV and API feeds in Python, and updating Power BI or Tableau dashboards used by management.",
+          "In modern cross-functional teams, Data Analysts also present findings in sprint reviews and advise department leaders on customer retention, pricing experiments, and revenue forecasting.",
+        ],
+      },
+      {
+        id: "salaries",
+        h2: "Data Analyst salaries in Germany (StepStone 2026)",
+        paragraphs: [
+          "According to the StepStone Salary Report 2026, the median gross annual salary for Data Analysts in Germany is €54,800. Junior analysts with hands-on portfolio projects start between €42,000 and €49,500, while senior analysts and BI leads earn between €60,000 and €72,000.",
+        ],
+      },
+      {
+        id: "entry-path",
+        h2: "How to qualify in 13 weeks — or continue into AI Engineering",
+        paragraphs: [
+          "At Clarusway, the 13-week Data Analytics curriculum forms Module 1 of the 32-week AI Engineering Bootcamp. You can graduate ready for junior Data Analyst roles after 13 weeks, or seamlessly advance into Module 2 (Machine Learning) and Module 3 (Agentic AI).",
         ],
       },
     ],
     faqs: [
       {
         q: "Do I need prior coding experience to become a Data Analyst?",
-        a: "No. Clarusway's 13-week Data Analytics Course teaches Python, SQL, and Power BI from scratch in English.",
+        a: "No. Module 1 of Clarusway's AI Engineering Bootcamp teaches Python, SQL, and Power BI step-by-step from scratch in English.",
       },
-    ],
-    ctaCourseTitle: "Data Analytics Course in English (13 Weeks)",
-    ctaCourseDesc: "100% funded in Germany with a Bildungsgutschein.",
-    ctaCourseTo: "/it-courses/data-analytics/",
-    relatedSlugs: ["data-analyst-salary-germany", "ai-engineer", "what-is-agentic-ai"],
-  },
-
-  "what-is-agentic-ai": {
-    slug: "what-is-agentic-ai",
-    lang: "en",
-    cluster: "Data & AI",
-    badge: "Tech Explainer",
-    metaTitle: "What Is Agentic AI? Simply Explained | Clarusway",
-    metaDescription:
-      "What is Agentic AI and how do autonomous AI agents work? Understand RAG, tool calling, LangGraph, and Model Context Protocol (MCP).",
-    h1: "What is Agentic AI? How AI agents work",
-    author: "Clarusway Data & AI Team",
-    updatedAt: "October 22, 2026",
-    readTime: "6 min read",
-    introParagraph1:
-      "Unlike standard chatbots that only respond to single prompts, Agentic AI systems break down complex goals, query databases via RAG, call external APIs, and collaborate across multi-agent workflows.",
-    introCourseLinkLabel: "AI Engineering Bootcamp (Module 3: Agentic AI)",
-    introCourseLinkTo: "/it-courses/ai-engineering/",
-    introFundingLinkLabel: "funded with a Bildungsgutschein",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "See how standard LLMs, RAG, and Agentic AI compare in production engineering.",
-    tableTitle: "Standard LLMs vs. RAG vs. Agentic AI",
-    tableHeaders: ["Architecture", "Capability", "Core Frameworks"],
-    tableRows: [
-      ["Standard LLM", "Generates text from static training weights", "OpenAI / Anthropic APIs"],
-      ["RAG Pipeline", "Retrieves live company documents before answering", "LangChain, Chroma, Pinecone"],
-      ["Agentic AI", "Plans multi-step tasks, calls tools/APIs, and self-corrects", "LangGraph, CrewAI, Model Context Protocol (MCP)"],
-    ],
-    sections: [
       {
-        id: "where-used",
-        h2: "Where companies in Germany deploy Agentic AI",
-        paragraphs: [
-          "Engineering and security teams use autonomous agents for automated data pipelines, enterprise knowledge copilots, and incident triage in Security Operations Centers (SOC).",
-        ],
+        q: "Is Data Analytics training free with a Bildungsgutschein?",
+        a: "Yes. All Clarusway programs are AZAV-certified. With a Bildungsgutschein from the Agentur für Arbeit or Jobcenter, 100% of your tuition fees are covered.",
       },
     ],
-    faqs: [
-      {
-        q: "Which Clarusway courses teach Agentic AI?",
-        a: "Module 3 of the AI Engineering Bootcamp and Module 3 of the Cyber Security Analyst Course (Agentic AI in Security Operations).",
-      },
-    ],
-    ctaCourseTitle: "Learn to build Agentic AI systems in English",
-    ctaCourseDesc: "Explore the AZAV-certified AI Engineering Bootcamp.",
+    ctaCourseTitle: "AI Engineering Bootcamp: Module 1 Data Analytics",
+    ctaCourseDesc: "13 weeks live online in English · 100% covered with a Bildungsgutschein.",
     ctaCourseTo: "/it-courses/ai-engineering/",
-    relatedSlugs: ["ai-engineer", "data-analyst"],
+    relatedSlugs: ["ai-engineer", "full-stack-developer"],
   },
 
-  "data-analyst-salary-germany": {
-    slug: "data-analyst-salary-germany",
+  "ai-engineer": {
+    slug: "ai-engineer",
     lang: "en",
     cluster: "Data & AI",
-    badge: "Salary Guide",
-    metaTitle: "Data Analyst Salary in Germany | Clarusway",
+    badge: "Career Guide",
+    metaTitle: "What Is an AI Engineer? Role, Skills & Roadmap | Clarusway",
     metaDescription:
-      "How much does a Data Analyst earn in Germany? Entry-level, mid-level, and senior salary ranges from the StepStone 2026 report.",
-    h1: "Data Analyst salary in Germany: entry-level to senior",
-    author: "Clarusway Career Services",
-    updatedAt: "October 22, 2026",
-    readTime: "5 min read",
+      "What is an AI engineer in Germany? Core skills (Python, PyTorch, RAG, Agentic AI, MCP), salary benchmarks, and 32-week bootcamp funded with a Bildungsgutschein.",
+    h1: "What is an AI engineer? Role, skills and roadmap in Germany",
+    author: "Clarusway Data & AI Team",
+    updatedAt: "October 24, 2026",
+    readTime: "7 min read",
     introParagraph1:
-      "Data Analysts enjoy strong salaries across German tech hubs and industrial companies, especially when combining SQL and Power BI with Python automation.",
-    introCourseLinkLabel: "Data Analytics Course in English",
-    introCourseLinkTo: "/it-courses/data-analytics/",
+      "AI Engineers are among the fastest-growing and highest-compensated specialists in the German tech market. While traditional Data Scientists focus on exploratory statistical models, AI Engineers integrate Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and autonomous Agentic AI workflows into scalable production software.",
+    introCourseLinkLabel: "AI Engineering Bootcamp in English",
+    introCourseLinkTo: "/it-courses/ai-engineering/",
     introFundingLinkLabel: "how to get a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Below are the current gross annual salary ranges in Germany based on StepStone 2026 data.",
-    tableTitle: "Data Analyst Gross Annual Salary in Germany (StepStone 2026)",
-    tableHeaders: ["Experience Level", "Years of Experience", "Annual Salary Range (Gross)"],
+      "Here is what an AI Engineer builds, how the role differs from Data Science, and what skills German engineering teams look for in 2026.",
+    tableTitle: "Data Analyst vs. Data Scientist vs. AI Engineer in Germany",
+    tableHeaders: ["Role", "Core Responsibility", "Primary Tech Stack", "Median Salary (StepStone 2026)"],
     tableRows: [
-      ["Junior Data Analyst", "0 – 2 years", "€41,800 – €49,500"],
-      ["Mid-Level Data Analyst", "2 – 5 years", "€50,000 – €59,000"],
-      ["Senior Data Analyst / BI Lead", "5+ years", "€60,000 – €69,500"],
+      ["Data Analyst", "Business insights & KPI dashboards", "SQL, Python (Pandas), Power BI, Tableau", "€54,800"],
+      ["Data Scientist", "Predictive machine learning models", "Python, Scikit-Learn, XGBoost, Statistics", "€62,400"],
+      ["AI Engineer", "Production LLMs, RAG & Agentic AI workflows", "PyTorch, LangChain, LangGraph, MCP, AWS Bedrock", "€69,500"],
     ],
     sections: [
       {
-        id: "boost-salary",
-        h2: "How to maximize your starting salary as an expat",
+        id: "responsibilities",
+        h2: "What does an AI Engineer build in production?",
         paragraphs: [
-          "Publishing end-to-end SQL, Python, and Power BI projects on GitHub gives hiring managers concrete proof of your analytical capability.",
+          "An AI Engineer builds software architectures that leverage foundation models. Typical projects include building enterprise RAG systems over internal documentation, orchestrating multi-agent workflows using LangGraph and CrewAI, and implementing Model Context Protocol (MCP) servers to give AI agents access to company databases and APIs.",
+        ],
+      },
+      {
+        id: "skills-required",
+        h2: "Which skills do German companies expect from an AI Engineer?",
+        paragraphs: [
+          "Employers look for robust Python engineering (FastAPI, Docker), experience with vector databases (Chroma, Pinecone), prompt optimization, fine-tuning techniques, and deployment on cloud infrastructure such as AWS Bedrock.",
+        ],
+      },
+      {
+        id: "salary-outlook",
+        h2: "Salary benchmarks for AI Engineers in Germany",
+        paragraphs: [
+          "According to StepStone 2026 data, AI Engineers command median salaries of €69,500, with experienced practitioners reaching €85,000 or more in hubs like Berlin, Munich, Frankfurt, and remote positions across Germany.",
         ],
       },
     ],
     faqs: [
       {
-        q: "What is the median Data Analyst salary in Germany?",
-        a: "The median gross annual salary is €54,800 according to the StepStone Salary Report 2026.",
+        q: "What is the difference between Data Science and AI Engineering?",
+        a: "Data Science focuses on analyzing historical data and training predictive models. AI Engineering focuses on deploying modern generative AI, LLMs, and autonomous agents into production software pipelines.",
+      },
+      {
+        q: "Can I enter the AI Engineering Bootcamp without a math degree?",
+        a: "Yes. Clarusway's modular structure starts with foundational Python and data handling in Module 1, progressing systematically to machine learning and agentic AI.",
       },
     ],
-    ctaCourseTitle: "Qualify as a Data Analyst in 13 weeks",
-    ctaCourseDesc: "Taught in English · 100% funded with a Bildungsgutschein.",
-    ctaCourseTo: "/it-courses/data-analytics/",
-    relatedSlugs: ["data-analyst", "ai-engineer"],
+    ctaCourseTitle: "AI Engineering Bootcamp: From Data Analytics to Agentic AI",
+    ctaCourseDesc: "32 weeks full-time in English · 100% covered with a Bildungsgutschein.",
+    ctaCourseTo: "/it-courses/ai-engineering/",
+    relatedSlugs: ["data-analyst", "full-stack-developer"],
   },
 
   "full-stack-developer": {
     slug: "full-stack-developer",
     lang: "en",
     cluster: "Software Development",
-    badge: "Career Guide (Web)",
-    metaTitle: "Full Stack Developer: Role, Skills and Salary | Clarusway",
+    badge: "Career Guide",
+    metaTitle: "What Is a Full Stack Developer? Skills & Salary | Clarusway",
     metaDescription:
-      "How to become a Full Stack Developer in Germany: React, TypeScript, Next.js, Node.js, AI coding tools, salary ranges, and funded English bootcamp.",
-    h1: "Full Stack Developer in Germany: role, skills and salary",
+      "What is a full stack developer in 2026? React, TypeScript, Next.js, Node.js, AI coding tools (Cursor, Claude Code), salaries, and funded English bootcamp.",
+    h1: "What is a full stack developer? Skills, salary and tools in 2026",
     author: "Clarusway Software Engineering Team",
-    updatedAt: "October 22, 2026",
-    readTime: "6 min read",
+    updatedAt: "October 24, 2026",
+    readTime: "7 min read",
     introParagraph1:
-      "Full Stack Developers build complete web applications across React/Next.js frontends, Node.js backends, and relational databases. In 2026, German engineering teams expect developers to pair strong TypeScript fundamentals with AI-assisted coding workflows.",
+      "Full Stack Developers build entire web applications from end to end: responsive user interfaces on the frontend, scalable APIs and microservices on the backend, and relational databases for persistent storage. In 2026, German software companies increasingly expect developers to pair solid TypeScript fundamentals with AI-assisted development workflows.",
     introCourseLinkLabel: "AI-Assisted Full Stack Developer Course",
     introCourseLinkTo: "/it-courses/full-stack-developer/",
     introFundingLinkLabel: "how to get a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Compare Frontend, Backend, and Full Stack roles and salaries in Germany below.",
-    tableTitle: "Frontend vs. Backend vs. Full Stack in Germany (StepStone 2026)",
-    tableHeaders: ["Role", "Primary Stack", "Median Salary (Germany)"],
+      "Compare Frontend, Backend, and Full Stack responsibilities and review salary benchmarks across Germany below.",
+    tableTitle: "Frontend vs. Backend vs. Full Stack Developer in Germany",
+    tableHeaders: ["Role", "Focus", "Primary Technologies", "Median Salary (StepStone 2026)"],
     tableRows: [
-      ["Frontend Developer", "HTML/CSS, TypeScript, React, Next.js", "€54,200"],
-      ["Full Stack Developer", "React, Next.js, Node.js, PostgreSQL, Docker", "€58,500"],
-      ["Backend Developer", "Node.js, Express, PostgreSQL, MongoDB, APIs", "€60,100"],
+      ["Frontend Developer", "User experience, accessibility, browser performance", "HTML, CSS, TypeScript, React, Next.js", "€54,200"],
+      ["Full Stack Developer", "Complete web application lifecycle", "TypeScript, React, Next.js, Node.js, PostgreSQL", "€58,500"],
+      ["Backend Developer", "APIs, database design, server architecture", "Node.js, Express, PostgreSQL, Redis, Docker", "€60,100"],
     ],
     sections: [
       {
-        id: "ai-tools",
-        h2: "Why AI-assisted workflows (Cursor, Claude Code, Copilot) matter",
+        id: "ai-assisted-coding",
+        h2: "Why AI-assisted workflows (Cursor, Claude Code, Copilot) are essential in 2026",
         paragraphs: [
-          "By learning how to use Cursor, Claude Code, and GitHub Copilot on top of solid JavaScript and TypeScript architecture, you ship well-tested features at the speed of modern product teams.",
+          "Modern developers do not code alone in plain text editors. By combining deep understanding of clean software architecture with AI coding assistants (Cursor, Claude Code, GitHub Copilot), full-stack developers generate boilerplate, scaffold database schemas, and write unit tests dramatically faster while maintaining high software standards.",
+        ],
+      },
+      {
+        id: "agile-team-project",
+        h2: "The power of an Agile team capstone project",
+        paragraphs: [
+          "Recruiters in Germany look for team experience. In Module 4 of Clarusway's Full Stack program, students build and deploy a production web app in an Agile Scrum team using Git pull requests, code reviews, and CI/CD pipelines.",
         ],
       },
     ],
     faqs: [
       {
         q: "Can beginners become Full Stack Developers?",
-        a: "Yes. Module 1 of Clarusway's Full Stack Developer Course starts with HTML, CSS, JavaScript, and Git from zero.",
+        a: "Yes. Module 1 starts from zero with HTML, CSS, JavaScript, and Git fundamentals before introducing React, TypeScript, and backend architectures.",
+      },
+      {
+        q: "Is the course funded with a Bildungsgutschein?",
+        a: "Yes. All 4 modules are AZAV-certified and 100% funded by the Agentur für Arbeit or Jobcenter.",
       },
     ],
     ctaCourseTitle: "AI-Assisted Full Stack Developer Course",
-    ctaCourseDesc: "4 modules in English · 100% funded with a Bildungsgutschein.",
+    ctaCourseDesc: "4 modular building blocks in English · 100% funded with a Bildungsgutschein.",
     ctaCourseTo: "/it-courses/full-stack-developer/",
-    relatedSlugs: ["software-developer-salary-germany", "it-jobs-in-germany-english-speakers"],
-  },
-
-  "software-developer-salary-germany": {
-    slug: "software-developer-salary-germany",
-    lang: "en",
-    cluster: "Software Development",
-    badge: "Salary Guide",
-    metaTitle: "Software Developer Salary in Germany | Clarusway",
-    metaDescription:
-      "Software Developer salary in Germany from Junior to Senior: Frontend, Backend, Full Stack, and QA Automation (SDET) benchmarks.",
-    h1: "Software Developer salary in Germany: entry-level to senior",
-    author: "Clarusway Career Services",
-    updatedAt: "October 22, 2026",
-    readTime: "5 min read",
-    introParagraph1:
-      "Software engineering remains one of the best-compensated English-speaking career paths in Germany.",
-    introCourseLinkLabel: "AI-Assisted Full Stack Developer Course",
-    introCourseLinkTo: "/it-courses/full-stack-developer/",
-    introFundingLinkLabel: "funded with a Bildungsgutschein",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "Compare gross annual salaries by experience level below.",
-    tableTitle: "Software Engineering Salaries in Germany (StepStone 2026)",
-    tableHeaders: ["Level", "Frontend Developer", "Full Stack Developer", "Backend Developer"],
-    tableRows: [
-      ["Junior (0–2 yrs)", "€42,000 – €48,000", "€43,200 – €51,000", "€46,500 – €53,000"],
-      ["Mid-Level (2–5 yrs)", "€49,000 – €58,000", "€52,000 – €63,000", "€54,000 – €65,000"],
-      ["Senior (5+ yrs)", "€59,000 – €66,000", "€64,000 – €72,000", "€66,000 – €74,500"],
-    ],
-    sections: [
-      {
-        id: "team-project",
-        h2: "How Agile team projects increase your starting offer",
-        paragraphs: [
-          "Graduating with a full-stack team capstone project (Module 4) proves you can work with Git pull requests, CI/CD pipelines, and Agile sprints from day one.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "What is the median Full Stack Developer salary in Germany?",
-        a: "€58,500 gross per year according to StepStone 2026.",
-      },
-    ],
-    ctaCourseTitle: "Start your Full Stack Developer Course in English",
-    ctaCourseDesc: "100% funded with a Bildungsgutschein.",
-    ctaCourseTo: "/it-courses/full-stack-developer/",
-    relatedSlugs: ["full-stack-developer", "german-cv-template"],
+    relatedSlugs: ["devops-engineer", "ai-engineer"],
   },
 
   "soc-analyst": {
     slug: "soc-analyst",
     lang: "en",
     cluster: "Cyber Security",
-    badge: "Career Guide (Security)",
-    metaTitle: "SOC Analyst: Role, Skills and Salary in Germany | Clarusway",
+    badge: "Career Guide",
+    metaTitle: "What Does a SOC Analyst Do? Role, Tools & Salary | Clarusway",
     metaDescription:
-      "What does a SOC Analyst do in Germany? Tier 1–3 responsibilities, SIEM & SOAR tools, salary ranges, and English course funded with a Bildungsgutschein.",
-    h1: "SOC Analyst in Germany: role, skills and salary",
+      "What does a SOC Analyst do in Germany? Tiers 1–3, SIEM & SOAR tools, NIS-2 compliance, salary ranges, and English course funded with a Bildungsgutschein.",
+    h1: "What does a SOC analyst do? Role, tools and salary in Germany",
     author: "Clarusway Cyber Security Team",
-    updatedAt: "October 22, 2026",
+    updatedAt: "October 24, 2026",
     readTime: "6 min read",
     introParagraph1:
-      "A SOC Analyst (Security Operations Center Analyst) monitors enterprise networks and cloud infrastructure, investigates SIEM alerts, and contains cyber attacks. Due to the EU NIS-2 directive, demand for English-speaking SOC Analysts in Germany is growing rapidly.",
+      "A SOC Analyst (Security Operations Center Analyst) monitors enterprise IT networks, investigates suspicious security alerts in real time, and defends organizations against cyber attacks, data breaches, and ransomware. Due to the European Union's NIS-2 directive, German companies are facing unprecedented regulatory pressure to staff 24/7 security teams.",
     introCourseLinkLabel: "Cyber Security Analyst Course",
     introCourseLinkTo: "/it-courses/cyber-security/",
     introFundingLinkLabel: "how to get a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Explore SOC Analyst tiers and salary ranges in Germany below.",
+      "Review the three tiers of SOC Analysts, their core responsibilities, and current compensation in Germany below.",
     tableTitle: "SOC Analyst Tiers & Salaries in Germany (StepStone 2026)",
-    tableHeaders: ["Role / Tier", "Core Responsibility", "Gross Annual Salary"],
+    tableHeaders: ["SOC Tier", "Key Responsibilities", "Typical Experience", "Annual Salary (Gross)"],
     tableRows: [
-      ["SOC Analyst Tier 1", "Alert monitoring, SIEM triage & initial escalation", "€45,000 – €52,400"],
-      ["SOC Analyst Tier 2", "Deep incident investigation, forensics & containment", "€53,000 – €63,000"],
-      ["Cloud Security / Tier 3", "Threat hunting, Agentic AI SOAR & AWS Cloud Security", "€64,000 – €79,000"],
+      ["Tier 1 Analyst (Triage)", "Alert monitoring, SIEM ticket triage, initial threat verification", "0 – 2 years", "€45,000 – €52,400"],
+      ["Tier 2 Analyst (Incident Responder)", "Deep malware forensics, threat containment, root cause analysis", "2 – 4 years", "€53,000 – €63,000"],
+      ["Tier 3 / Cloud Security Specialist", "Threat hunting, SOAR automation, AWS/Azure infrastructure hardening", "4+ years", "€64,000 – €79,000"],
     ],
     sections: [
       {
-        id: "ai-soc",
-        h2: "AI-Enhanced SOC & Agentic AI in Security Operations",
+        id: "tools",
+        h2: "Which security tools does a SOC Analyst use?",
         paragraphs: [
-          "Clarusway's 4-module Cyber Security Course combines CompTIA Security+ prep with AI-assisted alert triage, autonomous SOAR playbooks, and AWS Cloud Security.",
+          "Analysts rely on SIEM platforms (like Microsoft Sentinel, Splunk, or Elastic), endpoint detection and response (EDR) solutions, network packet analyzers (Wireshark), and SOAR playbooks that automate containment actions like revoking compromised tokens or isolating infected hosts.",
+        ],
+      },
+      {
+        id: "ai-in-soc",
+        h2: "The rise of AI-enhanced Security Operations",
+        paragraphs: [
+          "Modern SOCs leverage Agentic AI to correlate telemetry from millions of event logs and generate human-readable incident summaries in seconds. Analysts with hands-on AI SecOps experience are among the most valued candidates in German cybersecurity.",
         ],
       },
     ],
     faqs: [
       {
-        q: "Can I enter directly into Module 2 if I already have IT experience?",
-        a: "Yes. Applicants with networking and Linux fundamentals can pass Clarusway's technical assessment to start directly in Module 2.",
+        q: "Do I need prior IT experience to become a SOC Analyst?",
+        a: "No. Module 1 of Clarusway's course provides beginner-friendly training in computer networks, Linux, and CompTIA Security+ concepts.",
+      },
+      {
+        q: "What certifications help land a SOC Analyst job in Germany?",
+        a: "CompTIA Security+ is the gold standard entry-level certification, followed by hands-on SIEM and cloud security project verification.",
       },
     ],
     ctaCourseTitle: "Cyber Security Analyst Course in English",
-    ctaCourseDesc: "4 modules (or direct entry at Module 2) — 100% funded with a Bildungsgutschein.",
+    ctaCourseDesc: "4 modules including CompTIA Security+ prep and AI SOC labs — 100% funded with a Bildungsgutschein.",
     ctaCourseTo: "/it-courses/cyber-security/",
-    relatedSlugs: ["comptia-security-plus", "it-jobs-in-germany-english-speakers"],
+    relatedSlugs: ["comptia-security-plus", "will-ai-replace-cybersecurity-professionals"],
   },
 
   "comptia-security-plus": {
@@ -1672,92 +1360,187 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     badge: "Certification Guide",
     metaTitle: "CompTIA Security+: Exam, Cost and Preparation | Clarusway",
     metaDescription:
-      "Complete guide to the CompTIA Security+ (SY0-701) exam in Germany: domains, exam format, and how to prepare for free with a Bildungsgutschein.",
+      "Complete guide to the CompTIA Security+ (SY0-701) exam in Germany: domains, exam format, cost, and how to prepare for free with a Bildungsgutschein.",
     h1: "CompTIA Security+ in Germany: exam, cost and preparation",
     author: "Clarusway Cyber Security Team",
-    updatedAt: "October 22, 2026",
+    updatedAt: "October 24, 2026",
     readTime: "6 min read",
     introParagraph1:
-      "CompTIA Security+ (SY0-701) is the global benchmark certification for entry-level cyber security professionals and is frequently requested in German SOC Analyst job descriptions.",
-    introCourseLinkLabel: "Cyber Security Analyst Course (Module 1: Security+ Prep)",
+      "CompTIA Security+ (SY0-701) is the premier vendor-neutral cybersecurity certification worldwide. In Germany, it is the most frequently requested baseline qualification in job postings for Junior SOC Analysts, Cloud Security Technicians, and Systems Security Administrators.",
+    introCourseLinkLabel: "Cyber Security Analyst Course (Module 1)",
     introCourseLinkTo: "/it-courses/cyber-security/",
     introFundingLinkLabel: "funded with a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Review the five official SY0-701 exam domains below.",
-    tableTitle: "CompTIA Security+ (SY0-701) Exam Domains",
-    tableHeaders: ["Domain", "Weight", "Key Topics"],
+      "Review the exam structure, official domains, and preparation roadmap below.",
+    tableTitle: "CompTIA Security+ (SY0-701) Exam Domains & Weighting",
+    tableHeaders: ["Domain Number", "Domain Name", "Exam Weight", "Key Focus Areas"],
     tableRows: [
-      ["1. General Security Concepts", "12%", "Zero Trust, cryptography, security controls"],
-      ["2. Threats, Vulnerabilities & Mitigations", "22%", "Malware, social engineering, vulnerability scanning"],
-      ["3. Security Architecture", "18%", "Network, cloud, and endpoint security design"],
-      ["4. Security Operations", "28%", "SIEM, log analysis, incident response, forensics"],
-      ["5. Security Program Management", "20%", "Governance, risk management, compliance (NIS-2, GDPR)"],
+      ["1.0", "General Security Concepts", "12%", "Zero Trust, cryptography basics, CIA triad, security controls"],
+      ["2.0", "Threats, Vulnerabilities & Mitigations", "22%", "Malware, social engineering, vulnerability scanning, threat intelligence"],
+      ["3.0", "Security Architecture", "18%", "Network topologies, cloud shared responsibility, endpoint hardening"],
+      ["4.0", "Security Operations", "28%", "SIEM analysis, log monitoring, incident response steps, digital forensics"],
+      ["5.0", "Security Program Management & Oversight", "20%", "Compliance frameworks (NIS-2, GDPR, ISO 27001), risk governance"],
     ],
     sections: [
       {
-        id: "module1",
-        h2: "Integrated exam prep in Module 1 at Clarusway",
+        id: "exam-format",
+        h2: "Exam format and passing score",
         paragraphs: [
-          "Module 1 of the Clarusway Cyber Security Course covers all five CompTIA Security+ domains with live hands-on labs and practice exams.",
+          "The SY0-701 exam consists of up to 90 questions (a mix of multiple-choice and performance-based simulation questions) completed in 90 minutes. A passing score is 750 on a scale of 100 to 900.",
+        ],
+      },
+      {
+        id: "funded-prep",
+        h2: "How to prepare 100% funded via Bildungsgutschein",
+        paragraphs: [
+          "At Clarusway, Module 1 of the Cyber Security Course covers the entire SY0-701 curriculum with live instructors, lab environments, and mock exams. When funded through the Agentur für Arbeit or Jobcenter, 100% of the training costs are covered.",
         ],
       },
     ],
     faqs: [
       {
-        q: "Can I skip Module 1 if I already hold CompTIA Security+?",
-        a: "Yes. You can take a technical placement assessment to start directly in Module 2 (AI-Enhanced SOC Analyst Experience).",
+        q: "How much does the CompTIA Security+ exam cost in Germany?",
+        a: "The standard retail exam voucher is approximately €370–€390 plus VAT. When attending Clarusway with a Bildungsgutschein, voucher arrangements are included in your approved measure offer.",
+      },
+      {
+        q: "Can I skip Module 1 if I already have Security+?",
+        a: "Yes. Learners who already hold CompTIA Security+ can take a placement assessment to enter directly into Module 2 (AI-Enhanced SOC Analyst Experience).",
       },
     ],
     ctaCourseTitle: "Prepare for CompTIA Security+ & SOC Analyst roles",
-    ctaCourseDesc: "100% funded with a Bildungsgutschein.",
+    ctaCourseDesc: "AZAV-certified live instruction in English · 100% funded with a Bildungsgutschein.",
     ctaCourseTo: "/it-courses/cyber-security/",
-    relatedSlugs: ["soc-analyst", "aws-certifications"],
+    relatedSlugs: ["soc-analyst", "will-ai-replace-cybersecurity-professionals"],
+  },
+
+  "will-ai-replace-cybersecurity-professionals": {
+    slug: "will-ai-replace-cybersecurity-professionals",
+    lang: "en",
+    cluster: "Cyber Security",
+    badge: "Industry Trends",
+    metaTitle: "Will AI Replace Cybersecurity Professionals? Facts & Trends | Clarusway",
+    metaDescription:
+      "Will AI replace cybersecurity professionals and SOC analysts? Why AI accelerates attacks and defense, which security skills survive, and how to stay ahead.",
+    h1: "Will AI replace cybersecurity professionals? Facts and future trends",
+    author: "Clarusway Cyber Security Team",
+    updatedAt: "October 24, 2026",
+    readTime: "7 min read",
+    introParagraph1:
+      "As Large Language Models and autonomous agent systems advance, many aspiring and current tech professionals ask: will artificial intelligence automate cybersecurity professionals and SOC analysts out of their jobs? In reality, industry data shows the exact opposite: AI is democratizing sophisticated cyber attacks, triggering an unprecedented shortage of qualified, AI-literate security defenders across Germany and Europe.",
+    introCourseLinkLabel: "AI-Enhanced Cyber Security Analyst Course",
+    introCourseLinkTo: "/it-courses/cyber-security/",
+    introFundingLinkLabel: "100% funded with a Bildungsgutschein",
+    introFundingLinkTo: "/bildungsgutschein/",
+    introParagraph2:
+      "Here is why AI will not replace cybersecurity analysts — and why analysts who master AI workflows will replace those who do not.",
+    tableTitle: "AI in Cybersecurity: What AI Automates vs. What Human Defenders Must Decide",
+    tableHeaders: ["Security Domain", "Automated AI Capability", "Human Analyst Responsibility"],
+    tableRows: [
+      ["Phishing & Social Engineering", "Detects synthetic speech & linguistic manipulation markers", "Formulates anti-fraud policies, investigates executive spear-phishing"],
+      ["SIEM Alert Triage", "Filters 90% of false-positive baseline noise in milliseconds", "Conducts root-cause analysis on high-severity, multi-stage intrusions"],
+      ["Incident Containment (SOAR)", "Executes automated playbook actions (quarantine host, block IP)", "Assesses critical business impact and orchestrates cross-team response"],
+      ["Vulnerability Remediation", "Identifies known CVEs and patches across cloud code", "Evaluates contextual business risk and approves sensitive deployment changes"],
+      ["EU NIS-2 & GDPR Compliance", "Collects telemetry logs and security posture evidence", "Signs legal accountability, liaises with German data protection authorities"],
+    ],
+    sections: [
+      {
+        id: "the-ai-threat-reality",
+        h2: "Why AI is expanding the cybersecurity talent gap in Germany",
+        paragraphs: [
+          "Threat actors now use generative AI to write polymorphic malware, craft flawless localized phishing campaigns without grammatical errors, and automate credential stuffing attacks at scale. Defending against AI-driven threats requires human security analysts who understand how both offensive and defensive AI tools operate.",
+          "According to industry estimates, Germany faces over 17,000 unfilled cybersecurity positions, compounded by stringent compliance requirements under the EU NIS-2 Directive which penalizes corporate leadership for unmanaged security risks.",
+        ],
+      },
+      {
+        id: "skills-that-matter",
+        h2: "Which cybersecurity skills are future-proof against AI automation?",
+        paragraphs: [
+          "The roles most resistant to automation are those requiring contextual risk evaluation, digital forensics, threat hunting, and multi-cloud infrastructure security (AWS and Microsoft Azure). Purely repetitive log review is handled by machines, freeing human analysts to focus on active defense and threat intelligence.",
+        ],
+      },
+      {
+        id: "clarusway-approach",
+        h2: "How Clarusway prepares you for the AI-driven cybersecurity landscape",
+        paragraphs: [
+          "Clarusway's 4-module Cyber Security Analyst Course includes a dedicated curriculum on AI-Enhanced Security Operations and Agentic AI SecOps. Students learn to build automated SIEM workflows, leverage AI copilots for alert investigations, and configure cloud security perimeters.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Will entry-level Tier 1 SOC Analyst jobs disappear?",
+        a: "No. Tier 1 analysts are evolving into AI-assisted investigators. Instead of manually inspecting hundreds of raw log lines, analysts supervise AI triage copilots and verify complex security escalations.",
+      },
+      {
+        q: "How can I prepare for an AI-resilient career in cybersecurity?",
+        a: "Start with solid networking and security fundamentals (CompTIA Security+), gain hands-on SIEM and cloud lab experience, and learn how to use SOAR automation and AI security tools.",
+      },
+      {
+        q: "Is the Cyber Security Analyst course funded with a Bildungsgutschein?",
+        a: "Yes. The course is officially AZAV-certified and 100% funded by the Agentur für Arbeit or Jobcenter.",
+      },
+    ],
+    ctaCourseTitle: "Future-proof your career with AI-Enhanced Cyber Security",
+    ctaCourseDesc: "CompTIA Security+, SOC Analyst experience, and AI SecOps in English · 100% funded with a Bildungsgutschein.",
+    ctaCourseTo: "/it-courses/cyber-security/",
+    relatedSlugs: ["soc-analyst", "comptia-security-plus"],
   },
 
   "devops-engineer": {
     slug: "devops-engineer",
     lang: "en",
     cluster: "Cloud & DevOps",
-    badge: "Career Guide (Cloud & DevOps)",
-    metaTitle: "DevOps Engineer: Role, Skills and Salary | Clarusway",
+    badge: "Career Guide",
+    metaTitle: "What Does a DevOps Engineer Do? Skills, Tools & Salary | Clarusway",
     metaDescription:
-      "How to become a DevOps Engineer in Germany: AWS, Docker, Kubernetes, Terraform, CI/CD, salary ranges, and English course funded with a Bildungsgutschein.",
-    h1: "DevOps Engineer in Germany: role, skills and salary",
+      "What does a DevOps Engineer do in Germany? Core skills (AWS, Docker, Kubernetes, Terraform, CI/CD), salary benchmarks (StepStone 2026), and funded training.",
+    h1: "What does a DevOps engineer do? Skills, tools and salary",
     author: "Clarusway Cloud & DevOps Team",
-    updatedAt: "October 22, 2026",
+    updatedAt: "October 24, 2026",
     readTime: "7 min read",
     introParagraph1:
-      "DevOps Engineers bridge software development and cloud operations by automating CI/CD pipelines, Kubernetes clusters, and cloud infrastructure using Terraform on AWS and Microsoft Azure.",
-    introCourseLinkLabel: "AWS & DevOps Engineer Course",
+      "DevOps Engineers bridge the gap between software development and IT operations. They design automated CI/CD deployment pipelines, manage containerized clusters with Docker and Kubernetes, and provision cloud infrastructure on Amazon Web Services (AWS) and Microsoft Azure using Infrastructure-as-Code (Terraform).",
+    introCourseLinkLabel: "AWS Solutions Architect and DevOps Engineer Training",
     introCourseLinkTo: "/it-courses/devops-aws/",
     introFundingLinkLabel: "how to get a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "See the essential toolset and salary ranges for DevOps Engineers in Germany.",
-    tableTitle: "Core DevOps & Cloud Roles in Germany (StepStone 2026)",
-    tableHeaders: ["Role", "Focus Area", "Median Gross Annual Salary"],
+      "See the essential tools, core responsibilities, and salary benchmarks for DevOps Engineers in Germany below.",
+    tableTitle: "Cloud & DevOps Roles and Salaries in Germany (StepStone 2026)",
+    tableHeaders: ["Job Title", "Primary Focus", "Core Tech Stack", "Median Gross Annual Salary"],
     tableRows: [
-      ["Cloud Engineer", "AWS & Azure infrastructure provisioning", "€61,500"],
-      ["DevOps Engineer", "CI/CD, Docker, Kubernetes & Terraform automation", "€64,800"],
-      ["AWS Solutions Architect", "High-availability cloud architecture design", "€68,400"],
+      ["Cloud Engineer", "Cloud infrastructure & security configuration", "AWS (EC2, S3, VPC), Azure, Linux, Bash", "€61,500"],
+      ["DevOps Engineer", "CI/CD pipelines, container orchestration, IaC", "Docker, Kubernetes, Terraform, Jenkins, GitHub Actions", "€64,800"],
+      ["AWS Solutions Architect", "High-availability, fault-tolerant cloud architecture", "AWS Well-Architected Framework, Microservices, IAM", "€68,400"],
     ],
     sections: [
       {
-        id: "modular-entry",
-        h2: "5 AZAV-certified modular entry options",
+        id: "core-tools",
+        h2: "Which tools are mandatory for DevOps Engineers in 2026?",
         paragraphs: [
-          "At Clarusway, you can complete the full 8-month multi-cloud track (AWS + DevOps + Azure) as a beginner, or book individual modules (3-month AWS Solutions Architect, 3-month DevOps Engineering, or 2-month Azure Fundamentals).",
+          "A successful DevOps Engineer in Germany must master: Linux and shell scripting, Docker containerization, Kubernetes orchestration, Terraform for declarative cloud provisioning, and Jenkins or GitHub Actions for continuous integration and delivery.",
+        ],
+      },
+      {
+        id: "modular-track",
+        h2: "Modular qualification from beginner to multi-cloud specialist",
+        paragraphs: [
+          "Clarusway's AZAV-certified program offers 5 modular combination options: from the full 8-month multi-cloud track (AWS + DevOps + Azure) for beginners, to focused 3-month modules in AWS Solutions Architecture or DevOps Engineering for experienced IT professionals.",
         ],
       },
     ],
     faqs: [
       {
-        q: "Can I become a DevOps Engineer without prior IT experience?",
-        a: "Yes. Module 1 of the AWS & DevOps Course teaches Linux, networking, and AWS Cloud from the ground up.",
+        q: "Can I become a DevOps Engineer without prior coding experience?",
+        a: "Yes. Module 1 teaches Linux fundamentals, networking, and AWS Cloud Architecture from scratch before introducing containerization and automated pipelines.",
+      },
+      {
+        q: "Is the AWS & DevOps course funded in Germany?",
+        a: "Yes. All modular variants are AZAV-certified and 100% covered with a Bildungsgutschein from the Agentur für Arbeit or Jobcenter.",
       },
     ],
-    ctaCourseTitle: "AWS & DevOps Engineer Course in English",
+    ctaCourseTitle: "AWS Solutions Architect and DevOps Engineer Training",
     ctaCourseDesc: "Official AWS Select Tier Partner · 100% funded with a Bildungsgutschein.",
     ctaCourseTo: "/it-courses/devops-aws/",
     relatedSlugs: ["aws-certifications", "aws-cloud-practitioner"],
@@ -1770,44 +1553,50 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     badge: "Certification Guide",
     metaTitle: "AWS Certifications: Which Exam to Take First | Clarusway",
     metaDescription:
-      "Compare AWS Cloud Practitioner (CLF-C02), Solutions Architect Associate (SAA-C03), and DevOps certifications in Germany.",
-    h1: "AWS certifications in Germany: overview, cost and which to choose",
+      "AWS certifications guide for 2026: compare Cloud Practitioner (CLF-C02) vs. Solutions Architect Associate (SAA-C03), exam costs, and funded preparation.",
+    h1: "AWS certifications: which one to take first in 2026",
     author: "Clarusway Cloud & DevOps Team",
-    updatedAt: "October 22, 2026",
+    updatedAt: "October 24, 2026",
     readTime: "6 min read",
     introParagraph1:
-      "Amazon Web Services (AWS) certifications are the most widely recognized cloud credentials in Germany's job market.",
-    introCourseLinkLabel: "AWS & DevOps Engineer Course",
+      "Amazon Web Services (AWS) is the dominant cloud provider in Germany and Europe. Holding an official AWS certification validates your cloud architectural competence to German hiring managers and significantly increases interview callback rates for cloud and DevOps positions.",
+    introCourseLinkLabel: "AWS Solutions Architect and DevOps Engineer Training",
     introCourseLinkTo: "/it-courses/devops-aws/",
     introFundingLinkLabel: "funded with a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Compare the primary AWS certification exams below.",
-    tableTitle: "AWS Certification Comparison",
-    tableHeaders: ["Certification", "Exam Code", "Level", "Best For"],
+      "Compare the most valuable AWS certification credentials and understand which exam to prioritize.",
+    tableTitle: "AWS Certification Comparison: Level, Code & Target Audience",
+    tableHeaders: ["Certification Name", "Exam Code", "Difficulty Level", "Recommended For"],
     tableRows: [
-      ["AWS Certified Cloud Practitioner", "CLF-C02", "Foundational", "Beginners & cloud fundamentals"],
-      ["AWS Certified Solutions Architect – Associate", "SAA-C03", "Associate", "Cloud & DevOps Engineers (Highest employer demand)"],
-      ["AWS Certified SysOps Administrator – Associate", "SOA-C02", "Associate", "Cloud operations & system administration"],
+      ["AWS Certified Cloud Practitioner", "CLF-C02", "Foundational", "Beginners seeking conceptual cloud literacy"],
+      ["AWS Certified Solutions Architect – Associate", "SAA-C03", "Associate", "Cloud Engineers & DevOps (Highest industry demand in Germany)"],
+      ["AWS Certified SysOps Administrator – Associate", "SOA-C02", "Associate", "System administrators managing cloud workloads"],
+      ["AWS Certified DevOps Engineer – Professional", "DOP-C02", "Professional", "Senior practitioners with 2+ years of production cloud experience"],
     ],
     sections: [
       {
-        id: "saa",
-        h2: "Why Solutions Architect Associate (SAA-C03) is the gold standard",
+        id: "why-saa-first",
+        h2: "Why Solutions Architect – Associate (SAA-C03) is the ideal starting point",
         paragraphs: [
-          "Module 1 of Clarusway's AWS & DevOps Course (and the standalone 3-month AWS Solutions Architect Course) prepares you directly for the SAA-C03 exam.",
+          "While the Cloud Practitioner validates basic terminology, the Solutions Architect – Associate (SAA-C03) proves your ability to design secure, resilient, high-performing, and cost-optimized architectures using core AWS services like EC2, S3, VPC, IAM, and Auto Scaling.",
+          "In Clarusway's AWS Cloud Engineer module, you master both foundational concepts and Associate-level architecture in a single cohesive curriculum.",
         ],
       },
     ],
     faqs: [
       {
         q: "Is Clarusway an official AWS Partner?",
-        a: "Yes. Clarusway is an AWS Select Tier Consulting Partner.",
+        a: "Yes. Clarusway is an official AWS Select Tier Consulting Partner, ensuring curricula adhere to current AWS Well-Architected guidelines.",
+      },
+      {
+        q: "Can I prepare for the AWS SAA-C03 exam for free?",
+        a: "Yes. With a Bildungsgutschein from the Agentur für Arbeit or Jobcenter, 100% of your course fees at Clarusway are covered.",
       },
     ],
     ctaCourseTitle: "Prepare for AWS SAA-C03 in English",
-    ctaCourseDesc: "3-month AWS Solutions Architect or 8-month AWS & DevOps Course.",
-    ctaCourseTo: "/it-courses/aws-solutions-architect/",
+    ctaCourseDesc: "Live online training with official AWS Select Tier Partner · 100% funded with a Bildungsgutschein.",
+    ctaCourseTo: "/it-courses/devops-aws/",
     relatedSlugs: ["aws-cloud-practitioner", "devops-engineer"],
   },
 
@@ -1818,40 +1607,51 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     badge: "Exam Guide",
     metaTitle: "AWS Cloud Practitioner: Exam and Prep Guide | Clarusway",
     metaDescription:
-      "AWS Certified Cloud Practitioner (CLF-C02) exam domains, format, and study roadmap in Germany.",
-    h1: "AWS Cloud Practitioner (CLF-C02): exam, cost and preparation",
+      "AWS Certified Cloud Practitioner (CLF-C02) exam guide: 4 domains, exam format, costs, and study roadmap in Germany.",
+    h1: "AWS Cloud Practitioner (CLF-C02): exam guide, cost and preparation",
     author: "Clarusway Cloud & DevOps Team",
-    updatedAt: "October 22, 2026",
+    updatedAt: "October 24, 2026",
     readTime: "5 min read",
     introParagraph1:
-      "The AWS Certified Cloud Practitioner (CLF-C02) validates your foundational understanding of Amazon Web Services.",
-    introCourseLinkLabel: "AWS & DevOps Engineer Course",
+      "The AWS Certified Cloud Practitioner (CLF-C02) validates an overall foundational understanding of the Amazon Web Services cloud platform, covering cloud concepts, security, technology, billing, and pricing models.",
+    introCourseLinkLabel: "AWS Solutions Architect and DevOps Engineer Training",
     introCourseLinkTo: "/it-courses/devops-aws/",
     introFundingLinkLabel: "how to get a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Review the four exam domains below.",
-    tableTitle: "AWS Cloud Practitioner (CLF-C02) Domains",
-    tableHeaders: ["Domain", "Exam Weight", "Focus"],
+      "Here is an overview of the four CLF-C02 exam domains and recommended study strategy.",
+    tableTitle: "AWS Certified Cloud Practitioner (CLF-C02) Exam Domains",
+    tableHeaders: ["Domain", "Domain Title", "Exam Weight", "Primary Topics"],
     tableRows: [
-      ["1. Cloud Concepts", "24%", "Cloud economics & AWS Well-Architected principles"],
-      ["2. Security and Compliance", "30%", "Shared Responsibility Model, IAM, compliance"],
-      ["3. Cloud Technology and Services", "34%", "EC2, S3, VPC, RDS, Lambda"],
-      ["4. Billing, Pricing, and Support", "12%", "Pricing models, cost control & support tiers"],
+      ["1", "Cloud Concepts", "24%", "AWS Cloud value proposition, cloud economics, Well-Architected Framework"],
+      ["2", "Security and Compliance", "30%", "AWS Shared Responsibility Model, IAM, compliance concepts, security groups"],
+      ["3", "Cloud Technology and Services", "34%", "Core compute (EC2), storage (S3, EBS), database (RDS), networking (VPC)"],
+      ["4", "Billing, Pricing, and Support", "12%", "AWS Pricing models, AWS Cost Explorer, Budgets, support plans"],
     ],
     sections: [
       {
-        id: "beyond-clf",
-        h2: "Go from Cloud Practitioner to Solutions Architect Associate",
+        id: "exam-details",
+        h2: "Exam structure and practical details",
         paragraphs: [
-          "In Clarusway's AWS Solutions Architect module, you master all CLF-C02 foundations in the first weeks and continue all the way to the Associate-level SAA-C03 standard.",
+          "The CLF-C02 exam has 65 questions (multiple choice or multiple response) to be completed in 90 minutes. The passing score is 700 on a 100–1000 scale, and the exam costs approximately $100 USD (around €95).",
+        ],
+      },
+      {
+        id: "path-forward",
+        h2: "Progressing from Cloud Practitioner to Solutions Architect",
+        paragraphs: [
+          "At Clarusway, learners cover all Cloud Practitioner essentials in the first weeks of the AWS training before elevating their hands-on skills directly to the more marketable AWS Certified Solutions Architect – Associate level.",
         ],
       },
     ],
     faqs: [
       {
-        q: "How long is the CLF-C02 exam?",
-        a: "90 minutes for 65 multiple-choice and multiple-response questions.",
+        q: "Is Cloud Practitioner required before taking Solutions Architect Associate?",
+        a: "No. AWS does not have mandatory prerequisites — you can take the Solutions Architect Associate (SAA-C03) directly.",
+      },
+      {
+        q: "Is the AWS training eligible for German funding?",
+        a: "Yes. Clarusway's AWS training is AZAV-certified and 100% funded with a Bildungsgutschein.",
       },
     ],
     ctaCourseTitle: "Start your AWS Cloud training in English",
@@ -1861,8 +1661,6 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
   },
 };
 
-
 // Aliases for alternate guide slugs
 DE_GUIDES["agentic-ai"] = DE_GUIDES["was-ist-agentic-ai"];
 DE_GUIDES["siem"] = DE_GUIDES["was-ist-ein-siem"];
-EN_GUIDES["agentic-ai"] = EN_GUIDES["what-is-agentic-ai"];
