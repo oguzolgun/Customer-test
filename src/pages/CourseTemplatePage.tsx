@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { CourseKey, getCourseData } from "../data/coursesData";
+import { mapCourseKeyToModularPath } from "../data/modularPathsData";
+import { ModularPathHeroVisual } from "../components/ModularPathHeroVisual";
 import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { ProgramSelector } from "../components/ProgramSelector";
@@ -190,6 +192,8 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
     ? [{ label: data.breadcrumbLabel }]
     : [{ label: coursesHubLabel, to: coursesHubPath }, { label: data.breadcrumbLabel }];
 
+  const modularPathConfig = mapCourseKeyToModularPath(data.key);
+
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
       <SeoHead
@@ -208,8 +212,8 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         className="relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
       >
-        <div className="max-w-[1200px] mx-auto px-5 py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left Column */}
+        <div className="max-w-[1200px] mx-auto px-5 py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+          {/* Left Column — Hook, Heading, Badges, CTAs */}
           <div>
             {/* Tech Badges at Top (Exact Figma Make position) */}
             <div className="flex flex-wrap gap-2 mb-5">
@@ -281,62 +285,95 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </div>
           </div>
 
-          {/* Right Column — Figma Terminal + 2 Floating White Cards */}
-          <div className="relative flex justify-center">
-            <div className="w-full max-w-[440px] rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-[#1e1e2e] p-6 text-white">
-              <div className="flex items-center gap-2 mb-5">
-                <span className="w-3 h-3 rounded-full bg-red-500" />
-                <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                <span className="w-3 h-3 rounded-full bg-green-400" />
-                <span className="ml-2 text-xs text-gray-400 font-mono">
-                  {data.terminalTitle}
-                </span>
-              </div>
+          {/* Right Column — Modular Animated Curriculum Path or Terminal Mockup */}
+          <div className="relative flex justify-center w-full">
+            {modularPathConfig ? (
+              <div className="relative w-full max-w-[480px]">
+                <ModularPathHeroVisual
+                  initialCourseId={modularPathConfig.pathId}
+                  defaultModuleIndex={modularPathConfig.defaultModuleIndex}
+                  lang={lang}
+                  loopWithinCourse={true}
+                />
 
-              <div className="font-mono text-xs sm:text-sm space-y-2 leading-relaxed">
-                {data.terminalLines.map((line, i) => (
-                  <p key={i} style={{ color: line.color }}>
-                    {line.text}
-                  </p>
-                ))}
-              </div>
-
-              {/* Progress Bars inside Terminal Card */}
-              <div className="mt-6 pt-4 border-t border-gray-700 grid grid-cols-2 gap-3 text-xs">
-                <div className="bg-white/5 rounded-xl p-3">
-                  <div className="text-gray-400 mb-0.5">
-                    {lang === "en" ? "Hands-on Live Labs" : "Praxis-Labs & Projekte"}
+                {/* Floating Badge Top-Right (15 Plätze pro Kurs) */}
+                <div className="hidden sm:block absolute -top-3 -right-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100 z-10 pointer-events-none">
+                  <div className="text-2xl font-extrabold" style={{ color: PRIMARY }}>
+                    15
                   </div>
-                  <div className="text-white font-bold">100% Live</div>
+                  <div className="text-xs text-gray-500">
+                    {lang === "en" ? "Seats per Cohort" : "Plätze pro Kurs"}
+                  </div>
                 </div>
-                <div className="bg-white/5 rounded-xl p-3">
-                  <div className="text-gray-400 mb-0.5">
-                    {lang === "en" ? "Voucher Coverage" : "Bildungsgutschein"}
+
+                {/* Floating Badge Bottom-Left (AZAV zertifiziert & förderfähig) */}
+                <div className="hidden sm:block absolute -bottom-3 -left-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100 z-10 pointer-events-none">
+                  <div className="text-sm font-bold" style={{ color: DARK }}>
+                    AZAV
                   </div>
-                  <div className="text-emerald-400 font-bold">100% (0 €)</div>
+                  <div className="text-xs font-semibold" style={{ color: PRIMARY }}>
+                    {lang === "en" ? "certified & 100% funded" : "zertifiziert & förderfähig"}
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className="relative w-full max-w-[440px]">
+                <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-[#1e1e2e] p-6 text-white">
+                  <div className="flex items-center gap-2 mb-5">
+                    <span className="w-3 h-3 rounded-full bg-red-500" />
+                    <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                    <span className="w-3 h-3 rounded-full bg-green-400" />
+                    <span className="ml-2 text-xs text-gray-400 font-mono">
+                      {data.terminalTitle}
+                    </span>
+                  </div>
 
-            {/* Floating Badge Top-Right (15 Plätze pro Kurs) */}
-            <div className="hidden sm:block absolute -top-3 -right-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100">
-              <div className="text-2xl font-extrabold" style={{ color: PRIMARY }}>
-                15
-              </div>
-              <div className="text-xs text-gray-500">
-                {lang === "en" ? "Seats per Cohort" : "Plätze pro Kurs"}
-              </div>
-            </div>
+                  <div className="font-mono text-xs sm:text-sm space-y-2 leading-relaxed">
+                    {data.terminalLines.map((line, i) => (
+                      <p key={i} style={{ color: line.color }}>
+                        {line.text}
+                      </p>
+                    ))}
+                  </div>
 
-            {/* Floating Badge Bottom-Left (AZAV zertifiziert & förderfähig) */}
-            <div className="hidden sm:block absolute -bottom-3 -left-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100">
-              <div className="text-sm font-bold" style={{ color: DARK }}>
-                AZAV
+                  {/* Progress Bars inside Terminal Card */}
+                  <div className="mt-6 pt-4 border-t border-gray-700 grid grid-cols-2 gap-3 text-xs">
+                    <div className="bg-white/5 rounded-xl p-3">
+                      <div className="text-gray-400 mb-0.5">
+                        {lang === "en" ? "Hands-on Live Labs" : "Praxis-Labs & Projekte"}
+                      </div>
+                      <div className="text-white font-bold">100% Live</div>
+                    </div>
+                    <div className="bg-white/5 rounded-xl p-3">
+                      <div className="text-gray-400 mb-0.5">
+                        {lang === "en" ? "Voucher Coverage" : "Bildungsgutschein"}
+                      </div>
+                      <div className="text-emerald-400 font-bold">100% (0 €)</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Badge Top-Right (15 Plätze pro Kurs) */}
+                <div className="hidden sm:block absolute -top-3 -right-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100 z-10 pointer-events-none">
+                  <div className="text-2xl font-extrabold" style={{ color: PRIMARY }}>
+                    15
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    {lang === "en" ? "Seats per Cohort" : "Plätze pro Kurs"}
+                  </div>
+                </div>
+
+                {/* Floating Badge Bottom-Left (AZAV zertifiziert & förderfähig) */}
+                <div className="hidden sm:block absolute -bottom-3 -left-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100 z-10 pointer-events-none">
+                  <div className="text-sm font-bold" style={{ color: DARK }}>
+                    AZAV
+                  </div>
+                  <div className="text-xs font-semibold" style={{ color: PRIMARY }}>
+                    {lang === "en" ? "certified & 100% funded" : "zertifiziert & förderfähig"}
+                  </div>
+                </div>
               </div>
-              <div className="text-xs font-semibold" style={{ color: PRIMARY }}>
-                {lang === "en" ? "certified & 100% funded" : "zertifiziert & förderfähig"}
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
