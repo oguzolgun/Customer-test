@@ -22,11 +22,11 @@ export function CoursesHubPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "IT Bootcamps and Courses in English | Clarusway"
+    ? "IT Bootcamps and Courses in Germany | Clarusway"
     : "IT-Kurse & Weiterbildungen mit Bildungsgutschein | Clarusway";
 
   const metaDescription = isEn
-    ? "Compare Clarusway's live online IT bootcamps in English in Germany: AI Engineering, Data Analytics, Full Stack, Cyber Security, AWS & DevOps, and SDET. 100% funded with a Bildungsgutschein."
+    ? "Compare Clarusway's live online IT bootcamps in Germany: AI Engineering, Data Analytics, Full Stack, Cyber Security, AWS & DevOps, and SDET. English, Turkish & German instruction. 100% funded with a Bildungsgutschein."
     : "Vergleiche alle geförderten IT-Weiterbildungen bei Clarusway: AI Engineering, Data Analytics, Full Stack, Cyber Security, AWS & DevOps und Software Testing.";
 
   const comparisonRows = isEn
@@ -333,7 +333,7 @@ export function CoursesHubPage() {
         },
         {
           q: "Do I need to speak German?",
-          a: "No. All courses are taught live online in English. Clarusway provides all official German enrollment documents required by your Agentur für Arbeit or Jobcenter advisor.",
+          a: "No. Courses are offered with flexible instruction in English and Turkish (German cohorts expanding). Clarusway provides all official German enrollment documents required by your Agentur für Arbeit or Jobcenter advisor.",
         },
       ]
     : [
@@ -351,7 +351,7 @@ export function CoursesHubPage() {
         },
         {
           q: "In welcher Sprache findet der Unterricht statt?",
-          a: "Der Live-Unterricht findet auf Englisch statt, da sämtliche Tools, Cloud-Plattformen und Zertifizierungen international auf Englisch geführt werden. Unsere Förder- und Karriereberatung begleitet dich auf Deutsch und Englisch.",
+          a: "Der Unterricht wird flexibel auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Unsere Förder- und Karriereberatung begleitet dich auf Deutsch, Englisch oder Türkisch.",
         },
       ];
 
@@ -406,20 +406,20 @@ export function CoursesHubPage() {
               <ShieldCheckIcon className="w-4 h-4" />
               <span>
                 {isEn
-                  ? "AZAV-Certified IT Bootcamps in English"
+                  ? "AZAV-Certified IT Bootcamps in Germany"
                   : "AZAV-zertifizierte Live-Online-Weiterbildungen"}
               </span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
               {isEn
-                ? "IT bootcamps in English, funded with a Bildungsgutschein"
+                ? "IT bootcamps in Germany, funded with a Bildungsgutschein"
                 : "IT-Kurse mit Bildungsgutschein im Überblick"}
             </h1>
 
             <p className="text-gray-500 text-base sm:text-lg leading-relaxed mb-6">
               {isEn
-                ? "Compare all AZAV-certified IT courses at Clarusway. Every program is taught live online in English (Monday–Friday, 09:00–16:45 CET) and is 100% fundable in Germany with a Bildungsgutschein (education voucher), AVGS, or Qualifizierungschancengesetz."
+                ? "Compare all AZAV-certified IT courses at Clarusway. Every program is taught live online with flexible cohort instruction in English, Turkish, and German (Monday–Friday, 09:00–16:45 CET) and is 100% fundable in Germany with a Bildungsgutschein (education voucher), AVGS, or Qualifizierungschancengesetz."
                 : "Vergleiche alle geförderten IT-Weiterbildungen von Clarusway. Jedes Programm wird im Live-Online-Unterricht durchgeführt und kann dank modularer AZAV-Zulassung individuell an dein Vorwissen und deinen Bildungsgutschein angepasst werden."}
             </p>
 

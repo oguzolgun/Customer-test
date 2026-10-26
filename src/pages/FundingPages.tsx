@@ -45,7 +45,7 @@ export function FinancingHubPage() {
         },
         {
           q: "Does Clarusway help with the German application forms?",
-          a: "Yes. Clarusway prepares your official course offer (Maßnahmeangebot) in German within 24 hours and coaches you in English on how to present it to your advisor.",
+          a: "Yes. Clarusway prepares your official course offer (Maßnahmeangebot) in German within 24 hours and coaches you in your preferred language (English, Turkish, or German) on how to present it to your advisor.",
         },
       ]
     : [
@@ -288,11 +288,11 @@ export function BildungsgutscheinPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "Bildungsgutschein Explained in English: How to Get 100% Funding | Clarusway"
+    ? "Bildungsgutschein Guide: How to Get 100% Funding for IT Training | Clarusway"
     : "Bildungsgutschein beantragen: Voraussetzungen & Ablauf | Clarusway";
 
   const metaDescription = isEn
-    ? "Step-by-step guide in English on how to get a Bildungsgutschein from the Agentur für Arbeit or Jobcenter in Germany for 100% funded IT training at Clarusway."
+    ? "Step-by-step guide on how to get a Bildungsgutschein from the Agentur für Arbeit or Jobcenter in Germany for 100% funded IT training at Clarusway."
     : "So beantragst du deinen Bildungsgutschein bei Agentur für Arbeit oder Jobcenter: Voraussetzungen, 5 Schritte, Tipps für das Beratungsgespräch und geförderte IT-Kurse.";
 
   const steps = isEn
@@ -303,7 +303,7 @@ export function BildungsgutscheinPage() {
         },
         {
           title: "Step 2: Book your free consultation at Clarusway",
-          desc: "Speak with a Clarusway advisor in English to select the IT bootcamp or module combination that fits your background and the German job market.",
+          desc: "Speak with a Clarusway advisor (available in English, Turkish, or German) to select the IT bootcamp or module combination that fits your background and the German job market.",
         },
         {
           title: "Step 3: Receive your German course offer (Maßnahmeangebot)",
@@ -315,7 +315,7 @@ export function BildungsgutscheinPage() {
         },
         {
           title: "Step 5: Redeem your voucher and start your IT course",
-          desc: "Once approved, submit the Bildungsgutschein to Clarusway. Clarusway handles the billing directly with the agency and you start your live English cohort.",
+          desc: "Once approved, submit the Bildungsgutschein to Clarusway. Clarusway handles the billing directly with the agency and you start your live cohort.",
         },
       ]
     : [
@@ -352,8 +352,8 @@ export function BildungsgutscheinPage() {
           a: "Yes. When approved, 100% of your course tuition, required software licenses, learning materials, and approved certification exam vouchers are paid directly to Clarusway by the government agency. There are 0 € out-of-pocket costs for you.",
         },
         {
-          q: "Can I get a Bildungsgutschein if I only speak English?",
-          a: "Yes. All Clarusway bootcamps are conducted 100% in English and are officially AZAV-certified in Germany. Clarusway prepares all official German documentation (Maßnahmeangebot) for your advisor appointment and guides you step by step.",
+          q: "Can I get a Bildungsgutschein without fluent German?",
+          a: "Yes. Clarusway bootcamps offer instruction in English and Turkish (German cohorts expanding) and are officially AZAV-certified in Germany. Clarusway prepares all official German documentation (Maßnahmeangebot) for your advisor appointment and guides you step by step.",
         },
         {
           q: "What is the difference between Agentur für Arbeit and Jobcenter?",
@@ -449,7 +449,7 @@ export function BildungsgutscheinPage() {
 
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
               {isEn
-                ? "A Bildungsgutschein (education voucher) is an official funding commitment issued by the Agentur für Arbeit (Federal Employment Agency) or Jobcenter in Germany. It covers 100% of the tuition fees for AZAV-certified Clarusway IT bootcamps taught in English."
+                ? "A Bildungsgutschein (education voucher) is an official funding commitment issued by the Agentur für Arbeit (Federal Employment Agency) or Jobcenter in Germany. It covers 100% of the tuition fees for AZAV-certified Clarusway IT bootcamps."
                 : "Mit einem Bildungsgutschein der Agentur für Arbeit oder des Jobcenters werden die Kosten deiner AZAV-zertifizierten IT-Weiterbildung bei Clarusway zu 100 % übernommen. Hier erfährst du alles zu Voraussetzungen, Antragstellung und Vorbereitung."}
             </p>
 
@@ -619,17 +619,17 @@ export function BildungsgutscheinPage() {
             <div style={{ backgroundColor: DARK }} className="rounded-2xl p-7 text-white flex flex-col justify-between">
               <div>
                 <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e51a59] text-white mb-3">
-                  {isEn ? "For Expats & English Speakers" : "Englisch in der IT-Branche"}
+                  {isEn ? "Instruction Languages & Support" : "Unterrichtssprachen & Förderung"}
                 </span>
                 <h2 className="text-xl sm:text-2xl font-bold mb-3">
                   {isEn
                     ? "Do I need to speak German to get a Bildungsgutschein?"
-                    : "Warum unsere Kurse auf Englisch unterrichtet werden"}
+                    : "Flexible Unterrichtssprachen: Englisch, Türkisch & Deutsch"}
                 </h2>
                 <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
                   {isEn
-                    ? "No German is needed for the Clarusway bootcamp itself — all live instruction, labs, and career coaching are 100% in English. For your appointment at the Agentur für Arbeit or Jobcenter, Clarusway provides your complete application package in German so your advisor has every required AZAV number and justification."
-                    : "In der modernen IT (Cloud, KI, Cyber Security und Softwareentwicklung) sind sämtliche Tools, Dokumentationen und Zertifizierungen international auf Englisch. Unsere Förderberatung vorab und während des Kurses begleitet dich selbstverständlich auch auf Deutsch."}
+                    ? "Clarusway offers live online IT training with instruction in English and Turkish, with German cohort options available. For your appointment at the Agentur für Arbeit or Jobcenter, Clarusway provides your complete application package in German so your advisor has every required AZAV number and justification."
+                    : "Unsere Weiterbildungen werden flexibel auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Unsere Förderberatung vorab und während des Kurses begleitet dich selbstverständlich auch durchgehend auf Deutsch."}
                 </p>
               </div>
               <Link

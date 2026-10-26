@@ -148,7 +148,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     infoStrip: [
       ["32 Wochen", "Gesamtdauer (13 + 6 + 13 Wo.)"],
-      ["Englisch", "Unterrichtssprache (Live)"],
+      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
       ["100 % Online", "Mo–Fr · 09:00–16:45 Uhr"],
       ["Max. 15", "Teilnehmende pro Klasse"],
       ["AZAV", "100 % Bildungsgutschein"],
@@ -253,7 +253,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "32 Wochen",
         schedule: "09:00–16:45 Uhr Berlin (Vollzeit)",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["27 Jul 2026", "30 Aug 2026", "28 Sep 2026", "26 Okt 2026"],
         recommended: true,
         description:
@@ -271,7 +271,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "19 Wochen",
         schedule: "09:00–16:45 Uhr Berlin (Vollzeit)",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["30 Aug 2026", "28 Sep 2026", "26 Okt 2026"],
         recommended: false,
         description:
@@ -289,7 +289,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "13 Wochen",
         schedule: "09:00–16:45 Uhr Berlin (Vollzeit)",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["28 Sep 2026", "26 Okt 2026", "30 Nov 2026"],
         recommended: false,
         description:
@@ -331,7 +331,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         desc: "Montag bis Freitag von 09:00 bis 16:45 Uhr Berliner Zeit. Konzepte werden live erklärt und sofort in betreuten Coding-Labs umgesetzt.",
       },
       {
-        title: "Unterrichtssprache: Englisch",
+        title: "Unterrichtssprache: Englisch, Türkisch & Deutsch",
         desc: "Das Training findet auf Englisch statt — der Arbeitssprache internationaler Daten- und KI-Teams in Deutschland — begleitet durch deutsch- und englischsprachige Karriereberatung.",
       },
       {
@@ -344,7 +344,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       ["Dauer", "32 Wochen (Vollpaket) · 19 Wo. (ab M2) · 13 Wo. (ab M3)"],
       ["Lehrplan", "Modul 1 (13 Wo.) + Modul 2 (6 Wo.) + Modul 3 (13 Wo.)"],
       ["Kapazität", "Max. 15 Plätze pro Kohorte"],
-      ["Sprache", "Unterrichtssprache: Englisch"],
+      ["Sprache", "Englisch / Türkisch / Deutsch"],
       ["Zertifikat", "AZAV-zertifiziert (bis zu 3 Modul-Zertifikate)"],
     ],
     fundingH2: "KI Weiterbildung mit Bildungsgutschein",
@@ -511,7 +511,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Unterrichtssprache ist Englisch, da sämtliche KI-Frameworks, Dokumentationen und internationalen Entwicklerteams in Deutschland auf Englisch arbeiten. Unsere Kurs- und Förderberatung steht dir auf Deutsch und Englisch zur Seite.",
+        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
       {
         q: "Welches Zertifikat erhalte ich?",
@@ -572,7 +572,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     infoStrip: [
       ["13 Wochen", "Kompakte Kursdauer (65 Sessions)"],
-      ["Englisch", "Unterrichtssprache (Live)"],
+      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
       ["Ohne Vorwissen", "Kein technischer Eingangstest"],
       ["Max. 15", "Teilnehmende pro Klasse"],
       ["AZAV", "100 % Bildungsgutschein"],
@@ -632,7 +632,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "13 Wochen",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["27 Jul 2026", "30 Aug 2026", "28 Sep 2026", "26 Okt 2026"],
         recommended: true,
         description:
@@ -648,7 +648,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "19 Wochen",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["27 Jul 2026", "30 Aug 2026", "28 Sep 2026"],
         recommended: false,
         description:
@@ -691,7 +691,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         desc: "Mo–Fr von 09:00 bis 16:45 Uhr Berliner Zeit mit erfahrenen Trainern und täglichen Praxis-Labs.",
       },
       {
-        title: "Unterrichtssprache: Englisch",
+        title: "Unterrichtssprache: Englisch, Türkisch & Deutsch",
         desc: "Alle Fachbegriffe, Datenbank-Abfragen und BI-Tools lernst du direkt im internationalen Branchenstandard.",
       },
       {
@@ -704,7 +704,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       ["Dauer", "13 Wochen (65 Live-Sessions)"],
       ["Lehrplan", "Python, Pandas, SQL, Statistik, Power BI, Tableau"],
       ["Kapazität", "Max. 15 Plätze"],
-      ["Sprache", "Unterrichtssprache: Englisch"],
+      ["Sprache", "Englisch / Türkisch / Deutsch"],
       ["Förderung", "100 % über Bildungsgutschein / QCG"],
     ],
     fundingH2: "Data Analyst Weiterbildung mit Bildungsgutschein",
@@ -823,7 +823,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Unterrichtssprache ist Englisch. Unsere Beratung zur Förderung und Karriereplanung erfolgt auf Deutsch und Englisch.",
+        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -876,7 +876,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     infoStrip: [
       ["4 Module", "Strukturierter Full-Stack-Pfad"],
-      ["Englisch", "Unterrichtssprache (Live)"],
+      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
       ["KI-Workflows", "Cursor, Claude Code & Copilot"],
       ["Max. 15", "Teilnehmende pro Klasse"],
       ["AZAV", "100 % Bildungsgutschein"],
@@ -983,7 +983,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "12 Monate",
         schedule: "09:00–16:45 Uhr Berlin (Vollzeit)",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["27 Jul 2026", "24 Aug 2026", "28 Sep 2026", "26 Okt 2026"],
         recommended: true,
         description:
@@ -1000,7 +1000,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "9 Monate",
         schedule: "09:00–16:45 Uhr Berlin (Vollzeit)",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["10 Aug 2026", "7 Sep 2026", "12 Okt 2026", "9 Nov 2026"],
         recommended: false,
         description:
@@ -1016,7 +1016,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "6 Monate",
         schedule: "09:00–16:45 Uhr Berlin (Vollzeit)",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["27 Jul 2026", "24 Aug 2026", "28 Sep 2026"],
         recommended: false,
         description:
@@ -1032,7 +1032,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "3 Monate",
         schedule: "09:00–16:45 Uhr Berlin (Vollzeit)",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["10 Aug 2026", "12 Okt 2026", "30 Nov 2026"],
         recommended: false,
         description:
@@ -1093,7 +1093,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         desc: "Du lernst live mit erfahrenen Senior-Entwicklern, stellst Fragen in Echtzeit und löst Aufgaben gemeinsam in betreuten Coding-Labs.",
       },
       {
-        title: "Unterrichtssprache: Englisch",
+        title: "Unterrichtssprache: Englisch, Türkisch & Deutsch",
         desc: "Du trainierst von Beginn an mit englischer Fachdokumentation, Git-Commits und agilen Stand-ups — begleitet von deutscher Förder- und Karriereberatung.",
       },
       {
@@ -1106,7 +1106,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       ["Dauer", "12 Monate (Vollpaket) · 9 Mo. (ab M2) · 6 Mo. (Frontend) · 3 Mo. (Einzelmodul)"],
       ["Lehrplan", "Modul 1 + Modul 2 + Modul 3 + Modul 4"],
       ["Kapazität", "Max. 15 Plätze pro Klasse"],
-      ["Sprache", "Unterrichtssprache: Englisch"],
+      ["Sprache", "Englisch / Türkisch / Deutsch"],
       ["Zertifikat", "AZAV-zertifiziert + GitHub-Portfolio"],
     ],
     fundingH2: "Full Stack Entwickler Weiterbildung mit Bildungsgutschein",
@@ -1249,7 +1249,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Unterrichtssprache ist Englisch, damit du Programmierkonzepte, Dokumentation und Team-Workflows im internationalen Branchenstandard beherrschst. Die Beratung vor und während des Kurses ist auch auf Deutsch verfügbar.",
+        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -1307,7 +1307,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     infoStrip: [
       ["4 Module", "SOC, Agentic AI & Cloud Security"],
-      ["Englisch", "Unterrichtssprache (Live)"],
+      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
       ["Security+", "Prüfungsvorbereitung in Modul 1"],
       ["Max. 15", "Teilnehmende pro Klasse"],
       ["AZAV", "100 % Bildungsgutschein"],
@@ -1416,7 +1416,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "4 Module (Vollzeit)",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["24 Aug 2026", "28 Sep 2026", "26 Okt 2026", "30 Nov 2026"],
         recommended: true,
         description:
@@ -1433,7 +1433,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "3 Module (Vollzeit)",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["28 Sep 2026", "26 Okt 2026", "30 Nov 2026"],
         recommended: false,
         description:
@@ -1449,7 +1449,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "2 Module (Vollzeit)",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["24 Aug 2026", "28 Sep 2026", "26 Okt 2026"],
         recommended: false,
         description:
@@ -1490,7 +1490,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         desc: "Täglicher Live-Unterricht von 09:00 bis 16:45 Uhr mit praktischen SIEM-, Firewall- und Incident-Response-Übungen.",
       },
       {
-        title: "Unterrichtssprache: Englisch",
+        title: "Unterrichtssprache: Englisch, Türkisch & Deutsch",
         desc: "In der IT-Sicherheit sind sämtliche Tools, CVE-Datenbanken und SOC-Berichte auf Englisch — du lernst direkt in der Fachsprache.",
       },
       {
@@ -1503,7 +1503,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       ["Lehrplan", "4 Module: Security+, SOC Praxis, Agentic AI, AWS Cloud Security"],
       ["Einstieg", "Ohne Vorkenntnisse (M1) oder per Assessment (ab M2)"],
       ["Kapazität", "Max. 15 Plätze pro Klasse"],
-      ["Sprache", "Unterrichtssprache: Englisch"],
+      ["Sprache", "Englisch / Türkisch / Deutsch"],
       ["Förderung", "AZAV-zertifiziert · 100 % Bildungsgutschein"],
     ],
     fundingH2: "Cyber Security Weiterbildung mit Bildungsgutschein",
@@ -1642,7 +1642,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Unterrichtssprache ist Englisch, da sämtliche Sicherheitswerkzeuge, Bedrohungsdatenbanken und die CompTIA-Prüfung international auf Englisch geführt werden. Unsere Förder- und Karriereberatung begleitet dich auf Deutsch und Englisch.",
+        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -1694,7 +1694,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     infoStrip: [
       ["3 – 8 Monate", "Flexible Modulkombinationen"],
-      ["Englisch", "Unterrichtssprache (Live)"],
+      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
       ["AWS Partner", "Select Tier Consulting Partner"],
       ["Max. 15", "Teilnehmende pro Kurs"],
       ["AZAV", "100 % Bildungsgutschein"],
@@ -1789,7 +1789,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "8 Monate",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["24 Aug 2026", "12 Okt 2026", "30 Nov 2026", "28 Dez 2026"],
         recommended: true,
         description:
@@ -1806,7 +1806,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "6 Monate",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["24 Aug 2026", "12 Okt 2026", "30 Nov 2026"],
         recommended: false,
         description:
@@ -1822,7 +1822,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "3 Monate",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["24 Aug 2026", "12 Okt 2026"],
         recommended: false,
         description:
@@ -1838,7 +1838,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "3 Monate",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["12 Okt 2026", "30 Nov 2026"],
         recommended: false,
         description:
@@ -1854,7 +1854,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "2 Monate",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["30 Nov 2026", "28 Dez 2026"],
         recommended: false,
         description:
@@ -1873,7 +1873,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         desc: "Montag bis Freitag von 09:00 bis 16:45 Uhr Berliner Zeit. Du arbeitest direkt in echten AWS-Accounts, Kubernetes-Clustern und Terraform-Umgebungen.",
       },
       {
-        title: "Unterrichtssprache: Englisch",
+        title: "Unterrichtssprache: Englisch, Türkisch & Deutsch",
         desc: "Cloud-Konsolen, CLI-Tools und Zertifizierungsprüfungen sind international auf Englisch standardisiert — unsere Mentoren begleiten dich auf Englisch und Deutsch.",
       },
       {
@@ -1886,7 +1886,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       ["Dauer", "8 Monate (Vollpaket) · 6 Mo. (M1+M2) · 2–3 Mo. (Einzelmodul)"],
       ["Lehrplan", "Modul 1 (AWS) + Modul 2 (DevOps) + Modul 3 (Azure)"],
       ["Kapazität", "Max. 15 Plätze pro Kurs"],
-      ["Sprache", "Unterrichtssprache: Englisch"],
+      ["Sprache", "Englisch / Türkisch / Deutsch"],
       ["Zertifikat", "AZAV-Zertifikat + Vorbereitung auf AWS SAA-C03 & AZ-900"],
     ],
     fundingH2: "AWS & DevOps Weiterbildung mit Bildungsgutschein",
@@ -2030,7 +2030,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Unterrichtssprache ist Englisch, da AWS, Azure, Kubernetes und Terraform weltweit auf Englisch dokumentiert und geprüft werden. Unsere Beratung vor und während der Weiterbildung steht dir auf Deutsch und Englisch zur Verfügung.",
+        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -2087,7 +2087,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     infoStrip: [
       ["3 Monate", "Kompakte Vollzeit-Dauer"],
-      ["Englisch", "Unterrichtssprache (Live)"],
+      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
       ["SAA-C03", "Prüfungsvorbereitung inklusive"],
       ["Max. 15", "Teilnehmende pro Klasse"],
       ["AZAV", "100 % Bildungsgutschein"],
@@ -2141,7 +2141,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "3 Monate",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["24 Aug 2026", "12 Okt 2026", "30 Nov 2026"],
         recommended: true,
         description:
@@ -2157,7 +2157,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         duration: "6 Monate",
         schedule: "09:00–16:45 Uhr Berlin",
         capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
         dates: ["24 Aug 2026", "12 Okt 2026"],
         recommended: false,
         description:
@@ -2195,7 +2195,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     formatIntro: "3 Monate intensiver Vollzeit-Live-Unterricht in 15er-Kleingruppen.",
     formatHighlights: [
       { title: "Live-Labs in der AWS Console", desc: "Tägliches praktisches Aufsetzen von VPCs, Load Balancern, Datenbanken und CloudFormation-Stacks." },
-      { title: "Unterrichtssprache: Englisch", desc: "Optimale Vorbereitung auf die englischsprachige AWS-Prüfung und internationale Cloud-Teams." },
+      { title: "Unterrichtssprache: Englisch, Türkisch & Deutsch", desc: "Flexible Unterrichtssprachen: Englisch, Türkisch oder Deutsch. Optimale Vorbereitung auf internationale Zertifizierungen und Praxis-Workflows." },
       { title: "Prüfungssimulationen inklusive", desc: "Regelmäßige Mock-Exams und Architektur-Reviews mit zertifizierten AWS-Trainern." },
     ],
     summaryTable: [
@@ -2203,7 +2203,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       ["Dauer", "3 Monate"],
       ["Zertifizierungsziel", "AWS Certified Solutions Architect – Associate (SAA-C03)"],
       ["Kapazität", "Max. 15 Plätze"],
-      ["Sprache", "Unterrichtssprache: Englisch"],
+      ["Sprache", "Englisch / Türkisch / Deutsch"],
       ["Förderung", "AZAV-zertifiziert · 100 % Bildungsgutschein"],
     ],
     fundingH2: "AWS Solutions Architect Weiterbildung mit Bildungsgutschein",
@@ -2305,7 +2305,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Unterrichtssprache ist Englisch. Unsere Beratung zur Förderung steht dir auf Deutsch und Englisch zur Verfügung.",
+        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -2356,7 +2356,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     infoStrip: [
       ["Vollzeit Live", "Mo–Fr · 09:00–16:45 Uhr"],
-      ["Englisch", "Unterrichtssprache"],
+      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache"],
       ["Ohne Vorwissen", "Einstieg für Quereinsteiger"],
       ["Max. 15", "Teilnehmende pro Klasse"],
       ["AZAV", "100 % Bildungsgutschein"],
@@ -2444,7 +2444,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     formatIntro: "Vollzeit-Live-Unterricht mit täglicher Praxis an realen Webanwendungen und APIs.",
     formatHighlights: [
       { title: "Live-Unterricht (09:00–16:45 Uhr)", desc: "Tägliche Betreuung in Kleingruppen von maximal 15 Teilnehmenden." },
-      { title: "Unterrichtssprache: Englisch", desc: "Alle Test-Frameworks, Bug-Reports und Scrum-Prozesse im internationalen Standard." },
+      { title: "Unterrichtssprache: Englisch, Türkisch & Deutsch", desc: "Unterricht flexibel auf Englisch, Türkisch oder Deutsch mit internationalem Branchenstandard für QA und Test-Automation." },
       { title: "Eigenes Test-Framework auf GitHub", desc: "Du präsentierst Arbeitgebern ein fertiges, lauffähiges Automatisierungs-Repository." },
     ],
     summaryTable: [
@@ -2452,7 +2452,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       ["Lehrplan", "Java, SQL, Selenium, Cucumber, RestAssured, Jenkins"],
       ["Einstieg", "Ohne Vorkenntnisse möglich"],
       ["Kapazität", "Max. 15 Plätze"],
-      ["Sprache", "Unterrichtssprache: Englisch"],
+      ["Sprache", "Englisch / Türkisch / Deutsch"],
       ["Förderung", "AZAV-zertifiziert · 100 % Bildungsgutschein"],
     ],
     fundingH2: "SDET Weiterbildung mit Bildungsgutschein",
@@ -2548,7 +2548,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Unterrichtssprache ist Englisch. Unsere Förder- und Karriereberatung begleitet dich auf Deutsch und Englisch.",
+        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -2598,7 +2598,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     infoStrip: [
       ["4 Wochen", "Kompaktes Intensivtraining"],
-      ["Englisch", "Unterrichtssprache (Live)"],
+      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
       ["CKAD", "CNCF Prüfungsvorbereitung"],
       ["Max. 15", "Teilnehmende pro Klasse"],
       ["Hands-on", "Reale Kubernetes-Cluster"],
@@ -2686,7 +2686,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     formatIntro: "Die CKAD-Prüfung ist kein Multiple-Choice-Test, sondern eine praktische 2-Stunden-Aufgabe im Terminal — genau darauf ist unser Format ausgelegt.",
     formatHighlights: [
       { title: "100 % Hands-on im Cluster", desc: "Du löst ab dem ersten Tag reale kubectl-Aufgaben in eigenen Übungsclustern." },
-      { title: "Unterrichtssprache: Englisch", desc: "Die offizielle CNCF CKAD-Prüfung und die Kubernetes-Dokumentation sind auf Englisch." },
+      { title: "Unterrichtssprache: Englisch, Türkisch & Deutsch", desc: "Unterricht auf Englisch, Türkisch oder Deutsch zur gezielten Vorbereitung auf die offizielle CNCF CKAD-Prüfung." },
       { title: "Prüfungs-Geschwindigkeitstraining", desc: "Du lernst Imperative Commands, Aliases und YAML-Shortcuts für maximale Zeitersparnis." },
     ],
     summaryTable: [
@@ -2694,7 +2694,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       ["Einstieg", "Mit Vorkenntnissen (Linux, Docker, YAML)"],
       ["Zertifizierungsziel", "Certified Kubernetes Application Developer (CKAD)"],
       ["Kapazität", "Max. 15 Plätze"],
-      ["Sprache", "Unterrichtssprache: Englisch"],
+      ["Sprache", "Englisch / Türkisch / Deutsch"],
       ["Förderung", "Fördermöglichkeiten & QCG im Beratungsgespräch"],
     ],
     fundingH2: "Kubernetes CKAD Kurs finanzieren",
@@ -2778,7 +2778,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Unterrichtssprache ist Englisch, passend zur offiziellen CNCF CKAD-Prüfung.",
+        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -2824,7 +2824,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     infoStrip: [
       ["4 Wochen", "Kompakte Orientierungsphase"],
-      ["Englisch", "Unterrichtssprache (mit DE-Beratung)"],
+      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
       ["Ohne Vorwissen", "Speziell für Einsteiger"],
       ["Max. 15", "Teilnehmende pro Gruppe"],
       ["AVGS / Beratung", "Geförderte Orientierung"],
@@ -3044,12 +3044,12 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     pdfFileName: "clarusway-ai-engineering-bootcamp-syllabus.pdf",
     metaTitle: "AI Engineering Bootcamp: Data Science & Agentic AI | Clarusway",
     metaDescription:
-      "Learn Python, SQL, Power BI, Machine Learning, LLMs and Agentic AI in 32 weeks. Taught in English in Germany and 100% funded with a Bildungsgutschein.",
+      "Learn Python, SQL, Power BI, Machine Learning, LLMs and Agentic AI in 32 weeks in Germany. Instruction in English, Turkish & German, 100% funded with a Bildungsgutschein.",
     breadcrumbLabel: "AI Engineering Bootcamp",
     eyebrow: "Program: AI Engineering (Data Analytics, Data Science & Agentic AI)",
     h1: "AI Engineering Bootcamp: From Data Analytics to Agentic AI",
     heroIntro:
-      "The AI Engineering Bootcamp at Clarusway is a 32-week live online program in English that takes you from Python, SQL, and Power BI through Classical Machine Learning to building production LLM applications, RAG pipelines, and autonomous Agentic AI systems — 100% funded in Germany with a Bildungsgutschein (education voucher).",
+      "The AI Engineering Bootcamp at Clarusway is a 32-week live online program that takes you from Python, SQL, and Power BI through Classical Machine Learning to building production LLM applications, RAG pipelines, and autonomous Agentic AI systems — 100% funded in Germany with a Bildungsgutschein (education voucher).",
     heroSubnote:
       "Beginner-friendly starting at Module 1 or direct entry into Module 2 / Module 3 via technical assessment.",
     heroBadges: [
@@ -3070,7 +3070,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     infoStrip: [
       ["32 Weeks", "Full-Time (1,280 Units)"],
-      ["Taught in English", "Live Online Instruction"],
+      ["English / Turkish / German", "Instruction Language (Live)"],
       ["3 Modules", "Flexible Entry Points"],
       ["Max. 15", "Students per Cohort"],
       ["AZAV Certified", "100% Bildungsgutschein"],
@@ -3177,7 +3177,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "32 Weeks",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["27 Jul 2026", "14 Sep 2026", "02 Nov 2026"],
         recommended: true,
         description:
@@ -3193,7 +3193,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "13 Weeks",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["27 Jul 2026", "14 Sep 2026", "02 Nov 2026"],
         recommended: false,
         description:
@@ -3209,7 +3209,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "19 Weeks",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["27 Jul 2026", "14 Sep 2026", "02 Nov 2026"],
         recommended: false,
         description:
@@ -3226,7 +3226,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "19 Weeks",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["24 Aug 2026", "12 Oct 2026", "30 Nov 2026"],
         recommended: false,
         description:
@@ -3242,7 +3242,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "13 Weeks",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["05 Oct 2026", "23 Nov 2026"],
         recommended: false,
         description:
@@ -3261,8 +3261,8 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         desc: "Monday to Friday from 09:00 to 16:45 CET. You write code live with instructors and build production-grade data pipelines and AI agents.",
       },
       {
-        title: "Taught in English",
-        desc: "All classes, projects, and technical mentoring are conducted in English — the working language of international tech teams across Germany.",
+        title: "Instruction Language: English, Turkish & German",
+        desc: "Flexible cohort instruction in English, Turkish, or German, matching international industry standards and German tech employer expectations.",
       },
       {
         title: "Career Coaching for Expats in Germany",
@@ -3274,7 +3274,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       ["Total Duration", "32 Weeks (1,280 Units) or 6–19 Weeks modular"],
       ["Curriculum", "Module 1 (Analytics/BI) + Module 2 (ML) + Module 3 (Agentic AI)"],
       ["Class Size", "Max. 15 students per cohort"],
-      ["Instruction Language", "Taught in English"],
+      ["Instruction Language", "English / Turkish / German"],
       ["Funding", "AZAV-certified · 100% funded with a Bildungsgutschein"],
     ],
     fundingH2: "Take the AI Engineering bootcamp for free with a Bildungsgutschein",
@@ -3448,14 +3448,14 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     slugDe: "/it-kurse/data-analytics-weiterbildung/",
     slugEn: "/it-courses/data-analytics/",
     pdfFileName: "clarusway-data-analytics-course-syllabus.pdf",
-    metaTitle: "Data Analytics Course in English | Clarusway",
+    metaTitle: "Data Analytics Course in Germany | Clarusway",
     metaDescription:
-      "Become a Data Analyst in Germany in 13 weeks: Python, SQL, Statistics, Power BI and Tableau taught in English. 100% funded with a Bildungsgutschein.",
+      "Become a Data Analyst in Germany in 13 weeks: Python, SQL, Statistics, Power BI and Tableau. Instruction in English, Turkish & German, 100% funded with a Bildungsgutschein.",
     breadcrumbLabel: "Data Analytics Course",
     eyebrow: "Program: Data Analytics & Business Intelligence (Module 1)",
     h1: "Data Analytics Course: Data Analysis and Business Intelligence",
     heroIntro:
-      "The Data Analytics Course at Clarusway is a 13-week full-time live online program in English (520 units) that prepares you for Data Analyst and Business Intelligence Analyst roles in Germany using Python, SQL, Statistics, Power BI, and Tableau — 100% funded with a Bildungsgutschein (education voucher).",
+      "The Data Analytics Course at Clarusway is a 13-week full-time live online program (520 units) with instruction in English, Turkish & German that prepares you for Data Analyst and Business Intelligence Analyst roles in Germany using Python, SQL, Statistics, Power BI, and Tableau — 100% funded with a Bildungsgutschein (education voucher).",
     heroSubnote:
       "No prior coding experience required · Standalone 13-week program · Expandable to Data Science & AI Engineering.",
     heroBadges: ["Python (Pandas)", "Advanced SQL", "Power BI & DAX", "Tableau", "Statistics & A/B Tests", "Git & ETL"],
@@ -3468,7 +3468,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     infoStrip: [
       ["13 Weeks", "Full-Time (520 Units)"],
-      ["Taught in English", "Live Online Instruction"],
+      ["English / Turkish / German", "Instruction Language (Live)"],
       ["Beginner Friendly", "No Coding Experience Needed"],
       ["Max. 15", "Students per Cohort"],
       ["AZAV Certified", "100% Bildungsgutschein"],
@@ -3544,7 +3544,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "13 Weeks",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["27 Jul 2026", "14 Sep 2026", "02 Nov 2026"],
         recommended: true,
         description:
@@ -3560,7 +3560,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "19 Weeks",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["27 Jul 2026", "14 Sep 2026", "02 Nov 2026"],
         recommended: false,
         description:
@@ -3598,7 +3598,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     formatIntro: "Structured full-time live classes in English with daily hands-on data labs.",
     formatHighlights: [
       { title: "Live Practice with Real Datasets", desc: "Write SQL queries, clean data in Pandas, and design interactive Power BI dashboards every day." },
-      { title: "Taught in English", desc: "Ideal for expats and international professionals targeting English-speaking roles in Germany." },
+      { title: "Instruction Language: English, Turkish & German", desc: "Instruction options in English, Turkish, and German — ideal for career changers and professionals targeting tech roles in Germany." },
       { title: "1-on-1 Career Support", desc: "CV optimization, portfolio reviews, and interview preparation tailored to the German job market." },
     ],
     summaryTable: [
@@ -3606,7 +3606,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       ["Duration", "13 Weeks (520 Units)"],
       ["Core Stack", "Python, SQL, Statistics, Power BI, Tableau, Git"],
       ["Class Size", "Max. 15 students"],
-      ["Instruction Language", "Taught in English"],
+      ["Instruction Language", "English / Turkish / German"],
       ["Funding", "AZAV-certified · 100% funded with a Bildungsgutschein"],
     ],
     fundingH2: "Take the Data Analytics course for free with a Bildungsgutschein",
@@ -3700,7 +3700,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         q: "Do I need to speak German?",
-        a: "No. All classes, projects, and mentoring are taught in English. Clarusway also provides all German documentation needed for your Agentur für Arbeit or Jobcenter advisor.",
+        a: "No. Instruction is available in English, Turkish, and German cohorts. Clarusway also provides all official German documentation needed for your Agentur für Arbeit or Jobcenter advisor.",
       },
     ],
     relatedH2: "More IT courses",
@@ -3749,7 +3749,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     infoStrip: [
       ["4 Modules", "Flexible Combinations"],
-      ["Taught in English", "Live Online Instruction"],
+      ["English / Turkish / German", "Instruction Language (Live)"],
       ["AI-Assisted", "Cursor, Claude Code & Copilot"],
       ["Max. 15", "Students per Cohort"],
       ["AZAV Certified", "100% Bildungsgutschein"],
@@ -3854,7 +3854,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "Full Track",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["27 Jul 2026", "14 Sep 2026", "02 Nov 2026"],
         recommended: true,
         description:
@@ -3870,7 +3870,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "Frontend Focus",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["27 Jul 2026", "14 Sep 2026"],
         recommended: false,
         description:
@@ -3886,7 +3886,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "Advanced Track",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["24 Aug 2026", "12 Oct 2026"],
         recommended: false,
         description:
@@ -3922,7 +3922,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     formatIntro: "Daily live coding sessions in English paired with hands-on labs and Agile teamwork.",
     formatHighlights: [
       { title: "Live Coding & Code Reviews", desc: "Mon–Fri from 09:00 to 16:45 CET with experienced senior full-stack instructors." },
-      { title: "Taught in English", desc: "Practice technical communication, sprint standups, and Git workflows in English." },
+      { title: "Instruction Language: English, Turkish & German", desc: "Practice technical communication, sprint standups, and Git workflows in English, Turkish, or German cohorts." },
       { title: "Real Team Project in Module 4", desc: "Work in an Agile Scrum team with pull requests, CI/CD checks, and production deployment." },
     ],
     summaryTable: [
@@ -3930,7 +3930,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       ["Structure", "4 Modules (Foundations, Frontend, Backend, Team Project)"],
       ["Tech Stack", "HTML/CSS, JS/TS, React, Next.js, Node.js, PostgreSQL, MongoDB"],
       ["AI Workflow", "Cursor, Claude Code, GitHub Copilot & LLM APIs"],
-      ["Instruction Language", "Taught in English"],
+      ["Instruction Language", "English / Turkish / German"],
       ["Funding", "AZAV-certified · 100% funded with a Bildungsgutschein"],
     ],
     fundingH2: "Take the Full Stack Developer course for free with a Bildungsgutschein",
@@ -4074,12 +4074,12 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     pdfFileName: "clarusway-cyber-security-course-syllabus.pdf",
     metaTitle: "Cyber Security Course: SOC & Cloud Security | Clarusway",
     metaDescription:
-      "Cyber Security Analyst Course in English: CompTIA Security+, AI-Enhanced SOC Analyst, Agentic AI in SecOps & AWS Cloud Security. Funded with a Bildungsgutschein.",
+      "Cyber Security Analyst Course in Germany: CompTIA Security+, AI-Enhanced SOC Analyst, Agentic AI in SecOps & AWS Cloud Security. Funded with a Bildungsgutschein.",
     breadcrumbLabel: "Cyber Security Course",
     eyebrow: "Program: AI-Enhanced Cyber Security Analyst (SOC & Cloud Security)",
     h1: "Cyber Security Analyst Course with AI-Enhanced SOC Training",
     heroIntro:
-      "The Cyber Security Analyst Course at Clarusway prepares you in four modules for roles in Security Operations Centers (SOC) and Cloud Security: from CompTIA Security+ Exam Prep (Module 1) and AI-Enhanced SOC Analyst Experience (Module 2) to Agentic AI in Security Operations (Module 3) and AWS Cloud Security (Module 4) — taught in English and 100% funded with a Bildungsgutschein (education voucher).",
+      "The Cyber Security Analyst Course at Clarusway prepares you in four modules for roles in Security Operations Centers (SOC) and Cloud Security: from CompTIA Security+ Exam Prep (Module 1) and AI-Enhanced SOC Analyst Experience (Module 2) to Agentic AI in Security Operations (Module 3) and AWS Cloud Security (Module 4) — with instruction in English, Turkish & German, 100% funded with a Bildungsgutschein (education voucher).",
     heroSubnote:
       "Beginner entry in Module 1 or direct entry to Module 2 via technical assessment · Live SIEM & Incident Response labs.",
     heroBadges: ["CompTIA Security+", "SIEM & Splunk", "MITRE ATT&CK", "Agentic AI SecOps", "SOAR Playbooks", "AWS Cloud Security"],
@@ -4092,7 +4092,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     infoStrip: [
       ["4 Modules", "Modular Structure"],
-      ["Taught in English", "Live Online Instruction"],
+      ["English / Turkish / German", "Instruction Language (Live)"],
       ["Security+ Prep", "Integrated in Module 1"],
       ["Max. 15", "Students per Cohort"],
       ["AZAV Certified", "100% Bildungsgutschein"],
@@ -4205,7 +4205,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "Full Track",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["24 Aug 2026", "28 Sep 2026", "26 Oct 2026"],
         recommended: true,
         description:
@@ -4222,7 +4222,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "Advanced Track",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["28 Sep 2026", "26 Oct 2026", "30 Nov 2026"],
         recommended: false,
         description:
@@ -4238,7 +4238,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "Compact Track",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["24 Aug 2026", "28 Sep 2026"],
         recommended: false,
         description:
@@ -4252,7 +4252,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     formatIntro: "Live online instruction in English paired with daily cyber range and SIEM lab exercises.",
     formatHighlights: [
       { title: "Hands-On Cyber Range & SIEM Labs", desc: "Investigate real attack scenarios, analyze logs in Splunk/ELK, and execute incident response playbooks." },
-      { title: "Taught in English", desc: "Cyber security tools, CVE databases, and the CompTIA Security+ exam operate globally in English." },
+      { title: "Instruction Language: English, Turkish & German", desc: "Instruction available in English, Turkish, and German, preparing you for international cyber tools and certifications." },
       { title: "Direct Entry Option", desc: "Test straight into Module 2 if you already have networking and Linux foundations." },
     ],
     summaryTable: [
@@ -4260,7 +4260,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       ["Curriculum", "4 Modules: Security+, SOC Analyst, Agentic AI, AWS Cloud Security"],
       ["Entry", "Beginner (Module 1) or Direct Entry via Assessment (Module 2)"],
       ["Class Size", "Max. 15 students per cohort"],
-      ["Instruction Language", "Taught in English"],
+      ["Instruction Language", "English / Turkish / German"],
       ["Funding", "AZAV-certified · 100% funded with a Bildungsgutschein"],
     ],
     fundingH2: "Take the Cyber Security course for free with a Bildungsgutschein",
@@ -4421,7 +4421,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     eyebrow: "Program: AI-Enhanced AWS Solutions Architect/DevOps Engineer",
     h1: "AWS Solutions Architect and DevOps Engineer Training with AI",
     heroIntro:
-      "The AWS Solutions Architect and DevOps Engineer Training at Clarusway is an intensive live online program in English that qualifies you across three AI-enhanced building blocks (AWS Cloud Engineer, DevOps Engineer, and Azure Basics). Clarusway is an official AWS Select Tier Partner and AZAV-certified — 100% funded with a Bildungsgutschein (education voucher).",
+      "The AWS Solutions Architect and DevOps Engineer Training at Clarusway is an intensive live online program that qualifies you across three AI-enhanced building blocks (AWS Cloud Engineer, DevOps Engineer, and Azure Basics). Clarusway is an official AWS Select Tier Partner and AZAV-certified — 100% funded with a Bildungsgutschein (education voucher).",
     heroSubnote:
       "Entry for beginners & IT professionals · Prepares for AWS SAA-C03 & Azure AZ-900 · Max. 15 students per cohort.",
     heroBadges: ["AWS SAA-C03", "Docker", "Kubernetes", "Terraform", "Jenkins & CI/CD", "Microsoft Azure"],
@@ -4436,7 +4436,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     infoStrip: [
       ["3 – 8 Months", "5 Modular Combinations"],
-      ["Taught in English", "Live Online Instruction"],
+      ["English / Turkish / German", "Instruction Language (Live)"],
       ["AWS Partner", "Select Tier Consulting Partner"],
       ["Max. 15", "Students per Cohort"],
       ["AZAV Certified", "100% Bildungsgutschein"],
@@ -4531,7 +4531,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "8 Months",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["24 Aug 2026", "12 Oct 2026", "30 Nov 2026", "28 Dec 2026"],
         recommended: true,
         description:
@@ -4548,7 +4548,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "6 Months",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["24 Aug 2026", "12 Oct 2026", "30 Nov 2026"],
         recommended: false,
         description:
@@ -4564,7 +4564,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "3 Months",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["24 Aug 2026", "12 Oct 2026"],
         recommended: false,
         description:
@@ -4580,7 +4580,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "3 Months",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["12 Oct 2026", "30 Nov 2026"],
         recommended: false,
         description:
@@ -4596,7 +4596,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "2 Months",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["30 Nov 2026", "28 Dec 2026"],
         recommended: false,
         description:
@@ -4610,7 +4610,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     formatIntro: "Full-time live online instruction in English combined with daily cloud and DevOps lab sessions.",
     formatHighlights: [
       { title: "Daily Hands-On Cloud Labs", desc: "Mon–Fri from 09:00 to 16:45 CET. Provision real AWS resources, Kubernetes clusters, and Terraform stacks." },
-      { title: "Taught in English", desc: "AWS, Azure, Kubernetes, and Terraform documentation and exams operate globally in English." },
+      { title: "Instruction Language: English, Turkish & German", desc: "Instruction available in English, Turkish, and German, preparing you for international cloud ecosystems and certifications." },
       { title: "Real Milestone Projects", desc: "Publish documented infrastructure-as-code and CI/CD projects to your GitHub portfolio after every module." },
     ],
     summaryTable: [
@@ -4618,7 +4618,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       ["Duration", "8 Months (Full) · 6 Mo. (M1+M2) · 2–3 Mo. (Single Module)"],
       ["Curriculum", "Module 1 (AWS) + Module 2 (DevOps) + Module 3 (Azure)"],
       ["Class Size", "Max. 15 students per cohort"],
-      ["Instruction Language", "Taught in English"],
+      ["Instruction Language", "English / Turkish / German"],
       ["Certifications", "AZAV Certificate + Prep for AWS SAA-C03 & Azure AZ-900"],
     ],
     fundingH2: "Take the AWS & DevOps course for free with a Bildungsgutschein",
@@ -4745,7 +4745,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         q: "Do I need to speak German?",
-        a: "No. All classes, cloud labs, and career coaching are taught in English. Clarusway provides all official German documentation for your Agentur für Arbeit or Jobcenter advisor.",
+        a: "No. Instruction is available in English, Turkish, and German cohorts. Clarusway provides all official German documentation for your Agentur für Arbeit or Jobcenter advisor.",
       },
     ],
     relatedH2: "More IT courses",
@@ -4783,12 +4783,12 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     pdfFileName: "clarusway-aws-solutions-architect-syllabus.pdf",
     metaTitle: "AWS Solutions Architect Course | Clarusway",
     metaDescription:
-      "3-month AWS Solutions Architect Course in English: EC2, S3, VPC, IAM, High Availability & AWS SAA-C03 exam prep. 100% funded with a Bildungsgutschein.",
+      "3-month AWS Solutions Architect Course in Germany: EC2, S3, VPC, IAM, High Availability & AWS SAA-C03 exam prep. 100% funded with a Bildungsgutschein.",
     breadcrumbLabel: "AWS Solutions Architect Course",
     eyebrow: "Program: AWS Solutions Architect (Module 1)",
     h1: "AWS Solutions Architect Course with Certification Prep",
     heroIntro:
-      "The AWS Solutions Architect Course at Clarusway is a 3-month full-time live online program in English where you learn to design secure, scalable, and highly available cloud infrastructures on Amazon Web Services — including targeted preparation for the AWS Solutions Architect Associate (SAA-C03) exam and 100% funding with a Bildungsgutschein (education voucher).",
+      "The AWS Solutions Architect Course at Clarusway is a 3-month full-time live online program where you learn to design secure, scalable, and highly available cloud infrastructures on Amazon Web Services — including targeted preparation for the AWS Solutions Architect Associate (SAA-C03) exam and 100% funding with a Bildungsgutschein (education voucher).",
     heroSubnote:
       "3 months full-time · Official AWS Select Tier Partner · Expandable to DevOps Engineering.",
     heroBadges: ["AWS SAA-C03", "EC2 & S3", "VPC & IAM", "RDS & DynamoDB", "CloudFormation", "Auto Scaling"],
@@ -4801,7 +4801,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     infoStrip: [
       ["3 Months", "Compact Full-Time Duration"],
-      ["Taught in English", "Live Online Instruction"],
+      ["English / Turkish / German", "Instruction Language (Live)"],
       ["SAA-C03", "Exam Prep Included"],
       ["Max. 15", "Students per Cohort"],
       ["AZAV Certified", "100% Bildungsgutschein"],
@@ -4853,7 +4853,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "3 Months",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["24 Aug 2026", "12 Oct 2026", "30 Nov 2026"],
         recommended: true,
         description: "Focused 3-month training on AWS cloud infrastructure and preparation for the AWS SAA-C03 certification.",
@@ -4868,7 +4868,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "6 Months",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["24 Aug 2026", "12 Oct 2026"],
         recommended: false,
         description: "Combine AWS Cloud Architecture with Docker, Kubernetes, Terraform, and CI/CD automation.",
@@ -4880,7 +4880,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     formatIntro: "3 months of intensive full-time live classes in English.",
     formatHighlights: [
       { title: "Live AWS Console Labs", desc: "Configure VPCs, Load Balancers, RDS databases, and CloudFormation stacks every day." },
-      { title: "Taught in English", desc: "Direct preparation for the English AWS SAA-C03 exam and international cloud teams." },
+      { title: "Instruction Language: English, Turkish & German", desc: "Instruction in English, Turkish, or German, preparing you directly for the AWS SAA-C03 exam and cloud teams." },
       { title: "Mock Exams Included", desc: "Regular practice tests and architecture reviews with AWS-certified instructors." },
     ],
     summaryTable: [
@@ -4888,7 +4888,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       ["Duration", "3 Months"],
       ["Certification Goal", "AWS Certified Solutions Architect – Associate (SAA-C03)"],
       ["Class Size", "Max. 15 students"],
-      ["Instruction Language", "Taught in English"],
+      ["Instruction Language", "English / Turkish / German"],
       ["Funding", "AZAV-certified · 100% funded with a Bildungsgutschein"],
     ],
     fundingH2: "Take the AWS Solutions Architect course for free with a Bildungsgutschein",
@@ -4977,7 +4977,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         q: "Do I need to speak German?",
-        a: "No. Classes and labs are taught in English, and Clarusway provides all German documents required for your advisor.",
+        a: "No. Instruction is available in English, Turkish, and German cohorts, and Clarusway provides all German documents required for your advisor.",
       },
     ],
     relatedH2: "More IT courses",
@@ -5025,7 +5025,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     infoStrip: [
       ["Full-Time", "Structured Live Program"],
-      ["Taught in English", "Live Online Instruction"],
+      ["English / Turkish / German", "Instruction Language (Live)"],
       ["Beginner Friendly", "No Prior Coding Needed"],
       ["Max. 15", "Students per Cohort"],
       ["AZAV Certified", "100% Bildungsgutschein"],
@@ -5077,7 +5077,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "Full Track",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["14 Sep 2026", "02 Nov 2026"],
         recommended: true,
         description: "Complete qualification as a QA Engineer and Software Development Engineer in Test (SDET).",
@@ -5089,14 +5089,14 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     formatIntro: "Daily live instruction in English combined with hands-on test automation labs.",
     formatHighlights: [
       { title: "Daily Automation Labs", desc: "Build real Page Object Model and BDD test suites on GitHub." },
-      { title: "Taught in English", desc: "Learn industry-standard QA terminology, Jira workflows, and test reporting in English." },
+      { title: "Instruction Language: English, Turkish & German", desc: "Instruction in English, Turkish, or German, covering industry-standard QA terminology, Jira workflows, and test automation." },
       { title: "Agile Sprint Practice", desc: "Participate in sprint ceremonies, bug triage, and automated regression runs." },
     ],
     summaryTable: [
       ["Schedule", "Mon–Fri, 09:00–16:45 CET"],
       ["Tech Stack", "Java, Selenium, Cucumber, Cypress, Playwright, Postman, SQL, Jenkins"],
       ["Class Size", "Max. 15 students"],
-      ["Instruction Language", "Taught in English"],
+      ["Instruction Language", "English / Turkish / German"],
       ["Funding", "AZAV-certified · 100% funded with a Bildungsgutschein"],
     ],
     fundingH2: "Take the SDET course for free with a Bildungsgutschein",
@@ -5179,7 +5179,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         q: "Do I need to speak German?",
-        a: "No. All classes and career coaching are taught in English, and Clarusway prepares all German documents for your advisor.",
+        a: "No. Instruction is available in English, Turkish, and German cohorts, and Clarusway prepares all German documents for your advisor.",
       },
     ],
     relatedH2: "More IT courses",
@@ -5211,12 +5211,12 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     pdfFileName: "clarusway-kubernetes-ckad-syllabus.pdf",
     metaTitle: "Kubernetes CKAD Certification Course | Clarusway",
     metaDescription:
-      "Intensive Kubernetes CKAD Certification Course in English: Pods, Deployments, Helm, Services, NetworkPolicies & CKAD exam simulations. Funded with a Bildungsgutschein.",
+      "Intensive Kubernetes CKAD Certification Course in Germany: Pods, Deployments, Helm, Services, NetworkPolicies & CKAD exam simulations. Funded with a Bildungsgutschein.",
     breadcrumbLabel: "Kubernetes CKAD Course",
     eyebrow: "Short Specialization: Certified Kubernetes Application Developer (CKAD)",
     h1: "Kubernetes CKAD Certification Course",
     heroIntro:
-      "The Kubernetes CKAD Certification Course at Clarusway is an intensive 4-week hands-on program in English that prepares developers, DevOps engineers, and cloud administrators for the official CNCF Certified Kubernetes Application Developer (CKAD) performance-based exam — AZAV-certified and 100% funded with a Bildungsgutschein or Qualifizierungschancengesetz.",
+      "The Kubernetes CKAD Certification Course at Clarusway is an intensive 4-week hands-on program that prepares developers, DevOps engineers, and cloud administrators for the official CNCF Certified Kubernetes Application Developer (CKAD) performance-based exam — AZAV-certified and 100% funded with a Bildungsgutschein or Qualifizierungschancengesetz.",
     heroSubnote:
       "4 weeks intensive · 100% CLI & YAML labs · Designed for learners with Linux & Docker basics.",
     heroBadges: ["Kubernetes (K8s)", "CKAD Exam Prep", "Helm Charts", "NetworkPolicies", "ConfigMaps & Secrets", "Observability"],
@@ -5228,7 +5228,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     infoStrip: [
       ["4 Weeks", "Intensive Specialization"],
-      ["Taught in English", "Live Online Instruction"],
+      ["English / Turkish / German", "Instruction Language (Live)"],
       ["CKAD", "CNCF Exam Preparation"],
       ["Max. 15", "Students per Cohort"],
       ["AZAV Certified", "Bildungsgutschein / QCG"],
@@ -5280,7 +5280,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         duration: "4 Weeks",
         schedule: "Mon–Fri, 09:00–16:45 CET",
         capacity: "Max. 15 Students",
-        language: "Taught in English",
+        language: "English / Turkish / German",
         dates: ["12 Oct 2026", "30 Nov 2026"],
         recommended: true,
         description: "Hands-on preparation for the Certified Kubernetes Application Developer (CKAD) exam.",
@@ -5292,14 +5292,14 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     formatIntro: "Because the CKAD exam is 100% performance-based in the terminal, you train every day on live Kubernetes clusters.",
     formatHighlights: [
       { title: "Real Kubernetes Clusters", desc: "Daily kubectl and YAML labs under real exam conditions." },
-      { title: "Taught in English", desc: "Matches the English-language CNCF CKAD exam environment." },
+      { title: "Instruction Language: English, Turkish & German", desc: "Instruction in English, Turkish, or German, preparing you for the hands-on CNCF CKAD exam environment." },
       { title: "Timed Mock Exams", desc: "Build speed and accuracy for the 2-hour hands-on exam." },
     ],
     summaryTable: [
       ["Duration", "4 Weeks (Full-Time)"],
       ["Prerequisites", "Basic Linux CLI & Docker container knowledge"],
       ["Exam Goal", "Certified Kubernetes Application Developer (CKAD)"],
-      ["Instruction Language", "Taught in English"],
+      ["Instruction Language", "English / Turkish / German"],
       ["Funding", "AZAV-certified · Bildungsgutschein & QCG"],
     ],
     fundingH2: "Take the Kubernetes CKAD course for free with a Bildungsgutschein",
@@ -5372,7 +5372,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         q: "Do I need to speak German?",
-        a: "No. All classes and labs are taught in English, and Clarusway prepares all German documents for your advisor.",
+        a: "No. Instruction is available in English, Turkish, and German cohorts, and Clarusway prepares all German documents for your advisor.",
       },
     ],
     relatedH2: "More IT courses",
@@ -5418,7 +5418,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     infoStrip: [
       ["4 Weeks", "Orientation Phase"],
-      ["Taught in English", "With German Paperwork Support"],
+      ["English / Turkish / German", "Instruction Language (Live)"],
       ["Beginner Friendly", "No Prior IT Knowledge Needed"],
       ["Max. 15", "Students per Group"],
       ["AVGS / Free", "Funded Orientation"],
@@ -5480,7 +5480,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       ["Duration", "4 Weeks (Orientation)"],
       ["Prerequisites", "No prior IT knowledge required"],
       ["Domains Covered", "Data & AI, Web Development, Cyber Security, Cloud & DevOps, QA"],
-      ["Instruction Language", "Taught in English"],
+      ["Instruction Language", "English / Turkish / German"],
       ["Funding", "AVGS Voucher / Free Initial Consultation"],
     ],
     fundingH2: "Take the IT Orientation course for free with an AVGS",

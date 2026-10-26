@@ -26,11 +26,11 @@ export function HomePage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "Clarusway: IT Careers in Germany, Trained in English"
+    ? "Clarusway: IT Careers in Germany | 100% Funded Live IT Bootcamps"
     : "IT Weiterbildung mit Bildungsgutschein | Clarusway";
 
   const metaDescription = isEn
-    ? "Live online IT bootcamps in Germany taught in English: AI Engineering, Full Stack, Cyber Security, AWS & DevOps, and SDET. 100% funded with a Bildungsgutschein."
+    ? "Live online IT bootcamps in Germany: AI Engineering, Full Stack, Cyber Security, AWS & DevOps, and SDET. Instruction in English, Turkish & German. 100% funded with a Bildungsgutschein."
     : "Praxisnahe IT-Weiterbildungen in Cyber Security, Cloud & DevOps, KI & Data Science und Webentwicklung. AZAV-zertifiziert, 100 % förderbar mit Bildungsgutschein.";
 
   const courses = isEn
@@ -160,8 +160,8 @@ export function HomePage() {
     ? [
         {
           num: "01",
-          title: "Book a free consultation in English",
-          desc: "Speak with a Clarusway career advisor in English to choose the right IT bootcamp or module combination for your background.",
+          title: "Book a free consultation",
+          desc: "Speak with a Clarusway career advisor (available in English, Turkish, or German) to choose the right IT bootcamp or module combination for your background.",
         },
         {
           num: "02",
@@ -176,7 +176,7 @@ export function HomePage() {
         {
           num: "04",
           title: "Start your bootcamp at 0 € tuition",
-          desc: "Clarusway redeems the voucher directly with the agency — you join your live English cohort with 100% of tuition covered.",
+          desc: "Clarusway redeems the voucher directly with the agency — you join your live cohort with 100% of tuition covered.",
         },
       ]
     : [
@@ -259,8 +259,8 @@ export function HomePage() {
   const faqs = isEn
     ? [
         {
-          q: "Are Clarusway courses really taught in English?",
-          a: "Yes. All live classes, coding labs, projects, and career coaching sessions at Clarusway are conducted 100% in English. At the same time, Clarusway provides all official enrollment paperwork in German for your Agentur für Arbeit or Jobcenter advisor.",
+          q: "What languages are Clarusway courses taught in?",
+          a: "Clarusway offers live IT courses with instruction available in English and Turkish, with German cohort options. Our study and career advisors support you in English, German, or Turkish, and all official administrative paperwork for the Agentur für Arbeit or Jobcenter is prepared in German.",
         },
         {
           q: "How can I take a course for free with a Bildungsgutschein?",
@@ -268,7 +268,7 @@ export function HomePage() {
         },
         {
           q: "Do I need to speak German to get a Bildungsgutschein or an IT job?",
-          a: "You do not need German for the classes. For your Agentur für Arbeit or Jobcenter appointment, Clarusway prepares your German course offer (Maßnahmeangebot) and guides you step by step. In the German IT sector, many startups and international companies operate in English.",
+          a: "You do not need fluent German to start. Instruction is available in English and Turkish cohorts. For your Agentur für Arbeit or Jobcenter appointment, Clarusway prepares your German course offer (Maßnahmeangebot) and guides you step by step.",
         },
         {
           q: "Can I join without an IT or coding background?",
@@ -294,7 +294,7 @@ export function HomePage() {
         },
         {
           q: "In welcher Sprache findet der Unterricht statt?",
-          a: "Die Unterrichtssprache in den Live-Kursen ist Englisch — die internationale Arbeitssprache der IT-Branche. Unsere Studien-, Förder- und Karriereberatung begleitet dich auf Wunsch durchgehend auf Deutsch.",
+          a: "Die Weiterbildungen werden flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Unsere Studien-, Förder- und Karriereberatung begleitet dich auf Deutsch, Englisch oder Türkisch.",
         },
         {
           q: "Wie unterstützt Clarusway bei der Jobsuche?",
@@ -367,7 +367,7 @@ export function HomePage() {
                 className="text-3xl sm:text-4xl lg:text-[44px] font-bold mb-4 tracking-tight"
               >
                 {isEn
-                  ? "Start your IT career in Germany, trained in English"
+                  ? "Start your IT career in Germany with 100% funded live online training"
                   : "IT Weiterbildung mit Bildungsgutschein: online, live und praxisnah"}
               </h1>
 
@@ -387,7 +387,7 @@ export function HomePage() {
 
               <p className="text-gray-500 text-base leading-relaxed mb-6">
                 {isEn
-                  ? "Clarusway trains career changers and tech professionals in Germany through live online IT bootcamps in English — covering AI Engineering, Data Analytics, AI-Assisted Full Stack Development, Cyber Security, AWS & DevOps, and Software Testing. All programs are AZAV-certified and 100% fundable with a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter."
+                  ? "Clarusway trains career changers and tech professionals in Germany through live online IT bootcamps — covering AI Engineering, Data Analytics, AI-Assisted Full Stack Development, Cyber Security, AWS & DevOps, and Software Testing. Instruction is available in English, Turkish, and German cohorts. All programs are AZAV-certified and 100% fundable with a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter."
                   : "Qualifiziere dich im Live-Online-Unterricht für gefragte IT-Berufe in Deutschland: AI Engineering & Data Science, Full Stack Webentwicklung, Cyber Security, AWS & DevOps oder Software Testing. Unsere modularen Programme sind AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein der Agentur für Arbeit oder des Jobcenters förderbar."}
               </p>
 
@@ -419,7 +419,7 @@ export function HomePage() {
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <CheckCircleIcon className="w-4 h-4 text-[#e51a59]" />
-                  {isEn ? "Taught live in English (Max. 15)" : "Live-Unterricht in Kleingruppen (max. 15)"}
+                  {isEn ? "Instruction in English, Turkish & German" : "Unterricht auf Englisch, Türkisch & Deutsch"}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <CheckCircleIcon className="w-4 h-4 text-[#e51a59]" />
@@ -499,7 +499,7 @@ export function HomePage() {
           {[
             ["100 %", isEn ? "Funded with Bildungsgutschein" : "Förderbar mit Bildungsgutschein"],
             ["Max. 15", isEn ? "Students per Live Cohort" : "Teilnehmende pro Live-Klasse"],
-            [isEn ? "English" : "Englisch", isEn ? "Taught in English" : "Unterrichtssprache (mit DE-Beratung)"],
+            [isEn ? "English / Turkish / German" : "Englisch / Türkisch / Deutsch", isEn ? "Instruction Language" : "Unterrichtssprache (Live)"],
             ["AWS Partner", isEn ? "Select Tier Consulting Partner" : "Select Tier Consulting Partner"],
             ["4.9 / 5", isEn ? "Course Report & Career Karma" : "Course Report & Career Karma"],
           ].map(([val, label], i) => (
@@ -525,11 +525,11 @@ export function HomePage() {
                 {isEn ? "AZAV-Certified Bootcamps" : "AZAV-Zertifizierte Programme"}
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-2">
-                {isEn ? "IT courses in English" : "Unsere geförderten IT-Weiterbildungen"}
+                {isEn ? "Our funded IT bootcamps" : "Unsere geförderten IT-Weiterbildungen"}
               </h2>
               <p className="text-gray-600 text-sm sm:text-base">
                 {isEn
-                  ? "Every program is taught live online in English and can be taken as a full career track or in modular stages."
+                  ? "Every program is taught live online with flexible cohort languages (English, Turkish, German) and can be taken as a full career track or in modular stages."
                   : "Alle Programme finden im Live-Online-Unterricht statt und können als Gesamtpaket oder in einzelnen Modulen absolviert werden."}
               </p>
             </div>
@@ -780,8 +780,8 @@ export function HomePage() {
                 {(isEn
                   ? [
                       {
-                        title: "Taught 100% in English",
-                        desc: "Learn programming, cloud, AI, and cyber security in English — the global language of tech teams across Germany.",
+                        title: "English, Turkish & German Instruction",
+                        desc: "Take your bootcamp in English or Turkish (German cohorts expanding) — matching international industry standards and tech employer expectations.",
                       },
                       {
                         title: "German Paperwork Handled for Your Advisor",
@@ -852,8 +852,8 @@ export function HomePage() {
                       ? [
                           "German-standard CV (Lebenslauf) & LinkedIn optimization",
                           "GitHub portfolio & capstone project reviews",
-                          "1-on-1 technical & HR mock interviews in English",
-                          "Application strategy for English-speaking tech companies in Germany",
+                          "1-on-1 technical & HR mock interviews in English or German",
+                          "Application strategy for tech companies across Germany",
                         ]
                       : [
                           "Lebenslauf- & LinkedIn-Optimierung nach deutschem Standard",
@@ -943,7 +943,7 @@ export function HomePage() {
             <div className="bg-white rounded-2xl p-7 border border-gray-200 shadow-2xs flex flex-col justify-between">
               <p className="text-gray-700 text-sm sm:text-base italic leading-relaxed mb-6">
                 {isEn
-                  ? "“Clarusway helped me transition into IT in Germany without prior coding experience. The live classes in English and the support with the Bildungsgutschein made the process straightforward.”"
+                  ? "“Clarusway helped me transition into IT in Germany without prior coding experience. The live classes and the support with the Bildungsgutschein made the process straightforward.”"
                   : "„Clarusway hat mir geholfen, ohne Vorkenntnisse in die IT einzusteigen. Das Live-Format und die Unterstützung beim Bildungsgutschein haben den Wechsel möglich gemacht.“"}
               </p>
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
@@ -983,7 +983,7 @@ export function HomePage() {
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
                 {isEn
-                  ? "Guides for English speakers in Germany"
+                  ? "IT Career & Funding Guides for Germany"
                   : "Aktuelle IT-Ratgeber für Quereinsteiger"}
               </h2>
             </div>
@@ -1094,7 +1094,7 @@ export function HomePage() {
             </h2>
             <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-7 leading-relaxed">
               {isEn
-                ? "Book a free 1-on-1 consultation in English. Clarusway helps you choose the right program and prepares your official Bildungsgutschein offer within 24 hours."
+                ? "Book a free 1-on-1 consultation. Clarusway helps you choose the right program and prepares your official Bildungsgutschein offer within 24 hours."
                 : "Lass dich kostenlos und unverbindlich beraten. Wir prüfen deinen Förderanspruch und erstellen innerhalb von 24 Stunden dein offizielles Angebot für den Bildungsgutschein."}
             </p>
             <div className="flex flex-wrap justify-center gap-4">

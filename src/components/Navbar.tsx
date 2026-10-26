@@ -83,7 +83,7 @@ const enFundingItems = [
   { label: "Bildungsgutschein", sub: "100% funded via Agentur für Arbeit / Jobcenter", to: "/bildungsgutschein/" },
   { label: "AVGS", sub: "Free career coaching & orientation voucher", to: "/avgs/" },
   { label: "Qualifizierungschancengesetz", sub: "Employer-funded IT training for employees", to: "/qualifizierungschancengesetz/" },
-  { label: "For companies", sub: "Corporate IT training in English for teams", to: "/enterprise-corporate-training/" },
+  { label: "For companies", sub: "Corporate IT training for teams", to: "/enterprise-corporate-training/" },
 ];
 
 const deRatgeberItems = [

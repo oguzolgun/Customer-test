@@ -86,7 +86,7 @@ export default function Footer() {
             title: "Funding",
             links: [
               { label: "Funding overview", to: "/financing-and-tuition/" },
-              { label: "Bildungsgutschein in English", to: "/bildungsgutschein/" },
+              { label: "Bildungsgutschein Guide", to: "/bildungsgutschein/" },
               { label: "AVGS coaching", to: "/avgs/" },
               { label: "Qualifizierungschancengesetz", to: "/qualifizierungschancengesetz/" },
               { label: "For companies", to: "/enterprise-corporate-training/" },
@@ -145,7 +145,7 @@ export default function Footer() {
             <p className="text-xs text-gray-300 leading-relaxed max-w-sm">
               {lang === "de"
                 ? "Clarusway GmbH ist ein AZAV-zertifizierter Bildungsträger in Deutschland. Live-Online-IT-Weiterbildungen mit 100 % Förderung über Bildungsgutschein (Agentur für Arbeit & Jobcenter) und Qualifizierungschancengesetz."
-                : "Clarusway GmbH is an AZAV-certified education provider in Germany offering live online IT bootcamps taught in English — 100% fundable with a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter."}
+                : "Clarusway GmbH is an AZAV-certified education provider in Germany offering live online IT bootcamps in English, Turkish, and German — 100% fundable with a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter."}
             </p>
             <div className="flex flex-wrap gap-2 pt-1">
               {[

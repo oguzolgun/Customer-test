@@ -36,7 +36,7 @@ export function AboutPage() {
     : "Über Clarusway Deutschland: AZAV-zertifizierte IT-Schule | Clarusway";
 
   const metaDescription = isEn
-    ? "Clarusway GmbH (Neuss, Germany) is an AZAV-certified IT training provider and AWS Select Tier Partner offering live online IT bootcamps in English."
+    ? "Clarusway GmbH (Neuss, Germany) is an AZAV-certified IT training provider and AWS Select Tier Partner offering live online IT bootcamps."
     : "Clarusway GmbH mit Sitz in Neuss ist ein AZAV-zertifizierter Bildungsträger und offizieller AWS Select Tier Partner für praxisnahe IT-Weiterbildungen.";
 
   return (
@@ -56,7 +56,7 @@ export function AboutPage() {
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4 leading-tight">
               {isEn
-                ? "About Clarusway Germany: IT education in English"
+                ? "About Clarusway Germany: AZAV-Certified IT Education"
                 : "Über Clarusway Deutschland: Dein Partner für den IT-Einstieg"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
@@ -375,7 +375,7 @@ export function CareerManagementPage() {
                   },
                   {
                     title: "4. 1-on-1 Mock Interviews",
-                    desc: "Realistic technical coding/whiteboard interviews and HR behavioral coaching in English.",
+                    desc: "Realistic technical coding/whiteboard interviews and HR behavioral coaching in English or German.",
                   },
                 ]
               : [
@@ -429,7 +429,7 @@ export function EventsPage() {
     : "Kostenlose IT-Webinare, Workshops & Info-Events | Clarusway";
 
   const metaDescription = isEn
-    ? "Join free live online IT workshops, Bildungsgutschein Q&A sessions, and open classes in English at Clarusway Germany."
+    ? "Join free live online IT workshops, Bildungsgutschein Q&A sessions, and open classes at Clarusway Germany."
     : "Nimm kostenlos an unseren Live-Webinaren zu Bildungsgutschein, AI Engineering, Cyber Security, AWS Cloud und Full Stack teil.";
 
   const events = isEn
@@ -546,7 +546,7 @@ export function EventsPage() {
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
               {isEn
-                ? "Free IT webinars, workshops and info sessions in English"
+                ? "Free IT webinars, workshops and info sessions"
                 : "Kostenlose IT-Webinare, Workshops & Info-Events"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -681,11 +681,11 @@ export function ConsultationPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const metaTitle = isEn
-    ? "Free IT Career Consultation in English | Clarusway"
+    ? "Free IT Career Consultation | Clarusway"
     : "Kostenlose Beratung zur IT-Weiterbildung | Clarusway";
 
   const metaDescription = isEn
-    ? "Book your free 1-on-1 IT career consultation in English at Clarusway Germany. Get your official German Maßnahmeangebot for a Bildungsgutschein within 24 hours."
+    ? "Book your free 1-on-1 IT career consultation at Clarusway Germany. Get your official German Maßnahmeangebot for a Bildungsgutschein within 24 hours."
     : "Buche deine kostenlose und unverbindliche Studienberatung bei Clarusway. Wir prüfen deinen Anspruch auf einen Bildungsgutschein und erstellen dein Angebot in 24 Stunden.";
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -732,13 +732,13 @@ export function ConsultationPage() {
 
               <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
-                  ? "Book your free IT career consultation in English"
+                  ? "Book your free IT career consultation"
                   : "Kostenlose Beratung buchen: Dein Weg in die IT"}
               </h1>
 
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
                 {isEn
-                  ? "In a personal 1-on-1 call in English, a Clarusway advisor helps you choose the right IT bootcamp or module combination and prepares all German AZAV documents for your Agentur für Arbeit or Jobcenter appointment."
+                  ? "In a personal 1-on-1 call (available in English, Turkish, or German), a Clarusway advisor helps you choose the right IT bootcamp or module combination and prepares all German AZAV documents for your Agentur für Arbeit or Jobcenter appointment."
                   : "Im persönlichen 1:1-Beratungsgespräch finden wir heraus, welcher IT-Kurs oder welches Einzelmodul optimal zu deinem Vorwissen passt, und bereiten alle Unterlagen für deinen Bildungsgutschein vor."}
               </p>
 
@@ -805,7 +805,7 @@ export function ConsultationPage() {
                     </h2>
                     <p className="text-sm text-gray-600 mb-6 leading-relaxed">
                       {isEn
-                        ? `A Clarusway career advisor will contact you at ${email} within 24 hours to schedule your English consultation and prepare your German Maßnahmeangebot.`
+                        ? `A Clarusway career advisor will contact you at ${email} within 24 hours to schedule your consultation and prepare your German Maßnahmeangebot.`
                         : `Unsere Studienberatung meldet sich innerhalb von 24 Stunden unter ${email} bei dir, um dein persönliches Maßnahmeangebot für den Bildungsgutschein fertigzustellen.`}
                     </p>
                     <Link
@@ -1018,7 +1018,7 @@ export function ReferFriendPage() {
           </h1>
           <p className="text-gray-700 text-base leading-relaxed mb-8">
             {isEn
-              ? "Know someone in Germany who wants to launch an IT career in English with a Bildungsgutschein? Refer them to Clarusway and receive a €250 referral reward after they enroll."
+              ? "Know someone in Germany who wants to launch an IT career with a Bildungsgutschein? Refer them to Clarusway and receive a €250 referral reward after they enroll."
               : "Du kennst jemanden, der mit einem Bildungsgutschein in die IT starten möchte? Empfiehl Clarusway weiter und erhalte nach erfolgreichem Kursstart eine Empfehlungsprämie von 250 €."}
           </p>
           <Link
