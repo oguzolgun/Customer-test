@@ -288,36 +288,15 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
           {/* Right Column — Modular Animated Curriculum Path or Terminal Mockup */}
           <div className="relative flex justify-center w-full">
             {modularPathConfig ? (
-              <div className="relative w-full max-w-[480px]">
+              <div className="w-full max-w-[480px]">
                 <ModularPathHeroVisual
-                  initialCourseId={modularPathConfig.pathId}
+                  courseId={modularPathConfig.pathId}
                   defaultModuleIndex={modularPathConfig.defaultModuleIndex}
                   lang={lang}
-                  loopWithinCourse={true}
                 />
-
-                {/* Floating Badge Top-Right (15 Plätze pro Kurs) */}
-                <div className="hidden sm:block absolute -top-3 -right-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100 z-10 pointer-events-none">
-                  <div className="text-2xl font-extrabold" style={{ color: PRIMARY }}>
-                    15
-                  </div>
-                  <div className="text-xs text-gray-500">
-                    {lang === "en" ? "Seats per Cohort" : "Plätze pro Kurs"}
-                  </div>
-                </div>
-
-                {/* Floating Badge Bottom-Left (AZAV zertifiziert & förderfähig) */}
-                <div className="hidden sm:block absolute -bottom-3 -left-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100 z-10 pointer-events-none">
-                  <div className="text-sm font-bold" style={{ color: DARK }}>
-                    AZAV
-                  </div>
-                  <div className="text-xs font-semibold" style={{ color: PRIMARY }}>
-                    {lang === "en" ? "certified & 100% funded" : "zertifiziert & förderfähig"}
-                  </div>
-                </div>
               </div>
             ) : (
-              <div className="relative w-full max-w-[440px]">
+              <div className="w-full max-w-[440px]">
                 <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-[#1e1e2e] p-6 text-white">
                   <div className="flex items-center gap-2 mb-5">
                     <span className="w-3 h-3 rounded-full bg-red-500" />
@@ -350,26 +329,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       </div>
                       <div className="text-emerald-400 font-bold">100% (0 €)</div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Floating Badge Top-Right (15 Plätze pro Kurs) */}
-                <div className="hidden sm:block absolute -top-3 -right-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100 z-10 pointer-events-none">
-                  <div className="text-2xl font-extrabold" style={{ color: PRIMARY }}>
-                    15
-                  </div>
-                  <div className="text-xs text-gray-500">
-                    {lang === "en" ? "Seats per Cohort" : "Plätze pro Kurs"}
-                  </div>
-                </div>
-
-                {/* Floating Badge Bottom-Left (AZAV zertifiziert & förderfähig) */}
-                <div className="hidden sm:block absolute -bottom-3 -left-3 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100 z-10 pointer-events-none">
-                  <div className="text-sm font-bold" style={{ color: DARK }}>
-                    AZAV
-                  </div>
-                  <div className="text-xs font-semibold" style={{ color: PRIMARY }}>
-                    {lang === "en" ? "certified & 100% funded" : "zertifiziert & förderfähig"}
                   </div>
                 </div>
               </div>

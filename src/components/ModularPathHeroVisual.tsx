@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { Link } from "react-router-dom";
 import {
   MODULAR_PATHS_DE,
   MODULAR_PATHS_EN,
@@ -9,11 +8,10 @@ import {
 } from "../data/modularPathsData";
 
 interface ModularPathHeroVisualProps {
-  initialCourseId?: ModularPathId;
+  courseId: ModularPathId;
   defaultModuleIndex?: number;
   lang?: "de" | "en";
   className?: string;
-  loopWithinCourse?: boolean;
 }
 
 const STEP_DURATION_MS = 4200;
@@ -35,48 +33,33 @@ function computeBezierPoints(count: number) {
 }
 
 export function ModularPathHeroVisual({
-  initialCourseId = "ai",
+  courseId,
   defaultModuleIndex = 0,
   lang = "de",
   className = "",
-  loopWithinCourse = true,
 }: ModularPathHeroVisualProps) {
   const courses: PathCourse[] = lang === "en" ? MODULAR_PATHS_EN : MODULAR_PATHS_DE;
   const strings = MODULAR_STRINGS[lang] || MODULAR_STRINGS.de;
 
-  // Find initial course index matching initialCourseId
-  const foundIndex = courses.findIndex((c) => c.id === initialCourseId);
-  const initialIndex = foundIndex >= 0 ? foundIndex : 0;
+  // Select only the relevant course for this page
+  const activeCourse = courses.find((c) => c.id === courseId) || courses[0];
+  const numModules = activeCourse.modules.length;
 
-  const [selection, setSelection] = useState<{ c: number; m: number }>({
-    c: initialIndex,
-    m: Math.min(defaultModuleIndex, courses[initialIndex]?.modules.length - 1 || 0),
-  });
+  const [currentModuleIndex, setCurrentModuleIndex] = useState(
+    Math.min(defaultModuleIndex, numModules - 1)
+  );
   const [isPaused, setIsPaused] = useState(false);
-  const [elapsedMs, setElapsedMs] = useState(0);
 
-  // Sync if initialCourseId changes externally (e.g. route change)
+  // Sync if courseId or defaultModuleIndex changes
   useEffect(() => {
-    const idx = courses.findIndex((c) => c.id === initialCourseId);
-    if (idx >= 0) {
-      setSelection({
-        c: idx,
-        m: Math.min(defaultModuleIndex, courses[idx]?.modules.length - 1 || 0),
-      });
-      elapsedRef.current = 0;
-      setElapsedMs(0);
-    }
-  }, [initialCourseId, defaultModuleIndex, lang]);
+    setCurrentModuleIndex(Math.min(defaultModuleIndex, numModules - 1));
+    elapsedRef.current = 0;
+  }, [courseId, defaultModuleIndex, numModules]);
 
   const elapsedRef = useRef(0);
   const lastTimeRef = useRef(0);
   const isPausedRef = useRef(isPaused);
   isPausedRef.current = isPaused;
-
-  const currentCourseIndex = selection.c;
-  const currentModuleIndex = selection.m;
-  const activeCourse = courses[currentCourseIndex] || courses[0];
-  const numModules = activeCourse.modules.length;
 
   const { pts, d } = useMemo(() => computeBezierPoints(numModules), [numModules]);
   const activeModule = activeCourse.modules[currentModuleIndex] || activeCourse.modules[0];
@@ -92,19 +75,8 @@ export function ModularPathHeroVisual({
         elapsedRef.current += delta;
         if (elapsedRef.current >= STEP_DURATION_MS) {
           elapsedRef.current = 0;
-          setSelection((prev) => {
-            const courseModCount = courses[prev.c]?.modules.length || 1;
-            if (prev.m + 1 < courseModCount) {
-              return { c: prev.c, m: prev.m + 1 };
-            }
-            // End of modules for current course
-            if (loopWithinCourse) {
-              return { c: prev.c, m: 0 };
-            }
-            return { c: (prev.c + 1) % courses.length, m: 0 };
-          });
+          setCurrentModuleIndex((prev) => (prev + 1) % numModules);
         }
-        setElapsedMs(elapsedRef.current);
       }
 
       animId = requestAnimationFrame(tick);
@@ -112,31 +84,19 @@ export function ModularPathHeroVisual({
 
     animId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(animId);
-  }, [courses, loopWithinCourse]);
-
-  const handleSelectCourse = (index: number) => {
-    elapsedRef.current = 0;
-    setElapsedMs(0);
-    setSelection({ c: index, m: 0 });
-  };
+  }, [numModules]);
 
   const handleSelectModule = (index: number) => {
     elapsedRef.current = 0;
-    setElapsedMs(0);
-    setSelection((prev) => ({ c: prev.c, m: index }));
+    setCurrentModuleIndex(index);
   };
-
-  // Course progress calculation (0 to 1)
-  const courseProgress = (currentModuleIndex + elapsedMs / STEP_DURATION_MS) / numModules;
 
   // SVG stroke-dashoffset: 0 when fully completed, 1 when empty
   const strokeOffset = numModules > 1 ? 1 - currentModuleIndex / (numModules - 1) : 0;
 
-  const coursePageUrl = lang === "en" ? activeCourse.slugEn : activeCourse.slugDe;
-
   return (
     <div
-      className={`relative overflow-hidden rounded-[28px] bg-[#14151f] p-6 text-white shadow-[0_40px_90px_-40px_rgba(16,24,40,0.6)] sm:p-7 border border-white/10 ${className}`}
+      className={`relative overflow-hidden rounded-[28px] bg-[#14151f] p-6 text-white shadow-[0_40px_90px_-40px_rgba(16,24,40,0.6)] sm:p-8 border border-white/10 ${className}`}
       style={{ fontFamily: "'Poppins', -apple-system, sans-serif" }}
     >
       <style>{`
@@ -217,9 +177,9 @@ export function ModularPathHeroVisual({
           </button>
         </div>
 
-        {/* Course Name & Tagline */}
+        {/* Course Name & Tagline (Specific to this course only) */}
         <p
-          key={`t-${currentCourseIndex}`}
+          key={`t-${courseId}`}
           className="cwmp-in mt-2 min-h-[38px] max-w-[36ch] text-[13px] leading-relaxed text-white/60"
         >
           <span className="font-semibold text-white/95">{activeCourse.name}.</span>{" "}
@@ -228,7 +188,7 @@ export function ModularPathHeroVisual({
 
         {/* Curved Path Animation */}
         <div
-          key={`p-${currentCourseIndex}`}
+          key={`p-${courseId}`}
           className="cwmp-in relative mt-4 h-[104px] w-full sm:h-[112px]"
         >
           <svg
@@ -322,7 +282,7 @@ export function ModularPathHeroVisual({
 
         {/* Active Module Details Card */}
         <div className="mt-6 min-h-[160px] rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm sm:p-5">
-          <div key={`m-${currentCourseIndex}-${currentModuleIndex}`} className="cwmp-in">
+          <div key={`m-${courseId}-${currentModuleIndex}`} className="cwmp-in">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p
@@ -361,69 +321,8 @@ export function ModularPathHeroVisual({
           </div>
         </div>
 
-        {/* Bottom Course Switcher Tabs with Animated Progress Bars */}
-        <div className="mt-4">
-          <div
-            className="flex gap-1.5"
-            role="tablist"
-            aria-label={strings.choose}
-          >
-            {courses.map((courseItem, idx) => {
-              const isSelected = idx === currentCourseIndex;
-              const progressWidth =
-                idx < currentCourseIndex
-                  ? 100
-                  : idx === currentCourseIndex
-                  ? Math.min(100, courseProgress * 100)
-                  : 0;
-
-              return (
-                <button
-                  key={courseItem.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isSelected}
-                  aria-label={courseItem.name}
-                  title={courseItem.name}
-                  onClick={() => handleSelectCourse(idx)}
-                  className="group relative h-6 flex-1 focus:outline-none cursor-pointer"
-                >
-                  <span className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 overflow-hidden rounded-full bg-white/10 transition group-hover:bg-white/20">
-                    <span
-                      className="absolute inset-y-0 left-0 rounded-full"
-                      style={{
-                        background: "#e0154b",
-                        width: `${progressWidth}%`,
-                        transition: "width 120ms linear",
-                      }}
-                    />
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Quick labels for 5 tracks on desktop */}
-          <div className="hidden sm:flex justify-between items-center text-[10px] text-white/40 px-1 -mt-0.5">
-            {courses.map((c, i) => (
-              <button
-                key={c.id}
-                type="button"
-                onClick={() => handleSelectCourse(i)}
-                className={`truncate max-w-[72px] text-left transition-colors cursor-pointer ${
-                  i === currentCourseIndex
-                    ? "text-[#e0154b] font-semibold"
-                    : "text-white/40 hover:text-white/70"
-                }`}
-              >
-                {c.name.replace("AI ", "").replace("AWS & ", "")}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* Footer Note */}
-        <div className="mt-3 flex items-center justify-between text-[11px] leading-relaxed text-white/45">
+        <div className="mt-5 flex items-center justify-between text-[11px] leading-relaxed text-white/45">
           <p className="flex items-start gap-2">
             <svg
               viewBox="0 0 24 24"
