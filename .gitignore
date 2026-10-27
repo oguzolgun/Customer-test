@@ -15,6 +15,7 @@ logs/
 .claude-replay.*
 .tmp-*
 clarusway-de-full-content.md
+clarusway-website-images-part/
 /imports/
 /.plugins/
 /.opencode-skills/

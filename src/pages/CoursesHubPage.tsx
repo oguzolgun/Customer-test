@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { SeoHead } from "../components/SeoHead";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { COURSES_HUB_IMAGES } from "../data/pageImagesData";
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -441,6 +442,15 @@ export function CoursesHubPage() {
                 </span>
               </Link>
             </div>
+
+            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <img
+                src={COURSES_HUB_IMAGES.landscapeHero.src}
+                alt={COURSES_HUB_IMAGES.landscapeHero.alt[lang]}
+                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -566,70 +576,326 @@ export function CoursesHubPage() {
               </div>
             ))}
           </div>
+
+          {/* Landscape Alumni Success Banner */}
+          <div className="mt-12 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+            <img
+              src={COURSES_HUB_IMAGES.landscapeAlumni.src}
+              alt={COURSES_HUB_IMAGES.landscapeAlumni.alt[lang]}
+              className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 
       {/* =====================================================================
-          SECTION 3: WHICH COURSE FITS YOU? + FUNDING BOX
+          SECTION 3: HOW OUR BOOTCAMPS WORK — 4 Alternating Blocks
           ===================================================================== */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
-                {isEn
-                  ? "Which IT course fits your background?"
-                  : "Welcher IT-Kurs passt zu dir?"}
-              </h2>
-              <p className="text-gray-600 text-sm sm:text-base mb-5 leading-relaxed">
-                {isEn
-                  ? "Not sure whether Data & AI, Web Development, Cyber Security, or Cloud Engineering matches your strengths? Take the 4-week IT Orientation Course (100% funded with an AVGS voucher) or book a free career consultation."
-                  : "Du bist noch unsicher, ob KI & Data, Webentwicklung, Cyber Security oder Cloud am besten zu deinen Stärken passt? Im 4-wöchigen IT-Orientierungskurs (100 % förderbar mit AVGS) probierst du alle Bereiche praktisch aus."}
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-                  style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-xs sm:text-sm"
-                >
-                  <span>
-                    {isEn ? "Explore the IT Orientation Course" : "Zum IT-Orientierungskurs"}
-                  </span>
-                  <ArrowRightIcon className="w-4 h-4" />
-                </Link>
-                <Link
-                  to={consultPath}
-                  className="inline-flex items-center gap-2 border border-gray-300 text-[#1a1d2e] font-semibold px-6 py-3 rounded-full text-xs sm:text-sm hover:border-[#e51a59]"
-                >
-                  <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
-                </Link>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span
+              style={{ color: PRIMARY }}
+              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+            >
+              {isEn ? "The Clarusway Experience" : "Dein Weg zum Erfolg"}
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1a1d2e] mb-3">
+              {isEn
+                ? "How Our Live Online Bootcamps Work"
+                : "So funktioniert deine Weiterbildung bei Clarusway"}
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+              {isEn
+                ? "From initial orientation and funded admission to live interactive classes and direct career placement."
+                : "Vom ersten Orientierungskurs über interaktiven Live-Unterricht bis zum erfolgreichen Jobeinstieg."}
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            {/* Block 1: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 1: Finding Your Path" : "Schritt 1: Orientierung & Beratung"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Which IT course fits your background?"
+                    : "Welcher IT-Kurs passt zu dir?"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Not sure whether Data & AI, Web Development, Cyber Security, or Cloud Engineering matches your strengths? Take the 4-week IT Orientation Course (100% funded with an AVGS voucher) or book a free career consultation."
+                    : "Du bist noch unsicher, ob KI & Data, Webentwicklung, Cyber Security oder Cloud am besten zu deinen Stärken passt? Im 4-wöchigen IT-Orientierungskurs probierst du alle Bereiche praktisch aus."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Personal 1-on-1 career consultation and aptitude assessment"
+                        : "Persönliche 1-zu-1 Bildungsberatung und Eignungsanalyse"}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Hands-on test modules across coding, cloud, and data"
+                        : "Praktische Testmodule in Programmierung, Cloud und Daten"}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "100% funded through AVGS voucher from Agentur für Arbeit"
+                        : "100 % Kostenübernahme mit AVGS von der Arbeitsagentur"}
+                    </span>
+                  </li>
+                </ul>
+
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
+                    style={{ backgroundColor: PRIMARY }}
+                    className="inline-flex items-center gap-2 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm hover:opacity-90 transition-opacity"
+                  >
+                    <span>{isEn ? "Explore IT Orientation" : "Zum Orientierungskurs"}</span>
+                    <ArrowRightIcon className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    to={consultPath}
+                    className="inline-flex items-center gap-2 border border-gray-300 text-[#1a1d2e] font-semibold px-5 py-2.5 rounded-xl text-xs sm:text-sm hover:border-[#e51a59]"
+                  >
+                    <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={COURSES_HUB_IMAGES.squareOrientation.src}
+                  alt={COURSES_HUB_IMAGES.squareOrientation.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
               </div>
             </div>
 
-            <div
-              style={{ backgroundColor: SOFT_BG }}
-              className="lg:col-span-6 rounded-2xl p-7 border border-gray-100"
-            >
-              <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-2">
-                {isEn
-                  ? "100% funded with a Bildungsgutschein"
-                  : "Förderung mit Bildungsgutschein, AVGS und QCG"}
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-700 mb-4 leading-relaxed">
-                {isEn
-                  ? "All Clarusway courses are AZAV-certified in Germany. Clarusway prepares your German course offer (Maßnahmeangebot) within 24 hours so you can apply for your Bildungsgutschein at the Agentur für Arbeit or Jobcenter."
-                  : "Alle Clarusway-Programme sind nach AZAV zugelassen. Wir erstellen innerhalb von 24 Stunden dein individuelles Maßnahmeangebot für die Agentur für Arbeit oder das Jobcenter."}
-              </p>
-              <div className="flex flex-wrap gap-4 text-xs font-semibold text-[#e51a59]">
-                <Link to="/bildungsgutschein/" className="hover:underline">
-                  {isEn ? "→ How to get a Bildungsgutschein" : "→ Bildungsgutschein beantragen"}
-                </Link>
-                <Link to="/avgs/" className="hover:underline">
-                  {isEn ? "→ AVGS Voucher Guide" : "→ AVGS Gutschein"}
-                </Link>
-                <Link to="/qualifizierungschancengesetz/" className="hover:underline">
-                  {isEn ? "→ QCG Employee Funding" : "→ Qualifizierungschancengesetz"}
-                </Link>
+            {/* Block 2: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={COURSES_HUB_IMAGES.squareCollaboration.src}
+                  alt={COURSES_HUB_IMAGES.squareCollaboration.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                  {isEn ? "Step 2: Practical Projects" : "Schritt 2: Praxisnahe Teamarbeit"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Collaborative Team Projects & Agile Sprints"
+                    : "Echte Projekte im agilen Team entwickeln"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Learn tech the way top companies work. You build end-to-end applications, commit code via Git/GitHub, participate in daily standups, and simulate real sprint cycles."
+                    : "Lerne so, wie moderne Tech-Unternehmen arbeiten: Du entwickelst vollständige Anwendungen, nutzt Git/GitHub für Code Reviews und arbeitest in agilen Scrum-Sprints."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Real GitHub portfolios with industry-standard codebases"
+                        : "Echtes GitHub-Portfolio mit branchenüblichen Projekten"}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Team programming, pair coding, and peer reviews"
+                        : "Team-Programmierung, Pair-Coding und Peer Reviews"}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Capstone projects tailored to German employer hiring demands"
+                        : "Abschlussprojekte zugeschnitten auf die Anforderungen deutscher Arbeitgeber"}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Block 3: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 3: Mentorship" : "Schritt 3: 1-zu-1 Mentoring"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "1-on-1 Mentorship & Code Reviews"
+                    : "Individuelle Mentor-Betreuung & Feedback"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "You are never left alone. Senior industry mentors and teaching assistants provide daily office hours, deep-dive code reviews, and targeted feedback on your solutions."
+                    : "Du bist nie auf dich allein gestellt: Erfahrene Mentoren und Teaching Assistants bieten tägliche Fragestunden, detaillierte Code Reviews und kontinuierliche Unterstützung."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Daily live Q&A office hours with instructors"
+                        : "Tägliche Live-Fragestunden mit den Dozenten"}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Personalized career coaching and German CV optimization"
+                        : "Persönliches Karriere-Coaching und deutsche Lebenslauf-Optimierung"}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Mock technical interviews and hiring partner introductions"
+                        : "Simulation technischer Interviews und Vorbereitung auf Vorstellungsgespräche"}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={COURSES_HUB_IMAGES.squareMentoring.src}
+                  alt={COURSES_HUB_IMAGES.squareMentoring.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Block 4: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={COURSES_HUB_IMAGES.squareHomeOffice.src}
+                  alt={COURSES_HUB_IMAGES.squareHomeOffice.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 4: 100% Funded" : "Schritt 4: 100 % Gefördert"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "100% Funded Remote Learning Setup"
+                    : "100 % Kostenübernahme & Heimarbeitsplatz"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "All Clarusway courses are AZAV-certified. With a Bildungsgutschein, your tuition is 100% covered by the Agentur für Arbeit or Jobcenter. In addition, learning hardware and technical accessories can be subsidized."
+                    : "Alle Clarusway-Programme sind AZAV-zertifiziert. Mit einem Bildungsgutschein übernimmt die Agentur für Arbeit oder das Jobcenter 100 % der Kursgebühren. Bei Bedarf wird auch deine technische Ausstattung gefördert."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "0 € out-of-pocket costs with an official Bildungsgutschein"
+                        : "0 € Eigenanteil mit dem offiziellen Bildungsgutschein"}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Course offer (Maßnahmeangebot) delivered within 24 hours"
+                        : "Maßnahmeangebot innerhalb von 24 Stunden für dein Jobcenter"}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>
+                      {isEn
+                        ? "Free advisory support until your voucher is officially approved"
+                        : "Persönliche Begleitung bis zur erfolgreichen Bewilligung"}
+                    </span>
+                  </li>
+                </ul>
+
+                <div className="flex flex-wrap gap-4 text-xs font-bold text-[#e51a59]">
+                  <Link to="/bildungsgutschein/" className="hover:underline">
+                    {isEn ? "→ Bildungsgutschein Guide" : "→ Bildungsgutschein beantragen"}
+                  </Link>
+                  <Link to="/avgs/" className="hover:underline">
+                    {isEn ? "→ AVGS Voucher" : "→ AVGS Gutschein"}
+                  </Link>
+                  <Link to="/qualifizierungschancengesetz/" className="hover:underline">
+                    {isEn ? "→ QCG for Employees" : "→ Qualifizierungschancengesetz"}
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

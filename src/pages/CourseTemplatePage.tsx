@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { CourseKey, getCourseData } from "../data/coursesData";
+import { COURSE_IMAGES } from "../data/pageImagesData";
 import { mapCourseKeyToModularPath } from "../data/modularPathsData";
 import { ModularPathHeroVisual } from "../components/ModularPathHeroVisual";
 import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
@@ -33,6 +34,7 @@ interface CourseTemplatePageProps {
 export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
   const { lang } = useLanguage();
   const data = getCourseData(courseKey, lang);
+  const courseImages = COURSE_IMAGES[data.key] || COURSE_IMAGES["ai-engineering"];
 
   const [syllabusName, setSyllabusName] = useState("");
   const [syllabusEmail, setSyllabusEmail] = useState("");
@@ -371,39 +373,92 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {data.audienceCards.map((card, i) => (
-              <div
-                key={i}
-                style={{ background: SOFT_BG }}
-                className="rounded-2xl p-7 border border-gray-100 shadow-sm flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <span
-                      style={{
-                        backgroundColor: i === 0 ? "#fde8ef" : "#e8eaf6",
-                        color: i === 0 ? PRIMARY : "#3949ab",
-                      }}
-                      className="text-xs font-bold px-3 py-1 rounded-full"
-                    >
-                      {card.badge}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-[#1a1d2e] mb-3">{card.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-5">{card.desc}</p>
+          <div className="space-y-12">
+            {/* Block 1: Text Left, Square Image Right */}
+            {data.audienceCards[0] && (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div
+                  style={{ background: SOFT_BG }}
+                  className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+                >
+                  <span
+                    style={{ backgroundColor: "#fde8ef", color: PRIMARY }}
+                    className="text-xs font-bold px-3 py-1 rounded-full inline-block mb-4"
+                  >
+                    {data.audienceCards[0].badge}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                    {data.audienceCards[0].title}
+                  </h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                    {data.audienceCards[0].desc}
+                  </p>
+
+                  <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                    {data.audienceCards[0].bullets.map((b, j) => (
+                      <li key={j} className="flex items-start gap-3 text-sm sm:text-base text-gray-700">
+                        <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                          <CheckCircleIcon className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="leading-snug">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <ul className="space-y-2.5 pt-4 border-t border-gray-200/70">
-                  {card.bullets.map((b, j) => (
-                    <li key={j} className="flex items-start gap-2.5 text-sm text-gray-700">
-                      <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0 mt-0.5" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex justify-center">
+                  <img
+                    src={courseImages.squareAudience1.src}
+                    alt={courseImages.squareAudience1.alt[lang]}
+                    className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100/80"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-            ))}
+            )}
+
+            {/* Block 2: Square Image Left, Text Right (Alternating!) */}
+            {data.audienceCards[1] && (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div className="flex justify-center order-2 lg:order-1">
+                  <img
+                    src={(courseImages.squareAudience2 || courseImages.squareAudience1).src}
+                    alt={(courseImages.squareAudience2 || courseImages.squareAudience1).alt[lang]}
+                    className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100/80"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div
+                  style={{ background: SOFT_BG }}
+                  className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+                >
+                  <span
+                    style={{ backgroundColor: "#e8eaf6", color: "#3949ab" }}
+                    className="text-xs font-bold px-3 py-1 rounded-full inline-block mb-4"
+                  >
+                    {data.audienceCards[1].badge}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                    {data.audienceCards[1].title}
+                  </h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                    {data.audienceCards[1].desc}
+                  </p>
+
+                  <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                    {data.audienceCards[1].bullets.map((b, j) => (
+                      <li key={j} className="flex items-start gap-3 text-sm sm:text-base text-gray-700">
+                        <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                          <CheckCircleIcon className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="leading-snug">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -724,33 +779,46 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
           </div>
 
           {/* Right Column: Clean White Key-Value Card + Pink Rounded-XL CTA */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-            <table className="w-full text-left border-collapse mb-6">
-              <tbody>
-                {data.summaryTable.map(([label, val], idx) => (
-                  <tr key={idx} className="border-b border-gray-100 last:border-b-0">
-                    <th className="py-2.5 pr-3 text-sm font-semibold text-gray-700 align-top min-w-[140px]">
-                      {label}:
-                    </th>
-                    <td className="py-2.5 text-sm text-gray-600 align-top">{val}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="space-y-6">
+            {courseImages?.squareOverview && (
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+                <img
+                  src={courseImages.squareOverview.src}
+                  alt={courseImages.squareOverview.alt[lang]}
+                  className="w-full aspect-square object-cover"
+                  loading="lazy"
+                />
+              </div>
+            )}
 
-            <Link
-              to={consultPath}
-              onClick={() =>
-                trackClaruswayEvent("beratung_angefragt", {
-                  source: `overview_${data.key}`,
-                  lang,
-                })
-              }
-              style={{ background: PRIMARY }}
-              className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
-            >
-              {lang === "en" ? "Free consultation" : "Kostenlose Beratung"}
-            </Link>
+            <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+              <table className="w-full text-left border-collapse mb-6">
+                <tbody>
+                  {data.summaryTable.map(([label, val], idx) => (
+                    <tr key={idx} className="border-b border-gray-100 last:border-b-0">
+                      <th className="py-2.5 pr-3 text-sm font-semibold text-gray-700 align-top min-w-[140px]">
+                        {label}:
+                      </th>
+                      <td className="py-2.5 text-sm text-gray-600 align-top">{val}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
+              <Link
+                to={consultPath}
+                onClick={() =>
+                  trackClaruswayEvent("beratung_angefragt", {
+                    source: `overview_${data.key}`,
+                    lang,
+                  })
+                }
+                style={{ background: PRIMARY }}
+                className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
+              >
+                {lang === "en" ? "Free consultation" : "Kostenlose Beratung"}
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -774,6 +842,17 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               {data.careerIntro}
             </p>
           </div>
+
+          {courseImages?.landscapeCareer && (
+            <div className="mb-10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <img
+                src={courseImages.landscapeCareer.src}
+                alt={courseImages.landscapeCareer.alt[lang]}
+                className="w-full max-h-[380px] sm:max-h-[420px] object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
 
           <div
             className={`grid gap-6 ${
@@ -953,6 +1032,55 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 </Link>
               </div>
             </div>
+
+            {courseImages?.squareFunding && (
+              <div className="mt-8 pt-8 border-t border-gray-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-5 flex justify-center">
+                  <img
+                    src={courseImages.squareFunding.src}
+                    alt={courseImages.squareFunding.alt[lang]}
+                    className="w-full max-w-[420px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="lg:col-span-7">
+                  <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-bold px-3 py-1 rounded-full mb-3">
+                    <ShieldCheckIcon className="w-3.5 h-3.5" />
+                    <span>{lang === "en" ? "AZAV Certified Process" : "AZAV-zertifizierter Ablauf"}</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                    {lang === "en"
+                      ? "Your Path to 100% Funding in 3 Simple Steps"
+                      : "In 3 einfachen Schritten zu deiner 100 % Förderung"}
+                  </h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-5">
+                    {lang === "en"
+                      ? "Our experienced education advisors assist you throughout every step with your local Agentur für Arbeit or Jobcenter. We provide all the required course registration papers so you can focus entirely on learning."
+                      : "Unsere Bildungsberater unterstützen dich bei der Beantragung bei deiner Agentur für Arbeit oder deinem Jobcenter. Wir stellen alle notwendigen AZAV-Unterlagen für dich bereit, damit du dich ganz auf deinen Kurs konzentrieren kannst."}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="bg-[#f6f7fb] p-3.5 rounded-xl border border-gray-100">
+                      <span className="text-xs font-bold text-[#e51a59]">1. {lang === "en" ? "Step" : "Schritt"}</span>
+                      <p className="text-xs font-bold text-gray-800 mt-1">
+                        {lang === "en" ? "Free Consultation" : "Kostenlose Beratung"}
+                      </p>
+                    </div>
+                    <div className="bg-[#f6f7fb] p-3.5 rounded-xl border border-gray-100">
+                      <span className="text-xs font-bold text-[#e51a59]">2. {lang === "en" ? "Step" : "Schritt"}</span>
+                      <p className="text-xs font-bold text-gray-800 mt-1">
+                        {lang === "en" ? "Get Voucher" : "Gutschein erhalten"}
+                      </p>
+                    </div>
+                    <div className="bg-[#f6f7fb] p-3.5 rounded-xl border border-gray-100">
+                      <span className="text-xs font-bold text-[#e51a59]">3. {lang === "en" ? "Step" : "Schritt"}</span>
+                      <p className="text-xs font-bold text-gray-800 mt-1">
+                        {lang === "en" ? "Start Learning" : "Kurs starten"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -976,6 +1104,17 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               {data.whyIntro}
             </p>
           </div>
+
+          {courseImages?.landscapeWhy && (
+            <div className="mb-10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <img
+                src={courseImages.landscapeWhy.src}
+                alt={courseImages.landscapeWhy.alt[lang]}
+                className="w-full max-h-[380px] sm:max-h-[420px] object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
 
           {data.partnerHighlight && (
             <div

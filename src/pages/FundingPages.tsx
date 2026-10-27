@@ -4,6 +4,13 @@ import { useLanguage } from "../context/LanguageContext";
 import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
 import { Breadcrumb } from "../components/Breadcrumb";
 import {
+  FUNDING_OVERVIEW_IMAGES,
+  BILDUNGSGUTSCHEIN_IMAGES,
+  AVGS_IMAGES,
+  QCG_IMAGES,
+  CORPORATE_TRAINING_IMAGES,
+} from "../data/pageImagesData";
+import {
   ArrowRightIcon,
   CheckCircleIcon,
   ShieldCheckIcon,
@@ -98,6 +105,15 @@ export function FinancingHubPage() {
               <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
               <ArrowRightIcon className="w-4 h-4" />
             </Link>
+
+            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <img
+                src={FUNDING_OVERVIEW_IMAGES.landscapeHero.src}
+                alt={FUNDING_OVERVIEW_IMAGES.landscapeHero.alt[lang]}
+                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -191,59 +207,258 @@ export function FinancingHubPage() {
             </table>
           </div>
 
-          {/* 3 Pillar Cards (H3) */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: isEn
-                  ? "Bildungsgutschein (100% Tuition)"
-                  : "Bildungsgutschein (100 % Kostenübernahme)",
-                desc: isEn
-                  ? "The standard education voucher issued by the Agentur für Arbeit or Jobcenter covering 100% of your bootcamp fees."
-                  : "Der Bildungsgutschein der Agentur für Arbeit oder des Jobcenters übernimmt 100 % deiner Lehrgangsgebühren.",
-                to: "/bildungsgutschein/",
-              },
-              {
-                title: isEn
-                  ? "AVGS Voucher (Orientation)"
-                  : "AVGS Gutschein (Berufsorientierung)",
-                desc: isEn
-                  ? "Covers 100% of the 4-week IT Orientation Course without using up your later Bildungsgutschein."
-                  : "Deckt den 4-wöchigen IT-Orientierungskurs zu 100 % ab, ohne deinen späteren Bildungsgutschein zu verbrauchen.",
-                to: "/avgs/",
-              },
-              {
-                title: "Qualifizierungschancengesetz (QCG)",
-                desc: isEn
-                  ? "State subsidies for companies upskilling their employees in AI, Cloud, Cyber Security, or Software Development."
-                  : "Staatliche Zuschüsse für Arbeitgeber, die ihre Mitarbeitenden in KI, Cloud, Cyber Security oder Webentwicklung weiterbilden.",
-                to: "/qualifizierungschancengesetz/",
-              },
-            ].map((card) => (
+          {/* 4 Alternating Financing Pillar Blocks */}
+          <div className="space-y-16">
+            {/* Block 1: Bildungsgutschein — Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div
-                key={card.to}
                 style={{ backgroundColor: SOFT_BG }}
-                className="rounded-2xl p-6 border border-gray-200 flex flex-col justify-between"
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
               >
-                <div>
-                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
-                    <Link to={card.to} className="hover:text-[#e51a59]">
-                      {card.title}
-                    </Link>
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
-                    {card.desc}
-                  </p>
-                </div>
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Option 1: Job Seekers & Career Changers" : "Weg 1: Arbeitsuchende & Quereinsteiger"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  <Link to="/bildungsgutschein/" className="hover:text-[#e51a59]">
+                    {isEn ? "Bildungsgutschein (100% Tuition Coverage)" : "Bildungsgutschein (100 % Kostenübernahme)"}
+                  </Link>
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "The primary state education voucher issued by the Agentur für Arbeit or Jobcenter under § 81 SGB III. It covers 100% of your tuition fees, exam fees, and course materials for all Clarusway IT bootcamps."
+                    : "Der offizielle Bildungsgutschein nach § 81 SGB III übernimmt 100 % der Lehrgangsgebühren, Prüfungsgebühren und Lernmittel für alle AZAV-zertifizierten Clarusway IT-Weiterbildungen."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "0 € out-of-pocket tuition with official voucher" : "0 € Eigenanteil bei Bewilligung"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Monthly Weiterbildungsgeld allowance (150 €/mo for ALG I recipients)" : "Weiterzahlung von ALG I / Bürgergeld plus 150 € Weiterbildungsgeld"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Free advisory and Maßnahmeangebot in 24 hours" : "Individuelles Maßnahmeangebot innerhalb von 24 Stunden"}</span>
+                  </li>
+                </ul>
+
                 <Link
-                  to={card.to}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline"
+                  to="/bildungsgutschein/"
+                  className="inline-flex items-center gap-2 text-[#e51a59] font-bold text-sm hover:underline"
                 >
-                  <span>{card.title}</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                  <span>{isEn ? "Explore Bildungsgutschein Guide" : "Zum Bildungsgutschein-Leitfaden"}</span>
+                  <ArrowRightIcon className="w-4 h-4" />
                 </Link>
               </div>
-            ))}
+
+              <div className="flex justify-center">
+                <img
+                  src={FUNDING_OVERVIEW_IMAGES.squareAdvisor.src}
+                  alt={FUNDING_OVERVIEW_IMAGES.squareAdvisor.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Block 2: AVGS — Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={FUNDING_OVERVIEW_IMAGES.squareDocuments.src}
+                  alt={FUNDING_OVERVIEW_IMAGES.squareDocuments.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                  {isEn ? "Option 2: Orientation & Career Coaching" : "Weg 2: Orientierung & Coaching"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  <Link to="/avgs/" className="hover:text-[#e51a59]">
+                    {isEn ? "AVGS Voucher (Aktivierungs- und Vermittlungsgutschein)" : "AVGS Gutschein (Berufliche Orientierung)"}
+                  </Link>
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "If you want to test whether IT suits your skills before committing, the AVGS voucher covers 100% of the 4-week IT Orientation Course without reducing your later Bildungsgutschein entitlement."
+                    : "Wenn du noch unsicher bist, welcher IT-Zweig zu dir passt, fördert der AVGS-Gutschein den 4-wöchigen IT-Orientierungskurs zu 100 % — dein späterer Anspruch auf einen Bildungsgutschein bleibt voll erhalten."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "4-week hands-on orientation in Coding, Cloud & AI" : "4 Wochen praktische Einblicke in Coding, Cloud & KI"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "1-on-1 coaching session with certified career mentors" : "1-zu-1 Karrierecoaching und persönliche Potenzialanalyse"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Seamless transition to a fully funded main bootcamp" : "Nahtloser Übergang in deine geförderte Hauptweiterbildung"}</span>
+                  </li>
+                </ul>
+
+                <Link
+                  to="/avgs/"
+                  className="inline-flex items-center gap-2 text-[#3949ab] font-bold text-sm hover:underline"
+                >
+                  <span>{isEn ? "Learn more about AVGS" : "Mehr zum AVGS Gutschein"}</span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Block 3: QCG — Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Option 3: Employed Professionals & Companies" : "Weg 3: Beschäftigte & Unternehmen"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  <Link to="/qualifizierungschancengesetz/" className="hover:text-[#e51a59]">
+                    {isEn ? "Qualifizierungschancengesetz (QCG § 82 SGB III)" : "Qualifizierungschancengesetz (QCG)"}
+                  </Link>
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Employed professionals whose jobs are transformed by digitalization can receive up to 100% course cost subsidies and employers receive up to 75% wage subsidies through the Agentur für Arbeit."
+                    : "Beschäftigte, deren Arbeitsplätze durch Automatisierung und Digitalisierung gefährdet sind, erhalten bis zu 100 % Zuschuss zu den Weiterbildungskosten und Arbeitgeber bis zu 75 % Lohnkostenzuschuss."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Subsidized training during regular working hours" : "Geförderte Schulungen während der regulären Arbeitszeit"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Up to 100% tuition coverage depending on company size" : "Staffelung nach Betriebsgröße: bis zu 100 % Kostenübernahme"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Clarusway handles Arbeitgeber-Service coordination" : "Clarusway koordiniert die Anträge beim Arbeitgeber-Service"}</span>
+                  </li>
+                </ul>
+
+                <Link
+                  to="/qualifizierungschancengesetz/"
+                  className="inline-flex items-center gap-2 text-[#e51a59] font-bold text-sm hover:underline"
+                >
+                  <span>{isEn ? "Check QCG details" : "Details zum QCG erfahren"}</span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={FUNDING_OVERVIEW_IMAGES.squareCareerChange.src}
+                  alt={FUNDING_OVERVIEW_IMAGES.squareCareerChange.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Block 4: Application Checklist — Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={FUNDING_OVERVIEW_IMAGES.squareApplication.src}
+                  alt={FUNDING_OVERVIEW_IMAGES.squareApplication.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Application Assistance" : "Kostenlose Antragshilfe"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Full Consultation & Document Prep"
+                    : "Rundum-Begleitung bei deiner Antragstellung"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Navigating German bureaucratic processes can be overwhelming. Our multilingual advisory team supports you in English, Turkish, or German with all required paperwork, justifications, and preparation."
+                    : "Wir lassen dich mit den Behörden nicht allein: Unser erfahrenes Beratungsteam erstellt alle Bescheinigungen und bereitet dich optimal auf dein Gespräch beim Kostenträger vor."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Fast 24-hour turnaround for official course offers" : "Schnelle Ausstellung des Maßnahmeangebots in 24 Std."}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Tailored labor-market justifications in German" : "Individuelle arbeitsmarktliche Begründung auf Deutsch"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Support until your official voucher approval arrives" : "Persönliche Unterstützung bis zur Gutscheinbewilligung"}</span>
+                  </li>
+                </ul>
+
+                <Link
+                  to={consultPath}
+                  style={{ backgroundColor: PRIMARY }}
+                  className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
+                >
+                  <span>{isEn ? "Book Free Consultation" : "Kostenlose Beratung anfragen"}</span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Landscape Success Banner */}
+          <div className="mt-16 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+            <img
+              src={FUNDING_OVERVIEW_IMAGES.landscapeSuccess.src}
+              alt={FUNDING_OVERVIEW_IMAGES.landscapeSuccess.alt[lang]}
+              className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -471,6 +686,15 @@ export function BildungsgutscheinPage() {
                 </span>
               </Link>
             </div>
+
+            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <img
+                src={BILDUNGSGUTSCHEIN_IMAGES.landscapeHero.src}
+                alt={BILDUNGSGUTSCHEIN_IMAGES.landscapeHero.alt[lang]}
+                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -547,33 +771,224 @@ export function BildungsgutscheinPage() {
         </div>
       </section>
 
-      {/* SECTION 2: 5 Steps (Component B11) */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
+      {/* SECTION 2: 4-Step Application Walkthrough (Alternating Blocks) */}
+      <section style={{ backgroundColor: SOFT_BG }} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
-            {isEn
-              ? "How to apply for a Bildungsgutschein in 5 steps"
-              : "In 5 Schritten zum Bildungsgutschein"}
-          </h2>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span
+              style={{ color: PRIMARY }}
+              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+            >
+              {isEn ? "Application Process" : "Der Weg zum Gutschein"}
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1a1d2e] mb-3">
+              {isEn
+                ? "How to Apply for a Bildungsgutschein in 4 Steps"
+                : "In 4 Schritten zum bewilligten Bildungsgutschein"}
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+              {isEn
+                ? "From initial counselling appointment to voucher approval and your first day in class."
+                : "Von der ersten Terminvereinbarung über das Maßnahmeangebot bis zu deinem ersten Kurstag."}
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-5 gap-5">
-            {steps.map((s, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs"
-              >
-                <span
-                  style={{ backgroundColor: PRIMARY }}
-                  className="w-8 h-8 rounded-full text-white font-bold text-xs flex items-center justify-center mb-3"
-                >
-                  {idx + 1}
+          <div className="space-y-16">
+            {/* Step 1: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm">
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 1: Agency Appointment" : "Schritt 1: Beratungstermin vereinbaren"}
                 </span>
-                <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e] mb-2 leading-snug">
-                  {s.title}
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Appointment at Agentur für Arbeit or Jobcenter"
+                    : "Gespräch bei der Agentur für Arbeit oder dem Jobcenter"}
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">{s.desc}</p>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Schedule your appointment as soon as you are registered as job-seeking or unemployed. Inform your caseworker that you want to upskill in IT to significantly improve your employment opportunities in Germany."
+                    : "Vereinbare deinen Termin, sobald du arbeitssuchend oder arbeitslos gemeldet bist. Teile deiner Vermittlungsfachkraft mit, dass eine IT-Weiterbildung deine Chancen auf dem deutschen Arbeitsmarkt nachhaltig sichert."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-100">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Register online via Arbeitsagentur portal or phone" : "Online-Meldung über das Arbeitsagentur-Portal oder telefonisch"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Request a consultation regarding continuing professional training" : "Beratungswunsch zur beruflichen Weiterbildung angeben"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Clarusway advisor coaches you beforehand on all key questions" : "Kostenlose Vorbereitung auf das Gespräch durch Clarusway-Berater"}</span>
+                  </li>
+                </ul>
               </div>
-            ))}
+
+              <div className="flex justify-center">
+                <img
+                  src={BILDUNGSGUTSCHEIN_IMAGES.squareStep1.src}
+                  alt={BILDUNGSGUTSCHEIN_IMAGES.squareStep1.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Step 2: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={BILDUNGSGUTSCHEIN_IMAGES.squareStep2.src}
+                  alt={BILDUNGSGUTSCHEIN_IMAGES.squareStep2.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2">
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                  {isEn ? "Step 2: German Documentation" : "Schritt 2: AZAV-Maßnahmeangebot"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Official Course Offer & Certification Details"
+                    : "Offizielles Maßnahmeangebot mit Zulassungsnummer"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Clarusway generates your official German Maßnahmeangebot in accordance with § 81 SGB III. It includes the exact AZAV certification number, daily timetable, and labor market justification for your caseworker."
+                    : "Clarusway erstellt dein offizielles deutsches Maßnahmeangebot nach § 81 SGB III mit zertifizierter Maßnahmenummer, detailliertem Modulplan und schriftlicher Arbeitsmarkt-Begründung."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-100">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Delivered within 24 hours of your initial consultation" : "Zustellung innerhalb von 24 Stunden nach deinem Erstgespräch"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "100% compliant with Bundesagentur für Arbeit requirements" : "Vollständig konform mit den Richtlinien der Bundesagentur für Arbeit"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Flexible cohorts and modular paths suited to your background" : "Modulare Lehrgangswahl passend zu deinen Vorkenntnissen"}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Step 3: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm">
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 3: Approval & Voucher" : "Schritt 3: Bewilligung & Gutschein"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Approval Letter & 100% Tuition Coverage"
+                    : "Gutscheinbewilligung & Kostenübernahme"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Present the Maßnahmeangebot at your appointment. Once approved, your advisor issues your Bildungsgutschein voucher. All tuition fees and exam costs are transferred directly from the agency to Clarusway."
+                    : "Nach Vorlage deines Angebots stellt deine Vermittlungsfachkraft den Bildungsgutschein aus. Alle Kurs- und Prüfungskosten rechnet Clarusway direkt mit der Arbeitsagentur ab."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-100">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "0 € financial burden: 100% covered by the government" : "0 € Eigenanteil: Vollständige Übernahme aller Lehrgangskosten"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Weiterbildungsgeld bonus (150 €/month) during the course" : "Monatlicher Weiterbildungsbonus von 150 € zusätzlich zum ALG I"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Fast redemption within the 3-month voucher validity window" : "Schnelle Einlösung und Registrierung für deine Wunschkohorte"}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={BILDUNGSGUTSCHEIN_IMAGES.squareStep3.src}
+                  alt={BILDUNGSGUTSCHEIN_IMAGES.squareStep3.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Step 4: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={BILDUNGSGUTSCHEIN_IMAGES.squareStep4.src}
+                  alt={BILDUNGSGUTSCHEIN_IMAGES.squareStep4.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2">
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 4: Start Learning" : "Schritt 4: Kursstart & Karriere"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "First Day of Live Online IT Bootcamp"
+                    : "Erster Kurstag & Einstieg in deine IT-Zukunft"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Log in from home, meet your cohort peers and senior instructors, and begin hands-on technical labs. From day one, you develop portfolio projects and receive structured career mentorship."
+                    : "Starte bequem von zu Hause in deiner Live-Online-Klasse, lerne deine Dozenten kennen und entwickle praxisnahe Portfolio-Projekte mit kontinuierlicher Karrierebegleitung."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-100">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Full-time cohort instruction Monday–Friday 09:00–16:45 CET" : "Vollzeit-Unterricht montags bis freitags von 09:00 bis 16:45 Uhr"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Daily mentorship, interactive coding exercises, and real Git projects" : "Tägliche Mentoren-Sprechstunden und praxisorientierte GitHub-Projekte"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Dedicated career coaching and introduction to German hiring partners" : "Gezieltes Bewerbungstraining und Vermittlung an Partnerunternehmen"}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -697,6 +1112,16 @@ export function BildungsgutscheinPage() {
               </div>
             ))}
           </div>
+
+          {/* Landscape Fresh Start Banner */}
+          <div className="mt-14 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+            <img
+              src={BILDUNGSGUTSCHEIN_IMAGES.landscapeFreshStart.src}
+              alt={BILDUNGSGUTSCHEIN_IMAGES.landscapeFreshStart.alt[lang]}
+              className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 
@@ -794,6 +1219,15 @@ export function AvgsPage() {
                 <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
               </Link>
             </div>
+
+            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <img
+                src={AVGS_IMAGES.landscapeHero.src}
+                alt={AVGS_IMAGES.landscapeHero.alt[lang]}
+                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -854,6 +1288,230 @@ export function AvgsPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          {/* 4 Alternating Coaching Blocks */}
+          <div className="mt-16 space-y-16">
+            {/* Block 1: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 1: Individual Guidance" : "Schritt 1: Individuelle Orientierung"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "1-on-1 Career Coaching via Video Call"
+                    : "Persönliches 1-zu-1 Video-Coaching"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Work directly with a certified IT career coach. Together, you analyze your previous professional experience, strengths, and language skills to map out a clear roadmap into Germany's tech sector."
+                    : "Gemeinsam mit deinem persönlichen Karrierecoach analysierst du deine Vorkenntnisse, Stärken und Sprachkenntnisse, um deinen idealen Fahrplan in die IT-Branche zu erstellen."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Flexible 1-on-1 remote video sessions from home" : "Flexible Termine bequem per Video-Call von zu Hause"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Comprehensive IT skill and aptitude assessment" : "Gezielte Kompetenzanalyse und Potenzialdiagnostik"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "100% funded through your AVGS voucher" : "100 % Kostenübernahme mit deinem AVGS-Gutschein"}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={AVGS_IMAGES.squareVideoCall.src}
+                  alt={AVGS_IMAGES.squareVideoCall.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Block 2: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={AVGS_IMAGES.squareCvReview.src}
+                  alt={AVGS_IMAGES.squareCvReview.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                  {isEn ? "Step 2: Profile Optimization" : "Schritt 2: Profil & Unterlagen"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "German CV & Portfolio Optimization"
+                    : "Deutscher Lebenslauf & LinkedIn-Präsenz"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "German hiring standards differ significantly from other countries. We help you transform your CV, cover letter, and LinkedIn profile into an ATS-friendly, recruiter-ready package."
+                    : "Wir optimieren deinen Lebenslauf, dein Anschreiben und dein LinkedIn-Profil nach aktuellen deutschen Bewerbungsstandards und ATS-Anforderungen."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "ATS-compliant German and English CV formats" : "ATS-optimierte deutsche und englische Lebensläufe"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Highlighting transferable skills and tech certifications" : "Hervorhebung übertragbarer Stärken und IT-Zertifikate"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Polished GitHub profile and project showcases" : "Aussagekräftiges GitHub-Profil und Portfolio-Projekte"}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Block 3: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 3: Interview Training" : "Schritt 3: Interview-Training"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Mock Technical & HR Interviews"
+                    : "Simulation von Vorstellungsgesprächen"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Simulate real behavioral and technical interview scenarios. Learn how to explain career changes positively, solve whiteboard tasks, and negotiate competitive salaries."
+                    : "Trainiere reale Bewerbungssituationen: Lerne, wie du deinen Quereinstieg überzeugend präsentierst, Fachfragen beantwortest und Gehaltsverhandlungen führst."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Realistic technical challenges and coding tasks" : "Realistische Coding-Challenges und Fachfragen"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Actionable feedback to overcome interview anxiety" : "Konstruktives Feedback für mehr Sicherheit im Gespräch"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Salary negotiation strategies for German tech companies" : "Gehaltsstrategien für den deutschen IT-Markt"}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={AVGS_IMAGES.squareMockInterview.src}
+                  alt={AVGS_IMAGES.squareMockInterview.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Block 4: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={AVGS_IMAGES.squareHandshake.src}
+                  alt={AVGS_IMAGES.squareHandshake.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 4: Job Placement" : "Schritt 4: Jobeinstieg"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Career Placement & Contract Signing"
+                    : "Erfolgreicher Arbeitsvertrag in der Tech-Branche"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Over 90% of our graduates land sustainable positions in Germany. We introduce you directly to our network of corporate hiring partners actively seeking junior and mid-level talent."
+                    : "Über 90 % unserer betreuten Teilnehmer finden eine zukunftssichere Anstellung in Deutschland. Wir vernetzen dich mit Arbeitgebern aus unserem Partnernetzwerk."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Direct referrals to vetted German hiring partners" : "Direkte Empfehlungen an geprüfte IT-Arbeitgeber in Deutschland"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Support during probationary period (Probezeit)" : "Begleitung während der Probezeit für nachhaltigen Erfolg"}</span>
+                  </li>
+                </ul>
+
+                <Link
+                  to={consultPath}
+                  style={{ backgroundColor: PRIMARY }}
+                  className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
+                >
+                  <span>{isEn ? "Request AVGS Coaching" : "AVGS-Coaching anfragen"}</span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Landscape Career Banner */}
+          <div className="mt-16 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+            <img
+              src={AVGS_IMAGES.landscapeLandJob.src}
+              alt={AVGS_IMAGES.landscapeLandJob.alt[lang]}
+              className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -920,6 +1578,15 @@ export function QcgPage() {
                 ? "Under the Qualifizierungschancengesetz (§ 82 SGB III), the Agentur für Arbeit supports companies in Germany that upskill their employees in AI, Cloud, Cyber Security, or Software Development — covering up to 100% of course fees and up to 75% of employee wages during training."
                 : "Über das Qualifizierungschancengesetz (§ 82 SGB III) bezuschusst die Agentur für Arbeit die Weiterbildung von Beschäftigten in Zukunftsfeldern wie KI, Cloud, Cyber Security und Softwareentwicklung mit bis zu 100 % der Lehrgangskosten und bis zu 75 % Arbeitsentgeltzuschuss."}
             </p>
+
+            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <img
+                src={QCG_IMAGES.landscapeHero.src}
+                alt={QCG_IMAGES.landscapeHero.alt[lang]}
+                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -965,6 +1632,227 @@ export function QcgPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          {/* 4 Alternating Corporate Upskilling Blocks */}
+          <div className="mb-16 space-y-16">
+            {/* Block 1: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 1: Strategic Planning" : "Schritt 1: Strategische Weiterbildungsplanung"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "HR Upskilling Roadmap & Subsidies Plan"
+                    : "HR-Weiterbildungsplan & Förderberatung"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Our corporate advisors calculate your exact QCG subsidy eligibility according to company size. We prepare the complete documentation required by the Arbeitgeber-Service of the Agentur für Arbeit."
+                    : "Unsere B2B-Berater berechnen die genaue Förderhöhe nach Unternehmensgröße und erstellen alle Antragsunterlagen für den Arbeitgeber-Service der Bundesagentur für Arbeit."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Up to 100% course cost coverage for small enterprises" : "Bis zu 100 % Lehrgangskostenzuschuss für KMU"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Up to 75% wage reimbursement during training hours" : "Bis zu 75 % Arbeitsentgeltzuschuss (AEZ)"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Complete turnkey handling of bureaucratic paperwork" : "Entlastung der internen Personalabteilung"}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={QCG_IMAGES.squareHrPlan.src}
+                  alt={QCG_IMAGES.squareHrPlan.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Block 2: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={QCG_IMAGES.squareColleagues.src}
+                  alt={QCG_IMAGES.squareColleagues.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                  {isEn ? "Step 2: Team Needs" : "Schritt 2: Teamanalyse & Skills"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Cross-Functional Team Skill Gap Analysis"
+                    : "Bedarfsorientierte IT-Qualifizierung für Teams"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Identify critical skills in Cloud Architecture, AI Automation, Kubernetes, and Data Analytics needed to keep your business competitive and innovative."
+                    : "Identifizieren Sie gezielt die technologischen Lücken in Cloud Architecture, KI-Automatisierung, Kubernetes und Datenanalyse für Ihre Teams."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Custom modular learning paths tailored to your stack" : "Maßgeschneiderte Lernpfade abgestimmt auf Ihren Tech-Stack"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Training in English, Turkish, or German for international workforces" : "Schulung auf Englisch, Türkisch oder Deutsch für internationale Teams"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "AZAV-certified course structures with accredited milestones" : "AZAV-zertifizierte Lehrpläne mit anerkannten Meilensteinen"}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Block 3: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 3: Training Format" : "Schritt 3: Praxisnaher Unterricht"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Live Online Classes During Working Hours"
+                    : "Berufsbegleitendes Live-Online-Lernen"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Employees join interactive classes remotely without travel overhead. Hands-on labs and real-world project simulations ensure immediate transfer of knowledge into daily company workflows."
+                    : "Ihre Mitarbeitenden nehmen ohne Reiseaufwand am interaktiven Live-Online-Unterricht teil. Praktische Hands-on-Labs stellen den direkten Transfer in den Arbeitsalltag sicher."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Interactive live sessions led by industry veteran instructors" : "Interaktiver Unterricht mit erfahrenen Branchen-Dozenten"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Real cloud environments and container deployments" : "Echte Cloud-Umgebungen und Container-Workloads"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Continuous progress tracking and mentor office hours" : "Laufendes Leistungsfeedback und Betreuung"}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={QCG_IMAGES.squareOnlineClass.src}
+                  alt={QCG_IMAGES.squareOnlineClass.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Block 4: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={QCG_IMAGES.squareTeamLead.src}
+                  alt={QCG_IMAGES.squareTeamLead.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Step 4: Measurable Value" : "Schritt 4: Mehrwert & Zertifikat"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Certified Skills & Business Impact"
+                    : "Zertifizierter Projekterfolg & ROI"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Employees complete training with recognized industry certifications (AWS, CKAD, CompTIA) and present capstone projects directly addressing internal operational challenges."
+                    : "Teilnehmende schließen mit anerkannten Branchenzertifikaten ab (AWS, CKAD, CompTIA) und setzen ihre neuen Fähigkeiten unmittelbar in Unternehmensprojekten um."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Industry-recognized credentials from AWS, Linux Foundation, etc." : "Anerkannte Zertifizierungen von AWS, Linux Foundation u.a."}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Increased employee retention and modernization of legacy systems" : "Höhere Mitarbeiterbindung und zukunftssichere IT-Systeme"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Measurable ROI through reduced external agency dependencies" : "Messbare Kosteneinsparung durch internes IT-Know-how"}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Landscape Handshake Banner */}
+          <div className="mb-14 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+            <img
+              src={QCG_IMAGES.landscapeHandshake.src}
+              alt={QCG_IMAGES.landscapeHandshake.alt[lang]}
+              className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+              loading="lazy"
+            />
           </div>
 
           {/* QCG Inquiry Form (Form_donusumu_qcg_de) */}
@@ -1089,6 +1977,15 @@ export function CorporateTrainingPage() {
                 <span>{isEn ? "Contact corporate team" : "Unternehmensberatung buchen"}</span>
               </Link>
             </div>
+
+            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <img
+                src={CORPORATE_TRAINING_IMAGES.landscapeHero.src}
+                alt={CORPORATE_TRAINING_IMAGES.landscapeHero.alt[lang]}
+                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -1156,6 +2053,236 @@ export function CorporateTrainingPage() {
                 </Link>
               </div>
             ))}
+          </div>
+
+          {/* 4 Alternating B2B Training Blocks */}
+          <div className="mt-16 space-y-16">
+            {/* Block 1: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Format 1: Tailored Bootcamps" : "Format 1: Maßgeschneiderte Bootcamps"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Interactive Corporate Workshops & Intensive Bootcamps"
+                    : "Interaktive Firmen-Workshops & Intensiv-Bootcamps"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Upskill whole squads or cross-functional departments with intensive live workshops led by industry practitioners. Custom curricula cover Agentic AI, Cloud Platforms (AWS, Azure), Cyber Defense, and Test Automation."
+                    : "Qualifizieren Sie ganze Teams mit praxisorientierten Live-Workshops erfahrener Lead-Trainer. Unsere Lehrpläne decken Agentic AI, Cloud-Plattformen, Cyber Defense und moderne Testautomatisierung ab."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Hands-on coding labs aligned to company architecture" : "Praxisnahe Labs abgestimmt auf Ihre Systemarchitektur"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Live cohort instruction in English, German, or Turkish" : "Live-Unterricht auf Englisch, Deutsch oder Türkisch"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Measurable skills validation with capstone projects" : "Messbarer Lernerfolg durch reale Abschlussprojekte"}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={CORPORATE_TRAINING_IMAGES.squareWorkshop.src}
+                  alt={CORPORATE_TRAINING_IMAGES.squareWorkshop.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Block 2: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={CORPORATE_TRAINING_IMAGES.squareOnline.src}
+                  alt={CORPORATE_TRAINING_IMAGES.squareOnline.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                  {isEn ? "Format 2: Remote & Hybrid" : "Format 2: International & Flexibel"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Global Teams & Seamless Hybrid Training"
+                    : "Internationale Teams & Hybrides Lernen"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Train distributed remote teams across time zones with recorded sessions, interactive breakout rooms, and cloud-hosted development sandboxes."
+                    : "Schulen Sie verteilte Teams standortübergreifend: Mit aufgezeichneten Live-Sessions, interaktiven Breakout-Rooms und cloudbasierten Übungsumgebungen."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Pre-configured cloud sandboxes: zero local installation setup" : "Vorkonfigurierte Cloud-Sandboxes ohne lokalen Installationsaufwand"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Flexible part-time and full-time schedules around sprints" : "Flexible Schulungszeiten passend zu Ihren Sprint-Zyklen"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Enterprise attendance tracking and certification records" : "Detailliertes Reporting für HR und Management"}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Block 3: Text Left, Square Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Format 3: Mentorship" : "Format 3: Senior Mentoring"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Senior Engineering Mentorship & Practical Labs"
+                    : "Senior Coaching & Praxis-Labs"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "Our principal instructors mentor your developers through code reviews, architectural decisions, and production-grade CI/CD and security best practices."
+                    : "Unsere Lead-Dozenten begleiten Ihre Entwickler bei Code Reviews, Architekturentscheidungen und Best Practices für CI/CD und Sicherheit."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "1-on-1 and small-group architectural coaching" : "1-zu-1 und Kleingruppen-Architektur-Coaching"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Real production scenarios and disaster recovery labs" : "Reale Produktionsszenarien und Ausfalltests"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Security, compliance, and NIS-2 audit preparation" : "NIS-2 Compliance und Sicherheits-Audits"}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex justify-center">
+                <img
+                  src={CORPORATE_TRAINING_IMAGES.squareCoaching.src}
+                  alt={CORPORATE_TRAINING_IMAGES.squareCoaching.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Block 4: Square Image Left, Text Right (Alternating!) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="flex justify-center order-2 lg:order-1">
+                <img
+                  src={CORPORATE_TRAINING_IMAGES.squareRoadmap.src}
+                  alt={CORPORATE_TRAINING_IMAGES.squareRoadmap.alt[lang]}
+                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+              >
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                  {isEn ? "Format 4: Strategic Roadmap" : "Format 4: Zukunfts-Roadmap"}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                  {isEn
+                    ? "Custom Agile Curriculum & Enterprise Tech Roadmap"
+                    : "Agile Trainings-Roadmap für Ihre Organisation"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isEn
+                    ? "We work closely with engineering leadership and HR directors to design long-term training plans that future-proof your organization and support talent retention."
+                    : "Gemeinsam mit Engineering Leads und Personalverantwortlichen entwickeln wir nachhaltige Qualifizierungs-Roadmaps zur langfristigen Mitarbeiterbindung."}
+                </p>
+
+                <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Customized modules based on your tools (AWS, GCP, K8s, Python)" : "Individuelle Module für Ihre Toolchain (AWS, K8s, Python)"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Full eligibility for German state subsidies (QCG § 82 SGB III)" : "Volle Förderfähigkeit über das QCG (§ 82 SGB III)"}</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-gray-700">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
+                      <CheckCircleIcon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{isEn ? "Direct access to hire vetted Clarusway bootcamp graduates" : "Direkter Zugriff auf qualifizierte Absolventen für offene Stellen"}</span>
+                  </li>
+                </ul>
+
+                <Link
+                  to={consultPath}
+                  style={{ backgroundColor: PRIMARY }}
+                  className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
+                >
+                  <span>{isEn ? "Request Corporate Roadmap" : "Unternehmensberatung anfragen"}</span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Landscape Team Leader Banner */}
+          <div className="mt-16 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+            <img
+              src={CORPORATE_TRAINING_IMAGES.landscapeTeamLeader.src}
+              alt={CORPORATE_TRAINING_IMAGES.landscapeTeamLeader.alt[lang]}
+              className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
