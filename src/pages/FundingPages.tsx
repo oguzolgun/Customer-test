@@ -80,39 +80,43 @@ export function FinancingHubPage() {
         className="py-14 border-b border-gray-100"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
-              <ShieldCheckIcon className="w-4 h-4" />
-              <span>
-                {isEn ? "AZAV-Certified State Funding" : "AZAV-zertifizierte Fördermöglichkeiten"}
-              </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+                <ShieldCheckIcon className="w-4 h-4" />
+                <span>
+                  {isEn ? "AZAV-Certified State Funding" : "AZAV-zertifizierte Fördermöglichkeiten"}
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+                {isEn
+                  ? "Financing and tuition: take your IT course for free"
+                  : "Finanzierung deiner IT-Weiterbildung: 100 % Förderung möglich"}
+              </h1>
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+                {isEn
+                  ? "Over 90% of Clarusway students in Germany attend their bootcamp at 0 € out-of-pocket cost using state funding from the Agentur für Arbeit (Federal Employment Agency) or Jobcenter. Compare all financing paths below."
+                  : "Über 90 % unserer Teilnehmenden in Deutschland absolvieren ihre IT-Weiterbildung kostenfrei über staatliche Förderprogramme der Agentur für Arbeit oder des Jobcenters. Hier findest du alle Wege im Vergleich."}
+              </p>
+              <Link
+                to={consultPath}
+                style={{ backgroundColor: PRIMARY }}
+                className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+              >
+                <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
+                <ArrowRightIcon className="w-4 h-4" />
+              </Link>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
-              {isEn
-                ? "Financing and tuition: take your IT course for free"
-                : "Finanzierung deiner IT-Weiterbildung: 100 % Förderung möglich"}
-            </h1>
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
-              {isEn
-                ? "Over 90% of Clarusway students in Germany attend their bootcamp at 0 € out-of-pocket cost using state funding from the Agentur für Arbeit (Federal Employment Agency) or Jobcenter. Compare all financing paths below."
-                : "Über 90 % unserer Teilnehmenden in Deutschland absolvieren ihre IT-Weiterbildung kostenfrei über staatliche Förderprogramme der Agentur für Arbeit oder des Jobcenters. Hier findest du alle Wege im Vergleich."}
-            </p>
-            <Link
-              to={consultPath}
-              style={{ backgroundColor: PRIMARY }}
-              className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
-            >
-              <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
-              <ArrowRightIcon className="w-4 h-4" />
-            </Link>
 
-            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
-              <img
-                src={FUNDING_OVERVIEW_IMAGES.landscapeHero.src}
-                alt={FUNDING_OVERVIEW_IMAGES.landscapeHero.alt[lang]}
-                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
-                loading="lazy"
-              />
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+                <img
+                  src={FUNDING_OVERVIEW_IMAGES.landscapeHero.src}
+                  alt={FUNDING_OVERVIEW_IMAGES.landscapeHero.alt[lang]}
+                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -646,54 +650,58 @@ export function BildungsgutscheinPage() {
         className="py-14 border-b border-gray-100"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
-              <ShieldCheckIcon className="w-4 h-4" />
-              <span>
-                {isEn
-                  ? "100% Tuition Coverage · § 81 SGB III (AZAV)"
-                  : "100 % Kostenübernahme nach § 81 SGB III (AZAV)"}
-              </span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
-              {isEn
-                ? "Bildungsgutschein: how to get 100% funding for your IT course in Germany"
-                : "IT-Weiterbildung mit Bildungsgutschein: 100 % Kostenübernahme"}
-            </h1>
-
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
-              {isEn
-                ? "A Bildungsgutschein (education voucher) is an official funding commitment issued by the Agentur für Arbeit (Federal Employment Agency) or Jobcenter in Germany. It covers 100% of the tuition fees for AZAV-certified Clarusway IT bootcamps."
-                : "Mit einem Bildungsgutschein der Agentur für Arbeit oder des Jobcenters werden die Kosten deiner AZAV-zertifizierten IT-Weiterbildung bei Clarusway zu 100 % übernommen. Hier erfährst du alles zu Voraussetzungen, Antragstellung und Vorbereitung."}
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to={consultPath}
-                style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
-              >
-                <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
-                <ArrowRightIcon className="w-4 h-4" />
-              </Link>
-              <Link
-                to={isEn ? "/it-courses/" : "/it-kurse/"}
-                className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
-              >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+                <ShieldCheckIcon className="w-4 h-4" />
                 <span>
-                  {isEn ? "View eligible IT courses" : "Geförderte IT-Kurse ansehen"}
+                  {isEn
+                    ? "100% Tuition Coverage · § 81 SGB III (AZAV)"
+                    : "100 % Kostenübernahme nach § 81 SGB III (AZAV)"}
                 </span>
-              </Link>
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+                {isEn
+                  ? "Bildungsgutschein: how to get 100% funding for your IT course in Germany"
+                  : "IT-Weiterbildung mit Bildungsgutschein: 100 % Kostenübernahme"}
+              </h1>
+
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+                {isEn
+                  ? "A Bildungsgutschein (education voucher) is an official funding commitment issued by the Agentur für Arbeit (Federal Employment Agency) or Jobcenter in Germany. It covers 100% of the tuition fees for AZAV-certified Clarusway IT bootcamps."
+                  : "Mit einem Bildungsgutschein der Agentur für Arbeit oder des Jobcenters werden die Kosten deiner AZAV-zertifizierten IT-Weiterbildung bei Clarusway zu 100 % übernommen. Hier erfährst du alles zu Voraussetzungen, Antragstellung und Vorbereitung."}
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  to={consultPath}
+                  style={{ backgroundColor: PRIMARY }}
+                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+                >
+                  <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+                <Link
+                  to={isEn ? "/it-courses/" : "/it-kurse/"}
+                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                >
+                  <span>
+                    {isEn ? "View eligible IT courses" : "Geförderte IT-Kurse ansehen"}
+                  </span>
+                </Link>
+              </div>
             </div>
 
-            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
-              <img
-                src={BILDUNGSGUTSCHEIN_IMAGES.landscapeHero.src}
-                alt={BILDUNGSGUTSCHEIN_IMAGES.landscapeHero.alt[lang]}
-                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
-                loading="lazy"
-              />
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+                <img
+                  src={BILDUNGSGUTSCHEIN_IMAGES.landscapeHero.src}
+                  alt={BILDUNGSGUTSCHEIN_IMAGES.landscapeHero.alt[lang]}
+                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1190,43 +1198,55 @@ export function AvgsPage() {
         className="py-14 border-b border-gray-100"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
-              {isEn
-                ? "AVGS voucher: free career orientation and coaching in Germany"
-                : "AVGS: Aktivierungs- und Vermittlungsgutschein für deine IT-Orientierung"}
-            </h1>
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
-              {isEn
-                ? "An AVGS (Aktivierungs- und Vermittlungsgutschein — activation and placement voucher) under § 45 SGB III covers 100% of career orientation, aptitude testing, and coaching — without using up your subsequent Bildungsgutschein for a full IT bootcamp."
-                : "Mit dem Aktivierungs- und Vermittlungsgutschein (AVGS) nach § 45 SGB III fördern die Agentur für Arbeit und das Jobcenter berufliche Orientierung, Eignungsfeststellung und Bewerbungscoaching zu 100 % — ohne deinen späteren Anspruch auf einen Bildungsgutschein zu schmälern."}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-                style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-sm"
-              >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+                <ShieldCheckIcon className="w-4 h-4" />
                 <span>
-                  {isEn ? "Explore the IT Orientation Course" : "Zum IT-Orientierungskurs"}
+                  {isEn
+                    ? "100% Free Career Coaching · § 45 SGB III"
+                    : "100 % Kostenübernahme nach § 45 SGB III"}
                 </span>
-                <ArrowRightIcon className="w-4 h-4" />
-              </Link>
-              <Link
-                to={consultPath}
-                className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3 rounded-full text-sm"
-              >
-                <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
-              </Link>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+                {isEn
+                  ? "AVGS voucher: free career orientation and coaching in Germany"
+                  : "AVGS: Aktivierungs- und Vermittlungsgutschein für deine IT-Orientierung"}
+              </h1>
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+                {isEn
+                  ? "An AVGS (Aktivierungs- und Vermittlungsgutschein — activation and placement voucher) under § 45 SGB III covers 100% of career orientation, aptitude testing, and coaching — without using up your subsequent Bildungsgutschein for a full IT bootcamp."
+                  : "Mit dem Aktivierungs- und Vermittlungsgutschein (AVGS) nach § 45 SGB III fördern die Agentur für Arbeit und das Jobcenter berufliche Orientierung, Eignungsfeststellung und Bewerbungscoaching zu 100 % — ohne deinen späteren Anspruch auf einen Bildungsgutschein zu schmälern."}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
+                  style={{ backgroundColor: PRIMARY }}
+                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+                >
+                  <span>
+                    {isEn ? "Explore the IT Orientation Course" : "Zum IT-Orientierungskurs"}
+                  </span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+                <Link
+                  to={consultPath}
+                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                >
+                  <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
+                </Link>
+              </div>
             </div>
 
-            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
-              <img
-                src={AVGS_IMAGES.landscapeHero.src}
-                alt={AVGS_IMAGES.landscapeHero.alt[lang]}
-                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
-                loading="lazy"
-              />
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+                <img
+                  src={AVGS_IMAGES.landscapeHero.src}
+                  alt={AVGS_IMAGES.landscapeHero.alt[lang]}
+                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1567,25 +1587,54 @@ export function QcgPage() {
         className="py-14 border-b border-gray-100"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4 leading-tight">
-              {isEn
-                ? "Qualifizierungschancengesetz: state-funded IT training for employees in Germany"
-                : "Qualifizierungschancengesetz: Staatliche Förderung für Beschäftigte und Unternehmen"}
-            </h1>
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-              {isEn
-                ? "Under the Qualifizierungschancengesetz (§ 82 SGB III), the Agentur für Arbeit supports companies in Germany that upskill their employees in AI, Cloud, Cyber Security, or Software Development — covering up to 100% of course fees and up to 75% of employee wages during training."
-                : "Über das Qualifizierungschancengesetz (§ 82 SGB III) bezuschusst die Agentur für Arbeit die Weiterbildung von Beschäftigten in Zukunftsfeldern wie KI, Cloud, Cyber Security und Softwareentwicklung mit bis zu 100 % der Lehrgangskosten und bis zu 75 % Arbeitsentgeltzuschuss."}
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+                <ShieldCheckIcon className="w-4 h-4" />
+                <span>
+                  {isEn
+                    ? "State Subsidies for Employers · § 82 SGB III"
+                    : "Staatliche Förderung für Arbeitgeber · § 82 SGB III"}
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+                {isEn
+                  ? "Qualifizierungschancengesetz: state-funded IT training for employees in Germany"
+                  : "Qualifizierungschancengesetz: Staatliche Förderung für Beschäftigte und Unternehmen"}
+              </h1>
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+                {isEn
+                  ? "Under the Qualifizierungschancengesetz (§ 82 SGB III), the Agentur für Arbeit supports companies in Germany that upskill their employees in AI, Cloud, Cyber Security, or Software Development — covering up to 100% of course fees and up to 75% of employee wages during training."
+                  : "Über das Qualifizierungschancengesetz (§ 82 SGB III) bezuschusst die Agentur für Arbeit die Weiterbildung von Beschäftigten in Zukunftsfeldern wie KI, Cloud, Cyber Security und Softwareentwicklung mit bis zu 100 % der Lehrgangskosten und bis zu 75 % Arbeitsentgeltzuschuss."}
+              </p>
 
-            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
-              <img
-                src={QCG_IMAGES.landscapeHero.src}
-                alt={QCG_IMAGES.landscapeHero.alt[lang]}
-                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
-                loading="lazy"
-              />
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="#qcg-form"
+                  style={{ backgroundColor: PRIMARY }}
+                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+                >
+                  <span>{isEn ? "Request QCG consultation" : "QCG-Förderung prüfen"}</span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </a>
+                <Link
+                  to={isEn ? "/enterprise-corporate-training/" : "/unternehmen/"}
+                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                >
+                  <span>{isEn ? "Corporate IT training" : "B2B-Weiterbildung"}</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+                <img
+                  src={QCG_IMAGES.landscapeHero.src}
+                  alt={QCG_IMAGES.landscapeHero.alt[lang]}
+                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1856,7 +1905,7 @@ export function QcgPage() {
           </div>
 
           {/* QCG Inquiry Form (Form_donusumu_qcg_de) */}
-          <div style={{ backgroundColor: DARK }} className="rounded-3xl p-8 sm:p-10 text-white max-w-3xl">
+          <div id="qcg-form" style={{ backgroundColor: DARK }} className="rounded-3xl p-8 sm:p-10 text-white max-w-3xl">
             <h2 className="text-2xl font-bold mb-2">
               {isEn
                 ? "Request a QCG funding calculation for your team"
@@ -1944,47 +1993,51 @@ export function CorporateTrainingPage() {
         className="py-14 border-b border-gray-100"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
-              <BuildingIcon className="w-4 h-4" />
-              <span>{isEn ? "B2B Upskilling & Talent Hiring" : "B2B-Qualifizierung & IT-Talente"}</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4 leading-tight">
-              {isEn
-                ? "Corporate IT training for companies in Germany"
-                : "IT-Weiterbildung für Unternehmen: Fachkräfte entwickeln und fördern"}
-            </h1>
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
-              {isEn
-                ? "Train your existing workforce in Agentic AI, AWS/Azure Cloud, Kubernetes CKAD, Cyber Security, or AI-Assisted Software Development — or hire job-ready English-speaking Clarusway graduates in Germany."
-                : "Qualifizieren Sie Ihre bestehenden Teams in Agentic AI, AWS/Azure Cloud, Kubernetes CKAD, Cyber Security oder moderner Softwareentwicklung — oder gewinnen Sie praxiserprobte Clarusway-Absolventen für Ihre offenen IT-Vakanzen."}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to="/qualifizierungschancengesetz/"
-                style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-sm"
-              >
-                <span>
-                  {isEn ? "Check QCG state subsidies" : "QCG-Förderung für Unternehmen prüfen"}
-                </span>
-                <ArrowRightIcon className="w-4 h-4" />
-              </Link>
-              <Link
-                to={consultPath}
-                className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3 rounded-full text-sm"
-              >
-                <span>{isEn ? "Contact corporate team" : "Unternehmensberatung buchen"}</span>
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+                <BuildingIcon className="w-4 h-4" />
+                <span>{isEn ? "B2B Upskilling & Talent Hiring" : "B2B-Qualifizierung & IT-Talente"}</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+                {isEn
+                  ? "Corporate IT training for companies in Germany"
+                  : "IT-Weiterbildung für Unternehmen: Fachkräfte entwickeln und fördern"}
+              </h1>
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+                {isEn
+                  ? "Train your existing workforce in Agentic AI, AWS/Azure Cloud, Kubernetes CKAD, Cyber Security, or AI-Assisted Software Development — or hire job-ready English-speaking Clarusway graduates in Germany."
+                  : "Qualifizieren Sie Ihre bestehenden Teams in Agentic AI, AWS/Azure Cloud, Kubernetes CKAD, Cyber Security oder moderner Softwareentwicklung — oder gewinnen Sie praxiserprobte Clarusway-Absolventen für Ihre offenen IT-Vakanzen."}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  to="/qualifizierungschancengesetz/"
+                  style={{ backgroundColor: PRIMARY }}
+                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+                >
+                  <span>
+                    {isEn ? "Check QCG state subsidies" : "QCG-Förderung für Unternehmen prüfen"}
+                  </span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+                <Link
+                  to={consultPath}
+                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                >
+                  <span>{isEn ? "Contact corporate team" : "Unternehmensberatung buchen"}</span>
+                </Link>
+              </div>
             </div>
 
-            <div className="mt-8 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
-              <img
-                src={CORPORATE_TRAINING_IMAGES.landscapeHero.src}
-                alt={CORPORATE_TRAINING_IMAGES.landscapeHero.alt[lang]}
-                className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
-                loading="lazy"
-              />
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+                <img
+                  src={CORPORATE_TRAINING_IMAGES.landscapeHero.src}
+                  alt={CORPORATE_TRAINING_IMAGES.landscapeHero.alt[lang]}
+                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>
