@@ -439,10 +439,10 @@ export const COURSES_HUB_IMAGES = {
 
 export const FUNDING_OVERVIEW_IMAGES = {
   landscapeHero: {
-    src: "/images/funding-overview/funding-for-your-it-course-advisor-hero.webp",
+    src: "/images/funding-overview/comparing-it-course-funding-brochures-cafe.webp",
     alt: {
-      de: "Kostenlose Förderberatung für deine IT-Weiterbildung in Deutschland",
-      en: "Free funding consultation for your IT training in Germany",
+      de: "Teilnehmende vergleichen Fördermöglichkeiten und Beratungsunterlagen für ihre IT-Weiterbildung",
+      en: "Learners comparing funding brochures and tuition options for IT courses",
     },
   },
   landscapeSuccess: {
@@ -484,10 +484,10 @@ export const FUNDING_OVERVIEW_IMAGES = {
 
 export const BILDUNGSGUTSCHEIN_IMAGES = {
   landscapeHero: {
-    src: "/images/bildungsgutschein/100-percent-funded-bildungsgutschein-counselling-hero.webp",
+    src: "/images/bildungsgutschein/learner-celebrating-it-course-funding-approval.webp",
     alt: {
-      de: "100% Kostenübernahme mit dem Bildungsgutschein der Bundesagentur für Arbeit",
-      en: "100% tuition coverage with the German Bildungsgutschein voucher",
+      de: "Teilnehmerin freut sich über die Bewilligung des Bildungsgutscheins für 100 % Kostenübernahme",
+      en: "Learner celebrating official Bildungsgutschein voucher approval for 100% funded IT training",
     },
   },
   landscapeFreshStart: {
@@ -529,10 +529,10 @@ export const BILDUNGSGUTSCHEIN_IMAGES = {
 
 export const AVGS_IMAGES = {
   landscapeHero: {
-    src: "/images/avgs/free-career-coaching-avgs-session-hero.webp",
+    src: "/images/avgs/video-call-with-funding-advisor-home.webp",
     alt: {
-      de: "Kostenloses 1-zu-1 Karriere-Coaching mit dem AVGS-Gutschein",
-      en: "Free 1-on-1 career coaching funded with the AVGS activation voucher",
+      de: "Kostenloses 1-zu-1 Karriere-Coaching und IT-Orientierung per Video-Call mit dem AVGS-Gutschein",
+      en: "Free 1-on-1 career coaching and IT orientation video call funded with an AVGS voucher",
     },
   },
   landscapeLandJob: {
@@ -574,10 +574,10 @@ export const AVGS_IMAGES = {
 
 export const QCG_IMAGES = {
   landscapeHero: {
-    src: "/images/qualifizierungschancengesetz/employer-funded-it-training-team-hero.webp",
+    src: "/images/qualifizierungschancengesetz/phone-call-about-it-course-funding.webp",
     alt: {
-      de: "Arbeitgeberfinanzierte IT-Weiterbildung nach dem Qualifizierungschancengesetz",
-      en: "Employer-sponsored IT upskilling funded by Qualifizierungschancengesetz",
+      de: "Beratungsgespräch zur staatlichen Weiterbildungsförderung für Beschäftigte nach dem Qualifizierungschancengesetz",
+      en: "Consultation call on employee IT training subsidies under the Qualifizierungschancengesetz",
     },
   },
   landscapeHandshake: {

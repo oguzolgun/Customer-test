@@ -109,11 +109,11 @@ export function FinancingHubPage() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+              <div className="w-full max-w-[460px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
                 <img
                   src={FUNDING_OVERVIEW_IMAGES.landscapeHero.src}
                   alt={FUNDING_OVERVIEW_IMAGES.landscapeHero.alt[lang]}
-                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  className="w-full aspect-square object-cover"
                   loading="eager"
                 />
               </div>
@@ -694,11 +694,11 @@ export function BildungsgutscheinPage() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+              <div className="w-full max-w-[460px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
                 <img
                   src={BILDUNGSGUTSCHEIN_IMAGES.landscapeHero.src}
                   alt={BILDUNGSGUTSCHEIN_IMAGES.landscapeHero.alt[lang]}
-                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  className="w-full aspect-square object-cover"
                   loading="eager"
                 />
               </div>
@@ -1239,11 +1239,11 @@ export function AvgsPage() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+              <div className="w-full max-w-[460px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
                 <img
                   src={AVGS_IMAGES.landscapeHero.src}
                   alt={AVGS_IMAGES.landscapeHero.alt[lang]}
-                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  className="w-full aspect-square object-cover"
                   loading="eager"
                 />
               </div>
@@ -1627,11 +1627,11 @@ export function QcgPage() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+              <div className="w-full max-w-[460px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
                 <img
                   src={QCG_IMAGES.landscapeHero.src}
                   alt={QCG_IMAGES.landscapeHero.alt[lang]}
-                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  className="w-full aspect-square object-cover"
                   loading="eager"
                 />
               </div>
@@ -2030,7 +2030,7 @@ export function CorporateTrainingPage() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
+              <div className="w-full max-w-[460px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
                 <img
                   src={CORPORATE_TRAINING_IMAGES.landscapeHero.src}
                   alt={CORPORATE_TRAINING_IMAGES.landscapeHero.alt[lang]}
