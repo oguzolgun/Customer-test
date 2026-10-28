@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
+import { ClaruswayOrbit } from "../components/ClaruswayOrbit";
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -428,64 +429,9 @@ export function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: Interactive Career Path Overview Card */}
-            <div className="lg:col-span-5">
-              <div
-                style={{ backgroundColor: DARK }}
-                className="rounded-2xl p-7 text-white shadow-2xl border border-white/10"
-              >
-                <div className="flex items-center justify-between pb-4 mb-5 border-b border-white/10">
-                  <div>
-                    <p className="text-xs font-semibold text-[#f472b6] uppercase tracking-wider">
-                      {isEn ? "2026 AI-Integrated Tracks" : "KI-integrierte IT-Pfade 2026"}
-                    </p>
-                    <p className="text-lg font-bold">
-                      {isEn ? "Choose your IT career track" : "Wähle deinen IT-Karrierepfad"}
-                    </p>
-                  </div>
-                  <span className="text-xs bg-emerald-500/20 text-emerald-300 font-semibold px-3 py-1 rounded-full">
-                    AZAV 100%
-                  </span>
-                </div>
-
-                <div className="space-y-3 mb-6">
-                  {courses.slice(0, 5).map((c) => (
-                    <Link
-                      key={c.to}
-                      to={c.to}
-                      className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
-                    >
-                      <div>
-                        <p className="text-sm font-semibold text-white group-hover:text-[#f472b6] transition-colors">
-                          {c.title}
-                        </p>
-                        <p className="text-[11px] text-gray-400">{c.duration}</p>
-                      </div>
-                      <ArrowRightIcon className="w-4 h-4 text-gray-400 group-hover:text-white shrink-0" />
-                    </Link>
-                  ))}
-                </div>
-
-                <div className="bg-white/10 rounded-xl p-4 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-bold text-white">
-                      {isEn ? "Not sure which path fits you?" : "Noch unsicher bei der Berufswahl?"}
-                    </p>
-                    <p className="text-[11px] text-gray-300">
-                      {isEn
-                        ? "Try all fields in the 4-week IT Orientation Course"
-                        : "Teste alle Bereiche im 4-wöchigen IT-Orientierungskurs"}
-                    </p>
-                  </div>
-                  <Link
-                    to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-                    style={{ backgroundColor: PRIMARY }}
-                    className="text-xs font-semibold text-white px-3.5 py-2 rounded-lg shrink-0 hover:opacity-95"
-                  >
-                    {isEn ? "IT Orientation" : "Orientierung"}
-                  </Link>
-                </div>
-              </div>
+            {/* Right Column: 3D Clarusway Globe Orbit Animation */}
+            <div className="lg:col-span-5 flex justify-center">
+              <ClaruswayOrbit isEn={isEn} />
             </div>
           </div>
         </div>
