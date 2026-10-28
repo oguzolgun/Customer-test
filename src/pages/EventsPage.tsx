@@ -286,21 +286,45 @@ export default function EventsPage() {
       </section>
 
       {/* Stats bar */}
-      <div style={{ background: PRIMARY }} className="py-4">
-        <div className="max-w-[1200px] mx-auto px-5 flex flex-wrap justify-center gap-x-10 gap-y-2">
-          {[
-            ["Kostenlos", "Alle Events"],
-            ["Live Q&A", "in jedem Webinar"],
-            ["Deutsch", "& Englisch"],
-            ["Online", "& Hybrid"],
-          ].map(([v, l]) => (
-            <div key={v} className="flex items-baseline gap-2">
-              <span className="text-base font-bold text-white">{v}</span>
-              <span className="text-xs text-white/70">{l}</span>
-            </div>
-          ))}
+      <section
+        className="relative py-8 sm:py-10 border-t border-b border-white/10"
+        style={{
+          background:
+            "radial-gradient(100% 120% at 50% 0%, rgba(229, 26, 89, 0.16) 0%, rgba(229, 26, 89, 0.04) 50%, transparent 80%), #0c0a14",
+        }}
+      >
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-6 lg:gap-x-0 items-stretch">
+            {[
+              ["Kostenlos", "Alle Events"],
+              ["Live Q&A", "In jedem Webinar"],
+              ["Deutsch", "& Englisch"],
+              ["Online", "& Hybrid"],
+            ].map(([v, l], i) => (
+              <div
+                key={v}
+                className={`flex flex-col justify-between ${
+                  i > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""
+                } ${i < 3 ? "lg:pr-8" : ""}`}
+              >
+                <div>
+                  <div className="min-h-[36px] sm:min-h-[44px] flex items-end">
+                    <span className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-none">
+                      {v}
+                    </span>
+                  </div>
+                  {/* Pink Accent Line under the Value */}
+                  <div className="w-7 h-[2.5px] bg-[#e51a59] rounded-full mt-2.5 mb-2.5" />
+                  {/* Stat Description */}
+                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-snug max-w-[200px]">
+                    {l}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* What to expect */}
       <section className="py-16 bg-white">

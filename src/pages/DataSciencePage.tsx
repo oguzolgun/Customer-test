@@ -264,23 +264,53 @@ function Hero() {
 // ── 2. Stats bar ───────────────────────────────────────────────────────────
 
 function StatsBar() {
+  const stats = [
+    ["150", "Live-Sessions"],
+    ["30 Wochen", "Gesamtdauer"],
+    ["3", "Zertifikate & Berufsbilder"],
+    ["Max. 15", "Teilnehmende pro Gruppe"],
+    ["Seit 2021", "AZAV-zertifiziert in Deutschland"],
+  ];
+
   return (
-    <div style={{ background: DARK }} className="py-5">
-      <div className="max-w-[1200px] mx-auto px-5 flex flex-wrap justify-between gap-y-3 gap-x-6">
-        {[
-          ["150", "Live-Sessions"],
-          ["30 Wochen", "Gesamtdauer"],
-          ["3", "Zertifikate & Berufsbilder"],
-          ["Max. 15", "Teilnehmende pro Gruppe"],
-          ["Seit 2021", "AZAV-zertifiziert in Deutschland"],
-        ].map(([v, l]) => (
-          <div key={v} className="flex items-baseline gap-2">
-            <span className="text-xl font-bold text-white">{v}</span>
-            <span className="text-sm text-gray-400">{l}</span>
-          </div>
-        ))}
+    <section
+      className="relative py-8 sm:py-10 border-t border-b border-white/10"
+      style={{
+        background:
+          "radial-gradient(100% 120% at 50% 0%, rgba(229, 26, 89, 0.16) 0%, rgba(229, 26, 89, 0.04) 50%, transparent 80%), #0c0a14",
+      }}
+    >
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8 gap-x-6 lg:gap-x-0 items-stretch">
+          {stats.map(([v, l], i) => (
+            <div
+              key={v}
+              className={`flex flex-col justify-between ${
+                i > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""
+              } ${i < stats.length - 1 ? "lg:pr-8" : ""}`}
+            >
+              <div>
+                <div className="min-h-[36px] sm:min-h-[44px] flex items-end">
+                  <span
+                    className={`${
+                      v.length > 12 ? "text-lg sm:text-2xl" : "text-3xl sm:text-4xl"
+                    } font-extrabold text-white tracking-tight leading-none`}
+                  >
+                    {v}
+                  </span>
+                </div>
+                {/* Pink Accent Line under the Value */}
+                <div className="w-7 h-[2.5px] bg-[#e51a59] rounded-full mt-2.5 mb-2.5" />
+                {/* Stat Description */}
+                <p className="text-xs sm:text-sm text-gray-400 font-normal leading-snug max-w-[200px]">
+                  {l}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

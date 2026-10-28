@@ -340,16 +340,48 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          2. STATS BAR / ECKDATEN-LEISTE (Component B2) — Exact Figma Make Bar
+          2. STATS BAR / ECKDATEN-LEISTE — Premium Dark Bar with Ambient Pink Top Glow & Dividers
           ===================================================================== */}
-      <section style={{ background: DARK }} className="py-5">
-        <div className="max-w-[1200px] mx-auto px-5 flex flex-wrap justify-between gap-y-3 gap-x-6">
-          {data.infoStrip.map(([val, label], idx) => (
-            <div key={idx} className="flex items-baseline gap-2">
-              <span className="text-xl font-bold text-white">{val}</span>
-              <span className="text-sm text-gray-400">{label}</span>
-            </div>
-          ))}
+      <section
+        className="relative py-8 sm:py-10 border-t border-b border-white/10"
+        style={{
+          background:
+            "radial-gradient(100% 120% at 50% 0%, rgba(229, 26, 89, 0.16) 0%, rgba(229, 26, 89, 0.04) 50%, transparent 80%), #0c0a14",
+        }}
+      >
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
+          <div
+            className={`grid grid-cols-2 md:grid-cols-3 ${
+              data.infoStrip.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-5"
+            } gap-y-8 gap-x-6 lg:gap-x-0 items-stretch`}
+          >
+            {data.infoStrip.map(([val, label], idx) => (
+              <div
+                key={idx}
+                className={`flex flex-col justify-between ${
+                  idx > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""
+                } ${idx < data.infoStrip.length - 1 ? "lg:pr-8" : ""}`}
+              >
+                <div>
+                  <div className="min-h-[36px] sm:min-h-[44px] flex items-end">
+                    <span
+                      className={`${
+                        val.length > 12 ? "text-lg sm:text-2xl" : "text-3xl sm:text-4xl"
+                      } font-extrabold text-white tracking-tight leading-none`}
+                    >
+                      {val}
+                    </span>
+                  </div>
+                  {/* Pink Accent Line under the Value */}
+                  <div className="w-7 h-[2.5px] bg-[#e51a59] rounded-full mt-2.5 mb-2.5" />
+                  {/* Stat Description */}
+                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-snug max-w-[200px]">
+                    {label}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
