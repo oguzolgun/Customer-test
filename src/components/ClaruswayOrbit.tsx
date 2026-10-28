@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 // ---------------------------------------------------------------------------
@@ -155,7 +155,7 @@ const GERMANY: [number, number][] = [
 ];
 
 const NEUSS: [number, number] = [51.20, 6.69];
-const FLAG_AT: [number, number] = [51.0, 10.3];
+const GERMANY_CENTER: [number, number] = [51.0, 10.3];
 const CITIES: [number, number][] = [
   [41.01, 28.98], [30.04, 31.24], [6.52, 3.38], [19.07, 72.88], [50.45, 30.52], [-23.55, -46.63],
   [35.69, 51.39], [14.60, 120.98], [4.71, -74.07], [-1.29, 36.82], [40.71, -74.00], [33.51, 36.29], [28.61, 77.21], [31.63, -8.0],
@@ -213,11 +213,8 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
   const stageRef = useRef<HTMLDivElement>(null);
   const labelsRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<(HTMLAnchorElement | null)[]>([]);
-  const geoTagRef = useRef<HTMLDivElement>(null);
-  const barRef = useRef<HTMLDivElement>(null);
 
   const programs = isEn ? PROGRAMS_DATA.en : PROGRAMS_DATA.de;
-  const [activeIdx, setActiveIdx] = useState(0);
 
   useEffect(() => {
     const THREE = (window as any).THREE;
@@ -267,7 +264,7 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
     world.add(tilt);
     const spin = new THREE.Group();
     tilt.add(spin);
-    spin.rotation.y = -Math.PI / 2 - FLAG_AT[1] * DEG - 0.62;
+    spin.rotation.y = -Math.PI / 2 - GERMANY_CENTER[1] * DEG - 0.62;
 
     // Stars background
     let starsObj: any = null;
@@ -331,7 +328,7 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
     tilt.add(atmo);
 
     // Land dots
-    const gN = ll(FLAG_AT[0], FLAG_AT[1], 1).normalize();
+    const gN = ll(GERMANY_CENTER[0], GERMANY_CENTER[1], 1).normalize();
     let dotsMat: any = null;
     function buildDots(mask: Uint8ClampedArray | null, w: number, h: number) {
       const N = mask ? 24000 : 9000;
@@ -437,87 +434,24 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
           void main(){ vLat=aLat; vN=normalize(normalMatrix*normalize(position)); gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
         fragmentShader: `uniform float uT; varying float vLat; varying vec3 vN;
           void main(){
-            vec3 black=vec3(.10,.10,.11), red=vec3(.87,0.,0.), gold=vec3(1.,.81,0.);
-            float e=.06;
-            vec3 c=mix(gold,red,smoothstep(49.88-e,49.88+e,vLat));
-            c=mix(c,black,smoothstep(52.47-e,52.47+e,vLat));
-            float l=clamp(dot(vN,normalize(vec3(-.4,.7,.8))),0.,1.);
-            c*= .7+.45*l;
-            float sweep=exp(-pow((vLat-(45.5+mod(uT*2.6,16.)))*1.1,2.));
-            c+=vec3(1.,.95,.85)*sweep*.28;
-            gl_FragColor=vec4(c,1.);
+            vec3 magenta = vec3(0.90, 0.10, 0.35); // #e51a59
+            vec3 bright = vec3(1.0, 0.28, 0.52);   // #ff4785
+            float l = clamp(dot(vN, normalize(vec3(-.4, .7, .8))), 0., 1.);
+            vec3 c = mix(magenta, bright, l * 0.45);
+            float sweep = exp(-pow((vLat - (45.5 + mod(uT * 2.6, 16.))) * 1.1, 2.));
+            c += vec3(1.0, 0.85, 0.92) * sweep * 0.35;
+            gl_FragColor = vec4(c, 1.);
           }`,
       });
-      const sideMat = new THREE.MeshBasicMaterial({ color: 0x3a0716 });
+      const sideMat = new THREE.MeshBasicMaterial({ color: 0x4a0a1f });
       const germanyMesh = new THREE.Mesh(g, [capMat, sideMat]);
       spin.add(germanyMesh);
 
       // Glowing edges
       const pts = GERMANY.concat([GERMANY[0]]).map((q) => ll(q[1], q[0], G_BASE + G_H + 0.003));
       const og = new THREE.BufferGeometry().setFromPoints(pts);
-      spin.add(new THREE.Line(og, new THREE.LineBasicMaterial({ color: 0xffe58a, transparent: true, opacity: 0.95 })));
+      spin.add(new THREE.Line(og, new THREE.LineBasicMaterial({ color: 0xff3d78, transparent: true, opacity: 0.95 })));
       germanyCap = capMat;
-    }
-
-    // Flagpole and German flag
-    const flagGroup = new THREE.Group();
-    let flagGeo: any = null;
-    let flagBase: Float32Array | null = null;
-    {
-      const top = G_BASE + G_H;
-      const pos = ll(FLAG_AT[0], FLAG_AT[1], top);
-      const up = pos.clone().normalize();
-      let east = ll(FLAG_AT[0], FLAG_AT[1] + 1, top).sub(pos).normalize();
-      const zA = new THREE.Vector3().crossVectors(east, up).normalize();
-      east = new THREE.Vector3().crossVectors(up, zA).normalize();
-      flagGroup.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(east, up, zA));
-      flagGroup.position.copy(pos);
-      spin.add(flagGroup);
-
-      const POLE = 1.35;
-      const pole = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.013, 0.016, POLE, 16),
-        new THREE.MeshStandardMaterial({ color: 0xe9e9ee, metalness: 0.85, roughness: 0.25 })
-      );
-      pole.position.y = POLE / 2;
-      flagGroup.add(pole);
-
-      const fin = new THREE.Mesh(
-        new THREE.SphereGeometry(0.034, 16, 16),
-        new THREE.MeshStandardMaterial({ color: 0xffd23a, metalness: 0.9, roughness: 0.2, emissive: 0x553300 })
-      );
-      fin.position.y = POLE + 0.02;
-      flagGroup.add(fin);
-
-      const c = document.createElement("canvas");
-      c.width = 500;
-      c.height = 300;
-      const x = c.getContext("2d");
-      if (x) {
-        [["#0b0b0b", 0], ["#DD0000", 100], ["#FFCE00", 200]].forEach(([col, y]) => {
-          x.fillStyle = col as string;
-          x.fillRect(0, y as number, 500, 100);
-        });
-        const gr = x.createLinearGradient(0, 0, 500, 0);
-        gr.addColorStop(0, "rgba(255,255,255,.10)");
-        gr.addColorStop(1, "rgba(0,0,0,.12)");
-        x.fillStyle = gr;
-        x.fillRect(0, 0, 500, 300);
-      }
-      const tex = new THREE.CanvasTexture(c);
-
-      const FW = 1.0;
-      const FH = 0.6;
-      flagGeo = new THREE.PlaneGeometry(FW, FH, 36, 14);
-      flagGeo.translate(FW / 2, 0, 0);
-      flagBase = flagGeo.attributes.position.array.slice();
-      const cloth = new THREE.Mesh(
-        flagGeo,
-        new THREE.MeshStandardMaterial({ map: tex, side: THREE.DoubleSide, roughness: 0.65, metalness: 0.05 })
-      );
-      cloth.position.set(0.014, POLE - FH / 2 - 0.03, 0);
-      flagGroup.add(cloth);
-      flagGroup.userData.FW = FW;
     }
 
     // Neuss Pulse
@@ -808,29 +742,12 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
         p.m.material.opacity = (1 - k) * 0.9;
       });
 
-      // Flag wave
-      if (flagGeo && flagBase) {
-        const a = flagGeo.attributes.position.array;
-        const FW = flagGroup.userData.FW;
-        for (let i = 0; i < a.length; i += 3) {
-          const px = flagBase[i];
-          const py = flagBase[i + 1];
-          const k = px / FW;
-          a[i + 2] = (Math.sin(px * 7.5 - t * 4.2) * 0.055 + Math.sin(px * 15 - t * 6.3 + py * 5) * 0.012) * k;
-          a[i + 1] = py - k * k * 0.025 + Math.sin(px * 6 - t * 4.2) * 0.008 * k;
-        }
-        flagGeo.attributes.position.needsUpdate = true;
-        flagGeo.computeVertexNormals();
-      }
-
       renderer.render(scene, camera);
 
       // DOM Node coordinates
       ringSpin.updateMatrixWorld();
       world.getWorldPosition(tmpC);
       const cView = tmpC.clone().applyMatrix4(camera.matrixWorldInverse).z;
-      const hpos = (((head + 0.3) % TAU) + TAU) % TAU;
-      const curIdx = Math.floor(hpos / STEP) % programs.length;
 
       nodeRefs.current.forEach((el, k) => {
         if (!el) return;
@@ -853,24 +770,6 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
         const isActive = Math.abs(d) < 0.38 && !hid;
         el.classList.toggle("orbit-node-active", isActive);
       });
-
-      setActiveIdx((prev) => (prev !== curIdx ? curIdx : prev));
-
-      if (barRef.current) {
-        barRef.current.style.width = (((hpos - curIdx * STEP) / STEP) * 100).toFixed(1) + "%";
-      }
-
-      // Germany GeoTag
-      if (geoTagRef.current) {
-        flagGroup.updateMatrixWorld();
-        const tagP = flagGroup.localToWorld(tmpV.set(0.85, 1.2, 0).clone());
-        const [gx, gy] = toScreen(tagP);
-        const gOp = Math.max(0, Math.min(1, (facing - 0.3) / 0.35)) * e * (occluded(tagP) ? 0 : 1);
-        const tw = geoTagRef.current.offsetWidth || 150;
-        const tx = Math.min(gx + 10, W - tw - 12);
-        geoTagRef.current.style.transform = `translate3d(${tx.toFixed(1)}px,${(gy - 16).toFixed(1)}px,0)`;
-        geoTagRef.current.style.opacity = gOp.toFixed(3);
-      }
     }
 
     animId = requestAnimationFrame(renderLoop);
@@ -887,15 +786,13 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
     };
   }, [isEn]);
 
-  const activeProg = programs[activeIdx] || programs[0];
-
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-[560px] h-[520px] sm:h-[560px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 select-none flex flex-col justify-between"
+      className="relative w-full max-w-[580px] h-[500px] sm:h-[540px] lg:h-[580px] select-none flex items-center justify-center"
       style={{
         background:
-          "radial-gradient(60% 70% at 50% 45%, rgba(227,18,84,0.18), transparent 65%), radial-gradient(130% 90% at 50% -10%, #121024 0%, #06060b 80%)",
+          "radial-gradient(circle at 50% 50%, rgba(229,26,89,0.06) 0%, transparent 70%)",
       }}
     >
       {/* Three.js Canvas Container */}
@@ -914,7 +811,7 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
               nodeRefs.current[idx] = el;
             }}
             to={p.to}
-            className="orbit-node pointer-events-auto absolute left-0 top-0 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-[#0e0d18]/80 backdrop-blur-md text-white shadow-lg transition-colors hover:border-[#e51a59]"
+            className="orbit-node pointer-events-auto absolute left-0 top-0 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-[#0e0d18]/90 backdrop-blur-md text-white shadow-xl transition-all hover:scale-105 hover:border-[#e51a59]"
             style={{
               willChange: "transform, opacity",
               opacity: 0,
@@ -928,90 +825,13 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
             </span>
           </Link>
         ))}
-
-        {/* Germany Headquarters Tag */}
-        <div
-          ref={geoTagRef}
-          className="absolute left-0 top-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border border-[#ffce00]/40 bg-[#0a0a12]/80 backdrop-blur-md text-white shadow-xl pointer-events-none"
-          style={{ willChange: "transform, opacity", opacity: 0 }}
-        >
-          <span className="w-5 h-3.5 rounded-[2px] overflow-hidden flex flex-col shadow-xs border border-white/20 shrink-0">
-            <i className="flex-1 bg-black" />
-            <i className="flex-1 bg-[#DD0000]" />
-            <i className="flex-1 bg-[#FFCE00]" />
-          </span>
-          <span className="text-[11px] leading-tight">
-            <b className="block font-bold text-white tracking-tight">Deutschland</b>
-            <span className="block text-[9px] text-gray-400">Clarusway GmbH · Neuss</span>
-          </span>
-        </div>
-      </div>
-
-      {/* Top Banner overlay */}
-      <div className="relative z-20 flex items-center justify-between p-4 pointer-events-none">
-        <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold text-gray-300 bg-black/40 border border-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
-          <span className="w-2 h-2 rounded-full bg-[#e51a59] animate-pulse" />
-          {isEn ? "Interactive Career Orbit" : "Interaktiver IT-Karriere-Orbit"}
-        </span>
-        <span className="text-[11px] text-gray-400 bg-black/40 border border-white/10 px-2.5 py-1 rounded-full backdrop-blur-sm">
-          {isEn ? "Drag to rotate" : "Drehen zum Erkunden"}
-        </span>
-      </div>
-
-      {/* Bottom Live Program Status Card ("In orbit now") */}
-      <div className="relative z-20 m-3 sm:m-4 p-4 rounded-2xl border border-white/15 bg-[#0e0d18]/85 backdrop-blur-xl text-white shadow-2xl">
-        <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-gray-400 mb-2">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#e51a59] shadow-[0_0_8px_#e51a59] animate-ping" />
-            <span className="font-bold text-[#f472b6]">
-              {isEn ? "In orbit now" : "Jetzt im Orbit"}
-            </span>
-          </div>
-          <span className="font-mono text-gray-400">
-            {String(activeIdx + 1).padStart(2, "0")} / {String(programs.length).padStart(2, "0")}
-          </span>
-        </div>
-
-        <Link to={activeProg.to} className="group block">
-          <div className="flex items-start justify-between gap-2">
-            <div>
-              <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-[#f472b6] transition-colors leading-tight">
-                {activeProg.name}
-              </h4>
-              <p className="text-xs text-gray-400 mt-0.5">{activeProg.meta}</p>
-            </div>
-            <span className="shrink-0 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#e51a59]/20 text-[#f472b6] border border-[#e51a59]/40 mt-0.5">
-              {activeProg.chip}
-            </span>
-          </div>
-
-          <div className="flex items-center justify-between text-xs text-gray-300 mt-2.5 pt-2 border-t border-white/10">
-            <span>
-              <span className="text-gray-500 mr-1.5">{isEn ? "Career:" : "Zielberuf:"}</span>
-              <strong className="text-white font-medium">{activeProg.out}</strong>
-            </span>
-            <span className="text-[#f472b6] font-semibold text-[11px] group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
-              <span>{isEn ? "Explore" : "Details"}</span>
-              <span>→</span>
-            </span>
-          </div>
-        </Link>
-
-        {/* Orbit timeline progress bar */}
-        <div className="h-1 bg-white/10 rounded-full mt-3 overflow-hidden">
-          <div
-            ref={barRef}
-            className="h-full bg-gradient-to-r from-[#e51a59]/40 to-[#e51a59] rounded-full shadow-[0_0_8px_#e51a59]"
-            style={{ width: "0%" }}
-          />
-        </div>
       </div>
 
       {/* Custom Styles for active orbit nodes */}
       <style>{`
         .orbit-node-active {
           border-color: rgba(229, 26, 89, 0.85) !important;
-          background: rgba(42, 8, 22, 0.9) !important;
+          background: rgba(42, 8, 22, 0.95) !important;
           box-shadow: 0 0 0 1px rgba(229, 26, 89, 0.4), 0 10px 30px -4px rgba(229, 26, 89, 0.7) !important;
         }
         .orbit-node-active .node-icon {
