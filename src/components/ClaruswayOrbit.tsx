@@ -213,6 +213,7 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
   const stageRef = useRef<HTMLDivElement>(null);
   const labelsRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const geoTagRef = useRef<HTMLDivElement>(null);
 
   const programs = isEn ? PROGRAMS_DATA.en : PROGRAMS_DATA.de;
 
@@ -221,8 +222,8 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
     if (!THREE || !stageRef.current || !containerRef.current) return;
 
     const DEG = Math.PI / 180;
-    const R = 3.5;
-    const RING_R = 5.5;
+    const R = 3.3;
+    const RING_R = 5.4;
     const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const MOTION = REDUCED ? 0.3 : 1;
 
@@ -518,8 +519,8 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
 
     // Orbit Ring + Comet
     const ringTilt = new THREE.Group();
-    ringTilt.rotation.x = 0.6;
-    ringTilt.rotation.z = -0.14;
+    ringTilt.rotation.x = 0.50;
+    ringTilt.rotation.z = -0.16;
     world.add(ringTilt);
     const ringSpin = new THREE.Group();
     ringTilt.add(ringSpin);
@@ -650,7 +651,7 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
       renderer.setSize(W, H);
       camera.aspect = W / H;
       const tan = Math.tan((camera.fov / 2) * DEG);
-      const camZ = Math.max(18.0, (RING_R + 1.8) / (tan * Math.min(camera.aspect, 1.05)));
+      const camZ = Math.max(18.5, (RING_R + 2.5) / (tan * Math.min(camera.aspect, 1.05)));
       camera.position.z = camZ;
       world.position.set(0, 0, 0);
       camera.updateProjectionMatrix();
@@ -663,7 +664,6 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
     // Loop
     const clock = new THREE.Clock();
     let t = 0;
-    let head = -0.4;
     let intro = 0;
     let animId = 0;
     const tmpQ = new THREE.Quaternion();
@@ -671,7 +671,6 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
     const tmpC = new THREE.Vector3();
     const camDir = new THREE.Vector3();
     const TAU = Math.PI * 2;
-    const STEP = TAU / programs.length;
 
     function occluded(P: any) {
       world.getWorldPosition(tmpC);
@@ -717,13 +716,8 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
       }
       tilt.rotation.x = 0.62 + tiltOff;
 
-      // Orbit comet
-      ringSpin.rotation.y += 0.05 * dt * MOTION;
-      head = (head + 0.5 * dt * MOTION) % TAU;
-      ringMat.uniforms.uHead.value = head;
-      comet.position.set(Math.cos(head) * RING_R, 0, Math.sin(head) * RING_R);
-      const pulseVal = 1 + Math.sin(t * 6) * 0.08;
-      cometGlow.scale.set(1.1 * pulseVal, 1.1 * pulseVal, 1);
+      // Continuous orbit rotation
+      ringSpin.rotation.y += 0.12 * dt * MOTION;
 
       if (dotsMat) {
         dotsMat.uniforms.uFade.value = Math.min(1, dotsMat.uniforms.uFade.value + dt * 0.7);
@@ -744,10 +738,18 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
 
       renderer.render(scene, camera);
 
-      // DOM Node coordinates
+      // DOM Node coordinates & smooth continuous orbit
       ringSpin.updateMatrixWorld();
       world.getWorldPosition(tmpC);
       const cView = tmpC.clone().applyMatrix4(camera.matrixWorldInverse).z;
+
+      // Spotlight target in screen coordinates (lower-left front, matching the user's reference image)
+      const targetSpotlightX = W * 0.32;
+      const targetSpotlightY = H * 0.68;
+
+      let bestDist = Infinity;
+      let activeIndex = 0;
+      const cardCoords: { sx: number; sy: number; depth: number }[] = [];
 
       nodeRefs.current.forEach((el, k) => {
         if (!el) return;
@@ -756,20 +758,54 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
         const [sx, sy] = toScreen(P);
         const vz = P.clone().applyMatrix4(camera.matrixWorldInverse).z - cView;
         const depth = Math.max(-1, Math.min(1, vz / RING_R));
-        const hid = occluded(P);
-        const s = 0.82 + (depth + 1) * 0.12;
-        let op = hid ? 0 : 0.55 + (depth + 1) * 0.225;
-        op *= e;
+        cardCoords[k] = { sx, sy, depth };
 
-        el.style.transform = `translate3d(${sx.toFixed(1)}px,${sy.toFixed(1)}px,0) translate(-50%,-50%) scale(${s.toFixed(3)})`;
-        el.style.opacity = op.toFixed(3);
-        el.style.zIndex = String(Math.round((depth + 1) * 50));
+        // Prefer cards in the front hemisphere (depth > -0.25)
+        if (depth > -0.25) {
+          const dist = Math.hypot(sx - targetSpotlightX, sy - targetSpotlightY);
+          if (dist < bestDist) {
+            bestDist = dist;
+            activeIndex = k;
+          }
+        }
+      });
 
-        let d = ((head - ang) % TAU + TAU) % TAU;
-        if (d > Math.PI) d -= TAU;
-        const isActive = Math.abs(d) < 0.38 && !hid;
+      // Update comet position & glow to highlight the active card on the ring
+      const activeAng = NODE_ANG[activeIndex];
+      comet.position.set(Math.cos(activeAng) * RING_R, 0, Math.sin(activeAng) * RING_R);
+      const pulseVal = 1 + Math.sin(t * 5) * 0.12;
+      cometGlow.scale.set(1.4 * pulseVal, 1.4 * pulseVal, 1);
+      ringMat.uniforms.uHead.value = (activeAng + ringSpin.rotation.y) % TAU;
+
+      // Render each card along the orbit — NEVER cut off or hidden, continuous flow
+      nodeRefs.current.forEach((el, k) => {
+        if (!el || !cardCoords[k]) return;
+        const { sx, sy, depth } = cardCoords[k];
+        const isActive = k === activeIndex;
+
+        // Smooth depth scaling and opacity: NEVER 0, ALWAYS smoothly visible!
+        const scale = isActive ? 1.06 : 0.86 + (depth + 1) * 0.08;
+        const opacity = (0.76 + (depth + 1) * 0.12) * e;
+        const zIndex = isActive ? 120 : Math.round((depth + 1) * 50);
+
+        el.style.transform = `translate3d(${sx.toFixed(1)}px,${sy.toFixed(1)}px,0) translate(-50%,-50%) scale(${scale.toFixed(3)})`;
+        el.style.opacity = opacity.toFixed(3);
+        el.style.zIndex = String(zIndex);
         el.classList.toggle("orbit-node-active", isActive);
       });
+
+      // Update Deutschland Pin Card (pinned to Neuss / Germany)
+      if (geoTagRef.current) {
+        const pNeuss = ll(NEUSS[0], NEUSS[1], R + 0.12);
+        const neussWorld = spin.localToWorld(pNeuss);
+        const [nx, ny] = toScreen(neussWorld);
+        const isNeussFacing = facing > 0.12 && !occluded(neussWorld);
+        const gOp = (isNeussFacing ? Math.max(0, Math.min(1, (facing - 0.12) / 0.25)) : 0) * e;
+        const tw = geoTagRef.current.offsetWidth || 155;
+        const tx = Math.min(Math.max(10, nx + 12), W - tw - 10);
+        geoTagRef.current.style.transform = `translate3d(${tx.toFixed(1)}px,${(ny - 22).toFixed(1)}px,0)`;
+        geoTagRef.current.style.opacity = gOp.toFixed(3);
+      }
     }
 
     animId = requestAnimationFrame(renderLoop);
@@ -789,7 +825,7 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-[580px] h-[500px] sm:h-[540px] lg:h-[580px] select-none flex items-center justify-center"
+      className="relative w-full max-w-[560px] h-[520px] sm:h-[560px] lg:h-[580px] select-none flex items-center justify-center overflow-visible"
       style={{
         background:
           "radial-gradient(circle at 50% 50%, rgba(229,26,89,0.06) 0%, transparent 70%)",
@@ -798,12 +834,12 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
       {/* Three.js Canvas Container */}
       <div
         ref={stageRef}
-        className="absolute inset-0 z-0 cursor-grab touch-none"
+        className="absolute inset-0 z-0 cursor-grab touch-none overflow-hidden"
         style={{ cursor: "grab" }}
       />
 
       {/* Floating 3D Projected Labels */}
-      <div ref={labelsRef} className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+      <div ref={labelsRef} className="absolute inset-0 z-10 pointer-events-none overflow-visible">
         {programs.map((p, idx) => (
           <Link
             key={p.id}
@@ -811,33 +847,62 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
               nodeRefs.current[idx] = el;
             }}
             to={p.to}
-            className="orbit-node pointer-events-auto absolute left-0 top-0 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-[#0e0d18]/90 backdrop-blur-md text-white shadow-xl transition-all hover:scale-105 hover:border-[#e51a59]"
+            className="orbit-node pointer-events-auto absolute left-0 top-0 flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-gray-200/80 bg-white/95 backdrop-blur-md text-slate-700 font-semibold text-xs tracking-tight shadow-[0_4px_16px_rgba(0,0,0,0.07)] hover:scale-105 transition-all"
             style={{
               willChange: "transform, opacity",
               opacity: 0,
             }}
           >
-            <span className="node-icon w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-gray-200 transition-colors">
+            <span className="node-icon w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 transition-all shrink-0">
               <ProgramIcon type={p.icon} />
             </span>
-            <span className="text-xs font-semibold tracking-tight text-gray-100 whitespace-nowrap">
+            <span className="node-text whitespace-nowrap transition-colors">
               {p.short}
             </span>
           </Link>
         ))}
+
+        {/* Deutschland Pin Card */}
+        <div
+          ref={geoTagRef}
+          className="absolute left-0 top-0 flex items-center gap-2.5 px-3 py-1.5 rounded-2xl border border-gray-100 bg-white/95 backdrop-blur-md text-gray-800 shadow-[0_8px_24px_rgba(0,0,0,0.08)] pointer-events-none transition-opacity duration-300"
+          style={{ willChange: "transform, opacity", opacity: 0 }}
+        >
+          <span className="w-5 h-3.5 rounded-[2px] overflow-hidden flex flex-col shadow-xs border border-gray-200 shrink-0">
+            <i className="flex-1 bg-black" />
+            <i className="flex-1 bg-[#DD0000]" />
+            <i className="flex-1 bg-[#FFCE00]" />
+          </span>
+          <span className="text-[11px] leading-tight">
+            <b className="block font-bold text-gray-900 tracking-tight">Deutschland</b>
+            <span className="block text-[9px] text-gray-500 font-medium">Clarusway GmbH · Neuss</span>
+          </span>
+        </div>
       </div>
 
       {/* Custom Styles for active orbit nodes */}
       <style>{`
-        .orbit-node-active {
-          border-color: rgba(229, 26, 89, 0.85) !important;
-          background: rgba(42, 8, 22, 0.95) !important;
-          box-shadow: 0 0 0 1px rgba(229, 26, 89, 0.4), 0 10px 30px -4px rgba(229, 26, 89, 0.7) !important;
+        .orbit-node {
+          box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+          transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
-        .orbit-node-active .node-icon {
+        .orbit-node:hover {
+          border-color: rgba(229, 26, 89, 0.4) !important;
+          box-shadow: 0 8px 24px -2px rgba(0, 0, 0, 0.12) !important;
+        }
+        .orbit-node.orbit-node-active {
+          border-color: #e51a59 !important;
+          background-color: #ffffff !important;
+          box-shadow: 0 0 0 1px rgba(229, 26, 89, 0.3), 0 0 32px 6px rgba(229, 26, 89, 0.38), 0 8px 22px -2px rgba(229, 26, 89, 0.28) !important;
+        }
+        .orbit-node.orbit-node-active .node-text {
+          color: #e51a59 !important;
+          font-weight: 700 !important;
+        }
+        .orbit-node.orbit-node-active .node-icon {
           background-color: #e51a59 !important;
           color: #ffffff !important;
-          box-shadow: 0 0 14px rgba(229, 26, 89, 0.9) !important;
+          box-shadow: 0 0 12px rgba(229, 26, 89, 0.6) !important;
         }
       `}</style>
     </div>

@@ -430,7 +430,7 @@ export function HomePage() {
             </div>
 
             {/* Right Column: 3D Clarusway Globe Orbit Animation */}
-            <div className="lg:col-span-5 flex justify-center">
+            <div className="lg:col-span-5 flex justify-center relative overflow-visible">
               <ClaruswayOrbit isEn={isEn} />
             </div>
           </div>
