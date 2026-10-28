@@ -349,11 +349,11 @@ export function HomePage() {
           ===================================================================== */}
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
-        className="py-14 md:py-20"
+        className="py-12 md:py-16 overflow-hidden"
       >
-        <div className="max-w-[1200px] mx-auto px-5">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7">
+        <div className="max-w-[1280px] mx-auto px-5">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div className="lg:col-span-6 xl:col-span-5 max-w-[540px]">
               <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-5">
                 <ShieldCheckIcon className="w-4 h-4" />
                 <span>
@@ -365,7 +365,7 @@ export function HomePage() {
 
               <h1
                 style={{ color: DARK, lineHeight: 1.15 }}
-                className="text-3xl sm:text-4xl lg:text-[44px] font-bold mb-4 tracking-tight"
+                className="text-3xl sm:text-4xl lg:text-[42px] font-bold mb-4 tracking-tight"
               >
                 {isEn
                   ? "Start your IT career in Germany with 100% funded live online training"
@@ -386,7 +386,7 @@ export function HomePage() {
                 </span>
               </div>
 
-              <p className="text-gray-500 text-base leading-relaxed mb-6">
+              <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-6">
                 {isEn
                   ? "Clarusway trains career changers and tech professionals in Germany through live online IT bootcamps — covering AI Engineering, Data Analytics, AI-Assisted Full Stack Development, Cyber Security, AWS & DevOps, and Software Testing. Instruction is available in English, Turkish, and German cohorts. All programs are AZAV-certified and 100% fundable with a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter."
                   : "Qualifiziere dich im Live-Online-Unterricht für gefragte IT-Berufe in Deutschland: AI Engineering & Data Science, Full Stack Webentwicklung, Cyber Security, AWS & DevOps oder Software Testing. Unsere modularen Programme sind AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein der Agentur für Arbeit oder des Jobcenters förderbar."}
@@ -413,7 +413,7 @@ export function HomePage() {
                 </Link>
               </div>
 
-              <div className="flex flex-wrap gap-5 text-xs text-gray-600">
+              <div className="flex flex-wrap gap-4 text-xs text-gray-600">
                 <span className="inline-flex items-center gap-1.5">
                   <CheckCircleIcon className="w-4 h-4 text-[#e51a59]" />
                   {isEn ? "0 € tuition with Bildungsgutschein" : "0 € Kursgebühr mit Bildungsgutschein"}
@@ -430,7 +430,7 @@ export function HomePage() {
             </div>
 
             {/* Right Column: 3D Clarusway Globe Orbit Animation */}
-            <div className="lg:col-span-5 flex justify-center relative overflow-visible">
+            <div className="lg:col-span-6 xl:col-span-7 flex justify-center lg:justify-end relative overflow-visible">
               <ClaruswayOrbit isEn={isEn} />
             </div>
           </div>

@@ -222,8 +222,8 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
     if (!THREE || !stageRef.current || !containerRef.current) return;
 
     const DEG = Math.PI / 180;
-    const R = 3.3;
-    const RING_R = 5.4;
+    const R = 3.9;
+    const RING_R = 7.2;
     const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const MOTION = REDUCED ? 0.3 : 1;
 
@@ -519,8 +519,8 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
 
     // Orbit Ring + Comet
     const ringTilt = new THREE.Group();
-    ringTilt.rotation.x = 0.50;
-    ringTilt.rotation.z = -0.16;
+    ringTilt.rotation.x = 0.40;
+    ringTilt.rotation.z = -0.15;
     world.add(ringTilt);
     const ringSpin = new THREE.Group();
     ringTilt.add(ringSpin);
@@ -563,27 +563,85 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
       return new THREE.CanvasTexture(c);
     }
 
+    // High-resolution Clarusway Double-Chevron Arrow Texture
+    function claruswayArrowTex() {
+      const c = document.createElement("canvas");
+      c.width = 256;
+      c.height = 256;
+      const ctx = c.getContext("2d");
+      if (ctx) {
+        // Vibrant neon glow behind arrow
+        const g = ctx.createRadialGradient(128, 128, 10, 128, 128, 120);
+        g.addColorStop(0, "rgba(255, 60, 130, 0.95)");
+        g.addColorStop(0.35, "rgba(229, 26, 89, 0.7)");
+        g.addColorStop(0.7, "rgba(229, 26, 89, 0.2)");
+        g.addColorStop(1, "rgba(229, 26, 89, 0)");
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, 256, 256);
+
+        ctx.save();
+        ctx.translate(128, 128);
+        ctx.shadowColor = "#ff286e";
+        ctx.shadowBlur = 18;
+
+        // First Chevron (White foreground with sharp glow)
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.moveTo(34, 0);
+        ctx.lineTo(-8, -26);
+        ctx.lineTo(6, 0);
+        ctx.lineTo(-8, 26);
+        ctx.closePath();
+        ctx.fill();
+
+        // Second Chevron (Clarusway vibrant Magenta #e51a59)
+        ctx.fillStyle = "#e51a59";
+        ctx.beginPath();
+        ctx.moveTo(8, 0);
+        ctx.lineTo(-34, -26);
+        ctx.lineTo(-20, 0);
+        ctx.lineTo(-34, 26);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.restore();
+      }
+      return new THREE.CanvasTexture(c);
+    }
+
     const comet = new THREE.Group();
     ringSpin.add(comet);
+
     const cometGlow = new THREE.Sprite(
       new THREE.SpriteMaterial({
-        map: glowTex([[0, "rgba(255,90,140,1)"], [0.25, "rgba(227,18,84,.55)"], [1, "rgba(227,18,84,0)"]]),
+        map: glowTex([[0, "rgba(255,90,140,1)"], [0.25, "rgba(229,18,84,.65)"], [1, "rgba(229,18,84,0)"]]),
         blending: THREE.AdditiveBlending,
         depthWrite: false,
       })
     );
-    cometGlow.scale.set(1.1, 1.1, 1);
+    cometGlow.scale.set(2.4, 2.4, 1);
     comet.add(cometGlow);
 
     const cometCore = new THREE.Sprite(
       new THREE.SpriteMaterial({
-        map: glowTex([[0, "rgba(255,255,255,1)"], [0.35, "rgba(255,220,235,.6)"], [1, "rgba(255,255,255,0)"]]),
+        map: glowTex([[0, "rgba(255,255,255,1)"], [0.35, "rgba(255,220,235,.7)"], [1, "rgba(255,255,255,0)"]]),
         blending: THREE.AdditiveBlending,
         depthWrite: false,
       })
     );
-    cometCore.scale.set(0.32, 0.32, 1);
+    cometCore.scale.set(0.65, 0.65, 1);
     comet.add(cometCore);
+
+    // Prominent Clarusway Chevron Arrow Sprite riding the orbit
+    const claruswayArrow = new THREE.Sprite(
+      new THREE.SpriteMaterial({
+        map: claruswayArrowTex(),
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      })
+    );
+    claruswayArrow.scale.set(1.8, 1.8, 1);
+    comet.add(claruswayArrow);
 
     // Anchor beads
     const NODE_ANG = programs.map((_, k) => (k / programs.length) * Math.PI * 2);
@@ -646,12 +704,12 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
     // Layout
     function resize() {
       if (!containerRef.current) return;
-      W = containerRef.current.clientWidth || 500;
-      H = containerRef.current.clientHeight || 580;
+      W = containerRef.current.clientWidth || 580;
+      H = containerRef.current.clientHeight || 620;
       renderer.setSize(W, H);
       camera.aspect = W / H;
       const tan = Math.tan((camera.fov / 2) * DEG);
-      const camZ = Math.max(18.5, (RING_R + 2.5) / (tan * Math.min(camera.aspect, 1.05)));
+      const camZ = Math.max(18.5, (RING_R + 1.8) / (tan * Math.min(camera.aspect, 1.05)));
       camera.position.z = camZ;
       world.position.set(0, 0, 0);
       camera.updateProjectionMatrix();
@@ -664,6 +722,7 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
     // Loop
     const clock = new THREE.Clock();
     let t = 0;
+    let head = -0.4;
     let intro = 0;
     let animId = 0;
     const tmpQ = new THREE.Quaternion();
@@ -717,7 +776,8 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
       tilt.rotation.x = 0.62 + tiltOff;
 
       // Continuous orbit rotation
-      ringSpin.rotation.y += 0.12 * dt * MOTION;
+      ringSpin.rotation.y += 0.08 * dt * MOTION;
+      head = (head + 0.38 * dt * MOTION) % TAU;
 
       if (dotsMat) {
         dotsMat.uniforms.uFade.value = Math.min(1, dotsMat.uniforms.uFade.value + dt * 0.7);
@@ -736,21 +796,44 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
         p.m.material.opacity = (1 - k) * 0.9;
       });
 
+      // Position comet & Clarusway arrow along the orbit
+      comet.position.set(Math.cos(head) * RING_R, 0, Math.sin(head) * RING_R);
+      const pulseVal = 1 + Math.sin(t * 6) * 0.14;
+      claruswayArrow.scale.set(1.9 * pulseVal, 1.9 * pulseVal, 1);
+      cometGlow.scale.set(2.5 * pulseVal, 2.5 * pulseVal, 1);
+      ringMat.uniforms.uHead.value = head;
+
+      // Dynamically orient Clarusway arrow along the exact tangent of the orbit
+      const pNow = ringSpin.localToWorld(tmpV.set(Math.cos(head) * RING_R, 0, Math.sin(head) * RING_R).clone());
+      const pNext = ringSpin.localToWorld(tmpC.set(Math.cos(head + 0.05) * RING_R, 0, Math.sin(head + 0.05) * RING_R).clone());
+      const [x1, y1] = toScreen(pNow);
+      const [x2, y2] = toScreen(pNext);
+      claruswayArrow.material.rotation = -Math.atan2(y2 - y1, x2 - x1);
+
       renderer.render(scene, camera);
 
-      // DOM Node coordinates & smooth continuous orbit
+      // DOM Node coordinates & smooth continuous orbit strictly OUTSIDE the globe
       ringSpin.updateMatrixWorld();
       world.getWorldPosition(tmpC);
       const cView = tmpC.clone().applyMatrix4(camera.matrixWorldInverse).z;
 
-      // Spotlight target in screen coordinates (lower-left front, matching the user's reference image)
-      const targetSpotlightX = W * 0.32;
-      const targetSpotlightY = H * 0.68;
-
-      let bestDist = Infinity;
+      // Find which card is closest to the zooming Clarusway arrow
+      let minCardDist = Infinity;
       let activeIndex = 0;
-      const cardCoords: { sx: number; sy: number; depth: number }[] = [];
 
+      nodeRefs.current.forEach((el, k) => {
+        if (!el) return;
+        const ang = NODE_ANG[k];
+        let diff = ((head - ang) % TAU + TAU) % TAU;
+        if (diff > Math.PI) diff -= TAU;
+        const distToHead = Math.abs(diff);
+        if (distToHead < minCardDist) {
+          minCardDist = distToHead;
+          activeIndex = k;
+        }
+      });
+
+      // Render each card along the outer orbit — NEVER touching or overlapping the globe
       nodeRefs.current.forEach((el, k) => {
         if (!el) return;
         const ang = NODE_ANG[k];
@@ -758,34 +841,11 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
         const [sx, sy] = toScreen(P);
         const vz = P.clone().applyMatrix4(camera.matrixWorldInverse).z - cView;
         const depth = Math.max(-1, Math.min(1, vz / RING_R));
-        cardCoords[k] = { sx, sy, depth };
-
-        // Prefer cards in the front hemisphere (depth > -0.25)
-        if (depth > -0.25) {
-          const dist = Math.hypot(sx - targetSpotlightX, sy - targetSpotlightY);
-          if (dist < bestDist) {
-            bestDist = dist;
-            activeIndex = k;
-          }
-        }
-      });
-
-      // Update comet position & glow to highlight the active card on the ring
-      const activeAng = NODE_ANG[activeIndex];
-      comet.position.set(Math.cos(activeAng) * RING_R, 0, Math.sin(activeAng) * RING_R);
-      const pulseVal = 1 + Math.sin(t * 5) * 0.12;
-      cometGlow.scale.set(1.4 * pulseVal, 1.4 * pulseVal, 1);
-      ringMat.uniforms.uHead.value = (activeAng + ringSpin.rotation.y) % TAU;
-
-      // Render each card along the orbit — NEVER cut off or hidden, continuous flow
-      nodeRefs.current.forEach((el, k) => {
-        if (!el || !cardCoords[k]) return;
-        const { sx, sy, depth } = cardCoords[k];
         const isActive = k === activeIndex;
 
         // Smooth depth scaling and opacity: NEVER 0, ALWAYS smoothly visible!
-        const scale = isActive ? 1.06 : 0.86 + (depth + 1) * 0.08;
-        const opacity = (0.76 + (depth + 1) * 0.12) * e;
+        const scale = isActive ? 1.08 : 0.88 + (depth + 1) * 0.08;
+        const opacity = (0.78 + (depth + 1) * 0.11) * e;
         const zIndex = isActive ? 120 : Math.round((depth + 1) * 50);
 
         el.style.transform = `translate3d(${sx.toFixed(1)}px,${sy.toFixed(1)}px,0) translate(-50%,-50%) scale(${scale.toFixed(3)})`;
@@ -794,9 +854,9 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
         el.classList.toggle("orbit-node-active", isActive);
       });
 
-      // Update Deutschland Pin Card (pinned to Neuss / Germany)
+      // Update Deutschland Pin Card (pinned to Neuss / Germany on the larger globe)
       if (geoTagRef.current) {
-        const pNeuss = ll(NEUSS[0], NEUSS[1], R + 0.12);
+        const pNeuss = ll(NEUSS[0], NEUSS[1], R + 0.15);
         const neussWorld = spin.localToWorld(pNeuss);
         const [nx, ny] = toScreen(neussWorld);
         const isNeussFacing = facing > 0.12 && !occluded(neussWorld);
@@ -825,7 +885,7 @@ export function ClaruswayOrbit({ isEn }: { isEn: boolean }) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-[560px] h-[520px] sm:h-[560px] lg:h-[580px] select-none flex items-center justify-center overflow-visible"
+      className="relative w-full max-w-[660px] h-[560px] sm:h-[620px] lg:h-[660px] select-none flex items-center justify-center overflow-visible"
       style={{
         background:
           "radial-gradient(circle at 50% 50%, rgba(229,26,89,0.06) 0%, transparent 70%)",
