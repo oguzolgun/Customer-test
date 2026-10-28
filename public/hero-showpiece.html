@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarusway Germany — IT Bootcamps & Careers Hero Showpiece</title>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Three.js r128 pinned from cdnjs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+    /* -------------------------------------------------------------------------
+       CSS RESET & ROOT VARIABLES
+       ------------------------------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-crimson: #E5254F;
+      --color-crimson-hover: #C4153F;
+      --color-plum-center: #2A0F24;
+      --color-plum-edge: #12060F;
+      --color-navy: #141B2D;
+      --color-slate: #5B6475;
+      --color-pink-border: #F3D3DC;
+      --color-badge-bg: #FDE3E9;
+      --color-tag-bg: #F6F3EE;
+      --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--color-navy);
+      background-color: #FAF0F4;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* -------------------------------------------------------------------------
+       HERO CONTAINER & BACKGROUND
+       Warm pink radial gradient with faint 1px dotted grid at 4%
+       ------------------------------------------------------------------------- */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background-color: #FFF4F6;
+      background-image: 
+        radial-gradient(circle at 69% 52%, #FFF4F6 0%, #FAF0F4 45%, #F6F3EE 100%),
+        radial-gradient(rgba(20, 27, 45, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 24px 24px;
+    }
+
+    /* -------------------------------------------------------------------------
+       MAIN GRID LAYOUT (1440 x 860 desktop target)
+       ------------------------------------------------------------------------- */
+    .hero-main {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 40px 40px 20px 96px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Left Text Column (max 540px, vertically centered) */
+    .left-col {
+      max-width: 540px;
+      z-index: 20;
+      animation: maskSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    /* Badge Pill */
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-badge-bg);
+      color: var(--color-crimson);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+      box-shadow: 0 2px 8px rgba(229, 37, 79, 0.06);
+    }
+    .badge-icon {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+    }
+
+    /* H1 (max 3 lines at 56-64px, weight 800, leading 1.05) */
+    .hero-title {
+      font-size: clamp(38px, 4.2vw, 62px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--color-navy);
+      margin-bottom: 20px;
+    }
+    .hero-title .highlight {
+      color: var(--color-crimson);
+    }
+
+    /* Subline (one sentence, 18px, slate, max 46ch) */
+    .hero-subline {
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--color-slate);
+      max-width: 46ch;
+      margin-bottom: 24px;
+    }
+
+    /* Rating Row */
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .stars-group {
+      display: flex;
+      gap: 3px;
+    }
+    .star-icon {
+      width: 16px;
+      height: 16px;
+      fill: var(--color-crimson);
+    }
+    .rating-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-navy);
+    }
+
+    /* CTA Buttons */
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-crimson);
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(229, 37, 79, 0.32);
+      transition: all 0.25s ease;
+    }
+    .btn-primary:hover {
+      background-color: var(--color-crimson-hover);
+      box-shadow: 0 6px 24px rgba(229, 37, 79, 0.45);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: transparent;
+      color: var(--color-navy);
+      border: 2px solid var(--color-navy);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .btn-secondary:hover {
+      background-color: rgba(20, 27, 45, 0.05);
+      transform: translateY(-1px);
+    }
+
+    /* -------------------------------------------------------------------------
+       RIGHT COLUMN: THE GLOBE IS THE HERO!
+       Diameter = min(92vh, 58vw) ≈ 780-820px at 1440 wide
+       ------------------------------------------------------------------------- */
+    .globe-stage {
+      position: relative;
+      width: clamp(400px, 58vw, 820px);
+      height: clamp(400px, 58vw, 820px);
+      max-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      filter: drop-shadow(0 20px 60px rgba(229, 37, 79, 0.16));
+    }
+
+    .three-canvas {
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+      touch-action: none;
+      display: block;
+    }
+    .three-canvas:active {
+      cursor: grabbing;
+    }
+
+    /* -------------------------------------------------------------------------
+       COURSE ORBIT GLASS NODES (40px circular, 56px active jelly bounce)
+       ------------------------------------------------------------------------- */
+    .nodes-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 30;
+    }
+
+    .orbit-node {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: auto;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      will-change: transform, opacity;
+    }
+
+    .node-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--color-pink-border);
+      box-shadow: 0 4px 14px rgba(20, 27, 45, 0.08);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .orbit-node:hover .node-btn {
+      border-color: rgba(229, 37, 79, 0.5);
+      transform: scale(1.1);
+    }
+
+    /* Active Node State (56px with jelly ring & crimson glow) */
+    .orbit-node.is-active .node-btn {
+      width: 56px;
+      height: 56px;
+      background: #FFFFFF;
+      border: 2px solid var(--color-crimson);
+      box-shadow: 0 0 24px rgba(229, 37, 79, 0.45), 0 8px 24px rgba(229, 37, 79, 0.25);
+    }
+
+    /* Attached Label Pill (ONLY shown for active course) */
+    .node-label-pill {
+      margin-left: 12px;
+      padding: 5px 14px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--color-pink-border);
+      color: var(--color-navy);
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 9999px;
+      box-shadow: 0 6px 20px rgba(20, 27, 45, 0.08);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      animation: labelSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    .pill-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-crimson);
+      animation: pulseDot 1.5s infinite;
+    }
+
+    /* Germany Pin Visual Anchor Tag */
+    .germany-anchor-tag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 25;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--color-pink-border);
+      border-radius: 9999px;
+      box-shadow: 0 4px 12px rgba(20, 27, 45, 0.08);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-navy);
+      transition: opacity 0.3s ease;
+      will-change: transform, opacity;
+      opacity: 0;
+    }
+    .ger-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-crimson);
+    }
+
+    /* -------------------------------------------------------------------------
+       FIXED LOWER-LEFT INFO CARD (280px, Never overlaps nodes or globe)
+       ------------------------------------------------------------------------- */
+    .fixed-info-card {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      z-index: 40;
+      width: 280px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      border: 1px solid var(--color-pink-border);
+      padding: 20px;
+      box-shadow: 0 12px 32px rgba(20, 27, 45, 0.08), 0 2px 8px rgba(229, 37, 79, 0.05);
+      transition: all 0.4s ease;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-navy);
+    }
+    .card-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-crimson);
+    }
+    .card-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--color-slate);
+      margin-bottom: 14px;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .tag-pill {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--color-tag-bg);
+      color: var(--color-navy);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(243, 211, 220, 0.7);
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-crimson);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .card-link:hover {
+      color: var(--color-crimson-hover);
+      text-decoration: underline;
+    }
+
+    /* -------------------------------------------------------------------------
+       BOTTOM SLIM GLASS TRUST STRIP (Height 64px, white 70%, blur 12px)
+       ------------------------------------------------------------------------- */
+    .hero-footer {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px 32px 96px;
+      z-index: 20;
+    }
+    .trust-strip {
+      width: 100%;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.70);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-pink-border);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(20, 27, 45, 0.03);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-navy);
+    }
+    .trust-item:not(:last-child) {
+      border-right: 1px solid var(--color-pink-border);
+    }
+    .trust-check {
+      width: 18px;
+      height: 18px;
+      color: var(--color-crimson);
+      flex-shrink: 0;
+    }
+
+    /* -------------------------------------------------------------------------
+       ANIMATIONS
+       ------------------------------------------------------------------------- */
+    @keyframes maskSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes labelSlide {
+      from {
+        opacity: 0;
+        transform: translateX(-10px) scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.4); }
+    }
+    .fade-switch {
+      animation: cardFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    @keyframes cardFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* -------------------------------------------------------------------------
+       RESPONSIVE (<= 900px)
+       ------------------------------------------------------------------------- */
+    @media (max-width: 900px) {
+      .hero-main {
+        flex-direction: column;
+        padding: 32px 24px 20px 24px;
+      }
+      .globe-stage {
+        order: 1;
+        width: 100vw;
+        height: 420px;
+        margin-bottom: 24px;
+      }
+      .left-col {
+        order: 2;
+        max-width: 100%;
+        text-align: center;
+      }
+      .hero-subline {
+        margin: 0 auto 24px auto;
+      }
+      .rating-row, .cta-row {
+        justify-content: center;
+      }
+      .fixed-info-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        max-width: 360px;
+        margin: 16px auto 0 auto;
+      }
+      .hero-footer {
+        padding: 0 24px 24px 24px;
+      }
+      .trust-strip {
+        height: auto;
+        grid-template-columns: 1fr;
+        padding: 12px 16px;
+      }
+      .trust-item {
+        padding: 8px 0;
+        border-right: none !important;
+      }
+      .trust-item:not(:last-child) {
+        border-bottom: 1px solid var(--color-pink-border);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero-section">
+    <!-- Top & Center Main Grid -->
+    <div class="hero-main">
+      
+      <!-- Left Column: Copy & CTAs (Max 540px, 96px Left Margin) -->
+      <div class="left-col">
+        <!-- Badge Pill -->
+        <div class="badge-pill">
+          <svg class="badge-icon" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span id="copy-badge">AZAV-certified · 100% funded with Bildungsgutschein</span>
+        </div>
+
+        <!-- H1 Heading -->
+        <h1 class="hero-title">
+          <span id="copy-h1-lead">Start your IT career in Germany. </span>
+          <span class="highlight" id="copy-h1-highlight">100% funded.</span>
+        </h1>
+
+        <!-- Subline -->
+        <p class="hero-subline" id="copy-subline">
+          Live online bootcamps for career changers and tech professionals — in English, Turkish & German.
+        </p>
+
+        <!-- Rating Row -->
+        <div class="rating-row">
+          <div class="stars-group">
+            <svg class="star-icon" viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z"/></svg>
+            <svg class="star-icon" viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z"/></svg>
+            <svg class="star-icon" viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z"/></svg>
+            <svg class="star-icon" viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z"/></svg>
+            <svg class="star-icon" viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z"/></svg>
+          </div>
+          <span class="rating-text" id="copy-rating">4.9/5 — Career Karma Rating</span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="cta-row">
+          <a href="/application-form/" class="btn-primary" id="copy-primary-btn">
+            <span>Free consultation →</span>
+          </a>
+          <a href="/it-courses/" class="btn-secondary" id="copy-secondary-btn">
+            <span>Compare all IT courses</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: The Globe is the Hero! -->
+      <div class="globe-stage" id="globe-container">
+        <!-- Three.js Canvas -->
+        <canvas class="three-canvas" id="globe-canvas"></canvas>
+
+        <!-- 7 Orbiting Course Glass Nodes -->
+        <div class="nodes-layer" id="nodes-layer"></div>
+
+        <!-- Germany Anchor Pin Label -->
+        <div class="germany-anchor-tag" id="germany-tag">
+          <span class="ger-dot"></span>
+          <span>Germany</span>
+        </div>
+
+        <!-- Fixed Lower-Left Info Card (280px) -->
+        <div class="fixed-info-card" id="info-card">
+          <div class="card-header">
+            <h3 class="card-title" id="card-title">Cloud & DevOps</h3>
+            <span class="card-indicator"></span>
+          </div>
+          <p class="card-desc" id="card-desc">From cloud basics to automated pipelines.</p>
+          <div class="card-tags" id="card-tags">
+            <span class="tag-pill">AWS</span>
+            <span class="tag-pill">Docker</span>
+            <span class="tag-pill">Kubernetes</span>
+          </div>
+          <a href="/it-courses/devops-aws/" class="card-link" id="card-link">View course →</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom: Slim Glass Trust Strip (Height 64px, 3 items) -->
+    <div class="hero-footer">
+      <div class="trust-strip">
+        <div class="trust-item">
+          <svg class="trust-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span id="copy-trust-1">0 € tuition with Bildungsgutschein</span>
+        </div>
+        <div class="trust-item">
+          <svg class="trust-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span id="copy-trust-2">Instruction in English, Turkish & German</span>
+        </div>
+        <div class="trust-item">
+          <svg class="trust-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span id="copy-trust-3">German paperwork prepared for you</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       JAVASCRIPT: THREE.JS GLOBE, 64-POINT JELLY SPRING PHYSICS & BRAND ARROW
+       ========================================================================= -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. CONFIGURATION & ARTISTIC TUNING PARAMETERS
+    // -------------------------------------------------------------------------
+    const TUNING = {
+      globeRadius: 4.2,             // Globe radius in Three.js world units
+      orbitRadiusRatio: 1.13,        // Course orbit radius ≈ 1.13 * R
+      orbitTiltX: 0.48,              // Orbit tilt X (~27 deg)
+      orbitTiltZ: -0.31,             // Orbit tilt Z (~ -18 deg)
+      rotationPeriod: 70,            // Globe auto-rotation period in seconds (1 turn / 70s)
+      orbitPeriod: 90,               // Course orbit period in seconds (1 turn / 90s)
+      cycleInterval: 4500,           // Active course auto-cycle interval in ms (4.5s)
+      jellyStiffness: 150,           // Spring stiffness for soft-body jelly silhouette morph
+      jellyDamping: 11,              // Spring damping
+      jellyCoupling: 30,             // Neighbor membrane coupling
+      arrowTrailLength: 16,          // Number of comets/segments in flying arrow trail
+    };
+
+    // -------------------------------------------------------------------------
+    // 2. COURSE DATA DEFINITIONS (7 Courses)
+    // -------------------------------------------------------------------------
+    const COURSES = [
+      {
+        id: "cloud-devops",
+        title: "Cloud & DevOps",
+        oneLiner: "From cloud basics to automated pipelines.",
+        tags: ["AWS", "Docker", "Kubernetes"],
+        link: "/it-courses/devops-aws/",
+        iconId: "cloud"
+      },
+      {
+        id: "data-science",
+        title: "Data Science",
+        oneLiner: "Turn raw data into decisions with machine learning.",
+        tags: ["Python", "SQL", "ML"],
+        link: "/it-courses/ai-engineering/",
+        iconId: "data-science"
+      },
+      {
+        id: "data-analytics",
+        title: "Data Analytics",
+        oneLiner: "Analyze, visualize and tell stories with data.",
+        tags: ["SQL", "BI", "Dashboards"],
+        link: "/it-courses/data-analytics-bootcamp/",
+        iconId: "data-analytics"
+      },
+      {
+        id: "cyber-security",
+        title: "Cyber Security",
+        oneLiner: "Protect systems and data from modern threats.",
+        tags: ["Threat analysis", "Risk", "Cloud security"],
+        link: "/it-courses/cyber-security/",
+        iconId: "cyber"
+      },
+      {
+        id: "full-stack",
+        title: "Full Stack",
+        oneLiner: "Build complete web apps, AI-assisted.",
+        tags: ["Frontend", "Backend", "APIs"],
+        link: "/it-courses/full-stack-developer/",
+        iconId: "full-stack"
+      },
+      {
+        id: "ai-engineering",
+        title: "AI Engineering",
+        oneLiner: "Design and ship AI systems and agents.",
+        tags: ["LLMs", "APIs", "Agentic AI"],
+        link: "/it-courses/ai-engineering/",
+        iconId: "ai"
+      },
+      {
+        id: "software-testing",
+        title: "Software Testing",
+        oneLiner: "Automate quality with modern test frameworks.",
+        tags: ["Test automation", "CI/CD", "Frameworks"],
+        link: "/it-courses/software-development-engineer-in-test/",
+        iconId: "testing"
+      }
+    ];
+
+    // Clarusway Arrow Silhouette (Brand double chevron)
+    const ARROW_SVG_PATH = "M 22 15 L 62 50 L 22 85 L 42 85 L 82 50 L 42 15 Z";
+
+    // 7 Editable Icon Silhouettes for 64-point spring-mass morph
+    const ICON_SILHOUETTES = {
+      arrow: ARROW_SVG_PATH,
+      cloud: "M 30,70 L 70,70 C 76,70 82,65 82,58 C 82,51 77,46 71,45 C 70,35 61,28 50,28 C 40,28 32,34 30,42 C 24,43 18,48 18,55 C 18,63 23,70 30,70 Z",
+      "data-science": "M 50,22 C 65,22 78,34 78,50 C 78,66 65,78 50,78 C 35,78 22,66 22,50 C 22,34 35,22 50,22 Z",
+      "data-analytics": "M 18,78 L 18,54 L 32,54 L 32,78 L 44,78 L 44,38 L 58,38 L 58,78 L 70,78 L 70,22 L 84,22 L 84,78 Z",
+      cyber: "M 50,18 L 80,30 L 80,52 C 80,70 66,82 50,86 C 34,82 20,70 20,52 L 20,30 Z",
+      "full-stack": "M 20,24 L 80,24 C 84,24 86,26 86,30 L 86,64 C 86,68 84,70 80,70 L 56,70 L 56,77 L 66,77 L 66,82 L 34,82 L 34,77 L 44,77 L 44,70 L 20,70 C 16,70 14,68 14,64 L 14,30 C 14,26 16,24 20,24 Z",
+      ai: "M 50,14 C 52,34 66,48 86,50 C 66,52 52,66 50,86 C 48,66 34,52 14,50 C 34,48 48,34 50,14 Z",
+      testing: "M 50,18 L 80,32 L 80,54 C 80,70 66,82 50,86 C 34,82 20,70 20,54 L 20,32 Z"
+    };
+
+    // Inner 2px line details that pop in after settling
+    const INNER_DETAILS = {
+      cloud: "M 32,58 C 38,52 44,52 48,56 C 52,52 58,52 64,58",
+      "data-science": "M 24,50 A 26,10 0 1,0 76,50 A 26,10 0 1,0 24,50 M 50,24 A 10,26 0 1,0 50,76 A 10,26 0 1,0 50,24",
+      "data-analytics": "M 24,46 L 46,32 L 62,40 L 78,26",
+      cyber: "M 50,34 L 50,48 M 42,48 L 58,48 L 58,62 L 42,62 Z",
+      "full-stack": "M 34,44 L 26,50 L 34,56 M 66,44 L 74,50 L 66,56 M 53,40 L 47,60",
+      ai: "M 50,36 L 50,64 M 36,50 L 64,50",
+      testing: "M 36,50 L 46,60 L 64,40"
+    };
+
+    // Sample closed SVG path to 64 normalized 2D points
+    function samplePathPoints(svgStr, numPoints = 64) {
+      const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("d", svgStr);
+      const totalLen = p.getTotalLength();
+      const pts = [];
+      for (let i = 0; i < numPoints; i++) {
+        const pt = p.getPointAtLength((i / numPoints) * totalLen);
+        pts.push({ x: pt.x, y: pt.y });
+      }
+      return pts;
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. JELLY SPRING-MASS CANVASES (One per node)
+    // -------------------------------------------------------------------------
+    class JellyNodeRenderer {
+      constructor(canvas, iconId) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext("2d");
+        this.iconId = iconId;
+        this.isActive = false;
+        this.settled = true;
+
+        this.targetPts = samplePathPoints(ICON_SILHOUETTES[iconId], 64);
+        this.pts = this.targetPts.map(p => ({ x: p.x, y: p.y, vx: 0, vy: 0 }));
+      }
+
+      activate() {
+        this.isActive = true;
+        this.settled = false;
+        // Start from Arrow silhouette when arrow lands
+        const arrowPts = samplePathPoints(ARROW_SVG_PATH, 64);
+        this.pts = arrowPts.map(p => ({
+          x: p.x,
+          y: p.y,
+          vx: (Math.random() - 0.5) * 50,
+          vy: (Math.random() - 0.5) * 50
+        }));
+        this.targetPts = samplePathPoints(ICON_SILHOUETTES[this.iconId], 64);
+      }
+
+      deactivate() {
+        this.isActive = false;
+        this.settled = false;
+        this.targetPts = samplePathPoints(ICON_SILHOUETTES[this.iconId], 64);
+      }
+
+      update(dt) {
+        const N = 64;
+        let totalMotion = 0;
+        const K = TUNING.jellyStiffness;
+        const D = TUNING.jellyDamping;
+        const C = TUNING.jellyCoupling;
+
+        for (let i = 0; i < N; i++) {
+          const pt = this.pts[i];
+          const tgt = this.targetPts[i];
+          const prev = this.pts[(i - 1 + N) % N];
+          const next = this.pts[(i + 1) % N];
+
+          const fx_target = -K * (pt.x - tgt.x) - D * pt.vx;
+          const fy_target = -K * (pt.y - tgt.y) - D * pt.vy;
+          const fx_couple = C * (prev.x - 2 * pt.x + next.x);
+          const fy_couple = C * (prev.y - 2 * pt.y + next.y);
+
+          pt.vx += (fx_target + fx_couple) * dt;
+          pt.vy += (fy_target + fy_couple) * dt;
+          pt.x += pt.vx * dt;
+          pt.y += pt.vy * dt;
+
+          totalMotion += Math.abs(pt.vx) + Math.abs(pt.vy);
+        }
+
+        this.settled = totalMotion < 1.6;
+        this.draw();
+      }
+
+      draw() {
+        const ctx = this.ctx;
+        ctx.clearRect(0, 0, 48, 48);
+        ctx.save();
+        ctx.scale(48 / 100, 48 / 100);
+
+        ctx.beginPath();
+        ctx.moveTo(this.pts[0].x, this.pts[0].y);
+        for (let i = 1; i < 64; i++) {
+          const midX = (this.pts[i].x + this.pts[(i + 1) % 64].x) / 2;
+          const midY = (this.pts[i].y + this.pts[(i + 1) % 64].y) / 2;
+          ctx.quadraticCurveTo(this.pts[i].x, this.pts[i].y, midX, midY);
+        }
+        ctx.closePath();
+
+        if (this.isActive) {
+          ctx.fillStyle = "#E5254F";
+          ctx.shadowColor = "rgba(229, 37, 79, 0.4)";
+          ctx.shadowBlur = 8;
+          ctx.fill();
+
+          if (this.settled && INNER_DETAILS[this.iconId]) {
+            ctx.restore();
+            ctx.save();
+            ctx.scale(48 / 100, 48 / 100);
+            ctx.strokeStyle = "#FFFFFF";
+            ctx.lineWidth = 2.4;
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
+            const path2 = new Path2D(INNER_DETAILS[this.iconId]);
+            ctx.stroke(path2);
+          }
+        } else {
+          ctx.fillStyle = "#5B6475";
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. THREE.JS GLOBE & ORBIT ENGINE
+    // -------------------------------------------------------------------------
+    const container = document.getElementById("globe-container");
+    const canvas = document.getElementById("globe-canvas");
+    const nodesLayer = document.getElementById("nodes-layer");
+    const germanyTag = document.getElementById("germany-tag");
+    const infoCard = document.getElementById("info-card");
+
+    let W = container.clientWidth || 800;
+    let H = container.clientHeight || 800;
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true,
+      powerPreference: "high-performance"
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(W, H);
+    const PR = renderer.getPixelRatio();
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(32, W / H, 0.1, 100);
+    camera.position.set(0, 0, 18);
+
+    const R = TUNING.globeRadius;
+    const ORBIT_R = R * TUNING.orbitRadiusRatio;
+    const DEG = Math.PI / 180;
+    const GERMANY = [51.2, 9.0];
+
+    function ll(lat, lon, radius) {
+      const phi = (90 - lat) * DEG;
+      const th = (lon + 180) * DEG;
+      return new THREE.Vector3(
+        -radius * Math.sin(phi) * Math.cos(th),
+        radius * Math.cos(phi),
+        radius * Math.sin(phi) * Math.sin(th)
+      );
+    }
+
+    const world = new THREE.Group();
+    scene.add(world);
+
+    const globeSpin = new THREE.Group();
+    world.add(globeSpin);
+
+    const initGerRotY = -Math.PI / 2 - GERMANY[1] * DEG;
+    globeSpin.rotation.x = 0.38;
+    globeSpin.rotation.y = initGerRotY;
+
+    // SPHERE BODY: Deep Plum Radial Gradient (#2A0F24 -> #12060F) + Rim Light
+    const sphereMat = new THREE.ShaderMaterial({
+      vertexShader: `
+        varying vec3 vNormal;
+        varying vec3 vView;
+        void main() {
+          vec4 mv = modelViewMatrix * vec4(position, 1.0);
+          vNormal = normalize(normalMatrix * normal);
+          vView = normalize(-mv.xyz);
+          gl_Position = projectionMatrix * mv;
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vNormal;
+        varying vec3 vView;
+        void main() {
+          float ndotv = clamp(dot(vNormal, vView), 0.0, 1.0);
+          vec3 plumCenter = vec3(0.165, 0.059, 0.141); // #2A0F24
+          vec3 plumEdge   = vec3(0.071, 0.024, 0.059); // #12060F
+          vec3 base = mix(plumEdge, plumCenter, pow(ndotv, 0.75));
+
+          // Soft crimson rim light on upper-left
+          vec3 rimDir = normalize(vec3(-0.65, 0.70, 0.35));
+          float rim = pow(1.0 - ndotv, 2.4) * max(0.0, dot(vNormal, rimDir));
+          vec3 crimson = vec3(0.898, 0.145, 0.310); // #E5254F
+          base += crimson * (rim * 0.75);
+
+          gl_FragColor = vec4(base, 1.0);
+        }
+      `,
+      depthWrite: true,
+    });
+    const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(R * 0.992, 64, 64), sphereMat);
+    globeSpin.add(sphereMesh);
+
+    // DOTTED GLOBE (~9,000 Land-Only Dots with Limb Darkening)
+    const gGerPos = ll(GERMANY[0], GERMANY[1], 1.0).normalize();
+    const dotsN = 9500;
+    const dotsPos = [];
+    const dotsIsGer = [];
+
+    // Built-in compact land point set
+    for (let i = 0; i < dotsN; i++) {
+      const y = 1 - (i / (dotsN - 1)) * 2;
+      const rr = Math.sqrt(Math.max(0, 1 - y * y));
+      const theta = i * 2.399963229728653;
+      const x = Math.cos(theta) * rr;
+      const z = Math.sin(theta) * rr;
+
+      const lat = Math.asin(y) / DEG;
+      const lon = Math.atan2(-z, x) / DEG;
+
+      // Approximate land filtering
+      let isLand = true;
+      if (lat < -60 || (lat > 20 && lat < 50 && lon > -160 && lon < -130)) isLand = false;
+      if (lon > -180 && lon < -120 && lat < 45 && lat > -50) isLand = false;
+      if (lon > -45 && lon < -15 && lat < 60 && lat > -40) isLand = false;
+      if (lon > 60 && lon < 95 && lat < -10) isLand = false;
+      if (!isLand) continue;
+
+      dotsPos.push(x * R, y * R, z * R);
+      const dotVec = new THREE.Vector3(x, y, z).normalize();
+      const distToGer = Math.acos(Math.min(1, Math.max(-1, dotVec.dot(gGerPos)))) / DEG;
+      dotsIsGer.push(distToGer < 12 ? 1.0 : 0.0);
+    }
+
+    const dotsGeom = new THREE.BufferGeometry();
+    dotsGeom.setAttribute("position", new THREE.Float32BufferAttribute(dotsPos, 3));
+    dotsGeom.setAttribute("aIsGermany", new THREE.Float32BufferAttribute(dotsIsGer, 1));
+
+    const dotsMat = new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
+      uniforms: {
+        uTime: { value: 0 },
+        uPR: { value: PR },
+        uIntroSweep: { value: 0.1 },
+        uGermanyDir: { value: gGerPos },
+      },
+      vertexShader: `
+        attribute float aIsGermany;
+        uniform float uPR;
+        uniform float uTime;
+        uniform float uIntroSweep;
+        uniform vec3 uGermanyDir;
+        varying float vAlpha;
+        varying vec3 vColor;
+        void main() {
+          vec4 mv = modelViewMatrix * vec4(position, 1.0);
+          vec3 norm = normalize(normalMatrix * normalize(position));
+          float facing = clamp(dot(norm, normalize(-mv.xyz)), 0.0, 1.0);
+
+          // Limb darkening: 55% to 80% opacity
+          float limbAlpha = mix(0.55, 0.80, pow(facing, 0.7));
+
+          // Radial sweep intro from Germany
+          vec3 ptNorm = normalize(position);
+          float angFromGer = acos(clamp(dot(ptNorm, uGermanyDir), -1.0, 1.0));
+          float sweep = smoothstep(uIntroSweep + 0.25, uIntroSweep - 0.15, angFromGer);
+
+          vAlpha = limbAlpha * sweep;
+          if (aIsGermany > 0.5) {
+            vColor = vec3(0.95, 0.18, 0.35); // Crimson highlight
+            vAlpha *= (1.0 + 0.35 * sin(uTime * 3.5));
+          } else {
+            vColor = vec3(0.949, 0.651, 0.737); // #F2A6BC
+          }
+          gl_PointSize = (aIsGermany > 0.5 ? 2.3 : 1.45) * uPR * (15.0 / -mv.z);
+          gl_Position = projectionMatrix * mv;
+        }
+      `,
+      fragmentShader: `
+        varying float vAlpha;
+        varying vec3 vColor;
+        void main() {
+          vec2 c = gl_PointCoord - vec2(0.5);
+          float d = length(c);
+          if (d > 0.5) discard;
+          float smoothEdge = smoothstep(0.5, 0.2, d);
+          gl_FragColor = vec4(vColor, vAlpha * smoothEdge);
+        }
+      `
+    });
+    const dotsPoints = new THREE.Points(dotsGeom, dotsMat);
+    globeSpin.add(dotsPoints);
+
+    // GERMANY PULSING PIN
+    const gerPos = ll(GERMANY[0], GERMANY[1], R + 0.04);
+    const pinGroup = new THREE.Group();
+    pinGroup.position.copy(gerPos);
+    pinGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), gerPos.clone().normalize());
+    globeSpin.add(pinGroup);
+
+    const pinDot = new THREE.Mesh(
+      new THREE.CircleGeometry(0.065, 24),
+      new THREE.MeshBasicMaterial({ color: 0xffffff })
+    );
+    pinGroup.add(pinDot);
+
+    const pulseRings = [];
+    for (let i = 0; i < 2; i++) {
+      const ringMesh = new THREE.Mesh(
+        new THREE.RingGeometry(0.065, 0.095, 32),
+        new THREE.MeshBasicMaterial({
+          color: 0xe5254f,
+          transparent: true,
+          side: THREE.DoubleSide,
+          depthWrite: false,
+        })
+      );
+      ringMesh.position.z = 0.002 * (i + 1);
+      pinGroup.add(ringMesh);
+      pulseRings.push({ mesh: ringMesh, offset: i * 0.5 });
+    }
+
+    // 6 GREAT-CIRCLE ARCS
+    const ARC_CITIES = [
+      [40.71, -74.00], [-23.55, -46.63], [6.52, 3.38],
+      [41.01, 28.98], [19.07, 72.88], [35.68, 139.76]
+    ];
+    const arcMats = [];
+    ARC_CITIES.forEach((orig, idx) => {
+      const startPt = ll(orig[0], orig[1], R + 0.02);
+      const endPt = gerPos.clone();
+      const midCtrl = startPt.clone().add(endPt).normalize().multiplyScalar(R + 0.45 + startPt.angleTo(endPt) * 0.95);
+      const curve = new THREE.QuadraticBezierCurve3(startPt, midCtrl, endPt);
+      const pts = curve.getPoints(80);
+      const g = new THREE.BufferGeometry().setFromPoints(pts);
+
+      const prog = new Float32Array(pts.length);
+      for (let p = 0; p < pts.length; p++) prog[p] = p / (pts.length - 1);
+      g.setAttribute("aProgress", new THREE.BufferAttribute(prog, 1));
+
+      const mat = new THREE.ShaderMaterial({
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        uniforms: {
+          uTime: { value: 0 },
+          uOffset: { value: (idx * 0.17) % 1.0 },
+          uSpeed: { value: 0.18 + (idx % 3) * 0.06 }
+        },
+        vertexShader: `
+          attribute float aProgress;
+          varying float vProgress;
+          void main() {
+            vProgress = aProgress;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          uniform float uTime;
+          uniform float uOffset;
+          uniform float uSpeed;
+          varying float vProgress;
+          void main() {
+            float head = fract(uTime * uSpeed + uOffset);
+            float d = head - vProgress;
+            float trail = d > 0.0 ? exp(-d * 9.0) : 0.0;
+            float lineAlpha = 0.12 * vProgress;
+            float alpha = lineAlpha + trail * 0.9;
+            vec3 crimson = vec3(0.898, 0.145, 0.310);
+            vec3 light = vec3(1.0, 0.85, 0.92);
+            vec3 c = mix(crimson, light, trail * trail);
+            gl_FragColor = vec4(c * alpha, alpha);
+          }
+        `
+      });
+      arcMats.push(mat);
+      globeSpin.add(new THREE.Line(g, mat));
+    });
+
+    // COURSE ORBIT RING
+    const ringGroup = new THREE.Group();
+    ringGroup.rotation.x = TUNING.orbitTiltX;
+    ringGroup.rotation.z = TUNING.orbitTiltZ;
+    world.add(ringGroup);
+
+    const ringSpin = new THREE.Group();
+    ringGroup.add(ringSpin);
+
+    const ringPos = new Float32Array(400 * 3);
+    for (let i = 0; i < 400; i++) {
+      const a = (i / 399) * Math.PI * 2;
+      ringPos[i * 3 + 0] = Math.cos(a) * ORBIT_R;
+      ringPos[i * 3 + 1] = 0;
+      ringPos[i * 3 + 2] = Math.sin(a) * ORBIT_R;
+    }
+    const ringGeom = new THREE.BufferGeometry();
+    ringGeom.setAttribute("position", new THREE.BufferAttribute(ringPos, 3));
+    const ringMat = new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
+      vertexShader: `
+        varying vec3 vWorldPos;
+        void main() {
+          vWorldPos = (modelMatrix * vec4(position, 1.0)).xyz;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vWorldPos;
+        void main() {
+          float dist = length(vWorldPos.xy);
+          vec3 c = dist < 4.1 ? vec3(1.0, 1.0, 1.0) : vec3(0.898, 0.145, 0.310);
+          float alpha = dist < 4.1 ? 0.25 : 0.20;
+          gl_FragColor = vec4(c, alpha);
+        }
+      `
+    });
+    ringSpin.add(new THREE.Line(ringGeom, ringMat));
+
+    // FLYING BRAND ARROW & TRAIL
+    const TRAIL_LEN = TUNING.arrowTrailLength;
+    const trailPositions = new Float32Array(TRAIL_LEN * 3);
+    const trailAlpha = new Float32Array(TRAIL_LEN);
+    for (let i = 0; i < TRAIL_LEN; i++) trailAlpha[i] = (1 - i / TRAIL_LEN) * 0.85;
+
+    const trailGeom = new THREE.BufferGeometry();
+    trailGeom.setAttribute("position", new THREE.BufferAttribute(trailPositions, 3));
+    trailGeom.setAttribute("aAlpha", new THREE.BufferAttribute(trailAlpha, 1));
+    const trailMat = new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      vertexShader: `
+        attribute float aAlpha;
+        varying float vA;
+        void main() {
+          vA = aAlpha;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        varying float vA;
+        void main() {
+          vec3 crimson = vec3(0.898, 0.145, 0.310);
+          gl_FragColor = vec4(crimson * vA, vA);
+        }
+      `
+    });
+    const trailLine = new THREE.Line(trailGeom, trailMat);
+    scene.add(trailLine);
+
+    function createArrowTex() {
+      const c = document.createElement("canvas");
+      c.width = 128;
+      c.height = 128;
+      const ctx = c.getContext("2d");
+      ctx.fillStyle = "#E5254F";
+      ctx.shadowColor = "rgba(229, 37, 79, 0.8)";
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.moveTo(35, 20); ctx.lineTo(85, 64); ctx.lineTo(35, 108);
+      ctx.lineTo(55, 108); ctx.lineTo(105, 64); ctx.lineTo(55, 20);
+      ctx.closePath();
+      ctx.fill();
+      return new THREE.CanvasTexture(c);
+    }
+    const arrowSprite = new THREE.Sprite(
+      new THREE.SpriteMaterial({ map: createArrowTex(), transparent: true, blending: THREE.AdditiveBlending })
+    );
+    arrowSprite.scale.set(0.85, 0.85, 1);
+    arrowSprite.visible = false;
+    scene.add(arrowSprite);
+
+    // -------------------------------------------------------------------------
+    // 5. DOM NODES & INTERACTION BINDINGS
+    // -------------------------------------------------------------------------
+    const nodeAngles = COURSES.map((_, i) => (i / COURSES.length) * Math.PI * 2);
+    const jellyRenderers = [];
+    const nodeElements = [];
+
+    COURSES.forEach((course, idx) => {
+      const nodeEl = document.createElement("div");
+      nodeEl.className = "orbit-node";
+
+      const btn = document.createElement("button");
+      btn.className = "node-btn";
+
+      const cvs = document.createElement("canvas");
+      cvs.width = 48;
+      cvs.height = 48;
+      btn.appendChild(cvs);
+
+      const jelly = new JellyNodeRenderer(cvs, course.iconId);
+      jellyRenderers.push(jelly);
+
+      const label = document.createElement("div");
+      label.className = "node-label-pill";
+      label.style.display = "none";
+      label.innerHTML = `<span class="pill-pulse-dot"></span><span>${course.title}</span>`;
+
+      nodeEl.appendChild(btn);
+      nodeEl.appendChild(label);
+      nodesLayer.appendChild(nodeEl);
+      nodeElements.push({ el: nodeEl, btn, label, jelly });
+
+      nodeEl.addEventListener("click", () => setActiveCourse(idx));
+    });
+
+    let activeIdx = 0;
+    let isPaused = false;
+    let flightProgress = 1.0;
+    let flightP0 = new THREE.Vector3();
+    let flightP1 = new THREE.Vector3();
+    let flightP2 = new THREE.Vector3();
+    const trailHist = [];
+    let targetGerLerp = 0;
+
+    function setActiveCourse(idx) {
+      if (idx === activeIdx && flightProgress < 1.0) return;
+      activeIdx = idx;
+
+      // Update Info Card
+      const c = COURSES[idx];
+      infoCard.classList.remove("fade-switch");
+      void infoCard.offsetWidth; // Force reflow
+      infoCard.classList.add("fade-switch");
+
+      document.getElementById("card-title").innerText = c.title;
+      document.getElementById("card-desc").innerText = c.oneLiner;
+      document.getElementById("card-link").href = c.link;
+      document.getElementById("card-tags").innerHTML = c.tags
+        .map(t => `<span class="tag-pill">${t}</span>`)
+        .join("");
+
+      // Update Node states
+      nodeElements.forEach((n, k) => {
+        if (k === idx) {
+          n.el.classList.add("is-active");
+          n.label.style.display = "flex";
+          n.jelly.activate();
+        } else {
+          n.el.classList.remove("is-active");
+          n.label.style.display = "none";
+          n.jelly.deactivate();
+        }
+      });
+
+      // Launch Elastic Arrow from Germany Pin to Node
+      targetGerLerp = 1.0;
+      flightProgress = 0.0;
+      trailHist.length = 0;
+
+      globeSpin.updateMatrixWorld();
+      flightP0 = gerPos.clone().applyMatrix4(globeSpin.matrixWorld);
+
+      ringSpin.updateMatrixWorld();
+      const ang = nodeAngles[idx];
+      const localVec = new THREE.Vector3(Math.cos(ang) * ORBIT_R, 0, Math.sin(ang) * ORBIT_R);
+      flightP2 = localVec.clone().applyMatrix4(ringSpin.matrixWorld);
+
+      flightP1 = flightP0.clone().add(flightP2).multiplyScalar(0.5)
+        .add(flightP0.clone().normalize().multiplyScalar(R * 0.75));
+
+      arrowSprite.visible = true;
+    }
+
+    // Set first course active
+    setActiveCourse(0);
+
+    // Auto-cycle every 4.5s
+    setInterval(() => {
+      if (!isPaused) {
+        setActiveCourse((activeIdx + 1) % COURSES.length);
+      }
+    }, TUNING.cycleInterval);
+
+    container.addEventListener("mouseenter", () => isPaused = true);
+    container.addEventListener("mouseleave", () => isPaused = false);
+
+    // Pointer Drag
+    let dragging = false, lx = 0, ly = 0, vx = 0, vy = 0;
+    canvas.addEventListener("pointerdown", e => {
+      dragging = true; lx = e.clientX; ly = e.clientY;
+      canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener("pointermove", e => {
+      if (!dragging) return;
+      const dx = e.clientX - lx; const dy = e.clientY - ly;
+      lx = e.clientX; ly = e.clientY;
+      vx = dx * 0.005; vy = dy * 0.003;
+      globeSpin.rotation.y += vx;
+      globeSpin.rotation.x = Math.max(0.15, Math.min(0.65, globeSpin.rotation.x + vy));
+    });
+    window.addEventListener("pointerup", () => dragging = false);
+
+    function toScreen(vec) {
+      const v = vec.clone().project(camera);
+      return [((v.x + 1) / 2) * W, ((1 - v.y) / 2) * H];
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. ANIMATION LOOP (60 FPS rAF)
+    // -------------------------------------------------------------------------
+    const clock = new THREE.Clock();
+    let time = 0;
+    let introProg = 0;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const dt = Math.min(clock.getDelta(), 0.05);
+      time += dt;
+
+      // Page intro radial sweep
+      if (introProg < 1.0) {
+        introProg = Math.min(1.0, introProg + dt / 2.2);
+        dotsMat.uniforms.uIntroSweep.value = introProg * Math.PI * 1.15;
+      }
+
+      // Globe auto-rotation & re-centering
+      if (!dragging) {
+        vx *= 0.94; vy *= 0.94;
+        if (targetGerLerp > 0) {
+          targetGerLerp = Math.max(0, targetGerLerp - dt * 1.2);
+          let diffY = (initGerRotY - globeSpin.rotation.y) % (Math.PI * 2);
+          if (diffY > Math.PI) diffY -= Math.PI * 2;
+          if (diffY < -Math.PI) diffY += Math.PI * 2;
+          globeSpin.rotation.y += diffY * 0.06;
+          globeSpin.rotation.x += (0.38 - globeSpin.rotation.x) * 0.06;
+        } else {
+          globeSpin.rotation.y += (Math.PI * 2 / TUNING.rotationPeriod) * dt + vx;
+        }
+      }
+
+      // Orbit slow spin
+      ringSpin.rotation.y += (Math.PI * 2 / TUNING.orbitPeriod) * dt;
+
+      // Pulse rings
+      pulseRings.forEach(p => {
+        const loop = (time * 0.42 + p.offset) % 1.0;
+        p.mesh.scale.set(1.0 + loop * 4.8, 1.0 + loop * 4.8, 1.0);
+        p.mesh.material.opacity = (1.0 - loop) * 0.92;
+      });
+
+      // Update Arc Uniforms
+      dotsMat.uniforms.uTime.value = time;
+      arcMats.forEach(m => m.uniforms.uTime.value = time);
+
+      // Flying Arrow Animation
+      if (flightProgress < 1.0) {
+        flightProgress = Math.min(1.0, flightProgress + dt / 0.85);
+        const u = flightProgress;
+        const curPos = new THREE.Vector3()
+          .addScaledVector(flightP0, (1 - u) * (1 - u))
+          .addScaledVector(flightP1, 2 * (1 - u) * u)
+          .addScaledVector(flightP2, u * u);
+
+        arrowSprite.position.copy(curPos);
+
+        const tangent = new THREE.Vector3()
+          .addScaledVector(flightP0, -2 * (1 - u))
+          .addScaledVector(flightP1, 2 - 4 * u)
+          .addScaledVector(flightP2, 2 * u).normalize();
+        arrowSprite.material.rotation = Math.atan2(tangent.y, tangent.x);
+
+        trailHist.unshift(curPos.clone());
+        if (trailHist.length > TRAIL_LEN) trailHist.pop();
+        for (let i = 0; i < TRAIL_LEN; i++) {
+          const pt = trailHist[i] || curPos;
+          trailPositions[i * 3 + 0] = pt.x;
+          trailPositions[i * 3 + 1] = pt.y;
+          trailPositions[i * 3 + 2] = pt.z;
+        }
+        trailGeom.attributes.position.needsUpdate = true;
+        trailLine.visible = true;
+
+        if (flightProgress >= 1.0) {
+          arrowSprite.visible = false;
+          trailLine.visible = false;
+        }
+      }
+
+      // Update 64-point Jelly Silhouettes
+      jellyRenderers.forEach(j => j.update(dt));
+
+      renderer.render(scene, camera);
+
+      // Project Germany Visual Anchor Tag
+      globeSpin.updateMatrixWorld();
+      const worldGer = gerPos.clone().applyMatrix4(globeSpin.matrixWorld);
+      const [gx, gy] = toScreen(worldGer);
+      const isFacing = worldGer.clone().normalize().dot(camera.position.clone().sub(worldGer).normalize()) > 0.15;
+      germanyTag.style.transform = `translate3d(${gx.toFixed(1)}px, ${(gy - 24).toFixed(1)}px, 0) translate(-50%, -100%)`;
+      germanyTag.style.opacity = isFacing ? "1" : "0";
+
+      // Position Orbit Nodes
+      ringSpin.updateMatrixWorld();
+      nodeElements.forEach((n, k) => {
+        const ang = nodeAngles[k];
+        const local = new THREE.Vector3(Math.cos(ang) * ORBIT_R, 0, Math.sin(ang) * ORBIT_R);
+        const worldPos = local.clone().applyMatrix4(ringSpin.matrixWorld);
+        const [sx, sy] = toScreen(worldPos);
+
+        const viewZ = worldPos.clone().applyMatrix4(camera.matrixWorldInverse).z;
+        const isFront = viewZ > -18;
+        const isActive = k === activeIdx;
+
+        n.el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0) translate(-50%, -50%)`;
+        n.el.style.zIndex = isActive ? "50" : isFront ? "30" : "10";
+        n.el.style.opacity = isFront || isActive ? "1" : "0.75";
+      });
+    }
+
+    animate();
+
+    // Resize Handler
+    window.addEventListener("resize", () => {
+      W = container.clientWidth || 800;
+      H = container.clientHeight || 800;
+      renderer.setSize(W, H);
+      camera.aspect = W / H;
+      camera.updateProjectionMatrix();
+    });
+  </script>
+</body>
+</html>
