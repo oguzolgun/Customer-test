@@ -359,20 +359,29 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const nodesOverlayRef = useRef<HTMLDivElement | null>(null);
-  const germanyLabelRef = useRef<HTMLDivElement | null>(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [triggerLanding, setTriggerLanding] = useState(0);
+  const occludedRef = useRef<boolean[]>(new Array(7).fill(false));
 
   const courses = isEn ? HERO_COURSES.en : HERO_COURSES.de;
   const activeCourse = courses[activeIndex] || courses[0];
 
   // Auto-cycle every 4.5s (pauses on hover/focus)
+  // Automatically advances to the next visible course on the front of the globe!
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % courses.length);
+      setActiveIndex((prev) => {
+        for (let offset = 1; offset <= courses.length; offset++) {
+          const nextIdx = (prev + offset) % courses.length;
+          if (!occludedRef.current[nextIdx]) {
+            return nextIdx;
+          }
+        }
+        return (prev + 1) % courses.length;
+      });
       setTriggerLanding((prev) => prev + 1);
     }, 4500);
     return () => clearInterval(interval);
@@ -762,6 +771,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     // Depth-aware ring shader (white on dark sphere, crimson outside)
     const orbitRingMat = new THREE.ShaderMaterial({
       transparent: true,
+      depthTest: true,
       depthWrite: false,
       vertexShader: `
         varying vec3 vWorldPos;
@@ -1071,29 +1081,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
       renderer.render(scene, camera);
 
-      // Project Germany Anchor Pin Label
-      if (germanyLabelRef.current) {
-        globeSpin.updateMatrixWorld();
-        const worldGerPos = gerPos.clone().applyMatrix4(globeSpin.matrixWorld);
-        const [gx, gy] = projectToScreen(worldGerPos);
-
-        // Check facing direction towards camera
-        const gerNormal = worldGerPos.clone().normalize();
-        const camDir = camera.position.clone().sub(worldGerPos).normalize();
-        const isFacing = gerNormal.dot(camDir) > 0.15;
-
-        if (isFacing) {
-          germanyLabelRef.current.style.transform = `translate3d(${gx.toFixed(1)}px, ${(gy - 24).toFixed(1)}px, 0) translate(-50%, -100%)`;
-          germanyLabelRef.current.style.opacity = "1";
-        } else {
-          germanyLabelRef.current.style.opacity = "0";
-        }
-      }
-
       // Position HTML Glass Nodes over 3D Orbit Ring
+      // Exact Ray-Sphere Occlusion: Nodes that pass behind the globe are hidden so there is no text clutter!
       if (nodesOverlayRef.current) {
         ringSpin.updateMatrixWorld();
         const nodeEls = nodesOverlayRef.current.children;
+        const camPos = camera.position;
+        const sphereCenter = new THREE.Vector3(0, 0, 0);
 
         for (let k = 0; k < NODE_COUNT; k++) {
           const el = nodeEls[k] as HTMLElement;
@@ -1108,15 +1102,48 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           const worldVec = localVec.clone().applyMatrix4(ringSpin.matrixWorld);
           const [sx, sy] = projectToScreen(worldVec);
 
-          // Depth aware z-index and subtle scale
-          const viewZ = worldVec.clone().applyMatrix4(camera.matrixWorldInverse).z;
-          const isFront = viewZ > -18;
-          const isActive = k === activeIndex;
+          // Ray from camera to node
+          const ray = worldVec.clone().sub(camPos);
+          const rayLen = ray.length();
+          const rayDir = ray.clone().divideScalar(rayLen);
 
-          const baseScale = isActive ? 1.4 : 1.0;
+          // Projection of sphere center onto ray line
+          const tc = sphereCenter.clone().sub(camPos).dot(rayDir);
+
+          let isOccluded = false;
+          let occludeOpacity = 1.0;
+
+          // If node is behind sphere center plane along view ray
+          if (tc > 0 && tc < rayLen) {
+            const closest = camPos.clone().add(rayDir.clone().multiplyScalar(tc));
+            const distFromCenter = closest.distanceTo(sphereCenter);
+
+            // Radius R is 4.2
+            if (distFromCenter < R * 0.98) {
+              isOccluded = true;
+              occludeOpacity = 0;
+            } else if (distFromCenter < R * 1.14) {
+              occludeOpacity = Math.max(0, Math.min(1, (distFromCenter - R * 0.98) / (R * 0.16)));
+            }
+          }
+
+          occludedRef.current[k] = isOccluded;
+
+          const isActive = k === activeIndex;
+          const baseScale = isActive ? 1.32 : 1.0;
+
+          if (isOccluded || occludeOpacity <= 0.02) {
+            el.style.opacity = "0";
+            el.style.pointerEvents = "none";
+            el.style.visibility = "hidden";
+          } else {
+            el.style.visibility = "visible";
+            el.style.pointerEvents = "auto";
+            el.style.opacity = (occludeOpacity * (isActive ? 1.0 : 0.92)).toFixed(3);
+          }
+
           el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0) translate(-50%, -50%) scale(${baseScale})`;
-          el.style.zIndex = isActive ? "50" : isFront ? "30" : "10";
-          el.style.opacity = isFront || isActive ? "1.0" : "0.75";
+          el.style.zIndex = isActive ? "50" : "20";
         }
       }
     };
@@ -1153,7 +1180,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-[340px] h-[340px] sm:w-[540px] sm:h-[540px] md:w-[680px] md:h-[680px] lg:w-[780px] lg:h-[780px] xl:w-[820px] xl:h-[820px] select-none flex items-center justify-center overflow-visible"
+      className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[480px] md:h-[480px] lg:w-[500px] lg:h-[500px] xl:w-[540px] xl:h-[540px] select-none flex items-center justify-center overflow-visible"
       style={{
         filter: "drop-shadow(0 20px 60px rgba(229, 37, 79, 0.16))",
       }}
@@ -1218,45 +1245,33 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         })}
       </div>
 
-      {/* Germany Visual Anchor Pin Label */}
-      <div
-        ref={germanyLabelRef}
-        className="absolute top-0 left-0 z-20 pointer-events-none transition-opacity duration-300 flex items-center gap-1.5 bg-white/95 backdrop-blur-md border border-[#F3D3DC] px-2.5 py-0.5 rounded-full shadow-[0_4px_12px_rgba(20,27,45,0.08)]"
-        style={{ willChange: "transform, opacity", opacity: 0 }}
-      >
-        <span className="w-1.5 h-1.5 rounded-full bg-[#E5254F]" />
-        <span className="text-[11px] font-bold text-[#141B2D] tracking-tight">
-          {isEn ? "Germany" : "Deutschland"}
-        </span>
-      </div>
-
       {/* =====================================================================
-          FIXED LOWER-LEFT INFO CARD (280px, Never Overlaps Nodes or Globe)
+          FIXED LOWER-LEFT INFO CARD (260px, Never Overlaps Nodes or Globe)
           ===================================================================== */}
       <div
-        className="absolute bottom-2 left-2 sm:bottom-6 sm:left-6 z-40 w-[260px] sm:w-[280px] bg-white/95 backdrop-blur-md rounded-2xl border border-[#F3D3DC] p-4 sm:p-5 shadow-[0_12px_32px_rgba(20,27,45,0.09)] transition-all duration-500"
+        className="absolute bottom-1 left-1 sm:bottom-3 sm:left-3 z-40 w-[240px] sm:w-[260px] bg-white/95 backdrop-blur-md rounded-2xl border border-[#F3D3DC] p-3.5 sm:p-4 shadow-[0_12px_32px_rgba(20,27,45,0.09)] transition-all duration-500"
         style={{
           boxShadow: "0 12px 32px rgba(20, 27, 45, 0.08), 0 2px 8px rgba(229, 37, 79, 0.06)",
         }}
       >
         <div key={activeCourse.id} className="animate-fade-in-quick">
           <div className="flex items-center justify-between gap-2 mb-1.5">
-            <h3 className="font-extrabold text-[#141B2D] text-base sm:text-lg tracking-tight">
+            <h3 className="font-extrabold text-[#141B2D] text-sm sm:text-base tracking-tight">
               {activeCourse.name}
             </h3>
             <span className="w-2 h-2 rounded-full bg-[#E5254F]" />
           </div>
 
-          <p className="text-xs sm:text-[13px] text-[#5B6475] leading-relaxed mb-3">
+          <p className="text-[11px] sm:text-xs text-[#5B6475] leading-relaxed mb-2.5">
             {activeCourse.oneLiner}
           </p>
 
           {/* 3 Course Tags */}
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className="flex flex-wrap gap-1.5 mb-3">
             {activeCourse.tags.map((tag, i) => (
               <span
                 key={i}
-                className="text-[10px] sm:text-[11px] font-medium bg-[#F6F3EE] text-[#141B2D] px-2 py-0.5 rounded-md border border-[#F3D3DC]/60"
+                className="text-[10px] font-medium bg-[#F6F3EE] text-[#141B2D] px-2 py-0.5 rounded-md border border-[#F3D3DC]/60"
               >
                 {tag}
               </span>

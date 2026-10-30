@@ -197,14 +197,14 @@
     }
 
     /* -------------------------------------------------------------------------
-       RIGHT COLUMN: THE GLOBE IS THE HERO!
-       Diameter = min(92vh, 58vw) ≈ 780-820px at 1440 wide
+       RIGHT COLUMN: MEDIUM SCALE 3D GLOBE SHOWPIECE
+       Balanced proportion next to the informative left column
        ------------------------------------------------------------------------- */
     .globe-stage {
       position: relative;
-      width: clamp(400px, 58vw, 820px);
-      height: clamp(400px, 58vw, 820px);
-      max-height: 92vh;
+      width: clamp(320px, 42vw, 540px);
+      height: clamp(320px, 42vw, 540px);
+      max-height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -551,13 +551,16 @@
           <span class="highlight" id="copy-h1-highlight">100% funded.</span>
         </h1>
 
-        <!-- Subline -->
-        <p class="hero-subline" id="copy-subline">
+        <!-- Subline & Informative Paragraph (Restored as requested) -->
+        <p class="hero-subline" id="copy-subline" style="margin-bottom: 12px; font-weight: 500;">
           Live online bootcamps for career changers and tech professionals — in English, Turkish & German.
+        </p>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--color-slate); margin-bottom: 24px; max-width: 50ch;">
+          Clarusway trains career changers and tech professionals in Germany through live online IT bootcamps — covering AI Engineering, Data Analytics, Full Stack Development, Cyber Security, AWS & DevOps, and Software Testing. All programs are AZAV-certified and 100% fundable with a Bildungsgutschein from the Agentur für Arbeit or Jobcenter.
         </p>
 
         <!-- Rating Row -->
-        <div class="rating-row">
+        <div class="rating-row" style="margin-bottom: 24px;">
           <div class="stars-group">
             <svg class="star-icon" viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z"/></svg>
             <svg class="star-icon" viewBox="0 0 16 16"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z"/></svg>
@@ -569,13 +572,29 @@
         </div>
 
         <!-- Buttons -->
-        <div class="cta-row">
+        <div class="cta-row" style="margin-bottom: 24px;">
           <a href="/application-form/" class="btn-primary" id="copy-primary-btn">
             <span>Free consultation →</span>
           </a>
           <a href="/it-courses/" class="btn-secondary" id="copy-secondary-btn">
             <span>Compare all IT courses</span>
           </a>
+        </div>
+
+        <!-- Checklist items -->
+        <div style="display: flex; flex-wrap: wrap; gap: 14px 20px; font-size: 13px; font-weight: 500; color: #4B5563;">
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <svg style="width: 16px; height: 16px; color: var(--color-crimson);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            0 € tuition with Bildungsgutschein
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <svg style="width: 16px; height: 16px; color: var(--color-crimson);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Instruction in English, Turkish & German
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <svg style="width: 16px; height: 16px; color: var(--color-crimson);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            German paperwork prepared for you
+          </span>
         </div>
       </div>
 
@@ -587,14 +606,8 @@
         <!-- 7 Orbiting Course Glass Nodes -->
         <div class="nodes-layer" id="nodes-layer"></div>
 
-        <!-- Germany Anchor Pin Label -->
-        <div class="germany-anchor-tag" id="germany-tag">
-          <span class="ger-dot"></span>
-          <span>Germany</span>
-        </div>
-
-        <!-- Fixed Lower-Left Info Card (280px) -->
-        <div class="fixed-info-card" id="info-card">
+        <!-- Fixed Lower-Left Info Card (260px) -->
+        <div class="fixed-info-card" id="info-card" style="width: 260px; padding: 16px; bottom: 12px; left: 12px;">
           <div class="card-header">
             <h3 class="card-title" id="card-title">Cloud & DevOps</h3>
             <span class="card-indicator"></span>
@@ -1150,6 +1163,7 @@
     ringGeom.setAttribute("position", new THREE.BufferAttribute(ringPos, 3));
     const ringMat = new THREE.ShaderMaterial({
       transparent: true,
+      depthTest: true,
       depthWrite: false,
       vertexShader: `
         varying vec3 vWorldPos;
@@ -1320,10 +1334,18 @@
     // Set first course active
     setActiveCourse(0);
 
-    // Auto-cycle every 4.5s
+    const occludedMap = new Array(COURSES.length).fill(false);
+
+    // Auto-cycle every 4.5s to the next visible course
     setInterval(() => {
       if (!isPaused) {
-        setActiveCourse((activeIdx + 1) % COURSES.length);
+        for (let offset = 1; offset <= COURSES.length; offset++) {
+          const nextIdx = (activeIdx + offset) % COURSES.length;
+          if (!occludedMap[nextIdx]) {
+            setActiveCourse(nextIdx);
+            break;
+          }
+        }
       }
     }, TUNING.cycleInterval);
 
@@ -1437,29 +1459,58 @@
 
       renderer.render(scene, camera);
 
-      // Project Germany Visual Anchor Tag
-      globeSpin.updateMatrixWorld();
-      const worldGer = gerPos.clone().applyMatrix4(globeSpin.matrixWorld);
-      const [gx, gy] = toScreen(worldGer);
-      const isFacing = worldGer.clone().normalize().dot(camera.position.clone().sub(worldGer).normalize()) > 0.15;
-      germanyTag.style.transform = `translate3d(${gx.toFixed(1)}px, ${(gy - 24).toFixed(1)}px, 0) translate(-50%, -100%)`;
-      germanyTag.style.opacity = isFacing ? "1" : "0";
-
-      // Position Orbit Nodes
+      // Position Orbit Nodes with Depth & Occlusion
+      // Courses that pass behind the globe are hidden so there is no text clutter!
       ringSpin.updateMatrixWorld();
+      const camPos = camera.position;
+      const sphereCenter = new THREE.Vector3(0, 0, 0);
+
       nodeElements.forEach((n, k) => {
         const ang = nodeAngles[k];
         const local = new THREE.Vector3(Math.cos(ang) * ORBIT_R, 0, Math.sin(ang) * ORBIT_R);
         const worldPos = local.clone().applyMatrix4(ringSpin.matrixWorld);
         const [sx, sy] = toScreen(worldPos);
 
-        const viewZ = worldPos.clone().applyMatrix4(camera.matrixWorldInverse).z;
-        const isFront = viewZ > -18;
-        const isActive = k === activeIdx;
+        // Ray from camera to node
+        const ray = worldPos.clone().sub(camPos);
+        const rayLen = ray.length();
+        const rayDir = ray.clone().divideScalar(rayLen);
 
-        n.el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0) translate(-50%, -50%)`;
-        n.el.style.zIndex = isActive ? "50" : isFront ? "30" : "10";
-        n.el.style.opacity = isFront || isActive ? "1" : "0.75";
+        // Projection of sphere center onto ray line
+        const tc = sphereCenter.clone().sub(camPos).dot(rayDir);
+
+        let isOccluded = false;
+        let occludeOpacity = 1.0;
+
+        if (tc > 0 && tc < rayLen) {
+          const closest = camPos.clone().add(rayDir.clone().multiplyScalar(tc));
+          const distFromCenter = closest.distanceTo(sphereCenter);
+
+          if (distFromCenter < R * 0.98) {
+            isOccluded = true;
+            occludeOpacity = 0;
+          } else if (distFromCenter < R * 1.14) {
+            occludeOpacity = Math.max(0, Math.min(1, (distFromCenter - R * 0.98) / (R * 0.16)));
+          }
+        }
+
+        occludedMap[k] = isOccluded;
+
+        const isActive = k === activeIdx;
+        const baseScale = isActive ? 1.32 : 1.0;
+
+        if (isOccluded || occludeOpacity <= 0.02) {
+          n.el.style.opacity = "0";
+          n.el.style.pointerEvents = "none";
+          n.el.style.visibility = "hidden";
+        } else {
+          n.el.style.visibility = "visible";
+          n.el.style.pointerEvents = "auto";
+          n.el.style.opacity = (occludeOpacity * (isActive ? 1.0 : 0.92)).toFixed(3);
+        }
+
+        n.el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0) translate(-50%, -50%) scale(${baseScale})`;
+        n.el.style.zIndex = isActive ? "50" : "20";
       });
     }
 

@@ -26,28 +26,28 @@ const SOFT_BG = "#f6f7fb";
 // ============================================================================
 const HERO_COPY = {
   en: {
-    badge: "AZAV-certified · 100% funded with Bildungsgutschein",
-    h1Lead: "Start your IT career in Germany. ",
-    h1Highlight: "100% funded.",
-    subline: "Live online bootcamps for career changers and tech professionals — in English, Turkish & German.",
+    badge: "AZAV-Certified IT School in Germany · 100% Funded with Bildungsgutschein",
+    h1Lead: "Start your IT career in Germany with ",
+    h1Highlight: "100% funded live online training",
     rating: "4.9/5 — Career Karma Rating",
-    primaryBtn: "Free consultation →",
+    desc: "Clarusway trains career changers and tech professionals in Germany through live online IT bootcamps — covering AI Engineering, Data Analytics, AI-Assisted Full Stack Development, Cyber Security, AWS & DevOps, and Software Testing. Instruction is available in English, Turkish, and German cohorts. All programs are AZAV-certified and 100% fundable with a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter.",
+    primaryBtn: "Free consultation",
     secondaryBtn: "Compare all IT courses",
-    trustItems: [
+    checklist: [
       "0 € tuition with Bildungsgutschein",
       "Instruction in English, Turkish & German",
       "German paperwork prepared for you",
     ],
   },
   de: {
-    badge: "AZAV-zertifiziert · 100 % Förderung mit Bildungsgutschein",
-    h1Lead: "Starte deine IT-Karriere in Deutschland. ",
-    h1Highlight: "100 % gefördert.",
-    subline: "Live-Online-Bootcamps für Quereinsteiger und IT-Profis — auf Deutsch, Englisch & Türkisch.",
+    badge: "AZAV-zertifizierter Bildungsträger · 100 % Förderung mit Bildungsgutschein",
+    h1Lead: "IT Weiterbildung mit Bildungsgutschein: ",
+    h1Highlight: "online, live und praxisnah",
     rating: "4,9/5 — Career Karma Bewertung",
-    primaryBtn: "Kostenlose Beratung →",
+    desc: "Qualifiziere dich im Live-Online-Unterricht für gefragte IT-Berufe in Deutschland: AI Engineering & Data Science, Full Stack Webentwicklung, Cyber Security, AWS & DevOps oder Software Testing. Unsere modularen Programme sind AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein der Agentur für Arbeit oder des Jobcenters förderbar.",
+    primaryBtn: "Kostenlose Beratung",
     secondaryBtn: "Alle IT-Kurse vergleichen",
-    trustItems: [
+    checklist: [
       "0 € Kursgebühr mit Bildungsgutschein",
       "Unterricht auf Englisch, Türkisch & Deutsch",
       "Förderunterlagen in 24h fertig vorbereitet",
@@ -379,110 +379,101 @@ export function HomePage() {
       <SeoHead title={metaTitle} description={metaDescription} path="/" schema={schema} />
 
       {/* =====================================================================
-          HERO SHOWPIECE SECTION — Desktop 1440x860 min-h-[100vh-nav]
+          HERO SECTION — Balanced Layout with Medium Scale 3D Dotted Globe
           Warm pink radial gradient with faint 1px dotted grid at 4%
-          Centered Globe at x ≈ 69% / y ≈ 52%, diameter min(92vh, 58vw)
-          Slim glass trust strip spanning container width at the bottom
+          Full key copy restored on the left + Occlusion-aware medium globe on the right
           ===================================================================== */}
       {(() => {
         const copy = isEn ? HERO_COPY.en : HERO_COPY.de;
         return (
           <section
-            className="relative min-h-[calc(100vh-76px)] flex flex-col justify-between overflow-hidden"
+            className="relative py-10 sm:py-14 lg:py-16 overflow-hidden"
             style={{
               backgroundColor: "#FFF4F6",
               backgroundImage: `
-                radial-gradient(circle at 69% 52%, #FFF4F6 0%, #FAF0F4 45%, #F6F3EE 100%),
+                radial-gradient(circle at 75% 50%, #FFF4F6 0%, #FAF0F4 45%, #F6F3EE 100%),
                 radial-gradient(rgba(20, 27, 45, 0.04) 1px, transparent 1px)
               `,
               backgroundSize: "100% 100%, 24px 24px",
             }}
           >
-            {/* Top / Main Body: Grid with 96px left margin on desktop */}
-            <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:pl-[96px] lg:pr-10 relative flex-1 flex flex-col lg:flex-row items-center justify-between z-10 pt-8 sm:pt-12 pb-6 sm:pb-8">
-              
-              {/* Left Text Column: max-w-[540px], vertically centered */}
-              <div className="w-full lg:max-w-[540px] z-20 flex flex-col justify-center my-auto order-2 lg:order-1 pt-6 lg:pt-0">
-                {/* Pill Badge: crimson on #FDE3E9 */}
-                <div className="inline-flex items-center gap-2 self-start bg-[#FDE3E9] text-[#E5254F] text-xs font-bold px-3.5 py-1.5 rounded-full mb-5 tracking-tight shadow-xs">
-                  <ShieldCheckIcon className="w-4 h-4 text-[#E5254F]" />
-                  <span>{copy.badge}</span>
-                </div>
+            <div className="max-w-[1360px] mx-auto px-5 sm:px-8 relative z-10">
+              <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
+                
+                {/* Left Text Column: max-w-[620px], rich key copy restored */}
+                <div className="lg:col-span-7 xl:col-span-6 max-w-[620px] z-20 flex flex-col justify-center">
+                  {/* Pill Badge */}
+                  <div className="inline-flex items-center gap-2 self-start bg-[#FDE3E9] text-[#E5254F] text-xs font-bold px-3.5 py-1.5 rounded-full mb-4 tracking-tight shadow-xs">
+                    <ShieldCheckIcon className="w-4 h-4 text-[#E5254F]" />
+                    <span>{copy.badge}</span>
+                  </div>
 
-                {/* H1: Max 3 lines at 56-64px, weight 800, tight leading 1.05 */}
-                <h1
-                  style={{ color: DARK, lineHeight: 1.05 }}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[62px] font-extrabold tracking-tight mb-4"
-                >
-                  {copy.h1Lead}
-                  <span style={{ color: PRIMARY }}>{copy.h1Highlight}</span>
-                </h1>
+                  {/* H1 Heading */}
+                  <h1
+                    style={{ color: DARK, lineHeight: 1.15 }}
+                    className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight mb-4"
+                  >
+                    {copy.h1Lead}
+                    <span style={{ color: PRIMARY }}>{copy.h1Highlight}</span>
+                  </h1>
 
-                {/* Subline: one sentence, 18px, slate #5B6475, max 46ch */}
-                <p className="text-base sm:text-lg text-[#5B6475] max-w-[46ch] leading-relaxed mb-5">
-                  {copy.subline}
-                </p>
+                  {/* 5 Crimson Stars + Career Karma Rating */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} width="16" height="16" viewBox="0 0 16 16" fill={PRIMARY}>
+                          <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="text-sm font-semibold text-gray-700">
+                      {copy.rating}
+                    </span>
+                  </div>
 
-                {/* Rating row: 5 crimson stars + Career Karma Rating */}
-                <div className="flex items-center gap-2.5 mb-7">
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} width="16" height="16" viewBox="0 0 16 16" fill={PRIMARY}>
-                        <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 2.05.71-4.13-3-2.92 4.15-.75L8 1z" />
-                      </svg>
+                  {/* Explanatory Paragraph (Important Content Restored) */}
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                    {copy.desc}
+                  </p>
+
+                  {/* CTA Buttons */}
+                  <div className="flex flex-wrap gap-3.5 items-center mb-6">
+                    <Link
+                      to={consultPath}
+                      onClick={() =>
+                        trackClaruswayEvent("beratung_angefragt", { source: "home_hero", lang })
+                      }
+                      style={{ backgroundColor: PRIMARY }}
+                      className="inline-flex items-center gap-2 text-white font-bold px-6 py-3.5 rounded-xl text-sm shadow-[0_4px_16px_rgba(229,37,79,0.25)] hover:opacity-95 hover:shadow-[0_6px_22px_rgba(229,37,79,0.35)] transition-all"
+                    >
+                      <span>{copy.primaryBtn}</span>
+                      <ArrowRightIcon className="w-4 h-4" />
+                    </Link>
+
+                    <Link
+                      to={isEn ? "/it-courses/" : "/it-kurse/"}
+                      className="inline-flex items-center gap-2 border-2 border-[#141B2D] text-[#141B2D] font-bold px-6 py-3.5 rounded-xl text-sm hover:bg-[#141B2D]/5 transition-colors"
+                    >
+                      <span>{copy.secondaryBtn}</span>
+                    </Link>
+                  </div>
+
+                  {/* 3 Key Checklist Bullets */}
+                  <div className="flex flex-wrap gap-y-2.5 gap-x-5 text-xs text-gray-600">
+                    {copy.checklist.map((item, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1.5 font-medium">
+                        <CheckCircleIcon className="w-4 h-4 text-[#E5254F] shrink-0" />
+                        <span>{item}</span>
+                      </span>
                     ))}
                   </div>
-                  <span className="text-xs sm:text-sm font-semibold text-[#141B2D]">
-                    {copy.rating}
-                  </span>
                 </div>
 
-                {/* CTA Buttons: Primary solid crimson + Secondary outline navy */}
-                <div className="flex flex-wrap gap-3.5 items-center">
-                  <Link
-                    to={consultPath}
-                    onClick={() =>
-                      trackClaruswayEvent("beratung_angefragt", { source: "home_hero", lang })
-                    }
-                    style={{ backgroundColor: PRIMARY }}
-                    className="inline-flex items-center gap-2 text-white font-bold px-6 py-3.5 rounded-xl text-sm shadow-[0_4px_16px_rgba(229,37,79,0.25)] hover:opacity-95 hover:shadow-[0_6px_22px_rgba(229,37,79,0.35)] transition-all"
-                  >
-                    <span>{copy.primaryBtn}</span>
-                    <ArrowRightIcon className="w-4 h-4" />
-                  </Link>
-
-                  <Link
-                    to={isEn ? "/it-courses/" : "/it-kurse/"}
-                    className="inline-flex items-center gap-2 border-2 border-[#141B2D] text-[#141B2D] font-bold px-6 py-3.5 rounded-xl text-sm hover:bg-[#141B2D]/5 transition-colors"
-                  >
-                    <span>{copy.secondaryBtn}</span>
-                  </Link>
+                {/* Right Column / Centerpiece: Medium Scale 3D Showpiece Globe */}
+                <div className="lg:col-span-5 xl:col-span-6 flex justify-center lg:justify-end items-center relative overflow-visible z-10 pt-4 lg:pt-0">
+                  <ClaruswayHeroShowpiece isEn={isEn} />
                 </div>
-              </div>
 
-              {/* Right Column / Centerpiece: The GLOBE is the Hero!
-                  Desktop: diameter = min(92vh, 58vw) ≈ 780–820px at 1440w,
-                  bleeding slightly off right edge (about 6-8%).
-                  Mobile <= 900px: Globe on top (100vw, crop bottom 15%). */}
-              <div className="w-full lg:w-auto flex justify-center lg:justify-end items-center order-1 lg:order-2 overflow-visible lg:relative">
-                <ClaruswayHeroShowpiece isEn={isEn} />
-              </div>
-            </div>
-
-            {/* Bottom of the Hero: Slim Glass Trust Strip (64px, white 70%, blur 12px, border #F3D3DC) */}
-            <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-[96px] pb-6 z-20">
-              <div
-                className="w-full min-h-[64px] bg-white/70 backdrop-blur-md border border-[#F3D3DC] rounded-2xl px-4 sm:px-6 py-3.5 sm:py-0 flex flex-col md:flex-row items-center justify-between divide-y md:divide-y-0 md:divide-x divide-[#F3D3DC] shadow-[0_4px_20px_rgba(20,27,45,0.03)]"
-              >
-                {copy.trustItems.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex-1 flex items-center justify-center gap-2.5 py-2 md:py-3 px-3 text-xs sm:text-[13px] font-semibold text-[#141B2D]"
-                  >
-                    <CheckCircleIcon className="w-4 h-4 text-[#E5254F] shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
               </div>
             </div>
           </section>
