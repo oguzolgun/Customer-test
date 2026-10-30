@@ -605,22 +605,6 @@
 
         <!-- 7 Orbiting Course Glass Nodes -->
         <div class="nodes-layer" id="nodes-layer"></div>
-
-        <!-- Fixed Lower-Left Info Card (260px) -->
-        <div class="fixed-info-card" id="info-card" style="width: 260px; padding: 16px; bottom: 12px; left: 12px;">
-          <div class="card-header">
-            <h3 class="card-title" id="card-title">Cloud & DevOps</h3>
-            <span class="card-indicator"></span>
-          </div>
-          <p class="card-desc" id="card-desc">From cloud basics to automated pipelines.</p>
-          <div class="card-tags" id="card-tags">
-            <span class="tag-pill">AWS</span>
-            <span class="tag-pill">Docker</span>
-            <span class="tag-pill">Kubernetes</span>
-          </div>
-          <a href="/it-courses/devops-aws/" class="card-link" id="card-link">View course →</a>
-        </div>
-
       </div>
 
     </div>
@@ -887,7 +871,6 @@
     const canvas = document.getElementById("globe-canvas");
     const nodesLayer = document.getElementById("nodes-layer");
     const germanyTag = document.getElementById("germany-tag");
-    const infoCard = document.getElementById("info-card");
 
     let W = container.clientWidth || 800;
     let H = container.clientHeight || 800;
@@ -1260,17 +1243,22 @@
       const jelly = new JellyNodeRenderer(cvs, course.iconId);
       jellyRenderers.push(jelly);
 
-      const label = document.createElement("div");
+      const label = document.createElement("a");
       label.className = "node-label-pill";
+      label.href = course.link;
       label.style.display = "none";
-      label.innerHTML = `<span class="pill-pulse-dot"></span><span>${course.title}</span>`;
+      label.style.textDecoration = "none";
+      label.innerHTML = `<span class="pill-pulse-dot"></span><span>${course.title}</span><span style="color:var(--color-crimson); font-size:11px;">→</span>`;
 
       nodeEl.appendChild(btn);
       nodeEl.appendChild(label);
       nodesLayer.appendChild(nodeEl);
       nodeElements.push({ el: nodeEl, btn, label, jelly });
 
-      nodeEl.addEventListener("click", () => setActiveCourse(idx));
+      nodeEl.addEventListener("click", (e) => {
+        if (e.target.closest(".node-label-pill")) return; // allow clicking link
+        setActiveCourse(idx);
+      });
     });
 
     let activeIdx = 0;
@@ -1285,19 +1273,6 @@
     function setActiveCourse(idx) {
       if (idx === activeIdx && flightProgress < 1.0) return;
       activeIdx = idx;
-
-      // Update Info Card
-      const c = COURSES[idx];
-      infoCard.classList.remove("fade-switch");
-      void infoCard.offsetWidth; // Force reflow
-      infoCard.classList.add("fade-switch");
-
-      document.getElementById("card-title").innerText = c.title;
-      document.getElementById("card-desc").innerText = c.oneLiner;
-      document.getElementById("card-link").href = c.link;
-      document.getElementById("card-tags").innerHTML = c.tags
-        .map(t => `<span class="tag-pill">${t}</span>`)
-        .join("");
 
       // Update Node states
       nodeElements.forEach((n, k) => {

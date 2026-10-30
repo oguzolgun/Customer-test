@@ -366,7 +366,6 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
   const occludedRef = useRef<boolean[]>(new Array(7).fill(false));
 
   const courses = isEn ? HERO_COURSES.en : HERO_COURSES.de;
-  const activeCourse = courses[activeIndex] || courses[0];
 
   // Auto-cycle every 4.5s (pauses on hover/focus)
   // Automatically advances to the next visible course on the front of the globe!
@@ -1232,59 +1231,19 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
               {/* Attached Label Pill (ONLY shown for active course) */}
               {isActive && (
-                <div
-                  className="ml-3 px-3 py-1 bg-white/95 backdrop-blur-md border border-[#F3D3DC] text-[#141B2D] font-bold text-xs rounded-full shadow-[0_6px_20px_rgba(20,27,45,0.08)] whitespace-nowrap animate-fade-in flex items-center gap-1.5"
+                <Link
+                  to={course.to}
+                  className="ml-3 px-3 py-1.5 bg-white/95 backdrop-blur-md border border-[#F3D3DC] text-[#141B2D] hover:text-[#E5254F] font-bold text-xs rounded-full shadow-[0_6px_20px_rgba(20,27,45,0.08)] whitespace-nowrap animate-fade-in flex items-center gap-1.5 transition-colors group cursor-pointer"
                   style={{ animation: "labelSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1)" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#E5254F] animate-pulse" />
                   <span>{course.name}</span>
-                </div>
+                  <span className="text-[#E5254F] text-[11px] group-hover:translate-x-0.5 transition-transform">→</span>
+                </Link>
               )}
             </div>
           );
         })}
-      </div>
-
-      {/* =====================================================================
-          FIXED LOWER-LEFT INFO CARD (260px, Never Overlaps Nodes or Globe)
-          ===================================================================== */}
-      <div
-        className="absolute bottom-1 left-1 sm:bottom-3 sm:left-3 z-40 w-[240px] sm:w-[260px] bg-white/95 backdrop-blur-md rounded-2xl border border-[#F3D3DC] p-3.5 sm:p-4 shadow-[0_12px_32px_rgba(20,27,45,0.09)] transition-all duration-500"
-        style={{
-          boxShadow: "0 12px 32px rgba(20, 27, 45, 0.08), 0 2px 8px rgba(229, 37, 79, 0.06)",
-        }}
-      >
-        <div key={activeCourse.id} className="animate-fade-in-quick">
-          <div className="flex items-center justify-between gap-2 mb-1.5">
-            <h3 className="font-extrabold text-[#141B2D] text-sm sm:text-base tracking-tight">
-              {activeCourse.name}
-            </h3>
-            <span className="w-2 h-2 rounded-full bg-[#E5254F]" />
-          </div>
-
-          <p className="text-[11px] sm:text-xs text-[#5B6475] leading-relaxed mb-2.5">
-            {activeCourse.oneLiner}
-          </p>
-
-          {/* 3 Course Tags */}
-          <div className="flex flex-wrap gap-1.5 mb-3">
-            {activeCourse.tags.map((tag, i) => (
-              <span
-                key={i}
-                className="text-[10px] font-medium bg-[#F6F3EE] text-[#141B2D] px-2 py-0.5 rounded-md border border-[#F3D3DC]/60"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <Link
-            to={activeCourse.to}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E5254F] hover:text-[#c4153f] transition-colors group"
-          >
-            <span>{isEn ? "View course →" : "Kurs ansehen →"}</span>
-          </Link>
-        </div>
       </div>
 
       {/* Micro-animations stylesheet */}
