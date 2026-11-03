@@ -27,10 +27,10 @@ const SOFT_BG = "#f6f7fb";
 const HERO_COPY = {
   en: {
     badge: "AZAV-Certified IT School in Germany · 100% Funded with Bildungsgutschein",
-    h1Lead: "Start your IT career in Germany with ",
-    h1Highlight: "100% funded live online training",
+    h1Lead: "Start your IT career in Germany, ",
+    h1Highlight: "trained in English",
     rating: "4.9/5 — Career Karma Rating",
-    desc: "Clarusway trains career changers and tech professionals in Germany through live online IT bootcamps — covering AI Engineering, Data Analytics, AI-Assisted Full Stack Development, Cyber Security, AWS & DevOps, and Software Testing. Instruction is available in English, Turkish, and German cohorts. All programs are AZAV-certified and 100% fundable with a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter.",
+    desc: "Live online bootcamps for career changers and tech professionals — in English, Turkish & German. All programs are AZAV-certified and 100% fundable with a Bildungsgutschein from the Agentur für Arbeit or Jobcenter.",
     primaryBtn: "Free consultation",
     secondaryBtn: "Compare all IT courses",
     checklist: [
@@ -41,10 +41,10 @@ const HERO_COPY = {
   },
   de: {
     badge: "AZAV-zertifizierter Bildungsträger · 100 % Förderung mit Bildungsgutschein",
-    h1Lead: "IT Weiterbildung mit Bildungsgutschein: ",
+    h1Lead: "IT Weiterbildung mit Bildungsgutschein, ",
     h1Highlight: "online, live und praxisnah",
     rating: "4,9/5 — Career Karma Bewertung",
-    desc: "Qualifiziere dich im Live-Online-Unterricht für gefragte IT-Berufe in Deutschland: AI Engineering & Data Science, Full Stack Webentwicklung, Cyber Security, AWS & DevOps oder Software Testing. Unsere modularen Programme sind AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein der Agentur für Arbeit oder des Jobcenters förderbar.",
+    desc: "Live-Online-Weiterbildungen für Quereinsteiger und IT-Fachkräfte — auf Deutsch, Englisch oder Türkisch. Alle Programme sind AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein der Agentur für Arbeit oder des Jobcenters förderbar.",
     primaryBtn: "Kostenlose Beratung",
     secondaryBtn: "Alle IT-Kurse vergleichen",
     checklist: [
@@ -60,9 +60,10 @@ export function HomePage() {
   const isEn = lang === "en";
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
+  // Exact Title from German SEO Plan Page 21 & English SEO Plan Page 13
   const metaTitle = isEn
-    ? "Clarusway: IT Careers in Germany | 100% Funded Live IT Bootcamps"
-    : "IT Weiterbildung mit Bildungsgutschein | Clarusway";
+    ? "IT Training in English for a Career in Germany | Clarusway"
+    : "IT Weiterbildung online mit Bildungsgutschein | Clarusway";
 
   const metaDescription = isEn
     ? "Live online IT bootcamps in Germany: AI Engineering, Full Stack, Cyber Security, AWS & DevOps, and SDET. Instruction in English, Turkish & German. 100% funded with a Bildungsgutschein."
@@ -174,149 +175,197 @@ export function HomePage() {
         },
       ];
 
-  const steps = isEn
+  // 4 Areas matching Page 21 Block 4: "Welcher IT-Bereich passt zu dir?"
+  const itAreas = isEn
+    ? [
+        {
+          title: "Data and AI",
+          desc: "Data analysis, machine learning models, and autonomous AI agents in Python and SQL.",
+          to: "/it-courses/ai-engineering/",
+          tag: "AI Engineering & Data",
+        },
+        {
+          title: "Software Development",
+          desc: "Modern full-stack web applications with React, TypeScript, Node.js, and AI coding workflows.",
+          to: "/it-courses/full-stack-developer/",
+          tag: "Full Stack Development",
+        },
+        {
+          title: "IT Security",
+          desc: "Defend networks, detect threats in the SOC, and prepare for CompTIA Security+ certification.",
+          to: "/it-courses/cyber-security/",
+          tag: "Cyber Security Analyst",
+        },
+        {
+          title: "Cloud and DevOps",
+          desc: "Deploy scalable cloud architectures on AWS and Azure with Docker, Kubernetes, and CI/CD.",
+          to: "/it-courses/devops-aws/",
+          tag: "Cloud & DevOps Engineering",
+        },
+      ]
+    : [
+        {
+          title: "Daten und KI",
+          desc: "Datenanalyse, Machine-Learning-Modelle und autonome KI-Agenten mit Python und SQL.",
+          to: "/it-kurse/ai-engineer-weiterbildung/",
+          tag: "AI Engineering & Data",
+        },
+        {
+          title: "Softwareentwicklung",
+          desc: "Moderne Full-Stack-Webanwendungen mit React, TypeScript, Node.js und KI-Workflows.",
+          to: "/it-kurse/full-stack-entwickler-weiterbildung/",
+          tag: "Full Stack Entwickler",
+        },
+        {
+          title: "IT-Sicherheit",
+          desc: "Netzwerke schützen, Angriffe im SOC abwehren und Prüfungsvorbereitung auf CompTIA Security+.",
+          to: "/it-kurse/cyber-security-weiterbildung/",
+          tag: "Cyber Security Analyst",
+        },
+        {
+          title: "Cloud und DevOps",
+          desc: "Cloud-Infrastrukturen auf AWS und Azure bereitstellen mit Docker, Kubernetes und CI/CD.",
+          to: "/it-kurse/aws-devops-weiterbildung/",
+          tag: "Cloud & DevOps Engineer",
+        },
+      ];
+
+  // 3 Steps matching Page 22 Block 6: "In 3 Schritten zur IT Weiterbildung"
+  const steps3 = isEn
     ? [
         {
           num: "01",
-          title: "Book a free consultation",
-          desc: "Speak with a Clarusway career advisor (available in English, Turkish, or German) to choose the right IT bootcamp or module combination for your background.",
+          title: "Free consultation",
+          desc: "In a 1-on-1 consultation, we review your background, career goals, and select the right IT program or module combination for you.",
         },
         {
           num: "02",
-          title: "Receive your German course offer (Maßnahmeangebot)",
-          desc: "Within 24 hours, Clarusway prepares all official AZAV documents in German required by the Agentur für Arbeit or Jobcenter.",
+          title: "Apply for funding",
+          desc: "Within 24 hours, Clarusway prepares your official German course offer (Maßnahmeangebot) to present to your Agentur für Arbeit or Jobcenter advisor.",
         },
         {
           num: "03",
-          title: "Present the offer to your advisor",
-          desc: "Submit the course offer at your appointment to receive your Bildungsgutschein (education voucher) or AVGS.",
-        },
-        {
-          num: "04",
-          title: "Start your bootcamp at 0 € tuition",
-          desc: "Clarusway redeems the voucher directly with the agency — you join your live cohort with 100% of tuition covered.",
+          title: "Course start",
+          desc: "Your tuition is 100% funded with your Bildungsgutschein or AVGS voucher — you start your live online cohort with 0 € out-of-pocket costs.",
         },
       ]
     : [
         {
           num: "01",
-          title: "Kostenlose Beratung buchen",
-          desc: "Im persönlichen Gespräch klären wir deine Vorkenntnisse, dein Berufsziel und wählen das passende IT-Programm oder Einzelmodul aus.",
+          title: "Kostenlose Beratung",
+          desc: "Im persönlichen Gespräch klären wir dein Vorwissen, dein Berufsziel und wählen das passende Weiterbildungsprogramm oder Einzelmodul aus.",
         },
         {
           num: "02",
-          title: "Individuelles Maßnahmeangebot erhalten",
-          desc: "Innerhalb von 24 Stunden erstellen wir dein offizielles AZAV-Angebot inklusive Maßnahmenummer und Begründungshilfe.",
+          title: "Förderung beantragen",
+          desc: "Innerhalb von 24 Stunden erstellen wir dein individuelles AZAV-Maßnahmeangebot zur Vorlage bei deiner Vermittlungsfachkraft.",
         },
         {
           num: "03",
-          title: "Bildungsgutschein beantragen",
-          desc: "Du legst das Angebot deiner Vermittlungsfachkraft bei der Agentur für Arbeit oder dem Jobcenter vor und erhältst den Gutschein.",
-        },
-        {
-          num: "04",
-          title: "Weiterbildung zu 100 % gefördert starten",
-          desc: "Wir rechnen direkt mit der Behörde ab — für dich fallen 0 € Kursgebühren an.",
+          title: "Kursstart",
+          desc: "Mit bewilligtem Bildungsgutschein oder AVGS übernimmt der Kostenträger 100 % der Lehrgangsgebühren — du startest kostenfrei in deine Weiterbildung.",
         },
       ];
 
-  const guides = isEn
+  // Learning model matching Page 22 Block 7: "So funktioniert das Lernen bei Clarusway"
+  const learningPillars = isEn
     ? [
         {
-          title: "What Does a Data Analyst Do? Tasks, Skills and Roadmap",
-          badge: "Data & AI",
-          desc: "Daily responsibilities, SQL and Python requirements, and hands-on portfolio projects in Germany.",
-          to: "/guides/data-analyst/",
+          title: "Live instruction with instructors",
+          desc: "Daily interactive classes from 09:00 to 16:45 CET with experienced teachers and real-time guidance instead of pre-recorded videos.",
         },
         {
-          title: "What Is an AI Engineer? Role, Skills and Roadmap",
-          badge: "Data & AI",
-          desc: "Production LLMs, RAG architectures, and agent orchestration skills expected by German employers.",
-          to: "/guides/ai-engineer/",
+          title: "Personal mentoring",
+          desc: "Dedicated teaching assistants and mentors answer questions daily and provide feedback on your code and architecture.",
         },
         {
-          title: "What Is a Full Stack Developer? Skills and Tools in 2026",
-          badge: "Software",
-          desc: "React, Next.js, TypeScript, and modern AI coding workflows (Cursor, Claude Code) in web engineering.",
-          to: "/guides/full-stack-developer/",
+          title: "Practical projects for your portfolio",
+          desc: "Build real enterprise projects and capstone software to showcase on GitHub to German employers.",
         },
         {
-          title: "What Does a SOC Analyst Do? Role, Tools and Career Start",
-          badge: "Cyber Security",
-          desc: "Monitoring SIEM alerts, incident containment, CompTIA Security+, and German cybersecurity demand.",
-          to: "/guides/soc-analyst/",
+          title: "Career support until employment",
+          desc: "Our Career Management team prepares your LinkedIn profile, conducts mock technical interviews, and supports your career transition in Germany.",
         },
       ]
     : [
         {
-          title: "Quereinstieg in die IT: Wege, Berufe und Förderung",
-          badge: "Karriere-Ratgeber",
-          desc: "Welche IT-Berufe sich für Quereinsteiger ohne Studium eignen und wie der Einstieg Schritt für Schritt gelingt.",
-          to: "/ratgeber/quereinstieg-it/",
+          title: "Live-Unterricht mit Dozenten",
+          desc: "Täglicher interaktiver Unterricht von 09:00 bis 16:45 Uhr mit praxiserfahrenen Dozenten statt isolierter Selbstlernvideos.",
         },
         {
-          title: "Weiterbildung über Arbeitsagentur & Jobcenter",
-          badge: "Förder-Ratgeber",
-          desc: "Voraussetzungen, Fristen und Tipps für das Gespräch mit deiner Vermittlungsfachkraft.",
-          to: "/ratgeber/weiterbildung-arbeitsagentur/",
+          title: "Persönliches Mentoring",
+          desc: "Feste Mentoren und Teaching Assistants begleiten dich bei praktischen Übungen, Code Reviews und täglichen Fragestunden.",
         },
         {
-          title: "Was macht ein AI Engineer? Aufgaben, Fähigkeiten und Einstieg",
-          badge: "Berufsratgeber",
-          desc: "Was ein AI Engineer entwickelt, wie er sich vom Data Scientist unterscheidet und wie der Einstieg gelingt.",
-          to: "/ratgeber/ai-engineer/",
+          title: "Praxisprojekte für dein Portfolio",
+          desc: "Du entwickelst reale Team- und Abschlussprojekte, die du in deinem GitHub-Portfolio potenziellen Arbeitgebern vorlegen kannst.",
         },
         {
-          title: "Was macht ein DevOps Engineer? Aufgaben, Tools und Einstieg",
-          badge: "Berufsratgeber",
-          desc: "Warum Cloud- und DevOps-Spezialisten zu den gefragtesten IT-Fachkräften im deutschen Markt gehören.",
-          to: "/ratgeber/devops-engineer/",
+          title: "Karriere-Support bis zur Anstellung",
+          desc: "Individuelles Bewerbungstraining, LinkedIn-Optimierung und Simulation von Fachgesprächen speziell für den deutschen Arbeitsmarkt.",
         },
       ];
 
+  // 7 Exact FAQ questions from Page 22 of German SEO Plan
   const faqs = isEn
     ? [
         {
-          q: "What languages are Clarusway courses taught in?",
-          a: "Clarusway offers live IT courses with instruction available in English, Turkish, and German cohorts. Our study and career advisors support you in English, German, or Turkish, and all official administrative paperwork for the Agentur für Arbeit or Jobcenter is prepared in German.",
+          q: "Which IT training is suitable for career changers?",
+          a: "All main Clarusway bootcamps (AI Engineering, Full Stack Development, Cyber Security, AWS & DevOps, and SDET) are specifically designed for career changers without prior programming or IT experience starting at Module 1. Those who want to explore different roles first can take the 4-week IT Orientation Course.",
         },
         {
-          q: "How can I take a course for free with a Bildungsgutschein?",
-          a: "All Clarusway programs are AZAV-certified in Germany. If you are registered with the Agentur für Arbeit (Federal Employment Agency) or Jobcenter, a Bildungsgutschein (education voucher) covers 100% of the tuition fees.",
+          q: "Is the IT training funded with a Bildungsgutschein?",
+          a: "Yes. All Clarusway programs and modules are AZAV-certified in Germany. With an approved Bildungsgutschein from the Agentur für Arbeit or Jobcenter, 100% of the tuition costs are covered. Employed professionals can receive funding via the Qualifizierungschancengesetz (QCG).",
         },
         {
-          q: "Do I need to speak German to get a Bildungsgutschein or an IT job?",
-          a: "You do not need fluent German to start. Instruction is available in English, Turkish, and German cohorts. For your Agentur für Arbeit or Jobcenter appointment, Clarusway prepares your German course offer (Maßnahmeangebot) and guides you step by step.",
+          q: "Do I need prior IT knowledge?",
+          a: "No prior technical or coding experience is required for Module 1. If you already have technical skills, you can take a technical placement assessment to enter directly into advanced modules.",
         },
         {
-          q: "Can I join without an IT or coding background?",
-          a: "Yes. Each main bootcamp starts at Module 1 with zero prior coding or IT knowledge required. Applicants who already have technical skills can pass a technical assessment to enter directly into advanced modules.",
+          q: "How does the online instruction work?",
+          a: "Training takes place live online from Monday to Friday between 09:00 and 16:45 CET in interactive virtual classrooms with live instructors, hands-on lab exercises, and mentor support.",
         },
         {
-          q: "How does Clarusway support graduates when entering the tech field?",
-          a: "Clarusway's Career Management team supports graduates with technical portfolio optimization, LinkedIn profile guidance, and mock technical interviews tailored to employers in Germany.",
+          q: "What language is the instruction taught in?",
+          a: "Instruction is offered in English, Turkish, and German cohorts. Our career and funding advisory team also guides you in English, German, or Turkish.",
+        },
+        {
+          q: "Which certificates do I receive?",
+          a: "You receive an official Clarusway certificate of completion upon graduation. Depending on your course, the curriculum also prepares you for industry certifications such as CompTIA Security+, AWS Certified Solutions Architect, CNCF CKAD, and Microsoft Azure AZ-900.",
+        },
+        {
+          q: "How long does an IT training at Clarusway take?",
+          a: "Program durations vary depending on the chosen track and module combination: from 4 weeks (IT Orientation, Kubernetes CKAD) to 3–8 months (AWS & DevOps, Cyber Security) and up to 32 weeks (AI Engineering).",
         },
       ]
     : [
         {
-          q: "Welche IT-Weiterbildungen bietet Clarusway an?",
-          a: "Clarusway bietet AZAV-zertifizierte Live-Online-Weiterbildungen in den Bereichen AI Engineering, AI-Assisted Full Stack Webentwicklung, Cyber Security (SOC & Cloud Security), AWS & DevOps Engineering, SDET (Software Testing), Kubernetes CKAD sowie einen IT-Orientierungskurs an.",
+          q: "Welche IT Weiterbildung eignet sich für Quereinsteiger?",
+          a: "Alle Hauptweiterbildungen bei Clarusway (AI Engineering, Full Stack Entwicklung, Cyber Security, AWS & DevOps und SDET) starten in Modul 1 ohne vorausgesetzte IT- oder Programmierkenntnisse und sind ideal für den Quereinstieg geeignet. Unentschlossene können im 4-wöchigen IT-Orientierungskurs alle Fachbereiche testen.",
         },
         {
-          q: "Werden die Kurse zu 100 % mit Bildungsgutschein gefördert?",
-          a: "Ja. Sämtliche Hauptprogramme und Einzelmodule sind nach AZAV zugelassen. Mit einem Bildungsgutschein der Agentur für Arbeit oder des Jobcenters werden die Lehrgangsgebühren zu 100 % übernommen. Beschäftigte können über das Qualifizierungschancengesetz (QCG) gefördert werden.",
+          q: "Wird die IT Weiterbildung mit Bildungsgutschein gefördert?",
+          a: "Ja. Sämtliche Programme sind nach AZAV zugelassen. Mit einem Bildungsgutschein der Agentur für Arbeit oder des Jobcenters werden 100 % der Lehrgangsgebühren übernommen. Für Beschäftigte greift das Qualifizierungschancengesetz (QCG).",
         },
         {
-          q: "Brauche ich IT-Vorkenntnisse für den Einstieg?",
-          a: "Nein. Der Einstieg in Modul 1 ist in unseren Hauptprogrammen ausdrücklich für Quereinsteiger ohne Programmier- oder IT-Vorkenntnisse konzipiert. Wer bereits Vorwissen mitbringt, kann über eine Einstufungsprüfung direkt in ein höheres Modul einsteigen.",
+          q: "Brauche ich Vorkenntnisse für eine IT Weiterbildung?",
+          a: "Nein. Für den Einstieg in Modul 1 sind keinerlei Vorkenntnisse nötig. Wer bereits Programmier- oder IT-Erfahrung mitbringt, kann über eine Einstufungsprüfung direkt in ein höheres Modul einsteigen.",
+        },
+        {
+          q: "Wie läuft der Online-Unterricht ab?",
+          a: "Der Unterricht findet von Montag bis Freitag zwischen 09:00 und 16:45 Uhr im interaktiven Live-Online-Format mit Dozenten, Praxis-Labs und Mentor-Betreuung statt — keine voraufgezeichneten Videos.",
         },
         {
           q: "In welcher Sprache findet der Unterricht statt?",
-          a: "Der Unterricht findet flexibel mit Kohorten auf Englisch, Türkisch oder Deutsch statt. Unsere Studien-, Förder- und Karriereberatung begleitet dich auf Deutsch, Englisch oder Türkisch.",
+          a: "Der Unterricht wird in Kohorten auf Deutsch, Englisch oder Türkisch angeboten. Auch die Studien- und Förderberatung begleitet dich in deiner Wunschsprache.",
         },
         {
-          q: "Wie unterstützt Clarusway Absolventen beim Berufseinstieg?",
-          a: "Unser integriertes Karriere-Management begleitet Absolventen mit individueller Profil- und LinkedIn-Optimierung, GitHub-Portfolio-Reviews sowie praxisnahem Bewerbungs- und Interviewtraining.",
+          q: "Welche Zertifikate erhalte ich?",
+          a: "Neben dem anerkannten Clarusway-Abschlusszertifikat bereitest du dich je nach Kurs auf weltweite Branchenzertifizierungen wie CompTIA Security+, AWS Solutions Architect, CNCF CKAD oder Microsoft Azure AZ-900 vor.",
+        },
+        {
+          q: "Wie lange dauert eine IT Weiterbildung bei Clarusway?",
+          a: "Die Dauer richtet sich nach Programm und Modulwahl: von 4 Wochen (IT-Orientierung, Kubernetes CKAD) über 3 bis 8 Monate (AWS & DevOps, Cyber Security) bis hin zu 32 Wochen (AI Engineering).",
         },
       ];
 
@@ -362,9 +411,8 @@ export function HomePage() {
       <SeoHead title={metaTitle} description={metaDescription} path="/" schema={schema} />
 
       {/* =====================================================================
-          HERO SECTION — Balanced Layout with Medium Scale 3D Dotted Globe
-          Warm pink radial gradient with faint 1px dotted grid at 4%
-          Full key copy restored on the left + Occlusion-aware medium globe on the right
+          B1: HERO SECTION — Balanced Layout with Medium Scale 3D Dotted Globe
+          (Strictly adhering to art direction: Globe remains untouched)
           ===================================================================== */}
       {(() => {
         const copy = isEn ? HERO_COPY.en : HERO_COPY.de;
@@ -383,7 +431,7 @@ export function HomePage() {
             <div className="max-w-[1360px] mx-auto px-5 sm:px-8 relative z-10">
               <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
                 
-                {/* Left Text Column: max-w-[620px], rich key copy restored */}
+                {/* Left Text Column */}
                 <div className="lg:col-span-7 xl:col-span-6 max-w-[620px] z-20 flex flex-col justify-center">
                   {/* Pill Badge */}
                   <div className="inline-flex items-center gap-2 self-start bg-[#FDE3E9] text-[#E5254F] text-xs font-bold px-3.5 py-1.5 rounded-full mb-4 tracking-tight shadow-xs">
@@ -391,7 +439,7 @@ export function HomePage() {
                     <span>{copy.badge}</span>
                   </div>
 
-                  {/* H1 Heading */}
+                  {/* H1 Heading (Exact: no colon in German H1) */}
                   <h1
                     style={{ color: DARK, lineHeight: 1.15 }}
                     className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight mb-4"
@@ -414,7 +462,7 @@ export function HomePage() {
                     </span>
                   </div>
 
-                  {/* Explanatory Paragraph (Important Content Restored) */}
+                  {/* Subline */}
                   <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
                     {copy.desc}
                   </p>
@@ -452,7 +500,7 @@ export function HomePage() {
                   </div>
                 </div>
 
-                {/* Right Column / Centerpiece: Medium Scale 3D Showpiece Globe */}
+                {/* Right Column / Centerpiece: Globe Showpiece (Unchanged) */}
                 <div className="lg:col-span-5 xl:col-span-6 flex justify-center lg:justify-end items-center relative overflow-visible z-10 pt-4 lg:pt-0">
                   <ClaruswayHeroShowpiece isEn={isEn} />
                 </div>
@@ -464,7 +512,7 @@ export function HomePage() {
       })()}
 
       {/* =====================================================================
-          STATS STRIP — Premium Dark Bar with Ambient Pink Top Glow & Dividers
+          B2: BILGI ŞERİDİ (Key Facts Trust Strip)
           ===================================================================== */}
       <section
         className="relative py-8 sm:py-10 border-t border-b border-white/10"
@@ -476,11 +524,11 @@ export function HomePage() {
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8 gap-x-6 lg:gap-x-0 items-stretch">
             {[
-              ["100 %", isEn ? "Funded with Bildungsgutschein" : "Förderbar mit Bildungsgutschein"],
+              ["0 €", isEn ? "Tuition with Bildungsgutschein" : "Kosten mit Bildungsgutschein"],
+              ["100 %", isEn ? "Live online with instructors" : "Live-Unterricht mit Dozenten"],
               ["Max. 15", isEn ? "Students per Live Cohort" : "Teilnehmende pro Live-Klasse"],
-              [isEn ? "English / Turkish / German" : "Englisch / Türkisch / Deutsch", isEn ? "Instruction Language" : "Unterrichtssprache (Live)"],
-              ["AWS Partner", isEn ? "Select Tier Consulting Partner" : "Select Tier Consulting Partner"],
-              ["4.9 / 5", isEn ? "Course Report & Career Karma" : "Course Report & Career Karma"],
+              [isEn ? "English / Turkish / German" : "Deutsch, Englisch & Türkisch", isEn ? "Cohort Languages" : "Unterrichtssprachen"],
+              ["AZAV", isEn ? "Certified Quality Standard" : "Zertifizierter Bildungsträger"],
             ].map(([val, label], i) => (
               <div
                 key={i}
@@ -498,9 +546,7 @@ export function HomePage() {
                       {val}
                     </span>
                   </div>
-                  {/* Pink Accent Line under the Value */}
                   <div className="w-7 h-[2.5px] bg-[#e51a59] rounded-full mt-2.5 mb-2.5" />
-                  {/* Stat Description */}
                   <p className="text-xs sm:text-sm text-gray-400 font-normal leading-snug max-w-[200px]">
                     {label}
                   </p>
@@ -512,7 +558,7 @@ export function HomePage() {
       </section>
 
       {/* =====================================================================
-          SECTION 1: COURSES OVERVIEW — H2 + Clickable H3 Cards
+          B3: GEFÖRDERTE WEITERBILDUNGSPROGRAMME (H2 per Page 21)
           ===================================================================== */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -538,7 +584,7 @@ export function HomePage() {
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#e51a59] hover:underline"
             >
               <span>
-                {isEn ? "View full course comparison table" : "Zur Kurs-Vergleichstabelle"}
+                {isEn ? "Compare all IT courses" : "Alle IT-Kurse vergleichen"}
               </span>
               <ArrowRightIcon className="w-4 h-4" />
             </Link>
@@ -602,12 +648,12 @@ export function HomePage() {
             ))}
           </div>
 
-          {/* Short Specializations Bar (Kubernetes CKAD + IT Orientation) */}
+          {/* Short Specializations: Kubernetes CKAD + IT Orientation */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="rounded-2xl p-6 bg-[#f6f7fb] border border-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <span className="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 mb-2">
-                  {isEn ? "4-Week Specialization" : "4-Wochen-Spezialisierung"}
+                  {isEn ? "4-Week Specialization" : "4-Wochen-Zertifikatskurs"}
                 </span>
                 <h3 className="text-lg font-bold text-[#1a1d2e]">
                   <Link
@@ -626,7 +672,7 @@ export function HomePage() {
                 <p className="text-xs text-gray-600 mt-1">
                   {isEn
                     ? "Intensive CNCF CKAD exam preparation for developers and DevOps engineers."
-                    : "Intensive Vorbereitung auf die offizielle CNCF CKAD Zertifizierungsprüfung."}
+                    : "Intensive Vorbereitung auf die offizielle CNCF CKAD Prüfung in 4 Wochen."}
                 </p>
               </div>
               <Link
@@ -658,7 +704,7 @@ export function HomePage() {
                 <p className="text-xs text-gray-600 mt-1">
                   {isEn
                     ? "Not sure yet? Test Data/AI, Web, Cyber Security, and Cloud in 4 weeks."
-                    : "Noch unsicher? Erprobe KI, Web, Cyber Security und Cloud in 4 Wochen."}
+                    : "Noch unsicher? Erprobe KI, Web, Cyber Security und Cloud in 4 Wochen kostenlos."}
                 </p>
               </div>
               <Link
@@ -674,7 +720,7 @@ export function HomePage() {
       </section>
 
       {/* =====================================================================
-          SECTION 2: FUNDING & BILDUNGSGUTSCHEIN STEPS (Component B11)
+          B4: WELCHER IT-BEREICH PASST ZU DIR? (H2 per Page 21)
           ===================================================================== */}
       <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -683,75 +729,158 @@ export function HomePage() {
               style={{ color: PRIMARY }}
               className="text-xs font-semibold uppercase tracking-widest block mb-2"
             >
-              {isEn ? "State Funding in Germany" : "Staatliche Förderung"}
+              {isEn ? "Orientation & Fields" : "Orientierung & Fachgebiete"}
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
-              {isEn
-                ? "100% funded with a Bildungsgutschein"
-                : "100 % Förderung mit Bildungsgutschein, AVGS und QCG"}
+              {isEn ? "Which IT field is right for you?" : "Welcher IT-Bereich passt zu dir?"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
               {isEn
-                ? "If you live in Germany and are registered with the Agentur für Arbeit (Federal Employment Agency) or Jobcenter, your IT bootcamp can be funded 100% through a Bildungsgutschein (education voucher). Clarusway handles the German paperwork for your advisor."
-                : "Ob arbeitssuchend, von Arbeitslosigkeit bedroht oder berufstätig: Als AZAV-zertifizierter Bildungsträger unterstützen wir dich bei allen drei staatlichen Förderwegen in Deutschland."}
+                ? "Discover which technology field matches your interests, strengths, and career ambitions in Germany."
+                : "Finde heraus, welcher Technologiebereich am besten zu deinen Interessen, Stärken und Zielen passt."}
             </p>
           </div>
 
-          {/* 4 Steps (Component B11) */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-            {steps.map((step) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {itAreas.map((area, idx) => (
               <div
-                key={step.num}
-                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs relative"
+                key={idx}
+                className="bg-white rounded-2xl p-6 border border-gray-200/80 shadow-2xs hover:border-[#e51a59] transition-all flex flex-col justify-between"
               >
-                <span
-                  style={{ color: PRIMARY }}
-                  className="text-xs font-extrabold uppercase tracking-wider bg-[#fde8ef] px-3 py-1 rounded-full inline-block mb-3"
+                <div>
+                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59] inline-block mb-3">
+                    {area.tag}
+                  </span>
+                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                    <Link to={area.to} className="hover:text-[#e51a59] transition-colors">
+                      {area.title}
+                    </Link>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                    {area.desc}
+                  </p>
+                </div>
+                <Link
+                  to={area.to}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-100"
                 >
-                  {isEn ? `Step ${step.num}` : `Schritt ${step.num}`}
-                </span>
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{step.title}</h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{step.desc}</p>
+                  <span>{area.title}</span>
+                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                </Link>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Funding Pillar Links */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div className="flex flex-wrap gap-3">
+      {/* =====================================================================
+          B5: FÖRDERUNG MIT BILDUNGSGUTSCHEIN, AVGS ODER QCG (H2 per Page 22)
+          ===================================================================== */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <span
+              style={{ color: PRIMARY }}
+              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+            >
+              {isEn ? "Funding Options" : "Finanzierungswege"}
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+              {isEn
+                ? "Funding with Bildungsgutschein, AVGS or QCG"
+                : "Förderung mit Bildungsgutschein, AVGS oder QCG"}
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+              {isEn
+                ? "Over 90% of our participants attend their IT training at 0 € tuition cost using official German public funding vouchers."
+                : "Über 90 % unserer Teilnehmenden in Deutschland absolvieren ihre Weiterbildung zu 100 % staatlich gefördert ohne private Kosten."}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full inline-block mb-3">
+                  100 % {isEn ? "Tuition Coverage" : "Kostenübernahme"}
+                </span>
+                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2">
+                  <Link to="/bildungsgutschein/" className="hover:text-[#e51a59]">
+                    Bildungsgutschein
+                  </Link>
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  {isEn
+                    ? "For jobseekers, unemployed residents, or people facing unemployment. Tuition is 100% covered by the Agentur für Arbeit or Jobcenter."
+                    : "Für Arbeitsuchende, Arbeitslose und von Arbeitslosigkeit Bedrohte. 100 % Kostenübernahme durch Arbeitsagentur oder Jobcenter."}
+                </p>
+              </div>
               <Link
                 to="/bildungsgutschein/"
-                style={{ backgroundColor: SOFT_BG }}
-                className="text-xs sm:text-sm font-semibold text-[#1a1d2e] hover:bg-[#fde8ef] hover:text-[#e51a59] px-4 py-2.5 rounded-xl border border-gray-100 transition-colors"
+                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1 pt-3 border-t border-gray-100"
               >
-                {isEn
-                  ? "→ Bildungsgutschein Guide (100% Tuition)"
-                  : "→ Bildungsgutschein (100 % Förderung)"}
-              </Link>
-              <Link
-                to="/avgs/"
-                style={{ backgroundColor: SOFT_BG }}
-                className="text-xs sm:text-sm font-semibold text-[#1a1d2e] hover:bg-[#fde8ef] hover:text-[#e51a59] px-4 py-2.5 rounded-xl border border-gray-100 transition-colors"
-              >
-                {isEn ? "→ AVGS Voucher (Orientation)" : "→ AVGS Gutschein (Orientierung)"}
-              </Link>
-              <Link
-                to="/qualifizierungschancengesetz/"
-                style={{ backgroundColor: SOFT_BG }}
-                className="text-xs sm:text-sm font-semibold text-[#1a1d2e] hover:bg-[#fde8ef] hover:text-[#e51a59] px-4 py-2.5 rounded-xl border border-gray-100 transition-colors"
-              >
-                {isEn
-                  ? "→ Qualifizierungschancengesetz (Employees)"
-                  : "→ Qualifizierungschancengesetz (Beschäftigte)"}
+                <span>{isEn ? "Bildungsgutschein Guide" : "Bildungsgutschein beantragen"}</span>
+                <ArrowRightIcon className="w-3.5 h-3.5" />
               </Link>
             </div>
 
+            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold text-[#e51a59] bg-[#fde8ef] px-2.5 py-1 rounded-full inline-block mb-3">
+                  {isEn ? "Free Orientation" : "Kostenloses Coaching"}
+                </span>
+                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2">
+                  <Link to="/avgs/" className="hover:text-[#e51a59]">
+                    AVGS
+                  </Link>
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  {isEn
+                    ? "The Activation and Placement Voucher (AVGS) funds the 4-week IT Orientation Course and 1-on-1 career coaching at 100% free of charge."
+                    : "Der Aktivierungs- und Vermittlungsgutschein ermöglicht den 4-wöchigen IT-Orientierungskurs und individuelles Coaching zu 100 % kostenlos."}
+                </p>
+              </div>
+              <Link
+                to="/avgs/"
+                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1 pt-3 border-t border-gray-100"
+              >
+                <span>{isEn ? "AVGS Coaching Voucher" : "AVGS Gutschein nutzen"}</span>
+                <ArrowRightIcon className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-full inline-block mb-3">
+                  {isEn ? "For Employees & Employers" : "Für Beschäftigte & Arbeitgeber"}
+                </span>
+                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2">
+                  <Link to="/qualifizierungschancengesetz/" className="hover:text-[#e51a59]">
+                    Qualifizierungschancengesetz
+                  </Link>
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  {isEn
+                    ? "Subsidized training costs (up to 100%) and wage supplements (up to 75%) for employees undergoing tech upskilling."
+                    : "Bis zu 100 % Zuschuss zu den Lehrgangskosten und bis zu 75 % Arbeitsentgeltzuschuss für Mitarbeitende im digitalen Wandel."}
+                </p>
+              </div>
+              <Link
+                to="/qualifizierungschancengesetz/"
+                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1 pt-3 border-t border-gray-100"
+              >
+                <span>{isEn ? "QCG Employer Funding" : "QCG für Unternehmen"}</span>
+                <ArrowRightIcon className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-center">
             <Link
               to={isEn ? "/financing-and-tuition/" : "/finanzierung/"}
-              className="text-xs sm:text-sm font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 shrink-0"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#e51a59] hover:underline"
             >
               <span>
-                {isEn ? "Compare all financing options" : "Alle Finanzierungsmöglichkeiten im Vergleich"}
+                {isEn ? "Compare all funding options in detail" : "Alle Finanzierungswege im Vergleich ansehen"}
               </span>
               <ArrowRightIcon className="w-4 h-4" />
             </Link>
@@ -760,137 +889,143 @@ export function HomePage() {
       </section>
 
       {/* =====================================================================
-          SECTION 3: WHY CLARUSWAY & CAREER MANAGEMENT
+          B6: IN 3 SCHRITTEN ZUR IT WEITERBILDUNG (H2 per Page 22)
+          ===================================================================== */}
+      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <span
+              style={{ color: PRIMARY }}
+              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+            >
+              {isEn ? "Admission Process" : "Ablauf & Beantragung"}
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+              {isEn ? "In 3 steps to your IT training" : "In 3 Schritten zur IT Weiterbildung"}
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+              {isEn
+                ? "From initial guidance to your first day in class — we prepare all German documentation for your advisor."
+                : "Vom ersten Kennenlernen bis zum erfolgreichen Start begleiten wir dich durch den gesamten Prozess."}
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-6 mb-8">
+            {steps3.map((step) => (
+              <div
+                key={step.num}
+                className="bg-white rounded-2xl p-7 border border-gray-200/80 shadow-2xs relative"
+              >
+                <span
+                  style={{ color: PRIMARY }}
+                  className="text-xs font-extrabold uppercase tracking-wider bg-[#fde8ef] px-3 py-1 rounded-full inline-block mb-3"
+                >
+                  {isEn ? `Step ${step.num}` : `Schritt ${step.num}`}
+                </span>
+                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">{step.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              to={consultPath}
+              style={{ backgroundColor: PRIMARY }}
+              className="inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95"
+            >
+              <span>{isEn ? "Book free consultation now" : "Jetzt kostenlose Beratung buchen"}</span>
+              <ArrowRightIcon className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          B7: SO FUNKTIONIERT DAS LERNEN BEI CLARUSWAY (H2 per Page 22)
           ===================================================================== */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-7">
-              <span
-                style={{ color: PRIMARY }}
-                className="text-xs font-semibold uppercase tracking-widest block mb-2"
-              >
-                {isEn ? "Why Choose Clarusway" : "Deine Vorteile"}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-4">
-                {isEn ? "Why Clarusway" : "Warum eine IT-Weiterbildung bei Clarusway?"}
-              </h2>
+          <div className="max-w-3xl mb-10">
+            <span
+              style={{ color: PRIMARY }}
+              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+            >
+              {isEn ? "Our Learning Model" : "Lernmodell"}
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+              {isEn ? "How learning works at Clarusway" : "So funktioniert das Lernen bei Clarusway"}
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+              {isEn
+                ? "Live interactive classrooms, daily senior mentor availability, and real team engineering projects simulate a genuine tech work environment."
+                : "Live-Interaktion, tägliche Mentor-Sprechstunden und reale Entwicklungsprojekte bereiten dich optimal auf den Berufsalltag vor."}
+            </p>
+          </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
-                {(isEn
-                  ? [
-                      {
-                        title: "English, Turkish & German Instruction",
-                        desc: "Take your bootcamp in English or Turkish (German cohorts expanding) — matching international industry standards and tech employer expectations.",
-                      },
-                      {
-                        title: "German Paperwork Handled for Your Advisor",
-                        desc: "Clarusway prepares your official Maßnahmeangebot in German so your Agentur für Arbeit or Jobcenter appointment goes smoothly.",
-                      },
-                      {
-                        title: "Live Small-Group Cohorts (Max. 15)",
-                        desc: "Daily live classes (09:00–16:45 CET) with real-time mentoring instead of pre-recorded self-study videos.",
-                      },
-                      {
-                        title: "2026 AI-Integrated Curricula",
-                        desc: "Every program includes modern AI workflows — from Agentic AI & MCP to Cursor, Claude Code, and AI-enhanced SOC operations.",
-                      },
-                    ]
-                  : [
-                      {
-                        title: "Live-Unterricht in Kleingruppen (max. 15 Plätze)",
-                        desc: "Täglicher Live-Unterricht von 09:00 bis 16:45 Uhr mit echten Dozenten und Mentoren statt einsamer Selbstlernvideos.",
-                      },
-                      {
-                        title: "KI-integrierte Lehrpläne 2026",
-                        desc: "Von Agentic AI & MCP über Cursor und Claude Code bis zum KI-gestützten Security Operations Center.",
-                      },
-                      {
-                        title: "AZAV-zertifiziert & AWS Select Tier Partner",
-                        desc: "Geprüfte Bildungsqualität mit Sitz in Neuss und offizieller Partnerschaft im Amazon Web Services Partner Network.",
-                      },
-                      {
-                        title: "Modulare Einstiegsmöglichkeiten",
-                        desc: "Starte ohne Vorkenntnisse in Modul 1 oder verkürze deine Weiterbildung per Einstufungsprüfung.",
-                      },
-                    ]
-                ).map((item, i) => (
-                  <div
-                    key={i}
-                    style={{ backgroundColor: SOFT_BG }}
-                    className="rounded-2xl p-6 border border-gray-100"
-                  >
-                    <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Career Management Highlight Card */}
-            <div className="lg:col-span-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {learningPillars.map((pillar, idx) => (
               <div
-                style={{ backgroundColor: DARK }}
-                className="rounded-3xl p-7 sm:p-8 text-white h-full flex flex-col justify-between"
+                key={idx}
+                style={{ backgroundColor: SOFT_BG }}
+                className="rounded-2xl p-6 border border-gray-100 flex flex-col justify-between"
               >
                 <div>
-                  <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e51a59] text-white mb-4">
-                    {isEn ? "Included Career Coaching" : "Integriertes Karriere-Coaching"}
-                  </span>
-                  <h2 className="text-xl sm:text-2xl font-bold mb-3">
-                    {isEn
-                      ? "Graduate support for your career start"
-                      : "Karriere-Support für deinen Berufseinstieg"}
-                  </h2>
-                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-5">
-                    {isEn
-                      ? "Technical skills are the foundation. Clarusway's graduate support team prepares you thoroughly for entering the tech sector in Germany:"
-                      : "Fachwissen ist die Basis — unser Karriere-Team begleitet Absolventen umfassend beim erfolgreichen Einstieg in den deutschen Technologiemarkt:"}
-                  </p>
-                  <ul className="space-y-2.5 text-xs sm:text-sm text-gray-200 mb-6">
-                    {(isEn
-                      ? [
-                          "Professional profile & LinkedIn optimization according to industry standards",
-                          "GitHub portfolio & capstone project presentation",
-                          "1-on-1 technical & HR practice interviews in English or German",
-                          "Strategic guidance for applications to tech employers across Germany",
-                        ]
-                      : [
-                          "Professionelle Profil- & LinkedIn-Optimierung nach Branchenstandards",
-                          "Aufbau und Präsentation eines überzeugenden GitHub-Projektportfolios",
-                          "Praxisnahe technische Probe-Interviews & Vorbereitung auf Fachgespräche",
-                          "Individuelle Orientierung und Unterstützung für Bewerbungen in Deutschland",
-                        ]
-                    ).map((b, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0 mt-0.5" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="w-9 h-9 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center mb-3">
+                    <CheckCircleIcon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{pillar.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{pillar.desc}</p>
                 </div>
-
-                <Link
-                  to={isEn ? "/career-management/" : "/karriere-management/"}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#f472b6] hover:underline"
-                >
-                  <span>
-                    {isEn
-                      ? "Explore Career Management services"
-                      : "Mehr über unser Karriere-Management erfahren"}
-                  </span>
-                  <ArrowRightIcon className="w-4 h-4" />
-                </Link>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          B8: ZERTIFIZIERT UND ANERKANNT (H2 per Page 22)
+          ===================================================================== */}
+      <section style={{ backgroundColor: SOFT_BG }} className="py-14 border-t border-b border-gray-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-2">
+              {isEn ? "Certified and recognized" : "Zertifiziert und anerkannt"}
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-500">
+              {isEn
+                ? "State-inspected continuing education provider and verified partner in leading tech ecosystems."
+                : "Staatlich geprüfter Bildungsträger und anerkannter Partner führender Technologie-Netzwerke."}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
+              <span className="block font-extrabold text-[#e51a59] text-base mb-0.5">AZAV</span>
+              <span className="text-xs text-gray-600 font-medium">
+                {isEn ? "Certified Provider" : "Zugelassener Träger"}
+              </span>
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
+              <span className="block font-extrabold text-[#1a1d2e] text-base mb-0.5">AWS Partner</span>
+              <span className="text-xs text-gray-600 font-medium">Select Tier Consulting</span>
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
+              <span className="block font-extrabold text-[#1a1d2e] text-base mb-0.5">KURSNET</span>
+              <span className="text-xs text-gray-600 font-medium">Bundesagentur für Arbeit</span>
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
+              <span className="block font-extrabold text-[#1a1d2e] text-base mb-0.5">mein NOW</span>
+              <span className="text-xs text-gray-600 font-medium">Nationales Onlineportal</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* =====================================================================
-          SECTION 4: GRADUATE REVIEWS (Component B12)
+          B9: ERFAHRUNGEN VON CLARUSWAY ABSOLVENTEN (H2 per Page 22)
           ===================================================================== */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
@@ -898,10 +1033,10 @@ export function HomePage() {
                 style={{ color: PRIMARY }}
                 className="text-xs font-semibold uppercase tracking-widest block mb-2"
               >
-                {isEn ? "Graduate Stories" : "Absolventenstimmen"}
+                {isEn ? "Alumni Reviews" : "Absolventenstimmen"}
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
-                {isEn ? "What graduates say" : "Erfahrungen unserer Absolventen"}
+                {isEn ? "What graduates say" : "Erfahrungen von Clarusway Absolventen"}
               </h2>
             </div>
 
@@ -909,7 +1044,7 @@ export function HomePage() {
               to={isEn ? "/success-stories/" : "/erfolgsgeschichten/"}
               className="text-xs sm:text-sm font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1.5"
             >
-              <span>{isEn ? "Read all success stories" : "Alle Erfolgsgeschichten lesen"}</span>
+              <span>{isEn ? "Read all success stories" : "Alle Erfahrungsberichte lesen"}</span>
               <ArrowRightIcon className="w-4 h-4" />
             </Link>
           </div>
@@ -925,7 +1060,7 @@ export function HomePage() {
                 <div>
                   <p className="font-bold text-sm text-[#1a1d2e]">DH Kim</p>
                   <p className="text-xs text-gray-500">
-                    {isEn ? "Clarusway Graduate" : "Clarusway Absolvent"}
+                    {isEn ? "AWS & DevOps Graduate" : "AWS & DevOps Absolvent"}
                   </p>
                 </div>
                 <a
@@ -950,7 +1085,7 @@ export function HomePage() {
                 <div>
                   <p className="font-bold text-sm text-[#1a1d2e]">Morad</p>
                   <p className="text-xs text-gray-500">
-                    {isEn ? "Clarusway Graduate" : "Clarusway Absolvent"}
+                    {isEn ? "Cyber Security Graduate" : "Cyber Security Absolvent"}
                   </p>
                 </div>
                 <a
@@ -969,69 +1104,7 @@ export function HomePage() {
       </section>
 
       {/* =====================================================================
-          SECTION 5: FEATURED GUIDES (Component B17) — Expat / Career Cluster
-          ===================================================================== */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-            <div>
-              <span
-                style={{ color: PRIMARY }}
-                className="text-xs font-semibold uppercase tracking-widest block mb-2"
-              >
-                {isEn ? "Expat & Career Guides" : "Wissen & Orientierung"}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
-                {isEn
-                  ? "IT Career & Funding Guides for Germany"
-                  : "Aktuelle IT-Ratgeber für Quereinsteiger"}
-              </h2>
-            </div>
-
-            <Link
-              to={isEn ? "/guides/" : "/ratgeber/"}
-              className="text-xs sm:text-sm font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1.5"
-            >
-              <span>{isEn ? "Browse all guides" : "Alle Ratgeber ansehen"}</span>
-              <ArrowRightIcon className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {guides.map((g) => (
-              <article
-                key={g.to}
-                style={{ backgroundColor: SOFT_BG }}
-                className="rounded-2xl p-6 border border-gray-200 hover:border-[#e51a59] transition-colors flex flex-col justify-between"
-              >
-                <div>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3">
-                    <BookOpenIcon className="w-3 h-3" />
-                    <span>{g.badge}</span>
-                  </span>
-                  <h3 className="text-base font-bold text-[#1a1d2e] mb-2 leading-snug">
-                    <Link to={g.to} className="hover:text-[#e51a59] transition-colors">
-                      {g.title}
-                    </Link>
-                  </h3>
-                  <p className="text-xs text-gray-600 leading-relaxed mb-4">{g.desc}</p>
-                </div>
-
-                <Link
-                  to={g.to}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#e51a59] hover:underline"
-                >
-                  <span>{g.title}</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          SECTION 6: FAQ (Component B13) — <details><summary><h3>
+          B10: HÄUFIGE FRAGEN ZUR IT WEITERBILDUNG (H2 per Page 22)
           ===================================================================== */}
       <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1044,8 +1117,8 @@ export function HomePage() {
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
               {isEn
-                ? "Frequently asked questions"
-                : "Häufige Fragen zur IT-Weiterbildung bei Clarusway"}
+                ? "Frequently asked questions about IT training"
+                : "Häufige Fragen zur IT Weiterbildung"}
             </h2>
           </div>
 
@@ -1054,12 +1127,10 @@ export function HomePage() {
               <details
                 key={idx}
                 open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-2xs"
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e] text-left">
-                    {f.q}
-                  </h3>
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
+                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
                   <span
                     style={{ color: PRIMARY }}
                     className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm group-open:rotate-45 transition-transform"
@@ -1077,44 +1148,41 @@ export function HomePage() {
       </section>
 
       {/* =====================================================================
-          FINAL CTA BANNER (Component B16)
+          B11 / B16: SON CTA BANDI (H2 per Page 22)
           ===================================================================== */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            style={{
-              background: "linear-gradient(135deg, #1a1d2e 0%, #2d1b3d 55%, #8a1c4a 100%)",
-            }}
-            className="rounded-3xl p-8 sm:p-12 text-white text-center shadow-xl"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3">
-              {isEn
-                ? "Ready to launch your IT career in Germany?"
-                : "Bereit für deinen Einstieg in die IT?"}
-            </h2>
-            <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-7 leading-relaxed">
-              {isEn
-                ? "Book a free 1-on-1 consultation. Clarusway helps you choose the right program and prepares your official Bildungsgutschein offer within 24 hours."
-                : "Lass dich kostenlos und unverbindlich beraten. Wir prüfen deinen Förderanspruch und erstellen innerhalb von 24 Stunden dein offizielles Angebot für den Bildungsgutschein."}
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                to={consultPath}
-                style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-lg hover:opacity-95 transition-opacity"
-              >
-                <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
-                <ArrowRightIcon className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/bildungsgutschein/"
-                className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-white/10 transition-colors"
-              >
-                <span>
-                  {isEn ? "How to get a Bildungsgutschein" : "Bildungsgutschein beantragen"}
-                </span>
-              </Link>
-            </div>
+      <section
+        className="py-16"
+        style={{ background: `linear-gradient(135deg, ${DARK} 0%, #2d1b3d 100%)` }}
+      >
+        <div className="max-w-4xl mx-auto px-5 text-center text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+            {isEn
+              ? "Ready for your IT career? Book your free consultation now."
+              : "Bereit für deine IT-Karriere? Vereinbare jetzt dein kostenloses Beratungsgespräch."}
+          </h2>
+          <p className="text-gray-300 text-sm sm:text-base mb-8 max-w-2xl mx-auto">
+            {isEn
+              ? "We review your eligibility for a Bildungsgutschein or AVGS and prepare your official German course offer within 24 hours."
+              : "Wir prüfen deinen Anspruch auf einen Bildungsgutschein oder AVGS und erstellen dein offizielles Maßnahmeangebot innerhalb von 24 Stunden."}
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              to={consultPath}
+              onClick={() =>
+                trackClaruswayEvent("beratung_angefragt", { source: "home_bottom_cta", lang })
+              }
+              style={{ backgroundColor: PRIMARY }}
+              className="inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95"
+            >
+              <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
+              <ArrowRightIcon className="w-4 h-4" />
+            </Link>
+            <Link
+              to={isEn ? "/it-courses/" : "/it-kurse/"}
+              className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-bold px-7 py-3.5 rounded-xl text-sm hover:border-white/70 transition-colors"
+            >
+              <span>{isEn ? "Compare all IT courses" : "Alle IT-Kurse vergleichen"}</span>
+            </Link>
           </div>
         </div>
       </section>

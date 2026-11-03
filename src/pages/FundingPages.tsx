@@ -33,8 +33,8 @@ export function FinancingHubPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "Financing and Tuition: 100% Funded IT Courses | Clarusway"
-    : "Finanzierung & Förderung deiner IT-Weiterbildung | Clarusway";
+    ? "Funding for IT Courses in Germany | Clarusway"
+    : "IT Weiterbildung finanzieren, alle Förderwege | Clarusway";
 
   const metaDescription = isEn
     ? "Learn how to finance your Clarusway IT bootcamp in Germany: 100% funded with a Bildungsgutschein, AVGS voucher, Qualifizierungschancengesetz, or flexible installments."
@@ -90,8 +90,8 @@ export function FinancingHubPage() {
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
-                  ? "Financing and tuition: take your IT course for free"
-                  : "Finanzierung deiner IT-Weiterbildung: 100 % Förderung möglich"}
+                  ? "How to fund your IT course in Germany"
+                  : "IT Weiterbildung finanzieren"}
               </h1>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
                 {isEn
@@ -507,8 +507,8 @@ export function BildungsgutscheinPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "Bildungsgutschein Guide: How to Get 100% Funding for IT Training | Clarusway"
-    : "Bildungsgutschein beantragen: Voraussetzungen & Ablauf | Clarusway";
+    ? "Bildungsgutschein Explained in English | Clarusway"
+    : "Bildungsgutschein beantragen und Voraussetzungen | Clarusway";
 
   const metaDescription = isEn
     ? "Step-by-step guide on how to get a Bildungsgutschein from the Agentur für Arbeit or Jobcenter in Germany for 100% funded IT training at Clarusway."
@@ -663,8 +663,8 @@ export function BildungsgutscheinPage() {
 
               <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
-                  ? "Bildungsgutschein: how to get 100% funding for your IT course in Germany"
-                  : "IT-Weiterbildung mit Bildungsgutschein: 100 % Kostenübernahme"}
+                  ? "The Bildungsgutschein explained, and how to get one for an IT course"
+                  : "Bildungsgutschein beantragen, Voraussetzungen und Ablauf"}
               </h1>
 
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
@@ -1173,8 +1173,8 @@ export function AvgsPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "AVGS Voucher in Germany: Free IT Career Coaching | Clarusway"
-    : "AVGS Gutschein: Aktivierungs- und Vermittlungsgutschein | Clarusway";
+    ? "AVGS Coaching in English | Clarusway"
+    : "AVGS Gutschein für Coaching und IT-Orientierung | Clarusway";
 
   const metaDescription = isEn
     ? "What is an AVGS (Aktivierungs- und Vermittlungsgutschein)? Learn how to use an AVGS voucher for 100% funded IT career orientation at Clarusway."
@@ -1210,8 +1210,8 @@ export function AvgsPage() {
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
-                  ? "AVGS voucher: free career orientation and coaching in Germany"
-                  : "AVGS: Aktivierungs- und Vermittlungsgutschein für deine IT-Orientierung"}
+                  ? "Free career coaching with an AVGS voucher"
+                  : "Der AVGS Gutschein (Aktivierungs- und Vermittlungsgutschein) erklärt"}
               </h1>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
                 {isEn
@@ -1551,8 +1551,8 @@ export function QcgPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const metaTitle = isEn
-    ? "Qualifizierungschancengesetz: Funded IT Training for Employees | Clarusway"
-    : "Qualifizierungschancengesetz (QCG): Förderung für Beschäftigte | Clarusway";
+    ? "Qualifizierungschancengesetz for Employers | Clarusway"
+    : "Qualifizierungschancengesetz für Arbeitgeber | Clarusway";
 
   const metaDescription = isEn
     ? "Up to 100% tuition subsidy and 75% wage subsidy for employed staff in Germany under § 82 SGB III (Qualifizierungschancengesetz)."
@@ -1599,8 +1599,8 @@ export function QcgPage() {
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
-                  ? "Qualifizierungschancengesetz: state-funded IT training for employees in Germany"
-                  : "Qualifizierungschancengesetz: Staatliche Förderung für Beschäftigte und Unternehmen"}
+                  ? "IT training for employees, funded by the Qualifizierungschancengesetz"
+                  : "Mitarbeitende mit dem Qualifizierungschancengesetz (QCG) gefördert weiterbilden"}
               </h1>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
                 {isEn
@@ -1974,8 +1974,8 @@ export function CorporateTrainingPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "Corporate IT Training in Germany | Clarusway"
-    : "IT-Weiterbildung für Unternehmen & Teams | Clarusway";
+    ? "Corporate IT Training in English | Clarusway"
+    : "IT Weiterbildung für Unternehmen und Mitarbeitende | Clarusway";
 
   const metaDescription = isEn
     ? "Upskill your engineering and data teams in Germany with AZAV-certified training in AI Engineering, Cloud/DevOps, Cyber Security, and Kubernetes — subsidized via QCG."
@@ -2001,8 +2001,8 @@ export function CorporateTrainingPage() {
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
-                  ? "Corporate IT training for companies in Germany"
-                  : "IT-Weiterbildung für Unternehmen: Fachkräfte entwickeln und fördern"}
+                  ? "IT training in English for your team"
+                  : "IT Weiterbildung für Unternehmen"}
               </h1>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
                 {isEn

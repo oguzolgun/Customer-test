@@ -40,7 +40,7 @@ const deCoursesGroups = [
 
 const enCoursesGroups = [
   {
-    groupLabel: "Data and AI",
+    groupLabel: "Data & AI",
     items: [
       { label: "AI Engineering", sub: "From Data Analytics to Agentic AI", to: "/it-courses/ai-engineering/" },
     ],
@@ -53,7 +53,7 @@ const enCoursesGroups = [
     ],
   },
   {
-    groupLabel: "Cloud and Security",
+    groupLabel: "Cloud & Security",
     items: [
       { label: "AI-Enhanced Cyber Security", sub: "SOC Analyst & Cloud Security", to: "/it-courses/cyber-security/" },
       { label: "AI-Enhanced AWS Solutions Architect/DevOps Engineer", sub: "Cloud & DevOps Engineering with AI", to: "/it-courses/devops-aws/" },
@@ -61,7 +61,7 @@ const enCoursesGroups = [
     ],
   },
   {
-    groupLabel: "Not sure yet?",
+    groupLabel: "Not sure yet",
     items: [
       { label: "IT Orientation Course", sub: "Find the right IT career", to: "/it-orientation-course/" },
       { label: "All courses", sub: "Comparison table & overview", to: "/it-courses/" },

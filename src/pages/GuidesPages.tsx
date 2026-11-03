@@ -35,12 +35,12 @@ export function GuidesHubPage() {
   }
 
   const metaTitle = isEn
-    ? "IT Career and Certification Guides in Germany | Clarusway"
-    : "IT-Ratgeber: Berufsbilder, Gehälter & Förderung | Clarusway";
+    ? "Career Guides: IT Jobs, Certifications and Funding | Clarusway"
+    : "Ratgeber zu IT-Berufen, Quereinstieg und Förderung | Clarusway";
 
   const metaDescription = isEn
-    ? "Guides in English on IT careers, cloud certifications, and tech skills in Germany. Data, AI, Web Development, Cyber Security and DevOps."
-    : "Alle Clarusway IT-Ratgeber im Überblick: Berufsbilder (AI Engineer, Data Analyst, Full Stack, SOC Analyst, DevOps), Gehälter, Zertifizierungen und Förderung.";
+    ? "Practical guides in English on IT careers, cloud certifications, and funding with a Bildungsgutschein in Germany."
+    : "Ratgeber für den Einstieg in die IT: Berufsbilder, Voraussetzungen, geförderter Quereinstieg und Weiterbildung über Arbeitsagentur und Jobcenter.";
 
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
@@ -62,8 +62,8 @@ export function GuidesHubPage() {
 
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
               {isEn
-                ? "IT career and certification guides for Germany"
-                : "IT-Ratgeber: Berufsbilder, Karrierechancen und Förderung in Deutschland"}
+                ? "Guides to IT careers, certifications, and funding in Germany"
+                : "Ratgeber für den Einstieg in die IT"}
             </h1>
 
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">

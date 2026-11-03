@@ -40,10 +40,10 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Orientierung & Förderung",
     badge: "Karriere-Ratgeber",
-    metaTitle: "Quereinstieg in die IT: Wege, Berufe & Förderung | Clarusway",
+    metaTitle: "Quereinstieg in die IT, Wege, Berufe und Förderung | Clarusway",
     metaDescription:
       "So gelingt der Quereinstieg in die IT ohne Informatikstudium: Die besten Einstiegsberufe, Gehälter und 100 % Förderung mit Bildungsgutschein.",
-    h1: "Quereinstieg in die IT: Welche Berufe sich eignen und wie der Einstieg gelingt",
+    h1: "Wege, Voraussetzungen und Förderung für den Quereinstieg in die IT",
     author: "Clarusway Fachredaktion",
     updatedAt: "22. Oktober 2026",
     readTime: "7 Min. Lesezeit",
@@ -134,7 +134,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "Weiterbildung über Arbeitsagentur & Jobcenter | Clarusway",
     metaDescription:
       "So beantragst du eine geförderte IT-Weiterbildung bei der Agentur für Arbeit oder dem Jobcenter: Voraussetzungen, Ablauf und Argumente für das Gespräch.",
-    h1: "Weiterbildung über Arbeitsagentur und Jobcenter: So klappt die Förderung",
+    h1: "So klappt die geförderte Weiterbildung über Arbeitsagentur und Jobcenter",
     author: "Clarusway Förderberatung",
     updatedAt: "22. Oktober 2026",
     readTime: "6 Min. Lesezeit",
@@ -195,7 +195,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "KI & Data Science",
     badge: "Berufsratgeber (KI & Data)",
-    metaTitle: "AI Engineer: Aufgaben, Fähigkeiten & Einstieg | Clarusway",
+    metaTitle: "AI Engineer werden, Aufgaben, Fähigkeiten und Einstieg | Clarusway",
     metaDescription:
       "Was macht ein AI Engineer? Aufgaben, Unterschied zum Data Scientist, gefragte Skills (LLMs, RAG, Agentic AI) und Einstieg in Deutschland.",
     h1: "Was macht ein AI Engineer? Aufgaben, Fähigkeiten und Einstieg",
@@ -261,7 +261,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "KI & Data Science",
     badge: "Berufsratgeber (Data)",
-    metaTitle: "Data Analyst werden: Aufgaben, Voraussetzungen & Quereinstieg | Clarusway",
+    metaTitle: "Data Analyst werden, Aufgaben, Voraussetzungen und Quereinstieg | Clarusway",
     metaDescription:
       "Was macht ein Data Analyst? Alles zu Aufgaben, Skills (SQL, Python, Power BI) und dem geförderten Quereinstieg in 13 Wochen mit Bildungsgutschein.",
     h1: "So wird man Data Analyst, auch als Quereinsteiger",
@@ -324,7 +324,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "Was ist Agentic AI? KI-Agenten einfach erklärt | Clarusway",
     metaDescription:
       "Was bedeutet Agentic AI? Wie autonome KI-Agenten mit LangGraph, RAG und Model Context Protocol (MCP) komplexe Aufgaben lösen.",
-    h1: "Was ist Agentic AI? Wie autonome KI-Agenten arbeiten",
+    h1: "Was ist Agentic AI und wie arbeiten KI-Agenten?",
     author: "Clarusway Data & AI Team",
     updatedAt: "22. Oktober 2026",
     readTime: "6 Min. Lesezeit",
@@ -369,7 +369,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Webentwicklung & Software",
     badge: "Berufsratgeber (Web)",
-    metaTitle: "Full-Stack-Entwickler: Aufgaben & Einstieg | Clarusway",
+    metaTitle: "Full-Stack-Entwickler werden, Aufgaben und Einstieg | Clarusway",
     metaDescription:
       "Was macht ein Full-Stack-Entwickler? Tech-Stack (React, TypeScript, Next.js, Node.js), KI-Tools und Quereinstieg mit Bildungsgutschein.",
     h1: "Was ist ein Full-Stack-Entwickler und wie wird man es?",
@@ -421,7 +421,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "Frontend vs. Backend vs. Full Stack im Vergleich | Clarusway",
     metaDescription:
       "Was ist der Unterschied zwischen Frontend, Backend und Full Stack Entwicklung? Aufgaben, Programmiersprachen und Gehälter im direkten Vergleich.",
-    h1: "Frontend vs. Backend vs. Full Stack: Welcher Pfad passt zu dir?",
+    h1: "Frontend vs. Backend vs. Full Stack – Welcher Pfad passt zu dir?",
     author: "Clarusway Software Engineering Team",
     updatedAt: "22. Oktober 2026",
     readTime: "5 Min. Lesezeit",
@@ -466,7 +466,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Cyber Security",
     badge: "Berufsratgeber (Security)",
-    metaTitle: "SOC Analyst: Aufgaben, Fähigkeiten & Einstieg | Clarusway",
+    metaTitle: "Was macht ein SOC Analyst? Aufgaben, Fähigkeiten und Einstieg | Clarusway",
     metaDescription:
       "Was macht ein SOC Analyst im Security Operations Center? Tier 1–3 Aufgaben, SIEM-Tools, Zertifizierungen und Weiterbildung mit Bildungsgutschein.",
     h1: "Was macht ein SOC Analyst? Aufgaben, Fähigkeiten und Einstieg",
@@ -514,10 +514,10 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Cyber Security",
     badge: "Zertifizierungs-Guide",
-    metaTitle: "CompTIA Security+ (SY0-701): Prüfung & Kosten | Clarusway",
+    metaTitle: "CompTIA Security+ (SY0-701) Prüfung, Kosten und Vorbereitung | Clarusway",
     metaDescription:
       "Alles zur CompTIA Security+ Zertifizierung (SY0-701): Prüfungsdomänen, Kosten, Vorbereitung und Kostenübernahme über den Bildungsgutschein.",
-    h1: "CompTIA Security+ Zertifizierung: Prüfung, Kosten und Vorbereitung",
+    h1: "CompTIA Security+ Zertifizierung, Prüfung, Kosten und Vorbereitung",
     author: "Clarusway Cyber Security Team",
     updatedAt: "22. Oktober 2026",
     readTime: "6 Min. Lesezeit",
@@ -613,7 +613,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Cloud & DevOps",
     badge: "Berufsratgeber (Cloud & DevOps)",
-    metaTitle: "DevOps Engineer: Aufgaben, Tools & Einstieg | Clarusway",
+    metaTitle: "DevOps Engineer werden, Aufgaben, Tools und Einstieg | Clarusway",
     metaDescription:
       "Was macht ein DevOps Engineer? Alles zu Aufgaben, Tools (AWS, Docker, Kubernetes, Terraform) und Weiterbildung mit Bildungsgutschein.",
     h1: "Was macht ein DevOps Engineer? Aufgaben, Fähigkeiten und Einstieg",
@@ -662,7 +662,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Cloud & DevOps",
     badge: "Berufsratgeber (Cloud)",
-    metaTitle: "Cloud Engineer: Aufgaben, Cloud-Provider & Einstieg | Clarusway",
+    metaTitle: "Cloud Engineer werden, Aufgaben und Einstieg | Clarusway",
     metaDescription:
       "Was macht ein Cloud Engineer? Aufgaben auf AWS und Azure, Zertifizierungen und geförderte Weiterbildung mit Bildungsgutschein.",
     h1: "Was macht ein Cloud Engineer? Aufgaben, Fähigkeiten und Einstieg",
@@ -760,10 +760,10 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Cloud & DevOps",
     badge: "Zertifizierungs-Guide",
-    metaTitle: "AWS Zertifizierungen im Überblick: Welche lohnt sich? | Clarusway",
+    metaTitle: "AWS Zertifizierungen im Überblick, welche Prüfung sich lohnt | Clarusway",
     metaDescription:
       "Alle wichtigen AWS Zertifizierungen im Vergleich: Cloud Practitioner (CLF-C02), Solutions Architect Associate (SAA-C03) und DevOps Engineer.",
-    h1: "AWS Zertifizierungen: Überblick, Kosten und welche Prüfung sich zuerst lohnt",
+    h1: "AWS Zertifizierungen, Überblick, Kosten und welche Prüfung sich zuerst lohnt",
     author: "Clarusway Cloud & DevOps Team",
     updatedAt: "22. Oktober 2026",
     readTime: "6 Min. Lesezeit",
@@ -809,10 +809,10 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Cloud & DevOps",
     badge: "Prüfungs-Guide",
-    metaTitle: "AWS Cloud Practitioner (CLF-C02): Prüfung & Kosten | Clarusway",
+    metaTitle: "AWS Cloud Practitioner (CLF-C02) Prüfung und Kosten | Clarusway",
     metaDescription:
       "Leitfaden zur AWS Certified Cloud Practitioner Prüfung (CLF-C02): Themendomänen, Prüfungsdauer, Kosten und Vorbereitung.",
-    h1: "AWS Cloud Practitioner (CLF-C02): Prüfung, Kosten und Vorbereitung",
+    h1: "AWS Cloud Practitioner (CLF-C02) Prüfung, Kosten und Vorbereitung",
     author: "Clarusway Cloud & DevOps Team",
     updatedAt: "22. Oktober 2026",
     readTime: "5 Min. Lesezeit",
@@ -858,7 +858,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Software Testing",
     badge: "Berufsratgeber (QA)",
-    metaTitle: "Software Tester (SDET): Aufgaben, Tools & Quereinstieg | Clarusway",
+    metaTitle: "Software Tester (SDET) werden, Aufgaben, Tools und Einstieg | Clarusway",
     metaDescription:
       "Was macht ein Software Tester / QA Automation Engineer (SDET)? Aufgaben, Tools (Java, Selenium, Playwright) und Quereinstieg.",
     h1: "Was macht ein Software Tester? Aufgaben, Fähigkeiten und Einstieg",
@@ -905,10 +905,10 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Software Testing",
     badge: "Zertifizierungs-Guide",
-    metaTitle: "ISTQB Zertifizierung (CTFL): Prüfung & Nutzen | Clarusway",
+    metaTitle: "ISTQB Zertifizierung (CTFL) Prüfung und Nutzen | Clarusway",
     metaDescription:
       "Alles zum ISTQB Certified Tester Foundation Level (CTFL): Aufbau, Prüfung, Kosten und Kombination mit moderner Testautomatisierung.",
-    h1: "ISTQB Zertifizierung: Was bringt der Certified Tester (CTFL)?",
+    h1: "ISTQB Zertifizierung und Nutzen des Certified Tester (CTFL)",
     author: "Clarusway QA & SDET Team",
     updatedAt: "22. Oktober 2026",
     readTime: "5 Min. Lesezeit",
@@ -964,7 +964,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "What Does a Data Analyst Do? Role, Skills & Entry | Clarusway",
     metaDescription:
       "What does a data analyst do in Germany? Daily tasks, SQL & Python skills, career path, and 100% funded training with a Bildungsgutschein.",
-    h1: "What does a data analyst do? Tasks, skills and career path in Germany",
+    h1: "What does a data analyst do? Tasks, skills and career path",
     author: "Clarusway Data & AI Team",
     updatedAt: "October 24, 2026",
     readTime: "6 min read",
@@ -1032,7 +1032,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "What Is an AI Engineer? Role, Skills & Roadmap | Clarusway",
     metaDescription:
       "What is an AI engineer in Germany? Core skills (Python, PyTorch, RAG, Agentic AI, MCP), career path, and 32-week bootcamp funded with a Bildungsgutschein.",
-    h1: "What is an AI engineer? Role, skills and roadmap in Germany",
+    h1: "What is an AI engineer? Role, skills and roadmap",
     author: "Clarusway Data & AI Team",
     updatedAt: "October 24, 2026",
     readTime: "7 min read",
@@ -1098,7 +1098,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "What Is a Full Stack Developer? Skills & Tools | Clarusway",
     metaDescription:
       "What is a full stack developer in 2026? React, TypeScript, Next.js, Node.js, AI coding tools (Cursor, Claude Code), salaries, and funded English bootcamp.",
-    h1: "What is a full stack developer? Technologies and career entry in 2026",
+    h1: "What is a full stack developer? Skills and career path",
     author: "Clarusway Software Engineering Team",
     updatedAt: "October 24, 2026",
     readTime: "7 min read",
@@ -1157,7 +1157,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "What Does a SOC Analyst Do? Role, Tools & Entry | Clarusway",
     metaDescription:
       "What does a SOC Analyst do in Germany? Tiers 1–3, SIEM & SOAR tools, NIS-2 compliance, and English course funded with a Bildungsgutschein.",
-    h1: "What does a SOC analyst do? Role, tools and career entry in Germany",
+    h1: "What does a SOC analyst do? Tasks, skills and career path",
     author: "Clarusway Cyber Security Team",
     updatedAt: "October 24, 2026",
     readTime: "6 min read",
@@ -1216,7 +1216,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "CompTIA Security+: Exam, Cost and Preparation | Clarusway",
     metaDescription:
       "Complete guide to the CompTIA Security+ (SY0-701) exam in Germany: domains, exam format, cost, and how to prepare for free with a Bildungsgutschein.",
-    h1: "CompTIA Security+ in Germany: exam, cost and preparation",
+    h1: "CompTIA Security+ exam, cost and preparation",
     author: "Clarusway Cyber Security Team",
     updatedAt: "October 24, 2026",
     readTime: "6 min read",
@@ -1277,7 +1277,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "Will AI Replace Cybersecurity Professionals? Facts & Trends | Clarusway",
     metaDescription:
       "Will AI replace cybersecurity professionals and SOC analysts? Why AI accelerates attacks and defense, which security skills survive, and how to stay ahead.",
-    h1: "Will AI replace cybersecurity professionals? Facts and future trends",
+    h1: "Will AI replace cybersecurity professionals?",
     author: "Clarusway Cyber Security Team",
     updatedAt: "October 24, 2026",
     readTime: "7 min read",
@@ -1350,7 +1350,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "What Does a DevOps Engineer Do? Tools & Skills | Clarusway",
     metaDescription:
       "What does a DevOps Engineer do in Germany? Core skills (AWS, Docker, Kubernetes, Terraform, CI/CD) and funded training with a Bildungsgutschein.",
-    h1: "What does a DevOps engineer do? Core tools and career path",
+    h1: "What does a DevOps engineer do? Tasks, tools and career path",
     author: "Clarusway Cloud & DevOps Team",
     updatedAt: "October 24, 2026",
     readTime: "7 min read",
@@ -1409,7 +1409,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "AWS Certifications: Which Exam to Take First | Clarusway",
     metaDescription:
       "AWS certifications guide for 2026: compare Cloud Practitioner (CLF-C02) vs. Solutions Architect Associate (SAA-C03), exam costs, and funded preparation.",
-    h1: "AWS certifications: which one to take first in 2026",
+    h1: "Which AWS certification to take first",
     author: "Clarusway Cloud & DevOps Team",
     updatedAt: "October 24, 2026",
     readTime: "6 min read",
@@ -1463,7 +1463,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     metaTitle: "AWS Cloud Practitioner: Exam and Prep Guide | Clarusway",
     metaDescription:
       "AWS Certified Cloud Practitioner (CLF-C02) exam guide: 4 domains, exam format, costs, and study roadmap in Germany.",
-    h1: "AWS Cloud Practitioner (CLF-C02): exam guide, cost and preparation",
+    h1: "AWS Cloud Practitioner exam guide",
     author: "Clarusway Cloud & DevOps Team",
     updatedAt: "October 24, 2026",
     readTime: "5 min read",

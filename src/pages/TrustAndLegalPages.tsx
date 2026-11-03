@@ -32,8 +32,8 @@ export function AboutPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "About Clarusway Germany: AZAV-Certified IT School | Clarusway"
-    : "Über Clarusway Deutschland: AZAV-zertifizierte IT-Schule | Clarusway";
+    ? "About Clarusway | AZAV-Certified IT Training in Germany"
+    : "Über Clarusway, AZAV-zertifiziert seit 2021 | Clarusway";
 
   const metaDescription = isEn
     ? "Clarusway GmbH (Neuss, Germany) is an AZAV-certified IT training provider and AWS Select Tier Partner offering live online IT bootcamps."
@@ -55,9 +55,7 @@ export function AboutPage() {
               <span>Clarusway GmbH · Neuss, Germany</span>
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4 leading-tight">
-              {isEn
-                ? "About Clarusway Germany: AZAV-Certified IT Education"
-                : "Über Clarusway Deutschland: Dein Partner für den IT-Einstieg"}
+              {isEn ? "About Clarusway" : "Über Clarusway"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
               {isEn
@@ -134,8 +132,8 @@ export function SuccessStoriesPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "Graduate Success Stories & Reviews | Clarusway"
-    : "Erfolgsgeschichten & Erfahrungen unserer Absolventen | Clarusway";
+    ? "Clarusway Success Stories & Graduate Reviews"
+    : "Clarusway Erfahrungen und Bewertungen | Clarusway";
 
   const metaDescription = isEn
     ? "Read verified reviews from Clarusway graduates in Germany across Google Reviews, Course Report, SwitchUp, and Career Karma."
@@ -225,9 +223,7 @@ export function SuccessStoriesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
-              {isEn
-                ? "Graduate success stories and reviews"
-                : "Erfolgsgeschichten und Erfahrungen unserer Absolventen"}
+              {isEn ? "Clarusway success stories" : "Erfahrungen und Erfolgsgeschichten von Absolventen"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
               {isEn
@@ -308,8 +304,8 @@ export function CareerManagementPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "Career Management & Job Coaching in Germany | Clarusway"
-    : "Karriere-Management & Bewerbungscoaching | Clarusway";
+    ? "Career Management Service for Graduates | Clarusway"
+    : "Karriere-Management für Absolventen | Clarusway";
 
   const metaDescription = isEn
     ? "How Clarusway prepares you for the German IT job market: German-standard CV (Lebenslauf), LinkedIn, GitHub portfolio, and 1-on-1 mock interviews."
@@ -329,9 +325,7 @@ export function CareerManagementPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
-              {isEn
-                ? "Career management: job preparation for the German tech market"
-                : "Karriere-Management: Deine Begleitung bis zum IT-Job"}
+              {isEn ? "Career Management Service" : "Karriere-Management"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
               {isEn
@@ -425,8 +419,8 @@ export function EventsPage() {
   const [regSuccess, setRegSuccess] = useState(false);
 
   const metaTitle = isEn
-    ? "Free IT Webinars, Workshops & Info Sessions | Clarusway"
-    : "Kostenlose IT-Webinare, Workshops & Info-Events | Clarusway";
+    ? "IT Info Sessions & Free Workshops | Clarusway"
+    : "Events und Infoveranstaltungen | Clarusway";
 
   const metaDescription = isEn
     ? "Join free live online IT workshops, Bildungsgutschein Q&A sessions, and open classes at Clarusway Germany."
@@ -545,9 +539,7 @@ export function EventsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
-              {isEn
-                ? "Free IT webinars, workshops and info sessions"
-                : "Kostenlose IT-Webinare, Workshops & Info-Events"}
+              {isEn ? "Info sessions and events" : "Events und Infoveranstaltungen"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
               {isEn
@@ -681,8 +673,8 @@ export function ConsultationPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const metaTitle = isEn
-    ? "Free IT Career Consultation | Clarusway"
-    : "Kostenlose Beratung zur IT-Weiterbildung | Clarusway";
+    ? "Book a Free Consultation | Clarusway Germany"
+    : "Kostenlose Beratung zu Kurs und Förderung | Clarusway";
 
   const metaDescription = isEn
     ? "Book your free 1-on-1 IT career consultation at Clarusway Germany. Get your official German Maßnahmeangebot for a Bildungsgutschein within 24 hours."
@@ -731,9 +723,7 @@ export function ConsultationPage() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4 leading-tight">
-                {isEn
-                  ? "Book your free IT career consultation"
-                  : "Kostenlose Beratung buchen: Dein Weg in die IT"}
+                {isEn ? "Book a free consultation" : "Kostenlose Beratung zu Kurs und Förderung"}
               </h1>
 
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
@@ -884,9 +874,7 @@ export function ConsultationPage() {
                         <option value="ai-engineering">
                           AI Engineering & Data Science (32 {isEn ? "Weeks" : "Wochen"})
                         </option>
-                        <option value="data-analytics">
-                          Data Analytics & BI (13 {isEn ? "Weeks" : "Wochen"})
-                        </option>
+
                         <option value="full-stack">
                           AI-Assisted Full Stack Web Development
                         </option>

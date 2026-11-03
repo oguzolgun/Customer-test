@@ -270,7 +270,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         <div className="max-w-[1200px] mx-auto px-5 py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Left Column — Hook, Heading, Badges, CTAs */}
           <div>
-            {/* Tech Badges at Top (Exact Figma Make position) */}
             <div className="flex flex-wrap gap-2 mb-5">
               {data.heroBadges.map((badge) => (
                 <span
@@ -289,7 +288,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               {data.h1}
             </h1>
 
-            {/* 5 Pink Stars + Career Karma Rating (Visual only, no AggregateRating schema) */}
             <div className="flex items-center gap-2 mb-4">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -312,7 +310,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               <span>{data.heroSubnote}</span>
             </p>
 
-            {/* Primary & Secondary CTAs (rounded-xl per Figma Make) */}
             <div className="flex flex-wrap gap-3">
               <Link
                 to={consultPath}
@@ -370,7 +367,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     ))}
                   </div>
 
-                  {/* Progress Bars inside Terminal Card */}
                   <div className="mt-6 pt-4 border-t border-gray-700 grid grid-cols-2 gap-3 text-xs">
                     <div className="bg-white/5 rounded-xl p-3">
                       <div className="text-gray-400 mb-0.5">
@@ -393,7 +389,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          2. STATS BAR / ECKDATEN-LEISTE — Premium Dark Bar with Ambient Pink Top Glow & Dividers
+          2. STATS BAR / BILGI ŞERİDİ (Component B2)
           ===================================================================== */}
       <section
         className="relative py-8 sm:py-10 border-t border-b border-white/10"
@@ -425,9 +421,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       {val}
                     </span>
                   </div>
-                  {/* Pink Accent Line under the Value */}
                   <div className="w-7 h-[2.5px] bg-[#e51a59] rounded-full mt-2.5 mb-2.5" />
-                  {/* Stat Description */}
                   <p className="text-xs sm:text-sm text-gray-400 font-normal leading-snug max-w-[200px]">
                     {label}
                   </p>
@@ -439,7 +433,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          3. TARGET AUDIENCE (Component B3) — Pure White Section (#ffffff)
+          3. KİME UYGUN / TARGET AUDIENCE (Component B3) — H2: audienceH2
           ===================================================================== */}
       <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-5">
@@ -459,7 +453,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
           </div>
 
           <div className="space-y-12">
-            {/* Block 1: Text Left, Square Image Right */}
             {data.audienceCards[0] && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div
@@ -502,7 +495,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               </div>
             )}
 
-            {/* Block 2: Square Image Left, Text Right (Alternating!) */}
             {data.audienceCards[1] && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div className="flex justify-center order-2 lg:order-1">
@@ -549,7 +541,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          4. PROGRAM SELECTOR (Component B4) — ONLY Section with #f8f5f1 Cream!
+          4. PROGRAM SEÇİMİ / PROGRAM SELECTOR (Component B4) — H2: programSelectorH2
           ===================================================================== */}
       {!data.isOrientation ? (
         <>
@@ -562,7 +554,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             programs={data.programs}
           />
 
-          {/* Direct Entry / Technical Assessment Box (AI Engineering & Cyber Security) */}
           {data.directEntryInfo && (
             <section className="py-10 bg-white border-b border-gray-100">
               <div className="max-w-[1200px] mx-auto px-5">
@@ -601,8 +592,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       ) : null}
 
       {/* =====================================================================
-          5 & 6. CURRICULUM + SYLLABUS PDF DOWNLOAD (Components B5 + B6)
-          Exact Figma Make Stacked Module Cards on Pure White (#ffffff)
+          5. MÜFREDAT / CURRICULUM + PDF DOWNLOAD (Components B5 + B6) — H2: curriculumH2
           ===================================================================== */}
       <section id="curriculum" className="py-20 bg-white">
         <div className="max-w-[1200px] mx-auto px-5">
@@ -621,7 +611,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </p>
           </div>
 
-          {/* Full-Width Stacked Module Bars (Exact Figma Make WasWirstDuLernen Design) */}
           {data.modules.length > 0 && (
             <div className="space-y-5 mb-12">
               {data.modules.map((mod) => (
@@ -629,7 +618,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   key={mod.id}
                   className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm bg-white"
                 >
-                  {/* Tinted Header Bar (mod.color + "18") */}
                   <div
                     className="px-6 py-3.5 flex flex-wrap items-center justify-between gap-3"
                     style={{ background: mod.color + "18", color: mod.color }}
@@ -653,7 +641,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     </div>
                   </div>
 
-                  {/* 2-Column Topic Grid with Colored Dots */}
                   <div className="px-6 py-5 grid grid-cols-1 md:grid-cols-2 gap-y-2.5 gap-x-8 bg-white">
                     {mod.topics.map((topic, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-sm text-gray-700">
@@ -666,7 +653,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     ))}
                   </div>
 
-                  {/* Capstone Project Footer */}
                   {mod.project && (
                     <div
                       style={{ background: SOFT_BG }}
@@ -683,21 +669,14 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </div>
           )}
 
-          {/* Special Feature Box (AI Tools in Full Stack / KI im SOC / Upgrade Path) */}
           {data.specialFeature && (
             <div
               style={{ background: SOFT_BG }}
               className="rounded-2xl p-7 sm:p-9 border border-gray-100 mb-12"
             >
-              {lang === "en" && data.key === "full-stack" ? (
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
-                  {data.specialFeature.h2}
-                </h3>
-              ) : (
-                <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
-                  {data.specialFeature.h2}
-                </h2>
-              )}
+              <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                {data.specialFeature.h2}
+              </h3>
               <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-3xl leading-relaxed">
                 {data.specialFeature.intro}
               </p>
@@ -731,7 +710,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </div>
           )}
 
-          {/* Component B6: Syllabus PDF Download Box (lehrplan_download GA4 event) */}
+          {/* Component B6: Syllabus PDF Download Box */}
           <div
             id="syllabus-download"
             style={{ backgroundColor: DARK }}
@@ -829,7 +808,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          DATA ANALYST MODULE 1 STANDALONE SECTION (Anchor #data-analyst per SEO Plan)
+          DATA ANALYST MODULE 1 SECTION (Anchor #data-analyst per SEO Plan)
           ===================================================================== */}
       {data.key === "ai-engineering" && (
         <section id="data-analyst" className="py-16 bg-[#FFF8FA] border-y border-[#F3D3DC]/60 scroll-mt-24">
@@ -906,8 +885,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       )}
 
       {/* =====================================================================
-          7. COURSE OVERVIEW & FORMAT (Component B7) — #f6f7fb Soft Cool BG
-          Exact Figma Make Kursübersicht 2-Column Layout
+          6. KURS ÖZETİ / ABLAUF UND LERNFORMAT (Component B7) — H2: formatH2
           ===================================================================== */}
       <section className="py-16" style={{ background: SOFT_BG }}>
         <div className="max-w-[1200px] mx-auto px-5 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -940,7 +918,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </div>
           </div>
 
-          {/* Right Column: Clean White Key-Value Card + Pink Rounded-XL CTA */}
           <div className="space-y-6">
             {courseImages?.squareOverview && (
               <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
@@ -986,86 +963,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          8. CAREER PATHS & ROLES (Component B9) — Pure White (#ffffff)
-          ===================================================================== */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-5">
-          <div className="max-w-3xl mb-10">
-            <div
-              className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: PRIMARY }}
-            >
-              {lang === "en" ? "CAREER PATHS & ROLES" : "BERUFSBILDER & PERSPEKTIVEN"}
-            </div>
-            <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
-              {data.careerH2}
-            </h2>
-            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
-              {data.careerIntro}
-            </p>
-          </div>
-
-          {courseImages?.landscapeCareer && (
-            <div className="mb-10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
-              <img
-                src={courseImages.landscapeCareer.src}
-                alt={courseImages.landscapeCareer.alt[lang]}
-                className="w-full max-h-[380px] sm:max-h-[420px] object-cover"
-                loading="lazy"
-              />
-            </div>
-          )}
-
-          <div
-            className={`grid gap-6 ${
-              data.careerRoles.length === 4
-                ? "md:grid-cols-2 lg:grid-cols-4"
-                : data.careerRoles.length === 3
-                ? "md:grid-cols-3"
-                : "md:grid-cols-2"
-            }`}
-          >
-            {data.careerRoles.map((role, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-9 h-9 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center">
-                      <BriefcaseIcon className="w-4 h-4" />
-                    </div>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
-                    <Link
-                      to={role.guideUrl}
-                      className="hover:text-[#e51a59] transition-colors"
-                    >
-                      {role.title}
-                    </Link>
-                  </h3>
-
-                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">
-                    {role.desc}
-                  </p>
-                </div>
-
-                <Link
-                  to={role.guideUrl}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-100"
-                >
-                  <span>{role.guideLabel}</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          9. FUNDING BOX (Component B8) — #f6f7fb Soft Cool BG
+          7. FİNANSMAN / WEITERBILDUNG MIT BILDUNGSGUTSCHEIN (Component B8) — H2: fundingH2
           ===================================================================== */}
       <section style={{ background: SOFT_BG }} className="py-16">
         <div className="max-w-[1200px] mx-auto px-5">
@@ -1223,7 +1121,143 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          10. WHY CLARUSWAY — Pure White (#ffffff) + Clean White Cards
+          8. KARİYER / BERUFE NACH DER WEITERBILDUNG (Component B9) — H2: careerH2
+          ===================================================================== */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5">
+          <div className="max-w-3xl mb-10">
+            <div
+              className="text-xs font-bold uppercase tracking-widest mb-2"
+              style={{ color: PRIMARY }}
+            >
+              {lang === "en" ? "CAREER PATHS & ROLES" : "BERUFSBILDER & PERSPEKTIVEN"}
+            </div>
+            <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
+              {data.careerH2}
+            </h2>
+            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+              {data.careerIntro}
+            </p>
+          </div>
+
+          {courseImages?.landscapeCareer && (
+            <div className="mb-10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <img
+                src={courseImages.landscapeCareer.src}
+                alt={courseImages.landscapeCareer.alt[lang]}
+                className="w-full max-h-[380px] sm:max-h-[420px] object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
+
+          <div
+            className={`grid gap-6 ${
+              data.careerRoles.length === 4
+                ? "md:grid-cols-2 lg:grid-cols-4"
+                : data.careerRoles.length === 3
+                ? "md:grid-cols-3"
+                : "md:grid-cols-2"
+            }`}
+          >
+            {data.careerRoles.map((role, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-9 h-9 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center">
+                      <BriefcaseIcon className="w-4 h-4" />
+                    </div>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                    <Link
+                      to={role.guideUrl}
+                      className="hover:text-[#e51a59] transition-colors"
+                    >
+                      {role.title}
+                    </Link>
+                  </h3>
+
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">
+                    {role.desc}
+                  </p>
+                </div>
+
+                <Link
+                  to={role.guideUrl}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-100"
+                >
+                  <span>{role.guideLabel}</span>
+                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          8b. KONU KÜMESİ / RATGEBER ZUM THEMA (Component B17) — H2: clusterH2
+          (Strictly placed between Career and Why Clarusway per SEO Plan Page 20 & 25)
+          ===================================================================== */}
+      {data.clusterGuides.length > 0 && (
+        <section className="py-16 bg-[#FFF8FA] border-y border-[#F3D3DC]/60">
+          <div className="max-w-[1200px] mx-auto px-5">
+            <div className="max-w-3xl mb-10">
+              <div
+                className="text-xs font-bold uppercase tracking-widest mb-2"
+                style={{ color: PRIMARY }}
+              >
+                {lang === "en" ? "KNOWLEDGE HUB & GUIDES" : "WISSENSDATENBANK & RATGEBER"}
+              </div>
+              <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
+                {data.clusterH2}
+              </h2>
+              <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+                {data.clusterIntro}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {data.clusterGuides.map((g, i) => (
+                <article
+                  key={i}
+                  className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#e51a59]/40 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3">
+                      <BookOpenIcon className="w-3.5 h-3.5" />
+                      <span>{g.badge}</span>
+                    </span>
+                    <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 leading-snug">
+                      <Link to={g.to} className="hover:text-[#e51a59] transition-colors">
+                        {g.title}
+                      </Link>
+                    </h3>
+                    <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">
+                      {g.desc}
+                    </p>
+                  </div>
+
+                  <Link
+                    to={g.to}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-100"
+                  >
+                    <span>{g.title}</span>
+                    <ArrowRightIcon className="w-3.5 h-3.5" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =====================================================================
+          9. NEDEN CLARUSWAY / WARUM CLARUSWAY (Component B10) — H2: whyH2
           ===================================================================== */}
       <section className="py-20 bg-white">
         <div className="max-w-[1200px] mx-auto px-5">
@@ -1294,7 +1328,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          11. GRADUATE REVIEWS / ALUMNI (Component B12) — #f6f7fb Soft Cool BG
+          10. YORUMLAR / ALUMNI ERFAHRUNGEN (Component B12) — H2: reviewsH2
           ===================================================================== */}
       <section className="py-20" style={{ background: SOFT_BG }}>
         <div className="max-w-[1200px] mx-auto px-5">
@@ -1311,7 +1345,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               </h2>
             </div>
 
-            {/* Visual-only rating badge */}
             <div className="inline-flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-2.5 shadow-sm">
               <div className="flex text-[#e51a59]">
                 {[1, 2, 3, 4, 5].map((s) => (
@@ -1365,64 +1398,90 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          11b. TOPIC CLUSTER GUIDES (Component B17) — Pure White (#ffffff)
+          11. FAQ (Component B13) — H2: faqH2
           ===================================================================== */}
-      {data.clusterGuides.length > 0 && (
-        <section className="py-16 bg-white">
-          <div className="max-w-[1200px] mx-auto px-5">
-            <div className="max-w-3xl mb-10">
-              <div
-                className="text-xs font-bold uppercase tracking-widest mb-2"
-                style={{ color: PRIMARY }}
-              >
-                {lang === "en" ? "KNOWLEDGE HUB & GUIDES" : "WISSENSDATENBANK & RATGEBER"}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5 grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+          <div className="md:col-span-5">
+            <div
+              className="text-xs font-bold uppercase tracking-widest mb-2"
+              style={{ color: PRIMARY }}
+            >
+              FAQ
+            </div>
+            <h2 className="font-bold text-3xl mb-4" style={{ color: DARK }}>
+              {data.faqH2}
+            </h2>
+            <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+              {lang === "en"
+                ? "Have questions about the curriculum, English live classes, or how to apply for your Bildungsgutschein in Germany? Our advisory team is happy to help."
+                : "Hast du Fragen zum Lehrplan, zum Live-Unterricht oder zur Förderung mit Bildungsgutschein? Unsere Studienberatung hilft dir gerne persönlich weiter."}
+            </p>
+            <div className="space-y-2.5 text-sm text-gray-600 mb-6">
+              <div className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
+                <span>Bataver Str. 84, 41462 Neuss</span>
               </div>
-              <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
-                {data.clusterH2}
-              </h2>
-              <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
-                {data.clusterIntro}
-              </p>
+              <div className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
+                <span>info@clarusway.de</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
+                <span>+49 2131 776 2749</span>
+              </div>
             </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {data.clusterGuides.map((g, i) => (
-                <article
-                  key={i}
-                  className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#e51a59]/40 transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3">
-                      <BookOpenIcon className="w-3.5 h-3.5" />
-                      <span>{g.badge}</span>
-                    </span>
-                    <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 leading-snug">
-                      <Link to={g.to} className="hover:text-[#e51a59] transition-colors">
-                        {g.title}
-                      </Link>
-                    </h3>
-                    <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">
-                      {g.desc}
-                    </p>
-                  </div>
-
-                  <Link
-                    to={g.to}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-100"
-                  >
-                    <span>{g.title}</span>
-                    <ArrowRightIcon className="w-3.5 h-3.5" />
-                  </Link>
-                </article>
-              ))}
-            </div>
+            <Link
+              to={consultPath}
+              style={{ background: PRIMARY }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
+            >
+              <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
+              <ArrowRightIcon className="w-4 h-4" />
+            </Link>
           </div>
-        </section>
-      )}
+
+          <div className="md:col-span-7 space-y-3">
+            {data.faqs.map((faq, idx) => (
+              <details
+                key={idx}
+                open={idx === 0}
+                className="group rounded-xl overflow-hidden border border-gray-200 bg-white"
+              >
+                <summary
+                  style={{ background: PRIMARY }}
+                  className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none select-none text-white hover:opacity-95 transition-opacity"
+                >
+                  <h3 className="text-sm font-semibold text-white text-left">
+                    {faq.q}
+                  </h3>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    className="shrink-0 transition-transform duration-200 group-open:rotate-180"
+                  >
+                    <path
+                      d="M2 4l4 4 4-4"
+                      stroke="white"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </summary>
+                <div className="px-5 py-4 text-sm text-gray-600 leading-relaxed bg-white">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* =====================================================================
-          12. RELATED COURSES (Component B14) — #f6f7fb Soft Cool BG
-          Exact Figma Make WeitereKurse Layout
+          12. WEITERE IT-KURSE (Component B14) — H2: relatedH2
           ===================================================================== */}
       <section className="py-16" style={{ background: SOFT_BG }}>
         <div className="max-w-[1200px] mx-auto px-5">
@@ -1497,93 +1556,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          13. COURSE-SPECIFIC FAQ (Component B13) — Pure White (#ffffff)
-          2-Column Figma Make Layout + Semantic <details><summary><h3>
-          ===================================================================== */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-5 grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
-          {/* Left Column (4 cols) */}
-          <div className="md:col-span-5">
-            <div
-              className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: PRIMARY }}
-            >
-              FAQ
-            </div>
-            <h2 className="font-bold text-3xl mb-4" style={{ color: DARK }}>
-              {data.faqH2}
-            </h2>
-            <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-              {lang === "en"
-                ? "Have questions about the curriculum, English live classes, or how to apply for your Bildungsgutschein in Germany? Our advisory team is happy to help."
-                : "Hast du Fragen zum Lehrplan, zum Live-Unterricht oder zur Förderung mit Bildungsgutschein? Unsere Studienberatung hilft dir gerne persönlich weiter."}
-            </p>
-            <div className="space-y-2.5 text-sm text-gray-600 mb-6">
-              <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
-                <span>Bataver Str. 84, 41462 Neuss</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
-                <span>info@clarusway.de</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
-                <span>+49 2131 776 2749</span>
-              </div>
-            </div>
-            <Link
-              to={consultPath}
-              style={{ background: PRIMARY }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
-            >
-              <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
-              <ArrowRightIcon className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* Right Column (7 cols): Semantic <details><summary><h3> */}
-          <div className="md:col-span-7 space-y-3">
-            {data.faqs.map((faq, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group rounded-xl overflow-hidden border border-gray-200 bg-white"
-              >
-                <summary
-                  style={{ background: PRIMARY }}
-                  className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none select-none text-white hover:opacity-95 transition-opacity"
-                >
-                  <h3 className="text-sm font-semibold text-white text-left">
-                    {faq.q}
-                  </h3>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    className="shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  >
-                    <path
-                      d="M2 4l4 4 4-4"
-                      stroke="white"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </summary>
-                <div className="px-5 py-4 text-sm text-gray-600 leading-relaxed bg-white">
-                  {faq.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          14. FINAL CTA BANNER (Component B16) — Exact Figma Make CtaBanner
+          13. SON CTA BANDI (Component B16) — H2: ctaH2
           ===================================================================== */}
       <section
         className="py-14"

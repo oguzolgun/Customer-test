@@ -43,6 +43,15 @@ export interface RelatedCourseCard {
   badge: string;
 }
 
+export type CourseKey =
+  | "ai-engineering"
+  | "full-stack"
+  | "cyber-security"
+  | "aws-devops"
+  | "sdet"
+  | "kubernetes-ckad"
+  | "it-orientation";
+
 export interface CoursePageData {
   key: string;
   isShortTemplate?: boolean;
@@ -120,7 +129,7 @@ const SECONDARY = "#8a1c4a";
 const ACCENT = "#b52252";
 const SOFT_ROSE = "#c73a6a";
 
-export const DE_COURSES: Record<string, CoursePageData> = {
+export const DE_COURSES: Record<CourseKey, CoursePageData> = {
   "ai-engineering": {
     key: "ai-engineering",
     slugDe: "/it-kurse/ai-engineer-weiterbildung/",
@@ -130,8 +139,8 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     metaDescription:
       "Werde in 3 Modulen zum AI Engineer: Datenanalyse, Data Science & Machine Learning, Agentic AI. Förderfähig mit Bildungsgutschein. Jetzt beraten lassen.",
     breadcrumbLabel: "AI Engineer Weiterbildung",
-    eyebrow: "Programm: AI Engineering Weiterbildungsprogramm",
-    h1: "AI Engineer Weiterbildung: Von Data Analytics bis Agentic AI",
+    eyebrow: "Programm AI Engineering",
+    h1: "AI Engineer Weiterbildung von Data Analytics bis Agentic AI",
     heroIntro:
       "Die AI Engineer Weiterbildung bei Clarusway ist ein 32-wöchiges Live-Online-Programm in drei aufeinander aufbauenden Modulen: von Datenanalyse und Business Intelligence über Data Science und Machine Learning bis zu produktiven KI-Systemen und Agentic AI. AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein förderfähig.",
     heroSubnote:
@@ -188,7 +197,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         ],
       },
     ],
-    programSelectorH2: "AI Engineer Weiterbildung: Programme und Dauer",
+    programSelectorH2: "Programme und Dauer der AI Engineer Weiterbildung",
     programSelectorSubtitle:
       "Wähle den vollständigen 32-Wochen-Pfad oder steige mit Vorwissen direkt in Modul 2 oder Modul 3 ein.",
     modules: [
@@ -541,13 +550,6 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     relatedH2: "Weitere IT-Kurse",
     relatedCourses: [
       {
-        title: "Data Analyst Weiterbildung",
-        to: "/it-kurse/data-analyst-weiterbildung/",
-        duration: "13 Wochen",
-        nextStart: "27 Jul 2026",
-        badge: "Modul 1 Einstieg",
-      },
-      {
         title: "Full Stack Entwickler Weiterbildung",
         to: "/it-kurse/full-stack-entwickler-weiterbildung/",
         duration: "3 – 12 Monate",
@@ -561,303 +563,17 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         nextStart: "24 Aug 2026",
         badge: "SOC & Cloud Security",
       },
+      {
+        title: "SDET Weiterbildung",
+        to: "/it-kurse/sdet-weiterbildung/",
+        duration: "Vollzeit-Programm",
+        nextStart: "14 Sep 2026",
+        badge: "Testautomatisierung",
+      },
     ],
     ctaH2: "Starte deine AI Engineer Weiterbildung",
     ctaText:
       "Lass deine Förderfähigkeit für den Bildungsgutschein kostenlos prüfen und finde heraus, mit welchem Modul du startest.",
-  },
-
-  "data-analytics": {
-    key: "data-analytics",
-    slugDe: "/it-kurse/data-analyst-weiterbildung/",
-    slugEn: "/it-courses/data-analytics/",
-    pdfFileName: "clarusway-data-analyst-weiterbildung-lehrplan.pdf",
-    metaTitle: "Data Analyst Weiterbildung & Business Intelligence | Clarusway",
-    metaDescription:
-      "In 13 Wochen zum Data Analyst: Python, SQL, Pandas, Statistik, Power BI und Tableau. Ohne Vorkenntnisse, 100 % förderfähig mit Bildungsgutschein.",
-    breadcrumbLabel: "Data Analyst Weiterbildung",
-    eyebrow: "Programm: Data Analytics & Business Intelligence (Modul 1)",
-    h1: "Data Analyst Weiterbildung: Datenanalyse und Business Intelligence ohne Vorkenntnisse",
-    heroIntro:
-      "Die Data Analyst Weiterbildung bei Clarusway ist ein 13-wöchiges Live-Online-Programm für den direkten Berufseinstieg in Datenanalyse und Business Intelligence. Du lernst Python, Pandas, SQL, Statistik sowie Power BI und Tableau von Grund auf — ohne Vorkenntnisse und zu 100 % förderbar mit Bildungsgutschein.",
-    heroSubnote:
-      "13 Wochen Vollzeit · Keine Vorkenntnisse nötig · Nahtloser Übergang zum AI Engineer möglich.",
-    heroBadges: ["Python", "SQL", "Pandas & NumPy", "Power BI", "Tableau", "Statistik"],
-    terminalTitle: "sales_analytics.sql",
-    terminalLines: [
-      { text: "SELECT region, SUM(revenue) AS total_rev", color: "#60a5fa" },
-      { text: "FROM enterprise_orders WHERE order_year = 2026", color: "#e5e7eb" },
-      { text: "GROUP BY region ORDER BY total_rev DESC;", color: "#fde047" },
-      { text: "✓ Dashboard synced to Power BI & Tableau", color: "#4ade80" },
-    ],
-    infoStrip: [
-      ["13 Wochen", "Kompakte Kursdauer (65 Sessions)"],
-      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
-      ["Ohne Vorwissen", "Kein technischer Eingangstest"],
-      ["Max. 15", "Teilnehmende pro Klasse"],
-      ["AZAV", "100 % Bildungsgutschein"],
-    ],
-    audienceH2: "Für wen eignet sich die Data Analyst Weiterbildung?",
-    audienceIntro:
-      "Ideal für alle, die in kurzer Zeit datengetriebene Entscheidungen, SQL-Datenbanken und moderne BI-Dashboards beherrschen wollen.",
-    audienceCards: [
-      {
-        title: "Quereinsteiger ohne Vorkenntnisse",
-        badge: "Direktstart",
-        desc: "Du benötigst weder Programmiererfahrung noch ein Mathematikstudium. Alle Grundlagen werden ab Tag 1 praxisnah aufgebaut.",
-        bullets: ["Kein technischer Aufnahmetest", "Tägliche Betreuung durch Live-Mentoren", "Praxisprojekt für dein Bewerbungsportfolio"],
-      },
-      {
-        title: "Kaufmännische & Fachkräfte im Wandel",
-        badge: "Karriere-Upgrade",
-        desc: "Fachkräfte aus BWL, Controlling, Marketing oder Logistik erweitern ihr Profil um Python, SQL und professionelle Business Intelligence.",
-        bullets: ["Von Excel zu Python, SQL und Power BI", "Gefragtes Profil in allen Branchen", "100 % Förderung über Bildungsgutschein oder QCG"],
-      },
-      {
-        title: "Angehende Data Scientists & AI Engineers",
-        badge: "Modul 1 Fundament",
-        desc: "Nutze das 13-wöchige Programm als solides Fundament und entscheide danach, ob du direkt in den Job gehst oder mit Modul 2 & 3 weitermachst.",
-        bullets: ["Anerkannt als Modul 1 des AI Engineering Pfads", "Nahtloser Anschluss an Machine Learning", "Zertifizierter Abschluss nach 13 Wochen"],
-      },
-    ],
-    programSelectorH2: "Data Analyst Weiterbildung: Programme und Dauer",
-    programSelectorSubtitle:
-      "Buche das 13-wöchige Data Analytics Modul einzeln oder kombiniere es mit Data Science und AI Engineering.",
-    modules: [
-      {
-        id: 1,
-        label: "Modul 1",
-        title: "Datenanalyse & Business Intelligence",
-        duration: "13 Wochen",
-        color: PRIMARY,
-        topics: ["Python & Pandas / NumPy", "SQL & Datenbanken", "Statistik & EDA", "Power BI & Tableau Dashboards"],
-      },
-      {
-        id: 2,
-        label: "Modul 2 (Optional)",
-        title: "Data Science & Machine Learning",
-        duration: "6 Wochen",
-        color: SECONDARY,
-        topics: ["scikit-learn & ML-Modelle", "Feature Engineering", "Neuronale Netze & NLP"],
-      },
-    ],
-    programs: [
-      {
-        id: "da-standalone",
-        title: "Data Analytics & Business Intelligence",
-        subtitle: "Eigenständiger Abschluss (Modul 1)",
-        badge: "Modul 1 · 13 Wochen",
-        moduleIds: [1],
-        startsAt: 1,
-        duration: "13 Wochen",
-        schedule: "09:00–16:45 Uhr Berlin",
-        capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
-        dates: ["27 Jul 2026", "30 Aug 2026", "28 Sep 2026", "26 Okt 2026"],
-        recommended: true,
-        description:
-          "In 13 Wochen (65 Live-Sessions) vom Einstieg ohne Vorkenntnisse zum zertifizierten Data Analyst mit Python, SQL, Power BI und Tableau.",
-      },
-      {
-        id: "da-plus-ds",
-        title: "Data Analytics + Data Science",
-        subtitle: "Kombinierter Pfad (Modul 1 + 2)",
-        badge: "Modul 1 + 2 · 19 Wochen",
-        moduleIds: [1, 2],
-        startsAt: 1,
-        duration: "19 Wochen",
-        schedule: "09:00–16:45 Uhr Berlin",
-        capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
-        dates: ["27 Jul 2026", "30 Aug 2026", "28 Sep 2026"],
-        recommended: false,
-        description:
-          "Kombiniere Datenanalyse mit Machine Learning und schließe nach 19 Wochen mit zwei Zertifikaten (Data Analyst & Data Scientist) ab.",
-      },
-    ],
-    curriculumH2: "Inhalte der Data Analyst Weiterbildung",
-    curriculumIntro:
-      "65 intensiv betreute Live-Sessions vermitteln dir die Werkzeuge, die in deutschen Stellenanzeigen für Data Analysts am häufigsten gefordert werden.",
-    specialFeature: {
-      h2: "Nächster Schritt: Weiter zum AI Engineer",
-      intro:
-        "Die Data Analyst Weiterbildung bildet zugleich das Modul 1 unseres großen AI Engineering Programms. Nach deinem Abschluss stehen dir zwei Wege offen: der direkte Berufseinstieg als Junior Data Analyst oder der nahtlose Aufstieg in Modul 2 (Data Science) und Modul 3 (AI Engineering & Agentic AI).",
-      cards: [
-        {
-          badge: "Stufe 1 · 13 Wochen",
-          title: "Data Analyst (Dein Start)",
-          desc: "Python, Pandas, SQL, Statistik, Power BI & Tableau — vollständiges BI-Portfolio ohne Vorkenntnisse.",
-        },
-        {
-          badge: "Stufe 2 · +6 Wochen",
-          title: "Upgrade zum Data Scientist",
-          desc: "Ergänze klassisches Machine Learning, scikit-learn, Deep Learning und NLP-Grundlagen.",
-        },
-        {
-          badge: "Stufe 3 · +13 Wochen",
-          title: "Aufstieg zum AI Engineer",
-          desc: "Baue produktive LLM-Applikationen, RAG-Systeme und autonome KI-Agenten in der Cloud.",
-        },
-      ],
-      linkLabel: "Zur AI Engineer Weiterbildung",
-      linkTo: "/it-kurse/ai-engineer-weiterbildung/",
-    },
-    formatH2: "Ablauf und Lernformat",
-    formatIntro:
-      "Strukturierter Vollzeit-Live-Unterricht in Kleingruppen von maximal 15 Teilnehmenden.",
-    formatHighlights: [
-      {
-        title: "Täglich Live statt Video-Selbststudium",
-        desc: "Mo–Fr von 09:00 bis 16:45 Uhr Berliner Zeit mit erfahrenen Trainern und täglichen Praxis-Labs.",
-      },
-      {
-        title: "Unterrichtssprache: Englisch, Türkisch & Deutsch",
-        desc: "Alle Fachbegriffe, Datenbank-Abfragen und BI-Tools lernst du direkt im internationalen Branchenstandard.",
-      },
-      {
-        title: "Echtes BI-Abschlussprojekt",
-        desc: "Du analysierst reale Datensätze und präsentierst dein interaktives Dashboard am Ende des Moduls.",
-      },
-    ],
-    summaryTable: [
-      ["Zeitplan", "Mo–Fr, 09:00–16:45 Uhr (Berlin)"],
-      ["Dauer", "13 Wochen (65 Live-Sessions)"],
-      ["Lehrplan", "Python, Pandas, SQL, Statistik, Power BI, Tableau"],
-      ["Kapazität", "Max. 15 Plätze"],
-      ["Sprache", "Englisch / Türkisch / Deutsch"],
-      ["Förderung", "100 % über Bildungsgutschein / QCG"],
-    ],
-    fundingH2: "Data Analyst Weiterbildung mit Bildungsgutschein",
-    fundingText:
-      "Als AZAV-zertifizierte Maßnahme wird die Data Analyst Weiterbildung zu 100 % über den Bildungsgutschein der Agentur für Arbeit oder des Jobcenters sowie über das Qualifizierungschancengesetz gefördert.",
-    fundingBullets: [
-      "100 % Übernahme von Kursgebühren und Lernmaterial",
-      "Individuelle Unterstützung beim Förderantrag",
-      "Monatliche Starttermine passend zu deinem Bewilligungszeitraum",
-    ],
-    fundingLinkLabel: "Bildungsgutschein beantragen",
-    fundingLinkTo: "/bildungsgutschein/",
-    qcgLinkLabel: "Qualifizierungschancengesetz für Beschäftigte",
-    qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Berufe nach der Data Analyst Weiterbildung",
-    careerIntro:
-      "Datenanalysten werden branchenübergreifend in Banken, E-Commerce, Industrie und Beratung gesucht.",
-    careerRoles: [
-      {
-        title: "Data Analyst",
-        desc: "Wertet Unternehmensdaten mit SQL und Python aus, identifiziert Trends und liefert Entscheidungsgrundlagen für Fachabteilungen.",
-        guideLabel: "Was macht ein Data Analyst?",
-        guideUrl: "/ratgeber/data-analyst-werden/",
-      },
-      {
-        title: "Business Intelligence (BI) Analyst",
-        desc: "Entwickelt automatisierte KPI-Dashboards und Berichte in Power BI und Tableau für das Management.",
-        guideLabel: "Ratgeber: Data Analyst werden",
-        guideUrl: "/ratgeber/data-analyst-werden/",
-      },
-    ],
-    clusterH2: "Ratgeber zum Thema",
-    clusterIntro:
-      "Erfahre mehr über den Einstieg in die Datenanalyse, Karriereperspektiven und den Unterschied zu Data Science.",
-    clusterGuides: [
-      {
-        title: "Data Analyst werden: Aufgaben, Berufsbild und Quereinstieg",
-        badge: "Berufsratgeber (Empfohlen)",
-        desc: "Wie der Quereinstieg als Data Analyst gelingt und welche Fähigkeiten Arbeitgeber wirklich prüfen.",
-        to: "/ratgeber/data-analyst-werden/",
-      },
-      {
-        title: "Data Science vs. Data Analytics: Der Vergleich",
-        badge: "Fachartikel",
-        desc: "Welche Aufgaben, Tools und Schwerpunkte Data Analysts und Data Scientists unterscheiden.",
-        to: "/ratgeber/data-science-vs-data-analytics/",
-      },
-      {
-        title: "SQL lernen für Einsteiger: Warum Datenbanken Pflicht sind",
-        badge: "Praxis-Guide",
-        desc: "Warum SQL in fast jeder Daten-Stellenanzeige an erster Stelle steht und wie du schnell einsteigst.",
-        to: "/ratgeber/sql-lernen/",
-      },
-    ],
-    whyH2: "Warum Clarusway für die Data Analyst Weiterbildung?",
-    whyIntro:
-      "Praxisnahes Training in kleinen Live-Klassen mit direkter Anschlussfähigkeit an unser AI Engineering Programm.",
-    whyItems: [
-      { title: "Kompakter Abschluss in 13 Wochen", desc: "65 strukturierte Live-Sessions bringen dich ohne Umwege zum bewerbungsfähigen Daten-Portfolio." },
-      { title: "Keine Vorkenntnisse nötig", desc: "Wir starten bei den absoluten Grundlagen in Python, Statistik und Datenbanken." },
-      { title: "100 % Förderung mit Bildungsgutschein", desc: "AZAV-zertifiziert für eine vollständige Kostenübernahme über Agentur für Arbeit oder Jobcenter." },
-      { title: "Power BI, Tableau, SQL & Python", desc: "Du beherrschst genau den Tool-Stack, den deutsche Arbeitgeber suchen." },
-      { title: "Aufstiegsoption zum AI Engineer", desc: "Dein Abschluss wird vollständig als Modul 1 für das AI Engineering Programm angerechnet." },
-      { title: "Karriere-Coaching inklusive", desc: "Bewerbungstraining, GitHub-Portfolio-Review und Interviewvorbereitung." },
-    ],
-    reviewsH2: "Erfahrungen von Absolventen",
-    reviews: [
-      {
-        initials: "DK",
-        name: "DH Kim",
-        role: "Absolvent Data Analytics",
-        platform: "Google Rezensionen",
-        platformUrl: "https://www.google.com/maps",
-        quote:
-          "Die Mentoren sind immer erreichbar und gehen auf jeden einzeln ein. Die Kombination aus Python, SQL und Dashboards war perfekt für meinen Berufseinstieg.",
-      },
-      {
-        initials: "CC",
-        name: "Cagri C.",
-        role: "Absolvent Data Track",
-        platform: "Career Karma",
-        platformUrl: "https://careerkarma.com/schools/clarusway/",
-        quote:
-          "Selbst ohne IT-Vorwissen konnte ich in wenigen Wochen eigene Datenanalysen und Visualisierungen bauen.",
-      },
-    ],
-    faqH2: "Häufige Fragen zur Data Analyst Weiterbildung",
-    faqs: [
-      {
-        q: "Was macht ein Data Analyst?",
-        a: "Ein Data Analyst sammelt, bereinigt und untersucht Geschäftsdaten mit Werkzeugen wie SQL, Python, Power BI und Tableau, um konkrete Fragen von Fachabteilungen zu beantworten und Dashboards bereitzustellen.",
-      },
-      {
-        q: "Brauche ich Vorkenntnisse?",
-        a: "Nein. Für die Data Analyst Weiterbildung sind keine Vorkenntnisse in der Programmierung oder Datenanalyse erforderlich.",
-      },
-      {
-        q: "Wie lange dauert die Weiterbildung?",
-        a: "Die Weiterbildung dauert 13 Wochen im Vollzeit-Live-Format und umfasst 65 Unterrichtssessions inklusive Praxisprojekt.",
-      },
-      {
-        q: "Kann ich danach zum AI Engineer weitermachen?",
-        a: "Ja. Das Programm entspricht exakt Modul 1 unserer AI Engineer Weiterbildung. Nach Abschluss kannst du nahtlos in Modul 2 (Data Science) und Modul 3 (AI Engineering & Agentic AI) übergehen.",
-      },
-      {
-        q: "Wird die Weiterbildung gefördert?",
-        a: "Ja, der Kurs ist AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein der Agentur für Arbeit oder des Jobcenters sowie über das Qualifizierungschancengesetz förderfähig.",
-      },
-      {
-        q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
-      },
-    ],
-    relatedH2: "Weitere IT-Kurse",
-    relatedCourses: [
-      {
-        title: "AI Engineer Weiterbildung",
-        to: "/it-kurse/ai-engineer-weiterbildung/",
-        duration: "32 Wochen",
-        nextStart: "27 Jul 2026",
-        badge: "Modul 1 bis 3 Komplettpfad",
-      },
-      {
-        title: "Full Stack Entwickler Weiterbildung",
-        to: "/it-kurse/full-stack-entwickler-weiterbildung/",
-        duration: "3 – 12 Monate",
-        nextStart: "27 Jul 2026",
-        badge: "Webentwicklung mit KI",
-      },
-    ],
-    ctaH2: "Starte deine Data Analyst Weiterbildung",
-    ctaText:
-      "Prüfe jetzt kostenlos deine Förderfähigkeit mit Bildungsgutschein und sichere dir deinen Platz in der nächsten 13-Wochen-Kohorte.",
   },
 
   "full-stack": {
@@ -918,7 +634,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         ],
       },
     ],
-    programSelectorH2: "Full Stack Entwickler Weiterbildung: Programme und Dauer",
+    programSelectorH2: "Programme und Dauer der Full Stack Entwickler Weiterbildung",
     programSelectorSubtitle:
       "Wähle den kompletten 4-Module-Pfad für Einsteiger oder fokussiere dich mit Vorwissen auf Frontend-, Backend- oder Profi-Kombinationen.",
     modules: [
@@ -1290,7 +1006,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     metaDescription:
       "In 4 Modulen zum SOC Analyst: CompTIA Security+, KI-gestützte Security Operations und Cloud Security auf AWS. Förderfähig mit Bildungsgutschein.",
     breadcrumbLabel: "Cyber Security Weiterbildung",
-    eyebrow: "Programm: AI-Enhanced Cyber Security Analyst (SOC) & Cloud Security",
+    eyebrow: "Programm AI-Enhanced Cyber Security Analyst (SOC) & Cloud Security",
     h1: "Cyber Security Weiterbildung zum SOC Analyst mit KI und Cloud Security",
     heroIntro:
       "Die Cyber Security Weiterbildung bei Clarusway bildet dich in vier praxisorientierten Modulen zum SOC Analyst und Cloud Security Specialist aus: von der CompTIA Security+ Prüfungsvorbereitung über KI-gestützte Security Operations und Agentic AI bis zur AWS Cloud-Sicherheit. AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein förderfähig.",
@@ -1337,7 +1053,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         ],
       },
     ],
-    programSelectorH2: "Cyber Security Weiterbildung: Programme und Dauer",
+    programSelectorH2: "Programme und Dauer der Cyber Security Weiterbildung",
     programSelectorSubtitle:
       "Durchlaufe alle 4 Module als Quereinsteiger oder steige mit IT-Vorkenntnissen über ein technisches Assessment direkt in Modul 2 ein.",
     modules: [
@@ -1664,7 +1380,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     metaDescription:
       "In 3 Modulen zum AWS Solutions Architect und DevOps Engineer, mit AWS Cloud, DevOps und Azure Basics und KI. Förderfähig mit Bildungsgutschein.",
     breadcrumbLabel: "AWS Solutions Architect & DevOps Weiterbildung",
-    eyebrow: "Programm: AI-Enhanced AWS Solutions Architect/DevOps Engineer",
+    eyebrow: "Programm AI-Enhanced AWS Solutions Architect/DevOps Engineer",
     h1: "AWS Solutions Architect & DevOps Engineer Weiterbildung mit KI",
     heroIntro:
       "Die AWS Solutions Architect & DevOps Engineer Weiterbildung bei Clarusway ist ein praxisnahes Live-Online-Programm, das dich in drei Modulen (AI-Enhanced AWS Cloud Engineer, AI-Enhanced DevOps Engineer und AI-Enhanced Azure Basics) zum Cloud und DevOps Engineer mit KI-Fokus qualifiziert. AZAV-zertifiziert, offizieller AWS Select Tier Partner und zu 100 % mit Bildungsgutschein förderbar.",
@@ -1712,7 +1428,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         ],
       },
     ],
-    programSelectorH2: "AWS & DevOps Weiterbildung: Programme und Dauer",
+    programSelectorH2: "Programme und Dauer der AWS Solutions Architect & DevOps Weiterbildung",
     programSelectorSubtitle:
       "Wähle zwischen dem 8-monatigen Komplettpaket oder einzelnen Modul-Kombinationen je nach deinem Vorwissen.",
     modules: [
@@ -2025,276 +1741,10 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         nextStart: "24 Aug 2026",
         badge: "SOC & AWS Cloud Security",
       },
-      {
-        title: "AWS Solutions Architect Weiterbildung",
-        to: "/it-kurse/aws-solutions-architect-weiterbildung/",
-        duration: "3 Monate",
-        nextStart: "24 Aug 2026",
-        badge: "Modul 1 Fokus",
-      },
     ],
     ctaH2: "Starte deine AWS & DevOps Weiterbildung",
     ctaText:
       "Lass dich kostenlos beraten — wir prüfen deinen Anspruch auf einen Bildungsgutschein und stellen dein passendes Cloud-Programm zusammen.",
-  },
-
-  "aws-solutions-architect": {
-    key: "aws-solutions-architect",
-    slugDe: "/it-kurse/aws-solutions-architect-weiterbildung/",
-    slugEn: "/it-courses/aws-solutions-architect/",
-    pdfFileName: "clarusway-aws-solutions-architect-lehrplan.pdf",
-    metaTitle: "AWS Solutions Architect Weiterbildung | Clarusway",
-    metaDescription:
-      "In 3 Monaten zum AWS Solutions Architect: EC2, S3, VPC, IAM, Hochverfügbarkeit und SAA-C03 Prüfungsvorbereitung. 100 % förderbar mit Bildungsgutschein.",
-    breadcrumbLabel: "AWS Solutions Architect Weiterbildung",
-    eyebrow: "Programm: AWS Solutions Architect (Modul 1)",
-    h1: "AWS Solutions Architect Weiterbildung mit Bildungsgutschein",
-    heroIntro:
-      "Die AWS Solutions Architect Weiterbildung bei Clarusway ist ein 3-monatiges Vollzeit-Online-Programm, in dem du lernst, sichere, skalierbare und hochverfügbare Cloud-Architekturen auf Amazon Web Services zu entwerfen — inklusive gezielter Vorbereitung auf die AWS Solutions Architect Associate (SAA-C03) Prüfung und 100 % Förderung mit Bildungsgutschein.",
-    heroSubnote:
-      "3 Monate Vollzeit · Offizieller AWS Select Tier Partner · Nahtlos erweiterbar um DevOps Engineering.",
-    heroBadges: ["AWS SAA-C03", "EC2 & S3", "VPC & IAM", "RDS & DynamoDB", "CloudFormation", "Auto Scaling"],
-    terminalTitle: "aws_well_architected.yaml",
-    terminalLines: [
-      { text: "AWSTemplateFormatVersion: '2010-09-09'", color: "#60a5fa" },
-      { text: "Resources: MultiAZProductionVPC & AutoScalingGroup", color: "#e5e7eb" },
-      { text: "$ aws cloudformation deploy --stack-name prod-arch", color: "#fde047" },
-      { text: "✓ Stack CREATE_COMPLETE · SAA-C03 Ready", color: "#4ade80" },
-    ],
-    infoStrip: [
-      ["3 Monate", "Kompakte Vollzeit-Dauer"],
-      ["Englisch / Türkisch / Deutsch", "Unterrichtssprache (Live)"],
-      ["SAA-C03", "Prüfungsvorbereitung inklusive"],
-      ["Max. 15", "Teilnehmende pro Klasse"],
-      ["AZAV", "100 % Bildungsgutschein"],
-    ],
-    audienceH2: "Für wen eignet sich die AWS Solutions Architect Weiterbildung?",
-    audienceIntro:
-      "Das Programm richtet sich an Einsteiger und IT-Fachkräfte, die in drei Monaten ein anerkanntes Cloud-Fundament aufbauen möchten.",
-    audienceCards: [
-      {
-        title: "Quereinsteiger in Cloud Computing",
-        badge: "Mit Linux- & Netzwerk-Basis",
-        desc: "Du startest bei den Grundlagen von Linux, Netzwerken und Cloud Computing und baust in 12 Wochen eigene AWS-Architekturen auf.",
-        bullets: ["Kein Vorwissen in der Cloud nötig", "Tägliche Hands-on-Labs in der AWS Console", "Architektur-Abschlussprojekt"],
-      },
-      {
-        title: "IT-Administratoren & Entwickler",
-        badge: "Zertifizierungs-Upgrade",
-        desc: "Systemadministratoren und Softwareentwickler qualifizieren sich gezielt für Cloud-Migrationen und die SAA-C03 Zertifizierung.",
-        bullets: ["Well-Architected Framework in der Praxis", "Infrastructure as Code mit CloudFormation", "Optional erweiterbar um DevOps (Modul 2)"],
-      },
-    ],
-    programSelectorH2: "AWS Solutions Architect Weiterbildung: Programme und Dauer",
-    programSelectorSubtitle:
-      "Absolviere das 3-monatige AWS Solutions Architect Programm einzeln oder erweitere es um DevOps Engineering.",
-    modules: [
-      {
-        id: 1,
-        label: "Modul 1",
-        title: "AWS Solutions Architect",
-        duration: "3 Monate",
-        color: PRIMARY,
-        topics: ["Linux & Netzwerk-Grundlagen", "IAM, VPC, EC2, S3, Route 53", "RDS, DynamoDB & Caching", "High Availability & SAA-C03 Prep"],
-      },
-      {
-        id: 2,
-        label: "Modul 2 (Optional)",
-        title: "DevOps Engineering",
-        duration: "3 Monate",
-        color: SECONDARY,
-        topics: ["Docker & Kubernetes", "CI/CD mit Jenkins & GitHub Actions", "Terraform & Monitoring"],
-      },
-    ],
-    programs: [
-      {
-        id: "saa-only",
-        title: "AWS Solutions Architect (Modul 1)",
-        subtitle: "Eigenständiger 3-Monats-Kurs",
-        badge: "Modul 1 · 3 Monate",
-        moduleIds: [1],
-        startsAt: 1,
-        duration: "3 Monate",
-        schedule: "09:00–16:45 Uhr Berlin",
-        capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
-        dates: ["24 Aug 2026", "12 Okt 2026", "30 Nov 2026"],
-        recommended: true,
-        description:
-          "Fokussierte 3-monatige Weiterbildung zur Planung und Bereitstellung sicherer AWS-Cloud-Infrastrukturen inklusive SAA-C03 Prüfungsvorbereitung.",
-      },
-      {
-        id: "saa-plus-devops",
-        title: "AWS Solutions Architect + DevOps Engineering",
-        subtitle: "Kombinierter Pfad (Modul 1 + 2)",
-        badge: "Modul 1 + 2 · 6 Monate",
-        moduleIds: [1, 2],
-        startsAt: 1,
-        duration: "6 Monate",
-        schedule: "09:00–16:45 Uhr Berlin",
-        capacity: "Max. 15 Plätze",
-        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
-        dates: ["24 Aug 2026", "12 Okt 2026"],
-        recommended: false,
-        description:
-          "Kombiniere AWS Cloud Architektur direkt mit Docker, Kubernetes, Terraform und CI/CD-Automatisierung.",
-      },
-    ],
-    curriculumH2: "Inhalte der AWS Solutions Architect Weiterbildung",
-    curriculumIntro:
-      "Alle Kernservices von Amazon Web Services praxisnah an realen Infrastruktur-Szenarien trainiert.",
-    specialFeature: {
-      h2: "Vorbereitung auf die AWS Solutions Architect Associate Prüfung",
-      intro:
-        "Die Zertifizierung AWS Certified Solutions Architect – Associate (SAA-C03) gehört zu den weltweit am stärksten nachgefragten Cloud-Nachweisen. Unser Lehrplan deckt alle vier offiziellen Prüfungsdomänen vollständig ab:",
-      cards: [
-        {
-          badge: "Domäne 1 & 2",
-          title: "Sichere & Resiliente Architekturen",
-          desc: "IAM-Richtlinien, VPC-Netzwerksegmentierung, Multi-AZ-Design, Load Balancing und Auto Scaling.",
-        },
-        {
-          badge: "Domäne 3",
-          title: "Hochleistungsfähige Systeme",
-          desc: "Auswahl optimaler Compute-, Datenbank- (RDS, Aurora, DynamoDB) und Storage-Lösungen (S3, EBS, EFS).",
-        },
-        {
-          badge: "Domäne 4",
-          title: "Kostenoptimierte Cloud-Umgebungen",
-          desc: "Ressourcenplanung, Serverless-Architekturen mit AWS Lambda und kontinuierliche Kostenkontrolle.",
-        },
-      ],
-      linkLabel: "Ratgeber: AWS Zertifizierungen im Vergleich",
-      linkTo: "/ratgeber/aws-zertifizierungen/",
-    },
-    formatH2: "Ablauf und Lernformat",
-    formatIntro: "3 Monate intensiver Vollzeit-Live-Unterricht in 15er-Kleingruppen.",
-    formatHighlights: [
-      { title: "Live-Labs in der AWS Console", desc: "Tägliches praktisches Aufsetzen von VPCs, Load Balancern, Datenbanken und CloudFormation-Stacks." },
-      { title: "Unterrichtssprache: Englisch, Türkisch & Deutsch", desc: "Flexible Unterrichtssprachen: Englisch, Türkisch oder Deutsch. Optimale Vorbereitung auf internationale Zertifizierungen und Praxis-Workflows." },
-      { title: "Prüfungssimulationen inklusive", desc: "Regelmäßige Mock-Exams und Architektur-Reviews mit zertifizierten AWS-Trainern." },
-    ],
-    summaryTable: [
-      ["Zeitplan", "Mo–Fr, 09:00–16:45 Uhr (Berlin)"],
-      ["Dauer", "3 Monate"],
-      ["Zertifizierungsziel", "AWS Certified Solutions Architect – Associate (SAA-C03)"],
-      ["Kapazität", "Max. 15 Plätze"],
-      ["Sprache", "Englisch / Türkisch / Deutsch"],
-      ["Förderung", "AZAV-zertifiziert · 100 % Bildungsgutschein"],
-    ],
-    fundingH2: "AWS Solutions Architect Weiterbildung mit Bildungsgutschein",
-    fundingText:
-      "Der 3-monatige Kurs ist nach AZAV zertifiziert und kann zu 100 % über einen Bildungsgutschein der Agentur für Arbeit oder des Jobcenters sowie über das Qualifizierungschancengesetz gefördert werden.",
-    fundingBullets: [
-      "100 % Kostenübernahme mit Bildungsgutschein",
-      "Kompakte 3-Monats-Maßnahme für schnellen Jobeinstieg",
-      "Anschlussförderung für DevOps Engineering möglich",
-    ],
-    fundingLinkLabel: "Bildungsgutschein beantragen",
-    fundingLinkTo: "/bildungsgutschein/",
-    qcgLinkLabel: "Qualifizierungschancengesetz (QCG)",
-    qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Berufe nach der AWS Solutions Architect Weiterbildung",
-    careerIntro: "Mit fundierten AWS-Kenntnissen qualifizierst du dich für zentrale Rollen in der Cloud-Transformation.",
-    careerRoles: [
-      {
-        title: "AWS Solutions Architect",
-        desc: "Konzipiert sichere, skalierbare Cloud-Infrastrukturen und begleitet Unternehmen bei der Migration in die AWS Cloud.",
-        guideLabel: "Ratgeber: AWS Zertifizierungen",
-        guideUrl: "/ratgeber/aws-zertifizierungen/",
-      },
-      {
-        title: "Cloud Engineer",
-        desc: "Implementiert, überwacht und optimiert Cloud-Ressourcen, Netzwerke und Datenbanken im täglichen Betrieb.",
-        guideLabel: "Berufsbild: Cloud Engineer",
-        guideUrl: "/ratgeber/cloud-engineer/",
-      },
-    ],
-    clusterH2: "Ratgeber zum Thema",
-    clusterIntro: "Erfahre mehr über AWS-Zertifizierungen, Prüfungsanforderungen und Karrierewege in der Cloud.",
-    clusterGuides: [
-      {
-        title: "AWS Zertifizierungen: Welche Prüfung sich zuerst lohnt",
-        badge: "Zertifizierungs-Guide (Empfohlen)",
-        desc: "Vergleich von Cloud Practitioner, Solutions Architect Associate und DevOps Professional.",
-        to: "/ratgeber/aws-zertifizierungen/",
-      },
-      {
-        title: "Cloud Engineer: Aufgaben, Fähigkeiten und Einstieg",
-        badge: "Berufsratgeber",
-        desc: "Welche Kompetenzen Arbeitgeber von angehenden Cloud Engineers erwarten.",
-        to: "/ratgeber/cloud-engineer/",
-      },
-      {
-        title: "AWS Cloud Practitioner: Prüfungsleitfaden",
-        badge: "Prüfungs-Guide",
-        desc: "Alles zur Grundlagenprüfung CLF-C02 und wann sich der direkte Einstieg in SAA-C03 lohnt.",
-        to: "/ratgeber/aws-cloud-practitioner/",
-      },
-    ],
-    whyH2: "Warum Clarusway für die AWS Solutions Architect Weiterbildung?",
-    whyIntro: "Lerne direkt bei einem offiziellen AWS Select Tier Partner mit Fokus auf echte Architektur-Projekte.",
-    whyItems: [
-      { title: "Offizieller AWS Select Tier Partner", desc: "Lehrplan nach aktuellen AWS Well-Architected Standards." },
-      { title: "Gezielte SAA-C03 Prüfungsvorbereitung", desc: "Inklusive Praxis-Labs, Architektur-Szenarien und Prüfungssimulationen." },
-      { title: "Kompakt in 3 Monaten", desc: "Ideal für einen schnellen, zertifizierten Einstieg in den Cloud-Arbeitsmarkt." },
-      { title: "100 % Förderung mit Bildungsgutschein", desc: "AZAV-zertifiziert für Agentur für Arbeit, Jobcenter und QCG." },
-      { title: "Erweiterbar zum DevOps Engineer", desc: "Nahtloser Übergang in Modul 2 (Docker, Kubernetes, Terraform) möglich." },
-      { title: "Live-Unterricht in 15er-Gruppen", desc: "Persönliches Mentoring statt vorproduzierter Videokurse." },
-    ],
-    reviewsH2: "Erfahrungen von Absolventen",
-    reviews: [
-      {
-        initials: "DK",
-        name: "DH Kim",
-        role: "Absolvent AWS Programm",
-        platform: "Google Rezensionen",
-        platformUrl: "https://www.google.com/maps",
-        quote: "Durch die täglichen AWS-Labs und Mock-Prüfungen habe ich die Solutions Architect Zertifizierung beim ersten Versuch bestanden.",
-      },
-    ],
-    faqH2: "Häufige Fragen zur AWS Solutions Architect Weiterbildung",
-    faqs: [
-      {
-        q: "Was macht ein AWS Solutions Architect?",
-        a: "Ein AWS Solutions Architect entwirft Cloud-Infrastrukturen auf Amazon Web Services. Er wählt passende Compute-, Netzwerk-, Speicher- und Datenbankdienste aus, damit Anwendungen sicher, ausfallsicher und kosteneffizient laufen.",
-      },
-      {
-        q: "Ist die Prüfungsgebühr enthalten?",
-        a: "Bei Förderung über einen Bildungsgutschein prüfen wir die Übernahme der offiziellen AWS SAA-C03 Prüfungsgebühr direkt im Rahmen deines Maßnahmeangebots.",
-      },
-      {
-        q: "Brauche ich Vorkenntnisse?",
-        a: "Nein, das Modul beginnt mit den notwendigen Grundlagen in Linux, Netzwerken und Cloud Computing, bevor die fortgeschrittenen AWS-Services behandelt werden.",
-      },
-      {
-        q: "Wird der Kurs gefördert?",
-        a: "Ja, die Weiterbildung ist AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein oder das Qualifizierungschancengesetz förderfähig.",
-      },
-      {
-        q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
-      },
-    ],
-    relatedH2: "Weitere IT-Kurse",
-    relatedCourses: [
-      {
-        title: "AWS & DevOps Weiterbildung",
-        to: "/it-kurse/aws-devops-weiterbildung/",
-        duration: "8 Monate",
-        nextStart: "24 Aug 2026",
-        badge: "Alle 3 Cloud-Module",
-      },
-      {
-        title: "Kubernetes CKAD Zertifikat Kurs",
-        to: "/it-kurse/kubernetes-ckad-zertifikat-kurs/",
-        duration: "4 Wochen",
-        nextStart: "12 Okt 2026",
-        badge: "Container-Spezialisierung",
-      },
-    ],
-    ctaH2: "Starte deine AWS Solutions Architect Weiterbildung",
-    ctaText: "Sichere dir jetzt dein kostenloses Beratungsgespräch zur Förderung mit Bildungsgutschein.",
   },
 
   sdet: {
@@ -2303,12 +1753,12 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     slugDe: "/it-kurse/sdet-weiterbildung/",
     slugEn: "/it-courses/software-development-engineer-in-test/",
     pdfFileName: "clarusway-sdet-weiterbildung-lehrplan.pdf",
-    metaTitle: "SDET Weiterbildung: Testautomatisierung | Clarusway",
+    metaTitle: "SDET Weiterbildung für Testautomatisierung | Clarusway",
     metaDescription:
       "SDET Weiterbildung in Testautomatisierung & QA Engineering: Java, Selenium, Cypress, API-Testing und CI/CD. AZAV-zertifiziert, 100 % mit Bildungsgutschein.",
     breadcrumbLabel: "SDET Weiterbildung",
-    eyebrow: "Programm: Software Development Engineer in Test (SDET)",
-    h1: "SDET Weiterbildung: Software Development Engineer in Test",
+    eyebrow: "Programm SDET",
+    h1: "SDET Weiterbildung zum Software Development Engineer in Test",
     heroIntro:
       "Die SDET Weiterbildung bei Clarusway bildet dich im Live-Online-Unterricht zum Software Development Engineer in Test und Test Automation Engineer aus. Du lernst Java, SQL, Selenium, Cypress, API-Testing und CI/CD-Pipelines von Grund auf — AZAV-zertifiziert und zu 100 % über einen Bildungsgutschein förderfähig.",
     heroSubnote:
@@ -2346,7 +1796,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         bullets: ["Vom manuellen Testen zum Automation Engineer", "Integration von Tests in GitHub & Jenkins Pipelines", "Praxisnahes Test-Framework-Portfolio"],
       },
     ],
-    programSelectorH2: "SDET Weiterbildung: Programme und Dauer",
+    programSelectorH2: "Programme und Dauer der SDET Weiterbildung",
     programSelectorSubtitle: "Strukturierter Lernpfad von den IT- und Java-Grundlagen bis zum kompletten Testautomatisierungs-Framework.",
     modules: [
       {
@@ -3345,21 +2795,21 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         to: "/it-courses/full-stack-developer/",
         duration: "3 – 12 Months",
         nextStart: "27 Jul 2026",
-        badge: "Web Development + AI Tools",
+        badge: "Web Development",
       },
       {
-        title: "Cyber Security Analyst Course",
+        title: "AI-Enhanced Cyber Security Analyst Course",
         to: "/it-courses/cyber-security/",
         duration: "4 Modules",
         nextStart: "24 Aug 2026",
         badge: "SOC & Cloud Security",
       },
       {
-        title: "AWS Solutions Architect and DevOps Engineer Training",
-        to: "/it-courses/devops-aws/",
-        duration: "3 – 8 Months",
-        nextStart: "24 Aug 2026",
-        badge: "Cloud & Infrastructure",
+        title: "SDET Course: Software Testing and Automation",
+        to: "/it-courses/software-development-engineer-in-test/",
+        duration: "Full-Time Track",
+        nextStart: "14 Sep 2026",
+        badge: "QA Automation",
       },
     ],
     ctaH2: "Start your AI Engineering career in Germany",
@@ -3367,290 +2817,17 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       "Book a free consultation in English — Clarusway helps you choose the right module entry and prepares your Bildungsgutschein paperwork.",
   },
 
-  "data-analytics": {
-    key: "data-analytics",
-    slugDe: "/it-kurse/data-analytics-weiterbildung/",
-    slugEn: "/it-courses/data-analytics/",
-    pdfFileName: "clarusway-data-analytics-course-syllabus.pdf",
-    metaTitle: "Data Analytics Course in Germany | Clarusway",
-    metaDescription:
-      "Become a Data Analyst in Germany in 13 weeks: Python, SQL, Statistics, Power BI and Tableau. Instruction in English, Turkish & German, 100% funded with a Bildungsgutschein.",
-    breadcrumbLabel: "Data Analytics Course",
-    eyebrow: "Program: Data Analytics & Business Intelligence (Module 1)",
-    h1: "Data Analytics Course: Data Analysis and Business Intelligence",
-    heroIntro:
-      "The Data Analytics Course at Clarusway is a 13-week full-time live online program (520 units) with instruction in English, Turkish & German that prepares you for Data Analyst and Business Intelligence Analyst roles in Germany using Python, SQL, Statistics, Power BI, and Tableau — 100% funded with a Bildungsgutschein (education voucher).",
-    heroSubnote:
-      "No prior coding experience required · Standalone 13-week program · Expandable to Data Science & AI Engineering.",
-    heroBadges: ["Python (Pandas)", "Advanced SQL", "Power BI & DAX", "Tableau", "Statistics & A/B Tests", "Git & ETL"],
-    terminalTitle: "kpi_dashboard_query.sql",
-    terminalLines: [
-      { text: "SELECT region, DATE_TRUNC('month', order_date) AS month,", color: "#60a5fa" },
-      { text: "       SUM(revenue) AS mrr, COUNT(DISTINCT customer_id) AS users", color: "#e5e7eb" },
-      { text: "FROM analytics.orders GROUP BY 1, 2 ORDER BY 2 DESC;", color: "#60a5fa" },
-      { text: "✓ 24 rows returned — synced to Power BI Executive Dashboard", color: "#4ade80" },
-    ],
-    infoStrip: [
-      ["13 Weeks", "Full-Time (520 Units)"],
-      ["English / Turkish / German", "Instruction Language (Live)"],
-      ["Beginner Friendly", "No Coding Experience Needed"],
-      ["Max. 15", "Students per Cohort"],
-      ["AZAV Certified", "100% Bildungsgutschein"],
-    ],
-    audienceH2: "Who is the Data Analytics course for?",
-    audienceIntro:
-      "Designed for analytical thinkers who want a fast, structured 13-week entry into the German tech market without prior programming knowledge.",
-    audienceCards: [
-      {
-        title: "Career Changers from Business, Finance & Marketing",
-        badge: "Fast 13-Week Entry",
-        desc: "Upgrade from spreadsheets to professional data pipelines using SQL, Python, and interactive Power BI and Tableau dashboards.",
-        bullets: [
-          "Starts from zero — no prior coding experience needed",
-          "High demand for English-speaking analysts across Germany",
-          "Complete a capstone BI portfolio project in 13 weeks",
-        ],
-      },
-      {
-        title: "Future Data Scientists & AI Engineers",
-        badge: "Module 1 Foundation",
-        desc: "This course serves as Module 1 of the AI Engineering Bootcamp. After graduating, you can seamlessly continue into Module 2 (Machine Learning) and Module 3 (Agentic AI).",
-        bullets: [
-          "100% compatible with the 32-week AI Engineering Bootcamp",
-          "Master Python, SQL, and exploratory data analysis",
-          "Modular Bildungsgutschein funding options",
-        ],
-      },
-    ],
-    programSelectorH2: "Data Analytics course: modules, duration and start dates",
-    programSelectorSubtitle:
-      "Take the 13-week Data Analytics & BI course as a standalone program or combine it with Data Science & AI Engineering.",
-    modules: [
-      {
-        id: 1,
-        label: "Module 1",
-        title: "Data Analytics & Business Intelligence (13 weeks)",
-        duration: "13 Weeks (520 Units)",
-        color: PRIMARY,
-        prerequisite: "No prior coding experience required.",
-        project: "Executive KPI Dashboard in Power BI & Automated Python/SQL Pipeline",
-        topics: [
-          "Python for Data Analytics (NumPy, Pandas, Matplotlib, Seaborn)",
-          "Relational Databases & Advanced SQL (PostgreSQL)",
-          "Descriptive & Inferential Statistics, Hypothesis Testing",
-          "Power BI (Power Query, Data Modeling, DAX) & Tableau",
-          "Data Storytelling & Capstone BI Project",
-        ],
-      },
-      {
-        id: 2,
-        label: "Module 2 (Optional Upgrade)",
-        title: "Data Science & Machine Learning (6 weeks)",
-        duration: "6 Weeks (240 Units)",
-        color: SECONDARY,
-        prerequisite: "Completion of Module 1.",
-        project: "End-to-End Predictive Machine Learning Model",
-        topics: [
-          "Feature Engineering & Scikit-Learn Pipelines",
-          "Supervised & Unsupervised Machine Learning",
-          "Model Deployment with FastAPI & Streamlit",
-        ],
-      },
-    ],
-    programs: [
-      {
-        id: "da-standalone",
-        title: "Data Analytics & Business Intelligence (Module 1)",
-        subtitle: "Standalone 13-Week Course",
-        badge: "Module 1 · 13 Weeks",
-        moduleIds: [1],
-        startsAt: 1,
-        duration: "13 Weeks",
-        schedule: "Mon–Fri, 09:00–16:45 CET",
-        capacity: "Max. 15 Students",
-        language: "English / Turkish / German",
-        dates: ["27 Jul 2026", "14 Sep 2026", "02 Nov 2026"],
-        recommended: true,
-        description:
-          "Qualify as a Data Analyst or BI Analyst in 13 weeks with Python, SQL, Statistics, Power BI, and Tableau.",
-      },
-      {
-        id: "da-plus-ml",
-        title: "Data Analytics + Data Science & ML",
-        subtitle: "Combined Track (Module 1 + Module 2)",
-        badge: "Module 1 + 2 · 19 Weeks",
-        moduleIds: [1, 2],
-        startsAt: 1,
-        duration: "19 Weeks",
-        schedule: "Mon–Fri, 09:00–16:45 CET",
-        capacity: "Max. 15 Students",
-        language: "English / Turkish / German",
-        dates: ["27 Jul 2026", "14 Sep 2026", "02 Nov 2026"],
-        recommended: false,
-        description:
-          "Extend your Data Analytics foundation with 6 weeks of Machine Learning and predictive modeling.",
-      },
-    ],
-    curriculumH2: "What you learn in the Data Analytics course",
-    curriculumIntro:
-      "Every week combines live technical instruction with real-world datasets from e-commerce, finance, and operations.",
-    specialFeature: {
-      h2: "Want to continue to Data Science and AI Engineering?",
-      intro:
-        "The 13-week Data Analytics Course is identical to Module 1 of the Clarusway AI Engineering Bootcamp. You can start with this 13-week program and later add Module 2 (Data Science & Machine Learning) and Module 3 (AI Engineering & Agentic AI).",
-      cards: [
-        {
-          badge: "Step 1 (13 Weeks)",
-          title: "Data Analytics & BI",
-          desc: "Master Python, SQL, Statistics, Power BI, and Tableau to qualify for Data Analyst roles.",
-        },
-        {
-          badge: "Step 2 (+6 Weeks)",
-          title: "Data Science & Machine Learning",
-          desc: "Build predictive models with Scikit-Learn, XGBoost, and FastAPI.",
-        },
-        {
-          badge: "Step 3 (+13 Weeks)",
-          title: "AI Engineering & Agentic AI",
-          desc: "Develop LLM applications, RAG pipelines, and autonomous multi-agent systems.",
-        },
-      ],
-      linkLabel: "Explore the full AI Engineering Bootcamp",
-      linkTo: "/it-courses/ai-engineering/",
-    },
-    formatH2: "How the course works",
-    formatIntro: "Structured full-time live classes in English with daily hands-on data labs.",
-    formatHighlights: [
-      { title: "Live Practice with Real Datasets", desc: "Write SQL queries, clean data in Pandas, and design interactive Power BI dashboards every day." },
-      { title: "Instruction Language: English, Turkish & German", desc: "Instruction options in English, Turkish, and German — ideal for career changers and professionals targeting tech roles in Germany." },
-      { title: "1-on-1 Career Support", desc: "CV optimization, portfolio reviews, and interview preparation tailored to the German job market." },
-    ],
-    summaryTable: [
-      ["Schedule", "Mon–Fri, 09:00–16:45 CET"],
-      ["Duration", "13 Weeks (520 Units)"],
-      ["Core Stack", "Python, SQL, Statistics, Power BI, Tableau, Git"],
-      ["Class Size", "Max. 15 students"],
-      ["Instruction Language", "English / Turkish / German"],
-      ["Funding", "AZAV-certified · 100% funded with a Bildungsgutschein"],
-    ],
-    fundingH2: "Take the Data Analytics course for free with a Bildungsgutschein",
-    fundingText:
-      "The 13-week Data Analytics Course is AZAV-certified. With a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter, 100% of the tuition is covered.",
-    fundingBullets: [
-      "100% tuition coverage with a Bildungsgutschein",
-      "Compact 13-week duration — often approved quickly by advisors",
-      "German enrollment documents prepared within 24 hours",
-    ],
-    fundingLinkLabel: "how to get a Bildungsgutschein",
-    fundingLinkTo: "/bildungsgutschein/",
-    qcgLinkLabel: "Qualifizierungschancengesetz funding",
-    qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Career paths after the Data Analytics course",
-    careerIntro: "Data Analysts are needed across every industry in Germany — from Berlin tech startups to international corporations.",
-    careerRoles: [
-      {
-        title: "Data Analyst",
-        desc: "Queries databases with SQL, analyzes trends with Python, and presents actionable business insights.",
-        guideLabel: "What does a Data Analyst do?",
-        guideUrl: "/guides/data-analyst/",
-      },
-      {
-        title: "Business Intelligence Analyst",
-        desc: "Designs automated Power BI and Tableau reporting systems and KPI data models for management teams.",
-        guideLabel: "What does a Data Analyst do?",
-        guideUrl: "/guides/data-analyst/",
-      },
-    ],
-    clusterH2: "Guides on data analytics",
-    clusterIntro: "Read more about Data Analyst skills, daily responsibilities, and career paths in Germany.",
-    clusterGuides: [
-      {
-        title: "What does a data analyst do? Tasks, skills and career path in Germany",
-        badge: "Career Guide (Featured)",
-        desc: "Everything you need to know about becoming a Data Analyst in Germany as an English speaker.",
-        to: "/guides/data-analyst/",
-      },
-      {
-        title: "What is an AI engineer? Role, skills and roadmap in Germany",
-        badge: "Career Guide",
-        desc: "Learn how Data Analytics foundations lead into Machine Learning and Agentic AI engineering.",
-        to: "/guides/ai-engineer/",
-      },
-    ],
-    whyH2: "Why learn data analytics with Clarusway",
-    whyIntro: "Practical SQL, Python, and BI training designed for fast employability in Germany.",
-    whyItems: [
-      { title: "Job-Ready in 13 Weeks", desc: "Focused full-time curriculum covering the exact tools listed in German Data Analyst job posts." },
-      { title: "Python + SQL + Power BI + Tableau", desc: "Master both coding-based data analysis and enterprise BI dashboarding." },
-      { title: "Seamless Upgrade Path to AI", desc: "Counts as Module 1 of the 32-week AI Engineering Bootcamp." },
-      { title: "AZAV-Certified & 100% Funded", desc: "Full tuition coverage via Bildungsgutschein or Qualifizierungschancengesetz." },
-    ],
-    reviewsH2: "What graduates say",
-    reviews: [
-      {
-        initials: "M",
-        name: "Morad",
-        role: "Data Analytics Graduate",
-        platform: "Course Report",
-        platformUrl: "https://www.coursereport.com/schools/clarusway",
-        quote: "In 13 weeks I went from zero coding experience to building full SQL and Power BI dashboards.",
-      },
-    ],
-    faqH2: "Data Analytics Course FAQ",
-    faqs: [
-      {
-        q: "Do I need prior coding or math experience?",
-        a: "No. The course begins with the fundamentals of Python, SQL, and applied statistics so beginners can follow every step.",
-      },
-      {
-        q: "How long is the Data Analytics course?",
-        a: "The course takes 13 weeks full-time (520 instructional units), Monday to Friday from 09:00 to 16:45 CET.",
-      },
-      {
-        q: "Is the course free with a Bildungsgutschein?",
-        a: "Yes. The Data Analytics Course is AZAV-certified and 100% covered with a Bildungsgutschein from the Agentur für Arbeit or Jobcenter.",
-      },
-      {
-        q: "Can I continue with Data Science and AI Engineering afterwards?",
-        a: "Yes. Because this course is Module 1 of the AI Engineering Bootcamp, graduates can seamlessly continue into Module 2 (Machine Learning) and Module 3 (Agentic AI).",
-      },
-      {
-        q: "Do I need to speak German?",
-        a: "No. Instruction is available in English, Turkish, and German cohorts. Clarusway also provides all official German documentation needed for your Agentur für Arbeit or Jobcenter advisor.",
-      },
-    ],
-    relatedH2: "More IT courses",
-    relatedCourses: [
-      {
-        title: "AI Engineering Bootcamp (32 Weeks)",
-        to: "/it-courses/ai-engineering/",
-        duration: "32 Weeks",
-        nextStart: "27 Jul 2026",
-        badge: "Module 1 + 2 + 3",
-      },
-      {
-        title: "AI-Assisted Full Stack Developer Course",
-        to: "/it-courses/full-stack-developer/",
-        duration: "3 – 12 Months",
-        nextStart: "27 Jul 2026",
-        badge: "Web Development",
-      },
-    ],
-    ctaH2: "Start your Data Analytics course in Germany",
-    ctaText: "Book a free consultation in English and get your personalized Bildungsgutschein offer.",
-  },
-
   "full-stack": {
     key: "full-stack",
     slugDe: "/it-kurse/full-stack-entwickler-weiterbildung/",
     slugEn: "/it-courses/full-stack-developer/",
     pdfFileName: "clarusway-full-stack-developer-syllabus.pdf",
-    metaTitle: "AI-Assisted Full Stack Developer Course | Clarusway",
+    metaTitle: "Full Stack Web Development Bootcamp with AI | Clarusway",
     metaDescription:
       "Learn React, TypeScript, Next.js, Node.js, PostgreSQL and AI coding workflows (Cursor, Claude Code, GitHub Copilot) in English. Funded with a Bildungsgutschein.",
     breadcrumbLabel: "Full Stack Developer Course",
     eyebrow: "Program: AI-Assisted Full Stack Development",
-    h1: "Full Stack Developer Course with AI-Assisted Workflows",
+    h1: "Full Stack Web Development Bootcamp with AI-Assisted Workflows",
     heroIntro:
       "The AI-Assisted Full Stack Developer Course at Clarusway trains you in English to build modern web applications using React, TypeScript, Next.js, Node.js, PostgreSQL, and MongoDB while integrating AI-native development tools (Cursor, Claude Code, and GitHub Copilot) into your daily engineering workflow — 100% funded with a Bildungsgutschein (education voucher).",
     heroSubnote:
@@ -4631,246 +3808,22 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     relatedH2: "More IT courses",
     relatedCourses: [
       {
-        title: "AI Engineering Bootcamp",
-        to: "/it-courses/ai-engineering/",
-        duration: "32 Weeks",
-        nextStart: "27 Jul 2026",
-        badge: "Data Science & Agentic AI",
-      },
-      {
-        title: "Cyber Security Analyst Course",
-        to: "/it-courses/cyber-security/",
-        duration: "4 Modules",
-        nextStart: "24 Aug 2026",
-        badge: "SOC & Cloud Security",
-      },
-      {
         title: "Kubernetes CKAD Certification Course",
         to: "/it-courses/kubernetes-ckad-certification-course/",
         duration: "4 Weeks",
         nextStart: "12 Oct 2026",
         badge: "Kubernetes Specialization",
       },
+      {
+        title: "AI-Enhanced Cyber Security Analyst Course",
+        to: "/it-courses/cyber-security/",
+        duration: "4 Modules",
+        nextStart: "24 Aug 2026",
+        badge: "SOC & Cloud Security",
+      },
     ],
     ctaH2: "Start your AWS & DevOps course in Germany",
     ctaText: "Book a free consultation in English — Clarusway helps you select the right module combination and apply for your Bildungsgutschein.",
-  },
-
-  "aws-solutions-architect": {
-    key: "aws-solutions-architect",
-    slugDe: "/it-kurse/aws-solutions-architect-weiterbildung/",
-    slugEn: "/it-courses/aws-solutions-architect/",
-    pdfFileName: "clarusway-aws-solutions-architect-syllabus.pdf",
-    metaTitle: "AWS Solutions Architect Course | Clarusway",
-    metaDescription:
-      "3-month AWS Solutions Architect Course in Germany: EC2, S3, VPC, IAM, High Availability & AWS SAA-C03 exam prep. 100% funded with a Bildungsgutschein.",
-    breadcrumbLabel: "AWS Solutions Architect Course",
-    eyebrow: "Program: AWS Solutions Architect (Module 1)",
-    h1: "AWS Solutions Architect Course with Certification Prep",
-    heroIntro:
-      "The AWS Solutions Architect Course at Clarusway is a 3-month full-time live online program where you learn to design secure, scalable, and highly available cloud infrastructures on Amazon Web Services — including targeted preparation for the AWS Solutions Architect Associate (SAA-C03) exam and 100% funding with a Bildungsgutschein (education voucher).",
-    heroSubnote:
-      "3 months full-time · Official AWS Select Tier Partner · Expandable to DevOps Engineering.",
-    heroBadges: ["AWS SAA-C03", "EC2 & S3", "VPC & IAM", "RDS & DynamoDB", "CloudFormation", "Auto Scaling"],
-    terminalTitle: "aws_well_architected.yaml",
-    terminalLines: [
-      { text: "AWSTemplateFormatVersion: '2010-09-09'", color: "#60a5fa" },
-      { text: "Resources: MultiAZProductionVPC & AutoScalingGroup", color: "#e5e7eb" },
-      { text: "$ aws cloudformation deploy --stack-name prod-arch", color: "#fde047" },
-      { text: "✓ Stack CREATE_COMPLETE · SAA-C03 Ready", color: "#4ade80" },
-    ],
-    infoStrip: [
-      ["3 Months", "Compact Full-Time Duration"],
-      ["English / Turkish / German", "Instruction Language (Live)"],
-      ["SAA-C03", "Exam Prep Included"],
-      ["Max. 15", "Students per Cohort"],
-      ["AZAV Certified", "100% Bildungsgutschein"],
-    ],
-    audienceH2: "Who is the AWS Solutions Architect course for?",
-    audienceIntro: "Ideal for career changers and IT specialists who want to build a strong AWS cloud foundation in 3 months.",
-    audienceCards: [
-      {
-        title: "Beginners Entering Cloud Computing",
-        badge: "Includes Linux & Networking Basics",
-        desc: "Start with Linux, networking, and cloud fundamentals and build production-ready AWS architectures within 12 weeks.",
-        bullets: ["No prior cloud knowledge needed", "Daily hands-on labs in the AWS Console", "Capstone cloud architecture project"],
-      },
-      {
-        title: "System Administrators & Developers",
-        badge: "AWS Certification Upgrade",
-        desc: "Qualify for cloud migration projects and the AWS Certified Solutions Architect – Associate (SAA-C03) certification.",
-        bullets: ["AWS Well-Architected Framework in practice", "Infrastructure as Code with CloudFormation", "Can be combined with DevOps (Module 2)"],
-      },
-    ],
-    programSelectorH2: "AWS Solutions Architect course: modules, duration and start dates",
-    programSelectorSubtitle: "Take the 3-month AWS Solutions Architect program standalone or combine it with DevOps Engineering.",
-    modules: [
-      {
-        id: 1,
-        label: "Module 1",
-        title: "AWS Solutions Architect",
-        duration: "3 Months",
-        color: PRIMARY,
-        topics: ["Linux & Networking Foundations", "IAM, VPC, EC2, S3, Route 53", "RDS, DynamoDB & Caching", "High Availability & SAA-C03 Prep"],
-      },
-      {
-        id: 2,
-        label: "Module 2 (Optional)",
-        title: "DevOps Engineering",
-        duration: "3 Months",
-        color: SECONDARY,
-        topics: ["Docker & Kubernetes", "CI/CD with Jenkins & GitHub Actions", "Terraform & Monitoring"],
-      },
-    ],
-    programs: [
-      {
-        id: "saa-only",
-        title: "AWS Solutions Architect (Module 1)",
-        subtitle: "Standalone 3-Month Course",
-        badge: "Module 1 · 3 Months",
-        moduleIds: [1],
-        startsAt: 1,
-        duration: "3 Months",
-        schedule: "Mon–Fri, 09:00–16:45 CET",
-        capacity: "Max. 15 Students",
-        language: "English / Turkish / German",
-        dates: ["24 Aug 2026", "12 Oct 2026", "30 Nov 2026"],
-        recommended: true,
-        description: "Focused 3-month training on AWS cloud infrastructure and preparation for the AWS SAA-C03 certification.",
-      },
-      {
-        id: "saa-plus-devops",
-        title: "AWS Solutions Architect + DevOps Engineering",
-        subtitle: "Combined Track (Module 1 + Module 2)",
-        badge: "Module 1 + 2 · 6 Months",
-        moduleIds: [1, 2],
-        startsAt: 1,
-        duration: "6 Months",
-        schedule: "Mon–Fri, 09:00–16:45 CET",
-        capacity: "Max. 15 Students",
-        language: "English / Turkish / German",
-        dates: ["24 Aug 2026", "12 Oct 2026"],
-        recommended: false,
-        description: "Combine AWS Cloud Architecture with Docker, Kubernetes, Terraform, and CI/CD automation.",
-      },
-    ],
-    curriculumH2: "What you learn in the AWS Solutions Architect course",
-    curriculumIntro: "Hands-on practice across all core Amazon Web Services domains.",
-    formatH2: "How the course works",
-    formatIntro: "3 months of intensive full-time live classes in English.",
-    formatHighlights: [
-      { title: "Live AWS Console Labs", desc: "Configure VPCs, Load Balancers, RDS databases, and CloudFormation stacks every day." },
-      { title: "Instruction Language: English, Turkish & German", desc: "Instruction in English, Turkish, or German, preparing you directly for the AWS SAA-C03 exam and cloud teams." },
-      { title: "Mock Exams Included", desc: "Regular practice tests and architecture reviews with AWS-certified instructors." },
-    ],
-    summaryTable: [
-      ["Schedule", "Mon–Fri, 09:00–16:45 CET"],
-      ["Duration", "3 Months"],
-      ["Certification Goal", "AWS Certified Solutions Architect – Associate (SAA-C03)"],
-      ["Class Size", "Max. 15 students"],
-      ["Instruction Language", "English / Turkish / German"],
-      ["Funding", "AZAV-certified · 100% funded with a Bildungsgutschein"],
-    ],
-    fundingH2: "Take the AWS Solutions Architect course for free with a Bildungsgutschein",
-    fundingText:
-      "This 3-month course is AZAV-certified and 100% covered with a Bildungsgutschein (education voucher) from the Agentur für Arbeit or Jobcenter.",
-    fundingBullets: [
-      "100% tuition coverage with a Bildungsgutschein",
-      "Compact 3-month duration for rapid cloud qualification",
-      "Can be extended with DevOps Engineering",
-    ],
-    fundingLinkLabel: "how to get a Bildungsgutschein",
-    fundingLinkTo: "/bildungsgutschein/",
-    qcgLinkLabel: "Qualifizierungschancengesetz funding",
-    qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Career paths after the AWS Solutions Architect course",
-    careerIntro: "Strong AWS architecture skills qualify you for cloud roles across Germany.",
-    careerRoles: [
-      {
-        title: "AWS Solutions Architect",
-        desc: "Designs secure, scalable AWS cloud infrastructures and guides cloud migrations.",
-        guideLabel: "AWS Certifications Guide",
-        guideUrl: "/guides/aws-certifications/",
-      },
-      {
-        title: "Cloud Engineer",
-        desc: "Implements, monitors, and optimizes AWS cloud resources.",
-        guideLabel: "DevOps & Cloud Engineer Guide",
-        guideUrl: "/guides/devops-engineer/",
-      },
-    ],
-    clusterH2: "Guides on AWS",
-    clusterIntro: "Read more about AWS certifications and exams.",
-    clusterGuides: [
-      {
-        title: "AWS Certifications: Which Exam to Take First",
-        badge: "Certification Guide",
-        desc: "Compare AWS Cloud Practitioner, Solutions Architect Associate, and DevOps certifications.",
-        to: "/guides/aws-certifications/",
-      },
-      {
-        title: "AWS Cloud Practitioner (CLF-C02): Exam & Study Guide",
-        badge: "Exam Guide",
-        desc: "How to prepare for the foundational AWS certification.",
-        to: "/guides/aws-cloud-practitioner/",
-      },
-    ],
-    whyH2: "Why learn AWS with Clarusway",
-    whyIntro: "Official AWS Partner training in small live cohorts.",
-    whyItems: [
-      { title: "AWS Select Tier Partner", desc: "Curriculum aligned with official AWS Well-Architected standards." },
-      { title: "Compact 3-Month Format", desc: "Fast qualification for cloud roles or a stepping stone into DevOps." },
-      { title: "AZAV-Certified & 100% Funded", desc: "100% covered with a Bildungsgutschein." },
-    ],
-    reviewsH2: "What graduates say",
-    reviews: [
-      {
-        initials: "DK",
-        name: "DH Kim",
-        role: "AWS Track Graduate",
-        platform: "Google Reviews",
-        platformUrl: "https://www.google.com/maps",
-        quote: "The daily AWS labs prepared me thoroughly for the Solutions Architect Associate exam.",
-      },
-    ],
-    faqH2: "AWS Solutions Architect Course FAQ",
-    faqs: [
-      {
-        q: "Do I need prior cloud experience?",
-        a: "No. The course starts with Linux, networking, and cloud fundamentals before diving into AWS core services.",
-      },
-      {
-        q: "Which certification does the course prepare me for?",
-        a: "It prepares you directly for the AWS Certified Solutions Architect – Associate (SAA-C03) exam.",
-      },
-      {
-        q: "Is the course free with a Bildungsgutschein?",
-        a: "Yes. It is AZAV-certified and 100% funded with a Bildungsgutschein from the Agentur für Arbeit or Jobcenter.",
-      },
-      {
-        q: "Do I need to speak German?",
-        a: "No. Instruction is available in English, Turkish, and German cohorts, and Clarusway provides all German documents required for your advisor.",
-      },
-    ],
-    relatedH2: "More IT courses",
-    relatedCourses: [
-      {
-        title: "AWS & DevOps Engineer Course (8 Months)",
-        to: "/it-courses/devops-aws/",
-        duration: "3 – 8 Months",
-        nextStart: "24 Aug 2026",
-        badge: "AWS + DevOps + Azure",
-      },
-      {
-        title: "Kubernetes CKAD Certification Course",
-        to: "/it-courses/kubernetes-ckad-certification-course/",
-        duration: "4 Weeks",
-        nextStart: "12 Oct 2026",
-        badge: "Kubernetes",
-      },
-    ],
-    ctaH2: "Start your AWS Solutions Architect course",
-    ctaText: "Book a free consultation in English and secure 100% funding with a Bildungsgutschein.",
   },
 
   sdet: {

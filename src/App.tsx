@@ -168,7 +168,6 @@ function SeoSitemapDrawer() {
                     ["Startseite (DE)", "/"],
                     ["IT-Kurse Übersicht", "/it-kurse/"],
                     ["AI Engineer", "/it-kurse/ai-engineer-weiterbildung/"],
-                    ["Data Analytics (Modul 1)", "/it-kurse/ai-engineer-weiterbildung/#data-analyst"],
                     ["Full Stack", "/it-kurse/full-stack-entwickler-weiterbildung/"],
                     ["Cyber Security", "/it-kurse/cyber-security-weiterbildung/"],
                     ["AWS & DevOps", "/it-kurse/aws-devops-weiterbildung/"],
