@@ -27,6 +27,48 @@ const PRIMARY = "#e51a59";
 const DARK = "#1a1d2e";
 const SOFT_BG = "#f6f7fb";
 
+const MONTH_MAP: Record<string, string> = {
+  jan: "01",
+  feb: "02",
+  mar: "03",
+  mär: "03",
+  apr: "04",
+  may: "05",
+  mai: "05",
+  jun: "06",
+  jul: "07",
+  aug: "08",
+  sep: "09",
+  oct: "10",
+  okt: "10",
+  nov: "11",
+  dec: "12",
+  dez: "12",
+};
+
+function parseIsoDate(str: string): string {
+  if (!str) return "2026-07-27";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(str)) return str;
+  const match = str.match(/(\d{1,2})\.?\s+([A-Za-zäöüÄÖÜ]+)\s+(\d{4})/);
+  if (match) {
+    const day = match[1].padStart(2, "0");
+    const mKey = match[2].toLowerCase().slice(0, 3);
+    const month = MONTH_MAP[mKey] || "07";
+    const year = match[3];
+    return `${year}-${month}-${day}`;
+  }
+  return str;
+}
+
+function parseIsoDuration(str?: string): string | undefined {
+  if (!str) return undefined;
+  const mWk = str.match(/(\d+)\s*(?:Wochen|weeks|Wo\.|Wk\.)/i);
+  if (mWk) return `P${mWk[1]}W`;
+  const mMo = str.match(/(\d+)\s*(?:Monate|months|Mo\.)/i);
+  if (mMo) return `P${mMo[1]}M`;
+  return undefined;
+}
+
 interface CourseTemplatePageProps {
   courseKey: CourseKey;
 }
@@ -63,9 +105,9 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
     prog.dates.slice(0, 2).map((dateStr) => ({
       "@type": "CourseInstance",
       name: `${prog.title} (${dateStr})`,
-      courseMode: "online",
-      inLanguage: "en",
-      startDate: dateStr,
+      courseMode: "Online",
+      inLanguage: lang,
+      startDate: parseIsoDate(dateStr),
       courseWorkload: prog.duration,
       instructor: {
         "@type": "Organization",
@@ -111,6 +153,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         },
       ];
 
+  const officialCourseName =
+    data.eyebrow?.replace(/^Programm:\s*|^Program:\s*/i, "").trim() || data.h1;
+  const courseDurationIso =
+    parseIsoDuration(data.programs?.[0]?.duration) ||
+    parseIsoDuration(data.infoStrip?.find(([k, v]) => v.toLowerCase().includes("dauer") || v.toLowerCase().includes("duration"))?.[0]);
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -120,6 +168,8 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         name: "Clarusway GmbH",
         url: "https://clarusway.de",
         logo: "https://clarusway.de/assets/clarusway-logo.png",
+        telephone: "+4921317762749",
+        email: "info@clarusway.de",
         address: {
           "@type": "PostalAddress",
           streetAddress: "Bataverstraße 84",
@@ -153,24 +203,27 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       {
         "@type": "Course",
         "@id": `${canonicalPageUrl}#course`,
-        name: data.h1,
-        alternateName: data.metaTitle,
-        description: data.metaDescription,
+        name: officialCourseName,
+        alternateName: data.breadcrumbLabel,
+        description: data.heroIntro,
         url: canonicalPageUrl,
-        inLanguage: lang,
+        inLanguage: ["en", "tr", "de"],
+        timeRequired: courseDurationIso,
         provider: {
           "@id": "https://clarusway.de/#organization",
         },
         syllabusSections: data.modules?.map((m) => ({
           "@type": "Syllabus",
           name: m.title,
-          timeRequired: m.duration,
+          timeRequired: parseIsoDuration(m.duration) || undefined,
           description: m.topics?.join(", ") || m.project || "",
         })),
         hasCourseInstance: courseInstances,
         offers: {
           "@type": "Offer",
-          category: data.isOrientation ? "AVGS" : "Bildungsgutschein",
+          category: data.isOrientation
+            ? "AVGS"
+            : "Förderfähig mit Bildungsgutschein (AZAV-zertifiziert)",
           priceCurrency: "EUR",
           url: canonicalPageUrl,
         },
@@ -776,6 +829,83 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
+          DATA ANALYST MODULE 1 STANDALONE SECTION (Anchor #data-analyst per SEO Plan)
+          ===================================================================== */}
+      {data.key === "ai-engineering" && (
+        <section id="data-analyst" className="py-16 bg-[#FFF8FA] border-y border-[#F3D3DC]/60 scroll-mt-24">
+          <div className="max-w-[1200px] mx-auto px-5">
+            <div className="max-w-3xl mb-10">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#e51a59] block mb-2">
+                {lang === "en" ? "STANDALONE MODULE 1 OPTION" : "MODUL 1 EIGENSTÄNDIG BUCHBAR"}
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+                {lang === "en"
+                  ? "Take Module 1 as a standalone Data Analytics course"
+                  : "Data Analyst Weiterbildung als Modul 1 einzeln belegen"}
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                {lang === "en"
+                  ? "Looking to start specifically as a Data Analyst or Business Intelligence Specialist? You can book Module 1 (13 weeks) individually with 100% funding via Bildungsgutschein — and seamlessly continue to AI Engineer later whenever you choose."
+                  : "Du möchtest gezielt als Data Analyst oder BI-Spezialist einsteigen? Modul 1 (13 Wochen) kann als eigenständige Weiterbildung über einen Bildungsgutschein belegt werden. Bei Bedarf setzt du deine Ausbildung später nahtlos zum AI Engineer fort."}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-2xl p-6 border border-[#F3D3DC] shadow-sm">
+                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3 inline-block">
+                  {lang === "en" ? "Foundation · 7 Weeks" : "Fundament · 7 Wochen"}
+                </span>
+                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                  {lang === "en" ? "Data Analysis with Python and SQL" : "Datenanalyse mit Python und SQL"}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  {lang === "en"
+                    ? "Master relational database querying with complex SQL joins, aggregation, and data cleaning and transformation using Python, Pandas, and NumPy."
+                    : "Sichere Beherrschung relationaler Datenbanken mit komplexen SQL-Abfragen sowie Datenbereinigung und Transformation mit Python, Pandas und NumPy."}
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 border border-[#F3D3DC] shadow-sm">
+                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3 inline-block">
+                  {lang === "en" ? "BI & Dashboards · 6 Weeks" : "BI & Dashboards · 6 Wochen"}
+                </span>
+                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                  {lang === "en" ? "Business Intelligence and Dashboards" : "Business Intelligence und Dashboards"}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  {lang === "en"
+                    ? "Design executive KPI reports and interactive business intelligence dashboards using Power BI and Tableau, grounded in applied statistics."
+                    : "Erstelle interaktive Business-Intelligence-Dashboards und KPI-Reports mit Power BI und Tableau, fundiert durch angewandte deskriptive Statistik."}
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 border border-[#F3D3DC] shadow-sm flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 mb-3 inline-block">
+                    {lang === "en" ? "Upgrade Path" : "Nahtloser Upgrade-Pfad"}
+                  </span>
+                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                    {lang === "en" ? "Continue from Module 1 to AI Engineer" : "Nach Modul 1 weiter zum AI Engineer"}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                    {lang === "en"
+                      ? "Graduates of Module 1 can immediately qualify for Module 2 (Machine Learning) and Module 3 (Agentic AI) without repeating technical onboarding."
+                      : "Absolventen von Modul 1 können jederzeit ohne erneuten Einstufungstest in Modul 2 (Machine Learning) und Modul 3 (Agentic AI) weitergehen."}
+                  </p>
+                </div>
+                <Link
+                  to={consultPath}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#e51a59] hover:underline"
+                >
+                  <span>{lang === "en" ? "Consult about Data Analyst track →" : "Zu Modul 1 beraten lassen →"}</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =====================================================================
           7. COURSE OVERVIEW & FORMAT (Component B7) — #f6f7fb Soft Cool BG
           Exact Figma Make Kursübersicht 2-Column Layout
           ===================================================================== */}
@@ -856,7 +986,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          8. CAREER & SALARIES (Component B9) — Pure White (#ffffff)
+          8. CAREER PATHS & ROLES (Component B9) — Pure White (#ffffff)
           ===================================================================== */}
       <section className="py-20 bg-white">
         <div className="max-w-[1200px] mx-auto px-5">
@@ -865,7 +995,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               className="text-xs font-bold uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
             >
-              {lang === "en" ? "CAREER & SALARIES" : "KARRIERE & GEHALT"}
+              {lang === "en" ? "CAREER PATHS & ROLES" : "BERUFSBILDER & PERSPEKTIVEN"}
             </div>
             <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
               {data.careerH2}
@@ -901,19 +1031,10 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="flex items-center gap-2 mb-3">
                     <div className="w-9 h-9 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center">
                       <BriefcaseIcon className="w-4 h-4" />
                     </div>
-                    <a
-                      href={role.salarySourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[11px] text-gray-400 hover:text-[#e51a59] inline-flex items-center gap-1"
-                    >
-                      <span>{role.salarySource}</span>
-                      <ExternalLinkIcon className="w-3 h-3" />
-                    </a>
                   </div>
 
                   <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
@@ -924,22 +1045,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       {role.title}
                     </Link>
                   </h3>
-
-                  <div
-                    style={{ background: SOFT_BG }}
-                    className="rounded-xl p-3 mb-4 border border-gray-100"
-                  >
-                    <p className="text-[11px] text-gray-500">
-                      {lang === "en" ? "Median Salary (Germany)" : "Median-Gehalt (Deutschland)"}
-                    </p>
-                    <p style={{ color: PRIMARY }} className="text-xl font-bold">
-                      {role.salaryMedian}
-                    </p>
-                    <p className="text-[11px] text-gray-500">
-                      {lang === "en" ? "Range: " : "Spanne: "}
-                      {role.salaryRange}
-                    </p>
-                  </div>
 
                   <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">
                     {role.desc}

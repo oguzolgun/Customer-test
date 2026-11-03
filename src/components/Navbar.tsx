@@ -11,28 +11,26 @@ const deCoursesGroups = [
   {
     groupLabel: "Daten & KI",
     items: [
-      { label: "AI Engineer", sub: "Data Analytics bis Agentic AI", to: "/it-kurse/ai-engineer-weiterbildung/" },
-      { label: "Data Analyst", sub: "Datenanalyse & BI (Modul 1)", to: "/it-kurse/data-analyst-weiterbildung/" },
+      { label: "AI Engineering", sub: "Data Analytics bis Agentic AI", to: "/it-kurse/ai-engineer-weiterbildung/" },
     ],
   },
   {
-    groupLabel: "Software & Testing",
+    groupLabel: "Software",
     items: [
-      { label: "Full Stack Entwickler", sub: "KI-gestützte Webentwicklung", to: "/it-kurse/full-stack-entwickler-weiterbildung/" },
+      { label: "AI-Assisted Full Stack", sub: "KI-gestützte Webentwicklung", to: "/it-kurse/full-stack-entwickler-weiterbildung/" },
       { label: "SDET", sub: "Testautomatisierung & QA", to: "/it-kurse/sdet-weiterbildung/" },
     ],
   },
   {
-    groupLabel: "Cloud & IT-Sicherheit",
+    groupLabel: "Cloud und Sicherheit",
     items: [
-      { label: "Cyber Security", sub: "SOC Analyst & Cloud Security", to: "/it-kurse/cyber-security-weiterbildung/" },
-      { label: "AWS & DevOps", sub: "Cloud & DevOps Engineering", to: "/it-kurse/aws-devops-weiterbildung/" },
-      { label: "AWS Solutions Architect", sub: "SAA-C03 Cloud Architektur", to: "/it-kurse/aws-solutions-architect-weiterbildung/" },
+      { label: "AI-Enhanced Cyber Security", sub: "SOC Analyst & Cloud Security", to: "/it-kurse/cyber-security-weiterbildung/" },
+      { label: "AI-Enhanced AWS Solutions Architect/DevOps Engineer", sub: "Cloud & DevOps Engineering mit KI", to: "/it-kurse/aws-devops-weiterbildung/" },
       { label: "Kubernetes CKAD", sub: "Zertifikatskurs in 4 Wochen", to: "/it-kurse/kubernetes-ckad-zertifikat-kurs/" },
     ],
   },
   {
-    groupLabel: "Orientierung & Übersicht",
+    groupLabel: "Noch unsicher?",
     items: [
       { label: "IT-Orientierungskurs", sub: "Den passenden IT-Beruf finden", to: "/it-orientierungskurs/" },
       { label: "Alle IT-Kurse", sub: "Vergleichstabelle & Übersicht", to: "/it-kurse/" },
@@ -58,12 +56,12 @@ const enCoursesGroups = [
     groupLabel: "Cloud & Security",
     items: [
       { label: "AI-Enhanced Cyber Security", sub: "SOC Analyst & Cloud Security", to: "/it-courses/cyber-security/" },
-      { label: "AI-Enhanced AWS & DevOps", sub: "AWS Architect & DevOps Engineering", to: "/it-courses/devops-aws/" },
+      { label: "AI-Enhanced AWS Solutions Architect/DevOps Engineer", sub: "AWS Architect & DevOps Engineering with AI", to: "/it-courses/devops-aws/" },
       { label: "Kubernetes CKAD", sub: "4-Week Certification Prep", to: "/it-courses/kubernetes-ckad-certification-course/" },
     ],
   },
   {
-    groupLabel: "Not sure yet",
+    groupLabel: "Not sure yet?",
     items: [
       { label: "IT Orientation Course", sub: "Find the IT career that fits you", to: "/it-orientation-course/" },
       { label: "All courses", sub: "Compare all funded IT bootcamps", to: "/it-courses/" },
@@ -72,10 +70,11 @@ const enCoursesGroups = [
 ];
 
 const deFundingItems = [
+  { label: "Alle Finanzierungswege", sub: "Alle Förderoptionen im Vergleich", to: "/finanzierung/" },
   { label: "Bildungsgutschein", sub: "100 % Förderung über Agentur / Jobcenter", to: "/bildungsgutschein/" },
   { label: "AVGS", sub: "Aktivierungs- und Vermittlungsgutschein", to: "/avgs/" },
   { label: "Qualifizierungschancengesetz", sub: "Förderung für Beschäftigte & Arbeitgeber", to: "/qualifizierungschancengesetz/" },
-  { label: "Alle Finanzierungswege", sub: "Alle Förderoptionen im Vergleich", to: "/finanzierung/" },
+  { label: "Für Unternehmen", sub: "Geförderte Weiterbildung für Teams & Unternehmen", to: "/fuer-unternehmen/" },
 ];
 
 const enFundingItems = [
@@ -87,31 +86,31 @@ const enFundingItems = [
 ];
 
 const deRatgeberItems = [
-  { label: "Ratgeber-Übersicht", sub: "Alle Leitfäden zu IT-Berufen & Förderung", to: "/ratgeber/" },
+  { label: "Alle Ratgeber", sub: "Alle Leitfäden zu IT-Berufen & Förderung", to: "/ratgeber/" },
   { label: "Weiterbildung über Arbeitsagentur", sub: "So klappt die Förderung Schritt für Schritt", to: "/ratgeber/weiterbildung-arbeitsagentur/" },
   { label: "Quereinstieg in die IT", sub: "Wege, Voraussetzungen und Förderung", to: "/ratgeber/quereinstieg-it/" },
-  { label: "SOC Analyst: Aufgaben & Gehalt", sub: "Berufsbild und Einstieg in Cyber Security", to: "/ratgeber/soc-analyst/" },
+  { label: "Was macht ein SOC Analyst?", sub: "Aufgaben, Fähigkeiten und Einstieg", to: "/ratgeber/soc-analyst/" },
 ];
 
 const enGuidesItems = [
-  { label: "Guides hub", sub: "All career & certification guides", to: "/guides/" },
-  { label: "What does a Data Analyst do?", sub: "Daily tasks, Python, SQL & salary", to: "/guides/data-analyst/" },
+  { label: "All guides", sub: "All career & certification guides", to: "/guides/" },
+  { label: "What does a Data Analyst do?", sub: "Daily tasks, Python, SQL & skills", to: "/guides/data-analyst/" },
   { label: "What is an AI Engineer?", sub: "Production LLMs, RAG & agents", to: "/guides/ai-engineer/" },
   { label: "What is a Full Stack Developer?", sub: "React, TypeScript & AI coding tools", to: "/guides/full-stack-developer/" },
-  { label: "What does a SOC Analyst do?", sub: "Incident triage, SIEM & salary", to: "/guides/soc-analyst/" },
+  { label: "What does a SOC Analyst do?", sub: "Incident triage, SIEM & tools", to: "/guides/soc-analyst/" },
 ];
 
 const deAboutItems = [
   { label: "Über Clarusway", sub: "Mission, AZAV-Zertifizierung & Standort Neuss", to: "/ueber-uns/" },
   { label: "Erfolgsgeschichten", sub: "Erfahrungen und Bewertungen von Absolventen", to: "/erfolgsgeschichten/" },
-  { label: "Karriere-Management", sub: "Lebenslauf, Interview-Prep & Job-Matching", to: "/karriere-management/" },
+  { label: "Karriere-Management", sub: "Coaching, Interview-Prep & Karriere-Support", to: "/karriere-management/" },
   { label: "Events", sub: "Kostenlose Webinare, Workshops & Demo Days", to: "/events/" },
 ];
 
 const enAboutItems = [
   { label: "About Clarusway", sub: "AZAV certification, mentors & Neuss campus", to: "/about/" },
   { label: "Success stories", sub: "Graduate stories & independent platform reviews", to: "/success-stories/" },
-  { label: "Career Management", sub: "German CV prep, interview coaching & matching", to: "/career-management/" },
+  { label: "Career Management", sub: "Coaching, interview prep & career support", to: "/career-management/" },
   { label: "Events", sub: "Upcoming info sessions, workshops & Demo Days", to: "/events/" },
 ];
 

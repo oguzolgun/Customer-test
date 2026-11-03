@@ -865,8 +865,8 @@ function GehaltKarriere() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
           {[
-            { label: "Bruttomediangehalt Full Stack", value: "43.200 €", sub: "pro Jahr (StepStone 2026)" },
-            { label: "Typische Gehaltsspanne", value: "37.600 – 50.700 €", sub: "Vollzeitstelle Deutschland" },
+            { label: "Berufsperspektive Full Stack", value: "Hohe Nachfrage", sub: "Web & KI-Entwicklung" },
+            { label: "Praxisprojekte im Kurs", value: "Echte Portfolios", sub: "Git, Next.js & APIs" },
             { label: "Karrierestufen", value: "3 Stufen", sub: "Junior → Senior → Freelance" },
           ].map((s) => (
             <div key={s.label} className="rounded-2xl bg-white border border-gray-100 p-6 shadow-sm text-center">
@@ -977,8 +977,8 @@ const faqs = [
     a: "Beginnen Sie mit Frontend, wenn Sie schnelle sichtbare Ergebnisse brauchen. Wählen Sie Backend, wenn Sie Logik und Daten bevorzugen. Full Stack öffnet die meisten Stellen, verlangt aber 9 bis 12 Monate. In unseren Anfängerprogrammen sind die ersten beiden Module identisch, sodass die Entscheidung nicht am ersten Tag fallen muss.",
   },
   {
-    q: "Wie hoch ist das Einstiegsgehalt für Webentwickler in Deutschland?",
-    a: "Das Bruttomediangehalt für Full-Stack-Webentwickler liegt laut StepStone-Gehaltsdaten (Stand 2026) bei 43.200 € pro Jahr, mit einer typischen Spanne von 37.600 € bis 50.700 €. Regionale Unterschiede sind erheblich, Ballungsräume zahlen deutlich über dem Bundesdurchschnitt. Mit Berufserfahrung und Spezialisierung steigt das Niveau spürbar an.",
+    q: "Wie sind die Berufsaussichten für Webentwickler in Deutschland?",
+    a: "Full-Stack-Webentwickler gehören zu den gefragtesten IT-Profilen in Deutschland. Entscheidend für den Berufseinstieg ist ein überzeugendes GitHub-Portfolio mit realen Full-Stack- und KI-Projekten sowie Praxiserfahrung in agilen Entwicklungsteams.",
   },
   {
     q: "Gibt es eine Jobgarantie nach dem Kurs?",

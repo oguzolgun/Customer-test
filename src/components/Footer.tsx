@@ -17,11 +17,9 @@ export default function Footer() {
             links: [
               { label: "Alle IT-Kurse", to: "/it-kurse/" },
               { label: "AI Engineer Weiterbildung", to: "/it-kurse/ai-engineer-weiterbildung/" },
-              { label: "Data Analyst Weiterbildung", to: "/it-kurse/data-analyst-weiterbildung/" },
-              { label: "Full Stack Entwickler Weiterbildung", to: "/it-kurse/full-stack-entwickler-weiterbildung/" },
-              { label: "Cyber Security Weiterbildung", to: "/it-kurse/cyber-security-weiterbildung/" },
-              { label: "AWS & DevOps Weiterbildung", to: "/it-kurse/aws-devops-weiterbildung/" },
-              { label: "AWS Solutions Architect", to: "/it-kurse/aws-solutions-architect-weiterbildung/" },
+              { label: "AI-Assisted Full Stack Entwickler Weiterbildung", to: "/it-kurse/full-stack-entwickler-weiterbildung/" },
+              { label: "AI-Enhanced Cyber Security Weiterbildung", to: "/it-kurse/cyber-security-weiterbildung/" },
+              { label: "AI-Enhanced AWS & DevOps Weiterbildung", to: "/it-kurse/aws-devops-weiterbildung/" },
               { label: "SDET Weiterbildung", to: "/it-kurse/sdet-weiterbildung/" },
               { label: "Kubernetes CKAD Zertifikat Kurs", to: "/it-kurse/kubernetes-ckad-zertifikat-kurs/" },
               { label: "IT-Orientierungskurs", to: "/it-orientierungskurs/" },
@@ -43,7 +41,7 @@ export default function Footer() {
               { label: "Alle Ratgeber", to: "/ratgeber/" },
               { label: "Weiterbildung über Arbeitsagentur", to: "/ratgeber/weiterbildung-arbeitsagentur/" },
               { label: "Quereinstieg in die IT", to: "/ratgeber/quereinstieg-it/" },
-              { label: "SOC Analyst: Aufgaben & Gehalt", to: "/ratgeber/soc-analyst/" },
+              { label: "Was macht ein SOC Analyst?", to: "/ratgeber/soc-analyst/" },
               { label: "Agentic AI einfach erklärt", to: "/ratgeber/agentic-ai/" },
               { label: "Full-Stack-Entwickler werden", to: "/ratgeber/full-stack-entwickler/" },
             ],
@@ -74,9 +72,9 @@ export default function Footer() {
             links: [
               { label: "All courses", to: "/it-courses/" },
               { label: "AI Engineering Bootcamp", to: "/it-courses/ai-engineering/" },
-              { label: "AI-Assisted Full Stack Course", to: "/it-courses/full-stack-developer/" },
-              { label: "Cyber Security Course (SOC)", to: "/it-courses/cyber-security/" },
-              { label: "AWS & DevOps Engineer Training", to: "/it-courses/devops-aws/" },
+              { label: "AI-Assisted Full Stack Development", to: "/it-courses/full-stack-developer/" },
+              { label: "AI-Enhanced Cyber Security Analyst", to: "/it-courses/cyber-security/" },
+              { label: "AI-Enhanced AWS Solutions Architect/DevOps Engineer", to: "/it-courses/devops-aws/" },
               { label: "SDET Course", to: "/it-courses/software-development-engineer-in-test/" },
               { label: "Kubernetes CKAD Course", to: "/it-courses/kubernetes-ckad-certification-course/" },
               { label: "IT Orientation Course", to: "/it-orientation-course/" },
@@ -201,21 +199,21 @@ export default function Footer() {
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
               <IconMapPin color={PRIMARY} size={14} />
-              <span>Bataver Str. 84, 41462 Neuss, Germany</span>
+              <span>Bataverstraße 84, 41462 Neuss, Germany</span>
             </a>
             <a
-              href="mailto:kontakt@clarusway.de"
+              href="mailto:info@clarusway.de"
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
               <IconMail color={PRIMARY} size={14} />
-              <span>kontakt@clarusway.de</span>
+              <span>info@clarusway.de</span>
             </a>
             <a
-              href="tel:+4953319549998"
+              href="tel:+4921317762749"
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
               <IconPhone color={PRIMARY} size={14} />
-              <span>+49 5331 9549998</span>
+              <span>+49 2131 7762749</span>
             </a>
           </div>
 

@@ -1093,11 +1093,11 @@ export function BildungsgutscheinPage() {
                 ]
               : [
                   { title: "AI Engineer Weiterbildung", to: "/it-kurse/ai-engineer-weiterbildung/", meta: "32 Wochen · Data, ML & Agentic AI" },
-                  { title: "Data Analytics Weiterbildung", to: "/it-kurse/data-analytics-weiterbildung/", meta: "13 Wochen · Python, SQL & Power BI" },
+                  { title: "Data Analytics (Modul 1 des AI Engineer)", to: "/it-kurse/ai-engineer-weiterbildung/#data-analyst", meta: "13 Wochen · Python, SQL & Power BI" },
                   { title: "Full Stack Entwickler Weiterbildung", to: "/it-kurse/full-stack-entwickler-weiterbildung/", meta: "4 Module · React, Next.js & Node.js" },
                   { title: "Cyber Security Weiterbildung", to: "/it-kurse/cyber-security-weiterbildung/", meta: "4 Module · Security+, SOC & Cloud" },
                   { title: "AWS & DevOps Weiterbildung", to: "/it-kurse/aws-devops-weiterbildung/", meta: "3–8 Monate · AWS, K8s & Terraform" },
-                  { title: "Software Testing (SDET) Weiterbildung", to: "/it-kurse/software-testing-weiterbildung/", meta: "Vollzeit · QA & Testautomatisierung" },
+                  { title: "Software Testing (SDET) Weiterbildung", to: "/it-kurse/sdet-weiterbildung/", meta: "Vollzeit · QA & Testautomatisierung" },
                 ]
             ).map((c) => (
               <div

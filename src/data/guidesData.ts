@@ -54,15 +54,15 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     introFundingLinkLabel: "IT-Weiterbildung mit Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "In diesem Ratgeber vergleichen wir die zugänglichsten IT-Berufe für Quereinsteiger in Deutschland, zeigen aktuelle Einstiegsgehälter nach StepStone 2026 und erklären, wie die Agentur für Arbeit oder das Jobcenter deine Qualifizierung zu 100 % übernimmt.",
+      "In diesem Ratgeber vergleichen wir die zugänglichsten IT-Berufe für Quereinsteiger in Deutschland, zeigen konkrete Anforderungen und Einstiegsperspektiven und erklären, wie die Agentur für Arbeit oder das Jobcenter deine Qualifizierung zu 100 % übernimmt.",
     tableTitle: "Die 5 besten IT-Berufe für Quereinsteiger im Vergleich",
-    tableHeaders: ["IT-Beruf", "Mathe-Anteil", "Typische Einstiegsdauer", "Einstiegsgehalt (StepStone 2026)"],
+    tableHeaders: ["IT-Beruf", "Mathe-Anteil", "Typische Einstiegsdauer", "Typische Einstiegsrolle"],
     tableRows: [
-      ["Data Analyst", "Mittel (Statistik & SQL)", "13 Wochen (Vollzeit)", "41.800 – 54.800 €"],
-      ["Full Stack / Frontend Entwickler", "Niedrig (Logik & Code)", "3 – 9 Monate", "43.200 – 58.500 €"],
-      ["SOC Analyst (Cyber Security)", "Niedrig (Analyse & Prozesse)", "4 – 6 Monate", "45.000 – 52.400 €"],
-      ["Cloud & DevOps Engineer", "Niedrig (Systeme & Automatisierung)", "3 – 8 Monate", "52.000 – 61.500 €"],
-      ["Software Tester (SDET)", "Niedrig (Struktur & Qualität)", "4 – 6 Monate", "41.500 – 56.400 €"],
+      ["Data Analyst", "Mittel (Statistik & SQL)", "13 Wochen (Vollzeit)", "Junior Data Analyst / BI Specialist"],
+      ["Full Stack / Frontend Entwickler", "Niedrig (Logik & Code)", "3 – 9 Monate", "Junior Frontend / Full Stack Developer"],
+      ["SOC Analyst (Cyber Security)", "Niedrig (Analyse & Prozesse)", "4 – 6 Monate", "Junior SOC Analyst (Tier 1)"],
+      ["Cloud & DevOps Engineer", "Niedrig (Systeme & Automatisierung)", "3 – 8 Monate", "Junior Cloud / DevOps Engineer"],
+      ["Software Tester (SDET)", "Niedrig (Struktur & Qualität)", "4 – 6 Monate", "Junior QA Automation Engineer"],
     ],
     sections: [
       {
@@ -195,10 +195,10 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "KI & Data Science",
     badge: "Berufsratgeber (KI & Data)",
-    metaTitle: "AI Engineer: Berufsbild, Aufgaben & Gehalt 2026 | Clarusway",
+    metaTitle: "AI Engineer: Aufgaben, Fähigkeiten & Einstieg | Clarusway",
     metaDescription:
-      "Was macht ein AI Engineer? Aufgaben, Unterschied zum Data Scientist, gefragte Skills (LLMs, RAG, Agentic AI) und Gehalt in Deutschland.",
-    h1: "AI Engineer werden: Aufgaben, Gehalt und Einstieg in Deutschland",
+      "Was macht ein AI Engineer? Aufgaben, Unterschied zum Data Scientist, gefragte Skills (LLMs, RAG, Agentic AI) und Einstieg in Deutschland.",
+    h1: "Was macht ein AI Engineer? Aufgaben, Fähigkeiten und Einstieg",
     author: "Clarusway Data & AI Team",
     updatedAt: "22. Oktober 2026",
     readTime: "7 Min. Lesezeit",
@@ -211,11 +211,11 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     introParagraph2:
       "In diesem Leitfaden erfährst du, welche Werkzeuge ein AI Engineer beherrschen muss, wie sich das Berufsbild vom Data Analyst und Data Scientist unterscheidet und welche Gehälter in Deutschland gezahlt werden.",
     tableTitle: "Data Analyst vs. Data Scientist vs. AI Engineer im Vergleich",
-    tableHeaders: ["Rolle", "Hauptfokus", "Wichtigste Tools", "Median-Gehalt (StepStone 2026)"],
+    tableHeaders: ["Rolle", "Hauptfokus", "Wichtigste Tools", "Typische Praxisprojekte"],
     tableRows: [
-      ["Data Analyst", "Geschäftsdaten auswerten & Dashboards bauen", "SQL, Python (Pandas), Power BI, Tableau", "54.800 €"],
-      ["Data Scientist", "Statistische Modelle & Machine Learning trainieren", "Python, Scikit-Learn, XGBoost, Statistik", "62.400 €"],
-      ["AI Engineer", "LLMs, RAG-Systeme & Agentic AI in Produktion bringen", "PyTorch, LangChain, LangGraph, MCP, AWS Bedrock", "69.500 €"],
+      ["Data Analyst", "Geschäftsdaten auswerten & Dashboards bauen", "SQL, Python (Pandas), Power BI, Tableau", "Interaktives BI-Dashboard"],
+      ["Data Scientist", "Statistische Modelle & Machine Learning trainieren", "Python, Scikit-Learn, XGBoost, Statistik", "ML-Klassifikationsmodell"],
+      ["AI Engineer", "LLMs, RAG-Systeme & Agentic AI in Produktion bringen", "PyTorch, LangChain, LangGraph, MCP, AWS Bedrock", "Multi-Agent System & RAG"],
     ],
     sections: [
       {
@@ -241,8 +241,8 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ],
     faqs: [
       {
-        q: "Was verdient ein AI Engineer in Deutschland?",
-        a: "Laut StepStone Gehaltsdaten 2026 liegt das Median-Gehalt für AI Engineers in Deutschland bei rund 69.500 € brutto pro Jahr (Spanne je nach Erfahrung zwischen 56.000 € und 86.000 €).",
+        q: "Brauche ich Vorkenntnisse für den Einstieg in AI Engineering?",
+        a: "Im durchgehenden 32-Wochen-Pfad bei Clarusway startest du ab Modul 1 ohne Programmiervorkenntnisse. Mit Vorwissen steigst du nach Einstufungsprüfung direkt in Modul 2 oder 3 ein.",
       },
       {
         q: "Kann ich die Weiterbildung zum AI Engineer mit Bildungsgutschein machen?",
@@ -253,7 +253,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ctaCourseDesc:
       "32 Wochen Vollzeit (oder modularer Direkteinstieg ab Modul 2/3) — 100 % förderbar mit Bildungsgutschein.",
     ctaCourseTo: "/it-kurse/ai-engineer-weiterbildung/",
-    relatedSlugs: ["data-analyst", "was-ist-agentic-ai", "data-analyst-gehalt"],
+    relatedSlugs: ["data-analyst", "was-ist-agentic-ai"],
   },
 
   "data-analyst": {
@@ -261,17 +261,17 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "KI & Data Science",
     badge: "Berufsratgeber (Data)",
-    metaTitle: "Data Analyst werden: Aufgaben, Gehalt & Einstieg | Clarusway",
+    metaTitle: "Data Analyst werden: Aufgaben, Voraussetzungen & Quereinstieg | Clarusway",
     metaDescription:
-      "Was macht ein Data Analyst? Alles zu Aufgaben, Skills (SQL, Python, Power BI), Gehalt in Deutschland und dem Einstieg in 13 Wochen mit Bildungsgutschein.",
-    h1: "Data Analyst werden: Aufgaben, Gehalt und Quereinstieg in Deutschland",
+      "Was macht ein Data Analyst? Alles zu Aufgaben, Skills (SQL, Python, Power BI) und dem geförderten Quereinstieg in 13 Wochen mit Bildungsgutschein.",
+    h1: "So wird man Data Analyst, auch als Quereinsteiger",
     author: "Clarusway Data & AI Team",
     updatedAt: "22. Oktober 2026",
     readTime: "6 Min. Lesezeit",
     introParagraph1:
       "Data Analysts übersetzen Rohdaten in verständliche Entscheidungsgrundlagen für Unternehmen. Weil nahezu jede Branche — vom E-Commerce bis zum Mittelstand — datengetrieben arbeitet, eignet sich das Berufsbild hervorragend für den schnellen Quereinstieg in die IT.",
     introCourseLinkLabel: "13-wöchige Data Analytics Weiterbildung",
-    introCourseLinkTo: "/it-kurse/data-analytics-weiterbildung/",
+    introCourseLinkTo: "/it-kurse/ai-engineer-weiterbildung/#data-analyst",
     introFundingLinkLabel: "100 % Förderung über einen Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
@@ -312,8 +312,8 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ],
     ctaCourseTitle: "Data Analytics Weiterbildung in 13 Wochen",
     ctaCourseDesc: "Lerne Python, SQL, Power BI und Tableau im Live-Unterricht — 100 % förderbar mit Bildungsgutschein.",
-    ctaCourseTo: "/it-kurse/data-analytics-weiterbildung/",
-    relatedSlugs: ["data-analyst-gehalt", "ai-engineer", "was-ist-agentic-ai"],
+    ctaCourseTo: "/it-kurse/ai-engineer-weiterbildung/#data-analyst",
+    relatedSlugs: ["ai-engineer", "was-ist-agentic-ai"],
   },
 
   "was-ist-agentic-ai": {
@@ -364,64 +364,15 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     relatedSlugs: ["ai-engineer", "data-analyst", "soc-analyst"],
   },
 
-  "data-analyst-gehalt": {
-    slug: "data-analyst-gehalt",
-    lang: "de",
-    cluster: "KI & Data Science",
-    badge: "Gehaltsreport",
-    metaTitle: "Data Analyst Gehalt in Deutschland 2026 | Clarusway",
-    metaDescription:
-      "Was verdient ein Data Analyst in Deutschland? Einstiegsgehalt, Senior-Gehalt und regionale Unterschiede nach StepStone 2026.",
-    h1: "Data Analyst Gehalt in Deutschland: Einstieg bis Senior",
-    author: "Clarusway Karriere-Team",
-    updatedAt: "22. Oktober 2026",
-    readTime: "5 Min. Lesezeit",
-    introParagraph1:
-      "Das Gehalt eines Data Analysts in Deutschland hängt vor allem von deinen technischen Werkzeugen (SQL, Python, Power BI), deiner Branchenerfahrung und dem Standort ab.",
-    introCourseLinkLabel: "Data Analytics Weiterbildung",
-    introCourseLinkTo: "/it-kurse/data-analytics-weiterbildung/",
-    introFundingLinkLabel: "Bildungsgutschein der Arbeitsagentur",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "Die folgende Tabelle zeigt die aktuellen Gehaltsspannen in Deutschland auf Basis des StepStone Gehaltsreports 2026.",
-    tableTitle: "Data Analyst Jahresgehalt nach Erfahrungsstufe (StepStone 2026)",
-    tableHeaders: ["Erfahrungsstufe", "Berufserfahrung", "Jahresgehalt (Brutto)"],
-    tableRows: [
-      ["Junior Data Analyst", "0 – 2 Jahre (Einstieg)", "41.800 – 49.500 €"],
-      ["Mid-Level Data Analyst", "2 – 5 Jahre", "50.000 – 59.000 €"],
-      ["Senior Data Analyst / BI Lead", "ab 5 Jahren", "60.000 – 69.500 €"],
-      ["Aufstieg zum Data Scientist / AI Engineer", "Mit ML & Agentic AI Skills", "62.400 – 86.000 €"],
-    ],
-    sections: [
-      {
-        id: "gehaltsfaktoren",
-        h2: "Welche Skills erhöhen dein Einstiegsgehalt?",
-        paragraphs: [
-          "Bewerberinnen und Bewerber, die neben Excel und Power BI auch fortgeschrittene SQL-Abfragen und Python-Automatisierung beherrschen, erzielen beim Berufseinstieg spürbar höhere Gehälter.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Wie hoch ist das Median-Gehalt für Data Analysts in Deutschland?",
-        a: "Laut StepStone Gehaltsdaten 2026 liegt das Median-Gehalt bei rund 54.800 € brutto im Jahr.",
-      },
-    ],
-    ctaCourseTitle: "In 13 Wochen zum Data Analyst qualifizieren",
-    ctaCourseDesc: "Starte deine AZAV-zertifizierte Data Analytics Weiterbildung mit 100 % Förderung.",
-    ctaCourseTo: "/it-kurse/data-analytics-weiterbildung/",
-    relatedSlugs: ["data-analyst", "ai-engineer", "quereinstieg-it"],
-  },
-
   "full-stack-entwickler": {
     slug: "full-stack-entwickler",
     lang: "de",
     cluster: "Webentwicklung & Software",
     badge: "Berufsratgeber (Web)",
-    metaTitle: "Full Stack Entwickler werden: Aufgaben & Gehalt | Clarusway",
+    metaTitle: "Full-Stack-Entwickler: Aufgaben & Einstieg | Clarusway",
     metaDescription:
-      "Was macht ein Full Stack Entwickler? Tech-Stack (React, TypeScript, Next.js, Node.js), KI-Tools, Gehalt und Quereinstieg mit Bildungsgutschein.",
-    h1: "Full Stack Entwickler werden: Aufgaben, Tech-Stack und Gehalt",
+      "Was macht ein Full-Stack-Entwickler? Tech-Stack (React, TypeScript, Next.js, Node.js), KI-Tools und Quereinstieg mit Bildungsgutschein.",
+    h1: "Was ist ein Full-Stack-Entwickler und wie wird man es?",
     author: "Clarusway Software Engineering Team",
     updatedAt: "22. Oktober 2026",
     readTime: "6 Min. Lesezeit",
@@ -452,14 +403,14 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ],
     faqs: [
       {
-        q: "Was verdient ein Full Stack Entwickler in Deutschland?",
-        a: "Das Median-Gehalt liegt laut StepStone 2026 bei 58.500 € brutto pro Jahr (Spanne von 43.200 € beim Einstieg bis über 72.000 € als Senior).",
+        q: "Welche Programmiersprachen lernt man im Full-Stack-Bereich?",
+        a: "Der moderne Standard in Web-Teams basiert auf TypeScript und JavaScript, sowohl für das Frontend mit React und Next.js als auch für das Backend mit Node.js."
       },
     ],
     ctaCourseTitle: "AI-Assisted Full Stack Entwickler Weiterbildung",
     ctaCourseDesc: "Lerne React, TypeScript, Next.js, Node.js und KI-Coding-Tools — 100 % förderbar mit Bildungsgutschein.",
     ctaCourseTo: "/it-kurse/full-stack-entwickler-weiterbildung/",
-    relatedSlugs: ["frontend-vs-backend-vs-full-stack", "full-stack-entwickler-gehalt", "software-tester"],
+    relatedSlugs: ["frontend-vs-backend-vs-full-stack", "software-tester"],
   },
 
   "frontend-vs-backend-vs-full-stack": {
@@ -481,13 +432,13 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     introFundingLinkLabel: "Förderung über Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Die folgende Übersicht zeigt dir die Unterschiede bei Aufgaben, Tools und Gehalt.",
+      "Die folgende Übersicht zeigt dir die Unterschiede bei Aufgaben, Tools und Projektanforderungen.",
     tableTitle: "Frontend, Backend und Full Stack im direkten Vergleich",
-    tableHeaders: ["Bereich", "Fokus", "Typische Technologien", "Median-Gehalt (DE)"],
+    tableHeaders: ["Bereich", "Fokus", "Typische Technologien", "Projekt-Schwerpunkt"],
     tableRows: [
-      ["Frontend", "Design-Umsetzung & Nutzerinteraktion im Browser", "HTML/CSS, TypeScript, React, Next.js", "54.200 €"],
-      ["Backend", "Server, APIs, Datenbanken & Sicherheit", "Node.js, PostgreSQL, MongoDB, Docker", "60.100 €"],
-      ["Full Stack", "Gesamtsystem von UI bis Datenbank", "React/Next.js + Node.js + SQL/NoSQL", "58.500 €"],
+      ["Frontend", "Design-Umsetzung & Nutzerinteraktion im Browser", "HTML/CSS, TypeScript, React, Next.js", "Interaktive Web-Apps & Dashboards"],
+      ["Backend", "Server, APIs, Datenbanken & Sicherheit", "Node.js, PostgreSQL, MongoDB, Docker", "Robuste APIs & Datenbankschemata"],
+      ["Full Stack", "Gesamtsystem von UI bis Datenbank", "React/Next.js + Node.js + SQL/NoSQL", "Komplette skalierbare Webanwendungen"],
     ],
     sections: [
       {
@@ -507,55 +458,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ctaCourseTitle: "Modulare Webentwicklung bei Clarusway",
     ctaCourseDesc: "Wähle zwischen Frontend-Fokus oder dem kompletten 4-Modul Full-Stack-Pfad.",
     ctaCourseTo: "/it-kurse/full-stack-entwickler-weiterbildung/",
-    relatedSlugs: ["full-stack-entwickler", "full-stack-entwickler-gehalt"],
-  },
-
-  "full-stack-entwickler-gehalt": {
-    slug: "full-stack-entwickler-gehalt",
-    lang: "de",
-    cluster: "Webentwicklung & Software",
-    badge: "Gehaltsreport",
-    metaTitle: "Full Stack Entwickler Gehalt in Deutschland 2026 | Clarusway",
-    metaDescription:
-      "Was verdient ein Full Stack Entwickler in Deutschland? Aktuelle Gehaltstabellen nach Erfahrung für Frontend, Backend und Full Stack.",
-    h1: "Full Stack Entwickler Gehalt in Deutschland: Aktuelle Zahlen",
-    author: "Clarusway Karriere-Team",
-    updatedAt: "22. Oktober 2026",
-    readTime: "5 Min. Lesezeit",
-    introParagraph1:
-      "Softwareentwickler gehören in Deutschland konstant zu den bestbezahlten Fachkräften. Besonders gefragt sind Entwickler, die TypeScript, React/Next.js und Node.js beherrschen.",
-    introCourseLinkLabel: "Full Stack Entwickler Weiterbildung",
-    introCourseLinkTo: "/it-kurse/full-stack-entwickler-weiterbildung/",
-    introFundingLinkLabel: "Bildungsgutschein",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "Hier sind die aktuellen Gehaltsspannen nach StepStone 2026.",
-    tableTitle: "Gehalt in der Webentwicklung nach Erfahrung (StepStone 2026)",
-    tableHeaders: ["Stufe", "Frontend Developer", "Full Stack Developer", "Backend Developer"],
-    tableRows: [
-      ["Junior (0–2 Jahre)", "42.000 – 48.000 €", "43.200 – 51.000 €", "46.500 – 53.000 €"],
-      ["Mid-Level (2–5 Jahre)", "49.000 – 58.000 €", "52.000 – 63.000 €", "54.000 – 65.000 €"],
-      ["Senior (ab 5 Jahren)", "59.000 – 66.000 €", "64.000 – 72.000 €", "66.000 – 74.500 €"],
-    ],
-    sections: [
-      {
-        id: "portfolio",
-        h2: "Wie du beim Einstiegsgehalt überzeugst",
-        paragraphs: [
-          "Ein sauberes GitHub-Portfolio inklusive eines realen Team-Projekts (wie in unserem Modul 4) ist in Gehaltsverhandlungen oft entscheidender als formale Abschlüsse.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Wie hoch ist das durchschnittliche Einstiegsgehalt?",
-        a: "Junior Full Stack Entwickler starten in Deutschland meist zwischen 43.200 € und 51.000 € Jahresbrutto.",
-      },
-    ],
-    ctaCourseTitle: "Starte deine Full Stack Weiterbildung",
-    ctaCourseDesc: "100 % förderbar mit Bildungsgutschein.",
-    ctaCourseTo: "/it-kurse/full-stack-entwickler-weiterbildung/",
-    relatedSlugs: ["full-stack-entwickler", "frontend-vs-backend-vs-full-stack"],
+    relatedSlugs: ["full-stack-entwickler"],
   },
 
   "soc-analyst": {
@@ -563,10 +466,10 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Cyber Security",
     badge: "Berufsratgeber (Security)",
-    metaTitle: "SOC Analyst werden: Aufgaben, Gehalt & Einstieg | Clarusway",
+    metaTitle: "SOC Analyst: Aufgaben, Fähigkeiten & Einstieg | Clarusway",
     metaDescription:
-      "Was macht ein SOC Analyst im Security Operations Center? Tier 1–3 Aufgaben, SIEM-Tools, Gehalt in Deutschland und Weiterbildung mit Bildungsgutschein.",
-    h1: "SOC Analyst: Aufgaben, Gehalt und Einstieg in die Cyber Security",
+      "Was macht ein SOC Analyst im Security Operations Center? Tier 1–3 Aufgaben, SIEM-Tools, Zertifizierungen und Weiterbildung mit Bildungsgutschein.",
+    h1: "Was macht ein SOC Analyst? Aufgaben, Fähigkeiten und Einstieg",
     author: "Clarusway Cyber Security Team",
     updatedAt: "22. Oktober 2026",
     readTime: "7 Min. Lesezeit",
@@ -578,12 +481,12 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
       "Durch die verschärfte europäische NIS-2-Richtlinie bauen Unternehmen und IT-Dienstleister ihre Security Operations Centers massiv aus.",
-    tableTitle: "SOC Analyst Stufen (Tier 1 bis Tier 3) & Gehalt",
-    tableHeaders: ["Stufe", "Hauptaufgabe", "Jahresgehalt (StepStone 2026)"],
+    tableTitle: "SOC Analyst Stufen (Tier 1 bis Tier 3) im Überblick",
+    tableHeaders: ["Stufe", "Hauptaufgabe", "Fokus & Verantwortung"],
     tableRows: [
-      ["SOC Analyst Tier 1", "Alert-Monitoring, SIEM-Triage & erste Bewertung", "45.000 – 52.400 €"],
-      ["SOC Analyst Tier 2", "Tiefenanalyse, Incident Response & Forensik", "53.000 – 63.000 €"],
-      ["SOC Tier 3 / Cloud Security", "Threat Hunting, SOAR-Agenten & AWS Cloud Security", "64.000 – 79.000 €"],
+      ["SOC Analyst Tier 1", "Alert-Monitoring, SIEM-Triage & erste Bewertung", "SIEM-Dashboards, Log-Analyse & Vorfallsdokumentation"],
+      ["SOC Analyst Tier 2", "Tiefenanalyse, Incident Response & Forensik", "Forensik, Threat Hunting & Incident Remediation"],
+      ["SOC Tier 3 / Cloud Security", "Threat Hunting, SOAR-Agenten & AWS Cloud Security", "Advanced Threat Analysis & SOC-Architektur"],
     ],
     sections: [
       {
@@ -603,7 +506,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ctaCourseTitle: "Cyber Security Weiterbildung mit KI-SOC-Training",
     ctaCourseDesc: "4 Module inkl. CompTIA Security+ Vorbereitung — 100 % förderbar mit Bildungsgutschein.",
     ctaCourseTo: "/it-kurse/cyber-security-weiterbildung/",
-    relatedSlugs: ["comptia-security-plus", "was-ist-ein-siem", "cyber-security-gehalt"],
+    relatedSlugs: ["comptia-security-plus", "was-ist-ein-siem"],
   },
 
   "comptia-security-plus": {
@@ -653,7 +556,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ctaCourseTitle: "CompTIA Security+ Vorbereitung inklusive",
     ctaCourseDesc: "Starte deine geförderte Cyber Security Weiterbildung bei Clarusway.",
     ctaCourseTo: "/it-kurse/cyber-security-weiterbildung/",
-    relatedSlugs: ["soc-analyst", "was-ist-ein-siem", "cyber-security-gehalt"],
+    relatedSlugs: ["soc-analyst", "was-ist-ein-siem"],
   },
 
   "was-ist-ein-siem": {
@@ -705,63 +608,15 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     relatedSlugs: ["soc-analyst", "comptia-security-plus"],
   },
 
-  "cyber-security-gehalt": {
-    slug: "cyber-security-gehalt",
-    lang: "de",
-    cluster: "Cyber Security",
-    badge: "Gehaltsreport",
-    metaTitle: "Cyber Security Gehalt in Deutschland 2026 | Clarusway",
-    metaDescription:
-      "Was verdient man in der Cyber Security in Deutschland? Gehaltstabellen für SOC Analyst, Cyber Security Analyst und Cloud Security Engineer.",
-    h1: "Cyber Security Gehalt in Deutschland: Was verdienen IT-Sicherheitsexperten?",
-    author: "Clarusway Karriere-Team",
-    updatedAt: "22. Oktober 2026",
-    readTime: "5 Min. Lesezeit",
-    introParagraph1:
-      "Die hohe Nachfrage nach IT-Sicherheitsfachkräften spiegelt sich in attraktiven Einstiegs- und Senior-Gehältern wider.",
-    introCourseLinkLabel: "Cyber Security Weiterbildung",
-    introCourseLinkTo: "/it-kurse/cyber-security-weiterbildung/",
-    introFundingLinkLabel: "Bildungsgutschein",
-    introFundingLinkTo: "/bildungsgutschein/",
-    introParagraph2:
-      "Hier sind die aktuellen Zahlen aus dem StepStone Gehaltsreport 2026.",
-    tableTitle: "Gehalt in der IT-Sicherheit nach Rolle (StepStone 2026)",
-    tableHeaders: ["Rolle", "Median-Gehalt", "Gehaltsspanne (Brutto/Jahr)"],
-    tableRows: [
-      ["SOC Analyst", "52.400 €", "45.000 – 63.000 €"],
-      ["Cyber Security Analyst", "58.900 €", "49.500 – 71.000 €"],
-      ["Cloud Security Analyst", "65.200 €", "55.000 – 79.000 €"],
-    ],
-    sections: [
-      {
-        id: "cloud-bonus",
-        h2: "Warum Cloud- und KI-Security-Skills das Gehalt steigern",
-        paragraphs: [
-          "Wer klassische SOC-Erfahrung mit AWS Cloud Security und KI-gestützter Automatisierung kombiniert, qualifiziert sich schnell für höher dotierte Positionen.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Wie hoch ist das Einstiegsgehalt als SOC Analyst?",
-        a: "Der Einstieg als Tier-1 SOC Analyst liegt in Deutschland meist zwischen 45.000 € und 52.400 €.",
-      },
-    ],
-    ctaCourseTitle: "Starte deine Karriere in der IT-Sicherheit",
-    ctaCourseDesc: "100 % gefördert mit Bildungsgutschein.",
-    ctaCourseTo: "/it-kurse/cyber-security-weiterbildung/",
-    relatedSlugs: ["soc-analyst", "comptia-security-plus"],
-  },
-
   "devops-engineer": {
     slug: "devops-engineer",
     lang: "de",
     cluster: "Cloud & DevOps",
     badge: "Berufsratgeber (Cloud & DevOps)",
-    metaTitle: "DevOps Engineer werden: Aufgaben & Gehalt | Clarusway",
+    metaTitle: "DevOps Engineer: Aufgaben, Tools & Einstieg | Clarusway",
     metaDescription:
-      "Was macht ein DevOps Engineer? Alles zu Aufgaben, Tools (AWS, Docker, Kubernetes, Terraform), Gehalt in Deutschland und Weiterbildung mit Bildungsgutschein.",
-    h1: "DevOps Engineer: Aufgaben, Gehalt und Einstieg in Deutschland",
+      "Was macht ein DevOps Engineer? Alles zu Aufgaben, Tools (AWS, Docker, Kubernetes, Terraform) und Weiterbildung mit Bildungsgutschein.",
+    h1: "Was macht ein DevOps Engineer? Aufgaben, Fähigkeiten und Einstieg",
     author: "Clarusway Cloud & DevOps Team",
     updatedAt: "22. Oktober 2026",
     readTime: "7 Min. Lesezeit",
@@ -783,10 +638,10 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ],
     sections: [
       {
-        id: "gehalt",
-        h2: "Was verdient ein DevOps Engineer in Deutschland?",
+        id: "karriereperspektiven",
+        h2: "Karriereperspektiven und Einstieg als DevOps Engineer",
         paragraphs: [
-          "Laut StepStone Gehaltsdaten 2026 liegt das Median-Gehalt für DevOps Engineers in Deutschland bei 64.800 € (Spanne von 55.000 € bis 78.500 €).",
+          "Unternehmen in ganz Deutschland suchen nach Fachkräften, die Cloud-Infrastrukturen automatisieren und Deployment-Pipelines stabil halten. Der Einstieg gelingt durch nachweisbare Hands-on-Erfahrung mit Docker, Kubernetes und Terraform.",
         ],
       },
     ],
@@ -807,10 +662,10 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Cloud & DevOps",
     badge: "Berufsratgeber (Cloud)",
-    metaTitle: "Cloud Engineer werden: Aufgaben, Skills & Gehalt | Clarusway",
+    metaTitle: "Cloud Engineer: Aufgaben, Cloud-Provider & Einstieg | Clarusway",
     metaDescription:
-      "Was macht ein Cloud Engineer? Aufgaben auf AWS und Azure, Gehalt in Deutschland und geförderte Weiterbildung mit Bildungsgutschein.",
-    h1: "Cloud Engineer werden: Aufgaben, Gehalt und Einstieg",
+      "Was macht ein Cloud Engineer? Aufgaben auf AWS und Azure, Zertifizierungen und geförderte Weiterbildung mit Bildungsgutschein.",
+    h1: "Was macht ein Cloud Engineer? Aufgaben, Fähigkeiten und Einstieg",
     author: "Clarusway Cloud & DevOps Team",
     updatedAt: "22. Oktober 2026",
     readTime: "6 Min. Lesezeit",
@@ -822,12 +677,12 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
       "Hier erfährst du, wie sich Cloud Engineer, Solutions Architect und DevOps Engineer ergänzen.",
-    tableTitle: "Cloud-Rollen und Gehälter in Deutschland (StepStone 2026)",
-    tableHeaders: ["Rolle", "Schwerpunkt", "Median-Gehalt"],
+    tableTitle: "Cloud-Rollen im Überblick",
+    tableHeaders: ["Rolle", "Schwerpunkt", "Kern-Zertifizierung"],
     tableRows: [
-      ["Cloud Engineer", "Aufbau & Betrieb von Cloud-Infrastrukturen", "61.500 €"],
-      ["DevOps Engineer", "CI/CD, Kubernetes & Automatisierung", "64.800 €"],
-      ["AWS Solutions Architect", "Architektur-Design & Kostenoptimierung", "68.400 €"],
+      ["Cloud Engineer", "Aufbau & Betrieb von Cloud-Infrastrukturen", "AWS Certified Cloud Practitioner / SysOps"],
+      ["DevOps Engineer", "CI/CD, Kubernetes & Automatisierung", "CKAD / AWS DevOps Professional"],
+      ["AWS Solutions Architect", "Architektur-Design & Kostenoptimierung", "AWS Certified Solutions Architect Associate (SAA-C03)"],
     ],
     sections: [
       {
@@ -945,7 +800,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ],
     ctaCourseTitle: "AWS Zertifizierung mit Bildungsgutschein vorbereiten",
     ctaCourseDesc: "Lerne beim offiziellen AWS Select Tier Partner Clarusway.",
-    ctaCourseTo: "/it-kurse/aws-solutions-architect-weiterbildung/",
+    ctaCourseTo: "/it-kurse/aws-devops-weiterbildung/",
     relatedSlugs: ["aws-cloud-practitioner", "devops-engineer", "cloud-engineer"],
   },
 
@@ -1003,26 +858,26 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     lang: "de",
     cluster: "Software Testing",
     badge: "Berufsratgeber (QA)",
-    metaTitle: "Software Tester (SDET) werden: Aufgaben & Gehalt | Clarusway",
+    metaTitle: "Software Tester (SDET): Aufgaben, Tools & Quereinstieg | Clarusway",
     metaDescription:
-      "Was macht ein Software Tester / QA Automation Engineer (SDET)? Aufgaben, Tools (Java, Selenium, Playwright), Gehalt und Quereinstieg.",
-    h1: "Software Tester (SDET) werden: Aufgaben, Gehalt und Quereinstieg",
+      "Was macht ein Software Tester / QA Automation Engineer (SDET)? Aufgaben, Tools (Java, Selenium, Playwright) und Quereinstieg.",
+    h1: "Was macht ein Software Tester? Aufgaben, Fähigkeiten und Einstieg",
     author: "Clarusway QA & SDET Team",
     updatedAt: "22. Oktober 2026",
     readTime: "6 Min. Lesezeit",
     introParagraph1:
       "Software Tester und Testautomatisierer (SDET) stellen sicher, dass Webanwendungen, Apps und Schnittstellen fehlerfrei funktionieren. Für strukturierte Quereinsteiger bietet das Berufsfeld einen klaren, verlässlichen Einstieg in die Softwarebranche.",
     introCourseLinkLabel: "Software Testing (SDET) Weiterbildung",
-    introCourseLinkTo: "/it-kurse/software-testing-weiterbildung/",
+    introCourseLinkTo: "/it-kurse/sdet-weiterbildung/",
     introFundingLinkLabel: "100 % Förderung mit Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Erfahre, wie sich manuelles Testing und Testautomatisierung unterscheiden und welche Gehälter gezahlt werden.",
+      "Erfahre, wie sich manuelles Testing und Testautomatisierung unterscheiden und welche Fähigkeiten in modernen Teams zählen.",
     tableTitle: "Manueller QA Tester vs. SDET (Testautomatisierung)",
-    tableHeaders: ["Rolle", "Schwerpunkt", "Median-Gehalt (StepStone 2026)"],
+    tableHeaders: ["Rolle", "Schwerpunkt", "Typische Test-Tools"],
     tableRows: [
-      ["QA Analyst (Manuell)", "Testplanung, exploratives Testen, Jira/Xray", "49.200 €"],
-      ["SDET / QA Automation Engineer", "Automatisierte UI- & API-Tests (Selenium, Playwright, Postman)", "56.400 €"],
+      ["QA Analyst (Manuell)", "Testplanung, exploratives Testen, Testfallerstellung", "Jira, Xray, Confluence, TestRail"],
+      ["SDET / QA Automation Engineer", "Automatisierte UI- & API-Tests im CI/CD-Zyklus", "Java, Selenium, Playwright, Cucumber, REST Assured"],
     ],
     sections: [
       {
@@ -1041,7 +896,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ],
     ctaCourseTitle: "Software Testing (SDET) Weiterbildung",
     ctaCourseDesc: "Werde QA Automation Engineer — 100 % förderbar mit Bildungsgutschein.",
-    ctaCourseTo: "/it-kurse/software-testing-weiterbildung/",
+    ctaCourseTo: "/it-kurse/sdet-weiterbildung/",
     relatedSlugs: ["istqb-zertifizierung", "full-stack-entwickler"],
   },
 
@@ -1060,7 +915,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     introParagraph1:
       "Das ISTQB Certified Tester Foundation Level (CTFL) definiert weltweit die einheitliche Fachsprache und Methodik für Softwaretests und wird in Deutschland besonders häufig in Stellenanzeigen für QA-Rollen genannt.",
     introCourseLinkLabel: "Software Testing (SDET) Weiterbildung",
-    introCourseLinkTo: "/it-kurse/software-testing-weiterbildung/",
+    introCourseLinkTo: "/it-kurse/sdet-weiterbildung/",
     introFundingLinkLabel: "Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
@@ -1092,7 +947,7 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     ],
     ctaCourseTitle: "Methodik + Testautomatisierung lernen",
     ctaCourseDesc: "Zur geförderten Software Testing (SDET) Weiterbildung.",
-    ctaCourseTo: "/it-kurse/software-testing-weiterbildung/",
+    ctaCourseTo: "/it-kurse/sdet-weiterbildung/",
     relatedSlugs: ["software-tester", "quereinstieg-it"],
   },
 };
@@ -1106,10 +961,10 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     lang: "en",
     cluster: "Data & AI",
     badge: "Career Guide",
-    metaTitle: "What Does a Data Analyst Do? Tasks & Salary in Germany | Clarusway",
+    metaTitle: "What Does a Data Analyst Do? Role, Skills & Entry | Clarusway",
     metaDescription:
-      "What does a data analyst do in Germany? Daily tasks, SQL & Python skills, salary ranges (StepStone 2026), and 100% funded training with a Bildungsgutschein.",
-    h1: "What does a data analyst do? Tasks, skills and salary in Germany",
+      "What does a data analyst do in Germany? Daily tasks, SQL & Python skills, career path, and 100% funded training with a Bildungsgutschein.",
+    h1: "What does a data analyst do? Tasks, skills and career path in Germany",
     author: "Clarusway Data & AI Team",
     updatedAt: "October 24, 2026",
     readTime: "6 min read",
@@ -1139,10 +994,10 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
         ],
       },
       {
-        id: "salaries",
-        h2: "Data Analyst salaries in Germany (StepStone 2026)",
+        id: "career-outlook",
+        h2: "Career outlook and hiring demand for Data Analysts in Germany",
         paragraphs: [
-          "According to the StepStone Salary Report 2026, the median gross annual salary for Data Analysts in Germany is €54,800. Junior analysts with hands-on portfolio projects start between €42,000 and €49,500, while senior analysts and BI leads earn between €60,000 and €72,000.",
+          "Data Analysts are among the most actively recruited tech profiles across German enterprise, finance, healthcare, and e-commerce sectors. Employers prioritize candidates who can demonstrate practical proficiency with SQL data extraction, Python data cleaning, and production BI dashboards over academic computer science credentials.",
         ],
       },
       {
@@ -1176,7 +1031,7 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     badge: "Career Guide",
     metaTitle: "What Is an AI Engineer? Role, Skills & Roadmap | Clarusway",
     metaDescription:
-      "What is an AI engineer in Germany? Core skills (Python, PyTorch, RAG, Agentic AI, MCP), salary benchmarks, and 32-week bootcamp funded with a Bildungsgutschein.",
+      "What is an AI engineer in Germany? Core skills (Python, PyTorch, RAG, Agentic AI, MCP), career path, and 32-week bootcamp funded with a Bildungsgutschein.",
     h1: "What is an AI engineer? Role, skills and roadmap in Germany",
     author: "Clarusway Data & AI Team",
     updatedAt: "October 24, 2026",
@@ -1190,11 +1045,11 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     introParagraph2:
       "Here is what an AI Engineer builds, how the role differs from Data Science, and what skills German engineering teams look for in 2026.",
     tableTitle: "Data Analyst vs. Data Scientist vs. AI Engineer in Germany",
-    tableHeaders: ["Role", "Core Responsibility", "Primary Tech Stack", "Median Salary (StepStone 2026)"],
+    tableHeaders: ["Role", "Core Responsibility", "Primary Tech Stack", "Key Portfolio Deliverable"],
     tableRows: [
-      ["Data Analyst", "Business insights & KPI dashboards", "SQL, Python (Pandas), Power BI, Tableau", "€54,800"],
-      ["Data Scientist", "Predictive machine learning models", "Python, Scikit-Learn, XGBoost, Statistics", "€62,400"],
-      ["AI Engineer", "Production LLMs, RAG & Agentic AI workflows", "PyTorch, LangChain, LangGraph, MCP, AWS Bedrock", "€69,500"],
+      ["Data Analyst", "Business insights & KPI dashboards", "SQL, Python (Pandas), Power BI, Tableau", "Executive BI Dashboard"],
+      ["Data Scientist", "Predictive machine learning models", "Python, Scikit-Learn, XGBoost, Statistics", "End-to-End ML Pipeline"],
+      ["AI Engineer", "Production LLMs, RAG & Agentic AI workflows", "PyTorch, LangChain, LangGraph, MCP, AWS Bedrock", "Multi-Agent System & RAG"],
     ],
     sections: [
       {
@@ -1212,10 +1067,10 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
         ],
       },
       {
-        id: "salary-outlook",
-        h2: "Salary benchmarks for AI Engineers in Germany",
+        id: "career-outlook",
+        h2: "Career opportunities for AI Engineers in Germany",
         paragraphs: [
-          "According to StepStone 2026 data, AI Engineers command median salaries of €69,500, with experienced practitioners reaching €85,000 or more in hubs like Berlin, Munich, Frankfurt, and remote positions across Germany.",
+          "German enterprises are actively integrating AI into production systems, creating strong demand for professionals who understand software development, API design, and modern LLM architectures.",
         ],
       },
     ],
@@ -1240,10 +1095,10 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     lang: "en",
     cluster: "Software Development",
     badge: "Career Guide",
-    metaTitle: "What Is a Full Stack Developer? Skills & Salary | Clarusway",
+    metaTitle: "What Is a Full Stack Developer? Skills & Tools | Clarusway",
     metaDescription:
       "What is a full stack developer in 2026? React, TypeScript, Next.js, Node.js, AI coding tools (Cursor, Claude Code), salaries, and funded English bootcamp.",
-    h1: "What is a full stack developer? Skills, salary and tools in 2026",
+    h1: "What is a full stack developer? Technologies and career entry in 2026",
     author: "Clarusway Software Engineering Team",
     updatedAt: "October 24, 2026",
     readTime: "7 min read",
@@ -1254,13 +1109,13 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     introFundingLinkLabel: "how to get a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "Compare Frontend, Backend, and Full Stack responsibilities and review salary benchmarks across Germany below.",
+      "Compare Frontend, Backend, and Full Stack responsibilities and key deliverables below.",
     tableTitle: "Frontend vs. Backend vs. Full Stack Developer in Germany",
-    tableHeaders: ["Role", "Focus", "Primary Technologies", "Median Salary (StepStone 2026)"],
+    tableHeaders: ["Role", "Focus", "Primary Technologies", "Core Project Scope"],
     tableRows: [
-      ["Frontend Developer", "User experience, accessibility, browser performance", "HTML, CSS, TypeScript, React, Next.js", "€54,200"],
-      ["Full Stack Developer", "Complete web application lifecycle", "TypeScript, React, Next.js, Node.js, PostgreSQL", "€58,500"],
-      ["Backend Developer", "APIs, database design, server architecture", "Node.js, Express, PostgreSQL, Redis, Docker", "€60,100"],
+      ["Frontend Developer", "User experience, accessibility, browser performance", "HTML, CSS, TypeScript, React, Next.js", "Interactive UI, component libraries, state management"],
+      ["Full Stack Developer", "Complete web application lifecycle", "TypeScript, React, Next.js, Node.js, PostgreSQL", "End-to-end features, DB schema to responsive frontend"],
+      ["Backend Developer", "APIs, database design, server architecture", "Node.js, Express, PostgreSQL, Redis, Docker", "Microservices, REST/GraphQL APIs, database indexing"],
     ],
     sections: [
       {
@@ -1299,10 +1154,10 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     lang: "en",
     cluster: "Cyber Security",
     badge: "Career Guide",
-    metaTitle: "What Does a SOC Analyst Do? Role, Tools & Salary | Clarusway",
+    metaTitle: "What Does a SOC Analyst Do? Role, Tools & Entry | Clarusway",
     metaDescription:
-      "What does a SOC Analyst do in Germany? Tiers 1–3, SIEM & SOAR tools, NIS-2 compliance, salary ranges, and English course funded with a Bildungsgutschein.",
-    h1: "What does a SOC analyst do? Role, tools and salary in Germany",
+      "What does a SOC Analyst do in Germany? Tiers 1–3, SIEM & SOAR tools, NIS-2 compliance, and English course funded with a Bildungsgutschein.",
+    h1: "What does a SOC analyst do? Role, tools and career entry in Germany",
     author: "Clarusway Cyber Security Team",
     updatedAt: "October 24, 2026",
     readTime: "6 min read",
@@ -1314,12 +1169,12 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
       "Review the three tiers of SOC Analysts, their core responsibilities, and current compensation in Germany below.",
-    tableTitle: "SOC Analyst Tiers & Salaries in Germany (StepStone 2026)",
-    tableHeaders: ["SOC Tier", "Key Responsibilities", "Typical Experience", "Annual Salary (Gross)"],
+    tableTitle: "SOC Analyst Tiers (Tier 1 to Tier 3) Overview in Germany",
+    tableHeaders: ["SOC Tier", "Key Responsibilities", "Typical Experience", "Primary Focus & Scope"],
     tableRows: [
-      ["Tier 1 Analyst (Triage)", "Alert monitoring, SIEM ticket triage, initial threat verification", "0 – 2 years", "€45,000 – €52,400"],
-      ["Tier 2 Analyst (Incident Responder)", "Deep malware forensics, threat containment, root cause analysis", "2 – 4 years", "€53,000 – €63,000"],
-      ["Tier 3 / Cloud Security Specialist", "Threat hunting, SOAR automation, AWS/Azure infrastructure hardening", "4+ years", "€64,000 – €79,000"],
+      ["Tier 1 Analyst (Triage)", "Alert monitoring, SIEM ticket triage, initial threat verification", "0 – 2 years", "Real-time incident triage and alert classification"],
+      ["Tier 2 Analyst (Incident Responder)", "Deep malware forensics, threat containment, root cause analysis", "2 – 4 years", "Incident containment and forensic investigation"],
+      ["Tier 3 / Cloud Security Specialist", "Threat hunting, SOAR automation, AWS/Azure infrastructure hardening", "4+ years", "Proactive threat hunting and SOAR automation"],
     ],
     sections: [
       {
@@ -1492,10 +1347,10 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     lang: "en",
     cluster: "Cloud & DevOps",
     badge: "Career Guide",
-    metaTitle: "What Does a DevOps Engineer Do? Skills, Tools & Salary | Clarusway",
+    metaTitle: "What Does a DevOps Engineer Do? Tools & Skills | Clarusway",
     metaDescription:
-      "What does a DevOps Engineer do in Germany? Core skills (AWS, Docker, Kubernetes, Terraform, CI/CD), salary benchmarks (StepStone 2026), and funded training.",
-    h1: "What does a DevOps engineer do? Skills, tools and salary",
+      "What does a DevOps Engineer do in Germany? Core skills (AWS, Docker, Kubernetes, Terraform, CI/CD) and funded training with a Bildungsgutschein.",
+    h1: "What does a DevOps engineer do? Core tools and career path",
     author: "Clarusway Cloud & DevOps Team",
     updatedAt: "October 24, 2026",
     readTime: "7 min read",
@@ -1506,13 +1361,13 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
     introFundingLinkLabel: "how to get a Bildungsgutschein",
     introFundingLinkTo: "/bildungsgutschein/",
     introParagraph2:
-      "See the essential tools, core responsibilities, and salary benchmarks for DevOps Engineers in Germany below.",
-    tableTitle: "Cloud & DevOps Roles and Salaries in Germany (StepStone 2026)",
-    tableHeaders: ["Job Title", "Primary Focus", "Core Tech Stack", "Median Gross Annual Salary"],
+      "See the essential tools, core responsibilities, and infrastructure focus areas for DevOps Engineers in Germany below.",
+    tableTitle: "Cloud & DevOps Roles in Germany",
+    tableHeaders: ["Job Title", "Primary Focus", "Core Tech Stack", "Key Infrastructure Scope"],
     tableRows: [
-      ["Cloud Engineer", "Cloud infrastructure & security configuration", "AWS (EC2, S3, VPC), Azure, Linux, Bash", "€61,500"],
-      ["DevOps Engineer", "CI/CD pipelines, container orchestration, IaC", "Docker, Kubernetes, Terraform, Jenkins, GitHub Actions", "€64,800"],
-      ["AWS Solutions Architect", "High-availability, fault-tolerant cloud architecture", "AWS Well-Architected Framework, Microservices, IAM", "€68,400"],
+      ["Cloud Engineer", "Cloud infrastructure & security configuration", "AWS (EC2, S3, VPC), Azure, Linux, Bash", "Virtual private clouds & serverless"],
+      ["DevOps Engineer", "CI/CD pipelines, container orchestration, IaC", "Docker, Kubernetes, Terraform, Jenkins, GitHub Actions", "Automated deployment pipelines"],
+      ["AWS Solutions Architect", "High-availability, fault-tolerant cloud architecture", "AWS Well-Architected Framework, Microservices, IAM", "Enterprise multi-account topology"],
     ],
     sections: [
       {

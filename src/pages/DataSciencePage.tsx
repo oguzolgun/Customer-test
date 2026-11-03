@@ -327,7 +327,7 @@ function DasWichtigste() {
           {[
             "Drei Module mit zusammen 150 Sessions über 30 Wochen, jedes Modul schließt mit einem eigenen Berufsbild ab.",
             "Bei bewilligtem Bildungsgutschein trägt die Agentur für Arbeit 100 Prozent der Kosten. Beschäftigte werden über das Qualifizierungschancengesetz gefördert.",
-            "Data Scientists verdienen in Deutschland im Median 57.200 Euro brutto im Jahr, Junior Data Analysts 41.800 Euro (StepStone, Stand 2026).",
+            "Data Scientists und Data Analysts gehören zu den meistgesuchten IT-Fachkräften in Deutschland mit exzellenten Zukunftsaussichten.",
             "Der Einstieg ist auf jeder Stufe möglich: ohne Vorkenntnisse in Modul 1, mit Vorkenntnissen nach technischem Assessment direkt in Modul 2 oder 3.",
           ].map((text, i) => (
             <div
@@ -519,29 +519,28 @@ function Gehaltstabelle() {
     <section className="py-16" style={{ background: "#f6f7fb" }}>
       <div className="max-w-[1200px] mx-auto px-5">
         <h2 className="font-bold text-3xl mb-3" style={{ color: DARK }}>
-          Was Sie nach der Weiterbildung verdienen
+          Berufsbilder und Perspektiven nach den Modulen
         </h2>
         <p className="text-sm text-gray-600 leading-relaxed mb-7 max-w-3xl">
-          Der Verdienst steigt mit jeder Modulstufe. Junior Data Analysts liegen im Median bei{" "}
-          <strong>41.800 Euro</strong> brutto im Jahr, Data Scientists bei <strong>57.200 Euro</strong>,
-          Machine Learning Engineers bei 57.800 Euro. Zwischen Modul 1 und Modul 2 liegen damit rund{" "}
-          <strong>15.000 Euro Jahresgehalt</strong>.
+          Mit jedem absolvierten Modul erschließen Sie neue, anspruchsvolle Tätigkeitsfelder. Bereits nach Modul 1
+          können Sie als Junior Data Analyst einsteigen oder mit Modul 2 und 3 die Spezialisierung zum Data Scientist
+          und Machine Learning Engineer abschließen.
         </p>
         <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm mb-5">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr style={{ background: DARK }}>
                 <th className="text-left px-5 py-4 text-white font-bold">Rolle</th>
-                <th className="text-left px-5 py-4 text-white font-bold">Median brutto pro Jahr</th>
-                <th className="text-left px-5 py-4 text-white font-bold">Typische Spanne</th>
+                <th className="text-left px-5 py-4 text-white font-bold">Hauptfokus & Technologien</th>
+                <th className="text-left px-5 py-4 text-white font-bold">Typisches Praxisprojekt</th>
                 <th className="text-left px-5 py-4 text-white font-bold">Modul</th>
               </tr>
             </thead>
             <tbody>
               {[
-                { role: "Junior Data Analyst", median: "41.800 Euro", spanne: "38.300 bis 47.100 Euro", modul: "Modul 1" },
-                { role: "Data Scientist", median: "57.200 Euro", spanne: "49.200 bis 68.100 Euro", modul: "Modul 2" },
-                { role: "Machine Learning Engineer", median: "57.800 Euro", spanne: "49.600 bis 66.600 Euro", modul: "Modul 3" },
+                { role: "Junior Data Analyst", median: "SQL, Python, Power BI", spanne: "Business Intelligence & KPI-Dashboards", modul: "Modul 1" },
+                { role: "Data Scientist", median: "Scikit-Learn, Statistik, Pandas", spanne: "Prädiktive Modelle & Datenpipelines", modul: "Modul 2" },
+                { role: "Machine Learning Engineer", median: "LLMs, Deep Learning, MLOps", spanne: "Produktive KI-Agenten & Endpoints", modul: "Modul 3" },
               ].map((row, i) => (
                 <tr key={row.role} style={{ background: i % 2 === 0 ? "#fff" : "#fafafa" }}>
                   <td className="px-5 py-4 font-semibold text-gray-900">{row.role}</td>
@@ -554,9 +553,8 @@ function Gehaltstabelle() {
           </table>
         </div>
         <p className="text-sm text-gray-500 mb-7 max-w-3xl leading-relaxed">
-          Die Werte stammen aus den StepStone-Gehaltsdaten mit Stand 2026 und gelten für Vollzeitstellen
-          in Deutschland. Das Einstiegsgehalt für Data Scientists gibt StepStone mit rund 54.000 Euro an.
-          Ballungsräume zahlen über dem Bundesschnitt.
+          Entscheidend für eine erfolgreiche Bewerbung in Deutschland ist das vorzeigbare Projektportfolio aus den Modulen,
+          das Ihre praktische Problemlösungskompetenz belegt.
         </p>
         <div className="flex items-start gap-3 rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-sm max-w-2xl">
           <span className="flex-shrink-0 mt-0.5"><IconChart /></span>
@@ -1004,8 +1002,8 @@ const faqs = [
     a: "Nein, ein Mathematikstudium ist keine Voraussetzung. Sie brauchen ein sicheres Grundverständnis für Verteilungen, Korrelation und Modellbewertung — und genau das baut Modul 1 von null auf. Wer Formeln grundsätzlich meiden möchte, wird spätestens in Modul 2 an Grenzen stoßen.",
   },
   {
-    q: "Welche Gehaltsaussichten habe ich nach der Weiterbildung?",
-    a: "Junior Data Analysts verdienen in Deutschland im Median 41.800 Euro brutto im Jahr, Data Scientists 57.200 Euro und Machine Learning Engineers 57.800 Euro. Die Werte stammen aus den StepStone-Gehaltsdaten mit Stand 2026. Entscheidend für die Bewerbung ist neben dem Zertifikat das Projektportfolio aus den Modulen.",
+    q: "Welche Berufsaussichten habe ich nach der Weiterbildung?",
+    a: "Data Analysts und Data Scientists sind in Deutschland in nahezu allen Branchen stark gefragt — vom Mittelstand bis zum DAX-Konzern. Entscheidend für eine erfolgreiche Bewerbung ist neben dem Zertifikat vor allem das praktische Projektportfolio aus den Kursmodulen.",
   },
   {
     q: "Bekomme ich für die Weiterbildung einen Bildungsgutschein?",

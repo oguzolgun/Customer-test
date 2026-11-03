@@ -107,16 +107,7 @@ export function CoursesHubPage() {
           start: "27 Jul 2026",
         },
         {
-          title: "Data Analytics Weiterbildung",
-          to: "/it-kurse/data-analytics-weiterbildung/",
-          duration: "13 Wochen (520 UE)",
-          entry: "Ohne Vorkenntnisse",
-          roles: "Data Analyst, Business Intelligence Analyst",
-          funding: "100 % Bildungsgutschein / QCG",
-          start: "27 Jul 2026",
-        },
-        {
-          title: "Full Stack Entwickler Weiterbildung",
+          title: "AI-Assisted Full Stack Entwickler Weiterbildung",
           to: "/it-kurse/full-stack-entwickler-weiterbildung/",
           duration: "3 – 12 Monate (4 Module)",
           entry: "Ohne Vorwissen (M1) oder mit JS-Basis (M2)",
@@ -125,7 +116,7 @@ export function CoursesHubPage() {
           start: "27 Jul 2026",
         },
         {
-          title: "Cyber Security Weiterbildung",
+          title: "AI-Enhanced Cyber Security Weiterbildung",
           to: "/it-kurse/cyber-security-weiterbildung/",
           duration: "4 Module (Komplett oder ab M2)",
           entry: "Ohne Vorwissen (M1) oder per Assessment (M2)",
@@ -134,7 +125,7 @@ export function CoursesHubPage() {
           start: "24 Aug 2026",
         },
         {
-          title: "AWS & DevOps Weiterbildung",
+          title: "AI-Enhanced AWS & DevOps Weiterbildung",
           to: "/it-kurse/aws-devops-weiterbildung/",
           duration: "3 – 8 Monate (5 Optionen)",
           entry: "Ohne Vorwissen (M1) oder Cloud-Basis (M2/M3)",
@@ -143,17 +134,8 @@ export function CoursesHubPage() {
           start: "24 Aug 2026",
         },
         {
-          title: "AWS Solutions Architect Weiterbildung",
-          to: "/it-kurse/aws-solutions-architect-weiterbildung/",
-          duration: "3 Monate (Modul 1)",
-          entry: "Ohne Vorkenntnisse",
-          roles: "AWS Solutions Architect, Cloud Engineer",
-          funding: "100 % Bildungsgutschein / QCG",
-          start: "24 Aug 2026",
-        },
-        {
-          title: "Software Testing (SDET) Weiterbildung",
-          to: "/it-kurse/software-testing-weiterbildung/",
+          title: "SDET Weiterbildung",
+          to: "/it-kurse/sdet-weiterbildung/",
           duration: "Vollzeit-Programm",
           entry: "Ohne Vorkenntnisse",
           roles: "QA Automation Engineer, SDET",
@@ -255,10 +237,10 @@ export function CoursesHubPage() {
               summary: "Python, SQL, Power BI, Machine Learning, PyTorch, RAG, LangGraph & MCP.",
             },
             {
-              title: "Data Analytics Weiterbildung",
-              to: "/it-kurse/data-analytics-weiterbildung/",
+              title: "Data Analytics (Modul 1 einzeln)",
+              to: "/it-kurse/ai-engineer-weiterbildung/#data-analyst",
               meta: "13 Wochen · Modul 1 Eigenständig",
-              summary: "Python, SQL, Statistik, Power BI und Tableau für den schnellen Einstieg.",
+              summary: "Python, SQL, Statistik, Power BI und Tableau für den schnellen Einstieg zum Data Analyst.",
             },
           ],
         },
@@ -267,14 +249,14 @@ export function CoursesHubPage() {
           desc: "Entwickle moderne Full-Stack-Webanwendungen oder sichere Softwarequalität durch Testautomatisierung.",
           items: [
             {
-              title: "Full Stack Entwickler Weiterbildung",
+              title: "AI-Assisted Full Stack Entwickler Weiterbildung",
               to: "/it-kurse/full-stack-entwickler-weiterbildung/",
               meta: "4 Module · React, Next.js & Node.js",
               summary: "TypeScript-Webentwicklung inklusive Cursor, Claude Code und GitHub Copilot.",
             },
             {
-              title: "Software Testing (SDET) Weiterbildung",
-              to: "/it-kurse/software-testing-weiterbildung/",
+              title: "SDET Weiterbildung",
+              to: "/it-kurse/sdet-weiterbildung/",
               meta: "Vollzeit · UI & API Testautomatisierung",
               summary: "Java, Selenium, Cypress, Playwright, Postman, SQL und CI/CD.",
             },
@@ -285,16 +267,10 @@ export function CoursesHubPage() {
           desc: "Plane hochverfügbare Cloud-Architekturen auf AWS & Azure und automatisiere Container-Plattformen.",
           items: [
             {
-              title: "AWS & DevOps Weiterbildung",
+              title: "AI-Enhanced AWS & DevOps Weiterbildung",
               to: "/it-kurse/aws-devops-weiterbildung/",
               meta: "3 – 8 Monate · 5 Modulkombinationen",
-              summary: "AWS Solutions Architect, Docker, Kubernetes, Terraform, CI/CD & Azure.",
-            },
-            {
-              title: "AWS Solutions Architect Weiterbildung",
-              to: "/it-kurse/aws-solutions-architect-weiterbildung/",
-              meta: "3 Monate · Modul 1 Fokus",
-              summary: "AWS Cloud-Infrastruktur und gezielte Vorbereitung auf die SAA-C03 Prüfung.",
+              summary: "AWS Cloud Engineer, DevOps Engineer & Azure Basics mit KI.",
             },
             {
               title: "Kubernetes CKAD Zertifikat Kurs",
@@ -309,7 +285,7 @@ export function CoursesHubPage() {
           desc: "Überwache Unternehmensnetzwerke im Security Operations Center (SOC) und sichere Cloud-Systeme ab.",
           items: [
             {
-              title: "Cyber Security Weiterbildung",
+              title: "AI-Enhanced Cyber Security Weiterbildung",
               to: "/it-kurse/cyber-security-weiterbildung/",
               meta: "4 Module · Einstieg ab M1 oder M2",
               summary: "CompTIA Security+, KI-gestütztes SOC, Agentic AI SecOps & AWS Security.",
@@ -352,7 +328,7 @@ export function CoursesHubPage() {
         },
         {
           q: "In welcher Sprache findet der Unterricht statt?",
-          a: "Der Unterricht wird flexibel auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Unsere Förder- und Karriereberatung begleitet dich auf Deutsch, Englisch oder Türkisch.",
+          a: "Der Unterricht findet flexibel mit Kohorten auf Englisch, Türkisch oder Deutsch statt. Unsere Förder- und Karriereberatung begleitet dich auf Deutsch, Englisch oder Türkisch.",
         },
       ];
 

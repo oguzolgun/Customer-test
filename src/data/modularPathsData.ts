@@ -168,7 +168,7 @@ export const MODULAR_PATHS_DE: PathCourse[] = [
     id: "testing",
     name: "Software Testing",
     tagline: "Web, APIs und Mobile automatisiert testen.",
-    slugDe: "/it-kurse/software-testing-weiterbildung/",
+    slugDe: "/it-kurse/sdet-weiterbildung/",
     slugEn: "/it-courses/software-development-engineer-in-test/",
     modules: [
       {
@@ -336,7 +336,7 @@ export const MODULAR_PATHS_EN: PathCourse[] = [
     id: "testing",
     name: "Software Testing",
     tagline: "Automated testing for web, APIs and mobile.",
-    slugDe: "/it-kurse/software-testing-weiterbildung/",
+    slugDe: "/it-kurse/sdet-weiterbildung/",
     slugEn: "/it-courses/software-development-engineer-in-test/",
     modules: [
       {

@@ -168,12 +168,11 @@ function SeoSitemapDrawer() {
                     ["Startseite (DE)", "/"],
                     ["IT-Kurse Übersicht", "/it-kurse/"],
                     ["AI Engineer", "/it-kurse/ai-engineer-weiterbildung/"],
-                    ["Data Analytics", "/it-kurse/data-analytics-weiterbildung/"],
+                    ["Data Analytics (Modul 1)", "/it-kurse/ai-engineer-weiterbildung/#data-analyst"],
                     ["Full Stack", "/it-kurse/full-stack-entwickler-weiterbildung/"],
                     ["Cyber Security", "/it-kurse/cyber-security-weiterbildung/"],
                     ["AWS & DevOps", "/it-kurse/aws-devops-weiterbildung/"],
-                    ["AWS Architect", "/it-kurse/aws-solutions-architect-weiterbildung/"],
-                    ["Software Testing", "/it-kurse/software-testing-weiterbildung/"],
+                    ["SDET Testing", "/it-kurse/sdet-weiterbildung/"],
                     ["Kubernetes CKAD", "/it-kurse/kubernetes-ckad-zertifikat-kurs/"],
                     ["IT-Orientierung", "/it-orientierungskurs/"],
                     ["Finanzierung Hub", "/finanzierung/"],
@@ -274,11 +273,11 @@ export default function App() {
               />
               <Route
                 path="/it-kurse/data-analytics-weiterbildung/*"
-                element={<CourseTemplatePage courseKey="data-analytics" />}
+                element={<Navigate to="/it-kurse/ai-engineer-weiterbildung/#data-analyst" replace />}
               />
               <Route
                 path="/it-kurse/data-analyst-weiterbildung/*"
-                element={<CourseTemplatePage courseKey="data-analytics" />}
+                element={<Navigate to="/it-kurse/ai-engineer-weiterbildung/#data-analyst" replace />}
               />
               <Route
                 path="/it-kurse/full-stack-entwickler-weiterbildung/*"
@@ -294,11 +293,11 @@ export default function App() {
               />
               <Route
                 path="/it-kurse/aws-solutions-architect-weiterbildung/*"
-                element={<CourseTemplatePage courseKey="aws-solutions-architect" />}
+                element={<Navigate to="/it-kurse/aws-devops-weiterbildung/" replace />}
               />
               <Route
                 path="/it-kurse/software-testing-weiterbildung/*"
-                element={<CourseTemplatePage courseKey="sdet" />}
+                element={<Navigate to="/it-kurse/sdet-weiterbildung/" replace />}
               />
               <Route
                 path="/it-kurse/sdet-weiterbildung/*"
@@ -409,28 +408,114 @@ export default function App() {
                 element={<Navigate to="/it-kurse/ai-engineer-weiterbildung/" replace />}
               />
               <Route
+                path="/it-kurse/data-science/fur-professionelle/*"
+                element={<Navigate to="/it-kurse/ai-engineer-weiterbildung/" replace />}
+              />
+              <Route
                 path="/it-kurse/applied-ai-data-science/*"
                 element={<Navigate to="/it-kurse/ai-engineer-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/webentwicklungskurse/*"
+                element={<Navigate to="/it-kurse/full-stack-entwickler-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/webentwicklung-kurse-fur-anfanger/*"
+                element={<Navigate to="/it-kurse/full-stack-entwickler-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/webentwicklung-kurse-fur-professionelle/*"
+                element={<Navigate to="/it-kurse/full-stack-entwickler-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/full-stack-entwicklung/*"
+                element={<Navigate to="/it-kurse/full-stack-entwickler-weiterbildung/" replace />}
               />
               <Route
                 path="/it-kurse/full-stack-development/*"
                 element={<Navigate to="/it-kurse/full-stack-entwickler-weiterbildung/" replace />}
               />
               <Route
+                path="/it-kurse/it-sicherheit-kurse/*"
+                element={<Navigate to="/it-kurse/cyber-security-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/it-sicherheit-kurse-fur-anfanger/*"
+                element={<Navigate to="/it-kurse/cyber-security-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/it-sicherheit-kurse-fur-professionelle/*"
+                element={<Navigate to="/it-kurse/cyber-security-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/it-sicherheit-kurse/cyber-security-analyst/*"
+                element={<Navigate to="/it-kurse/cyber-security-weiterbildung/" replace />}
+              />
+              <Route
                 path="/it-kurse/cyber-security-ops/*"
                 element={<Navigate to="/it-kurse/cyber-security-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/devops-aws/*"
+                element={<Navigate to="/it-kurse/aws-devops-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/devops-aws-fur-anfanger/*"
+                element={<Navigate to="/it-kurse/aws-devops-weiterbildung/" replace />}
+              />
+              <Route
+                path="/it-kurse/devops-aws-fur-professionelle/*"
+                element={<Navigate to="/it-kurse/aws-devops-weiterbildung/" replace />}
               />
               <Route
                 path="/it-kurse/aws-devops/*"
                 element={<Navigate to="/it-kurse/aws-devops-weiterbildung/" replace />}
               />
               <Route
+                path="/it-kurse/software-development-engineer-in-test/*"
+                element={<Navigate to="/it-kurse/sdet-weiterbildung/" replace />}
+              />
+              <Route
                 path="/it-kurse/software-testing/*"
-                element={<Navigate to="/it-kurse/software-testing-weiterbildung/" replace />}
+                element={<Navigate to="/it-kurse/sdet-weiterbildung/" replace />}
               />
               <Route
                 path="/it-kurse/kubernetes-ckad/*"
                 element={<Navigate to="/it-kurse/kubernetes-ckad-zertifikat-kurs/" replace />}
+              />
+              <Route
+                path="/it-orientierungskurs-2/*"
+                element={<Navigate to="/it-orientierungskurs/" replace />}
+              />
+              <Route
+                path="/finanzierung-studiengebuehren/*"
+                element={<Navigate to="/finanzierung/" replace />}
+              />
+              <Route
+                path="/it-fortbildung-enterprise/*"
+                element={<Navigate to="/fuer-unternehmen/" replace />}
+              />
+              <Route
+                path="/clarusway-aws-certification-training-review/*"
+                element={<Navigate to="/it-kurse/aws-devops-weiterbildung/" replace />}
+              />
+              <Route
+                path="/ai-replace-cybersecurity-professionals/*"
+                element={<Navigate to="/ratgeber/soc-analyst/" replace />}
+              />
+
+              {/* DE Guides Gehalt Redirects (no standalone salary pages) */}
+              <Route
+                path="/ratgeber/data-analyst-gehalt/*"
+                element={<Navigate to="/ratgeber/data-analyst/" replace />}
+              />
+              <Route
+                path="/ratgeber/full-stack-entwickler-gehalt/*"
+                element={<Navigate to="/ratgeber/full-stack-entwickler/" replace />}
+              />
+              <Route
+                path="/ratgeber/cyber-security-gehalt/*"
+                element={<Navigate to="/ratgeber/soc-analyst/" replace />}
               />
 
               {/* EN Legacy Beginners & Professionals Duplicate Pages -> Single Program Page */}
@@ -451,6 +536,18 @@ export default function App() {
                 element={<Navigate to="/it-courses/ai-engineering/" replace />}
               />
               <Route
+                path="/it-courses/data-science-for-beginners/*"
+                element={<Navigate to="/it-courses/ai-engineering/" replace />}
+              />
+              <Route
+                path="/it-courses/data-science-for-professionals/*"
+                element={<Navigate to="/it-courses/ai-engineering/" replace />}
+              />
+              <Route
+                path="/it-courses/data-analytics-course/*"
+                element={<Navigate to="/it-courses/ai-engineering/#data-analyst" replace />}
+              />
+              <Route
                 path="/it-courses/full-stack-development/*"
                 element={<Navigate to="/it-courses/full-stack-developer/" replace />}
               />
@@ -463,6 +560,14 @@ export default function App() {
                 element={<Navigate to="/it-courses/full-stack-developer/" replace />}
               />
               <Route
+                path="/it-courses/full-stack-development-course-for-beginners/*"
+                element={<Navigate to="/it-courses/full-stack-developer/" replace />}
+              />
+              <Route
+                path="/it-courses/full-stack-development-course-for-professionals/*"
+                element={<Navigate to="/it-courses/full-stack-developer/" replace />}
+              />
+              <Route
                 path="/it-courses/cyber-security-for-beginners/*"
                 element={<Navigate to="/it-courses/cyber-security/" replace />}
               />
@@ -471,11 +576,23 @@ export default function App() {
                 element={<Navigate to="/it-courses/cyber-security/" replace />}
               />
               <Route
+                path="/it-courses/cyber-security-analyst-for-beginners/*"
+                element={<Navigate to="/it-courses/cyber-security/" replace />}
+              />
+              <Route
+                path="/it-courses/cyber-security-analyst-for-professionals/*"
+                element={<Navigate to="/it-courses/cyber-security/" replace />}
+              />
+              <Route
                 path="/it-courses/devops-aws-for-beginners/*"
                 element={<Navigate to="/it-courses/devops-aws/" replace />}
               />
               <Route
                 path="/it-courses/devops-aws-for-professionals/*"
+                element={<Navigate to="/it-courses/devops-aws/" replace />}
+              />
+              <Route
+                path="/it-courses/aws-solutions-architect/*"
                 element={<Navigate to="/it-courses/devops-aws/" replace />}
               />
               <Route
@@ -501,6 +618,16 @@ export default function App() {
 
               {/* Legacy Blog & FAQ Redirects */}
               <Route path="/blog/*" element={<Navigate to="/guides/" replace />} />
+              <Route
+                path="/blog/ai-replace-cybersecurity-professionals/*"
+                element={<Navigate to="/guides/will-ai-replace-cybersecurity-professionals/" replace />}
+              />
+              <Route
+                path="/blog/clarusway-aws-certification-training-review/*"
+                element={<Navigate to="/it-courses/devops-aws/" replace />}
+              />
+              <Route path="/category/it-training/*" element={<Navigate to="/ratgeber/" replace />} />
+              <Route path="/category/cybersecurity/*" element={<Navigate to="/ratgeber/" replace />} />
               <Route path="/faq/*" element={<Navigate to="/bildungsgutschein/" replace />} />
               <Route path="/uber-uns/*" element={<Navigate to="/ueber-uns/" replace />} />
               <Route path="/about-us/*" element={<Navigate to="/about/" replace />} />

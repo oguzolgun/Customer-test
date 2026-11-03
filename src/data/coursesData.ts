@@ -10,10 +10,10 @@ export interface AudienceCard {
 
 export interface CareerRoleCard {
   title: string;
-  salaryMedian: string;
-  salaryRange: string;
-  salarySource: string;
-  salarySourceUrl: string;
+  salaryMedian?: string;
+  salaryRange?: string;
+  salarySource?: string;
+  salarySourceUrl?: string;
   desc: string;
   guideLabel: string;
   guideUrl: string;
@@ -261,6 +261,42 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         curriculumPdfName: "clarusway-ai-engineer-weiterbildung-lehrplan.pdf",
       },
       {
+        id: "data-analytics-mod1",
+        anchorId: "data-analyst",
+        title: "Data Analytics und Business Intelligence (Modul 1)",
+        subtitle: "Kompakter Einstieg in Datenanalyse & BI",
+        badge: "Modul 1 · 13 Wochen",
+        moduleIds: [1],
+        startsAt: 1,
+        duration: "13 Wochen",
+        schedule: "09:00–16:45 Uhr Berlin (Vollzeit)",
+        capacity: "Max. 15 Plätze",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
+        dates: ["27 Jul 2026", "30 Aug 2026", "28 Sep 2026", "26 Okt 2026"],
+        recommended: false,
+        description:
+          "Eigenständiges Modul für den Einstieg in Python, SQL, Tableau, Power BI und explorative Datenanalyse. 100 % mit Bildungsgutschein förderfähig.",
+        curriculumPdfName: "clarusway-ai-engineer-weiterbildung-lehrplan.pdf",
+      },
+      {
+        id: "data-analytics-science-mod12",
+        anchorId: "ds-foundation",
+        title: "Data Analytics und Data Science (Modul 1 und 2)",
+        subtitle: "Fundierte Vorbereitung auf Analytics und Machine Learning",
+        badge: "Modul 1 + 2 · 19 Wochen",
+        moduleIds: [1, 2],
+        startsAt: 1,
+        duration: "19 Wochen",
+        schedule: "09:00–16:45 Uhr Berlin (Vollzeit)",
+        capacity: "Max. 15 Plätze",
+        language: "Unterrichtssprache: Englisch / Türkisch / Deutsch",
+        dates: ["27 Jul 2026", "30 Aug 2026", "28 Sep 2026", "26 Okt 2026"],
+        recommended: false,
+        description:
+          "Kombiniert praktische Datenanalyse mit grundlegendem Machine Learning und Modellvalidierung in 19 Wochen.",
+        curriculumPdfName: "clarusway-ai-engineer-weiterbildung-lehrplan.pdf",
+      },
+      {
         id: "ds-ai-mod23",
         anchorId: "ds-for-pro",
         title: "Data Science und AI Engineering (Modul 2 und 3)",
@@ -335,13 +371,13 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         desc: "Das Training findet auf Englisch statt — der Arbeitssprache internationaler Daten- und KI-Teams in Deutschland — begleitet durch deutsch- und englischsprachige Karriereberatung.",
       },
       {
-        title: "28 Partnerstandorte & Online",
-        desc: "100 % online von überall in Deutschland teilnehmen oder auf Wunsch Arbeitsplätze an einem unserer 28 Partnerstandorte nutzen.",
+        title: "100 % Online & Flexibel aus ganz Deutschland",
+        desc: "100 % online von überall in Deutschland teilnehmen mit interaktiven Live-Sessions und täglicher Betreuung.",
       },
     ],
     summaryTable: [
       ["Zeitplan", "Mo–Fr, 09:00–16:45 Uhr (Berlin)"],
-      ["Dauer", "32 Wochen (Vollpaket) · 19 Wo. (ab M2) · 13 Wo. (ab M3)"],
+      ["Dauer", "32 Wochen (Vollpaket) · 19 Wo. (M1+M2 oder M2+M3) · 13 Wo. (M1 oder M3)"],
       ["Lehrplan", "Modul 1 (13 Wo.) + Modul 2 (6 Wo.) + Modul 3 (13 Wo.)"],
       ["Kapazität", "Max. 15 Plätze pro Kohorte"],
       ["Sprache", "Englisch / Türkisch / Deutsch"],
@@ -361,57 +397,41 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     qcgLinkTo: "/qualifizierungschancengesetz/",
     careerH2: "Berufe nach der AI Engineer Weiterbildung",
     careerIntro:
-      "Jedes Modul qualifiziert für ein klares Berufsbild auf dem deutschen Arbeitsmarkt. Die Gehaltsangaben basieren auf dem StepStone Gehaltsreport 2026 für Vollzeitstellen in Deutschland.",
+      "Jedes Modul qualifiziert für ein klares, zukunftssicheres Berufsbild auf dem deutschen Arbeitsmarkt mit hoher Nachfrage nach Fachkräften.",
     careerRoles: [
       {
         title: "AI Engineer",
-        salaryMedian: "64.500 €",
-        salaryRange: "55.000 – 78.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Entwickelt und integriert LLM-Anwendungen, RAG-Pipelines und autonome KI-Agenten in produktive Unternehmenssysteme.",
-        guideLabel: "Berufsbild & Gehalt: AI Engineer",
+        guideLabel: "Was macht ein AI Engineer?",
         guideUrl: "/ratgeber/ai-engineer/",
       },
       {
         title: "Data Scientist",
-        salaryMedian: "57.200 €",
-        salaryRange: "49.200 – 68.100 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Trainiert und validiert Machine-Learning-Modelle, erkennt komplexe Muster in Unternehmensdaten und erstellt Prognosen.",
-        guideLabel: "Ratgeber: Agentic AI & KI-Systeme",
+        guideLabel: "Was macht ein Data Scientist?",
         guideUrl: "/ratgeber/agentic-ai/",
       },
       {
         title: "Data Analyst",
-        salaryMedian: "41.800 €",
-        salaryRange: "38.300 – 47.100 €",
-        salarySource: "StepStone Gehaltsdaten 2026 (Junior)",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Bereitet Geschäftsdaten mit Python und SQL auf, erstellt interaktive Power-BI- und Tableau-Dashboards und beantwortet Fachfragen.",
-        guideLabel: "Data Analyst werden: Aufgaben & Gehalt",
+        guideLabel: "Was macht ein Data Analyst?",
         guideUrl: "/ratgeber/data-analyst-werden/",
       },
       {
         title: "Machine Learning Engineer",
-        salaryMedian: "57.800 €",
-        salaryRange: "49.600 – 66.600 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Verbindet Data Science mit Software Engineering: stellt ML-Modelle über APIs, Container und Cloud-Pipelines skalierbar bereit.",
-        guideLabel: "Berufsbild: AI & ML Engineering",
+        guideLabel: "Was macht ein ML Engineer?",
         guideUrl: "/ratgeber/ai-engineer/",
       },
     ],
     clusterH2: "Ratgeber zum Thema",
     clusterIntro:
-      "Vertiefe dein Wissen rund um Berufsbilder, Gehälter und Schlüsseltechnologien im Bereich Künstliche Intelligenz und Datenanalyse.",
+      "Vertiefe dein Wissen rund um Berufsbilder und Schlüsseltechnologien im Bereich Künstliche Intelligenz und Datenanalyse.",
     clusterGuides: [
       {
-        title: "AI Engineer: Aufgaben, Gehalt und Einstieg",
+        title: "AI Engineer: Aufgaben, Fähigkeiten und Einstieg",
         badge: "Berufsratgeber (Empfohlen)",
-        desc: "Was ein AI Engineer im Alltag baut, welche Vorkenntnisse zählen und wie hoch das Gehalt in Deutschland ausfällt.",
+        desc: "Was ein AI Engineer im Alltag baut, welche Vorkenntnisse zählen und wie der Einstieg in Deutschland gelingt.",
         to: "/ratgeber/ai-engineer/",
       },
       {
@@ -421,9 +441,9 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         to: "/ratgeber/agentic-ai/",
       },
       {
-        title: "Data Analyst werden: Aufgaben, Gehalt und Quereinstieg",
+        title: "Data Analyst werden: Aufgaben, Fähigkeiten und Quereinstieg",
         badge: "Berufsratgeber",
-        desc: "Schritt-für-Schritt-Leitfaden für den Einstieg in die Datenanalyse mit aktuellen StepStone-Gehaltszahlen.",
+        desc: "Schritt-für-Schritt-Leitfaden für den Einstieg in die Datenanalyse und Business Intelligence.",
         to: "/ratgeber/data-analyst-werden/",
       },
       {
@@ -458,8 +478,8 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         desc: "Du schließt jedes Modul mit einem vorzeigbaren GitHub-Projekt ab — von BI-Dashboards bis zum deployed AI-Agent.",
       },
       {
-        title: "Karriere-Management für den deutschen Markt",
-        desc: "Individuelles CV-Coaching, LinkedIn-Optimierung und Interview-Training bis zum erfolgreichen Berufseinstieg.",
+        title: "Karriere-Management & Absolventen-Support",
+        desc: "Individuelles Profil-Coaching, GitHub-Optimierung und Interview-Training für deinen erfolgreichen Berufseinstieg in den deutschen Arbeitsmarkt.",
       },
     ],
     reviewsH2: "Erfahrungen von Absolventen",
@@ -471,7 +491,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         platform: "Career Karma",
         platformUrl: "https://careerkarma.com/schools/clarusway/",
         quote:
-          "Der Besuch des Data Science und AI Programms bei Clarusway war eine meiner besten Entscheidungen. Das Mentoring und die strukturierten Projekte begleiten dich konsequent bis zum Job.",
+          "Der Besuch des Data Science und AI Programms bei Clarusway war eine meiner besten Entscheidungen. Das Mentoring und die strukturierten Projekte begleiten dich konsequent bis zum erfolgreichen Abschluss und Berufseinstieg.",
       },
       {
         initials: "IW",
@@ -725,20 +745,12 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     careerRoles: [
       {
         title: "Data Analyst",
-        salaryMedian: "41.800 €",
-        salaryRange: "38.300 – 47.100 € (Junior)",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Wertet Unternehmensdaten mit SQL und Python aus, identifiziert Trends und liefert Entscheidungsgrundlagen für Fachabteilungen.",
-        guideLabel: "Data Analyst werden: Aufgaben & Gehalt",
+        guideLabel: "Was macht ein Data Analyst?",
         guideUrl: "/ratgeber/data-analyst-werden/",
       },
       {
         title: "Business Intelligence (BI) Analyst",
-        salaryMedian: "48.500 €",
-        salaryRange: "42.000 – 56.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Entwickelt automatisierte KPI-Dashboards und Berichte in Power BI und Tableau für das Management.",
         guideLabel: "Ratgeber: Data Analyst werden",
         guideUrl: "/ratgeber/data-analyst-werden/",
@@ -746,10 +758,10 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     clusterH2: "Ratgeber zum Thema",
     clusterIntro:
-      "Erfahre mehr über den Einstieg in die Datenanalyse, Gehaltsstufen und den Unterschied zu Data Science.",
+      "Erfahre mehr über den Einstieg in die Datenanalyse, Karriereperspektiven und den Unterschied zu Data Science.",
     clusterGuides: [
       {
-        title: "Data Analyst werden: Aufgaben, Gehalt und Quereinstieg",
+        title: "Data Analyst werden: Aufgaben, Berufsbild und Quereinstieg",
         badge: "Berufsratgeber (Empfohlen)",
         desc: "Wie der Quereinstieg als Data Analyst gelingt und welche Fähigkeiten Arbeitgeber wirklich prüfen.",
         to: "/ratgeber/data-analyst-werden/",
@@ -757,7 +769,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       {
         title: "Data Science vs. Data Analytics: Der Vergleich",
         badge: "Fachartikel",
-        desc: "Welche Aufgaben, Tools und Gehälter Data Analysts und Data Scientists unterscheiden.",
+        desc: "Welche Aufgaben, Tools und Schwerpunkte Data Analysts und Data Scientists unterscheiden.",
         to: "/ratgeber/data-science-vs-data-analytics/",
       },
       {
@@ -1123,34 +1135,22 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     qcgLinkTo: "/qualifizierungschancengesetz/",
     careerH2: "Berufe nach der Weiterbildung",
     careerIntro:
-      "In der Softwareentwicklung zählt das nachweisbare Projektportfolio stärker als formale Abschlüsse. Die folgenden Mediangehälter stammen aus den StepStone-Gehaltsdaten (Stand 2026).",
+      "In der Softwareentwicklung zählt das nachweisbare Projektportfolio stärker als formale Abschlüsse. ",
     careerRoles: [
       {
         title: "Full-Stack-Entwickler",
-        salaryMedian: "43.200 € (Einstieg) / 58.500 €",
-        salaryRange: "37.600 – 68.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Verantwortet sowohl Benutzeroberfläche (React, Next.js) als auch Serverlogik und Datenbanken (Node.js, PostgreSQL, MongoDB).",
         guideLabel: "Berufsbild: Full-Stack-Entwickler",
         guideUrl: "/ratgeber/full-stack-entwickler/",
       },
       {
         title: "Frontend-Entwickler",
-        salaryMedian: "42.500 € (Einstieg) / 55.000 €",
-        salaryRange: "37.000 – 64.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Entwickelt schnelle, barrierefreie und interaktive Web-Interfaces mit TypeScript, React und modernen Design-Systemen.",
         guideLabel: "Ratgeber: Frontend vs. Backend",
         guideUrl: "/ratgeber/frontend-vs-backend/",
       },
       {
         title: "Backend-Entwickler",
-        salaryMedian: "45.000 € (Einstieg) / 60.000 €",
-        salaryRange: "39.500 – 70.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Entwirft skalierbare APIs, Datenbankschemata, Authentifizierung und Container-Deployments mit Node.js, Prisma und Docker.",
         guideLabel: "Ratgeber: KI in der Softwareentwicklung",
         guideUrl: "/ratgeber/ki-in-der-softwareentwicklung/",
@@ -1158,12 +1158,12 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     ],
     clusterH2: "Ratgeber zum Thema",
     clusterIntro:
-      "Lies unsere Leitfäden zu Berufsbild, Gehalt und dem Einsatz von KI-Werkzeugen in der modernen Webentwicklung.",
+      "Lies unsere Leitfäden zu Berufsbild, Karriereperspektiven und dem Einsatz von KI-Werkzeugen in der modernen Webentwicklung.",
     clusterGuides: [
       {
         title: "Full-Stack-Entwickler: Was ist das und wie wird man es?",
         badge: "Berufsratgeber (Empfohlen)",
-        desc: "Aufgaben, Gehalt in Deutschland und der realistische Weg für Quereinsteiger ohne Informatikstudium.",
+        desc: "Aufgaben, Karriereperspektiven in Deutschland und der realistische Weg für Quereinsteiger ohne Informatikstudium.",
         to: "/ratgeber/full-stack-entwickler/",
       },
       {
@@ -1524,30 +1524,18 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     careerRoles: [
       {
         title: "SOC Analyst",
-        salaryMedian: "52.400 €",
-        salaryRange: "45.000 – 63.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Überwacht Sicherheitsereignisse im Security Operations Center, analysiert Alarme im SIEM und leitet Gegenmaßnahmen bei Cyberangriffen ein.",
-        guideLabel: "Was macht ein SOC Analyst? Aufgaben & Gehalt",
+        guideLabel: "Was macht ein SOC Analyst?",
         guideUrl: "/ratgeber/soc-analyst/",
       },
       {
         title: "Cyber Security Analyst",
-        salaryMedian: "58.900 €",
-        salaryRange: "49.500 – 71.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Prüft Netzwerke und Systeme auf Schwachstellen, härtet IT-Infrastrukturen ab und setzt Sicherheitsrichtlinien im Unternehmen um.",
-        guideLabel: "Ratgeber: Cyber Security Gehalt in Deutschland",
-        guideUrl: "/ratgeber/cyber-security-gehalt/",
+        guideLabel: "Was macht ein Cyber Security Analyst?",
+        guideUrl: "/ratgeber/soc-analyst/",
       },
       {
         title: "Cloud Security Analyst",
-        salaryMedian: "65.200 €",
-        salaryRange: "55.000 – 79.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Sichert AWS-Cloud-Umgebungen, IAM-Berechtigungen, Container-Workloads und KI-Applikationen gegen moderne Angriffsvektoren ab.",
         guideLabel: "Berufsbild: SOC & Cloud Security",
         guideUrl: "/ratgeber/soc-analyst/",
@@ -1558,7 +1546,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       "Alles Wissenswerte über den Beruf des SOC Analysts, SIEM-Systeme, Zertifizierungen und Gehälter in der IT-Sicherheit.",
     clusterGuides: [
       {
-        title: "SOC Analyst: Aufgaben, Gehalt und Einstieg",
+        title: "SOC Analyst: Aufgaben, Fähigkeiten und Einstieg",
         badge: "Berufsratgeber (Empfohlen)",
         desc: "Wie ein Security Operations Center arbeitet, was Tier-1- und Tier-2-Analysten verdienen und wie der Quereinstieg gelingt.",
         to: "/ratgeber/soc-analyst/",
@@ -1576,10 +1564,10 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         to: "/ratgeber/was-ist-ein-siem/",
       },
       {
-        title: "Cyber Security Gehalt in Deutschland nach Erfahrungsstufe",
-        badge: "Gehaltsreport",
-        desc: "Aktuelle Gehaltsspannen für IT-Sicherheitsberufe in Deutschland im Überblick.",
-        to: "/ratgeber/cyber-security-gehalt/",
+        title: "SOC Analyst: Aufgaben, Zertifizierungen & Karriere",
+        badge: "Berufsratgeber",
+        desc: "Aufgaben im Security Operations Center, gefragte Zertifizierungen und der Quereinstieg in die IT-Sicherheit.",
+        to: "/ratgeber/soc-analyst-aufgaben/",
       },
     ],
     whyH2: "Warum Clarusway für die Cyber Security Weiterbildung?",
@@ -1672,14 +1660,14 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     slugDe: "/it-kurse/aws-devops-weiterbildung/",
     slugEn: "/it-courses/devops-aws/",
     pdfFileName: "clarusway-aws-devops-weiterbildung-lehrplan.pdf",
-    metaTitle: "AWS DevOps Weiterbildung zum Cloud Engineer | Clarusway",
+    metaTitle: "AWS Solutions Architect & DevOps Weiterbildung | Clarusway",
     metaDescription:
-      "AWS Solutions Architect, DevOps Engineering und Azure Fundamentals: Weiterbildung zum Cloud und DevOps Engineer, förderfähig mit Bildungsgutschein.",
-    breadcrumbLabel: "AWS & DevOps Weiterbildung",
-    eyebrow: "Programm: AWS & DevOps Engineering",
-    h1: "AWS & DevOps Weiterbildung zum Cloud Engineer",
+      "In 3 Modulen zum AWS Solutions Architect und DevOps Engineer, mit AWS Cloud, DevOps und Azure Basics und KI. Förderfähig mit Bildungsgutschein.",
+    breadcrumbLabel: "AWS Solutions Architect & DevOps Weiterbildung",
+    eyebrow: "Programm: AI-Enhanced AWS Solutions Architect/DevOps Engineer",
+    h1: "AWS Solutions Architect & DevOps Engineer Weiterbildung mit KI",
     heroIntro:
-      "Die AWS & DevOps Weiterbildung bei Clarusway ist ein 3- bis 8-monatiges Live-Online-Programm, das dich in drei aufeinander aufbauenden Modulen (AWS Solutions Architect, DevOps Engineering und Azure Fundamentals) zum Cloud und DevOps Engineer qualifiziert. AZAV-zertifiziert, offizieller AWS Select Tier Partner und zu 100 % mit Bildungsgutschein förderbar.",
+      "Die AWS Solutions Architect & DevOps Engineer Weiterbildung bei Clarusway ist ein praxisnahes Live-Online-Programm, das dich in drei Modulen (AI-Enhanced AWS Cloud Engineer, AI-Enhanced DevOps Engineer und AI-Enhanced Azure Basics) zum Cloud und DevOps Engineer mit KI-Fokus qualifiziert. AZAV-zertifiziert, offizieller AWS Select Tier Partner und zu 100 % mit Bildungsgutschein förderbar.",
     heroSubnote:
       "Einstieg für Quereinsteiger & IT-Profis · Vorbereitung auf AWS SAA-C03 & Azure AZ-900 · Max. 15 Plätze pro Kurs.",
     heroBadges: ["AWS", "Docker", "Kubernetes", "Terraform", "Jenkins & CI/CD", "Azure"],
@@ -1731,7 +1719,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       {
         id: 1,
         label: "Modul 1",
-        title: "AWS Solutions Architect",
+        title: "AI-Enhanced AWS Cloud Engineer",
         duration: "3 Monate",
         color: PRIMARY,
         prerequisite: "Keine IT-Vorkenntnisse erforderlich (inkl. Linux & Netzwerk-Grundlagen).",
@@ -1747,7 +1735,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       {
         id: 2,
         label: "Modul 2",
-        title: "DevOps Engineering",
+        title: "AI-Enhanced DevOps Engineer",
         duration: "3 Monate",
         color: SECONDARY,
         prerequisite: "Modul 1 oder fundierte Cloud- und Linux-Grundkenntnisse.",
@@ -1763,7 +1751,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       {
         id: 3,
         label: "Modul 3",
-        title: "Azure Fundamentals",
+        title: "AI-Enhanced Azure Basics",
         duration: "2 Monate",
         color: ACCENT,
         prerequisite: "Cloud-Grundverständnis (empfohlen nach Modul 1 oder 2).",
@@ -1781,7 +1769,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       {
         id: "full",
         anchorId: "aws-eng-for-beginner",
-        title: "AWS/DevOps Engineering + Azure Fundamentals",
+        title: "AI-Enhanced AWS Solutions Architect/DevOps Engineer + Azure Basics",
         subtitle: "Vollständiger Lernpfad (Alle 3 Module)",
         badge: "Modul 1 + 2 + 3 · 8 Monate",
         moduleIds: [1, 2, 3],
@@ -1798,7 +1786,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       {
         id: "aws-devops",
         anchorId: "aws-eng-for-pro",
-        title: "AWS/DevOps Engineering",
+        title: "AI-Enhanced AWS Cloud & DevOps Engineer",
         subtitle: "Fokus AWS & CI/CD",
         badge: "Modul 1 + 2 · 6 Monate",
         moduleIds: [1, 2],
@@ -1814,8 +1802,8 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         id: "architect",
-        title: "AWS Solutions Architect",
-        subtitle: "Fokus Cloud Architektur",
+        title: "AI-Enhanced AWS Cloud Engineer (Modul 1)",
+        subtitle: "Fokus Cloud Architektur & SAA-C03",
         badge: "Modul 1 · 3 Monate",
         moduleIds: [1],
         startsAt: 1,
@@ -1830,7 +1818,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         id: "devops",
-        title: "DevOps Engineering",
+        title: "AI-Enhanced DevOps Engineer (Modul 2)",
         subtitle: "Einstieg mit Cloud-Vorwissen",
         badge: "Modul 2 · 3 Monate",
         moduleIds: [2],
@@ -1846,7 +1834,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       },
       {
         id: "azure",
-        title: "Azure Fundamentals",
+        title: "AI-Enhanced Azure Basics (Modul 3)",
         subtitle: "Multi-Cloud Erweiterung",
         badge: "Modul 3 · 2 Monate",
         moduleIds: [3],
@@ -1884,7 +1872,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     summaryTable: [
       ["Zeitplan", "Mo–Fr, 09:00–16:45 Uhr (Berlin)"],
       ["Dauer", "8 Monate (Vollpaket) · 6 Mo. (M1+M2) · 2–3 Mo. (Einzelmodul)"],
-      ["Lehrplan", "Modul 1 (AWS) + Modul 2 (DevOps) + Modul 3 (Azure)"],
+      ["Lehrplan", "Modul 1 (AWS Cloud) + Modul 2 (DevOps) + Modul 3 (Azure Basics)"],
       ["Kapazität", "Max. 15 Plätze pro Kurs"],
       ["Sprache", "Englisch / Türkisch / Deutsch"],
       ["Zertifikat", "AZAV-Zertifikat + Vorbereitung auf AWS SAA-C03 & AZ-900"],
@@ -1903,47 +1891,35 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     qcgLinkTo: "/qualifizierungschancengesetz/",
     careerH2: "Berufe nach der AWS & DevOps Weiterbildung",
     careerIntro:
-      "Unternehmen jeder Größe verlagern ihre Infrastruktur in die Cloud. Die folgenden Gehaltsdaten stammen aus dem StepStone Gehaltsreport 2026 für Deutschland.",
+      "Unternehmen jeder Größe verlagern ihre Infrastruktur in die Cloud und setzen auf KI-gestützte Automatisierung. Jedes Modul qualifiziert für gefragte Rollen:",
     careerRoles: [
       {
         title: "Cloud Engineer",
-        salaryMedian: "61.500 €",
-        salaryRange: "52.000 – 74.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Plant, migriert und betreibt sichere, hochverfügbare Cloud-Infrastrukturen auf Amazon Web Services (AWS) und Microsoft Azure.",
-        guideLabel: "Berufsbild & Gehalt: Cloud Engineer",
+        guideLabel: "Was macht ein Cloud Engineer?",
         guideUrl: "/ratgeber/cloud-engineer/",
       },
       {
         title: "DevOps Engineer",
-        salaryMedian: "64.800 €",
-        salaryRange: "55.000 – 78.500 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Automatisiert Software-Bereitstellungen mit CI/CD-Pipelines, Docker, Kubernetes und Infrastructure as Code (Terraform).",
-        guideLabel: "Was macht ein DevOps Engineer? Aufgaben & Gehalt",
+        guideLabel: "Was macht ein DevOps Engineer?",
         guideUrl: "/ratgeber/devops-engineer/",
       },
       {
         title: "AWS Solutions Architect",
-        salaryMedian: "68.400 €",
-        salaryRange: "58.000 – 84.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Entwirft skalierbare, kosteneffiziente und ausfallsichere Cloud-Architekturen nach dem AWS Well-Architected Framework.",
-        guideLabel: "Ratgeber: AWS Zertifizierungen im Überblick",
+        guideLabel: "Ratgeber: AWS Zertifizierungen",
         guideUrl: "/ratgeber/aws-zertifizierungen/",
       },
     ],
     clusterH2: "Ratgeber zum Thema",
     clusterIntro:
-      "Vertiefe dein Wissen über DevOps-Berufe, Cloud-Gehälter und die wichtigsten AWS-Zertifizierungen.",
+      "Vertiefe dein Wissen über DevOps-Berufe, Cloud-Infrastrukturen und die wichtigsten AWS-Zertifizierungen.",
     clusterGuides: [
       {
-        title: "DevOps Engineer: Aufgaben, Gehalt und Einstieg",
+        title: "DevOps Engineer: Aufgaben, Fähigkeiten und Einstieg",
         badge: "Berufsratgeber (Empfohlen)",
-        desc: "Was ein DevOps Engineer im Alltag verantwortet, welche Tools Pflicht sind und was man in Deutschland verdient.",
+        desc: "Was ein DevOps Engineer im Alltag verantwortet, welche Tools Pflicht sind und wie der Einstieg in Deutschland gelingt.",
         to: "/ratgeber/devops-engineer/",
       },
       {
@@ -1969,12 +1945,12 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     whyIntro:
       "Als offizieller AWS Partner verbinden wir anerkannte Zertifizierungspfade mit täglicher Infrastruktur-Praxis.",
     whyItems: [
-      { title: "AWS Select Tier Consulting Partner", desc: "Du lernst mit aktuellen AWS-Architekturstandards und Mentoren aus der realen Cloud-Praxis." },
+      { title: "Offizieller AWS Training Partner", desc: "Du lernst mit aktuellen AWS-Architekturstandards und praxiserfahrenen Cloud-Mentoren." },
       { title: "Multi-Cloud-Kompetenz (AWS + Azure)", desc: "Neben AWS und DevOps lernst du in Modul 3 auch Microsoft Azure — ein starker Vorteil im deutschen Mittelstand." },
       { title: "Infrastructure as Code & Kubernetes", desc: "Intensives Hands-on-Training mit Docker, Kubernetes, Terraform und automatisierten CI/CD-Pipelines." },
       { title: "AZAV-zertifiziert & 100 % förderbar", desc: "Alle 5 Programmvarianten können über einen Bildungsgutschein oder QCG gefördert werden." },
       { title: "Live-Klassen mit max. 15 Plätzen", desc: "Direkte Unterstützung beim Debugging von Cloud-Deployments und Pipelines in Echtzeit." },
-      { title: "Karriere-Coaching bis zum Job", desc: "Optimierung von Lebenslauf, GitHub-Portfolio und Vorbereitung auf technische Cloud-Interviews." },
+      { title: "Karriere-Coaching & Absolventen-Support", desc: "Optimierung von LinkedIn- und GitHub-Portfolio sowie gezielte Vorbereitung auf technische Cloud-Interviews." },
     ],
     partnerHighlight: {
       badge: "Offizielle Partnerschaft",
@@ -2223,20 +2199,12 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     careerRoles: [
       {
         title: "AWS Solutions Architect",
-        salaryMedian: "68.400 €",
-        salaryRange: "58.000 – 84.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Konzipiert sichere, skalierbare Cloud-Infrastrukturen und begleitet Unternehmen bei der Migration in die AWS Cloud.",
         guideLabel: "Ratgeber: AWS Zertifizierungen",
         guideUrl: "/ratgeber/aws-zertifizierungen/",
       },
       {
         title: "Cloud Engineer",
-        salaryMedian: "61.500 €",
-        salaryRange: "52.000 – 74.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Implementiert, überwacht und optimiert Cloud-Ressourcen, Netzwerke und Datenbanken im täglichen Betrieb.",
         guideLabel: "Berufsbild: Cloud Engineer",
         guideUrl: "/ratgeber/cloud-engineer/",
@@ -2252,7 +2220,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         to: "/ratgeber/aws-zertifizierungen/",
       },
       {
-        title: "Cloud Engineer: Aufgaben, Gehalt und Einstieg",
+        title: "Cloud Engineer: Aufgaben, Fähigkeiten und Einstieg",
         badge: "Berufsratgeber",
         desc: "Welche Kompetenzen Arbeitgeber von angehenden Cloud Engineers erwarten.",
         to: "/ratgeber/cloud-engineer/",
@@ -2374,7 +2342,7 @@ export const DE_COURSES: Record<string, CoursePageData> = {
       {
         title: "Manuelle Softwaretester & QA-Fachkräfte",
         badge: "Upgrade auf Automatisierung",
-        desc: "Manuelle Tester erweitern ihr Profil um Programmierkenntnisse, Selenium-, Cypress- und API-Testframeworks für deutlich höhere Gehaltsstufen.",
+        desc: "Manuelle Tester erweitern ihr Profil um Programmierkenntnisse, Selenium-, Cypress- und API-Testframeworks für anspruchsvolle Automatisierungsprojekte.",
         bullets: ["Vom manuellen Testen zum Automation Engineer", "Integration von Tests in GitHub & Jenkins Pipelines", "Praxisnahes Test-Framework-Portfolio"],
       },
     ],
@@ -2432,9 +2400,9 @@ export const DE_COURSES: Record<string, CoursePageData> = {
           desc: "Da der Code-Umfang klar abgegrenzt ist, gelingt Quereinsteigern über Testautomatisierung oft ein besonders schneller Einstieg in Entwicklungsteams.",
         },
         {
-          badge: "Gehalt",
-          title: "51.500 € Mediangehalt",
-          desc: "Automatisiertes Testing wird laut StepStone Gehaltsdaten (2026) deutlich höher vergütet als rein manuelles Software-Testing.",
+          badge: "Karriere",
+title: "Zukunftssichere Nachfrage",
+          desc: "Automatisiertes Testing wird ist ein gefragter Schwerpunkt in agilen CI/CD-Pipelines.",
         },
       ],
       linkLabel: "Ratgeber: Software Tester & Testautomatisierung",
@@ -2472,32 +2440,24 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     careerRoles: [
       {
         title: "SDET / Test Automation Engineer",
-        salaryMedian: "51.500 €",
-        salaryRange: "44.000 – 62.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Entwickelt automatisierte UI-, API- und Datenbanktests und integriert diese in CI/CD-Pipelines.",
-        guideLabel: "Berufsbild: Software Tester & Gehalt",
+        guideLabel: "Was macht ein Software Tester?",
         guideUrl: "/ratgeber/software-tester/",
       },
       {
         title: "QA Engineer",
-        salaryMedian: "47.800 €",
-        salaryRange: "41.500 – 56.000 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Verantwortet Teststrategien, Testpläne und die Freigabequalität von Software-Releases in agilen Scrum-Teams.",
         guideLabel: "Ratgeber: Testautomatisierung",
         guideUrl: "/ratgeber/testautomatisierung/",
       },
     ],
     clusterH2: "Ratgeber zum Thema",
-    clusterIntro: "Erfahre mehr über Berufsbild, Gehalt und Werkzeuge in der Software-Qualitätssicherung.",
+    clusterIntro: "Erfahre mehr über Berufsbild, Karriereperspektiven und Werkzeuge in der Software-Qualitätssicherung.",
     clusterGuides: [
       {
-        title: "Software Tester: Aufgaben, Gehalt und Einstieg",
+        title: "Software Tester: Aufgaben, Fähigkeiten und Einstieg",
         badge: "Berufsratgeber",
-        desc: "Was Software Tester und QA Engineers in Deutschland verdienen und wie der Quereinstieg gelingt.",
+        desc: "Was Software Tester und QA Engineers in Deutschland tun und wie der Quereinstieg gelingt.",
         to: "/ratgeber/software-tester/",
       },
       {
@@ -2714,10 +2674,6 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     careerRoles: [
       {
         title: "DevOps / Platform Engineer",
-        salaryMedian: "64.800 €",
-        salaryRange: "55.000 – 78.500 €",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Betreibt produktive Kubernetes-Cluster und unterstützt Entwicklerteams beim Cloud-Native-Deployment.",
         guideLabel: "Berufsbild: DevOps Engineer",
         guideUrl: "/ratgeber/devops-engineer/",
@@ -2733,9 +2689,9 @@ export const DE_COURSES: Record<string, CoursePageData> = {
         to: "/ratgeber/was-ist-devops/",
       },
       {
-        title: "DevOps Engineer: Aufgaben, Gehalt und Einstieg",
+        title: "DevOps Engineer: Aufgaben, Fähigkeiten und Einstieg",
         badge: "Berufsratgeber",
-        desc: "Gehaltsspannen und geforderte Zertifizierungen für DevOps Engineers in Deutschland.",
+        desc: "Karriereperspektiven und geforderte Zertifizierungen für DevOps Engineers in Deutschland.",
         to: "/ratgeber/devops-engineer/",
       },
     ],
@@ -2910,40 +2866,24 @@ export const DE_COURSES: Record<string, CoursePageData> = {
     careerRoles: [
       {
         title: "AI Engineer & Data Analyst Pfad",
-        salaryMedian: "41.800 – 64.500 €",
-        salaryRange: "Je nach Modulstufe",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Für analytische Köpfe: Python, SQL, Power BI, Machine Learning und Agentic AI.",
         guideLabel: "Zur AI Engineer Weiterbildung",
         guideUrl: "/it-kurse/ai-engineer-weiterbildung/",
       },
       {
         title: "Full Stack Entwickler Pfad",
-        salaryMedian: "43.200 – 58.500 €",
-        salaryRange: "Frontend, Backend & Full Stack",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Für kreative Problemlöser: Webanwendungen bauen mit React, TypeScript, Node.js und KI-Tools.",
         guideLabel: "Zur Full Stack Weiterbildung",
         guideUrl: "/it-kurse/full-stack-entwickler-weiterbildung/",
       },
       {
         title: "Cyber Security (SOC) Pfad",
-        salaryMedian: "52.400 – 65.200 €",
-        salaryRange: "SOC & Cloud Security",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Für Beschützer und Detektive: CompTIA Security+, SIEM, Incident Response und AWS Security.",
         guideLabel: "Zur Cyber Security Weiterbildung",
         guideUrl: "/it-kurse/cyber-security-weiterbildung/",
       },
       {
         title: "AWS & DevOps Engineer Pfad",
-        salaryMedian: "61.500 – 68.400 €",
-        salaryRange: "Cloud & Automatisierung",
-        salarySource: "StepStone Gehaltsdaten 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Für Systemarchitekten: AWS, Docker, Kubernetes, Terraform, CI/CD und Microsoft Azure.",
         guideLabel: "Zur AWS & DevOps Weiterbildung",
         guideUrl: "/it-kurse/aws-devops-weiterbildung/",
@@ -3289,46 +3229,30 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     fundingLinkTo: "/bildungsgutschein/",
     qcgLinkLabel: "Qualifizierungschancengesetz funding for employees",
     qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Jobs after the AI Engineering bootcamp",
+    careerH2: "Career paths after the AI Engineering bootcamp",
     careerIntro:
-      "Depending on which modules you complete, you qualify for four high-demand data and AI roles in Germany. Salary benchmarks are sourced from the StepStone Germany Salary Report 2026.",
+      "Depending on which modules you complete, you qualify for four high-demand data and AI roles in Germany. ",
     careerRoles: [
       {
         title: "Data Analyst",
-        salaryMedian: "€54,800",
-        salaryRange: "€41,800 – €66,500",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Analyzes business datasets using Python and SQL, uncovers trends, and builds interactive Power BI and Tableau dashboards for decision-makers.",
-        guideLabel: "Data Analyst Career & Salary Guide in Germany",
+        guideLabel: "What does a Data Analyst do?",
         guideUrl: "/guides/data-analyst/",
       },
       {
         title: "Data Scientist",
-        salaryMedian: "€62,400",
-        salaryRange: "€49,000 – €76,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Develops statistical models and machine learning algorithms for forecasting, classification, and automated decision systems.",
         guideLabel: "Data Analyst vs. Data Scientist Comparison",
         guideUrl: "/guides/data-analyst/",
       },
       {
         title: "Machine Learning Engineer",
-        salaryMedian: "€67,200",
-        salaryRange: "€54,000 – €82,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Brings machine learning models into reliable production environments using FastAPI, Docker, MLflow, and cloud infrastructure.",
         guideLabel: "AI Engineer & ML Career Guide",
         guideUrl: "/guides/ai-engineer/",
       },
       {
         title: "AI Engineer",
-        salaryMedian: "€69,500",
-        salaryRange: "€56,000 – €86,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Architects and deploys LLM applications, RAG knowledge systems, and autonomous multi-agent workflows (LangGraph, MCP, AWS Bedrock).",
         guideLabel: "How to Become an AI Engineer in Germany",
         guideUrl: "/guides/ai-engineer/",
@@ -3336,7 +3260,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     ],
     clusterH2: "Guides on AI, data science and data analytics",
     clusterIntro:
-      "Explore in-depth career guides, salary benchmarks, and technical overviews for the German data and AI market.",
+      "Explore in-depth career guides, market trends, and technical overviews for the German data and AI market.",
     clusterGuides: [
       {
         title: "What is an AI engineer? Role, skills and roadmap in Germany",
@@ -3345,9 +3269,9 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         to: "/guides/ai-engineer/",
       },
       {
-        title: "What does a data analyst do? Tasks, skills and salary in Germany",
+        title: "What does a data analyst do? Tasks, skills and career path in Germany",
         badge: "Career Guide",
-        desc: "How to launch a career as a Data Analyst in Germany — including SQL, Python, Power BI, and entry-level salaries.",
+        desc: "How to launch a career as a Data Analyst in Germany — including SQL, Python, Power BI, and hands-on portfolio requirements.",
         to: "/guides/data-analyst/",
       },
     ],
@@ -3621,25 +3545,17 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     fundingLinkTo: "/bildungsgutschein/",
     qcgLinkLabel: "Qualifizierungschancengesetz funding",
     qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Jobs after the Data Analytics course",
+    careerH2: "Career paths after the Data Analytics course",
     careerIntro: "Data Analysts are needed across every industry in Germany — from Berlin tech startups to international corporations.",
     careerRoles: [
       {
         title: "Data Analyst",
-        salaryMedian: "€54,800",
-        salaryRange: "€41,800 – €66,500",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Queries databases with SQL, analyzes trends with Python, and presents actionable business insights.",
-        guideLabel: "Data Analyst Career & Salary Guide",
+        guideLabel: "What does a Data Analyst do?",
         guideUrl: "/guides/data-analyst/",
       },
       {
         title: "Business Intelligence Analyst",
-        salaryMedian: "€57,200",
-        salaryRange: "€46,000 – €69,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Designs automated Power BI and Tableau reporting systems and KPI data models for management teams.",
         guideLabel: "What does a Data Analyst do?",
         guideUrl: "/guides/data-analyst/",
@@ -3649,7 +3565,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     clusterIntro: "Read more about Data Analyst skills, daily responsibilities, and career paths in Germany.",
     clusterGuides: [
       {
-        title: "What does a data analyst do? Tasks, skills and salary in Germany",
+        title: "What does a data analyst do? Tasks, skills and career path in Germany",
         badge: "Career Guide (Featured)",
         desc: "Everything you need to know about becoming a Data Analyst in Germany as an English speaker.",
         to: "/guides/data-analyst/",
@@ -3945,35 +3861,23 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     fundingLinkTo: "/bildungsgutschein/",
     qcgLinkLabel: "Qualifizierungschancengesetz funding",
     qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Jobs after the Full Stack Developer course",
+    careerH2: "Career paths after the Full Stack Developer course",
     careerIntro: "Graduates qualify for three core software engineering roles across Germany.",
     careerRoles: [
       {
         title: "Full Stack Developer",
-        salaryMedian: "€58,500",
-        salaryRange: "€43,200 – €72,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Develops complete web applications across React/Next.js frontends, Node.js APIs, and relational databases.",
-        guideLabel: "Full Stack Developer Career & Salary Guide",
+        guideLabel: "What does a Full Stack Developer do?",
         guideUrl: "/guides/full-stack-developer/",
       },
       {
         title: "Frontend Developer",
-        salaryMedian: "€54,200",
-        salaryRange: "€42,000 – €66,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Builds fast, accessible user interfaces with React, TypeScript, Next.js, and Tailwind CSS.",
         guideLabel: "Frontend vs. Backend vs. Full Stack Guide",
         guideUrl: "/guides/full-stack-developer/",
       },
       {
         title: "Backend Developer",
-        salaryMedian: "€60,100",
-        salaryRange: "€46,500 – €74,500",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Designs secure REST APIs, database schemas (PostgreSQL, MongoDB), authentication, and cloud deployments.",
         guideLabel: "What is a Full Stack Developer?",
         guideUrl: "/guides/full-stack-developer/",
@@ -3983,7 +3887,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     clusterIntro: "Learn more about Full Stack Developer career paths and modern developer tools in Germany.",
     clusterGuides: [
       {
-        title: "What is a full stack developer? Skills, salary and tools in 2026",
+        title: "What is a full stack developer? Skills, roadmap and tools in 2026",
         badge: "Career Guide (Featured)",
         desc: "What Full Stack Developers build, which technologies German companies hire for, and how to break into the field.",
         to: "/guides/full-stack-developer/",
@@ -4275,35 +4179,23 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     fundingLinkTo: "/bildungsgutschein/",
     qcgLinkLabel: "Qualifizierungschancengesetz funding",
     qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Jobs after the Cyber Security course",
+    careerH2: "Career paths after the Cyber Security course",
     careerIntro: "Stricter EU directives (NIS-2) and growing cloud adoption make cyber security one of the most resilient job markets in Germany.",
     careerRoles: [
       {
         title: "SOC Analyst",
-        salaryMedian: "€52,400",
-        salaryRange: "€45,000 – €63,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Monitors security events in the Security Operations Center, investigates SIEM alerts, and contains cyber incidents.",
-        guideLabel: "SOC Analyst Career & Salary Guide in Germany",
+        guideLabel: "What does a SOC Analyst do?",
         guideUrl: "/guides/soc-analyst/",
       },
       {
         title: "Cyber Security Analyst",
-        salaryMedian: "€58,900",
-        salaryRange: "€49,500 – €71,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Assesses network and system vulnerabilities, hardens IT infrastructure, and enforces enterprise security policies.",
         guideLabel: "CompTIA Security+ Certification Guide",
         guideUrl: "/guides/comptia-security-plus/",
       },
       {
         title: "Cloud Security Analyst",
-        salaryMedian: "€65,200",
-        salaryRange: "€55,000 – €79,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Secures AWS cloud environments, IAM permissions, container workloads, and AI applications against modern threats.",
         guideLabel: "SOC & Cloud Security Career Guide",
         guideUrl: "/guides/soc-analyst/",
@@ -4313,9 +4205,9 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     clusterIntro: "Read Clarusway's guides on SOC Analyst careers, the CompTIA Security+ certification, and AI security trends in Germany.",
     clusterGuides: [
       {
-        title: "What does a SOC analyst do? Role, tools and salary in Germany",
+        title: "What does a SOC analyst do? Role, tools and career in Germany",
         badge: "Career Guide (Featured)",
-        desc: "How a Security Operations Center works, what Tier 1 and Tier 2 analysts earn, and how to enter the field.",
+        desc: "How a Security Operations Center works, what Tier 1 and Tier 2 analysts do, and how to enter the field.",
         to: "/guides/soc-analyst/",
       },
       {
@@ -4633,35 +4525,23 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     fundingLinkTo: "/bildungsgutschein/",
     qcgLinkLabel: "Qualifizierungschancengesetz funding",
     qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Jobs after the AWS & DevOps course",
+    careerH2: "Career paths after the AWS & DevOps course",
     careerIntro: "Companies across Germany rely on English-speaking cloud and DevOps engineers to run their infrastructure.",
     careerRoles: [
       {
         title: "DevOps Engineer",
-        salaryMedian: "€64,800",
-        salaryRange: "€55,000 – €78,500",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Automates software delivery with CI/CD pipelines, Docker, Kubernetes, and Infrastructure as Code (Terraform).",
-        guideLabel: "DevOps Engineer Career & Salary Guide in Germany",
+        guideLabel: "What does a DevOps Engineer do?",
         guideUrl: "/guides/devops-engineer/",
       },
       {
         title: "Cloud Engineer",
-        salaryMedian: "€61,500",
-        salaryRange: "€52,000 – €74,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Plans, migrates, and operates secure, high-availability cloud infrastructures on AWS and Microsoft Azure.",
         guideLabel: "AWS Certifications Overview",
         guideUrl: "/guides/aws-certifications/",
       },
       {
         title: "AWS Solutions Architect",
-        salaryMedian: "€68,400",
-        salaryRange: "€58,000 – €84,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Designs scalable, cost-optimized, and resilient cloud architectures following the AWS Well-Architected Framework.",
         guideLabel: "AWS Cloud Practitioner & SAA Guide",
         guideUrl: "/guides/aws-cloud-practitioner/",
@@ -4671,9 +4551,9 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     clusterIntro: "Explore Clarusway's guides on DevOps careers and AWS certifications in Germany.",
     clusterGuides: [
       {
-        title: "What does a DevOps engineer do? Skills, tools and salary",
+        title: "What does a DevOps engineer do? Core tools and career path",
         badge: "Career Guide (Featured)",
-        desc: "What a DevOps Engineer does, which tools are mandatory, and what you can earn in Germany.",
+        desc: "What a DevOps Engineer does, which tools are mandatory, and how to start your career in Germany.",
         to: "/guides/devops-engineer/",
       },
       {
@@ -4692,7 +4572,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     whyH2: "Why learn AWS and DevOps with Clarusway",
     whyIntro: "Official AWS Partner training combined with daily infrastructure practice.",
     whyItems: [
-      { title: "AWS Select Tier Consulting Partner", desc: "Learn with up-to-date AWS architecture standards and experienced cloud instructors." },
+      { title: "Official AWS Training Partner", desc: "Learn with up-to-date AWS architecture standards and experienced cloud instructors." },
       { title: "Multi-Cloud Skills (AWS + Azure)", desc: "Module 3 adds Microsoft Azure — highly valued by German enterprise employers." },
       { title: "Kubernetes & Terraform Focus", desc: "Intensive hands-on practice with Docker, Kubernetes, Terraform, and CI/CD automation." },
       { title: "AZAV-Certified & 100% Funded", desc: "All 5 program variants are eligible for a Bildungsgutschein." },
@@ -4903,25 +4783,17 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     fundingLinkTo: "/bildungsgutschein/",
     qcgLinkLabel: "Qualifizierungschancengesetz funding",
     qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Jobs after the AWS Solutions Architect course",
+    careerH2: "Career paths after the AWS Solutions Architect course",
     careerIntro: "Strong AWS architecture skills qualify you for cloud roles across Germany.",
     careerRoles: [
       {
         title: "AWS Solutions Architect",
-        salaryMedian: "€68,400",
-        salaryRange: "€58,000 – €84,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Designs secure, scalable AWS cloud infrastructures and guides cloud migrations.",
         guideLabel: "AWS Certifications Guide",
         guideUrl: "/guides/aws-certifications/",
       },
       {
         title: "Cloud Engineer",
-        salaryMedian: "€61,500",
-        salaryRange: "€52,000 – €74,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Implements, monitors, and optimizes AWS cloud resources.",
         guideLabel: "DevOps & Cloud Engineer Guide",
         guideUrl: "/guides/devops-engineer/",
@@ -5003,7 +4875,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
 
   sdet: {
     key: "sdet",
-    slugDe: "/it-kurse/software-testing-weiterbildung/",
+    slugDe: "/it-kurse/sdet-weiterbildung/",
     slugEn: "/it-courses/software-development-engineer-in-test/",
     pdfFileName: "clarusway-sdet-course-syllabus.pdf",
     metaTitle: "SDET Course: Software Testing and Automation | Clarusway",
@@ -5111,25 +4983,17 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     fundingLinkTo: "/bildungsgutschein/",
     qcgLinkLabel: "Qualifizierungschancengesetz funding",
     qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Jobs after the SDET course",
+    careerH2: "Career paths after the SDET course",
     careerIntro: "Every software release requires reliable automated testing — creating steady demand for QA and SDET specialists.",
     careerRoles: [
       {
         title: "QA Automation Engineer / SDET",
-        salaryMedian: "€56,400",
-        salaryRange: "€46,000 – €68,500",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Develops automated end-to-end and API test frameworks and integrates them into CI/CD pipelines.",
         guideLabel: "Full Stack & Software Engineering Guides",
         guideUrl: "/guides/full-stack-developer/",
       },
       {
         title: "Quality Assurance (QA) Analyst",
-        salaryMedian: "€49,200",
-        salaryRange: "€41,500 – €58,000",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Plans test strategies, executes exploratory and database tests, and manages release quality.",
         guideLabel: "What is a Full Stack Developer?",
         guideUrl: "/guides/full-stack-developer/",
@@ -5139,7 +5003,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     clusterIntro: "Explore developer roles, testing frameworks, and IT career paths in Germany.",
     clusterGuides: [
       {
-        title: "What is a full stack developer? Skills, salary and tools in 2026",
+        title: "What is a full stack developer? Skills, roadmap and tools in 2026",
         badge: "Career Guide",
         desc: "Learn about software engineering roles, development tools, and career paths in Germany.",
         to: "/guides/full-stack-developer/",
@@ -5314,15 +5178,11 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     fundingLinkTo: "/bildungsgutschein/",
     qcgLinkLabel: "Qualifizierungschancengesetz funding",
     qcgLinkTo: "/qualifizierungschancengesetz/",
-    careerH2: "Jobs after the Kubernetes CKAD course",
+    careerH2: "Career paths after the Kubernetes CKAD course",
     careerIntro: "Kubernetes is the industry standard for cloud-native infrastructure.",
     careerRoles: [
       {
         title: "DevOps / Kubernetes Engineer",
-        salaryMedian: "€64,800",
-        salaryRange: "€55,000 – €78,500",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "Operates Kubernetes clusters and automates container deployments.",
         guideLabel: "DevOps Engineer Career Guide",
         guideUrl: "/guides/devops-engineer/",
@@ -5332,7 +5192,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     clusterIntro: "Learn more about DevOps roles and cloud certifications.",
     clusterGuides: [
       {
-        title: "What does a DevOps engineer do? Skills, tools and salary",
+        title: "What does a DevOps engineer do? Core tools and career path",
         badge: "Career Guide",
         desc: "Why Docker and Kubernetes are core requirements for DevOps roles in Germany.",
         to: "/guides/devops-engineer/",
@@ -5500,40 +5360,24 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     careerRoles: [
       {
         title: "AI Engineering & Data Analytics Track",
-        salaryMedian: "€54,800 – €69,500",
-        salaryRange: "Depending on module level",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "For analytical thinkers: Python, SQL, Power BI, Machine Learning, and Agentic AI.",
         guideLabel: "Explore the AI Engineering Bootcamp",
         guideUrl: "/it-courses/ai-engineering/",
       },
       {
         title: "AI-Assisted Full Stack Developer Track",
-        salaryMedian: "€54,200 – €60,100",
-        salaryRange: "Frontend, Backend & Full Stack",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "For creative builders: React, TypeScript, Next.js, Node.js, and AI coding workflows.",
         guideLabel: "Explore the Full Stack Developer Course",
         guideUrl: "/it-courses/full-stack-developer/",
       },
       {
         title: "Cyber Security Analyst (SOC) Track",
-        salaryMedian: "€52,400 – €65,200",
-        salaryRange: "SOC & Cloud Security",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "For defenders & investigators: CompTIA Security+, SIEM, Incident Response, and AWS Security.",
         guideLabel: "Explore the Cyber Security Course",
         guideUrl: "/it-courses/cyber-security/",
       },
       {
         title: "AWS & DevOps Engineer Track",
-        salaryMedian: "€61,500 – €68,400",
-        salaryRange: "Cloud & Automation",
-        salarySource: "StepStone Salary Report 2026",
-        salarySourceUrl: "https://www.stepstone.de/gehalt/",
         desc: "For system architects: AWS, Docker, Kubernetes, Terraform, CI/CD, and Microsoft Azure.",
         guideLabel: "Explore the AWS & DevOps Course",
         guideUrl: "/it-courses/devops-aws/",
@@ -5543,9 +5387,9 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     clusterIntro: "Explore in-depth role guides for the primary IT tracks in Germany.",
     clusterGuides: [
       {
-        title: "What does a data analyst do? Tasks, skills and salary in Germany",
+        title: "What does a data analyst do? Tasks, skills and career path in Germany",
         badge: "Data & AI",
-        desc: "Daily tasks, Python and SQL requirements, and salary ranges in Germany.",
+        desc: "Daily tasks, Python and SQL requirements, and career opportunities in Germany.",
         to: "/guides/data-analyst/",
       },
       {
@@ -5555,13 +5399,13 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         to: "/guides/ai-engineer/",
       },
       {
-        title: "What is a full stack developer? Skills, salary and tools in 2026",
+        title: "What is a full stack developer? Skills, roadmap and tools in 2026",
         badge: "Software",
         desc: "React, Next.js, TypeScript, and modern AI coding workflows.",
         to: "/guides/full-stack-developer/",
       },
       {
-        title: "What does a SOC analyst do? Role, tools and salary in Germany",
+        title: "What does a SOC analyst do? Role, tools and career in Germany",
         badge: "Cyber Security",
         desc: "Monitoring SIEM alerts, incident containment, and German security demand.",
         to: "/guides/soc-analyst/",

@@ -71,7 +71,8 @@ export function HomePage() {
   const courses = isEn
     ? [
         {
-          title: "AI Engineering Bootcamp",
+          title: "AI Engineering",
+          linkText: "View AI Engineering bootcamp",
           badge: "Data Analytics, ML & Agentic AI",
           duration: "32 Weeks (or 6–19 Wk. Modular)",
           nextStart: "27 Jul 2026",
@@ -80,7 +81,8 @@ export function HomePage() {
           tags: ["Python & SQL", "Power BI", "PyTorch", "RAG & Agentic AI"],
         },
         {
-          title: "AI-Assisted Full Stack Developer Course",
+          title: "AI-Assisted Full Stack Development",
+          linkText: "View Full Stack Developer course",
           badge: "Web Development + AI Workflows",
           duration: "3 – 12 Months (4 Modules)",
           nextStart: "27 Jul 2026",
@@ -89,7 +91,8 @@ export function HomePage() {
           tags: ["React & Next.js", "TypeScript", "Node.js", "Cursor & Claude Code"],
         },
         {
-          title: "Cyber Security Analyst Course",
+          title: "AI-Enhanced Cyber Security Analyst",
+          linkText: "View Cyber Security course",
           badge: "SOC, Agentic AI & Cloud Security",
           duration: "4 Modules (Direct Entry Option)",
           nextStart: "24 Aug 2026",
@@ -98,7 +101,8 @@ export function HomePage() {
           tags: ["CompTIA Security+", "SIEM & SOC", "Agentic AI", "AWS Security"],
         },
         {
-          title: "AWS Solutions Architect & DevOps Training",
+          title: "AI-Enhanced AWS Solutions Architect/DevOps Engineer",
+          linkText: "View AWS & DevOps training",
           badge: "AWS Select Tier Partner",
           duration: "3 – 8 Months (5 Combinations)",
           nextStart: "24 Aug 2026",
@@ -107,7 +111,8 @@ export function HomePage() {
           tags: ["AWS SAA-C03", "Kubernetes", "Terraform", "Azure AZ-900"],
         },
         {
-          title: "SDET Course: Software Testing and Automation",
+          title: "SDET",
+          linkText: "View SDET course",
           badge: "QA & Test Automation",
           duration: "Full-Time Track",
           nextStart: "14 Sep 2026",
@@ -115,28 +120,11 @@ export function HomePage() {
           to: "/it-courses/software-development-engineer-in-test/",
           tags: ["Java", "Selenium & Playwright", "API Testing", "CI/CD"],
         },
-        {
-          title: "Kubernetes CKAD Certification Course",
-          badge: "4-Week CNCF Specialization",
-          duration: "4 Weeks Intensive",
-          nextStart: "12 Oct 2026",
-          desc: "Prepare for the CNCF Certified Kubernetes Application Developer exam with hands-on CLI terminal labs.",
-          to: "/it-courses/kubernetes-ckad-certification-course/",
-          tags: ["Kubernetes", "CKAD Prep", "Helm", "NetworkPolicies"],
-        },
-        {
-          title: "IT Orientation Course",
-          badge: "Find Your IT Path · AVGS Funded",
-          duration: "4 Weeks Orientation",
-          nextStart: "03 Aug 2026",
-          desc: "Hands-on discovery across Data & AI, Web Development, Cyber Security, and Cloud/DevOps before committing to a bootcamp.",
-          to: "/it-orientation-course/",
-          tags: ["Career Orientation", "Try Coding & Cloud", "AVGS / Free", "Advisor Roadmap"],
-        },
       ]
     : [
         {
-          title: "AI Engineer Weiterbildung (Data Science & KI)",
+          title: "AI Engineering",
+          linkText: "AI Engineer Weiterbildung ansehen",
           badge: "Data Analytics, ML & Agentic AI",
           duration: "32 Wochen (oder 6–19 Wo. modular)",
           nextStart: "27 Jul 2026",
@@ -145,16 +133,8 @@ export function HomePage() {
           tags: ["Python & SQL", "Power BI", "PyTorch", "RAG & Agentic AI"],
         },
         {
-          title: "Data Analytics Weiterbildung",
-          badge: "Modul 1 Eigenständig · 13 Wochen",
-          duration: "13 Wochen (520 UE)",
-          nextStart: "27 Jul 2026",
-          desc: "Kompakter 13-Wochen-Einstieg zum Data Analyst und BI-Spezialisten mit Python, SQL, Statistik, Power BI und Tableau.",
-          to: "/it-kurse/data-analytics-weiterbildung/",
-          tags: ["Python", "SQL", "Power BI", "Tableau"],
-        },
-        {
-          title: "Full Stack Entwickler Weiterbildung",
+          title: "AI-Assisted Full Stack Development",
+          linkText: "Full Stack Entwickler Weiterbildung ansehen",
           badge: "Webentwicklung mit KI-Workflows",
           duration: "3 – 12 Monate (4 Module)",
           nextStart: "27 Jul 2026",
@@ -163,7 +143,8 @@ export function HomePage() {
           tags: ["React & Next.js", "TypeScript", "Node.js", "KI-Coding-Tools"],
         },
         {
-          title: "Cyber Security Weiterbildung",
+          title: "AI-Enhanced Cyber Security Analyst",
+          linkText: "Cyber Security Weiterbildung ansehen",
           badge: "SOC Analyst & Cloud Security",
           duration: "4 Module (Direkteinstieg möglich)",
           nextStart: "24 Aug 2026",
@@ -172,21 +153,23 @@ export function HomePage() {
           tags: ["CompTIA Security+", "SIEM & SOC", "Agentic AI", "AWS Security"],
         },
         {
-          title: "AWS & DevOps Weiterbildung",
+          title: "AI-Enhanced AWS Solutions Architect/DevOps Engineer",
+          linkText: "AWS & DevOps Weiterbildung ansehen",
           badge: "AWS Select Tier Partner",
           duration: "3 – 8 Monate (5 Kombinationen)",
           nextStart: "24 Aug 2026",
-          desc: "Qualifiziere dich in drei Modulen (AWS Solutions Architect, DevOps Engineering und Azure Fundamentals) zum Cloud & DevOps Engineer.",
+          desc: "Qualifiziere dich in drei Modulen (AI-Enhanced AWS Cloud Engineer, DevOps Engineer und Azure Basics) zum Cloud & DevOps Engineer.",
           to: "/it-kurse/aws-devops-weiterbildung/",
           tags: ["AWS SAA-C03", "Kubernetes", "Terraform", "Azure AZ-900"],
         },
         {
-          title: "Software Testing (SDET) Weiterbildung",
+          title: "SDET",
+          linkText: "SDET Weiterbildung ansehen",
           badge: "QA & Testautomatisierung",
           duration: "Vollzeit-Programm",
           nextStart: "14 Sep 2026",
           desc: "Qualitätssicherung und automatisierte Softwaretests für Web- und API-Systeme mit Java, Selenium, Cypress, Playwright und CI/CD.",
-          to: "/it-kurse/software-testing-weiterbildung/",
+          to: "/it-kurse/sdet-weiterbildung/",
           tags: ["Java", "Selenium & Playwright", "API Testing", "ISTQB Basis"],
         },
       ];
@@ -240,9 +223,9 @@ export function HomePage() {
   const guides = isEn
     ? [
         {
-          title: "What Does a Data Analyst Do? Tasks, Skills and Salary",
+          title: "What Does a Data Analyst Do? Tasks, Skills and Roadmap",
           badge: "Data & AI",
-          desc: "Daily responsibilities, SQL and Python requirements, and StepStone 2026 salary benchmarks in Germany.",
+          desc: "Daily responsibilities, SQL and Python requirements, and hands-on portfolio projects in Germany.",
           to: "/guides/data-analyst/",
         },
         {
@@ -258,7 +241,7 @@ export function HomePage() {
           to: "/guides/full-stack-developer/",
         },
         {
-          title: "What Does a SOC Analyst Do? Role, Tools and Salary",
+          title: "What Does a SOC Analyst Do? Role, Tools and Career Start",
           badge: "Cyber Security",
           desc: "Monitoring SIEM alerts, incident containment, CompTIA Security+, and German cybersecurity demand.",
           to: "/guides/soc-analyst/",
@@ -272,21 +255,21 @@ export function HomePage() {
           to: "/ratgeber/quereinstieg-it/",
         },
         {
-          title: "Weiterbildung über Arbeitsagentur & Jobcenter beantragen",
+          title: "Weiterbildung über Arbeitsagentur & Jobcenter",
           badge: "Förder-Ratgeber",
           desc: "Voraussetzungen, Fristen und Tipps für das Gespräch mit deiner Vermittlungsfachkraft.",
           to: "/ratgeber/weiterbildung-arbeitsagentur/",
         },
         {
-          title: "AI Engineer: Berufsbild, Aufgaben und Gehalt in Deutschland",
+          title: "Was macht ein AI Engineer? Aufgaben, Fähigkeiten und Einstieg",
           badge: "Berufsratgeber",
-          desc: "Was ein AI Engineer entwickelt, wie er sich vom Data Scientist unterscheidet und was man verdient.",
+          desc: "Was ein AI Engineer entwickelt, wie er sich vom Data Scientist unterscheidet und wie der Einstieg gelingt.",
           to: "/ratgeber/ai-engineer/",
         },
         {
-          title: "DevOps Engineer: Aufgaben, Tools und Gehalt",
+          title: "Was macht ein DevOps Engineer? Aufgaben, Tools und Einstieg",
           badge: "Berufsratgeber",
-          desc: "Warum Cloud- und DevOps-Spezialisten zu den gefragtesten IT-Fachkräften gehören.",
+          desc: "Warum Cloud- und DevOps-Spezialisten zu den gefragtesten IT-Fachkräften im deutschen Markt gehören.",
           to: "/ratgeber/devops-engineer/",
         },
       ];
@@ -295,7 +278,7 @@ export function HomePage() {
     ? [
         {
           q: "What languages are Clarusway courses taught in?",
-          a: "Clarusway offers live IT courses with instruction available in English and Turkish, with German cohort options. Our study and career advisors support you in English, German, or Turkish, and all official administrative paperwork for the Agentur für Arbeit or Jobcenter is prepared in German.",
+          a: "Clarusway offers live IT courses with instruction available in English, Turkish, and German cohorts. Our study and career advisors support you in English, German, or Turkish, and all official administrative paperwork for the Agentur für Arbeit or Jobcenter is prepared in German.",
         },
         {
           q: "How can I take a course for free with a Bildungsgutschein?",
@@ -303,21 +286,21 @@ export function HomePage() {
         },
         {
           q: "Do I need to speak German to get a Bildungsgutschein or an IT job?",
-          a: "You do not need fluent German to start. Instruction is available in English and Turkish cohorts. For your Agentur für Arbeit or Jobcenter appointment, Clarusway prepares your German course offer (Maßnahmeangebot) and guides you step by step.",
+          a: "You do not need fluent German to start. Instruction is available in English, Turkish, and German cohorts. For your Agentur für Arbeit or Jobcenter appointment, Clarusway prepares your German course offer (Maßnahmeangebot) and guides you step by step.",
         },
         {
           q: "Can I join without an IT or coding background?",
           a: "Yes. Each main bootcamp starts at Module 1 with zero prior coding or IT knowledge required. Applicants who already have technical skills can pass a technical assessment to enter directly into advanced modules.",
         },
         {
-          q: "How does Clarusway help me find a job in Germany?",
-          a: "Clarusway's Career Management team supports you with German-standard CV (Lebenslauf) optimization, LinkedIn and GitHub portfolio reviews, and mock technical interviews tailored to employers in Germany.",
+          q: "How does Clarusway support graduates when entering the tech field?",
+          a: "Clarusway's Career Management team supports graduates with technical portfolio optimization, LinkedIn profile guidance, and mock technical interviews tailored to employers in Germany.",
         },
       ]
     : [
         {
           q: "Welche IT-Weiterbildungen bietet Clarusway an?",
-          a: "Clarusway bietet AZAV-zertifizierte Live-Online-Weiterbildungen in den Bereichen AI Engineering & Data Science, Data Analytics, AI-Assisted Full Stack Webentwicklung, Cyber Security (SOC & Cloud Security), AWS & DevOps Engineering, Software Testing (SDET), Kubernetes CKAD sowie einen IT-Orientierungskurs an.",
+          a: "Clarusway bietet AZAV-zertifizierte Live-Online-Weiterbildungen in den Bereichen AI Engineering, AI-Assisted Full Stack Webentwicklung, Cyber Security (SOC & Cloud Security), AWS & DevOps Engineering, SDET (Software Testing), Kubernetes CKAD sowie einen IT-Orientierungskurs an.",
         },
         {
           q: "Werden die Kurse zu 100 % mit Bildungsgutschein gefördert?",
@@ -329,11 +312,11 @@ export function HomePage() {
         },
         {
           q: "In welcher Sprache findet der Unterricht statt?",
-          a: "Die Weiterbildungen werden flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Unsere Studien-, Förder- und Karriereberatung begleitet dich auf Deutsch, Englisch oder Türkisch.",
+          a: "Der Unterricht findet flexibel mit Kohorten auf Englisch, Türkisch oder Deutsch statt. Unsere Studien-, Förder- und Karriereberatung begleitet dich auf Deutsch, Englisch oder Türkisch.",
         },
         {
-          q: "Wie unterstützt Clarusway bei der Jobsuche?",
-          a: "Unser integriertes Karriere-Management begleitet dich mit Lebenslauf- und LinkedIn-Optimierung nach deutschem Standard, GitHub-Portfolio-Reviews sowie individuellem Bewerbungs- und Interviewtraining.",
+          q: "Wie unterstützt Clarusway Absolventen beim Berufseinstieg?",
+          a: "Unser integriertes Karriere-Management begleitet Absolventen mit individueller Profil- und LinkedIn-Optimierung, GitHub-Portfolio-Reviews sowie praxisnahem Bewerbungs- und Interviewtraining.",
         },
       ];
 
@@ -542,7 +525,7 @@ export function HomePage() {
                 {isEn ? "AZAV-Certified Bootcamps" : "AZAV-Zertifizierte Programme"}
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-2">
-                {isEn ? "Our funded IT bootcamps" : "Unsere geförderten IT-Weiterbildungen"}
+                {isEn ? "Funded IT Training Programs" : "Geförderte Weiterbildungsprogramme"}
               </h2>
               <p className="text-gray-600 text-sm sm:text-base">
                 {isEn
@@ -611,7 +594,7 @@ export function HomePage() {
                     to={course.to}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline"
                   >
-                    <span>{course.title}</span>
+                    <span>{course.linkText || course.title}</span>
                     <ArrowRightIcon className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -856,27 +839,27 @@ export function HomePage() {
                   </span>
                   <h2 className="text-xl sm:text-2xl font-bold mb-3">
                     {isEn
-                      ? "Career support for the German job market"
-                      : "Karriere-Management für deinen Einstieg in die IT"}
+                      ? "Graduate support for your career start"
+                      : "Karriere-Support für deinen Berufseinstieg"}
                   </h2>
                   <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-5">
                     {isEn
-                      ? "Technical skills are only half the journey. Clarusway's Career Management team prepares you specifically for hiring processes in Germany:"
-                      : "Fachwissen ist die Basis — unser Karriere-Team begleitet dich vom ersten Kurstag bis zur Vertragsunterschrift:"}
+                      ? "Technical skills are the foundation. Clarusway's graduate support team prepares you thoroughly for entering the tech sector in Germany:"
+                      : "Fachwissen ist die Basis — unser Karriere-Team begleitet Absolventen umfassend beim erfolgreichen Einstieg in den deutschen Technologiemarkt:"}
                   </p>
                   <ul className="space-y-2.5 text-xs sm:text-sm text-gray-200 mb-6">
                     {(isEn
                       ? [
-                          "German-standard CV (Lebenslauf) & LinkedIn optimization",
-                          "GitHub portfolio & capstone project reviews",
-                          "1-on-1 technical & HR mock interviews in English or German",
-                          "Application strategy for tech companies across Germany",
+                          "Professional profile & LinkedIn optimization according to industry standards",
+                          "GitHub portfolio & capstone project presentation",
+                          "1-on-1 technical & HR practice interviews in English or German",
+                          "Strategic guidance for applications to tech employers across Germany",
                         ]
                       : [
-                          "Lebenslauf- & LinkedIn-Optimierung nach deutschem Standard",
-                          "Aufbau eines überzeugenden GitHub-Projektportfolios",
-                          "Technische Probe-Interviews & Bewerbungstraining",
-                          "Individuelle Begleitung beim Jobeinstieg in Deutschland",
+                          "Professionelle Profil- & LinkedIn-Optimierung nach Branchenstandards",
+                          "Aufbau und Präsentation eines überzeugenden GitHub-Projektportfolios",
+                          "Praxisnahe technische Probe-Interviews & Vorbereitung auf Fachgespräche",
+                          "Individuelle Orientierung und Unterstützung für Bewerbungen in Deutschland",
                         ]
                     ).map((b, i) => (
                       <li key={i} className="flex items-start gap-2">

@@ -63,13 +63,13 @@ export function GuidesHubPage() {
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
               {isEn
                 ? "IT career and certification guides for Germany"
-                : "IT-Ratgeber: Berufsbilder, Gehälter und Förderung in Deutschland"}
+                : "IT-Ratgeber: Berufsbilder, Karrierechancen und Förderung in Deutschland"}
             </h1>
 
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
               {isEn
                 ? "Explore Clarusway's practical guides on tech roles, certifications (AWS, CompTIA), and in-demand skills in Germany — written for English speakers."
-                : "Orientierung für deinen Einstieg und Aufstieg in die IT: Vergleiche Berufsbilder, aktuelle Gehälter nach StepStone 2026, internationale Zertifizierungen (AWS, CompTIA, ISTQB) und staatliche Förderwege."}
+                : "Orientierung für deinen Einstieg und Aufstieg in die IT: Vergleiche Berufsbilder, internationale Zertifizierungen (AWS, CompTIA, ISTQB) und staatliche Förderwege."}
             </p>
           </div>
         </div>
