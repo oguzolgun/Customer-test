@@ -316,8 +316,8 @@ export const DE_GUIDES: Record<string, GuideArticleData> = {
     relatedSlugs: ["ai-engineer", "was-ist-agentic-ai"],
   },
 
-  "was-ist-agentic-ai": {
-    slug: "was-ist-agentic-ai",
+  "agentic-ai": {
+    slug: "agentic-ai",
     lang: "de",
     cluster: "KI & Data Science",
     badge: "Technologie-Guide",
@@ -1517,5 +1517,5 @@ export const EN_GUIDES: Record<string, GuideArticleData> = {
 };
 
 // Aliases for alternate guide slugs
-DE_GUIDES["agentic-ai"] = DE_GUIDES["was-ist-agentic-ai"];
+DE_GUIDES["was-ist-agentic-ai"] = DE_GUIDES["agentic-ai"];
 DE_GUIDES["siem"] = DE_GUIDES["was-ist-ein-siem"];

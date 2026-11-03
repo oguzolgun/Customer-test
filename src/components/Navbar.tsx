@@ -9,9 +9,9 @@ const DARK = "#1a1d2e";
 
 const deCoursesGroups = [
   {
-    groupLabel: "Daten & KI",
+    groupLabel: "Daten und KI",
     items: [
-      { label: "AI Engineering", sub: "Data Analytics bis Agentic AI", to: "/it-kurse/ai-engineer-weiterbildung/" },
+      { label: "AI Engineering", sub: "Von Data Analytics bis Agentic AI", to: "/it-kurse/ai-engineer-weiterbildung/" },
     ],
   },
   {
@@ -40,39 +40,39 @@ const deCoursesGroups = [
 
 const enCoursesGroups = [
   {
-    groupLabel: "Data & AI",
+    groupLabel: "Data and AI",
     items: [
-      { label: "AI Engineering", sub: "Data Analytics to Agentic AI", to: "/it-courses/ai-engineering/" },
+      { label: "AI Engineering", sub: "From Data Analytics to Agentic AI", to: "/it-courses/ai-engineering/" },
     ],
   },
   {
     groupLabel: "Software",
     items: [
-      { label: "AI-Assisted Full Stack", sub: "React, Next.js, Node & AI Tools", to: "/it-courses/full-stack-developer/" },
-      { label: "SDET", sub: "Software Testing & Automation", to: "/it-courses/software-development-engineer-in-test/" },
+      { label: "AI-Assisted Full Stack", sub: "AI-assisted web development", to: "/it-courses/full-stack-developer/" },
+      { label: "SDET", sub: "Test automation & QA", to: "/it-courses/software-development-engineer-in-test/" },
     ],
   },
   {
-    groupLabel: "Cloud & Security",
+    groupLabel: "Cloud and Security",
     items: [
       { label: "AI-Enhanced Cyber Security", sub: "SOC Analyst & Cloud Security", to: "/it-courses/cyber-security/" },
-      { label: "AI-Enhanced AWS Solutions Architect/DevOps Engineer", sub: "AWS Architect & DevOps Engineering with AI", to: "/it-courses/devops-aws/" },
-      { label: "Kubernetes CKAD", sub: "4-Week Certification Prep", to: "/it-courses/kubernetes-ckad-certification-course/" },
+      { label: "AI-Enhanced AWS Solutions Architect/DevOps Engineer", sub: "Cloud & DevOps Engineering with AI", to: "/it-courses/devops-aws/" },
+      { label: "Kubernetes CKAD", sub: "4-Week certification course", to: "/it-courses/kubernetes-ckad-certification-course/" },
     ],
   },
   {
     groupLabel: "Not sure yet?",
     items: [
-      { label: "IT Orientation Course", sub: "Find the IT career that fits you", to: "/it-orientation-course/" },
-      { label: "All courses", sub: "Compare all funded IT bootcamps", to: "/it-courses/" },
+      { label: "IT Orientation Course", sub: "Find the right IT career", to: "/it-orientation-course/" },
+      { label: "All courses", sub: "Comparison table & overview", to: "/it-courses/" },
     ],
   },
 ];
 
 const deFundingItems = [
-  { label: "Alle Finanzierungswege", sub: "Alle Förderoptionen im Vergleich", to: "/finanzierung/" },
-  { label: "Bildungsgutschein", sub: "100 % Förderung über Agentur / Jobcenter", to: "/bildungsgutschein/" },
-  { label: "AVGS", sub: "Aktivierungs- und Vermittlungsgutschein", to: "/avgs/" },
+  { label: "Alle Finanzierungswege", sub: "Alle Förderoptionen im Überblick", to: "/finanzierung/" },
+  { label: "Bildungsgutschein", sub: "100 % Kostenübernahme über Agentur / Jobcenter", to: "/bildungsgutschein/" },
+  { label: "AVGS", sub: "Kostenloses Karriere-Coaching & Orientierung", to: "/avgs/" },
   { label: "Qualifizierungschancengesetz", sub: "Förderung für Beschäftigte & Arbeitgeber", to: "/qualifizierungschancengesetz/" },
   { label: "Für Unternehmen", sub: "Geförderte Weiterbildung für Teams & Unternehmen", to: "/fuer-unternehmen/" },
 ];
@@ -81,37 +81,36 @@ const enFundingItems = [
   { label: "Funding overview", sub: "Compare all funding options in Germany", to: "/financing-and-tuition/" },
   { label: "Bildungsgutschein", sub: "100% funded via Agentur für Arbeit / Jobcenter", to: "/bildungsgutschein/" },
   { label: "AVGS", sub: "Free career coaching & orientation voucher", to: "/avgs/" },
-  { label: "Qualifizierungschancengesetz", sub: "Employer-funded IT training for employees", to: "/qualifizierungschancengesetz/" },
+  { label: "Qualifizierungschancengesetz", sub: "Employer-funded training for employees", to: "/qualifizierungschancengesetz/" },
   { label: "For companies", sub: "Corporate IT training for teams", to: "/enterprise-corporate-training/" },
 ];
 
 const deRatgeberItems = [
   { label: "Alle Ratgeber", sub: "Alle Leitfäden zu IT-Berufen & Förderung", to: "/ratgeber/" },
-  { label: "Weiterbildung über Arbeitsagentur", sub: "So klappt die Förderung Schritt für Schritt", to: "/ratgeber/weiterbildung-arbeitsagentur/" },
-  { label: "Quereinstieg in die IT", sub: "Wege, Voraussetzungen und Förderung", to: "/ratgeber/quereinstieg-it/" },
-  { label: "Was macht ein SOC Analyst?", sub: "Aufgaben, Fähigkeiten und Einstieg", to: "/ratgeber/soc-analyst/" },
+  { label: "Weiterbildung über Arbeitsagentur", sub: "Schritt für Schritt zur Förderung", to: "/ratgeber/weiterbildung-arbeitsagentur/" },
+  { label: "Quereinstieg in die IT", sub: "Wege, Voraussetzungen & Perspektiven", to: "/ratgeber/quereinstieg-it/" },
+  { label: "Agentic AI einfach erklärt", sub: "Wie autonome KI-Agenten arbeiten", to: "/ratgeber/agentic-ai/" },
 ];
 
 const enGuidesItems = [
   { label: "All guides", sub: "All career & certification guides", to: "/guides/" },
-  { label: "What does a Data Analyst do?", sub: "Daily tasks, Python, SQL & skills", to: "/guides/data-analyst/" },
-  { label: "What is an AI Engineer?", sub: "Production LLMs, RAG & agents", to: "/guides/ai-engineer/" },
-  { label: "What is a Full Stack Developer?", sub: "React, TypeScript & AI coding tools", to: "/guides/full-stack-developer/" },
-  { label: "What does a SOC Analyst do?", sub: "Incident triage, SIEM & tools", to: "/guides/soc-analyst/" },
+  { label: "What does a data analyst do?", sub: "Daily tasks, Python, SQL & skills", to: "/guides/data-analyst/" },
+  { label: "What does a SOC analyst do?", sub: "Incident triage, SIEM & tools", to: "/guides/soc-analyst/" },
+  { label: "AWS certifications", sub: "Which AWS certification to take first", to: "/guides/aws-certifications/" },
 ];
 
 const deAboutItems = [
   { label: "Über Clarusway", sub: "Mission, AZAV-Zertifizierung & Standort Neuss", to: "/ueber-uns/" },
   { label: "Erfolgsgeschichten", sub: "Erfahrungen und Bewertungen von Absolventen", to: "/erfolgsgeschichten/" },
-  { label: "Karriere-Management", sub: "Coaching, Interview-Prep & Karriere-Support", to: "/karriere-management/" },
-  { label: "Events", sub: "Kostenlose Webinare, Workshops & Demo Days", to: "/events/" },
+  { label: "Karriere-Management", sub: "Coaching, Interview-Prep & Absolventen-Support", to: "/karriere-management/" },
+  { label: "Events", sub: "Kostenlose Webinare, Workshops & Info-Sessions", to: "/events/" },
 ];
 
 const enAboutItems = [
   { label: "About Clarusway", sub: "AZAV certification, mentors & Neuss campus", to: "/about/" },
   { label: "Success stories", sub: "Graduate stories & independent platform reviews", to: "/success-stories/" },
-  { label: "Career Management", sub: "Coaching, interview prep & career support", to: "/career-management/" },
-  { label: "Events", sub: "Upcoming info sessions, workshops & Demo Days", to: "/events/" },
+  { label: "Career Management", sub: "Coaching, interview prep & graduate support", to: "/career-management/" },
+  { label: "Events", sub: "Free info sessions, workshops & Demo Days", to: "/events/" },
 ];
 
 export default function Navbar() {
@@ -264,6 +263,7 @@ export default function Navbar() {
                   "/avgs/",
                   "/qualifizierungschancengesetz/",
                   "/enterprise-corporate-training/",
+                  "/fuer-unternehmen/",
                 ].includes(normPath)
                   ? PRIMARY
                   : DARK,
@@ -380,18 +380,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* 4. Für Unternehmen (DE top-level item per DE SEO plan) */}
-          {lang === "de" && (
-            <Link
-              to="/fuer-unternehmen/"
-              className="px-3 py-2 rounded-lg text-sm font-bold tracking-wide hover:bg-gray-50 transition-colors"
-              style={{ color: normPath === "/fuer-unternehmen/" ? PRIMARY : DARK }}
-            >
-              Für Unternehmen
-            </Link>
-          )}
-
-          {/* 5. Über uns / About Dropdown */}
+          {/* 4. Über uns / About Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setOpenDropdown("about")}
@@ -465,16 +454,8 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* Right CTAs + Language Switcher */}
+        {/* Right CTAs + Language Switcher (Matches header layout: [DE/EN] [CTA]) */}
         <div className="flex items-center gap-3 shrink-0">
-          <Link
-            to={ctaLink}
-            className="hidden sm:inline-flex items-center px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white transition-all hover:opacity-90 shadow-sm"
-            style={{ background: PRIMARY }}
-          >
-            {ctaLabel}
-          </Link>
-
           {/* Bilateral Language Switcher (DE <-> EN counterpart page) */}
           <div
             className="inline-flex items-center rounded-xl border border-gray-200 p-0.5 bg-gray-50"
@@ -484,7 +465,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => switchLanguage("de")}
-              title={lang === "en" ? `Deutsch (${counterpartPath})` : "Deutsch"}
+              title={lang === "en" ? `Auf Deutsch wechseln (${counterpartPath})` : "Deutsch"}
               className="px-2.5 py-1 rounded-lg text-xs font-bold transition-all"
               style={{
                 background: lang === "de" ? PRIMARY : "transparent",
@@ -496,7 +477,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => switchLanguage("en")}
-              title={lang === "de" ? `English (${counterpartPath})` : "English"}
+              title={lang === "de" ? `Switch to English (${counterpartPath})` : "English"}
               className="px-2.5 py-1 rounded-lg text-xs font-bold transition-all"
               style={{
                 background: lang === "en" ? PRIMARY : "transparent",
@@ -506,6 +487,14 @@ export default function Navbar() {
               EN
             </button>
           </div>
+
+          <Link
+            to={ctaLink}
+            className="hidden sm:inline-flex items-center px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white transition-all hover:opacity-90 shadow-sm"
+            style={{ background: PRIMARY }}
+          >
+            {ctaLabel}
+          </Link>
 
           {/* Mobile Hamburger Button */}
           <button
@@ -633,15 +622,6 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              {lang === "de" && (
-                <Link
-                  to="/fuer-unternehmen/"
-                  className="block px-2 py-1.5 rounded-lg text-xs font-semibold hover:bg-pink-50"
-                  style={{ color: normPath === "/fuer-unternehmen/" ? PRIMARY : DARK }}
-                >
-                  Für Unternehmen
-                </Link>
-              )}
             </div>
           </div>
 

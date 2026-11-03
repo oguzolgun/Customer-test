@@ -80,6 +80,12 @@ export const HREFLANG_PAIRS: HreflangPair[] = [
     hasCounterpart: true,
   },
   {
+    deNew: "/fuer-unternehmen/",
+    deLegacy: "/it-fortbildung-enterprise/",
+    en: "/enterprise-corporate-training/",
+    hasCounterpart: true,
+  },
+  {
     deNew: "/ueber-uns/",
     deLegacy: "/uber-uns/",
     en: "/about/",
@@ -152,6 +158,24 @@ export const HREFLANG_PAIRS: HreflangPair[] = [
     hasCounterpart: true,
   },
   {
+    deNew: "/ratgeber/agentic-ai/",
+    deLegacy: "/blog/",
+    en: "/guides/ai-engineer/",
+    hasCounterpart: false,
+  },
+  {
+    deNew: "/ratgeber/weiterbildung-arbeitsagentur/",
+    deLegacy: "/blog/",
+    en: "/guides/",
+    hasCounterpart: false,
+  },
+  {
+    deNew: "/ratgeber/quereinstieg-it/",
+    deLegacy: "/blog/",
+    en: "/guides/",
+    hasCounterpart: false,
+  },
+  {
     deNew: "/ueber-uns/",
     deLegacy: "/uber-uns/",
     en: "/about/",
@@ -161,7 +185,7 @@ export const HREFLANG_PAIRS: HreflangPair[] = [
     deNew: "/erfolgsgeschichten/",
     deLegacy: "/erfolgsgeschichten/",
     en: "/success-stories/",
-    hasCounterpart: false,
+    hasCounterpart: true,
   },
   {
     deNew: "/karriere-management/",
@@ -173,7 +197,7 @@ export const HREFLANG_PAIRS: HreflangPair[] = [
     deNew: "/events/",
     deLegacy: "/events/",
     en: "/events/",
-    hasCounterpart: false,
+    hasCounterpart: true,
   },
   {
     deNew: "/beratung/",
