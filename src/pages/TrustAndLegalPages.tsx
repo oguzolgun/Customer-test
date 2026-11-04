@@ -33,7 +33,7 @@ export function AboutPage() {
 
   const metaTitle = isEn
     ? "About Clarusway | AZAV-Certified IT Training in Germany"
-    : "Über Clarusway, AZAV-zertifiziert seit 2021 | Clarusway";
+    : "Über Clarusway, AZAV-zertifizierter Bildungsträger | Clarusway";
 
   const metaDescription = isEn
     ? "Clarusway GmbH (Neuss, Germany) is an AZAV-certified IT training provider and AWS Select Tier Partner offering live online IT bootcamps."
@@ -74,12 +74,11 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      {/* H2: AZAV certification */}
+      <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
-            {isEn
-              ? "Official certifications and quality standards"
-              : "Zertifizierungen und Qualitätsstandards"}
+            {isEn ? "AZAV certification" : "AZAV-Zertifizierung"}
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -118,6 +117,109 @@ export function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* H2: How teaching works (instructors, mentors) */}
+      <section className="py-16 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+            {isEn
+              ? "How teaching works (instructors, mentors)"
+              : "Wie das Lernen funktioniert (Dozenten und Mentoren)"}
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: isEn ? "Lead Instructors & Practitioners" : "Lead-Dozenten aus der Praxis",
+                desc: isEn
+                  ? "Daily live online sessions led by senior engineers, cloud architects, and data scientists actively working in tech."
+                  : "Täglicher Live-Online-Unterricht mit praxiserfahrenen Software-Ingenieuren, Cloud-Architekten und Data Scientists.",
+              },
+              {
+                title: isEn ? "Dedicated Mentors & Tutors" : "Persönliche Mentoren & Tutors",
+                desc: isEn
+                  ? "Continuous technical assistance during hands-on lab hours, milestone project feedback, and troubleshooting."
+                  : "Durchgehende Betreuung bei praktischen Coding-Labs, Code Reviews für Meilenstein-Projekte und individuelle Unterstützung.",
+              },
+              {
+                title: isEn ? "Multilingual Cohorts" : "Mehrsprachiger Unterricht",
+                desc: isEn
+                  ? "Instruction available in English, German, or Turkish cohorts to facilitate deep understanding of complex technical concepts."
+                  : "Unterricht in Kohorten auf Deutsch, Englisch oder Türkisch für optimalen Lernerfolg und barrierefreien Wissensaufbau.",
+              },
+            ].map((card, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
+                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{card.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Clarusway in numbers */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8 text-center">
+            {isEn ? "Clarusway in numbers" : "Clarusway in Zahlen"}
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            {[
+              { number: "90%+", label: isEn ? "Course Completion Rate" : "Erfolgreiche Abschlussquote" },
+              { number: "4.9 / 5", label: isEn ? "Rating on Course Report & Career Karma" : "Bewertung auf Course Report & Career Karma" },
+              { number: "100%", label: isEn ? "Funded with Bildungsgutschein" : "Förderung mit Bildungsgutschein" },
+              { number: "Max. 15", label: isEn ? "Participants per Live Cohort" : "Teilnehmende pro Live-Klasse" },
+            ].map((stat, i) => (
+              <div key={i} style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-7 border border-gray-200">
+                <div className="text-3xl sm:text-4xl font-extrabold text-[#e51a59] mb-2">{stat.number}</div>
+                <div className="text-xs sm:text-sm font-medium text-gray-600">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Location and contact */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+            {isEn ? "Location and contact" : "Standort und Kontakt"}
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+                {isEn ? "Campus & Headquarters" : "Hauptsitz Deutschland"}
+              </h3>
+              <p className="text-sm text-gray-800 font-semibold mb-1">Clarusway GmbH</p>
+              <p className="text-xs text-gray-600 leading-relaxed">Bataverstraße 84<br />41462 Neuss, Germany</p>
+            </div>
+            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+                {isEn ? "Email & Inquiries" : "E-Mail & Beratung"}
+              </h3>
+              <a href="mailto:info@clarusway.de" className="text-sm text-[#e51a59] font-semibold hover:underline block mb-1">
+                info@clarusway.de
+              </a>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                {isEn ? "Official response within 24 hours" : "Antwort und Angebot innerhalb von 24 Stunden"}
+              </p>
+            </div>
+            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+                {isEn ? "Phone Support" : "Telefonische Beratung"}
+              </h3>
+              <a href="tel:+4921317762749" className="text-sm text-[#e51a59] font-semibold hover:underline block mb-1">
+                +49 2131 7762749
+              </a>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                {isEn ? "Mon – Fri, 09:00 – 18:00 CET" : "Mo – Fr, 09:00 – 18:00 Uhr"}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
@@ -132,7 +234,7 @@ export function SuccessStoriesPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "Clarusway Success Stories & Graduate Reviews"
+    ? "Graduate Stories and Reviews | Clarusway"
     : "Clarusway Erfahrungen und Bewertungen | Clarusway";
 
   const metaDescription = isEn
@@ -209,6 +311,37 @@ export function SuccessStoriesPage() {
         },
       ];
 
+  const programStories = [
+    {
+      program: isEn ? "AI Engineering Bootcamp" : "AI Engineer Weiterbildung",
+      to: isEn ? "/it-courses/ai-engineering/" : "/it-kurse/ai-engineer-weiterbildung/",
+      story: isEn
+        ? "From marketing analyst to Junior AI Engineer building enterprise RAG pipelines in Frankfurt."
+        : "Vom Marketing-Analysten zum Junior AI Engineer für RAG-Systeme in Frankfurt am Main.",
+    },
+    {
+      program: isEn ? "Full Stack Web Development" : "Full Stack Entwickler Weiterbildung",
+      to: isEn ? "/it-courses/full-stack-developer/" : "/it-kurse/full-stack-entwickler-weiterbildung/",
+      story: isEn
+        ? "From non-technical background to frontend and full-stack developer in a Berlin tech scale-up."
+        : "Vom Quereinsteiger ohne Vorkenntnisse zum Full Stack Entwickler in einem Berliner Tech-Scaleup.",
+    },
+    {
+      program: isEn ? "Cyber Security Analyst" : "Cyber Security Weiterbildung",
+      to: isEn ? "/it-courses/cyber-security/" : "/it-kurse/cyber-security-weiterbildung/",
+      story: isEn
+        ? "From system support to Tier-1 SOC Analyst in a managed security service provider in Munich."
+        : "Vom First-Level-Support zum SOC Analysten bei einem IT-Sicherheitsdienstleister in München.",
+    },
+    {
+      program: isEn ? "AWS Solutions Architect & DevOps" : "AWS & DevOps Weiterbildung",
+      to: isEn ? "/it-courses/devops-aws/" : "/it-kurse/aws-devops-weiterbildung/",
+      story: isEn
+        ? "From IT support technician to Junior DevOps Engineer automating Kubernetes clusters in Cologne."
+        : "Vom Systemadministrator zum Junior DevOps Engineer mit Kubernetes-Fokus in Köln.",
+    },
+  ];
+
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
@@ -244,10 +377,11 @@ export function SuccessStoriesPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      {/* H2: Reviews on independent platforms */}
+      <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
-            {isEn ? "Verified graduate testimonials" : "Verifizierte Erfahrungsberichte"}
+            {isEn ? "Reviews on independent platforms" : "Bewertungen auf unabhängigen Plattformen"}
           </h2>
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             {reviews.map((r, i) => (
@@ -274,6 +408,29 @@ export function SuccessStoriesPage() {
                     <ExternalLinkIcon className="w-3 h-3" />
                   </a>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Graduate stories by program */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+            {isEn ? "Graduate stories by program" : "Erfolgsgeschichten nach Kurs"}
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {programStories.map((item, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs flex flex-col justify-between">
+                <div>
+                  <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{item.program}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">{item.story}</p>
+                </div>
+                <Link to={item.to} className="text-xs font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1">
+                  <span>{isEn ? "View program" : "Zum Kurs"}</span>
+                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                </Link>
               </div>
             ))}
           </div>
@@ -304,12 +461,42 @@ export function CareerManagementPage() {
   const consultPath = isEn ? "/application-form/" : "/beratung/";
 
   const metaTitle = isEn
-    ? "Career Management Service for Graduates | Clarusway"
-    : "Karriere-Management für Absolventen | Clarusway";
+    ? "Career Management for Clarusway Graduates | Clarusway"
+    : "Karriere-Management für Clarusway Absolventen | Clarusway";
 
   const metaDescription = isEn
-    ? "How Clarusway prepares you for the German IT job market: German-standard CV (Lebenslauf), LinkedIn, GitHub portfolio, and 1-on-1 mock interviews."
-    : "So begleitet dich unser Karriere-Management bis zum IT-Job: Lebenslauf nach deutschem Standard, LinkedIn, GitHub-Portfolio und Interviewtraining.";
+    ? "Support for Clarusway graduates: Technical interview preparation, project mentoring, and matching with tech employers in Germany."
+    : "Unterstützung für Clarusway-Absolventen: Vorbereitung auf Fachgespräche, Portfolio-Mentoring und Vermittlung an IT-Arbeitgeber in Deutschland.";
+
+  const careerFaqs = isEn
+    ? [
+        {
+          q: "When does Career Management support begin?",
+          a: "Career coaching starts during your course with portfolio reviews and continues intensively until and throughout your job placement in Germany.",
+        },
+        {
+          q: "What does interview preparation include?",
+          a: "Individual 1-on-1 mock interviews, technical coding assessments, whiteboard exercises, and presentation strategies for career transitions.",
+        },
+        {
+          q: "How does matching with employers work?",
+          a: "We connect qualified graduates directly with our network of partner companies, recruiters, and hiring managers in Germany.",
+        },
+      ]
+    : [
+        {
+          q: "Wann beginnt die Unterstützung durch das Karriere-Management?",
+          a: "Das Karriere-Coaching startet bereits während der Weiterbildung mit dem Aufbau des Portfolios und begleitet dich bis zum erfolgreichen Arbeitsvertrag.",
+        },
+        {
+          q: "Was umfasst die Vorbereitung auf Fachgespräche?",
+          a: "1:1-Simulationen technischer Interviews, Coding-Aufgaben, Whiteboard-Sessions und Strategien zur überzeugenden Präsentation deines Quereinstiegs.",
+        },
+        {
+          q: "Wie funktioniert die Vermittlung an Arbeitgeber?",
+          a: "Wir vernetzen Absolventen direkt mit Partnerunternehmen, Personalberatungen und Tech-Arbeitgebern aus unserem deutschen Netzwerk.",
+        },
+      ];
 
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
@@ -329,8 +516,8 @@ export function CareerManagementPage() {
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
               {isEn
-                ? "Every Clarusway bootcamp includes comprehensive Career Management tailored specifically to hiring processes at startups, scale-ups, and enterprises in Germany."
-                : "In jeder Clarusway-Weiterbildung ist unser strukturiertes Karriere-Management integriert — speziell abgestimmt auf die Anforderungen deutscher Personalabteilungen und IT-Teams."}
+                ? "Every Clarusway bootcamp includes structured Career Management dedicated to preparing graduates for technical hiring processes in Germany."
+                : "In jeder Clarusway-Weiterbildung ist unser strukturiertes Karriere-Management integriert — speziell abgestimmt auf Fachgespräche und Anforderungen deutscher IT-Teams."}
             </p>
             <Link
               to={consultPath}
@@ -344,61 +531,130 @@ export function CareerManagementPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      {/* H2: Support for graduates */}
+      <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
-            {isEn
-              ? "4 pillars of Clarusway Career Management"
-              : "Die 4 Säulen unseres Karriere-Coachings"}
+            {isEn ? "Support for graduates" : "Support für Absolventen"}
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {(isEn
-              ? [
-                  {
-                    title: "1. German-Standard Tech CV",
-                    desc: "ATS-friendly tabular CV (Lebenslauf) highlighting your capstone projects, certifications, and German work authorization.",
-                  },
-                  {
-                    title: "2. LinkedIn & XING Profile",
-                    desc: "Keyword optimization so tech recruiters in Berlin, Munich, Frankfurt, and remote teams find your profile.",
-                  },
-                  {
-                    title: "3. GitHub Project Portfolio",
-                    desc: "Clean, documented repositories with READMEs, live demos, and architecture diagrams.",
-                  },
-                  {
-                    title: "4. 1-on-1 Mock Interviews",
-                    desc: "Realistic technical coding/whiteboard interviews and HR behavioral coaching in English or German.",
-                  },
-                ]
-              : [
-                  {
-                    title: "1. Lebenslauf nach deutschem Standard",
-                    desc: "ATS-optimierter tabellarischer Lebenslauf mit Fokus auf deine Praxisprojekte und Zertifizierungen.",
-                  },
-                  {
-                    title: "2. LinkedIn- & XING-Optimierung",
-                    desc: "Gezielte Positionierung für Recruiter und Personalberatungen im deutschsprachigen Raum.",
-                  },
-                  {
-                    title: "3. GitHub-Projektportfolio",
-                    desc: "Sauber dokumentierte Capstone-Projekte, die deine praktischen Fähigkeiten belegen.",
-                  },
-                  {
-                    title: "4. 1:1-Interviewtraining",
-                    desc: "Simulation von technischen Fachgesprächen und HR-Interviews mit individuellem Feedback.",
-                  },
-                ]
-            ).map((step, i) => (
-              <div
-                key={i}
-                style={{ backgroundColor: SOFT_BG }}
-                className="rounded-2xl p-6 border border-gray-200"
-              >
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{step.title}</h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{step.desc}</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: isEn ? "Portfolio & Project Mentoring" : "Portfolio- & Projekt-Mentoring",
+                desc: isEn
+                  ? "Guidance on documenting real capstone projects with production architecture diagrams and live demos."
+                  : "Unterstützung bei der professionellen Dokumentation deiner Capstone-Projekte mit Live-Demos und sauberem Code.",
+              },
+              {
+                title: isEn ? "Professional Profile Positioning" : "Professionelle Profil-Positionierung",
+                desc: isEn
+                  ? "Optimizing your professional profile for recruiters and talent acquisition specialists across Germany."
+                  : "Gezielte Positionierung deines Profils für Tech-Recruiter und Talent-Acquisition-Teams in Deutschland.",
+              },
+              {
+                title: isEn ? "Dedicated Career Advisors" : "Persönliche Karriereberater",
+                desc: isEn
+                  ? "Continuous 1-on-1 advisory sessions until you successfully sign your employment contract."
+                  : "Individuelle 1:1-Beratung durch erfahrene Coaches bis zum erfolgreichen Unterschreiben deines Arbeitsvertrags.",
+              },
+            ].map((p, i) => (
+              <div key={i} style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-6 border border-gray-200">
+                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{p.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{p.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Interview preparation */}
+      <section className="py-16 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+            {isEn ? "Interview preparation" : "Vorbereitung auf Fachgespräche"}
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: isEn ? "Technical Coding Challenges" : "Coding-Challenges & Live Coding",
+                desc: isEn
+                  ? "Practice algorithmic tasks, data structures, and framework-specific problems under realistic conditions."
+                  : "Praxisnahes Training typischer Live-Coding-Aufgaben und fachspezifischer Fragestellungen.",
+              },
+              {
+                title: isEn ? "Architecture & Whiteboard Sessions" : "Architektur- & System-Design",
+                desc: isEn
+                  ? "Learn how to communicate architectural decisions, trade-offs, and scalability during technical rounds."
+                  : "Lerne, wie du Architekturentscheidungen, Tool-Auswahl und Systemstrukturen souverän begründest.",
+              },
+              {
+                title: isEn ? "HR & Behavioral Mentoring" : "HR- & Verhaltensfragen",
+                desc: isEn
+                  ? "Master typical competency-based questions and articulate your transition to tech with confidence."
+                  : "Strukturiere deine Antworten auf verhaltensorientierte Fragen und präsentiere deinen Quereinstieg überzeugend.",
+              },
+            ].map((card, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
+                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{card.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Matching with employers */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+            {isEn ? "Matching with employers" : "Vermittlung an Arbeitgeber"}
+          </h2>
+
+          <div className="bg-[#f6f7fb] rounded-3xl p-8 sm:p-10 border border-gray-200 max-w-4xl">
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+              {isEn
+                ? "Clarusway maintains close partnerships with tech startups, consulting firms, and enterprise organizations across Germany. We introduce verified graduates directly to hiring managers looking for AI Engineers, Full Stack Developers, SOC Analysts, and Cloud Engineers."
+                : "Clarusway pflegt direkte Kontakte zu IT-Beratungen, Tech-Startups und mittelständischen Unternehmen in ganz Deutschland. Wir stellen qualifizierte Absolventen direkt bei Teamleitern und Personalverantwortlichen vor."}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                to={consultPath}
+                style={{ backgroundColor: PRIMARY }}
+                className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-sm hover:opacity-95"
+              >
+                <span>{isEn ? "Book free consultation" : "Kostenlose Beratung buchen"}</span>
+                <ArrowRightIcon className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Career Management FAQ */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+            {isEn ? "Career Management FAQ" : "Häufige Fragen zum Karriere-Management"}
+          </h2>
+          <div className="space-y-3.5">
+            {careerFaqs.map((f, idx) => (
+              <details
+                key={idx}
+                open={idx === 0}
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
+              >
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
+                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                    +
+                  </span>
+                </summary>
+                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                  {f.a}
+                </div>
+              </details>
             ))}
           </div>
         </div>
@@ -419,14 +675,14 @@ export function EventsPage() {
   const [regSuccess, setRegSuccess] = useState(false);
 
   const metaTitle = isEn
-    ? "IT Info Sessions & Free Workshops | Clarusway"
+    ? "Events and Info Sessions | Clarusway"
     : "Events und Infoveranstaltungen | Clarusway";
 
   const metaDescription = isEn
     ? "Join free live online IT workshops, Bildungsgutschein Q&A sessions, and open classes at Clarusway Germany."
     : "Nimm kostenlos an unseren Live-Webinaren zu Bildungsgutschein, AI Engineering, Cyber Security, AWS Cloud und Full Stack teil.";
 
-  const events = isEn
+  const upcomingEvents = isEn
     ? [
         {
           id: "bgs-qa",
@@ -462,7 +718,7 @@ export function EventsPage() {
           displayDate: "August 13, 2026",
           time: "18:00 – 19:30 CET",
           tag: "Career Night",
-          desc: "Explore Cloud Engineer and DevOps salaries in Germany and how to prepare for the AWS SAA-C03 certification.",
+          desc: "Explore Cloud Engineer and DevOps career pathways in Germany and how to prepare for the AWS SAA-C03 certification.",
         },
       ]
     : [
@@ -500,11 +756,37 @@ export function EventsPage() {
           displayDate: "13. August 2026",
           time: "18:00 – 19:30 Uhr",
           tag: "Karriere-Abend",
-          desc: "Berufsbilder, Gehälter und Zertifizierungspfade rund um AWS Solutions Architect und DevOps Engineering.",
+          desc: "Berufsbilder, Praxiskompetenzen und Zertifizierungspfade rund um AWS Solutions Architect und DevOps Engineering.",
         },
       ];
 
-  const schema = events.map((ev) => ({
+  const pastEvents = isEn
+    ? [
+        {
+          title: "Demo Day Winter 2026: AI & Full Stack Capstone Projects",
+          date: "May 2026",
+          desc: "Graduates presented live multi-agent AI assistants and cloud-native applications to tech hiring partners.",
+        },
+        {
+          title: "Hands-on Kubernetes: Deploying Microservices with Helm",
+          date: "April 2026",
+          desc: "Live CNCF exam walkthrough and container orchestration troubleshooting workshop.",
+        },
+      ]
+    : [
+        {
+          title: "Demo Day Winter 2026: Abschluss-Präsentationen der IT-Projekte",
+          date: "Mai 2026",
+          desc: "Absolventen präsentierten Multi-Agenten-KI-Assistenten und Full-Stack-Web-Apps vor Unternehmenspartnern.",
+        },
+        {
+          title: "Hands-on Kubernetes: Microservices und Helm im Praxistest",
+          date: "April 2026",
+          desc: "Live-Demonstration realer Cluster-Szenarien und Vorbereitung auf die CKAD-Zertifizierung.",
+        },
+      ];
+
+  const schema = upcomingEvents.map((ev) => ({
     "@context": "https://schema.org",
     "@type": "Event",
     name: ev.title,
@@ -550,14 +832,15 @@ export function EventsPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      {/* H2: Upcoming info sessions */}
+      <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
-            {isEn ? "Upcoming live online events" : "Kommende Online-Veranstaltungen"}
+            {isEn ? "Upcoming info sessions" : "Kommende Events"}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {events.map((ev) => (
+            {upcomingEvents.map((ev) => (
               <div
                 key={ev.id}
                 style={{ backgroundColor: SOFT_BG }}
@@ -578,12 +861,12 @@ export function EventsPage() {
                   </p>
                   <div className="flex flex-wrap gap-4 text-xs text-gray-600 mb-5">
                     <span className="inline-flex items-center gap-1.5">
-                      <CalendarIcon className="w-3.5 h-3.5 text-[#e51a59]" />
-                      {ev.displayDate}
+                      <CalendarIcon className="w-4 h-4 text-[#e51a59]" />
+                      <span>{ev.displayDate}</span>
                     </span>
                     <span className="inline-flex items-center gap-1.5">
-                      <ClockIcon className="w-3.5 h-3.5 text-[#e51a59]" />
-                      {ev.time}
+                      <ClockIcon className="w-4 h-4 text-[#e51a59]" />
+                      <span>{ev.time}</span>
                     </span>
                   </div>
                 </div>
@@ -595,7 +878,7 @@ export function EventsPage() {
                     setRegSuccess(false);
                   }}
                   style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center justify-center gap-2 text-white font-semibold px-5 py-2.5 rounded-xl text-xs sm:text-sm hover:opacity-95 cursor-pointer"
+                  className="w-full text-white font-semibold py-2.5 px-4 rounded-xl text-xs hover:opacity-95 transition-opacity cursor-pointer inline-flex items-center justify-center gap-2"
                 >
                   <span>{isEn ? "Register for free" : "Kostenlos anmelden"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -653,6 +936,25 @@ export function EventsPage() {
           )}
         </div>
       </section>
+
+      {/* H2: Past events */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+            {isEn ? "Past events" : "Vergangene Events"}
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {pastEvents.map((pe, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
+                <span className="text-xs font-semibold text-gray-500 mb-2 block">{pe.date}</span>
+                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{pe.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{pe.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
@@ -673,12 +975,42 @@ export function ConsultationPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const metaTitle = isEn
-    ? "Book a Free Consultation | Clarusway Germany"
+    ? "Book a Free Consultation | Clarusway"
     : "Kostenlose Beratung zu Kurs und Förderung | Clarusway";
 
   const metaDescription = isEn
     ? "Book your free 1-on-1 IT career consultation at Clarusway Germany. Get your official German Maßnahmeangebot for a Bildungsgutschein within 24 hours."
     : "Buche deine kostenlose und unverbindliche Studienberatung bei Clarusway. Wir prüfen deinen Anspruch auf einen Bildungsgutschein und erstellen dein Angebot in 24 Stunden.";
+
+  const consultFaqs = isEn
+    ? [
+        {
+          q: "Is the consultation really 100% free and non-binding?",
+          a: "Yes. The consultation is completely free of charge. We discuss your technical background, career goals, and clarify whether you are eligible for 100% funding via Bildungsgutschein, AVGS, or QCG.",
+        },
+        {
+          q: "How fast do I receive the German Maßnahmeangebot for the Agentur für Arbeit?",
+          a: "Within 24 hours of your consultation call, we send you your complete official Maßnahmeangebot with all required AZAV numbers and descriptions in German.",
+        },
+        {
+          q: "In which language can the consultation be conducted?",
+          a: "Consultations can be held in English, German, or Turkish, whichever language you feel most confident speaking.",
+        },
+      ]
+    : [
+        {
+          q: "Ist das Beratungsgespräch wirklich kostenlos und unverbindlich?",
+          a: "Ja, zu 100 %. Die Beratung verpflichtet dich zu nichts. Wir analysieren deine Situation, beantworten deine Fragen und prüfen deine Förderfähigkeit für Bildungsgutschein, AVGS oder QCG.",
+        },
+        {
+          q: "Wie schnell erhalte ich mein Maßnahmeangebot für die Arbeitsagentur?",
+          a: "Innerhalb von 24 Stunden nach dem Gespräch stellen wir dein vollständiges Maßnahmeangebot mit offizieller AZAV-Maßnahmenummer aus.",
+        },
+        {
+          q: "In welcher Sprache findet die Beratung statt?",
+          a: "Unsere Bildungsberater sprechen Deutsch, Englisch und Türkisch. Du wählst einfach deine bevorzugte Sprache aus.",
+        },
+      ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -732,10 +1064,11 @@ export function ConsultationPage() {
                   : "Im persönlichen 1:1-Beratungsgespräch finden wir heraus, welcher IT-Kurs oder welches Einzelmodul optimal zu deinem Vorwissen passt, und bereiten alle Unterlagen für deinen Bildungsgutschein vor."}
               </p>
 
+              {/* H2: What happens in the consultation */}
               <h2 className="text-xl font-bold text-[#1a1d2e] mb-4">
                 {isEn
-                  ? "What happens during the consultation?"
-                  : "Was passiert im Beratungsgespräch?"}
+                  ? "What happens in the consultation"
+                  : "So läuft die Beratung ab"}
               </h2>
 
               <div className="space-y-4">
@@ -799,28 +1132,16 @@ export function ConsultationPage() {
                         : `Unsere Studienberatung meldet sich innerhalb von 24 Stunden unter ${email} bei dir, um dein persönliches Maßnahmeangebot für den Bildungsgutschein fertigzustellen.`}
                     </p>
                     <Link
-                      to="/bildungsgutschein/"
-                      style={{ backgroundColor: PRIMARY }}
-                      className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-xs sm:text-sm"
+                      to={isEn ? "/it-courses/" : "/it-kurse/"}
+                      className="text-xs font-semibold text-[#e51a59] hover:underline"
                     >
-                      <span>
-                        {isEn
-                          ? "Read the Bildungsgutschein preparation guide"
-                          : "Zum Bildungsgutschein-Leitfaden"}
-                      </span>
-                      <ArrowRightIcon className="w-4 h-4" />
+                      {isEn ? "← Browse all courses while you wait" : "← Alle IT-Kurse ansehen"}
                     </Link>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <p className="text-lg font-bold text-[#1a1d2e] mb-1">
-                      {isEn
-                        ? "Request your free consultation & course offer"
-                        : "Jetzt kostenloses Beratungsgespräch anfragen"}
-                    </p>
-
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1">
+                      <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
                         {isEn ? "Full Name *" : "Vor- und Nachname *"}
                       </label>
                       <input
@@ -828,15 +1149,15 @@ export function ConsultationPage() {
                         required
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        placeholder={isEn ? "e.g., Alex Morgan" : "z. B. Max Mustermann"}
-                        className="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#e51a59]"
+                        placeholder={isEn ? "e.g. Alex Miller" : "z. B. Max Mustermann"}
+                        className="w-full bg-[#f6f7fb] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1a1d2e] focus:outline-none focus:border-[#e51a59]"
                       />
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-gray-700 mb-1">
-                          {isEn ? "Email Address *" : "E-Mail-Adresse *"}
+                        <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
+                          {isEn ? "Email *" : "E-Mail-Adresse *"}
                         </label>
                         <input
                           type="email"
@@ -844,73 +1165,77 @@ export function ConsultationPage() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="name@example.com"
-                          className="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#e51a59]"
+                          className="w-full bg-[#f6f7fb] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1a1d2e] focus:outline-none focus:border-[#e51a59]"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold text-gray-700 mb-1">
-                          {isEn ? "Phone Number *" : "Telefonnummer *"}
+                        <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
+                          {isEn ? "Phone *" : "Telefonnummer *"}
                         </label>
                         <input
                           type="tel"
                           required
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          placeholder="+49 170 ..."
-                          className="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#e51a59]"
+                          placeholder="+49 ..."
+                          className="w-full bg-[#f6f7fb] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1a1d2e] focus:outline-none focus:border-[#e51a59]"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1">
-                        {isEn ? "Program of Interest" : "Gewünschter IT-Fachbereich"}
+                      <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
+                        {isEn ? "Course of Interest" : "Interessierender Fachbereich"}
                       </label>
                       <select
                         value={courseInterest}
                         onChange={(e) => setCourseInterest(e.target.value)}
-                        className="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-[#e51a59]"
+                        className="w-full bg-[#f6f7fb] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1a1d2e] focus:outline-none focus:border-[#e51a59]"
                       >
                         <option value="ai-engineering">
-                          AI Engineering & Data Science (32 {isEn ? "Weeks" : "Wochen"})
+                          {isEn ? "AI Engineering Bootcamp" : "AI Engineer Weiterbildung"}
                         </option>
-
                         <option value="full-stack">
-                          AI-Assisted Full Stack Web Development
+                          {isEn ? "Full Stack Web Development" : "Full Stack Entwickler Weiterbildung"}
                         </option>
                         <option value="cyber-security">
-                          Cyber Security (SOC & Cloud Security)
+                          {isEn ? "Cyber Security Analyst (SOC)" : "Cyber Security Weiterbildung (SOC)"}
                         </option>
-                        <option value="aws-devops">AWS & DevOps Engineering</option>
-                        <option value="sdet">Software Testing (SDET)</option>
-                        <option value="kubernetes-ckad">Kubernetes CKAD (4 {isEn ? "Weeks" : "Wochen"})</option>
+                        <option value="aws-devops">
+                          {isEn ? "AWS Solutions Architect & DevOps" : "AWS & DevOps Weiterbildung"}
+                        </option>
+                        <option value="sdet">
+                          {isEn ? "Software Testing (SDET)" : "SDET Weiterbildung"}
+                        </option>
+                        <option value="kubernetes-ckad">
+                          {isEn ? "Kubernetes CKAD Certification" : "Kubernetes CKAD Zertifikat Kurs"}
+                        </option>
                         <option value="it-orientation">
-                          {isEn ? "Not sure yet — IT Orientation Course" : "Noch unsicher — IT-Orientierungskurs"}
+                          {isEn ? "IT Orientation Course" : "IT-Orientierungskurs (AVGS)"}
                         </option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1">
-                        {isEn ? "Preferred Funding Option" : "Geplante Finanzierung"}
+                      <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
+                        {isEn ? "Funding Status" : "Aktueller Förderstatus"}
                       </label>
                       <select
                         value={fundingStatus}
                         onChange={(e) => setFundingStatus(e.target.value)}
-                        className="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-[#e51a59]"
+                        className="w-full bg-[#f6f7fb] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1a1d2e] focus:outline-none focus:border-[#e51a59]"
                       >
                         <option value="agentur-jobcenter">
-                          {isEn
-                            ? "Bildungsgutschein / AVGS (Agentur für Arbeit or Jobcenter)"
-                            : "Bildungsgutschein / AVGS (Agentur für Arbeit oder Jobcenter)"}
+                          {isEn ? "Registered with Agentur für Arbeit or Jobcenter" : "Bei der Agentur für Arbeit oder beim Jobcenter gemeldet"}
                         </option>
-                        <option value="qcg">
-                          {isEn
-                            ? "Qualifizierungschancengesetz (Employed)"
-                            : "Qualifizierungschancengesetz (Berufstätig)"}
+                        <option value="has-voucher">
+                          {isEn ? "I already have a Bildungsgutschein or AVGS" : "Ich habe bereits einen Bildungsgutschein oder AVGS"}
                         </option>
-                        <option value="self-pay">
-                          {isEn ? "Self-Pay / Installments" : "Selbstzahler / Ratenzahlung"}
+                        <option value="employed-qcg">
+                          {isEn ? "Employed (QCG funding via employer)" : "Beschäftigt (QCG-Förderung über Arbeitgeber)"}
+                        </option>
+                        <option value="self-payer">
+                          {isEn ? "Self-payer / Installments" : "Selbstzahler / Ratenzahlung"}
                         </option>
                       </select>
                     </div>
@@ -918,13 +1243,17 @@ export function ConsultationPage() {
                     <button
                       type="submit"
                       style={{ backgroundColor: PRIMARY }}
-                      className="w-full inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-full text-sm shadow-lg hover:opacity-95 cursor-pointer"
+                      className="w-full text-white font-bold py-3.5 px-6 rounded-xl text-sm shadow-md hover:opacity-95 transition-opacity cursor-pointer inline-flex items-center justify-center gap-2"
                     >
-                      <span>
-                        {isEn ? "Book free consultation" : "Kostenlose Beratung anfordern"}
-                      </span>
+                      <span>{isEn ? "Request free consultation & offer" : "Kostenlose Beratung anfordern"}</span>
                       <ArrowRightIcon className="w-4 h-4" />
                     </button>
+
+                    <p className="text-[11px] text-gray-500 text-center leading-relaxed">
+                      {isEn
+                        ? "100% free & non-binding. We respect your privacy. Data processed according to GDPR."
+                        : "100 % kostenlos und unverbindlich. Deine Daten werden streng nach DSGVO verarbeitet."}
+                    </p>
                   </form>
                 )}
               </div>
@@ -932,9 +1261,38 @@ export function ConsultationPage() {
           </div>
         </div>
       </section>
+
+      {/* H2: Consultation FAQ */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+            {isEn ? "Consultation FAQ" : "Häufige Fragen zur Beratung"}
+          </h2>
+          <div className="space-y-3.5">
+            {consultFaqs.map((f, idx) => (
+              <details
+                key={idx}
+                open={idx === 0}
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
+              >
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
+                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                    +
+                  </span>
+                </summary>
+                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                  {f.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
+
 
 /* ============================================================================
    6. THANK YOU PAGE (/danke/ & /thank-you/) — Always noindex!

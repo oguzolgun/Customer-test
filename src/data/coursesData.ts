@@ -540,7 +540,7 @@ export const DE_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
+        a: "Der Unterricht findet live online in Kohorten auf Deutsch, Englisch oder Türkisch statt. Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
       {
         q: "Welches Zertifikat erhalte ich?",
@@ -771,7 +771,7 @@ export const DE_COURSES: Record<CourseKey, CoursePageData> = {
     curriculumIntro:
       "Vier aufeinander aufbauende Module verbinden solide Software-Architektur mit KI-gestützter Produktivität. Jedes Modul endet mit einem Milestone-Projekt für dein GitHub-Portfolio.",
     specialFeature: {
-      h2: "Programmieren mit KI: Cursor, Claude Code und GitHub Copilot",
+      h2: "Programmieren mit KI (Cursor, Claude Code und GitHub Copilot)",
       intro:
         "Moderne Entwicklerteams schreiben Code nicht mehr isoliert von Hand. In dieser Weiterbildung lernst du zuerst die sauberen Grundlagen und setzt anschließend KI-Coding-Assistenten professionell für Architektur, Refactoring, Tests und Debugging ein.",
       cards: [
@@ -965,7 +965,7 @@ export const DE_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
+        a: "Der Unterricht findet live online in Kohorten auf Deutsch, Englisch oder Türkisch statt. Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -1346,7 +1346,7 @@ export const DE_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
+        a: "Der Unterricht findet live online in Kohorten auf Deutsch, Englisch oder Türkisch statt. Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -1722,7 +1722,7 @@ export const DE_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
+        a: "Der Unterricht findet live online in Kohorten auf Deutsch, Englisch oder Türkisch statt. Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -1958,7 +1958,7 @@ title: "Zukunftssichere Nachfrage",
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
+        a: "Der Unterricht findet live online in Kohorten auf Deutsch, Englisch oder Türkisch statt. Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -1993,7 +1993,7 @@ title: "Zukunftssichere Nachfrage",
       "Kubernetes CKAD Zertifikat Kurs: In 4 Wochen zur Certified Kubernetes Application Developer Zertifizierung. Live-Online-Training mit Hands-on-Cluster-Labs.",
     breadcrumbLabel: "Kubernetes CKAD Zertifikat Kurs",
     eyebrow: "Programm: Kubernetes CKAD Zertifizierungskurs",
-    h1: "Kubernetes CKAD Zertifikat Kurs: Vorbereitung in 4 Wochen",
+    h1: "Kubernetes CKAD Zertifikat Kurs mit Prüfungsvorbereitung in 4 Wochen",
     heroIntro:
       "Der Kubernetes CKAD Zertifikat Kurs bei Clarusway bereitet Entwickler, DevOps- und Cloud-Fachkräfte in 4 Wochen gezielt auf die praxisorientierte Prüfung zum Certified Kubernetes Application Developer (CKAD) der Cloud Native Computing Foundation (CNCF) vor — mit Live-Cluster-Labs und realen Prüfungsszenarien.",
     heroSubnote:
@@ -2030,7 +2030,7 @@ title: "Zukunftssichere Nachfrage",
         bullets: ["Multi-Container-Pods, Jobs & CronJobs", "Services, Ingress & NetworkPolicies", "Troubleshooting laufender Workloads"],
       },
     ],
-    programSelectorH2: "Kubernetes CKAD: Programm und Dauer",
+    programSelectorH2: "Programm und Dauer des Kubernetes CKAD Zertifikatskurses",
     programSelectorSubtitle: "4-wöchiger Intensivkurs mit täglichen Kubernetes-Lab-Szenarien.",
     modules: [
       {
@@ -2184,7 +2184,7 @@ title: "Zukunftssichere Nachfrage",
       },
       {
         q: "In welcher Sprache findet der Unterricht statt?",
-        a: "Die Weiterbildung wird flexibel mit Unterricht auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
+        a: "Der Unterricht findet live online in Kohorten auf Deutsch, Englisch oder Türkisch statt. Sämtliche behördlichen Förderunterlagen für deine Agentur für Arbeit oder dein Jobcenter stellen wir dir vollständig auf Deutsch aus.",
       },
     ],
     relatedH2: "Weitere IT-Kurse",
@@ -2213,7 +2213,7 @@ title: "Zukunftssichere Nachfrage",
       "IT-Orientierungskurs bei Clarusway: Finde heraus, welcher IT-Beruf (KI, Full Stack, Cyber Security oder Cloud) zu dir passt. Gefördert mit AVGS oder kostenloser Beratung.",
     breadcrumbLabel: "IT-Orientierungskurs",
     eyebrow: "Programm: IT-Orientierungskurs & Berufswahl",
-    h1: "IT-Orientierungskurs: Den passenden IT-Beruf finden",
+    h1: "Mit dem IT-Orientierungskurs den passenden IT-Beruf finden",
     heroIntro:
       "Du möchtest in die IT wechseln, weißt aber noch nicht, ob Datenanalyse & KI, Softwareentwicklung, Cyber Security oder Cloud & DevOps am besten zu deinen Stärken passt? Im IT-Orientierungskurs von Clarusway erprobst du alle Fachbereiche praktisch und entwickelst gemeinsam mit unseren Mentoren deinen individuellen Lern- und Förderplan.",
     heroSubnote:
@@ -2432,12 +2432,12 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     slugDe: "/it-kurse/ai-engineer-weiterbildung/",
     slugEn: "/it-courses/ai-engineering/",
     pdfFileName: "clarusway-ai-engineering-bootcamp-syllabus.pdf",
-    metaTitle: "AI Engineering Bootcamp: Data Science & Agentic AI | Clarusway",
+    metaTitle: "AI Engineering and Data Science Bootcamp | Clarusway",
     metaDescription:
       "Learn Python, SQL, Power BI, Machine Learning, LLMs and Agentic AI in 32 weeks in Germany. Instruction in English, Turkish & German, 100% funded with a Bildungsgutschein.",
     breadcrumbLabel: "AI Engineering Bootcamp",
     eyebrow: "Program: AI Engineering (Data Analytics, Data Science & Agentic AI)",
-    h1: "AI Engineering Bootcamp: From Data Analytics to Agentic AI",
+    h1: "AI Engineering Bootcamp from Data Analytics and Data Science to Agentic AI",
     heroIntro:
       "The AI Engineering Bootcamp at Clarusway is a 32-week live online program that takes you from Python, SQL, and Power BI through Classical Machine Learning to building production LLM applications, RAG pipelines, and autonomous Agentic AI systems — 100% funded in Germany with a Bildungsgutschein (education voucher).",
     heroSubnote:
@@ -2490,7 +2490,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         ],
       },
     ],
-    programSelectorH2: "AI Engineering bootcamp: modules, duration and start dates",
+    programSelectorH2: "Modules, duration and start dates of the AI Engineering bootcamp",
     programSelectorSubtitle:
       "Choose the full 32-week AI Engineering track or select a modular combination matching your technical background and career goal.",
     directEntryInfo: {
@@ -2505,8 +2505,8 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     modules: [
       {
         id: 1,
-        label: "Module 1",
-        title: "Data Analytics & Business Intelligence (13 weeks)",
+        label: "Module 1 · 13 weeks",
+        title: "Data Analytics & Business Intelligence",
         duration: "13 Weeks (520 Units)",
         color: PRIMARY,
         prerequisite: "No prior programming knowledge required.",
@@ -2522,8 +2522,8 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         id: 2,
-        label: "Module 2",
-        title: "Data Science & Machine Learning (6 weeks)",
+        label: "Module 2 · 6 weeks",
+        title: "Data Science & Machine Learning",
         duration: "6 Weeks (240 Units)",
         color: SECONDARY,
         prerequisite: "Completion of Module 1 or passing the Python/SQL/Statistics technical assessment.",
@@ -2539,8 +2539,8 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       },
       {
         id: 3,
-        label: "Module 3",
-        title: "AI Engineering & Agentic AI (13 weeks)",
+        label: "Module 3 · 13 weeks",
+        title: "AI Engineering & Agentic AI",
         duration: "13 Weeks (520 Units)",
         color: ACCENT,
         prerequisite: "Completion of Module 2 or passing the Python & Machine Learning technical assessment.",
@@ -2872,7 +2872,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         ],
       },
     ],
-    programSelectorH2: "Full Stack Developer course: modules, duration and start dates",
+    programSelectorH2: "Modules, duration and start dates of the Full Stack Developer course",
     programSelectorSubtitle:
       "Select the complete 4-module Full Stack Developer track or choose a focused Frontend or Backend specialization.",
     modules: [
@@ -2990,7 +2990,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     curriculumIntro:
       "You master the complete JavaScript/TypeScript web stack first — and then use AI coding assistants to ship cleaner, well-tested software faster.",
     specialFeature: {
-      h2: "The AI tools you use every day: Cursor, Claude Code, GitHub Copilot",
+      h2: "The AI tools you use every day (Cursor, Claude Code, GitHub Copilot)",
       intro:
         "Modern software teams in Germany expect developers to understand every line of code they ship while leveraging AI assistants for speed and quality. Throughout the course you practice with:",
       cards: [
@@ -3153,7 +3153,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     slugDe: "/it-kurse/cyber-security-weiterbildung/",
     slugEn: "/it-courses/cyber-security/",
     pdfFileName: "clarusway-cyber-security-course-syllabus.pdf",
-    metaTitle: "Cyber Security Course: SOC & Cloud Security | Clarusway",
+    metaTitle: "Cyber Security Course for SOC and Cloud Security | Clarusway",
     metaDescription:
       "Cyber Security Analyst Course in Germany: CompTIA Security+, AI-Enhanced SOC Analyst, Agentic AI in SecOps & AWS Cloud Security. Funded with a Bildungsgutschein.",
     breadcrumbLabel: "Cyber Security Course",
@@ -3203,7 +3203,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         ],
       },
     ],
-    programSelectorH2: "Cyber Security course: modules, duration and start dates",
+    programSelectorH2: "Modules, duration and start dates of the Cyber Security course",
     programSelectorSubtitle:
       "Choose the complete 4-module Cyber Security Analyst track or start directly in Module 2 with prior IT knowledge.",
     directEntryInfo: {
@@ -3483,7 +3483,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     slugDe: "/it-kurse/aws-devops-weiterbildung/",
     slugEn: "/it-courses/devops-aws/",
     pdfFileName: "clarusway-aws-devops-course-syllabus.pdf",
-    metaTitle: "AWS Solutions Architect and DevOps Engineer Training | Clarusway",
+    metaTitle: "AWS Solutions Architect & DevOps Training | Clarusway",
     metaDescription:
       "Become an AWS Cloud & DevOps Engineer: AI-enhanced AWS Solutions Architect, Docker, Kubernetes, Terraform, CI/CD & Azure in English. Funded with a Bildungsgutschein.",
     breadcrumbLabel: "AWS Solutions Architect & DevOps Training",
@@ -3535,7 +3535,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         ],
       },
     ],
-    programSelectorH2: "AWS & DevOps course: modules, duration and start dates",
+    programSelectorH2: "Modules, duration and start dates of the AWS & DevOps course",
     programSelectorSubtitle:
       "Select the complete 8-month multi-cloud package or choose one of five AZAV-certified module combinations.",
     modules: [
@@ -3831,7 +3831,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     slugDe: "/it-kurse/sdet-weiterbildung/",
     slugEn: "/it-courses/software-development-engineer-in-test/",
     pdfFileName: "clarusway-sdet-course-syllabus.pdf",
-    metaTitle: "SDET Course: Software Testing and Automation | Clarusway",
+    metaTitle: "SDET Course in Software Testing and Automation | Clarusway",
     metaDescription:
       "Become a Software Development Engineer in Test (SDET): Java, Selenium, Cypress, Playwright, API Testing & CI/CD in English. Funded with a Bildungsgutschein.",
     breadcrumbLabel: "SDET Course",
@@ -3871,7 +3871,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         bullets: ["Selenium, Cypress & Playwright frameworks", "REST API testing with Postman & RestAssured", "Continuous Testing with Jenkins & GitHub Actions"],
       },
     ],
-    programSelectorH2: "SDET course: modules, duration and start dates",
+    programSelectorH2: "Modules, duration and start dates of the SDET course",
     programSelectorSubtitle: "Two seamlessly connected modules take you from programming fundamentals to enterprise test automation.",
     modules: [
       {
@@ -4031,7 +4031,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
       "Intensive Kubernetes CKAD Certification Course in Germany: Pods, Deployments, Helm, Services, NetworkPolicies & CKAD exam simulations. Funded with a Bildungsgutschein.",
     breadcrumbLabel: "Kubernetes CKAD Course",
     eyebrow: "Short Specialization: Certified Kubernetes Application Developer (CKAD)",
-    h1: "Kubernetes CKAD Certification Course",
+    h1: "Kubernetes CKAD Certification Course with Exam Prep in 4 Weeks",
     heroIntro:
       "The Kubernetes CKAD Certification Course at Clarusway is an intensive 4-week hands-on program that prepares developers, DevOps engineers, and cloud administrators for the official CNCF Certified Kubernetes Application Developer (CKAD) performance-based exam — AZAV-certified and 100% funded with a Bildungsgutschein or Qualifizierungschancengesetz.",
     heroSubnote:
@@ -4066,7 +4066,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         bullets: ["Multi-Container Pods, Helm & Kustomize", "ConfigMaps, Secrets & PersistentVolumes", "Probes, ResourceQuotas & NetworkPolicies"],
       },
     ],
-    programSelectorH2: "Kubernetes CKAD course: duration and start dates",
+    programSelectorH2: "Duration and start dates of the Kubernetes CKAD course",
     programSelectorSubtitle: "Compact 4-week full-time program with daily live Kubernetes cluster labs.",
     modules: [
       {
@@ -4209,12 +4209,12 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
     slugDe: "/it-orientierungskurs/",
     slugEn: "/it-orientation-course/",
     pdfFileName: "clarusway-it-orientation-course-syllabus.pdf",
-    metaTitle: "IT Orientation Course: Find Your IT Path | Clarusway",
+    metaTitle: "IT Orientation Course to Find Your IT Path | Clarusway",
     metaDescription:
       "Not sure which IT career fits you? Try Data & AI, Full Stack Web Development, Cyber Security and Cloud/DevOps in English. Funded with AVGS or free consultation.",
     breadcrumbLabel: "IT Orientation Course",
     eyebrow: "Program: IT Career Orientation in English",
-    h1: "IT Orientation Course: find the IT career that fits you",
+    h1: "Find the IT career that fits you with the IT Orientation Course",
     heroIntro:
       "Want to start an IT career in Germany, but not sure whether Data & AI, Full Stack Development, Cyber Security, or Cloud & DevOps matches your strengths? In the Clarusway IT Orientation Course, you explore all core IT fields hands-on in English and build a personalized learning and funding roadmap for your Bildungsgutschein application.",
     heroSubnote:

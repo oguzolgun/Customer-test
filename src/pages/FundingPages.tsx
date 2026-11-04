@@ -127,8 +127,8 @@ export function FinancingHubPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
             {isEn
-              ? "Compare all financing options in Germany"
-              : "Alle Förder- und Finanzierungswege im Vergleich"}
+              ? "Funding options at a glance"
+              : "Finanzierungswege im Vergleich"}
           </h2>
 
           <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-xs mb-12">
@@ -209,6 +209,18 @@ export function FinancingHubPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          {/* Which option fits your situation */}
+          <div className="mb-10 text-center max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+              {isEn ? "Which option fits your situation?" : "Welche Förderung passt zu mir?"}
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+              {isEn
+                ? "Whether you are unemployed, looking to orient yourself in tech, or employed and seeking upskilling: choose the funding route tailored to your employment status."
+                : "Ob arbeitssuchend, beruflich unentschlossen oder festangestellt: Wähle die Förderoption, die genau zu deiner aktuellen Situation passt."}
+            </p>
           </div>
 
           {/* 4 Alternating Financing Pillar Blocks */}
@@ -411,11 +423,11 @@ export function FinancingHubPage() {
                 <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Application Assistance" : "Kostenlose Antragshilfe"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
                   {isEn
-                    ? "Full Consultation & Document Prep"
-                    : "Rundum-Begleitung bei deiner Antragstellung"}
-                </h3>
+                    ? "From first call to course start"
+                    : "In 4 Schritten zur geförderten Weiterbildung"}
+                </h2>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
                   {isEn
                     ? "Navigating German bureaucratic processes can be overwhelming. Our multilingual advisory team supports you in English, Turkish, or German with all required paperwork, justifications, and preparation."
@@ -572,7 +584,7 @@ export function BildungsgutscheinPage() {
         },
         {
           q: "Can I get a Bildungsgutschein without fluent German?",
-          a: "Yes. Clarusway bootcamps offer instruction in English and Turkish (German cohorts expanding) and are officially AZAV-certified in Germany. Clarusway prepares all official German documentation (Maßnahmeangebot) for your advisor appointment and guides you step by step.",
+          a: "Yes. Clarusway bootcamps offer instruction in English, Turkish, and German cohorts and are officially AZAV-certified in Germany. Clarusway prepares all official German documentation (Maßnahmeangebot) for your advisor appointment and guides you step by step.",
         },
         {
           q: "What is the difference between Agentur für Arbeit and Jobcenter?",
@@ -750,8 +762,8 @@ export function BildungsgutscheinPage() {
             <div style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-7 border border-gray-200">
               <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
                 {isEn
-                  ? "Who is eligible for a Bildungsgutschein?"
-                  : "Voraussetzungen: Wer erhält einen Bildungsgutschein?"}
+                  ? "Who can get a Bildungsgutschein?"
+                  : "Wer bekommt einen Bildungsgutschein?"}
               </h2>
               <ul className="space-y-3 text-xs sm:text-sm text-gray-700">
                 {(isEn
@@ -791,8 +803,8 @@ export function BildungsgutscheinPage() {
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1a1d2e] mb-3">
               {isEn
-                ? "How to Apply for a Bildungsgutschein in 4 Steps"
-                : "In 4 Schritten zum bewilligten Bildungsgutschein"}
+                ? "How to apply, step by step"
+                : "Bildungsgutschein beantragen in 5 Schritten"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
               {isEn
@@ -1008,8 +1020,8 @@ export function BildungsgutscheinPage() {
             <div style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-7 border border-gray-200">
               <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
                 {isEn
-                  ? "How to prepare for your appointment with the Agentur für Arbeit or Jobcenter"
-                  : "Vorbereitung auf das Gespräch mit deiner Vermittlungsfachkraft"}
+                  ? "What to prepare for the meeting with your advisor"
+                  : "Wer ist zuständig, Arbeitsagentur oder Jobcenter?"}
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 mb-4 leading-relaxed">
                 {isEn
@@ -1046,13 +1058,13 @@ export function BildungsgutscheinPage() {
                 </span>
                 <h2 className="text-xl sm:text-2xl font-bold mb-3">
                   {isEn
-                    ? "Do I need to speak German to get a Bildungsgutschein?"
-                    : "Flexible Unterrichtssprachen: Englisch, Türkisch & Deutsch"}
+                    ? "Do you need to speak German to get a Bildungsgutschein?"
+                    : "So unterstützt Clarusway beim Antrag"}
                 </h2>
                 <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
                   {isEn
-                    ? "Clarusway offers live online IT training with instruction in English and Turkish, with German cohort options available. For your appointment at the Agentur für Arbeit or Jobcenter, Clarusway provides your complete application package in German so your advisor has every required AZAV number and justification."
-                    : "Unsere Weiterbildungen werden flexibel auf Englisch und Türkisch angeboten (weitere Kohorten auf Deutsch in Planung). Unsere Förderberatung vorab und während des Kurses begleitet dich selbstverständlich auch durchgehend auf Deutsch."}
+                    ? "Clarusway offers live online IT training with instruction in English, Turkish, and German cohorts. For your appointment at the Agentur für Arbeit or Jobcenter, Clarusway provides your complete application package in German so your advisor has every required AZAV number and justification."
+                    : "Unsere Weiterbildungen werden live online in Kohorten auf Deutsch, Englisch oder Türkisch angeboten. Unsere Förderberatung vorab und während des Kurses begleitet dich selbstverständlich auch durchgehend auf Deutsch."}
                 </p>
               </div>
               <Link
@@ -1077,8 +1089,8 @@ export function BildungsgutscheinPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
             {isEn
-              ? "IT courses you can take with a Bildungsgutschein"
-              : "Geförderte IT-Kurse mit Bildungsgutschein"}
+              ? "Clarusway courses you can take with a Bildungsgutschein"
+              : "IT-Kurse mit Bildungsgutschein"}
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -1093,7 +1105,7 @@ export function BildungsgutscheinPage() {
                 ]
               : [
                   { title: "AI Engineer Weiterbildung", to: "/it-kurse/ai-engineer-weiterbildung/", meta: "32 Wochen · Data, ML & Agentic AI" },
-                  { title: "Data Analytics (Modul 1 des AI Engineer)", to: "/it-kurse/ai-engineer-weiterbildung/#data-analyst", meta: "13 Wochen · Python, SQL & Power BI" },
+                  { title: "Kubernetes CKAD Zertifikat Kurs", to: "/it-kurse/kubernetes-ckad-zertifikat-kurs/", meta: "4 Wochen · CNCF CKAD Prüfungsvorbereitung" },
                   { title: "Full Stack Entwickler Weiterbildung", to: "/it-kurse/full-stack-entwickler-weiterbildung/", meta: "4 Module · React, Next.js & Node.js" },
                   { title: "Cyber Security Weiterbildung", to: "/it-kurse/cyber-security-weiterbildung/", meta: "4 Module · Security+, SOC & Cloud" },
                   { title: "AWS & DevOps Weiterbildung", to: "/it-kurse/aws-devops-weiterbildung/", meta: "3–8 Monate · AWS, K8s & Terraform" },
@@ -1180,9 +1192,73 @@ export function AvgsPage() {
     ? "What is an AVGS (Aktivierungs- und Vermittlungsgutschein)? Learn how to use an AVGS voucher for 100% funded IT career orientation at Clarusway."
     : "Alles zum AVGS (Aktivierungs- und Vermittlungsgutschein): Unterschied zum Bildungsgutschein, Voraussetzungen und 100 % Förderung für den IT-Orientierungskurs.";
 
+  const avgsFaqs = isEn
+    ? [
+        {
+          q: "What is an AVGS?",
+          a: "An AVGS (Aktivierungs- und Vermittlungsgutschein) is an official voucher under § 45 SGB III issued by the Agentur für Arbeit or Jobcenter. It covers 100% of the cost for career orientation, skills assessment, and individual career coaching.",
+        },
+        {
+          q: "Who can get an AVGS?",
+          a: "Anyone registered as unemployed (receiving ALG I or Bürgergeld), employees threatened by job loss, university graduates, and international career changers seeking orientation in the German tech market can request an AVGS.",
+        },
+        {
+          q: "Does an AVGS affect my later Bildungsgutschein?",
+          a: "No. The AVGS is an independent funding instrument under § 45 SGB III. Completing the IT Orientation Course with an AVGS does not consume or reduce your entitlement to a subsequent Bildungsgutschein (§ 81 SGB III) for a full IT bootcamp.",
+        },
+        {
+          q: "What happens after the IT Orientation Course?",
+          a: "You receive a formal evaluation and written recommendation outlining your technical aptitude for AI, Cloud, Cyber Security, or Full Stack. This documentation strengthens your subsequent application for a Bildungsgutschein with your advisor.",
+        },
+      ]
+    : [
+        {
+          q: "Was ist ein AVGS?",
+          a: "Der Aktivierungs- und Vermittlungsgutschein (AVGS) nach § 45 SGB III ist ein staatlicher Fördergutschein der Agentur für Arbeit oder des Jobcenters. Er übernimmt 100 % der Kosten für berufliche Orientierung, Kompetenzfeststellung und individuelles Karriere-Coaching.",
+        },
+        {
+          q: "Wer bekommt einen AVGS?",
+          a: "Anspruch oder Ermessensanspruch haben arbeitslos gemeldete Personen (ALG I oder Bürgergeld), von Kündigung bedrohte Beschäftigte sowie Hochschulabsolventen und Quereinsteiger, die eine Neuausrichtung auf dem IT-Arbeitsmarkt anstreben.",
+        },
+        {
+          q: "Wird durch den AVGS mein Anspruch auf einen Bildungsgutschein verbraucht?",
+          a: "Nein. Der AVGS ist eine eigenständige Maßnahme nach § 45 SGB III. Die Teilnahme am IT-Orientierungskurs schmälert deinen späteren Anspruch auf einen Bildungsgutschein (§ 81 SGB III) für eine umfassende IT-Weiterbildung in keiner Weise.",
+        },
+        {
+          q: "Was passiert nach dem IT-Orientierungskurs?",
+          a: "Du erhältst ein detailliertes Kompetenzprofil mit einer fundierten Kursempfehlung für deine Vermittlungsfachkraft. Damit kannst du direkt im Anschluss deinen Bildungsgutschein für deine Wunsch-Weiterbildung beantragen.",
+        },
+      ];
+
+  const avgsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `https://clarusway.de${isEn ? "/avgs/" : "/avgs/"}#webpage`,
+        url: `https://clarusway.de/avgs/`,
+        name: metaTitle,
+        description: metaDescription,
+        inLanguage: lang,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `https://clarusway.de${isEn ? "/avgs/" : "/avgs/"}#faq`,
+        mainEntity: avgsFaqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
-      <SeoHead title={metaTitle} description={metaDescription} path="/avgs/" />
+      <SeoHead title={metaTitle} description={metaDescription} path="/avgs/" schema={avgsSchema} />
       <Breadcrumb
         items={[
           {
@@ -1193,6 +1269,7 @@ export function AvgsPage() {
         ]}
       />
 
+      {/* Hero Section */}
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
         className="py-14 border-b border-gray-100"
@@ -1252,12 +1329,34 @@ export function AvgsPage() {
         </div>
       </section>
 
+      {/* H2: What is an AVGS? */}
+      <section className="py-12 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-4">
+              {isEn ? "What is an AVGS?" : "Was ist ein AVGS?"}
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
+              {isEn
+                ? "The Aktivierungs- und Vermittlungsgutschein (AVGS) is a statutory funding voucher provided under § 45 of the German Social Code III (SGB III). It is issued by your local Agentur für Arbeit or Jobcenter to finance individual coaching, aptitude evaluation, and vocational orientation with certified providers — at completely zero cost to you."
+                : "Der Aktivierungs- und Vermittlungsgutschein (AVGS) ist ein Fördermittel der Agentur für Arbeit und des Jobcenters gemäß § 45 SGB III. Mit diesem Gutschein werden Maßnahmen zur Aktivierung, beruflichen Orientierung und Eignungsfeststellung zu 100 % staatlich finanziert — für dich entstehen keinerlei Kosten."}
+            </p>
+            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+              {isEn
+                ? "Unlike self-funded training, an AVGS gives you structured, 1-on-1 mentorship to discover whether Data & AI, Cloud & DevOps, Cyber Security, or Full Stack Development best fits your strengths before committing to a full qualification."
+                : "Im Unterschied zu einer Selbstzahler-Beratung ermöglicht der AVGS eine strukturierte, zertifizierte Eignungsabklärung. Du findest heraus, welches IT-Fachgebiet am besten zu deinen Talenten passt, bevor du die Hauptweiterbildung startest."}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* H2: AVGS vs. Bildungsgutschein */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
             {isEn
               ? "AVGS vs. Bildungsgutschein: what is the difference?"
-              : "Unterschied zwischen AVGS und Bildungsgutschein"}
+              : "AVGS und Bildungsgutschein im Vergleich"}
           </h2>
 
           <div className="overflow-x-auto rounded-2xl border border-gray-200">
@@ -1310,9 +1409,16 @@ export function AvgsPage() {
             </table>
           </div>
 
+          {/* H2: What the coaching covers */}
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mt-16 mb-8">
+            {isEn
+              ? "What the coaching covers"
+              : "IT-Orientierungskurs mit AVGS bei Clarusway"}
+          </h2>
+
           {/* 4 Alternating Coaching Blocks */}
-          <div className="mt-16 space-y-16">
-            {/* Block 1: Text Left, Square Image Right */}
+          <div className="space-y-16">
+            {/* Block 1 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div
                 style={{ backgroundColor: SOFT_BG }}
@@ -1328,7 +1434,7 @@ export function AvgsPage() {
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
                   {isEn
-                    ? "Work directly with a certified IT career coach. Together, you analyze your previous professional experience, strengths, and language skills to map out a clear roadmap into Germany's tech sector."
+                    ? "Work directly with an experienced IT career coach. Together, you analyze your previous professional experience, strengths, and language skills to map out a clear roadmap into Germany's tech sector."
                     : "Gemeinsam mit deinem persönlichen Karrierecoach analysierst du deine Vorkenntnisse, Stärken und Sprachkenntnisse, um deinen idealen Fahrplan in die IT-Branche zu erstellen."}
                 </p>
 
@@ -1364,7 +1470,7 @@ export function AvgsPage() {
               </div>
             </div>
 
-            {/* Block 2: Square Image Left, Text Right (Alternating!) */}
+            {/* Block 2 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="flex justify-center order-2 lg:order-1">
                 <img
@@ -1384,7 +1490,7 @@ export function AvgsPage() {
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
                   {isEn
-                    ? "German CV & Portfolio Optimization"
+                    ? "Graduate Career Support & Portfolio Mentoring"
                     : "Deutscher Lebenslauf & LinkedIn-Präsenz"}
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
@@ -1416,7 +1522,7 @@ export function AvgsPage() {
               </div>
             </div>
 
-            {/* Block 3: Text Left, Square Image Right */}
+            {/* Block 3 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div
                 style={{ backgroundColor: SOFT_BG }}
@@ -1432,8 +1538,8 @@ export function AvgsPage() {
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
                   {isEn
-                    ? "Simulate real behavioral and technical interview scenarios. Learn how to explain career changes positively, solve whiteboard tasks, and negotiate competitive salaries."
-                    : "Trainiere reale Bewerbungssituationen: Lerne, wie du deinen Quereinstieg überzeugend präsentierst, Fachfragen beantwortest und Gehaltsverhandlungen führst."}
+                    ? "Simulate real behavioral and technical interview scenarios. Learn how to explain career changes positively, solve whiteboard tasks, and effectively present your technical qualifications."
+                    : "Trainiere reale Bewerbungssituationen: Lerne, wie du deinen Quereinstieg überzeugend präsentierst, Fachfragen beantwortest und deine Qualifikationen souverän vermittelst."}
                 </p>
 
                 <ul className="space-y-3 pt-5 border-t border-gray-200/70">
@@ -1453,7 +1559,7 @@ export function AvgsPage() {
                     <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
-                    <span>{isEn ? "Salary negotiation strategies for German tech companies" : "Gehaltsstrategien für den deutschen IT-Markt"}</span>
+                    <span>{isEn ? "Interview strategies and professional communication for the German tech sector" : "Kommunikations- und Interviewstrategien für den deutschen IT-Arbeitsmarkt"}</span>
                   </li>
                 </ul>
               </div>
@@ -1468,7 +1574,7 @@ export function AvgsPage() {
               </div>
             </div>
 
-            {/* Block 4: Square Image Left, Text Right (Alternating!) */}
+            {/* Block 4 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="flex justify-center order-2 lg:order-1">
                 <img
@@ -1484,17 +1590,17 @@ export function AvgsPage() {
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
                 <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
-                  {isEn ? "Step 4: Job Placement" : "Schritt 4: Jobeinstieg"}
+                  {isEn ? "Step 4: Transition to Tech" : "Schritt 4: Einstieg in die IT"}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Career Placement & Contract Signing"
-                    : "Erfolgreicher Arbeitsvertrag in der Tech-Branche"}
+                    : "Erfolgreicher Einstieg in die Tech-Branche"}
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
                   {isEn
-                    ? "Over 90% of our graduates land sustainable positions in Germany. We introduce you directly to our network of corporate hiring partners actively seeking junior and mid-level talent."
-                    : "Über 90 % unserer betreuten Teilnehmer finden eine zukunftssichere Anstellung in Deutschland. Wir vernetzen dich mit Arbeitgebern aus unserem Partnernetzwerk."}
+                    ? "Over 90% of our mentored graduates land sustainable positions in Germany. We connect you with hiring partners actively looking for junior and mid-level talent."
+                    : "Über 90 % unserer betreuten Absolventen starten erfolgreich in Deutschland. Wir vernetzen dich mit Arbeitgebern aus unserem Partnernetzwerk."}
                 </p>
 
                 <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
@@ -1535,6 +1641,89 @@ export function AvgsPage() {
           </div>
         </div>
       </section>
+
+      {/* H2: How to get an AVGS */}
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+            {isEn ? "How to get an AVGS" : "Wer bekommt einen AVGS?"}
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                step: "01",
+                title: isEn ? "Registered Job Seekers" : "Arbeitssuchende & ALG I",
+                desc: isEn
+                  ? "Entitled to an AVGS after 6 weeks of receiving ALG I within a 3-month period, or at your advisor's discretion."
+                  : "Rechtsanspruch nach 6 Wochen Bezug von ALG I innerhalb von 3 Monaten, oder Ermessensentscheidung deiner Vermittlungsfachkraft.",
+              },
+              {
+                step: "02",
+                title: isEn ? "Bürgergeld Recipients" : "Bürgergeld-Empfänger",
+                desc: isEn
+                  ? "The Jobcenter can grant an AVGS as a discretionary benefit (§ 16 SGB II) to support career orientation."
+                  : "Das Jobcenter kann einen AVGS nach § 16 SGB II ermessensweise zur beruflichen Orientierung bewilligen.",
+              },
+              {
+                step: "03",
+                title: isEn ? "University Graduates" : "Hochschulabsolventen",
+                desc: isEn
+                  ? "Graduates seeking entry into Germany's tech market can request an AVGS for professional IT career guidance."
+                  : "Absolventen auf der Suche nach einem Einstieg in den deutschen IT-Arbeitsmarkt können einen Gutschein beantragen.",
+              },
+              {
+                step: "04",
+                title: isEn ? "Career Changers" : "Quereinsteiger",
+                desc: isEn
+                  ? "Employees threatened by job displacement or facing structural changes in their sector qualify for an AVGS."
+                  : "Von Arbeitsplatzverlust bedrohte Beschäftigte können sich mit dem AVGS vorab für den IT-Sektor orientieren.",
+              },
+            ].map((card, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-xs font-extrabold text-[#e51a59] uppercase tracking-wider block mb-2">
+                    {card.step}
+                  </span>
+                  <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{card.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{card.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* H2: AVGS Coaching FAQ */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+            {isEn ? "AVGS Coaching FAQ" : "Häufige Fragen zum AVGS"}
+          </h2>
+          <div className="space-y-3.5">
+            {avgsFaqs.map((f, idx) => (
+              <details
+                key={idx}
+                open={idx === 0}
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
+              >
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
+                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                    +
+                  </span>
+                </summary>
+                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                  {f.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
@@ -1558,6 +1747,70 @@ export function QcgPage() {
     ? "Up to 100% tuition subsidy and 75% wage subsidy for employed staff in Germany under § 82 SGB III (Qualifizierungschancengesetz)."
     : "Staatliche Weiterbildungsförderung für Beschäftigte und Unternehmen nach § 82 SGB III (Qualifizierungschancengesetz): Bis zu 100 % Kurskosten & 75 % Arbeitsentgeltzuschuss.";
 
+  const qcgFaqs = isEn
+    ? [
+        {
+          q: "What does the Qualifizierungschancengesetz fund?",
+          a: "Under § 82 SGB III, the Agentur für Arbeit subsidizes up to 100% of certified IT training course fees and grants up to a 75% wage subsidy (Arbeitsentgeltzuschuss — AEZ) while employees participate in training.",
+        },
+        {
+          q: "Which employees are eligible for QCG subsidies?",
+          a: "Employed staff whose roles are affected by digital transformation or who require new skills in AI, Cloud, Cyber Security, or Software Development. The training must exceed 120 hours and lead to an accredited qualification.",
+        },
+        {
+          q: "How high is the subsidy depending on company size?",
+          a: "Small businesses (<50 staff) receive up to 100% tuition and 75% wage subsidy. Medium-sized firms (50–499 staff) receive up to 50% tuition and 50% wage subsidy. Large enterprises (500+ staff) receive up to 25% tuition and 25% wage subsidy.",
+        },
+        {
+          q: "Does Clarusway handle the application with the Arbeitgeber-Service?",
+          a: "Yes. Clarusway prepares the complete AZAV-certified course documentation and coordinates with your local Arbeitgeber-Service of the Agentur für Arbeit to ensure swift approval.",
+        },
+      ]
+    : [
+        {
+          q: "Was fördert das Qualifizierungschancengesetz?",
+          a: "Nach § 82 SGB III übernimmt die Bundesagentur für Arbeit bis zu 100 % der Lehrgangskosten für zertifizierte Weiterbildungen und zahlt bis zu 75 % Arbeitsentgeltzuschuss (AEZ) für die Ausfallzeit der Mitarbeitenden während des Unterrichts.",
+        },
+        {
+          q: "Welche Voraussetzungen müssen Arbeitgeber und Mitarbeitende erfüllen?",
+          a: "Gefördert werden Beschäftigte, deren Tätigkeiten durch digitale Technologien substituiert werden können oder die sich für neue Anforderungen in KI, Cloud oder Security qualifizieren müssen. Die Weiterbildung muss mehr als 120 Stunden umfassen.",
+        },
+        {
+          q: "Wie hoch ist die Förderquote nach Unternehmensgröße?",
+          a: "Unternehmen unter 50 Mitarbeitenden erhalten bis zu 100 % Lehrgangskostenzuschuss und bis zu 75 % Arbeitsentgeltzuschuss. Mittelständische Betriebe (50–499 Mitarbeitende) erhalten bis zu 50 %, Großunternehmen ab 500 Mitarbeitenden bis zu 25 % Zuschuss.",
+        },
+        {
+          q: "Unterstützt Clarusway beim Antrag beim Arbeitgeber-Service?",
+          a: "Ja. Clarusway übernimmt die vollständige Ausarbeitung der AZAV-Maßnahmeunterlagen und stimmt den Förderantrag direkt mit dem zuständigen Arbeitgeber-Service der Bundesagentur für Arbeit ab.",
+        },
+      ];
+
+  const qcgSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://clarusway.de/qualifizierungschancengesetz/#webpage",
+        url: "https://clarusway.de/qualifizierungschancengesetz/",
+        name: metaTitle,
+        description: metaDescription,
+        inLanguage: lang,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://clarusway.de/qualifizierungschancengesetz/#faq",
+        mainEntity: qcgFaqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      },
+    ],
+  };
+
   const handleQcgSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contactName.trim() || !email.trim()) return;
@@ -1571,6 +1824,7 @@ export function QcgPage() {
         title={metaTitle}
         description={metaDescription}
         path="/qualifizierungschancengesetz/"
+        schema={qcgSchema}
       />
       <Breadcrumb
         items={[
@@ -1582,6 +1836,7 @@ export function QcgPage() {
         ]}
       />
 
+      {/* Hero Section */}
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
         className="py-14 border-b border-gray-100"
@@ -1618,7 +1873,7 @@ export function QcgPage() {
                   <ArrowRightIcon className="w-4 h-4" />
                 </a>
                 <Link
-                  to={isEn ? "/enterprise-corporate-training/" : "/unternehmen/"}
+                  to={isEn ? "/enterprise-corporate-training/" : "/fuer-unternehmen/"}
                   className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
                 >
                   <span>{isEn ? "Corporate IT training" : "B2B-Weiterbildung"}</span>
@@ -1640,12 +1895,29 @@ export function QcgPage() {
         </div>
       </section>
 
+      {/* H2: What the law funds */}
+      <section className="py-12 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-4">
+              {isEn ? "What the law funds" : "Was ist das Qualifizierungschancengesetz?"}
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
+              {isEn
+                ? "The Qualifizierungschancengesetz empowers German businesses to proactively upgrade the digital and technical capabilities of their workforce. The law covers certified training in areas like AI Engineering, Cloud Architecture, DevOps, and Cyber Defense."
+                : "Das Qualifizierungschancengesetz ermöglicht Unternehmen in Deutschland, die digitale Transformation aktiv zu gestalten. Gefördert werden zukunftsorientierte Weiterbildungen in KI, Cloud, DevOps und Cyber Security mit staatlichen Zuschüssen zu Lehrgangsgebühren und Arbeitsentgelt."}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Funding rates by company size (§ 82 SGB III) */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
             {isEn
               ? "Funding rates by company size (§ 82 SGB III)"
-              : "Förderquoten nach Unternehmensgröße (§ 82 SGB III)"}
+              : "Förderhöhe für Arbeitgeber"}
           </h2>
 
           <div className="overflow-x-auto rounded-2xl border border-gray-200 mb-14">
@@ -1683,215 +1955,140 @@ export function QcgPage() {
             </table>
           </div>
 
-          {/* 4 Alternating Corporate Upskilling Blocks */}
-          <div className="mb-16 space-y-16">
-            {/* Block 1: Text Left, Square Image Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div
-                style={{ backgroundColor: SOFT_BG }}
-                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
-              >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
-                  {isEn ? "Step 1: Strategic Planning" : "Schritt 1: Strategische Weiterbildungsplanung"}
+          {/* H2: Who qualifies */}
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+            {isEn
+              ? "Who qualifies"
+              : "Voraussetzungen für Arbeitgeber und Mitarbeitende"}
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {[
+              {
+                title: isEn ? "Structural Change" : "Strukturwandel im Beruf",
+                desc: isEn
+                  ? "Employees whose current job functions are affected by artificial intelligence, cloud automation, or digitalization."
+                  : "Mitarbeitende, deren Arbeitsplätze durch Automatisierung, KI oder moderne Technologien transformiert werden.",
+              },
+              {
+                title: isEn ? "AZAV-Certified Course" : "AZAV-Zertifizierung",
+                desc: isEn
+                  ? "The training course must have an official AZAV measures number and a minimum duration of 120 hours."
+                  : "Die Maßnahme muss nach AZAV zertifiziert sein und einen Mindestumfang von mehr als 120 Unterrichtsstunden umfassen.",
+              },
+              {
+                title: isEn ? "Company Headquarters in Germany" : "Betriebsstätte in Deutschland",
+                desc: isEn
+                  ? "The employing organization must have an active business presence registered in Germany."
+                  : "Das antragstellende Unternehmen muss seinen Sitz oder eine Betriebsstätte in Deutschland haben.",
+              },
+            ].map((v, i) => (
+              <div key={i} style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-6 border border-gray-200">
+                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{v.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* H2: How employers apply */}
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+            {isEn ? "How employers apply" : "Antrag in 4 Schritten"}
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {[
+              {
+                step: "01",
+                title: isEn ? "Free Consultation" : "Bedarfsanalyse",
+                desc: isEn
+                  ? "Clarusway analyzes your team's skills gap and maps out eligible AZAV upskilling modules."
+                  : "Clarusway analysiert den Qualifizierungsbedarf Ihres Teams und ermittelt förderbare AZAV-Module.",
+              },
+              {
+                step: "02",
+                title: isEn ? "Course Proposal" : "Maßnahmeangebot",
+                desc: isEn
+                  ? "We issue the complete training offer (Maßnahmeangebot) with exact hours, dates, and AZAV accreditation."
+                  : "Wir erstellen das vollständige Maßnahmeangebot inklusive Stundenumfang und AZAV-Zulassungsnummer.",
+              },
+              {
+                step: "03",
+                title: isEn ? "Agentur Approval" : "Antrag beim Arbeitgeber-Service",
+                desc: isEn
+                  ? "Your HR department submits the documentation to your local Arbeitgeber-Service for subsidy approval."
+                  : "Ihre Personalabteilung reicht den Förderantrag beim regionalen Arbeitgeber-Service der Bundesagentur ein.",
+              },
+              {
+                step: "04",
+                title: isEn ? "Course Start" : "Kursstart im Team",
+                desc: isEn
+                  ? "Employees attend live online cohorts while your firm receives monthly wage and tuition reimbursements."
+                  : "Ihre Mitarbeitenden starten das Live-Online-Training; Zuschüsse zu Kurs und Entgelt werden ausgezahlt.",
+              },
+            ].map((s, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
+                <span className="text-xs font-extrabold text-[#e51a59] uppercase tracking-wider block mb-2">
+                  {s.step}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
-                  {isEn
-                    ? "HR Upskilling Roadmap & Subsidies Plan"
-                    : "HR-Weiterbildungsplan & Förderberatung"}
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                  {isEn
-                    ? "Our corporate advisors calculate your exact QCG subsidy eligibility according to company size. We prepare the complete documentation required by the Arbeitgeber-Service of the Agentur für Arbeit."
-                    : "Unsere B2B-Berater berechnen die genaue Förderhöhe nach Unternehmensgröße und erstellen alle Antragsunterlagen für den Arbeitgeber-Service der Bundesagentur für Arbeit."}
-                </p>
-
-                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Up to 100% course cost coverage for small enterprises" : "Bis zu 100 % Lehrgangskostenzuschuss für KMU"}</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Up to 75% wage reimbursement during training hours" : "Bis zu 75 % Arbeitsentgeltzuschuss (AEZ)"}</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Complete turnkey handling of bureaucratic paperwork" : "Entlastung der internen Personalabteilung"}</span>
-                  </li>
-                </ul>
+                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{s.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{s.desc}</p>
               </div>
+            ))}
+          </div>
 
-              <div className="flex justify-center">
-                <img
-                  src={QCG_IMAGES.squareHrPlan.src}
-                  alt={QCG_IMAGES.squareHrPlan.alt[lang]}
-                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            {/* Block 2: Square Image Left, Text Right (Alternating!) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="flex justify-center order-2 lg:order-1">
-                <img
-                  src={QCG_IMAGES.squareColleagues.src}
-                  alt={QCG_IMAGES.squareColleagues.alt[lang]}
-                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
-                  loading="lazy"
-                />
-              </div>
-
-              <div
+          {/* H2: IT courses with QCG funding */}
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+            {isEn ? "IT courses with QCG funding" : "IT-Kurse mit QCG-Förderung"}
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+            {[
+              {
+                title: isEn ? "AI Engineering Bootcamp" : "AI Engineer Weiterbildung",
+                to: isEn ? "/it-courses/ai-engineering/" : "/it-kurse/ai-engineer-weiterbildung/",
+                meta: isEn ? "32 Weeks · Python, ML & Agentic AI" : "32 Wochen · Python, ML & Agentic AI",
+              },
+              {
+                title: isEn ? "Kubernetes CKAD Course" : "Kubernetes CKAD Zertifikat Kurs",
+                to: isEn ? "/it-courses/kubernetes-ckad-certification-course/" : "/it-kurse/kubernetes-ckad-zertifikat-kurs/",
+                meta: isEn ? "4 Weeks · Container Orchestration" : "4 Wochen · CNCF Prüfungsvorbereitung",
+              },
+              {
+                title: isEn ? "AWS & DevOps Training" : "AWS & DevOps Weiterbildung",
+                to: isEn ? "/it-courses/devops-aws/" : "/it-kurse/aws-devops-weiterbildung/",
+                meta: isEn ? "3–8 Months · Cloud & CI/CD Pipelines" : "3–8 Monate · AWS, K8s & Terraform",
+              },
+              {
+                title: isEn ? "Cyber Security Analyst" : "Cyber Security Weiterbildung",
+                to: isEn ? "/it-courses/cyber-security/" : "/it-kurse/cyber-security-weiterbildung/",
+                meta: isEn ? "4 Modules · Security+ & SOC Analyst" : "4 Module · SOC & Cloud Security",
+              },
+              {
+                title: isEn ? "Full Stack Development" : "Full Stack Entwickler Weiterbildung",
+                to: isEn ? "/it-courses/full-stack-developer/" : "/it-kurse/full-stack-entwickler-weiterbildung/",
+                meta: isEn ? "4 Modules · React, Next.js & Node.js" : "4 Module · React, Next.js & AI",
+              },
+              {
+                title: isEn ? "Software Testing (SDET)" : "SDET Weiterbildung",
+                to: isEn ? "/it-courses/software-development-engineer-in-test/" : "/it-kurse/sdet-weiterbildung/",
+                meta: isEn ? "6 Months · Automated QA & Test Frameworks" : "6 Monate · Testautomatisierung",
+              },
+            ].map((c) => (
+              <Link
+                key={c.to}
+                to={c.to}
                 style={{ backgroundColor: SOFT_BG }}
-                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
+                className="group rounded-2xl p-5 border border-gray-200 hover:border-[#e51a59] transition-all flex flex-col justify-between"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
-                  {isEn ? "Step 2: Team Needs" : "Schritt 2: Teamanalyse & Skills"}
+                <div>
+                  <h3 className="text-base font-bold text-[#1a1d2e] group-hover:text-[#e51a59] mb-1">
+                    {c.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 mb-3">{c.meta}</p>
+                </div>
+                <span className="text-xs font-semibold text-[#e51a59] inline-flex items-center gap-1">
+                  <span>{isEn ? "View curriculum" : "Zum Lehrplan"}</span>
+                  <ArrowRightIcon className="w-3.5 h-3.5" />
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
-                  {isEn
-                    ? "Cross-Functional Team Skill Gap Analysis"
-                    : "Bedarfsorientierte IT-Qualifizierung für Teams"}
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                  {isEn
-                    ? "Identify critical skills in Cloud Architecture, AI Automation, Kubernetes, and Data Analytics needed to keep your business competitive and innovative."
-                    : "Identifizieren Sie gezielt die technologischen Lücken in Cloud Architecture, KI-Automatisierung, Kubernetes und Datenanalyse für Ihre Teams."}
-                </p>
-
-                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Custom modular learning paths tailored to your stack" : "Maßgeschneiderte Lernpfade abgestimmt auf Ihren Tech-Stack"}</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Training in English, Turkish, or German for international workforces" : "Schulung auf Englisch, Türkisch oder Deutsch für internationale Teams"}</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "AZAV-certified course structures with accredited milestones" : "AZAV-zertifizierte Lehrpläne mit anerkannten Meilensteinen"}</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Block 3: Text Left, Square Image Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div
-                style={{ backgroundColor: SOFT_BG }}
-                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
-              >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
-                  {isEn ? "Step 3: Training Format" : "Schritt 3: Praxisnaher Unterricht"}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
-                  {isEn
-                    ? "Live Online Classes During Working Hours"
-                    : "Berufsbegleitendes Live-Online-Lernen"}
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                  {isEn
-                    ? "Employees join interactive classes remotely without travel overhead. Hands-on labs and real-world project simulations ensure immediate transfer of knowledge into daily company workflows."
-                    : "Ihre Mitarbeitenden nehmen ohne Reiseaufwand am interaktiven Live-Online-Unterricht teil. Praktische Hands-on-Labs stellen den direkten Transfer in den Arbeitsalltag sicher."}
-                </p>
-
-                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Interactive live sessions led by industry veteran instructors" : "Interaktiver Unterricht mit erfahrenen Branchen-Dozenten"}</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Real cloud environments and container deployments" : "Echte Cloud-Umgebungen und Container-Workloads"}</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Continuous progress tracking and mentor office hours" : "Laufendes Leistungsfeedback und Betreuung"}</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="flex justify-center">
-                <img
-                  src={QCG_IMAGES.squareOnlineClass.src}
-                  alt={QCG_IMAGES.squareOnlineClass.alt[lang]}
-                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            {/* Block 4: Square Image Left, Text Right (Alternating!) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="flex justify-center order-2 lg:order-1">
-                <img
-                  src={QCG_IMAGES.squareTeamLead.src}
-                  alt={QCG_IMAGES.squareTeamLead.alt[lang]}
-                  className="w-full max-w-[480px] aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-md border border-gray-100"
-                  loading="lazy"
-                />
-              </div>
-
-              <div
-                style={{ backgroundColor: SOFT_BG }}
-                className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
-              >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
-                  {isEn ? "Step 4: Measurable Value" : "Schritt 4: Mehrwert & Zertifikat"}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
-                  {isEn
-                    ? "Certified Skills & Business Impact"
-                    : "Zertifizierter Projekterfolg & ROI"}
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                  {isEn
-                    ? "Employees complete training with recognized industry certifications (AWS, CKAD, CompTIA) and present capstone projects directly addressing internal operational challenges."
-                    : "Teilnehmende schließen mit anerkannten Branchenzertifikaten ab (AWS, CKAD, CompTIA) und setzen ihre neuen Fähigkeiten unmittelbar in Unternehmensprojekten um."}
-                </p>
-
-                <ul className="space-y-3 pt-5 border-t border-gray-200/70">
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Industry-recognized credentials from AWS, Linux Foundation, etc." : "Anerkannte Zertifizierungen von AWS, Linux Foundation u.a."}</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Increased employee retention and modernization of legacy systems" : "Höhere Mitarbeiterbindung und zukunftssichere IT-Systeme"}</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
-                      <CheckCircleIcon className="w-3.5 h-3.5" />
-                    </div>
-                    <span>{isEn ? "Measurable ROI through reduced external agency dependencies" : "Messbare Kosteneinsparung durch internes IT-Know-how"}</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+              </Link>
+            ))}
           </div>
 
           {/* Landscape Handshake Banner */}
@@ -1904,8 +2101,8 @@ export function QcgPage() {
             />
           </div>
 
-          {/* QCG Inquiry Form (Form_donusumu_qcg_de) */}
-          <div id="qcg-form" style={{ backgroundColor: DARK }} className="rounded-3xl p-8 sm:p-10 text-white max-w-3xl">
+          {/* QCG Inquiry Form */}
+          <div id="qcg-form" style={{ backgroundColor: DARK }} className="rounded-3xl p-8 sm:p-10 text-white max-w-3xl mb-16">
             <h2 className="text-2xl font-bold mb-2">
               {isEn
                 ? "Request a QCG funding calculation for your team"
@@ -1958,6 +2155,30 @@ export function QcgPage() {
               </form>
             )}
           </div>
+
+          {/* H2: Qualifizierungschancengesetz FAQ */}
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+            {isEn ? "Qualifizierungschancengesetz FAQ" : "Häufige Fragen zum QCG"}
+          </h2>
+          <div className="max-w-4xl mx-auto space-y-3.5">
+            {qcgFaqs.map((f, idx) => (
+              <details
+                key={idx}
+                open={idx === 0}
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
+              >
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
+                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                    +
+                  </span>
+                </summary>
+                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                  {f.a}
+                </div>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
     </div>
@@ -1981,13 +2202,70 @@ export function CorporateTrainingPage() {
     ? "Upskill your engineering and data teams in Germany with AZAV-certified training in AI Engineering, Cloud/DevOps, Cyber Security, and Kubernetes — subsidized via QCG."
     : "Praxisnahe IT-Weiterbildungen für Unternehmen in KI, Cloud, Cyber Security und Softwareentwicklung — förderbar über das Qualifizierungschancengesetz (QCG).";
 
+  const corpFaqs = isEn
+    ? [
+        {
+          q: "Can corporate IT training be funded up to 100% via QCG?",
+          a: "Yes. Under the Qualifizierungschancengesetz (§ 82 SGB III), small companies receive up to 100% of course fees and 75% wage subsidies, while mid-sized companies receive up to 50% subsidies.",
+        },
+        {
+          q: "What cohort sizes and schedules are possible?",
+          a: "We offer dedicated corporate cohorts from 5 to 20 participants, as well as individual employee enrollment into ongoing live cohorts with full-time or part-time scheduling.",
+        },
+        {
+          q: "In which languages is corporate training delivered?",
+          a: "Live corporate bootcamps are delivered in English, German, or Turkish cohorts with native-speaking lead instructors.",
+        },
+      ]
+    : [
+        {
+          q: "Kann die betriebliche Weiterbildung zu 100 % über das QCG gefördert werden?",
+          a: "Ja. Nach dem Qualifizierungschancengesetz (§ 82 SGB III) erhalten kleinere Unternehmen bis zu 100 % der Lehrgangsgebühren und bis zu 75 % Arbeitsentgeltzuschuss für teilnehmende Mitarbeiter.",
+        },
+        {
+          q: "Welche Gruppengrößen und Trainingszeiten sind möglich?",
+          a: "Wir realisieren geschlossene Firmenkohorten ab 5 Mitarbeitenden sowie flexible Einzelplatzbelegungen in laufenden Live-Online-Gruppen in Vollzeit oder berufsbegleitend.",
+        },
+        {
+          q: "In welchen Unterrichtssprachen wird geschult?",
+          a: "Unsere Live-Online-Kurse werden flexibel in englisch-, deutsch- oder türkischsprachigen Kohorten von praxiserfahrenen Dozenten geleitet.",
+        },
+      ];
+
+  const corpSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `https://clarusway.de${currentPath}#webpage`,
+        url: `https://clarusway.de${currentPath}`,
+        name: metaTitle,
+        description: metaDescription,
+        inLanguage: lang,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `https://clarusway.de${currentPath}#faq`,
+        mainEntity: corpFaqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
-      <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
+      <SeoHead title={metaTitle} description={metaDescription} path={currentPath} schema={corpSchema} />
       <Breadcrumb
         items={[{ label: isEn ? "For Companies" : "Für Unternehmen" }]}
       />
 
+      {/* Hero Section */}
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
         className="py-14 border-b border-gray-100"
@@ -1997,7 +2275,11 @@ export function CorporateTrainingPage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
                 <BuildingIcon className="w-4 h-4" />
-                <span>{isEn ? "B2B Upskilling & Talent Hiring" : "B2B-Qualifizierung & IT-Talente"}</span>
+                <span>
+                  {isEn
+                    ? "Corporate IT Training & Workforce Upskilling"
+                    : "B2B IT-Weiterbildung & Mitarbeiterqualifizierung"}
+                </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
@@ -2006,25 +2288,23 @@ export function CorporateTrainingPage() {
               </h1>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
                 {isEn
-                  ? "Train your existing workforce in Agentic AI, AWS/Azure Cloud, Kubernetes CKAD, Cyber Security, or AI-Assisted Software Development — or hire job-ready English-speaking Clarusway graduates in Germany."
-                  : "Qualifizieren Sie Ihre bestehenden Teams in Agentic AI, AWS/Azure Cloud, Kubernetes CKAD, Cyber Security oder moderner Softwareentwicklung — oder gewinnen Sie praxiserprobte Clarusway-Absolventen für Ihre offenen IT-Vakanzen."}
+                  ? "Upskill your workforce with customized live online bootcamps in AI Engineering, Cloud Architecture, Cyber Defense, and Kubernetes. High government subsidies under the Qualifizierungschancengesetz (QCG § 82 SGB III) cover up to 100% of course costs."
+                  : "Befähigen Sie Ihre Teams mit maßgeschneiderten Live-Online-Weiterbildungen in AI Engineering, Cloud-Architektur, Cyber Defense und Kubernetes. Hohe staatliche Förderungen über das Qualifizierungschancengesetz (QCG § 82 SGB III) übernehmen bis zu 100 % der Weiterbildungskosten."}
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
-                  to="/qualifizierungschancengesetz/"
+                  to={consultPath}
                   style={{ backgroundColor: PRIMARY }}
                   className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
                 >
-                  <span>
-                    {isEn ? "Check QCG state subsidies" : "QCG-Förderung für Unternehmen prüfen"}
-                  </span>
+                  <span>{isEn ? "Book corporate consultation" : "Unternehmensberatung buchen"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
                 </Link>
                 <Link
-                  to={consultPath}
+                  to="/qualifizierungschancengesetz/"
                   className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
                 >
-                  <span>{isEn ? "Contact corporate team" : "Unternehmensberatung buchen"}</span>
+                  <span>{isEn ? "Check QCG Subsidies" : "QCG-Förderung prüfen"}</span>
                 </Link>
               </div>
             </div>
@@ -2034,7 +2314,7 @@ export function CorporateTrainingPage() {
                 <img
                   src={CORPORATE_TRAINING_IMAGES.landscapeHero.src}
                   alt={CORPORATE_TRAINING_IMAGES.landscapeHero.alt[lang]}
-                  className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] object-cover"
+                  className="w-full aspect-square object-cover"
                   loading="eager"
                 />
               </div>
@@ -2043,14 +2323,15 @@ export function CorporateTrainingPage() {
         </div>
       </section>
 
+      {/* H2: Programs for teams */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
             {isEn
-              ? "Popular corporate upskilling modules"
-              : "Gefragte Weiterbildungsmodule für Unternehmen"}
+              ? "Programs for teams"
+              : "Weiterbildungsprogramme für Teams"}
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
               {
                 title: isEn
@@ -2108,9 +2389,38 @@ export function CorporateTrainingPage() {
             ))}
           </div>
 
+          {/* H2: Funding for employers */}
+          <div className="bg-[#f6f7fb] rounded-3xl p-8 sm:p-10 border border-gray-200 mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-4">
+              {isEn
+                ? "Funding for employers"
+                : "Gefördert mit dem Qualifizierungschancengesetz"}
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6 max-w-3xl">
+              {isEn
+                ? "Under § 82 SGB III, the German Federal Employment Agency reimburses up to 100% of course tuition and provides up to 75% wage subsidies for participating staff. Clarusway provides turn-key documentation for your HR department."
+                : "Über das Qualifizierungschancengesetz (§ 82 SGB III) erstattet die Bundesagentur für Arbeit bis zu 100 % der Weiterbildungskosten und zahlt bis zu 75 % Lohnzuschuss für teilnehmende Mitarbeiter. Clarusway bereitet alle Antragsunterlagen schlüsselfertig für Ihre HR-Abteilung vor."}
+            </p>
+            <Link
+              to="/qualifizierungschancengesetz/"
+              style={{ backgroundColor: PRIMARY }}
+              className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-xl text-sm hover:opacity-95"
+            >
+              <span>{isEn ? "Learn more about QCG funding" : "Mehr zur QCG-Förderung erfahren"}</span>
+              <ArrowRightIcon className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {/* H2: How it works */}
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+            {isEn
+              ? "How it works"
+              : "Ablauf der Zusammenarbeit"}
+          </h2>
+
           {/* 4 Alternating B2B Training Blocks */}
-          <div className="mt-16 space-y-16">
-            {/* Block 1: Text Left, Square Image Right */}
+          <div className="space-y-16 mb-16">
+            {/* Block 1 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div
                 style={{ backgroundColor: SOFT_BG }}
@@ -2162,7 +2472,7 @@ export function CorporateTrainingPage() {
               </div>
             </div>
 
-            {/* Block 2: Square Image Left, Text Right (Alternating!) */}
+            {/* Block 2 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="flex justify-center order-2 lg:order-1">
                 <img
@@ -2214,7 +2524,7 @@ export function CorporateTrainingPage() {
               </div>
             </div>
 
-            {/* Block 3: Text Left, Square Image Right */}
+            {/* Block 3 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div
                 style={{ backgroundColor: SOFT_BG }}
@@ -2266,7 +2576,7 @@ export function CorporateTrainingPage() {
               </div>
             </div>
 
-            {/* Block 4: Square Image Left, Text Right (Alternating!) */}
+            {/* Block 4 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="flex justify-center order-2 lg:order-1">
                 <img
@@ -2328,14 +2638,59 @@ export function CorporateTrainingPage() {
             </div>
           </div>
 
+          {/* H2: References */}
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+            {isEn ? "References" : "Referenzen"}
+          </h2>
+          <div className="bg-[#f6f7fb] rounded-2xl p-7 sm:p-9 border border-gray-200 mb-16">
+            <div className="grid sm:grid-cols-3 gap-6 text-center">
+              <div>
+                <div className="text-3xl font-bold text-[#e51a59] mb-1">AWS Partner</div>
+                <div className="text-xs text-gray-600">{isEn ? "Select Tier Consulting Partner" : "Offizieller Consulting Partner"}</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#e51a59] mb-1">AZAV</div>
+                <div className="text-xs text-gray-600">{isEn ? "Staatlich geprüfte Qualität" : "Staatlich geprüfte Qualität"}</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#e51a59] mb-1">90%+</div>
+                <div className="text-xs text-gray-600">{isEn ? "Training Completion Rate" : "Erfolgreiche Abschlussquote"}</div>
+              </div>
+            </div>
+          </div>
+
           {/* Landscape Team Leader Banner */}
-          <div className="mt-16 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+          <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100 mb-16">
             <img
               src={CORPORATE_TRAINING_IMAGES.landscapeTeamLeader.src}
               alt={CORPORATE_TRAINING_IMAGES.landscapeTeamLeader.alt[lang]}
               className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
               loading="lazy"
             />
+          </div>
+
+          {/* H2: Corporate Training FAQ */}
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+            {isEn ? "Corporate Training FAQ" : "Häufige Fragen"}
+          </h2>
+          <div className="max-w-4xl mx-auto space-y-3.5">
+            {corpFaqs.map((f, idx) => (
+              <details
+                key={idx}
+                open={idx === 0}
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
+              >
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
+                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                    +
+                  </span>
+                </summary>
+                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                  {f.a}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>

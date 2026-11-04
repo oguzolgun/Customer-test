@@ -553,7 +553,7 @@ export const AVGS_IMAGES = {
     src: "/images/avgs/coach-reviewing-german-cv-with-client.webp",
     alt: {
       de: "Deutschen Lebenslauf und Anschreiben professionell optimieren",
-      en: "Optimizing German CV and portfolio for tech company standards",
+      en: "Optimizing career profile and portfolio for tech company standards",
     },
   },
   squareMockInterview: {

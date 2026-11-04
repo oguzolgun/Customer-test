@@ -153,9 +153,42 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         },
       ];
 
-  const officialCourseName =
-    data.eyebrow?.replace(/^Programm:\s*|^Program:\s*/i, "").trim() || data.h1;
+  const schemaOfficialMap: Record<string, { en: { name: string; alt: string; time: string }; de: { name: string; alt: string; time: string } }> = {
+    "ai-engineering": {
+      en: { name: "AI Engineering", alt: "AI Engineering Bootcamp", time: "P32W" },
+      de: { name: "AI Engineering", alt: "AI Engineer Weiterbildung", time: "P32W" },
+    },
+    "full-stack": {
+      en: { name: "AI-Assisted Full Stack Development", alt: "Full Stack Web Development Bootcamp", time: "P9M" },
+      de: { name: "AI-Assisted Full Stack Development", alt: "Full Stack Entwickler Weiterbildung", time: "P9M" },
+    },
+    "cyber-security": {
+      en: { name: "AI-Enhanced Cyber Security Analyst (SOC) & Cloud Security", alt: "Cyber Security Course", time: "P9M" },
+      de: { name: "AI-Enhanced Cyber Security Analyst (SOC) & Cloud Security", alt: "Cyber Security Weiterbildung", time: "P9M" },
+    },
+    "aws-devops": {
+      en: { name: "AI-Enhanced AWS Solutions Architect/DevOps Engineer", alt: "AWS Solutions Architect & DevOps Training", time: "P8M" },
+      de: { name: "AI-Enhanced AWS Solutions Architect/DevOps Engineer", alt: "AWS Solutions Architect & DevOps Weiterbildung", time: "P8M" },
+    },
+    "sdet": {
+      en: { name: "Software Development Engineer in Test (SDET)", alt: "SDET Course", time: "P6M" },
+      de: { name: "SDET", alt: "SDET Weiterbildung", time: "P6M" },
+    },
+    "kubernetes-ckad": {
+      en: { name: "Kubernetes CKAD", alt: "Kubernetes CKAD Certification Course", time: "P4W" },
+      de: { name: "Kubernetes CKAD", alt: "Kubernetes CKAD Zertifikat Kurs", time: "P4W" },
+    },
+    "it-orientation": {
+      en: { name: "IT Orientation Course", alt: "IT Orientation Course", time: "P4W" },
+      de: { name: "IT-Orientierungskurs", alt: "IT-Orientierungskurs mit AVGS", time: "P4W" },
+    },
+  };
+
+  const courseSchemaEntry = schemaOfficialMap[data.key]?.[lang];
+  const officialCourseName = courseSchemaEntry?.name || data.eyebrow?.replace(/^Programm:\s*|^Program:\s*/i, "").trim() || data.h1;
+  const officialAlternateName = courseSchemaEntry?.alt || data.breadcrumbLabel;
   const courseDurationIso =
+    courseSchemaEntry?.time ||
     parseIsoDuration(data.programs?.[0]?.duration) ||
     parseIsoDuration(data.infoStrip?.find(([k, v]) => v.toLowerCase().includes("dauer") || v.toLowerCase().includes("duration"))?.[0]);
 
@@ -204,7 +237,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         "@type": "Course",
         "@id": `${canonicalPageUrl}#course`,
         name: officialCourseName,
-        alternateName: data.breadcrumbLabel,
+        alternateName: officialAlternateName,
         description: data.heroIntro,
         url: canonicalPageUrl,
         inLanguage: ["en", "tr", "de"],
