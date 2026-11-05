@@ -395,12 +395,12 @@ function SidebarCard({
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-start gap-2">
-              <span className="font-bold text-sm text-gray-900 leading-snug flex-1">
+              <span className="font-semibold text-sm text-gray-900 leading-snug flex-1">
                 {program.title}
               </span>
               {program.recommended && (
                 <span
-                  className="text-[9px] font-bold px-2 py-0.5 rounded-full text-white flex-shrink-0 mt-0.5"
+                  className="text-[9px] font-semibold px-2 py-0.5 rounded-full text-white flex-shrink-0 mt-0.5"
                   style={{ background: PRIMARY }}
                 >
                   {lang === "de" ? "EMPFOHLEN" : "RECOMMENDED"}
@@ -512,7 +512,7 @@ export default function ProgramSelector({
       {/* Responsive Layout: Sidebar selector + All ProgramDetail blocks in initial HTML DOM (CSS hidden when inactive) */}
       <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 max-w-[1200px] mx-auto px-5 pb-12">
         <div className="flex flex-col gap-3">
-          <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-1 mb-0.5">
+          <div className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 px-1 mb-0.5">
             {lang === "de" ? "Verfügbare Kombinationen" : "Available tracks"}
           </div>
           {programs.map((p) => (
@@ -527,7 +527,7 @@ export default function ProgramSelector({
         </div>
 
         <div className="flex flex-col gap-1">
-          <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-1 mb-2">
+          <div className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 px-1 mb-2">
             {lang === "de" ? "Programmdetails & Termine" : "Program details & schedule"}
           </div>
           {/* B4 SEO Requirement: All programs rendered in initial HTML DOM; non-selected hidden via CSS */}

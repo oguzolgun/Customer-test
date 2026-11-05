@@ -244,7 +244,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             ===================================================================== */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDE8EF] border border-[#E51A59]/30 text-[#E51A59] text-xs font-bold tracking-wide uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDE8EF] border border-[#E51A59]/30 text-[#E51A59] text-xs font-semibold tracking-wide uppercase mb-3">
               <span className="w-2 h-2 rounded-full bg-[#E51A59] animate-pulse" />
               <span>
                 {isEn ? "AZAV-Certified IT Academy" : "AZAV-Zertifizierter Bildungsträger"}
@@ -265,7 +265,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               to={isEn ? "/it-courses/" : "/it-kurse/"}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm font-bold text-[#141B2D] hover:text-[#E51A59] hover:border-[#E51A59]/50 shadow-xs active:scale-[0.98] transition-all group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm font-semibold text-[#141B2D] hover:text-[#E51A59] hover:border-[#E51A59]/50 shadow-xs active:scale-[0.98] transition-all group"
             >
               <span>{isEn ? "Compare all IT courses" : "Alle IT-Kurse vergleichen"}</span>
               <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -282,7 +282,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
           <div className="bg-white rounded-2xl p-7 sm:p-9 border-2 border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(20,27,45,0.06)] flex flex-col justify-between hover:border-[#141B2D]/40 transition-all duration-300 group">
             <div>
               {/* Option 1 Badge (Dark Navy on White) */}
-              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[#141B2D] text-white text-xs font-bold uppercase tracking-wider mb-5 shadow-xs">
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[#141B2D] text-white text-xs font-semibold uppercase tracking-wider mb-5 shadow-xs">
                 {isEn ? "Option 1 · Career Track" : "Option 1 · IT-Weiterbildung"}
               </div>
 
@@ -338,7 +338,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
             <div className="relative z-10">
               {/* Option 2 Badge (White on Magenta - Exact Image 2 Style) */}
-              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-white text-[#E51A59] text-xs font-bold uppercase tracking-wider mb-5 shadow-xs">
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-white text-[#E51A59] text-xs font-semibold uppercase tracking-wider mb-5 shadow-xs">
                 {isEn ? "Option 2 · Free Orientation" : "Option 2 · IT-Orientierung"}
               </div>
 
@@ -395,7 +395,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
         <div id="career-tracks" className="pt-6 mb-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
-              <span className="text-xs font-bold text-[#E51A59] uppercase tracking-wider block mb-1">
+              <span className="text-xs font-semibold text-[#E51A59] uppercase tracking-wider block mb-1">
                 {isEn ? "Full & Modular Programs" : "Gesamt- & Modulprogramme"}
               </span>
               <h3 className="text-xl sm:text-2xl font-extrabold text-[#141B2D]">
@@ -403,7 +403,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
               </h3>
             </div>
 
-            {/* Filter Tabs (Strict Clarusway Brand Colors) */}
+            {/* Filter Tabs (Strict Clarusway Brand Colors - Soft Typography) */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
               {categories.map((cat) => {
                 const isActive = activeCategory === cat.id;
@@ -411,17 +411,17 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 shrink-0 cursor-pointer active:scale-[0.97] ${
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 shrink-0 cursor-pointer active:scale-[0.98] outline-none focus:outline-none ${
                       isActive
-                        ? "bg-[#141B2D] text-white shadow-sm ring-1 ring-[#141B2D]"
-                        : "bg-white text-slate-700 hover:text-[#141B2D] border border-slate-300 hover:border-slate-400"
+                        ? "bg-[#141B2D] text-white shadow-xs"
+                        : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 hover:border-slate-300 hover:bg-slate-50/70"
                     }`}
                     type="button"
                   >
                     <span>{cat.label}</span>
                     <span
-                      className={`text-[11px] font-bold px-1.5 py-0.2 rounded ${
-                        isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"
+                      className={`text-[11px] font-normal px-2 py-0.5 rounded-full ${
+                        isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-500"
                       }`}
                     >
                       {cat.count}
@@ -454,7 +454,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                         <CourseIcon type={course.iconType} color="#FFFFFF" />
                       </div>
 
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-white text-[#E51A59] shadow-xs">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white text-[#E51A59] shadow-xs">
                         <span className="relative flex h-2 w-2 mr-1.5">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E51A59] opacity-75" />
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E51A59]" />
@@ -467,7 +467,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
                     {/* Domain Badge (White Pill on Magenta) */}
                     <div className="mb-2.5">
-                      <span className="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/20 text-white border border-white/30">
+                      <span className="inline-block text-[11px] font-medium px-2.5 py-0.5 rounded-md bg-white/20 text-white border border-white/30">
                         {course.badge}
                       </span>
                     </div>
@@ -520,7 +520,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
                     <Link
                       to={course.to}
-                      className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white text-[#E51A59] text-xs font-bold hover:bg-slate-50 transition-all duration-200 shadow-sm group/btn active:scale-[0.98]"
+                      className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white text-[#E51A59] text-xs font-semibold hover:bg-slate-50 transition-all duration-200 shadow-sm group/btn active:scale-[0.98]"
                     >
                       <span>{course.linkText}</span>
                       <ArrowRightIcon className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
@@ -547,7 +547,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                     </div>
 
                     {/* Live Magenta Pulse Funding Badge (NO GREEN!) */}
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#FDE8EF] text-[#E51A59] border border-[#E51A59]/30 shadow-xs">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#FDE8EF] text-[#E51A59] border border-[#E51A59]/30 shadow-xs">
                       <span className="relative flex h-2 w-2 mr-1.5">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E51A59] opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E51A59]" />
@@ -560,7 +560,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
                   {/* Domain Badge */}
                   <div className="mb-2.5">
-                    <span className="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-[#141B2D] text-white">
+                    <span className="inline-block text-[11px] font-medium px-2.5 py-0.5 rounded-md bg-[#141B2D] text-white">
                       {course.badge}
                     </span>
                   </div>
@@ -613,7 +613,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
                   <Link
                     to={course.to}
-                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-[#141B2D] text-white text-xs font-bold hover:bg-[#E51A59] transition-all duration-200 shadow-sm group/btn active:scale-[0.98]"
+                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-[#141B2D] text-white text-xs font-semibold hover:bg-[#E51A59] transition-all duration-200 shadow-sm group/btn active:scale-[0.98]"
                   >
                     <span>{course.linkText}</span>
                     <ArrowRightIcon className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
