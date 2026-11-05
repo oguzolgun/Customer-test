@@ -392,7 +392,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             FILTER TABS & HEADING FOR THE DETAILED 6 BOOTCAMPS
             ===================================================================== */}
         <div id="career-tracks" className="pt-6 mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
             <div>
               <span className="text-xs font-semibold text-[#E51A59] uppercase tracking-wider block mb-1">
                 {isEn ? "Full & Modular Programs" : "Gesamt- & Modulprogramme"}
@@ -402,15 +402,15 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
               </h3>
             </div>
 
-            {/* Filter Tabs (Soft Typography + Frosted Glass Inactive State) */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+            {/* Filter Tabs (Soft Typography + Wrap without Horizontal Scroll) */}
+            <div className="flex flex-wrap items-center gap-2">
               {categories.map((cat) => {
                 const isActive = activeCategory === cat.id;
                 return (
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 shrink-0 cursor-pointer active:scale-[0.98] outline-none focus:outline-none ${
+                    className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 shrink-0 cursor-pointer active:scale-[0.98] outline-none focus:outline-none ${
                       isActive
                         ? "bg-[#141B2D] text-white shadow-xs"
                         : "bg-white/80 backdrop-blur-md text-slate-600 hover:text-slate-900 border border-slate-200/90 hover:border-slate-300 hover:bg-white"
