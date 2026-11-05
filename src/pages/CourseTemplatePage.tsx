@@ -644,63 +644,216 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </p>
           </div>
 
-          {data.modules.length > 0 && (
-            <div className="space-y-5 mb-12">
-              {data.modules.map((mod) => (
-                <div
-                  key={mod.id}
-                  className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm bg-white"
-                >
+          {/* 2-Column Layout: Modules Stacked Downwards (Left) & Download Syllabus (Right) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start mb-12">
+            {/* Left Column: Course Modules in Increasing Order */}
+            <div className="lg:col-span-7 xl:col-span-7 space-y-5">
+              {data.modules.length > 0 &&
+                data.modules.map((mod) => (
                   <div
-                    className="px-6 py-3.5 flex flex-wrap items-center justify-between gap-3"
-                    style={{ background: mod.color + "18", color: mod.color }}
+                    key={mod.id}
+                    className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm bg-white hover:border-gray-200 transition-all"
                   >
-                    <h3 className="font-bold text-sm sm:text-base" style={{ color: mod.color }}>
-                      {mod.title.startsWith("Modul") || mod.title.startsWith("Module")
-                        ? mod.title
-                        : `${mod.label} — ${mod.title}`}
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold">
-                      <span className="inline-flex items-center gap-1 bg-white/80 px-2.5 py-1 rounded-full">
-                        <ClockIcon className="w-3.5 h-3.5" />
-                        {mod.duration}
-                      </span>
-                      {mod.prerequisite && (
-                        <span className="hidden sm:inline-block bg-white/80 px-2.5 py-1 rounded-full text-gray-700 font-medium">
-                          {lang === "en" ? "Entry: " : "Einstieg: "}
-                          {mod.prerequisite}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="px-6 py-5 grid grid-cols-1 md:grid-cols-2 gap-y-2.5 gap-x-8 bg-white">
-                    {mod.topics.map((topic, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-sm text-gray-700">
+                    <div
+                      className="px-5 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3"
+                      style={{ background: mod.color + "14", color: mod.color }}
+                    >
+                      <div className="flex items-center gap-2.5">
                         <span
-                          className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                          className="w-2.5 h-2.5 rounded-full"
                           style={{ background: mod.color }}
                         />
-                        <span>{topic}</span>
+                        <h3 className="font-bold text-sm sm:text-base text-gray-900">
+                          {mod.title.startsWith("Modul") || mod.title.startsWith("Module")
+                            ? mod.title
+                            : `${mod.label} — ${mod.title}`}
+                        </h3>
                       </div>
-                    ))}
-                  </div>
-
-                  {mod.project && (
-                    <div
-                      style={{ background: SOFT_BG }}
-                      className="px-6 py-3 border-t border-gray-100 flex flex-wrap items-center gap-2 text-xs text-gray-600"
-                    >
-                      <span className="font-bold uppercase tracking-wider text-[#e51a59]">
-                        {lang === "en" ? "Capstone Project:" : "Praxisprojekt:"}
-                      </span>
-                      <span className="font-medium text-gray-800">{mod.project}</span>
+                      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                        <span className="inline-flex items-center gap-1 bg-white/90 px-2.5 py-1 rounded-full text-gray-700 shadow-xs border border-gray-100">
+                          <ClockIcon className="w-3.5 h-3.5 text-gray-500" />
+                          {mod.duration}
+                        </span>
+                        {mod.prerequisite && (
+                          <span className="hidden sm:inline-block bg-white/90 px-2.5 py-1 rounded-full text-gray-700 font-medium border border-gray-100">
+                            {lang === "en" ? "Entry: " : "Einstieg: "}
+                            {mod.prerequisite}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  )}
-                </div>
-              ))}
+
+                    <div className="px-5 sm:px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-6 bg-white">
+                      {mod.topics.map((topic, idx) => (
+                        <div key={idx} className="flex items-start gap-2.5 text-sm text-gray-700">
+                          <span
+                            className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                            style={{ background: mod.color }}
+                          />
+                          <span className="leading-snug">{topic}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {mod.project && (
+                      <div
+                        style={{ background: SOFT_BG }}
+                        className="px-5 sm:px-6 py-3 border-t border-gray-100 flex flex-wrap items-center gap-2 text-xs text-gray-600"
+                      >
+                        <span className="font-bold uppercase tracking-wider text-[#e51a59]">
+                          {lang === "en" ? "Capstone Project:" : "Praxisprojekt:"}
+                        </span>
+                        <span className="font-medium text-gray-800">{mod.project}</span>
+                      </div>
+                    )}
+                  </div>
+                ))}
             </div>
-          )}
+
+            {/* Right Column: Syllabus PDF Download Box (Sticky on Desktop) */}
+            <div className="lg:col-span-5 xl:col-span-5 lg:sticky lg:top-28">
+              <div
+                id="syllabus-download"
+                style={{ backgroundColor: DARK }}
+                className="rounded-2xl p-6 sm:p-7 text-white shadow-xl border border-white/10 scroll-mt-28"
+              >
+                <div className="inline-flex items-center gap-2 bg-white/10 text-xs font-semibold px-3 py-1 rounded-full mb-3 text-[#f472b6] border border-white/10">
+                  <DownloadIcon className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate max-w-[280px]">
+                    {lang === "en"
+                      ? `PDF Syllabus (${data.pdfFileName})`
+                      : `PDF-Lehrplan (${data.pdfFileName})`}
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 leading-snug">
+                  {lang === "en"
+                    ? "Download the complete weekly syllabus (PDF)"
+                    : "Vollständigen Lehrplan als PDF herunterladen"}
+                </h3>
+
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
+                  {lang === "en"
+                    ? "Get the detailed week-by-week breakdown, learning objectives, tools, and official AZAV Maßnahme details for your Agentur für Arbeit or Jobcenter advisor."
+                    : "Erhalte die detaillierte Wochenübersicht, Lernziele, Tools sowie alle relevanten AZAV-Maßnahmedaten für deine Vermittlungsfachkraft bei der Agentur für Arbeit oder dem Jobcenter."}
+                </p>
+
+                {/* Trust & Content Highlights */}
+                <div className="space-y-2 py-3 my-4 border-y border-white/10 text-xs text-gray-200">
+                  <div className="flex items-center gap-2">
+                    <CheckCircleIcon className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>
+                      {lang === "en"
+                        ? "Complete weekly schedule & capstone projects"
+                        : "Detaillierter Wochenplan & Praxisprojekte"}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircleIcon className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>
+                      {lang === "en"
+                        ? "Official AZAV measure number for 100% funding"
+                        : "Offizielle AZAV-Maßnahmenummer für 100% Förderung"}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircleIcon className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>
+                      {lang === "en"
+                        ? "Direct PDF download + email copy"
+                        : "Direkter PDF-Download + Kopie per E-Mail"}
+                    </span>
+                  </div>
+                </div>
+
+                {syllabusSubmitted ? (
+                  <div className="bg-white/10 border border-emerald-400/40 rounded-xl p-5 text-sm mt-3">
+                    <p className="font-bold text-emerald-300 mb-1 flex items-center gap-1.5">
+                      <CheckCircleIcon className="w-4 h-4" />
+                      <span>
+                        {lang === "en"
+                          ? "Your syllabus PDF is ready!"
+                          : "Dein Lehrplan-PDF steht bereit!"}
+                      </span>
+                    </p>
+                    <p className="text-gray-300 text-xs mb-4">
+                      {lang === "en"
+                        ? `File: ${data.pdfFileName} — a copy has also been prepared for ${syllabusEmail}.`
+                        : `Datei: ${data.pdfFileName} — eine Kopie wurde zudem für ${syllabusEmail} vorbereitet.`}
+                    </p>
+                    <Link
+                      to={consultPath}
+                      style={{ backgroundColor: PRIMARY }}
+                      className="w-full inline-flex items-center justify-center gap-2 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:opacity-90 transition-opacity"
+                    >
+                      <span>
+                        {lang === "en"
+                          ? "Request your official Bildungsgutschein offer"
+                          : "Jetzt offizielles Angebot für Bildungsgutschein anfordern"}
+                      </span>
+                      <ArrowRightIcon className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSyllabusSubmit} className="space-y-3 mt-3">
+                    <div>
+                      <label className="block text-[11px] font-medium text-gray-300 mb-1">
+                        {lang === "en" ? "Full name *" : "Vor- und Nachname *"}
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={syllabusName}
+                        onChange={(e) => setSyllabusName(e.target.value)}
+                        placeholder={lang === "en" ? "e.g. Alex Miller" : "z. B. Max Mustermann"}
+                        className="w-full bg-white/10 border border-white/20 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-[#e51a59] transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-medium text-gray-300 mb-1">
+                        {lang === "en" ? "Email address *" : "E-Mail-Adresse *"}
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={syllabusEmail}
+                        onChange={(e) => setSyllabusEmail(e.target.value)}
+                        placeholder={lang === "en" ? "alex@example.com" : "max@beispiel.de"}
+                        className="w-full bg-white/10 border border-white/20 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-[#e51a59] transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-medium text-gray-300 mb-1">
+                        {lang === "en" ? "Phone (optional)" : "Telefon (optional)"}
+                      </label>
+                      <input
+                        type="tel"
+                        value={syllabusPhone}
+                        onChange={(e) => setSyllabusPhone(e.target.value)}
+                        placeholder={lang === "en" ? "+49 170 1234567" : "+49 170 1234567"}
+                        className="w-full bg-white/10 border border-white/20 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-[#e51a59] transition-colors"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      style={{ backgroundColor: PRIMARY }}
+                      className="w-full inline-flex items-center justify-center gap-2 text-white font-bold px-5 py-3 rounded-xl text-sm hover:opacity-95 hover:shadow-lg hover:shadow-[#e51a59]/30 transition-all cursor-pointer mt-1"
+                    >
+                      <DownloadIcon className="w-4 h-4" />
+                      <span>
+                        {lang === "en" ? "Download syllabus (PDF)" : "Lehrplan herunterladen (PDF)"}
+                      </span>
+                    </button>
+                    <p className="text-[11px] text-gray-400 text-center pt-0.5">
+                      {lang === "en"
+                        ? "🔒 100% Free · No spam · Instant PDF download"
+                        : "🔒 100% Kostenlos · Kein Spam · Sofortiger PDF-Download"}
+                    </p>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
 
           {data.specialFeature && (
             <div
@@ -742,101 +895,6 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               )}
             </div>
           )}
-
-          {/* Component B6: Syllabus PDF Download Box */}
-          <div
-            id="syllabus-download"
-            style={{ backgroundColor: DARK }}
-            className="rounded-2xl p-7 sm:p-9 text-white shadow-xl"
-          >
-            <div className="grid lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-6">
-                <div className="inline-flex items-center gap-2 bg-white/10 text-xs font-semibold px-3 py-1 rounded-full mb-3 text-[#f472b6]">
-                  <DownloadIcon className="w-3.5 h-3.5" />
-                  <span>
-                    {lang === "en"
-                      ? `PDF Syllabus (${data.pdfFileName})`
-                      : `PDF-Lehrplan (${data.pdfFileName})`}
-                  </span>
-                </div>
-                <p className="text-xl sm:text-2xl font-bold mb-2">
-                  {lang === "en"
-                    ? "Download the complete weekly syllabus (PDF)"
-                    : "Vollständigen Lehrplan als PDF herunterladen"}
-                </p>
-                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                  {lang === "en"
-                    ? "Get the detailed week-by-week breakdown, learning objectives, tools, and official AZAV Maßnahme details for your Agentur für Arbeit or Jobcenter advisor."
-                    : "Erhalte die detaillierte Wochenübersicht, Lernziele, Tools sowie alle relevanten AZAV-Maßnahmedaten für deine Vermittlungsfachkraft bei der Agentur für Arbeit oder dem Jobcenter."}
-                </p>
-              </div>
-
-              <div className="lg:col-span-6">
-                {syllabusSubmitted ? (
-                  <div className="bg-white/10 border border-emerald-400/40 rounded-xl p-5 text-sm">
-                    <p className="font-bold text-emerald-300 mb-1">
-                      {lang === "en"
-                        ? "✓ Your syllabus PDF is ready!"
-                        : "✓ Dein Lehrplan-PDF steht bereit!"}
-                    </p>
-                    <p className="text-gray-300 text-xs mb-3">
-                      {lang === "en"
-                        ? `File: ${data.pdfFileName} — a copy has also been prepared for ${syllabusEmail}.`
-                        : `Datei: ${data.pdfFileName} — eine Kopie wurde zudem für ${syllabusEmail} vorbereitet.`}
-                    </p>
-                    <Link
-                      to={consultPath}
-                      style={{ backgroundColor: PRIMARY }}
-                      className="inline-flex items-center gap-2 text-white text-xs font-bold px-4 py-2.5 rounded-xl"
-                    >
-                      <span>
-                        {lang === "en"
-                          ? "Request your official Bildungsgutschein offer"
-                          : "Jetzt offizielles Angebot für Bildungsgutschein anfordern"}
-                      </span>
-                      <ArrowRightIcon className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSyllabusSubmit} className="grid sm:grid-cols-2 gap-3">
-                    <input
-                      type="text"
-                      required
-                      value={syllabusName}
-                      onChange={(e) => setSyllabusName(e.target.value)}
-                      placeholder={lang === "en" ? "Full name *" : "Vor- und Nachname *"}
-                      className="bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-[#e51a59]"
-                    />
-                    <input
-                      type="email"
-                      required
-                      value={syllabusEmail}
-                      onChange={(e) => setSyllabusEmail(e.target.value)}
-                      placeholder={lang === "en" ? "Email address *" : "E-Mail-Adresse *"}
-                      className="bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-[#e51a59]"
-                    />
-                    <input
-                      type="tel"
-                      value={syllabusPhone}
-                      onChange={(e) => setSyllabusPhone(e.target.value)}
-                      placeholder={lang === "en" ? "Phone (optional)" : "Telefon (optional)"}
-                      className="bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-[#e51a59]"
-                    />
-                    <button
-                      type="submit"
-                      style={{ backgroundColor: PRIMARY }}
-                      className="inline-flex items-center justify-center gap-2 text-white font-bold px-5 py-2.5 rounded-xl text-sm hover:opacity-90 transition-opacity cursor-pointer"
-                    >
-                      <DownloadIcon className="w-4 h-4" />
-                      <span>
-                        {lang === "en" ? "Download syllabus" : "Lehrplan herunterladen"}
-                      </span>
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
