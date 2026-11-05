@@ -27,11 +27,7 @@ interface CourseItem {
   to: string;
   tags: string[];
   iconType: "ai" | "code" | "shield" | "cloud" | "test" | "k8s";
-  isOppositeFeatured?: boolean;
 }
-
-const PRIMARY_MAGENTA = "#E51A59";
-const DARK_NAVY = "#141B2D";
 
 export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
   const [activeCategory, setActiveCategory] = useState<CourseCategory>("all");
@@ -65,7 +61,6 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
           to: "/it-courses/ai-engineering/",
           tags: ["Python & SQL", "Power BI", "PyTorch", "RAG & Agentic AI"],
           iconType: "ai",
-          isOppositeFeatured: true, // Opposite Magenta Card (Image 2 Option 2 style)
         },
         {
           id: "full-stack",
@@ -152,7 +147,6 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
           to: "/it-kurse/ai-engineer-weiterbildung/",
           tags: ["Python & SQL", "Power BI", "PyTorch", "RAG & Agentic AI"],
           iconType: "ai",
-          isOppositeFeatured: true, // Opposite Magenta Card (Image 2 Option 2 style)
         },
         {
           id: "full-stack",
@@ -244,7 +238,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             ===================================================================== */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDE8EF] border border-[#E51A59]/30 text-[#E51A59] text-xs font-semibold tracking-wide uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDE8EF]/80 backdrop-blur-xs border border-[#E51A59]/30 text-[#E51A59] text-xs font-semibold tracking-wide uppercase mb-3">
               <span className="w-2 h-2 rounded-full bg-[#E51A59] animate-pulse" />
               <span>
                 {isEn ? "AZAV-Certified IT Academy" : "AZAV-Zertifizierter Bildungsträger"}
@@ -265,7 +259,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               to={isEn ? "/it-courses/" : "/it-kurse/"}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm font-semibold text-[#141B2D] hover:text-[#E51A59] hover:border-[#E51A59]/50 shadow-xs active:scale-[0.98] transition-all group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-300 text-sm font-semibold text-[#141B2D] hover:text-[#E51A59] hover:border-[#E51A59]/50 shadow-xs active:scale-[0.98] transition-all group"
             >
               <span>{isEn ? "Compare all IT courses" : "Alle IT-Kurse vergleichen"}</span>
               <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -275,11 +269,11 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
         {/* =====================================================================
             OPPOSITE CARDS (IMAGE 2 ARCHITECTURE: OPTION 1 WHITE vs OPTION 2 MAGENTA)
-            High-impact two-path decision structure directly derived from user reference
+            High-impact two-path decision structure with Glassmorphism
             ===================================================================== */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-14">
           {/* OPTION 1: LIGHT / WHITE CARD */}
-          <div className="bg-white rounded-2xl p-7 sm:p-9 border-2 border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(20,27,45,0.06)] flex flex-col justify-between hover:border-[#141B2D]/40 transition-all duration-300 group">
+          <div className="bg-white/90 backdrop-blur-md rounded-2xl p-7 sm:p-9 border-2 border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(20,27,45,0.06)] flex flex-col justify-between hover:border-[#141B2D]/40 transition-all duration-300 group">
             <div>
               {/* Option 1 Badge (Dark Navy on White) */}
               <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[#141B2D] text-white text-xs font-semibold uppercase tracking-wider mb-5 shadow-xs">
@@ -299,19 +293,19 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
               </p>
 
               <div className="grid grid-cols-2 gap-3 mb-8 text-xs font-semibold text-slate-700">
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50/90 backdrop-blur-xs border border-slate-200/80">
                   <CheckCircleIcon className="w-4 h-4 text-[#E51A59] shrink-0" />
                   <span>{isEn ? "0 € Tuition (BGS)" : "0 € Kosten mit BGS"}</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50/90 backdrop-blur-xs border border-slate-200/80">
                   <CheckCircleIcon className="w-4 h-4 text-[#E51A59] shrink-0" />
                   <span>{isEn ? "Live online instruction" : "100 % Live-Online"}</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50/90 backdrop-blur-xs border border-slate-200/80">
                   <CheckCircleIcon className="w-4 h-4 text-[#E51A59] shrink-0" />
                   <span>{isEn ? "Max. 15 per class" : "Max. 15 pro Klasse"}</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50/90 backdrop-blur-xs border border-slate-200/80">
                   <CheckCircleIcon className="w-4 h-4 text-[#E51A59] shrink-0" />
                   <span>{isEn ? "DE · EN · TR Cohorts" : "DE · EN · TR Klassen"}</span>
                 </div>
@@ -321,24 +315,28 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             {/* Button Option 1: Outlined Button with Dark Navy Border (Exact Image 2 Style) */}
             <a
               href="#career-tracks"
-              className="w-full py-3.5 px-6 rounded-xl border-2 border-[#141B2D] text-[#141B2D] font-bold text-sm hover:bg-[#141B2D] hover:text-white transition-all duration-200 text-center flex items-center justify-center gap-2 shadow-xs active:scale-[0.98]"
+              className="w-full py-3.5 px-6 rounded-xl border-2 border-[#141B2D] text-[#141B2D] font-semibold text-sm hover:bg-[#141B2D] hover:text-white transition-all duration-200 text-center flex items-center justify-center gap-2 shadow-xs active:scale-[0.98]"
             >
               <span>{isEn ? "Explore 6 IT Career Tracks" : "Zu den 6 Fachbereichen"}</span>
               <ArrowRightIcon className="w-4 h-4" />
             </a>
           </div>
 
-          {/* OPTION 2: OPPOSITE / MAGENTA CARD */}
+          {/* OPTION 2: OPPOSITE / MAGENTA CARD (RICH GLASSMORPHISM) */}
           <div className="bg-[#E51A59] rounded-2xl p-7 sm:p-9 text-white shadow-[0_12px_32px_-6px_rgba(229,26,89,0.35)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
-            {/* Ambient inner soft glow */}
+            {/* Ambient frosted glass light sheen */}
             <div
-              className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-white/10 blur-2xl pointer-events-none"
+              className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-white/15 blur-2xl pointer-events-none"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/10 pointer-events-none"
               aria-hidden="true"
             />
 
             <div className="relative z-10">
-              {/* Option 2 Badge (White on Magenta - Exact Image 2 Style) */}
-              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-white text-[#E51A59] text-xs font-semibold uppercase tracking-wider mb-5 shadow-xs">
+              {/* Option 2 Badge (Frosted White on Magenta - Exact Image 2 Style) */}
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-[#E51A59] text-xs font-semibold uppercase tracking-wider mb-5 shadow-xs border border-white/40">
                 {isEn ? "Option 2 · Free Orientation" : "Option 2 · IT-Orientierung"}
               </div>
 
@@ -354,20 +352,21 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                   : "Noch nicht sicher, welcher Bereich zu dir passt? Erprobe KI & Data, Webentwicklung, Cyber Security und Cloud live und praxisnah ohne Risiko. Inklusive 1-zu-1 Mentoring – 100 % finanziert mit AVGS."}
               </p>
 
+              {/* 4 Frosted Glass Benefit Chips */}
               <div className="grid grid-cols-2 gap-3 mb-8 text-xs font-semibold text-white">
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/15 border border-white/20">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg backdrop-blur-md bg-white/15 border border-white/25 shadow-xs">
                   <CheckCircleIcon className="w-4 h-4 text-white shrink-0" />
                   <span>{isEn ? "0 € with AVGS Voucher" : "0 € Kosten mit AVGS"}</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/15 border border-white/20">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg backdrop-blur-md bg-white/15 border border-white/25 shadow-xs">
                   <CheckCircleIcon className="w-4 h-4 text-white shrink-0" />
                   <span>{isEn ? "No prior skills needed" : "Keine Vorkenntnisse"}</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/15 border border-white/20">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg backdrop-blur-md bg-white/15 border border-white/25 shadow-xs">
                   <CheckCircleIcon className="w-4 h-4 text-white shrink-0" />
                   <span>{isEn ? "4 IT Fields Hands-on" : "4 Fachbereiche live"}</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/15 border border-white/20">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg backdrop-blur-md bg-white/15 border border-white/25 shadow-xs">
                   <CheckCircleIcon className="w-4 h-4 text-white shrink-0" />
                   <span>{isEn ? "1-on-1 Mentoring" : "1-zu-1 Coaching"}</span>
                 </div>
@@ -377,7 +376,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             {/* Button Option 2: Solid White Button with Magenta Text (Exact Image 2 Style) */}
             <Link
               to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-              className="relative z-10 w-full py-3.5 px-6 rounded-xl bg-white text-[#E51A59] font-bold text-sm hover:bg-slate-50 transition-all duration-200 text-center flex items-center justify-center gap-2 shadow-md active:scale-[0.98]"
+              className="relative z-10 w-full py-3.5 px-6 rounded-xl bg-white text-[#E51A59] font-semibold text-sm hover:bg-slate-50 transition-all duration-200 text-center flex items-center justify-center gap-2 shadow-md active:scale-[0.98]"
             >
               <span>
                 {isEn
@@ -403,7 +402,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
               </h3>
             </div>
 
-            {/* Filter Tabs (Strict Clarusway Brand Colors - Soft Typography) */}
+            {/* Filter Tabs (Soft Typography + Frosted Glass Inactive State) */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
               {categories.map((cat) => {
                 const isActive = activeCategory === cat.id;
@@ -414,14 +413,16 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                     className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 shrink-0 cursor-pointer active:scale-[0.98] outline-none focus:outline-none ${
                       isActive
                         ? "bg-[#141B2D] text-white shadow-xs"
-                        : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 hover:border-slate-300 hover:bg-slate-50/70"
+                        : "bg-white/80 backdrop-blur-md text-slate-600 hover:text-slate-900 border border-slate-200/90 hover:border-slate-300 hover:bg-white"
                     }`}
                     type="button"
                   >
                     <span>{cat.label}</span>
                     <span
-                      className={`text-[11px] font-normal px-2 py-0.5 rounded-full ${
-                        isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-500"
+                      className={`text-[11px] font-normal px-2 py-0.5 rounded-full transition-colors ${
+                        isActive
+                          ? "bg-white/20 text-white"
+                          : "bg-slate-100/90 text-slate-500"
                       }`}
                     >
                       {cat.count}
@@ -434,194 +435,109 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
         </div>
 
         {/* =====================================================================
-            COURSE CARDS GRID (STRICT BRAND PALETTE: WHITE & MAGENTA OPPOSITE)
+            COURSE CARDS GRID: INTERACTIVE MAGENTA MORPHING ON HOVER + GLASS EFFECTS
+            When hovered: Card smoothly turns Magenta, Content becomes White,
+            and Milestone/Pills/Icons become rich frosted glass!
             ===================================================================== */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-          {displayedCourses.map((course) => {
-            const isFeatured = course.isOppositeFeatured && activeCategory === "all";
+          {displayedCourses.map((course) => (
+            <article
+              key={course.id}
+              className="group relative bg-white hover:bg-[#E51A59] rounded-2xl border border-slate-300/80 hover:border-transparent p-6 sm:p-7 flex flex-col justify-between shadow-[0_2px_12px_rgba(20,27,45,0.04)] hover:shadow-[0_20px_40px_-8px_rgba(229,26,89,0.38)] hover:-translate-y-2 transition-all duration-300 ease-out overflow-hidden"
+            >
+              {/* Top Magenta Accent Line (fades on hover as whole card blooms into magenta) */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-[#E51A59] group-hover:opacity-0 transition-opacity duration-300" />
 
-            // OPPOSITE FEATURED CARD (AI Engineering in Magenta / Image 2 style)
-            if (isFeatured) {
-              return (
-                <article
-                  key={course.id}
-                  className="group relative bg-[#E51A59] rounded-2xl p-6 sm:p-7 flex flex-col justify-between text-white shadow-xl shadow-rose-900/20 hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden"
-                >
-                  <div className="relative z-10">
-                    {/* Top Row: Icon + Funding Pill */}
-                    <div className="flex items-center justify-between gap-3 mb-4">
-                      <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 bg-white/20 border border-white/30 text-white shadow-xs">
-                        <CourseIcon type={course.iconType} color="#FFFFFF" />
-                      </div>
+              {/* Glass Frosted Sheen Overlay on Hover */}
+              <div
+                className="absolute inset-0 bg-gradient-to-br from-white/25 via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
+                aria-hidden="true"
+              />
 
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white text-[#E51A59] shadow-xs">
-                        <span className="relative flex h-2 w-2 mr-1.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E51A59] opacity-75" />
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E51A59]" />
-                        </span>
-                        <span>
-                          {isEn ? "100% Funded (BGS)" : "100 % Bildungsgutschein"}
-                        </span>
-                      </span>
-                    </div>
-
-                    {/* Domain Badge (White Pill on Magenta) */}
-                    <div className="mb-2.5">
-                      <span className="inline-block text-[11px] font-medium px-2.5 py-0.5 rounded-md bg-white/20 text-white border border-white/30">
-                        {course.badge}
-                      </span>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-white mb-2.5 leading-snug">
-                      <Link to={course.to} className="focus:outline-none hover:underline">
-                        {course.title}
-                      </Link>
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-white/90 text-xs sm:text-sm leading-relaxed mb-4 min-h-[40px]">
-                      {course.desc}
-                    </p>
-
-                    {/* Milestone Box (Glass on Magenta) */}
-                    <div className="mb-5 p-3 rounded-xl bg-white/15 border border-white/20 flex items-start gap-2.5 text-white">
-                      <SparklesIcon className="w-4 h-4 text-white shrink-0 mt-0.5" />
-                      <p className="text-xs font-semibold leading-tight">
-                        {course.milestone}
-                      </p>
-                    </div>
-
-                    {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-1.5 mb-6">
-                      {course.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="bg-white/20 text-white border border-white/30 text-[11px] font-medium px-2.5 py-0.5 rounded-md"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+              <div className="relative z-10">
+                {/* Top Row: Icon Box (Glass on hover) + Funding Badge (White pill on hover) */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  {/* Icon Box: Soft Rose in resting -> Frosted Glass in hover */}
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 bg-[#FDE8EF] border border-[#E51A59]/20 text-[#E51A59] shadow-xs transition-all duration-300 group-hover:bg-white/20 group-hover:border-white/30 group-hover:text-white group-hover:backdrop-blur-md group-hover:scale-105">
+                    <CourseIcon type={course.iconType} />
                   </div>
 
-                  {/* Card Footer: Metadata & Solid White Button */}
-                  <div className="pt-4 border-t border-white/20 flex flex-col gap-3 relative z-10">
-                    <div className="flex items-center justify-between text-xs text-white/80">
-                      <span className="inline-flex items-center gap-1.5 font-medium">
-                        <ClockIcon className="w-3.5 h-3.5 text-white" />
-                        <span>{course.duration}</span>
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 font-medium">
-                        <CalendarIcon className="w-3.5 h-3.5 text-white" />
-                        <span>{course.nextStart}</span>
-                      </span>
-                    </div>
-
-                    <Link
-                      to={course.to}
-                      className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white text-[#E51A59] text-xs font-semibold hover:bg-slate-50 transition-all duration-200 shadow-sm group/btn active:scale-[0.98]"
-                    >
-                      <span>{course.linkText}</span>
-                      <ArrowRightIcon className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </article>
-              );
-            }
-
-            // STANDARD WHITE CARDS (Strict Clarusway Brand Palette)
-            return (
-              <article
-                key={course.id}
-                className="group relative bg-white rounded-2xl border border-slate-300 p-6 sm:p-7 flex flex-col justify-between shadow-[0_2px_8px_rgba(20,27,45,0.04)] hover:shadow-[0_16px_30px_-6px_rgba(20,27,45,0.08)] hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden"
-              >
-                {/* Top Magenta Accent Line */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-[#E51A59]" />
-
-                <div>
-                  {/* Top Row: Icon + Funding Pill */}
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 bg-[#FDE8EF] border border-[#E51A59]/20 shadow-xs text-[#E51A59] transition-transform duration-300 group-hover:scale-105">
-                      <CourseIcon type={course.iconType} color={PRIMARY_MAGENTA} />
-                    </div>
-
-                    {/* Live Magenta Pulse Funding Badge (NO GREEN!) */}
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#FDE8EF] text-[#E51A59] border border-[#E51A59]/30 shadow-xs">
-                      <span className="relative flex h-2 w-2 mr-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E51A59] opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E51A59]" />
-                      </span>
-                      <span>
-                        {isEn ? "100% Funded (BGS)" : "100 % Bildungsgutschein"}
-                      </span>
+                  {/* Funding Badge: Soft Rose in resting -> Solid White pill in hover (Option 2 style) */}
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#FDE8EF] text-[#E51A59] border border-[#E51A59]/30 shadow-xs transition-all duration-300 group-hover:bg-white group-hover:text-[#E51A59] group-hover:border-transparent">
+                    <span className="relative flex h-2 w-2 mr-1.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E51A59] opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E51A59]" />
                     </span>
-                  </div>
-
-                  {/* Domain Badge */}
-                  <div className="mb-2.5">
-                    <span className="inline-block text-[11px] font-medium px-2.5 py-0.5 rounded-md bg-[#141B2D] text-white">
-                      {course.badge}
+                    <span>
+                      {isEn ? "100% Funded (BGS)" : "100 % Bildungsgutschein"}
                     </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-[#141B2D] mb-2.5 leading-snug group-hover:text-[#E51A59] transition-colors">
-                    <Link to={course.to} className="focus:outline-none">
-                      {course.title}
-                    </Link>
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 min-h-[40px]">
-                    {course.desc}
-                  </p>
-
-                  {/* Milestone Box */}
-                  <div className="mb-5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-2.5">
-                    <SparklesIcon className="w-4 h-4 text-[#E51A59] shrink-0 mt-0.5" />
-                    <p className="text-xs font-semibold text-slate-800 leading-tight">
-                      {course.milestone}
-                    </p>
-                  </div>
-
-                  {/* Technology Badges */}
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {course.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-white border border-slate-300 text-slate-700 text-[11px] font-medium px-2.5 py-0.5 rounded-md shadow-xs"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  </span>
                 </div>
 
-                {/* Card Footer: Metadata & Dark Navy Button */}
-                <div className="pt-4 border-t border-slate-200 flex flex-col gap-3">
-                  <div className="flex items-center justify-between text-xs text-slate-500 font-medium">
-                    <span className="inline-flex items-center gap-1.5">
-                      <ClockIcon className="w-3.5 h-3.5 text-slate-400" />
-                      <span>{course.duration}</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5">
-                      <CalendarIcon className="w-3.5 h-3.5 text-slate-400" />
-                      <span>{course.nextStart}</span>
-                    </span>
-                  </div>
+                {/* Domain Badge: Dark Navy in resting -> Frosted Glass Pill in hover */}
+                <div className="mb-2.5">
+                  <span className="inline-block text-[11px] font-medium px-2.5 py-0.5 rounded-md bg-[#141B2D] text-white transition-all duration-300 group-hover:bg-white/20 group-hover:text-white group-hover:border group-hover:border-white/30 group-hover:backdrop-blur-md">
+                    {course.badge}
+                  </span>
+                </div>
 
-                  <Link
-                    to={course.to}
-                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-[#141B2D] text-white text-xs font-semibold hover:bg-[#E51A59] transition-all duration-200 shadow-sm group/btn active:scale-[0.98]"
-                  >
-                    <span>{course.linkText}</span>
-                    <ArrowRightIcon className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                {/* Course Title: Dark Navy in resting -> Pure White in hover */}
+                <h3 className="text-xl font-bold text-[#141B2D] mb-2.5 leading-snug transition-colors duration-300 group-hover:text-white">
+                  <Link to={course.to} className="focus:outline-none hover:underline">
+                    {course.title}
                   </Link>
+                </h3>
+
+                {/* Description: Slate in resting -> Soft White in hover */}
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 min-h-[40px] transition-colors duration-300 group-hover:text-white/90">
+                  {course.desc}
+                </p>
+
+                {/* Milestone / Capstone Box: Slate in resting -> RICH FROSTED GLASS in hover */}
+                <div className="mb-5 p-3 rounded-xl bg-slate-50/90 border border-slate-200/80 text-slate-800 flex items-start gap-2.5 transition-all duration-300 group-hover:bg-white/15 group-hover:border-white/25 group-hover:text-white group-hover:backdrop-blur-md group-hover:shadow-xs">
+                  <SparklesIcon className="w-4 h-4 text-[#E51A59] shrink-0 mt-0.5 transition-colors duration-300 group-hover:text-white" />
+                  <p className="text-xs font-semibold leading-tight">
+                    {course.milestone}
+                  </p>
                 </div>
-              </article>
-            );
-          })}
+
+                {/* Technology Badges: White in resting -> FROSTED GLASS PILLS in hover */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {course.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-white/90 border border-slate-300/80 text-slate-700 text-[11px] font-medium px-2.5 py-0.5 rounded-md shadow-2xs transition-all duration-300 group-hover:bg-white/20 group-hover:border-white/30 group-hover:text-white group-hover:backdrop-blur-sm group-hover:shadow-none"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Card Footer: Metadata & Button (Morphs to Solid White Button on Hover) */}
+              <div className="pt-4 border-t border-slate-200 group-hover:border-white/20 flex flex-col gap-3 transition-colors duration-300 relative z-10">
+                <div className="flex items-center justify-between text-xs text-slate-500 font-medium transition-colors duration-300 group-hover:text-white/80">
+                  <span className="inline-flex items-center gap-1.5">
+                    <ClockIcon className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors duration-300" />
+                    <span>{course.duration}</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <CalendarIcon className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors duration-300" />
+                    <span>{course.nextStart}</span>
+                  </span>
+                </div>
+
+                {/* CTA Button: Dark Navy in resting -> Pure Solid White Button with Magenta Text on Hover (Option 2 style!) */}
+                <Link
+                  to={course.to}
+                  className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-[#141B2D] text-white text-xs font-semibold shadow-sm transition-all duration-300 group-hover:bg-white group-hover:text-[#E51A59] group-hover:shadow-md group/btn active:scale-[0.98]"
+                >
+                  <span>{course.linkText}</span>
+                  <ArrowRightIcon className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -629,14 +545,14 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 }
 
 // ============================================================================
-// HIGH-PRECISION DISCIPLINE ICONS
+// HIGH-PRECISION DISCIPLINE ICONS (INHERITS CURRENTCOLOR AUTOMATICALLY)
 // ============================================================================
 function CourseIcon({
   type,
-  color,
+  color = "currentColor",
 }: {
   type: "ai" | "code" | "shield" | "cloud" | "test" | "k8s";
-  color: string;
+  color?: string;
 }) {
   switch (type) {
     case "ai":
