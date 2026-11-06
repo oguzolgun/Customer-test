@@ -390,20 +390,22 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
         {/* =====================================================================
             FILTER TABS & HEADING FOR THE DETAILED 6 BOOTCAMPS
+            Stacked layout: Full-width heading on top (never breaks awkwardly),
+            followed by filter tabs directly beneath it.
             ===================================================================== */}
         <div id="career-tracks" className="pt-6 mb-8">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
+          <div className="flex flex-col gap-4 mb-6">
             <div>
               <span className="text-xs font-semibold text-[#E51A59] uppercase tracking-wider block mb-1">
                 {isEn ? "Full & Modular Programs" : "Gesamt- & Modulprogramme"}
               </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#141B2D]">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#141B2D]">
                 {isEn ? "Explore Specialized Bootcamps" : "Die 6 Weiterbildungsprogramme im Detail"}
               </h3>
             </div>
 
-            {/* Filter Tabs (Soft Typography + Wrap without Horizontal Scroll) */}
-            <div className="flex flex-wrap items-center gap-2">
+            {/* Filter Tabs (Placed directly below heading for full breathing room) */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
               {categories.map((cat) => {
                 const isActive = activeCategory === cat.id;
                 return (
