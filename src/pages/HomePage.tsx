@@ -22,6 +22,39 @@ const PRIMARY = "#E5254F";
 const DARK = "#141B2D";
 const SOFT_BG = "#f6f7fb";
 
+function AreaIcon({ type }: { type: string }) {
+  if (type === "ai") {
+    return (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    );
+  }
+  if (type === "dev") {
+    return (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+        <line x1="14" y1="4" x2="10" y2="20" />
+      </svg>
+    );
+  }
+  if (type === "sec") {
+    return (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M9 12l2 2 4-4" />
+      </svg>
+    );
+  }
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+    </svg>
+  );
+}
+
 // ============================================================================
 // HERO EXACT COPY CONSTANTS (Swappable EN & DE)
 // ============================================================================
@@ -79,24 +112,28 @@ export function HomePage() {
           desc: "Data analysis, machine learning models, and autonomous AI agents in Python and SQL.",
           to: "/it-courses/ai-engineering/",
           tag: "AI Engineering & Data",
+          iconType: "ai",
         },
         {
           title: "Software Development",
           desc: "Modern full-stack web applications with React, TypeScript, Node.js, and AI coding workflows.",
           to: "/it-courses/full-stack-developer/",
           tag: "Full Stack Development",
+          iconType: "dev",
         },
         {
           title: "IT Security",
           desc: "Defend networks, detect threats in the SOC, and prepare for CompTIA Security+ certification.",
           to: "/it-courses/cyber-security/",
           tag: "Cyber Security Analyst",
+          iconType: "sec",
         },
         {
           title: "Cloud and DevOps",
           desc: "Deploy scalable cloud architectures on AWS and Azure with Docker, Kubernetes, and CI/CD.",
           to: "/it-courses/devops-aws/",
           tag: "Cloud & DevOps Engineering",
+          iconType: "cloud",
         },
       ]
     : [
@@ -105,24 +142,28 @@ export function HomePage() {
           desc: "Datenanalyse, Machine-Learning-Modelle und autonome KI-Agenten mit Python und SQL.",
           to: "/it-kurse/ai-engineer-weiterbildung/",
           tag: "AI Engineering & Data",
+          iconType: "ai",
         },
         {
           title: "Softwareentwicklung",
           desc: "Moderne Full-Stack-Webanwendungen mit React, TypeScript, Node.js und KI-Workflows.",
           to: "/it-kurse/full-stack-entwickler-weiterbildung/",
           tag: "Full Stack Entwickler",
+          iconType: "dev",
         },
         {
           title: "IT-Sicherheit",
           desc: "Netzwerke schützen, Angriffe im SOC abwehren und Prüfungsvorbereitung auf CompTIA Security+.",
           to: "/it-kurse/cyber-security-weiterbildung/",
           tag: "Cyber Security Analyst",
+          iconType: "sec",
         },
         {
           title: "Cloud und DevOps",
           desc: "Cloud-Infrastrukturen auf AWS und Azure bereitstellen mit Docker, Kubernetes und CI/CD.",
           to: "/it-kurse/aws-devops-weiterbildung/",
           tag: "Cloud & DevOps Engineer",
+          iconType: "cloud",
         },
       ];
 
@@ -420,6 +461,7 @@ export function HomePage() {
 
       {/* =====================================================================
           B4: WELCHER IT-BEREICH PASST ZU DIR? (H2 per Page 21)
+          Interactive Tech Career Explorer Cards with Field Icons
           ===================================================================== */}
       <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -444,27 +486,38 @@ export function HomePage() {
             {itAreas.map((area, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 border border-gray-200/80 shadow-2xs hover:border-[#e51a59] transition-all flex flex-col justify-between"
+                className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
               >
+                {/* Top subtle hover accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8a1c4a] to-[#e51a59] opacity-0 group-hover:opacity-100 transition-opacity" />
+
                 <div>
-                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59] inline-block mb-3">
-                    {area.tag}
-                  </span>
-                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
-                    <Link to={area.to} className="hover:text-[#e51a59] transition-colors">
-                      {area.title}
-                    </Link>
+                  {/* Top Icon + Role Tag Header */}
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center transition-all duration-300 group-hover:bg-[#e51a59] group-hover:text-white group-hover:scale-105 shadow-2xs">
+                      <AreaIcon type={area.iconType} />
+                    </div>
+                    <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-full">
+                      {area.tag}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                    <Link to={area.to}>{area.title}</Link>
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
                     {area.desc}
                   </p>
                 </div>
+
                 <Link
                   to={area.to}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-100"
+                  className="inline-flex items-center justify-between w-full pt-3.5 border-t border-gray-100 text-xs font-semibold text-gray-700 group-hover:text-[#e51a59] transition-colors"
                 >
-                  <span>{area.title}</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                  <span>{isEn ? "Explore pathway" : "Bereich entdecken"}</span>
+                  <div className="w-6 h-6 rounded-full bg-gray-50 group-hover:bg-[#fde8ef] group-hover:text-[#e51a59] flex items-center justify-center transition-colors">
+                    <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </div>
                 </Link>
               </div>
             ))}
@@ -474,6 +527,7 @@ export function HomePage() {
 
       {/* =====================================================================
           B5: FÖRDERUNG MIT BILDUNGSGUTSCHEIN, AVGS ODER QCG (H2 per Page 22)
+          Official Statutory Voucher Passes
           ===================================================================== */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -497,11 +551,24 @@ export function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
-              <div>
-                <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] border border-[#e51a59]/20 px-3 py-1 rounded-full inline-block mb-3">
-                  100 % {isEn ? "Tuition Coverage" : "Kostenübernahme"}
+            {/* Card 1: Bildungsgutschein */}
+            <div className="bg-[#FCFBFA] rounded-2xl p-6 sm:p-7 border border-[#e51a59]/25 shadow-2xs hover:shadow-md hover:border-[#e51a59]/40 transition-all flex flex-col justify-between group relative overflow-hidden">
+              <div className="absolute top-0 right-0">
+                <span className="text-[9px] font-bold uppercase tracking-wider bg-[#e51a59] text-white px-3 py-1 rounded-bl-xl shadow-xs">
+                  {isEn ? "Most Popular" : "Häufigste Förderung"}
                 </span>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2 mb-3 pt-1">
+                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-white border border-gray-200 px-2.5 py-0.5 rounded-md">
+                    § 81 SGB III
+                  </span>
+                  <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] px-2.5 py-0.5 rounded-full">
+                    {isEn ? "100% Covered" : "100 % Kostenübernahme"}
+                  </span>
+                </div>
+
                 <h3 className="text-xl font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   <Link to="/bildungsgutschein/">
                     Bildungsgutschein
@@ -512,21 +579,38 @@ export function HomePage() {
                     ? "For jobseekers, unemployed residents, or people facing unemployment. Tuition is 100% covered by the Agentur für Arbeit or Jobcenter."
                     : "Für Arbeitsuchende, Arbeitslose und von Arbeitslosigkeit Bedrohte. 100 % Kostenübernahme durch Arbeitsagentur oder Jobcenter."}
                 </p>
+
+                {/* Voucher Highlight Box */}
+                <div className="my-4 py-2.5 px-3 bg-white rounded-xl border border-gray-200/80 flex items-center justify-between text-xs">
+                  <span className="text-gray-500">{isEn ? "Your Cost" : "Eigenanteil"}</span>
+                  <span className="font-bold text-[#e51a59] text-sm">0 € ({isEn ? "100% funded" : "100 % gefördert"})</span>
+                </div>
               </div>
-              <Link
-                to="/bildungsgutschein/"
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
-              >
-                <span>{isEn ? "Bildungsgutschein Guide" : "Bildungsgutschein beantragen"}</span>
-                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-              </Link>
+
+              <div>
+                <div className="border-t border-dashed border-gray-200 my-3" />
+                <Link
+                  to="/bildungsgutschein/"
+                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold transition-all inline-flex items-center justify-center gap-1.5 bg-[#fde8ef] text-[#e51a59] hover:bg-[#e51a59] hover:text-white"
+                >
+                  <span>{isEn ? "Bildungsgutschein Guide" : "Bildungsgutschein beantragen"}</span>
+                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
+            {/* Card 2: AVGS */}
+            <div className="bg-[#FCFBFA] rounded-2xl p-6 sm:p-7 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] border border-[#e51a59]/20 px-3 py-1 rounded-full inline-block mb-3">
-                  {isEn ? "Free Orientation" : "Kostenloses Coaching"}
-                </span>
+                <div className="flex items-center gap-2 mb-3 pt-1">
+                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-white border border-gray-200 px-2.5 py-0.5 rounded-md">
+                    § 45 SGB III
+                  </span>
+                  <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] px-2.5 py-0.5 rounded-full">
+                    {isEn ? "Free Coaching" : "Kostenloses Coaching"}
+                  </span>
+                </div>
+
                 <h3 className="text-xl font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   <Link to="/avgs/">
                     AVGS
@@ -537,21 +621,38 @@ export function HomePage() {
                     ? "The Activation and Placement Voucher (AVGS) funds the 4-week IT Orientation Course and 1-on-1 career coaching at 100% free of charge."
                     : "Der Aktivierungs- und Vermittlungsgutschein ermöglicht den 4-wöchigen IT-Orientierungskurs und individuelles Coaching zu 100 % kostenlos."}
                 </p>
+
+                {/* Voucher Highlight Box */}
+                <div className="my-4 py-2.5 px-3 bg-white rounded-xl border border-gray-200/80 flex items-center justify-between text-xs">
+                  <span className="text-gray-500">{isEn ? "Format" : "Format & Dauer"}</span>
+                  <span className="font-bold text-[#141b2d] text-sm">{isEn ? "4 Weeks · 100% Live" : "4 Wochen · 100 % Live"}</span>
+                </div>
               </div>
-              <Link
-                to="/avgs/"
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
-              >
-                <span>{isEn ? "AVGS Coaching Voucher" : "AVGS Gutschein nutzen"}</span>
-                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-              </Link>
+
+              <div>
+                <div className="border-t border-dashed border-gray-200 my-3" />
+                <Link
+                  to="/avgs/"
+                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold transition-all inline-flex items-center justify-center gap-1.5 bg-white border border-gray-200 hover:border-[#e51a59] text-gray-800 hover:text-[#e51a59]"
+                >
+                  <span>{isEn ? "AVGS Coaching Voucher" : "AVGS Gutschein nutzen"}</span>
+                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
+            {/* Card 3: QCG */}
+            <div className="bg-[#FCFBFA] rounded-2xl p-6 sm:p-7 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] border border-[#e51a59]/20 px-3 py-1 rounded-full inline-block mb-3">
-                  {isEn ? "For Employees & Employers" : "Für Beschäftigte & Arbeitgeber"}
-                </span>
+                <div className="flex items-center gap-2 mb-3 pt-1">
+                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-white border border-gray-200 px-2.5 py-0.5 rounded-md">
+                    § 82 SGB III
+                  </span>
+                  <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] px-2.5 py-0.5 rounded-full">
+                    {isEn ? "Up to 100% Grant" : "Bis zu 100 % Zuschuss"}
+                  </span>
+                </div>
+
                 <h3 className="text-xl font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   <Link to="/qualifizierungschancengesetz/">
                     Qualifizierungschancengesetz
@@ -562,14 +663,24 @@ export function HomePage() {
                     ? "Subsidized training costs (up to 100%) and wage supplements (up to 75%) for employees undergoing tech upskilling."
                     : "Bis zu 100 % Zuschuss zu den Lehrgangskosten und bis zu 75 % Arbeitsentgeltzuschuss für Mitarbeitende im digitalen Wandel."}
                 </p>
+
+                {/* Voucher Highlight Box */}
+                <div className="my-4 py-2.5 px-3 bg-white rounded-xl border border-gray-200/80 flex items-center justify-between text-xs">
+                  <span className="text-gray-500">{isEn ? "Wage Subsidy" : "Lohnzuschuss"}</span>
+                  <span className="font-bold text-[#141b2d] text-sm">{isEn ? "Up to 75% for employers" : "Bis zu 75 % für Arbeitgeber"}</span>
+                </div>
               </div>
-              <Link
-                to="/qualifizierungschancengesetz/"
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
-              >
-                <span>{isEn ? "QCG Employer Funding" : "QCG für Unternehmen"}</span>
-                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-              </Link>
+
+              <div>
+                <div className="border-t border-dashed border-gray-200 my-3" />
+                <Link
+                  to="/qualifizierungschancengesetz/"
+                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold transition-all inline-flex items-center justify-center gap-1.5 bg-white border border-gray-200 hover:border-[#e51a59] text-gray-800 hover:text-[#e51a59]"
+                >
+                  <span>{isEn ? "QCG Employer Funding" : "QCG für Unternehmen"}</span>
+                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -589,6 +700,7 @@ export function HomePage() {
 
       {/* =====================================================================
           B6: IN 3 SCHRITTEN ZUR IT WEITERBILDUNG (H2 per Page 22)
+          Connected Step-by-Step Roadmap / Process Stepper
           ===================================================================== */}
       <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -609,33 +721,62 @@ export function HomePage() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-6 mb-8">
-            {steps3.map((step) => (
-              <div
-                key={step.num}
-                className="bg-white rounded-2xl p-7 border border-gray-200/80 shadow-2xs relative"
-              >
-                <span
-                  style={{ color: PRIMARY }}
-                  className="text-xs font-extrabold uppercase tracking-wider bg-[#fde8ef] px-3 py-1 rounded-full inline-block mb-3"
+          <div className="relative mb-10">
+            {/* Desktop horizontal connecting timeline line */}
+            <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-gray-200 via-[#e51a59]/30 to-gray-200 z-0" />
+
+            <div className="grid md:grid-cols-3 gap-6 relative z-10">
+              {steps3.map((step, idx) => (
+                <div
+                  key={step.num}
+                  className="bg-white rounded-2xl p-7 border border-gray-200/80 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group relative overflow-hidden"
                 >
-                  {isEn ? `Step ${step.num}` : `Schritt ${step.num}`}
-                </span>
-                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">{step.title}</h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
+                  <div>
+                    {/* Step number node + step pill */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-11 h-11 rounded-2xl bg-[#141B2D] text-white flex items-center justify-center font-bold text-base shadow-sm group-hover:bg-[#e51a59] group-hover:scale-105 transition-all">
+                        {step.num}
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#e51a59] bg-[#fde8ef] px-3 py-1 rounded-full">
+                        {isEn ? `Step 0${idx + 1}` : `Schritt 0${idx + 1}`}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">{step.title}</h3>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                      {step.desc}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-gray-100 text-[11px] font-medium text-gray-500 flex items-center gap-1.5">
+                    <CheckCircleIcon className="w-3.5 h-3.5 text-[#e51a59] shrink-0" />
+                    <span>
+                      {idx === 0
+                        ? isEn ? "30 min consultation via Zoom" : "30 Min. Beratung via Zoom"
+                        : idx === 1
+                          ? isEn ? "Official offer ready in 24h" : "Maßnahmeangebot in 24 Std."
+                          : isEn ? "Live online cohort with instructor" : "Live-Unterricht mit Dozenten"}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="text-center">
             <Link
               to={consultPath}
               style={{ backgroundColor: PRIMARY }}
-              className="inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95"
+              className="inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95 transition-all active:scale-[0.99]"
             >
               <span>{isEn ? "Book free consultation now" : "Jetzt kostenlose Beratung buchen"}</span>
               <ArrowRightIcon className="w-4 h-4" />
             </Link>
+            <p className="text-xs text-gray-500 mt-2.5">
+              {isEn
+                ? "100% free & non-binding · Personal response within 24 hours"
+                : "100 % kostenlos & unverbindlich · Persönliche Rückmeldung in 24 Stunden"}
+            </p>
           </div>
         </div>
       </section>
