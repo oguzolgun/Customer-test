@@ -6,7 +6,6 @@ import {
   GlobeIcon,
   ShieldCheckIcon,
   ClockIcon,
-  SparklesIcon,
   BookOpenIcon,
   AwardIcon,
   CalendarIcon,
@@ -189,7 +188,7 @@ export function getIconForCourseInfoStrip(val: string, label: string): React.Com
     combined.includes("ki-") ||
     combined.includes("ai-")
   ) {
-    return SparklesIcon;
+    return AwardIcon;
   }
   if (
     combined.includes("online") ||

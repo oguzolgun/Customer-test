@@ -16,7 +16,6 @@ import {
   CalendarIcon,
   GlobeIcon,
   ExternalLinkIcon,
-  SparklesIcon,
 } from "../components/Icons";
 
 const PRIMARY = "#E5254F";

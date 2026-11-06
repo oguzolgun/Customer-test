@@ -10910,7 +10910,7 @@ function H2BorlabsCookieEntranceA11YHeadline() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="h2#BorlabsCookieEntranceA11YHeadline">
       <div className="[word-break:break-word] flex flex-col font-['Arial:Bold',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#555] text-[21px] whitespace-nowrap">
-        <p className="leading-[31.5px]">Wir verwenden Cookies 🍪</p>
+        <p className="leading-[31.5px]">Wir verwenden Cookies</p>
       </div>
     </div>
   );

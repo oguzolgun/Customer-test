@@ -258,14 +258,6 @@ export function StarIcon({ className = "w-4 h-4", style }: SvgIconProps) {
   );
 }
 
-export function SparklesIcon({ className = "w-4 h-4", style }: SvgIconProps) {
-  return (
-    <svg className={className} style={style} viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M10 2l1.8 4.2L16 8l-4.2 1.8L10 14l-1.8-4.2L4 8l4.2-1.8L10 2zM15.5 13l.8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8.8-1.7z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 export function CalendarIcon({ className = "w-4 h-4", style }: SvgIconProps) {
   return (
     <svg className={className} style={style} viewBox="0 0 18 18" fill="none" aria-hidden="true">
@@ -375,6 +367,15 @@ export function ChatBubbleIcon({ className = "w-5 h-5", style }: SvgIconProps) {
   return (
     <svg className={className} style={style} viewBox="0 0 20 20" fill="none" aria-hidden="true">
       <path d="M16 10c0 3.3-3.1 6-7 6a8.4 8.4 0 0 1-3.2-.6L2 16.5l1.3-3.3C2.5 12.1 2 11.1 2 10c0-3.3 3.1-6 7-6s7 2.7 7 6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function LockClosedIcon({ className = "w-3.5 h-3.5", style }: SvgIconProps) {
+  return (
+    <svg className={className} style={style} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <rect x="3" y="6.5" width="10" height="7.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M5.5 6.5V4.5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
     </svg>
   );
 }

@@ -11,7 +11,6 @@ import {
   ClockIcon,
   CalendarIcon,
   BookOpenIcon,
-  SparklesIcon,
 } from "../components/Icons";
 
 const PRIMARY = "#e51a59";

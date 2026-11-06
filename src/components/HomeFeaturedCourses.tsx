@@ -5,7 +5,7 @@ import {
   ClockIcon,
   CalendarIcon,
   CheckCircleIcon,
-  SparklesIcon,
+  AwardIcon,
 } from "./Icons";
 
 interface HomeFeaturedCoursesProps {
@@ -495,7 +495,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
                 {/* Milestone / Capstone Box: Slate in resting -> RICH FROSTED GLASS in hover */}
                 <div className="mb-5 p-3 rounded-xl bg-slate-50/90 border border-slate-200/80 text-slate-800 flex items-start gap-2.5 transition-all duration-300 group-hover:bg-white/15 group-hover:border-white/25 group-hover:text-white group-hover:backdrop-blur-md group-hover:shadow-xs">
-                  <SparklesIcon className="w-4 h-4 text-[#E51A59] shrink-0 mt-0.5 transition-colors duration-300 group-hover:text-white" />
+                  <AwardIcon className="w-4 h-4 text-[#E51A59] shrink-0 mt-0.5 transition-colors duration-300 group-hover:text-white" />
                   <p className="text-xs font-semibold leading-tight">
                     {course.milestone}
                   </p>

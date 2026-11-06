@@ -1,7 +1,19 @@
 import { useState } from "react";
 import ProgramSelector, { type CourseModule, type CourseProgram } from "@/components/ProgramSelector";
 import { TrustKeyFactsBar } from "@/components/TrustKeyFactsBar";
-import { StarIcon, ShieldCheckIcon, BookOpenIcon, UsersIcon, ClockIcon } from "@/components/Icons";
+import {
+  StarIcon,
+  ShieldCheckIcon,
+  BookOpenIcon,
+  UsersIcon,
+  ClockIcon,
+  CalendarIcon,
+  AwardIcon,
+  MapPinIcon,
+  MailIcon,
+  PhoneIcon,
+  GlobeIcon,
+} from "@/components/Icons";
 
 const PRIMARY = "#e51a59";
 const SECONDARY = "#8a1c4a";
@@ -456,26 +468,28 @@ function WiesoCloudDevOps() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           {[
             {
-              icon: "☁️",
+              icon: ShieldCheckIcon,
               title: "Markt & Nachfrage",
               text: "Über 1 Million offene Cloud-Stellen in Europa — DevOps-Engineers gehören zur Top-3 der gefragtesten IT-Berufe.",
             },
             {
-              icon: "💰",
+              icon: AwardIcon,
               title: "Gehalt",
               text: "Durchschnittsgehalt für AWS-zertifizierte Engineers: 95.000–130.000 € — einer der höchsten Gehaltskorridore in der IT.",
             },
             {
-              icon: "🌍",
+              icon: GlobeIcon,
               title: "Remote & Flexibilität",
               text: "Cloud-Kenntnisse ermöglichen vollständig remote zu arbeiten — standortunabhängig in ganz Europa und weltweit.",
             },
           ].map((c) => (
             <div
               key={c.title}
-              className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm"
+              className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm p-6 flex flex-col items-center text-center"
             >
-              <div className="py-6 text-center text-4xl">{c.icon}</div>
+              <div className="w-12 h-12 rounded-xl bg-[#FDE8EF] text-[#e51a59] flex items-center justify-center shrink-0 mb-4">
+                <c.icon className="w-6 h-6" />
+              </div>
               <div
                 className="font-bold text-center text-base pb-2"
                 style={{ color: DARK }}
@@ -533,7 +547,9 @@ function HastDuEineFrage() {
               Gespräch planen
             </a>
           </div>
-          <div className="text-6xl">🙋</div>
+          <div className="w-16 h-16 rounded-2xl bg-[#FDE8EF] text-[#e51a59] flex items-center justify-center shrink-0">
+            <UsersIcon className="w-8 h-8" />
+          </div>
         </div>
 
         <div className="rounded-2xl bg-white border border-gray-100 p-8 shadow-sm">
@@ -668,10 +684,19 @@ function WeitereKurse() {
               className="rounded-2xl bg-white border border-gray-100 p-5 shadow-sm flex flex-col gap-3"
             >
               <div className="font-bold text-base" style={{ color: DARK }}>{k.title}</div>
-              <div className="flex items-center gap-4 text-sm text-gray-500">
-                <span>📅 {k.date}</span>
-                <span>⏱ {k.duration}</span>
-                <span>🏛 Zertifikat</span>
+              <div className="flex items-center gap-4 text-xs text-gray-500">
+                <span className="inline-flex items-center gap-1.5">
+                  <CalendarIcon className="w-3.5 h-3.5 text-[#e51a59]" />
+                  {k.date}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <ClockIcon className="w-3.5 h-3.5 text-[#e51a59]" />
+                  {k.duration}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <AwardIcon className="w-3.5 h-3.5 text-[#e51a59]" />
+                  Zertifikat
+                </span>
               </div>
               <a
                 href="https://clarusway.de/application-form/"
@@ -732,13 +757,13 @@ function FAQ() {
           </p>
           <div className="space-y-2 text-sm text-gray-600 mb-6">
             <div className="flex items-center gap-2">
-              <span style={{ color: PRIMARY }}>📍</span> Bataver Str. 84, 41462 Neuss
+              <MapPinIcon className="w-4 h-4 text-[#e51a59] shrink-0" /> Bataver Str. 84, 41462 Neuss
             </div>
             <div className="flex items-center gap-2">
-              <span style={{ color: PRIMARY }}>✉️</span> kontakt@clarusway.de
+              <MailIcon className="w-4 h-4 text-[#e51a59] shrink-0" /> kontakt@clarusway.de
             </div>
             <div className="flex items-center gap-2">
-              <span style={{ color: PRIMARY }}>📞</span> +49 5331 9549998
+              <PhoneIcon className="w-4 h-4 text-[#e51a59] shrink-0" /> +49 5331 9549998
             </div>
           </div>
           <a

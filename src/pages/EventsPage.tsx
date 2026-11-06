@@ -1,5 +1,15 @@
 import { TrustKeyFactsBar } from "../components/TrustKeyFactsBar";
-import { CheckCircleIcon, VideoCameraIcon, GlobeIcon, SparklesIcon } from "../components/Icons";
+import {
+  CheckCircleIcon,
+  VideoCameraIcon,
+  GlobeIcon,
+  CalendarIcon,
+  ClockIcon,
+  MapPinIcon,
+  BookOpenIcon,
+  AwardIcon,
+  UsersIcon,
+} from "../components/Icons";
 
 const PRIMARY = "#e51a59";
 const SECONDARY = "#8a1c4a";
@@ -187,17 +197,19 @@ function EventCard({ ev }: { ev: ClarusEvent }) {
         </h3>
 
         {/* Meta */}
-        <div className="flex flex-col gap-1">
-          {[
-            { icon: "📅", text: ev.date },
-            { icon: "🕐", text: ev.time },
-            { icon: "📍", text: ev.location },
-          ].map((m) => (
-            <div key={m.icon} className="flex items-center gap-2 text-xs text-gray-500">
-              <span>{m.icon}</span>
-              <span>{m.text}</span>
-            </div>
-          ))}
+        <div className="flex flex-col gap-1.5">
+          <div className="flex items-center gap-2 text-xs text-gray-500">
+            <CalendarIcon className="w-3.5 h-3.5 text-[#e51a59] shrink-0" />
+            <span>{ev.date}</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs text-gray-500">
+            <ClockIcon className="w-3.5 h-3.5 text-[#e51a59] shrink-0" />
+            <span>{ev.time}</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs text-gray-500">
+            <MapPinIcon className="w-3.5 h-3.5 text-[#e51a59] shrink-0" />
+            <span>{ev.location}</span>
+          </div>
         </div>
 
         {/* Description */}
@@ -307,7 +319,7 @@ export default function EventsPage() {
             subtitle: "Zweisprachige Termine & Unterlagen",
           },
           {
-            icon: SparklesIcon,
+            icon: BookOpenIcon,
             title: "Online & Interaktiv",
             subtitle: "Bequem von überall live teilnehmen",
           },
@@ -323,22 +335,22 @@ export default function EventsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               {
-                icon: "🎙",
+                icon: VideoCameraIcon,
                 title: "Webinare",
                 desc: "Kostenlose Online-Sessions zu Cloud, DevOps, Data Science & Webentwicklung — mit Live-Q&A.",
               },
               {
-                icon: "🛠",
+                icon: BookOpenIcon,
                 title: "Workshops",
                 desc: "Hands-on Workshops, bei denen du direkt Tools wie Kubernetes, Python oder React ausprobierst.",
               },
               {
-                icon: "🎓",
+                icon: AwardIcon,
                 title: "Demo Days",
                 desc: "Unsere Absolventen präsentieren echte Projekte vor Hiring-Managern aus der IT-Industrie.",
               },
               {
-                icon: "🤝",
+                icon: UsersIcon,
                 title: "Karriere-Events",
                 desc: "IT-Jobmessen und Networking-Events mit Partnern, die aktiv nach Clarusway-Absolventen suchen.",
               },
@@ -347,7 +359,9 @@ export default function EventsPage() {
                 key={c.title}
                 className="rounded-2xl border border-gray-100 p-5 flex flex-col gap-2 shadow-sm"
               >
-                <div className="text-3xl">{c.icon}</div>
+                <div className="w-10 h-10 rounded-xl bg-[#FDE8EF] text-[#e51a59] flex items-center justify-center shrink-0 mb-1">
+                  <c.icon className="w-5 h-5" />
+                </div>
                 <div className="font-bold text-sm" style={{ color: DARK }}>
                   {c.title}
                 </div>

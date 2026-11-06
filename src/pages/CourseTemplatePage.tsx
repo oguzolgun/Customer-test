@@ -17,11 +17,12 @@ import {
   BriefcaseIcon,
   BookOpenIcon,
   StarIcon,
-  SparklesIcon,
+  AwardIcon,
   CalendarIcon,
   ClockIcon,
   GlobeIcon,
   ExternalLinkIcon,
+  LockClosedIcon,
 } from "../components/Icons";
 
 const PRIMARY = "#e51a59";
@@ -584,7 +585,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               <div className="max-w-[1200px] mx-auto px-5">
                 <div className="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm">
                   <div className="flex items-center gap-2 text-xs font-bold text-[#e51a59] uppercase tracking-wider mb-2">
-                    <SparklesIcon className="w-4 h-4" />
+                    <AwardIcon className="w-4 h-4" />
                     <span>
                       {lang === "en"
                         ? "Modular Direct Entry (Technical Assessment)"
@@ -836,10 +837,13 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                         {lang === "en" ? "Download syllabus (PDF)" : "Lehrplan herunterladen (PDF)"}
                       </span>
                     </button>
-                    <p className="text-[11px] text-gray-400 text-center pt-0.5">
-                      {lang === "en"
-                        ? "🔒 100% Free · No spam · Instant PDF download"
-                        : "🔒 100% Kostenlos · Kein Spam · Sofortiger PDF-Download"}
+                    <p className="text-[11px] text-gray-400 text-center pt-0.5 flex items-center justify-center gap-1.5">
+                      <LockClosedIcon className="w-3 h-3 text-gray-400 shrink-0" />
+                      <span>
+                        {lang === "en"
+                          ? "100% Free · No spam · Instant PDF download"
+                          : "100% Kostenlos · Kein Spam · Sofortiger PDF-Download"}
+                      </span>
                     </p>
                   </form>
                 )}
