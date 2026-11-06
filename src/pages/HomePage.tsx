@@ -497,13 +497,13 @@ export function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full inline-block mb-3">
+                <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] border border-[#e51a59]/20 px-3 py-1 rounded-full inline-block mb-3">
                   100 % {isEn ? "Tuition Coverage" : "Kostenübernahme"}
                 </span>
-                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2">
-                  <Link to="/bildungsgutschein/" className="hover:text-[#e51a59]">
+                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                  <Link to="/bildungsgutschein/">
                     Bildungsgutschein
                   </Link>
                 </h3>
@@ -515,20 +515,20 @@ export function HomePage() {
               </div>
               <Link
                 to="/bildungsgutschein/"
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1 pt-3 border-t border-gray-100"
+                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
               >
                 <span>{isEn ? "Bildungsgutschein Guide" : "Bildungsgutschein beantragen"}</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-bold text-[#e51a59] bg-[#fde8ef] px-2.5 py-1 rounded-full inline-block mb-3">
+                <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] border border-[#e51a59]/20 px-3 py-1 rounded-full inline-block mb-3">
                   {isEn ? "Free Orientation" : "Kostenloses Coaching"}
                 </span>
-                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2">
-                  <Link to="/avgs/" className="hover:text-[#e51a59]">
+                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                  <Link to="/avgs/">
                     AVGS
                   </Link>
                 </h3>
@@ -540,20 +540,20 @@ export function HomePage() {
               </div>
               <Link
                 to="/avgs/"
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1 pt-3 border-t border-gray-100"
+                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
               >
                 <span>{isEn ? "AVGS Coaching Voucher" : "AVGS Gutschein nutzen"}</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-full inline-block mb-3">
+                <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] border border-[#e51a59]/20 px-3 py-1 rounded-full inline-block mb-3">
                   {isEn ? "For Employees & Employers" : "Für Beschäftigte & Arbeitgeber"}
                 </span>
-                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2">
-                  <Link to="/qualifizierungschancengesetz/" className="hover:text-[#e51a59]">
+                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                  <Link to="/qualifizierungschancengesetz/">
                     Qualifizierungschancengesetz
                   </Link>
                 </h3>
@@ -565,10 +565,10 @@ export function HomePage() {
               </div>
               <Link
                 to="/qualifizierungschancengesetz/"
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1 pt-3 border-t border-gray-100"
+                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
               >
                 <span>{isEn ? "QCG Employer Funding" : "QCG für Unternehmen"}</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>

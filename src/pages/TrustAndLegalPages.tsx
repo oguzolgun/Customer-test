@@ -851,7 +851,7 @@ export function EventsPage() {
                     <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59]">
                       {ev.tag}
                     </span>
-                    <span className="text-xs font-semibold text-emerald-700">
+                    <span className="text-xs font-medium text-gray-600">
                       {isEn ? "Free · Online" : "Kostenlos · Online"}
                     </span>
                   </div>
@@ -894,7 +894,7 @@ export function EventsPage() {
               </p>
               <p className="text-lg font-bold mb-4">{selectedEvent}</p>
               {regSuccess ? (
-                <p className="text-emerald-300 text-sm font-semibold">
+                <p className="text-pink-200 text-sm font-semibold">
                   {isEn
                     ? "✓ You are registered! Check your email for the Zoom link."
                     : "✓ Du bist angemeldet! Der Zugangslink wurde an deine E-Mail gesendet."}
@@ -1118,7 +1118,7 @@ export function ConsultationPage() {
               <div className="bg-white rounded-3xl p-7 sm:p-9 border border-gray-200 shadow-xl">
                 {submitted ? (
                   <div className="text-center py-6">
-                    <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4">
+                    <div className="w-12 h-12 rounded-full bg-[#fde8ef] text-[#e51a59] flex items-center justify-center mx-auto mb-4">
                       <CheckCircleIcon className="w-6 h-6" />
                     </div>
                     <h2 className="text-2xl font-bold text-[#1a1d2e] mb-2">

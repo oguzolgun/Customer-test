@@ -547,7 +547,7 @@ export function CoursesHubPage() {
                     <td className="py-4 px-5 text-gray-700 whitespace-nowrap">{row.modules}</td>
                     <td className="py-4 px-5 text-gray-700">{row.cert}</td>
                     <td className="py-4 px-5 font-semibold text-[#1a1d2e] whitespace-nowrap">{row.start}</td>
-                    <td className="py-4 px-5 font-medium text-emerald-700 whitespace-nowrap">{row.funding}</td>
+                    <td className="py-4 px-5 font-semibold text-gray-900 whitespace-nowrap">{row.funding}</td>
                   </tr>
                 ))}
               </tbody>
@@ -664,12 +664,12 @@ export function CoursesHubPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3 inline-block">
+                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                   {isEn ? "Complete Beginner" : "Quereinstieg"}
                 </span>
-                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   {isEn ? "Without prior knowledge" : "Ohne Vorkenntnisse"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -680,19 +680,19 @@ export function CoursesHubPage() {
               </div>
               <Link
                 to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1 pt-3 border-t border-gray-100"
+                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
               >
                 <span>{isEn ? "IT Orientation Course" : "Zum IT-Orientierungskurs"}</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 mb-3 inline-block">
+                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                   {isEn ? "Experienced Professionals" : "Fachkräfte"}
                 </span>
-                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   {isEn ? "With IT experience" : "Mit IT-Erfahrung"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -703,19 +703,19 @@ export function CoursesHubPage() {
               </div>
               <Link
                 to={isEn ? "/it-courses/kubernetes-ckad-certification-course/" : "/it-kurse/kubernetes-ckad-zertifikat-kurs/"}
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1 pt-3 border-t border-gray-100"
+                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
               >
                 <span>{isEn ? "Kubernetes CKAD Course" : "Zum Kubernetes CKAD Kurs"}</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 mb-3 inline-block">
+                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                   {isEn ? "Corporate Upskilling" : "Unternehmen"}
                 </span>
-                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   {isEn ? "For employers" : "Als Arbeitgeber"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -726,10 +726,10 @@ export function CoursesHubPage() {
               </div>
               <Link
                 to="/qualifizierungschancengesetz/"
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1 pt-3 border-t border-gray-100"
+                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
               >
                 <span>{isEn ? "QCG for Employers" : "Qualifizierungschancengesetz"}</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>

@@ -153,7 +153,7 @@ export function FinancingHubPage() {
                       ? "Unemployed or job-seeking residents registered in Germany"
                       : "Arbeitsuchende & von Arbeitslosigkeit Bedrohte"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-emerald-700">100 %</td>
+                  <td className="py-4 px-5 font-bold text-[#e51a59]">100 %</td>
                   <td className="py-4 px-5">
                     {isEn ? "All main IT bootcamps & modules" : "Alle IT-Weiterbildungen & Module"}
                   </td>
@@ -169,7 +169,7 @@ export function FinancingHubPage() {
                       ? "Undecided job seekers needing IT career orientation"
                       : "Unentschlossene Arbeitsuchende vor der Kurswahl"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-emerald-700">100 %</td>
+                  <td className="py-4 px-5 font-bold text-[#e51a59]">100 %</td>
                   <td className="py-4 px-5">
                     <Link
                       to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
@@ -188,7 +188,7 @@ export function FinancingHubPage() {
                   <td className="py-4 px-5">
                     {isEn ? "Employed professionals & companies" : "Beschäftigte & Unternehmen"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-emerald-700">
+                  <td className="py-4 px-5 font-bold text-[#e51a59]">
                     {isEn ? "Up to 100% tuition + 75% wage" : "Bis zu 100 % Kurs + 75 % Lohn"}
                   </td>
                   <td className="py-4 px-5">
@@ -1399,7 +1399,7 @@ export function AvgsPage() {
                 </tr>
                 <tr>
                   <th className="py-3.5 px-5 font-semibold">{isEn ? "Can both be combined?" : "Kombinierbar?"}</th>
-                  <td colSpan={2} className="py-3.5 px-5 font-medium text-emerald-700">
+                  <td colSpan={2} className="py-3.5 px-5 font-semibold text-[#8a1c4a]">
                     {isEn
                       ? "Yes — you can first discover your IT path with an AVGS and then fund the main bootcamp with a Bildungsgutschein."
                       : "Ja — erst mit AVGS orientieren und danach nahtlos mit Bildungsgutschein die Hauptweiterbildung starten."}
@@ -1934,22 +1934,22 @@ export function QcgPage() {
                   <td className="py-4 px-5 font-semibold">
                     {isEn ? "Under 50 employees (Small)" : "Unter 50 Mitarbeitende (Kleinunternehmen)"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-emerald-700">100 %</td>
-                  <td className="py-4 px-5 font-bold text-emerald-700">75 %</td>
+                  <td className="py-4 px-5 font-bold text-[#e51a59]">100 %</td>
+                  <td className="py-4 px-5 font-bold text-[#e51a59]">75 %</td>
                 </tr>
                 <tr className="bg-[#f6f7fb]">
                   <td className="py-4 px-5 font-semibold">
                     {isEn ? "50 to 499 employees (Medium)" : "50 bis 499 Mitarbeitende (Mittelstand)"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-emerald-700">50 %</td>
-                  <td className="py-4 px-5 font-bold text-emerald-700">50 %</td>
+                  <td className="py-4 px-5 font-bold text-[#e51a59]">50 %</td>
+                  <td className="py-4 px-5 font-bold text-[#e51a59]">50 %</td>
                 </tr>
                 <tr>
                   <td className="py-4 px-5 font-semibold">
                     {isEn ? "500+ employees (Large)" : "Ab 500 Mitarbeitende (Großunternehmen)"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-emerald-700">25 %</td>
-                  <td className="py-4 px-5 font-bold text-emerald-700">25 %</td>
+                  <td className="py-4 px-5 font-bold text-[#e51a59]">25 %</td>
+                  <td className="py-4 px-5 font-bold text-[#e51a59]">25 %</td>
                 </tr>
               </tbody>
             </table>
@@ -2115,7 +2115,7 @@ export function QcgPage() {
             </p>
 
             {submitted ? (
-              <div className="bg-white/10 border border-emerald-400/40 rounded-xl p-5 text-sm text-emerald-300 font-semibold">
+              <div className="bg-white/10 border border-[#e51a59]/40 rounded-xl p-5 text-sm text-[#fde8ef] font-semibold">
                 {isEn
                   ? "✓ Thank you! A Clarusway corporate QCG advisor will contact you within 24 hours."
                   : "✓ Vielen Dank! Unser QCG-Unternehmensberater meldet sich innerhalb von 24 Stunden bei Ihnen."}

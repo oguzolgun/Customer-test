@@ -413,7 +413,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       <div className="text-gray-400 mb-0.5">
                         {lang === "en" ? "Voucher Coverage" : "Bildungsgutschein"}
                       </div>
-                      <div className="text-emerald-400 font-bold">100% (0 €)</div>
+                      <div className="text-[#fde8ef] font-bold">100% (0 €)</div>
                     </div>
                   </div>
                 </div>
@@ -734,7 +734,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 {/* Trust & Content Highlights */}
                 <div className="space-y-2 py-3 my-4 border-y border-white/10 text-xs text-gray-200">
                   <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0" />
                     <span>
                       {lang === "en"
                         ? "Complete weekly schedule & capstone projects"
@@ -742,7 +742,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0" />
                     <span>
                       {lang === "en"
                         ? "Official AZAV measure number for 100% funding"
@@ -750,7 +750,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0" />
                     <span>
                       {lang === "en"
                         ? "Direct PDF download + email copy"
@@ -760,9 +760,9 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 </div>
 
                 {syllabusSubmitted ? (
-                  <div className="bg-white/10 border border-emerald-400/40 rounded-xl p-5 text-sm mt-3">
-                    <p className="font-bold text-emerald-300 mb-1 flex items-center gap-1.5">
-                      <CheckCircleIcon className="w-4 h-4" />
+                  <div className="bg-white/10 border border-[#e51a59]/40 rounded-xl p-5 text-sm mt-3">
+                    <p className="font-bold text-pink-200 mb-1 flex items-center gap-1.5">
+                      <CheckCircleIcon className="w-4 h-4 text-[#e51a59]" />
                       <span>
                         {lang === "en"
                           ? "Your syllabus PDF is ready!"
@@ -947,7 +947,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
 
               <div className="bg-white rounded-2xl p-6 border border-[#F3D3DC] shadow-sm flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 mb-3 inline-block">
+                  <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                     {lang === "en" ? "Upgrade Path" : "Nahtloser Upgrade-Pfad"}
                   </span>
                   <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
