@@ -109,10 +109,12 @@ function ProgramDetail({
   program,
   modules,
   onOpenPdfModal,
+  isMobileInline = false,
 }: {
   program: CourseProgram;
   modules: CourseModule[];
   onOpenPdfModal?: (programTitle: string, pdfName: string) => void;
+  isMobileInline?: boolean;
 }) {
   const { lang } = useLanguage();
   const consultPath = lang === "de" ? "/beratung/" : "/application-form/";
@@ -121,7 +123,7 @@ function ProgramDetail({
     `clarusway-${program.id.toLowerCase()}-${lang === "de" ? "lehrplan" : "curriculum"}.pdf`;
 
   return (
-    <div className="flex flex-col gap-4" id={program.anchorId}>
+    <div className="flex flex-col gap-4" id={isMobileInline ? undefined : program.anchorId}>
       {/* Gradient header — contains the single H3 for this program variant */}
       <div
         className="rounded-2xl p-5 relative overflow-hidden"
@@ -325,7 +327,9 @@ function ProgramDetail({
               if (onOpenPdfModal) {
                 onOpenPdfModal(program.title, pdfFileName);
               } else {
-                const el = document.getElementById("curriculum-download");
+                const el =
+                  document.getElementById("syllabus-download") ||
+                  document.getElementById("curriculum-download");
                 el?.scrollIntoView({ behavior: "smooth" });
               }
             }}
@@ -419,19 +423,48 @@ function SidebarCard({
                 />
               ))}
             </div>
-            <div className="flex items-center gap-2 mt-2">
-              <span className="text-xs font-semibold" style={{ color: SECONDARY }}>
-                {program.duration}
-              </span>
-              {program.startsAt !== modules[0]?.id && (
-                <span
-                  className="text-[9px] px-2 py-0.5 rounded-full font-bold"
-                  style={{ background: `${SECONDARY}15`, color: SECONDARY }}
-                >
-                  {lang === "de" ? "ab " : "from "}
-                  {modules.find((m) => m.id === program.startsAt)?.label ?? "Module 2"}
+            <div className="flex items-center justify-between gap-2 mt-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold" style={{ color: SECONDARY }}>
+                  {program.duration}
                 </span>
-              )}
+                {program.startsAt !== modules[0]?.id && (
+                  <span
+                    className="text-[9px] px-2 py-0.5 rounded-full font-bold"
+                    style={{ background: `${SECONDARY}15`, color: SECONDARY }}
+                  >
+                    {lang === "de" ? "ab " : "from "}
+                    {modules.find((m) => m.id === program.startsAt)?.label ?? "Module 2"}
+                  </span>
+                )}
+              </div>
+
+              {/* Mobile-only in-place expand indicator */}
+              <div className="lg:hidden inline-flex items-center gap-1 text-[11px] font-semibold text-[#e51a59]">
+                <span>
+                  {selected
+                    ? lang === "de"
+                      ? "Schließen"
+                      : "Collapse"
+                    : lang === "de"
+                      ? "Details anzeigen"
+                      : "View details"}
+                </span>
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    selected ? "rotate-180" : "rotate-0"
+                  }`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -464,7 +497,14 @@ export default function ProgramSelector({
   // Always guarantee the first program is active if selectedId is not in the current programs list
   const activeId = programs.some((p) => p.id === selectedId)
     ? selectedId
-    : programs[0]?.id ?? "";
+    : selectedId === ""
+      ? ""
+      : programs[0]?.id ?? "";
+
+  const desktopActiveId =
+    programs.some((p) => p.id === activeId && activeId !== "")
+      ? activeId
+      : programs[0]?.id ?? "";
 
   // Support legacy anchor links (#cs-for-beginner, #aws-eng-for-pro, #ds-for-pro, etc.)
   // and reset to first program when switching between course pages
@@ -509,18 +549,58 @@ export default function ProgramSelector({
         </p>
       </div>
 
-      {/* Responsive Layout: Sidebar selector + All ProgramDetail blocks in initial HTML DOM (CSS hidden when inactive) */}
-      <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 max-w-[1200px] mx-auto px-5 pb-12">
+      {/* =====================================================================
+          MOBILE LAYOUT (< lg): INLINE ACCORDION
+          When tapped, program details expand IMMEDIATELY beneath the card.
+          No scrolling down required!
+          ===================================================================== */}
+      <div className="flex flex-col gap-3 lg:hidden max-w-[1200px] mx-auto px-5 pb-12">
+        <div className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 px-1 mb-0.5">
+          {lang === "de"
+            ? "Verfügbare Kombinationen (Tippen zum Öffnen)"
+            : "Available tracks (Tap to view details)"}
+        </div>
+        {programs.map((p) => {
+          const isSelected = activeId === p.id;
+          return (
+            <div key={`mobile-group-${p.id}`} className="flex flex-col">
+              <SidebarCard
+                program={p}
+                modules={modules}
+                selected={isSelected}
+                onSelect={() => {
+                  setSelectedId(isSelected ? "" : p.id);
+                }}
+              />
+              {isSelected && (
+                <div className="mt-3 mb-2">
+                  <ProgramDetail
+                    program={p}
+                    modules={modules}
+                    onOpenPdfModal={onOpenPdfModal}
+                    isMobileInline
+                  />
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* =====================================================================
+          DESKTOP LAYOUT (>= lg): 2-COLUMN SIDEBAR + DETAIL VIEW
+          ===================================================================== */}
+      <div className="hidden lg:grid lg:grid-cols-[340px_1fr] gap-6 max-w-[1200px] mx-auto px-5 pb-12">
         <div className="flex flex-col gap-3">
           <div className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 px-1 mb-0.5">
             {lang === "de" ? "Verfügbare Kombinationen" : "Available tracks"}
           </div>
           {programs.map((p) => (
             <SidebarCard
-              key={p.id}
+              key={`desktop-card-${p.id}`}
               program={p}
               modules={modules}
-              selected={activeId === p.id}
+              selected={desktopActiveId === p.id}
               onSelect={() => setSelectedId(p.id)}
             />
           ))}
@@ -533,9 +613,9 @@ export default function ProgramSelector({
           {/* B4 SEO Requirement: All programs rendered in initial HTML DOM; non-selected hidden via CSS */}
           {programs.map((p) => (
             <div
-              key={p.id}
-              className={activeId === p.id ? "block" : "hidden"}
-              aria-hidden={activeId !== p.id}
+              key={`desktop-detail-${p.id}`}
+              className={desktopActiveId === p.id ? "block" : "hidden"}
+              aria-hidden={desktopActiveId !== p.id}
             >
               <ProgramDetail
                 program={p}
