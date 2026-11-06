@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ProgramSelector, { type CourseModule, type CourseProgram } from "@/components/ProgramSelector";
+import { TrustKeyFactsBar } from "@/components/TrustKeyFactsBar";
+import { StarIcon, ShieldCheckIcon, BookOpenIcon, UsersIcon, CheckCircleIcon } from "@/components/Icons";
 
 const PRIMARY = "#e51a59";
 const SECONDARY = "#8a1c4a";
@@ -298,53 +300,36 @@ function Hero() {
 // ── 2. Stats bar ───────────────────────────────────────────────────────────
 
 function StatsBar() {
-  const stats = [
-    ["4,9 / 5", "aus 381 Bewertungen"],
-    ["AZAV", "zertifiziert seit 2021"],
-    ["5 Programme", "3 bis 12 Monate"],
-    ["Max. 15", "Teilnehmende pro Klasse"],
-    ["100 %", "Förderung möglich"],
-  ];
-
   return (
-    <section
-      className="relative py-8 sm:py-10 border-t border-b border-white/10"
-      style={{
-        background:
-          "radial-gradient(100% 120% at 50% 0%, rgba(229, 26, 89, 0.16) 0%, rgba(229, 26, 89, 0.04) 50%, transparent 80%), #0c0a14",
-      }}
-    >
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8 gap-x-6 lg:gap-x-0 items-stretch">
-          {stats.map(([v, l], i) => (
-            <div
-              key={v}
-              className={`flex flex-col justify-between ${
-                i > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""
-              } ${i < stats.length - 1 ? "lg:pr-8" : ""}`}
-            >
-              <div>
-                <div className="min-h-[36px] sm:min-h-[44px] flex items-end">
-                  <span
-                    className={`${
-                      v.length > 12 ? "text-lg sm:text-2xl" : "text-3xl sm:text-4xl"
-                    } font-extrabold text-white tracking-tight leading-none`}
-                  >
-                    {v}
-                  </span>
-                </div>
-                {/* Pink Accent Line under the Value */}
-                <div className="w-7 h-[2.5px] bg-[#e51a59] rounded-full mt-2.5 mb-2.5" />
-                {/* Stat Description */}
-                <p className="text-xs sm:text-sm text-gray-400 font-normal leading-snug max-w-[200px]">
-                  {l}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <TrustKeyFactsBar
+      items={[
+        {
+          icon: StarIcon,
+          title: "4,9 / 5 Sterne",
+          subtitle: "Aus über 380 Absolventen-Bewertungen",
+        },
+        {
+          icon: ShieldCheckIcon,
+          title: "AZAV-Zertifiziert",
+          subtitle: "Staatlich anerkannt seit 2021",
+        },
+        {
+          icon: BookOpenIcon,
+          title: "5 Spezialisierungen",
+          subtitle: "3 bis 12 Monate modular kombinierbar",
+        },
+        {
+          icon: UsersIcon,
+          title: "Max. 15 Teilnehmende",
+          subtitle: "Kleine Live-Klassen mit Dozenten",
+        },
+        {
+          icon: CheckCircleIcon,
+          title: "100 % Gefördert",
+          subtitle: "0 € Kosten mit Bildungsgutschein",
+        },
+      ]}
+    />
   );
 }
 

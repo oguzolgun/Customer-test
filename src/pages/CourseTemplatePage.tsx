@@ -8,6 +8,7 @@ import { ModularPathHeroVisual } from "../components/ModularPathHeroVisual";
 import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { ProgramSelector } from "../components/ProgramSelector";
+import { TrustKeyFactsBar, getIconForCourseInfoStrip } from "../components/TrustKeyFactsBar";
 import {
   CheckCircleIcon,
   ArrowRightIcon,
@@ -422,48 +423,39 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       </section>
 
       {/* =====================================================================
-          2. STATS BAR / BILGI ŞERİDİ (Component B2)
+          2. STATS BAR / BILGI ŞERİDİ (Component B2 - Refined Editorial Style)
           ===================================================================== */}
-      <section
-        className="relative py-8 sm:py-10 border-t border-b border-white/10"
-        style={{
-          background:
-            "radial-gradient(100% 120% at 50% 0%, rgba(229, 26, 89, 0.16) 0%, rgba(229, 26, 89, 0.04) 50%, transparent 80%), #0c0a14",
-        }}
-      >
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
-          <div
-            className={`grid grid-cols-2 md:grid-cols-3 ${
-              data.infoStrip.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-5"
-            } gap-y-8 gap-x-6 lg:gap-x-0 items-stretch`}
-          >
-            {data.infoStrip.map(([val, label], idx) => (
-              <div
-                key={idx}
-                className={`flex flex-col justify-between ${
-                  idx > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""
-                } ${idx < data.infoStrip.length - 1 ? "lg:pr-8" : ""}`}
-              >
-                <div>
-                  <div className="min-h-[36px] sm:min-h-[44px] flex items-end">
-                    <span
-                      className={`${
-                        val.length > 12 ? "text-lg sm:text-2xl" : "text-3xl sm:text-4xl"
-                      } font-extrabold text-white tracking-tight leading-none`}
-                    >
-                      {val}
-                    </span>
-                  </div>
-                  <div className="w-7 h-[2.5px] bg-[#e51a59] rounded-full mt-2.5 mb-2.5" />
-                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-snug max-w-[200px]">
-                    {label}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TrustKeyFactsBar
+        items={data.infoStrip.map(([val, label]) => {
+          let title = val;
+          let subtitle = label;
+          if (val.includes("Englisch") || val.includes("English")) {
+            title = lang === "en" ? "3 Cohort Languages" : "3 Unterrichtssprachen";
+            subtitle =
+              lang === "en"
+                ? "German, English & Turkish (Live)"
+                : "Deutsch, Englisch & Türkisch (Live)";
+          } else if (val === "AZAV") {
+            title = "AZAV-Zertifiziert";
+            subtitle = label.includes("Bildungsgutschein")
+              ? lang === "en"
+                ? "100% funded with Bildungsgutschein"
+                : "100 % Förderung mit Bildungsgutschein"
+              : label;
+          } else if (val.toLowerCase().startsWith("max. 15")) {
+            title = lang === "en" ? "Max. 15 Students" : "Max. 15 Teilnehmende";
+            subtitle =
+              lang === "en"
+                ? "Small cohorts with 1-on-1 mentoring"
+                : "Kleine interaktive Live-Klasse";
+          }
+          return {
+            icon: getIconForCourseInfoStrip(val, label),
+            title,
+            subtitle,
+          };
+        })}
+      />
 
       {/* =====================================================================
           3. KİME UYGUN / TARGET AUDIENCE (Component B3) — H2: audienceH2

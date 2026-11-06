@@ -4,6 +4,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
 import { ClaruswayHeroShowpiece } from "../components/ClaruswayHeroShowpiece";
 import { HomeFeaturedCourses } from "../components/HomeFeaturedCourses";
+import { TrustKeyFactsBar } from "../components/TrustKeyFactsBar";
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -408,50 +409,9 @@ export function HomePage() {
       })()}
 
       {/* =====================================================================
-          B2: BILGI ŞERİDİ (Key Facts Trust Strip)
+          B2: BILGI ŞERİDİ (Key Facts Trust Strip - Refined Editorial Style)
           ===================================================================== */}
-      <section
-        className="relative py-8 sm:py-10 border-t border-b border-white/10"
-        style={{
-          background:
-            "radial-gradient(100% 120% at 50% 0%, rgba(229, 26, 89, 0.16) 0%, rgba(229, 26, 89, 0.04) 50%, transparent 80%), #0c0a14",
-        }}
-      >
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8 gap-x-6 lg:gap-x-0 items-stretch">
-            {[
-              ["0 €", isEn ? "Tuition with Bildungsgutschein" : "Kosten mit Bildungsgutschein"],
-              ["100 %", isEn ? "Live online with instructors" : "Live-Unterricht mit Dozenten"],
-              ["Max. 15", isEn ? "Students per Live Cohort" : "Teilnehmende pro Live-Klasse"],
-              [isEn ? "English / Turkish / German" : "Deutsch, Englisch & Türkisch", isEn ? "Cohort Languages" : "Unterrichtssprachen"],
-              ["AZAV", isEn ? "Certified Quality Standard" : "Zertifizierter Bildungsträger"],
-            ].map(([val, label], i) => (
-              <div
-                key={i}
-                className={`flex flex-col justify-between ${
-                  i > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""
-                } ${i < 4 ? "lg:pr-8" : ""}`}
-              >
-                <div>
-                  <div className="min-h-[36px] sm:min-h-[44px] flex items-end">
-                    <span
-                      className={`${
-                        val.length > 12 ? "text-lg sm:text-2xl" : "text-3xl sm:text-4xl"
-                      } font-extrabold text-white tracking-tight leading-none`}
-                    >
-                      {val}
-                    </span>
-                  </div>
-                  <div className="w-7 h-[2.5px] bg-[#e51a59] rounded-full mt-2.5 mb-2.5" />
-                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-snug max-w-[200px]">
-                    {label}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TrustKeyFactsBar isEn={isEn} />
 
       {/* =====================================================================
           B3: GEFÖRDERTE WEITERBILDUNGSPROGRAMME (H2 per Page 21)

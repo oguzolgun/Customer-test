@@ -344,3 +344,37 @@ export function MailIcon({ className = "w-4 h-4", style }: SvgIconProps) {
     </svg>
   );
 }
+
+export function UsersIcon({ className = "w-5 h-5", style }: SvgIconProps) {
+  return (
+    <svg className={className} style={style} viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M14 16.5v-1a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v1M8.5 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 16.5v-1a3 3 0 0 0-2.2-2.9M13 3.1a3 3 0 0 1 0 5.8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function VideoCameraIcon({ className = "w-5 h-5", style }: SvgIconProps) {
+  return (
+    <svg className={className} style={style} viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <rect x="2.5" y="4.5" width="10.5" height="11" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M13 8l4.5-3v10L13 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="6.5" cy="8.5" r="1.2" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function AcademicCapIcon({ className = "w-5 h-5", style }: SvgIconProps) {
+  return (
+    <svg className={className} style={style} viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M10 2.5L2 6.5l8 4 8-4-8-4zM4.5 8.5v4.5c0 2 2.5 3.5 5.5 3.5s5.5-1.5 5.5-3.5V8.5M18 7.5v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function ChatBubbleIcon({ className = "w-5 h-5", style }: SvgIconProps) {
+  return (
+    <svg className={className} style={style} viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M16 10c0 3.3-3.1 6-7 6a8.4 8.4 0 0 1-3.2-.6L2 16.5l1.3-3.3C2.5 12.1 2 11.1 2 10c0-3.3 3.1-6 7-6s7 2.7 7 6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
