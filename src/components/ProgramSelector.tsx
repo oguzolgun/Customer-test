@@ -110,11 +110,13 @@ function ProgramDetail({
   modules,
   onOpenPdfModal,
   isMobileInline = false,
+  onCloseMobile,
 }: {
   program: CourseProgram;
   modules: CourseModule[];
   onOpenPdfModal?: (programTitle: string, pdfName: string) => void;
   isMobileInline?: boolean;
+  onCloseMobile?: () => void;
 }) {
   const { lang } = useLanguage();
   const consultPath = lang === "de" ? "/beratung/" : "/application-form/";
@@ -124,9 +126,9 @@ function ProgramDetail({
 
   return (
     <div className="flex flex-col gap-4" id={isMobileInline ? undefined : program.anchorId}>
-      {/* Gradient header — contains the single H3 for this program variant */}
+      {/* Gradient header — prominent dark magenta banner; on mobile acts as the unified course header */}
       <div
-        className="rounded-2xl p-5 relative overflow-hidden"
+        className="rounded-2xl p-5 relative overflow-hidden shadow-sm"
         style={{ background: `linear-gradient(135deg, ${SECONDARY} 0%, ${PRIMARY} 100%)` }}
       >
         <div
@@ -134,18 +136,38 @@ function ProgramDetail({
           style={{ backgroundImage: "radial-gradient(circle at 80% 20%, white 0%, transparent 60%)" }}
         />
         <div className="relative z-10">
+          {/* Top header row with metadata and high-contrast mobile close button */}
+          <div className="flex items-center justify-between gap-3 mb-2">
+            <div className="text-white/80 text-[10px] font-bold uppercase tracking-widest">
+              {program.language} · {program.badge}
+            </div>
+
+            {isMobileInline && onCloseMobile && (
+              <button
+                type="button"
+                onClick={onCloseMobile}
+                aria-label={lang === "de" ? "Details schließen" : "Close details"}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 active:scale-95 text-white text-xs font-bold border border-white/35 backdrop-blur-md transition-all shadow-sm flex-shrink-0"
+              >
+                <span>{lang === "de" ? "Schließen" : "Close"}</span>
+                <div className="w-4 h-4 rounded-full bg-white text-[#e51a59] flex items-center justify-center">
+                  <svg className="w-3 h-3 stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+                  </svg>
+                </div>
+              </button>
+            )}
+          </div>
+
           <div className="flex items-start justify-between gap-3 flex-wrap">
             <div className="flex-1 min-w-0">
-              <div className="text-white/70 text-[10px] font-semibold uppercase tracking-widest mb-1">
-                {program.language} · {program.badge}
-              </div>
               <h3 className="text-white font-bold text-base md:text-lg leading-snug">
                 {program.title}
                 {program.subtitle && (
-                  <span className="font-normal text-white/75"> — {program.subtitle}</span>
+                  <span className="font-normal text-white/85"> — {program.subtitle}</span>
                 )}
               </h3>
-              <p className="text-white/80 text-xs mt-2 leading-relaxed">{program.description}</p>
+              <p className="text-white/85 text-xs mt-2 leading-relaxed">{program.description}</p>
             </div>
             <div className="text-right flex-shrink-0">
               <div className="text-white font-bold text-xl">{program.duration}</div>
@@ -156,7 +178,7 @@ function ProgramDetail({
 
           {/* Learning path */}
           <div className="mt-4 pt-4 border-t border-white/20">
-            <div className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">
+            <div className="text-white/70 text-[10px] font-bold uppercase tracking-widest mb-2">
               {lang === "de" ? "Lernpfad" : "Learning path"}
             </div>
             <div className="flex items-center gap-2 flex-wrap">
@@ -189,7 +211,7 @@ function ProgramDetail({
                   </div>
                 );
               })}
-              <div className="text-white/60 text-[10px] ml-1">
+              <div className="text-white/75 text-[10px] ml-1">
                 {program.startsAt === modules[0]?.id
                   ? lang === "de"
                     ? "· Keine Vorkenntnisse nötig"
@@ -355,7 +377,115 @@ function ProgramDetail({
           </div>
         </div>
       </div>
+
+      {/* Bottom collapse trigger for mobile so user can close after viewing modules & CTAs */}
+      {isMobileInline && onCloseMobile && (
+        <button
+          type="button"
+          onClick={onCloseMobile}
+          className="w-full py-2.5 rounded-xl border border-gray-300 bg-white hover:bg-gray-50 active:scale-[0.99] text-gray-700 text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-xs"
+        >
+          <span>{lang === "de" ? "Diesen Kurs schließen" : "Close this course"}</span>
+          <div className="w-4 h-4 rounded-full bg-[#fde8ef] text-[#e51a59] flex items-center justify-center">
+            <svg className="w-3 h-3 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+            </svg>
+          </div>
+        </button>
+      )}
     </div>
+  );
+}
+
+function MobileProgramCard({
+  program,
+  modules,
+  onOpen,
+}: {
+  program: CourseProgram;
+  modules: CourseModule[];
+  onOpen: () => void;
+}) {
+  const { lang } = useLanguage();
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className="w-full text-left rounded-2xl p-4 bg-white border border-gray-200 shadow-xs transition-all duration-150 active:scale-[0.99] hover:border-[#e51a59]/40 group"
+      style={{ outline: "none" }}
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 flex-wrap mb-1.5">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500">
+              {program.duration}
+            </span>
+            {program.startsAt !== modules[0]?.id && (
+              <span
+                className="text-[9px] px-2 py-0.5 rounded-full font-bold"
+                style={{ background: `${SECONDARY}15`, color: SECONDARY }}
+              >
+                {lang === "de" ? "ab " : "from "}
+                {modules.find((m) => m.id === program.startsAt)?.label ?? "Module 2"}
+              </span>
+            )}
+            {program.recommended && (
+              <span
+                className="text-[9px] font-bold px-2 py-0.5 rounded-full text-white"
+                style={{ background: PRIMARY }}
+              >
+                {lang === "de" ? "EMPFOHLEN" : "RECOMMENDED"}
+              </span>
+            )}
+          </div>
+
+          <div className="font-bold text-sm sm:text-base text-gray-900 leading-snug group-hover:text-[#e51a59] transition-colors">
+            {program.title}
+          </div>
+          {program.subtitle && (
+            <div className="text-xs text-gray-600 mt-1 leading-relaxed">{program.subtitle}</div>
+          )}
+
+          <div className="flex items-center gap-1.5 mt-2.5 flex-wrap">
+            {modules.map((mod) => (
+              <ModuleChip
+                key={String(mod.id)}
+                mod={mod}
+                active={program.moduleIds.includes(mod.id)}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* High-affordance tactile expand trigger */}
+        <div className="flex flex-col items-center gap-1 flex-shrink-0 pt-0.5">
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 shadow-xs group-hover:scale-105"
+            style={{
+              background: "#FDE8EF",
+              color: PRIMARY,
+              border: `1.5px solid ${PRIMARY}33`,
+            }}
+            aria-hidden="true"
+          >
+            <svg
+              className="w-5 h-5 stroke-[2.5] transition-transform duration-200 group-hover:translate-y-0.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+          <span
+            className="text-[10px] font-bold uppercase tracking-wider"
+            style={{ color: PRIMARY }}
+          >
+            {lang === "de" ? "Öffnen" : "Open"}
+          </span>
+        </div>
+      </div>
+    </button>
   );
 }
 
@@ -437,33 +567,6 @@ function SidebarCard({
                     {modules.find((m) => m.id === program.startsAt)?.label ?? "Module 2"}
                   </span>
                 )}
-              </div>
-
-              {/* Mobile-only in-place expand indicator */}
-              <div className="lg:hidden inline-flex items-center gap-1 text-[11px] font-semibold text-[#e51a59]">
-                <span>
-                  {selected
-                    ? lang === "de"
-                      ? "Schließen"
-                      : "Collapse"
-                    : lang === "de"
-                      ? "Details anzeigen"
-                      : "View details"}
-                </span>
-                <svg
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    selected ? "rotate-180" : "rotate-0"
-                  }`}
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
               </div>
             </div>
           </div>
@@ -551,8 +654,10 @@ export default function ProgramSelector({
 
       {/* =====================================================================
           MOBILE LAYOUT (< lg): INLINE ACCORDION
-          When tapped, program details expand IMMEDIATELY beneath the card.
-          No scrolling down required!
+          - The selected program directly displays the prominent Dark Magenta header
+            with a high-contrast close button, eliminating duplicate white cards.
+          - Closed programs display clean, actionable cards with prominent circular
+            chevron "Öffnen ▾" buttons.
           ===================================================================== */}
       <div className="flex flex-col gap-3 lg:hidden max-w-[1200px] mx-auto px-5 pb-12">
         <div className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 px-1 mb-0.5">
@@ -564,21 +669,20 @@ export default function ProgramSelector({
           const isSelected = activeId === p.id;
           return (
             <div key={`mobile-group-${p.id}`} className="flex flex-col">
-              <SidebarCard
-                program={p}
-                modules={modules}
-                selected={isSelected}
-                onSelect={() => {
-                  setSelectedId(isSelected ? "" : p.id);
-                }}
-              />
-              {isSelected && (
-                <div className="mt-3 mb-2">
+              {!isSelected ? (
+                <MobileProgramCard
+                  program={p}
+                  modules={modules}
+                  onOpen={() => setSelectedId(p.id)}
+                />
+              ) : (
+                <div className="flex flex-col gap-3">
                   <ProgramDetail
                     program={p}
                     modules={modules}
                     onOpenPdfModal={onOpenPdfModal}
                     isMobileInline
+                    onCloseMobile={() => setSelectedId("")}
                   />
                 </div>
               )}
