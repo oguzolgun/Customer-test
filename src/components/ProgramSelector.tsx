@@ -65,7 +65,7 @@ function ModuleChip({
   if (dark) {
     return (
       <div
-        className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium"
+        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium w-fit"
         style={{
           background: active ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)",
           color: active ? "#fff" : "rgba(255,255,255,0.35)",
@@ -84,7 +84,7 @@ function ModuleChip({
   }
   return (
     <div
-      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium"
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium w-fit"
       style={{
         background: active ? mod.color : "#eee",
         color: active ? "#fff" : "#888",
@@ -239,13 +239,18 @@ function ProgramDetail({
           const included = program.moduleIds.includes(mod.id);
           const labelText = mod.label.trim();
           const durationText = mod.duration.trim();
-          const headerMeta =
-            !durationText || durationText.toLowerCase() === labelText.toLowerCase()
-              ? labelText
-              : labelText.includes("·") &&
-                  (labelText.toLowerCase().includes("week") || labelText.toLowerCase().includes("woche"))
-                ? `${labelText.split("·")[0].trim()} · ${durationText}`
-                : `${labelText} · ${durationText}`;
+          const hasEmbeddedDuration =
+            labelText.includes("·") &&
+            (labelText.toLowerCase().includes("week") ||
+              labelText.toLowerCase().includes("woche") ||
+              labelText.toLowerCase().includes("monat") ||
+              labelText.toLowerCase().includes("month"));
+          const durationBadge =
+            !durationText ||
+            durationText.toLowerCase() === labelText.toLowerCase() ||
+            hasEmbeddedDuration
+              ? null
+              : durationText;
           return (
             <div
               key={String(mod.id)}
@@ -266,23 +271,17 @@ function ProgramDetail({
                   </span>
                 </div>
               )}
-              <div className="flex items-start gap-2.5 mb-3">
-                <div
-                  className="w-7 h-7 rounded-lg flex items-center justify-center text-white font-medium text-xs flex-shrink-0 mt-0.5"
-                  style={{ background: included ? mod.color : "#ccc" }}
-                >
-                  {String(mod.id).slice(0, 2).toUpperCase()}
+              <div className="mb-3">
+                <div className="flex items-center justify-between gap-2 flex-wrap mb-2.5">
+                  <ModuleChip mod={mod} active={included} />
+                  {durationBadge && (
+                    <span className="text-[11px] font-medium text-gray-500">
+                      {durationBadge}
+                    </span>
+                  )}
                 </div>
-                <div className="min-w-0">
-                  <div
-                    className="text-[10px] font-medium uppercase tracking-[0.08em]"
-                    style={{ color: included ? mod.color : "#999" }}
-                  >
-                    {headerMeta}
-                  </div>
-                  <div className="font-medium text-[13px] text-[#1a1d2e] leading-[1.35] mt-0.5">
-                    {mod.title}
-                  </div>
+                <div className="font-medium text-[13.5px] text-[#1a1d2e] leading-[1.35]">
+                  {mod.title}
                 </div>
               </div>
               <ul className="space-y-2 pt-2.5 border-t border-gray-100/90">
