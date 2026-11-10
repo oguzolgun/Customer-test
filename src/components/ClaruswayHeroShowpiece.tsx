@@ -143,213 +143,70 @@ const ARC_ORIGINS: [number, number][] = [
   [35.68, 139.76], // Tokyo
 ];
 
-// Clarusway Arrow path (brand double chevron)
-const ARROW_SVG_PATH = "M 22 15 L 62 50 L 22 85 L 42 85 L 82 50 L 42 15 Z";
-
-// 7 Editable icon silhouettes (closed outlines for jelly morph)
-const ICON_SILHOUETTES: Record<string, string> = {
-  arrow: ARROW_SVG_PATH,
-  cloud:
-    "M 30,70 L 70,70 C 76,70 82,65 82,58 C 82,51 77,46 71,45 C 70,35 61,28 50,28 C 40,28 32,34 30,42 C 24,43 18,48 18,55 C 18,63 23,70 30,70 Z",
-  "data-science":
-    "M 50,22 C 65,22 78,34 78,50 C 78,66 65,78 50,78 C 35,78 22,66 22,50 C 22,34 35,22 50,22 Z",
-  "data-analytics":
-    "M 18,78 L 18,54 L 32,54 L 32,78 L 44,78 L 44,38 L 58,38 L 58,78 L 70,78 L 70,22 L 84,22 L 84,78 Z",
-  cyber:
-    "M 50,18 L 80,30 L 80,52 C 80,70 66,82 50,86 C 34,82 20,70 20,52 L 20,30 Z",
-  "full-stack":
-    "M 20,24 L 80,24 C 84,24 86,26 86,30 L 86,64 C 86,68 84,70 80,70 L 56,70 L 56,77 L 66,77 L 66,82 L 34,82 L 34,77 L 44,77 L 44,70 L 20,70 C 16,70 14,68 14,64 L 14,30 C 14,26 16,24 20,24 Z",
-  ai:
-    "M 50,14 C 52,34 66,48 86,50 C 66,52 52,66 50,86 C 48,66 34,52 14,50 C 34,48 48,34 50,14 Z",
-  testing:
-    "M 50,18 L 80,32 L 80,54 C 80,70 66,82 50,86 C 34,82 20,70 20,54 L 20,32 Z",
-};
-
-// Inner 2px line details that pop in after jelly settling
-const INNER_DETAILS: Record<string, string> = {
-  cloud: "M 32,58 C 38,52 44,52 48,56 C 52,52 58,52 64,58",
-  "data-science": "M 24,50 A 26,10 0 1,0 76,50 A 26,10 0 1,0 24,50 M 50,24 A 10,26 0 1,0 50,76 A 10,26 0 1,0 50,24",
-  "data-analytics": "M 24,46 L 46,32 L 62,40 L 78,26",
-  cyber: "M 50,34 L 50,48 M 42,48 L 58,48 L 58,62 L 42,62 Z",
-  "full-stack": "M 34,44 L 26,50 L 34,56 M 66,44 L 74,50 L 66,56 M 53,40 L 47,60",
-  ai: "M 50,36 L 50,64 M 36,50 L 64,50",
-  testing: "M 36,50 L 46,60 L 64,40",
-};
-
-// Resample SVG path into 64 evenly distributed points
-function sampleSvgPath(pathStr: string, numPoints = 64): { x: number; y: number }[] {
-  if (typeof document === "undefined") {
-    // SSR / Node fallback
-    return Array.from({ length: numPoints }, (_, i) => {
-      const a = (i / numPoints) * Math.PI * 2;
-      return { x: 50 + Math.cos(a) * 30, y: 50 + Math.sin(a) * 30 };
-    });
-  }
-  try {
-    const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    p.setAttribute("d", pathStr);
-    const total = p.getTotalLength();
-    const pts: { x: number; y: number }[] = [];
-    for (let i = 0; i < numPoints; i++) {
-      const pt = p.getPointAtLength((i / numPoints) * total);
-      pts.push({ x: pt.x, y: pt.y });
-    }
-    return pts;
-  } catch {
-    return Array.from({ length: numPoints }, (_, i) => {
-      const a = (i / numPoints) * Math.PI * 2;
-      return { x: 50 + Math.cos(a) * 30, y: 50 + Math.sin(a) * 30 };
-    });
-  }
-}
-
 // ============================================================================
-// JELLY SILHOUETTE ICON COMPONENT
+// MINIMAL GEOMETRIC INSTRUMENT ICON (Auros-style 1.5px crisp vector strokes)
 // ============================================================================
-interface JellyIconProps {
-  iconId: string;
-  isActive: boolean;
-  isEn: boolean;
-  triggerLanding: number; // Increment counter when arrow lands
-}
-
-function JellyIcon({ iconId, isActive, triggerLanding }: JellyIconProps) {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const stateRef = useRef<{
-    points: { x: number; y: number; vx: number; vy: number }[];
-    targets: { x: number; y: number }[];
-    settled: boolean;
-    landingAnim: number; // 0 to 1
-  }>({
-    points: [],
-    targets: [],
-    settled: false,
-    landingAnim: 0,
-  });
-
-  // Pre-sample points on mount / change
-  useEffect(() => {
-    const targetSvg = isActive ? ICON_SILHOUETTES[iconId] || ICON_SILHOUETTES.cloud : ICON_SILHOUETTES[iconId];
-    const sampled = sampleSvgPath(targetSvg, 64);
-    const arrowSampled = sampleSvgPath(ARROW_SVG_PATH, 64);
-
-    if (stateRef.current.points.length === 0) {
-      stateRef.current.points = sampled.map((p) => ({ x: p.x, y: p.y, vx: 0, vy: 0 }));
-    } else if (isActive) {
-      // Start from Arrow silhouette when arrow lands, then spring into target icon!
-      stateRef.current.points = arrowSampled.map((p) => ({
-        x: p.x,
-        y: p.y,
-        vx: (Math.random() - 0.5) * 40,
-        vy: (Math.random() - 0.5) * 40,
-      }));
-      stateRef.current.settled = false;
-    }
-    stateRef.current.targets = sampled;
-  }, [iconId, isActive, triggerLanding]);
-
-  // Spring mass physics loop
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animId = 0;
-    let lastTime = performance.now();
-
-    const STIFFNESS = 150;
-    const DAMPING = 11;
-    const COUPLING = 30;
-
-    const render = (time: number) => {
-      animId = requestAnimationFrame(render);
-      const dt = Math.min((time - lastTime) / 1000, 0.032);
-      lastTime = time;
-
-      const { points, targets } = stateRef.current;
-      if (points.length < 64 || targets.length < 64) return;
-
-      const N = 64;
-      let totalMotion = 0;
-
-      for (let i = 0; i < N; i++) {
-        const pt = points[i];
-        const tgt = targets[i];
-        const prev = points[(i - 1 + N) % N];
-        const next = points[(i + 1) % N];
-
-        // Spring pulling to target shape
-        const fx_target = -STIFFNESS * (pt.x - tgt.x) - DAMPING * pt.vx;
-        const fy_target = -STIFFNESS * (pt.y - tgt.y) - DAMPING * pt.vy;
-
-        // Neighbor coupling (membrane elasticity)
-        const fx_couple = COUPLING * (prev.x - 2 * pt.x + next.x);
-        const fy_couple = COUPLING * (prev.y - 2 * pt.y + next.y);
-
-        pt.vx += (fx_target + fx_couple) * dt;
-        pt.vy += (fy_target + fy_couple) * dt;
-        pt.x += pt.vx * dt;
-        pt.y += pt.vy * dt;
-
-        totalMotion += Math.abs(pt.vx) + Math.abs(pt.vy);
-      }
-
-      stateRef.current.settled = totalMotion < 1.5;
-
-      // Draw onto canvas
-      ctx.clearRect(0, 0, 48, 48);
-      ctx.save();
-      ctx.scale(48 / 100, 48 / 100);
-
-      // Draw jelly silhouette
-      ctx.beginPath();
-      ctx.moveTo(points[0].x, points[0].y);
-      for (let i = 1; i < N; i++) {
-        const midX = (points[i].x + points[(i + 1) % N].x) / 2;
-        const midY = (points[i].y + points[(i + 1) % N].y) / 2;
-        ctx.quadraticCurveTo(points[i].x, points[i].y, midX, midY);
-      }
-      ctx.closePath();
-
-      if (isActive) {
-        ctx.fillStyle = "#E5254F";
-        ctx.shadowColor = "rgba(229, 37, 79, 0.4)";
-        ctx.shadowBlur = 8;
-        ctx.fill();
-
-        // Inner 2px stroke detail after settling
-        if (stateRef.current.settled && INNER_DETAILS[iconId]) {
-          ctx.restore();
-          ctx.save();
-          ctx.scale(48 / 100, 48 / 100);
-          ctx.strokeStyle = "#FFFFFF";
-          ctx.lineWidth = 2.5;
-          ctx.lineCap = "round";
-          ctx.lineJoin = "round";
-          const p2 = new Path2D(INNER_DETAILS[iconId]);
-          ctx.stroke(p2);
-        }
-      } else {
-        ctx.fillStyle = "#5B6475";
-        ctx.fill();
-      }
-
-      ctx.restore();
-    };
-
-    animId = requestAnimationFrame(render);
-    return () => cancelAnimationFrame(animId);
-  }, [iconId, isActive]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      width={48}
-      height={48}
-      className="w-5 h-5 pointer-events-none transition-transform duration-300"
-    />
-  );
+function CourseLineIcon({
+  iconId,
+  className = "w-3.5 h-3.5",
+}: {
+  iconId: HeroCourseItem["iconId"];
+  className?: string;
+}) {
+  switch (iconId) {
+    case "cloud":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.55} strokeLinecap="round" strokeLinejoin="round" className={className}>
+          <path d="M6.5 19h11a4.5 4.5 0 0 0 .9-8.9A5.5 5.5 0 0 0 7.7 8.4 4.2 4.2 0 0 0 6.5 19Z" />
+        </svg>
+      );
+    case "data-science":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.55} strokeLinecap="round" strokeLinejoin="round" className={className}>
+          <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(35 12 12)" />
+          <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-35 12 12)" />
+          <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "data-analytics":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.65} strokeLinecap="round" strokeLinejoin="round" className={className}>
+          <path d="M4 19h16" />
+          <path d="M7 19v-5" />
+          <path d="M12 19V9" />
+          <path d="M17 19V5" />
+        </svg>
+      );
+    case "cyber":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.55} strokeLinecap="round" strokeLinejoin="round" className={className}>
+          <path d="M12 3l7 3v5c0 4.5-3 8.4-7 10-4-1.6-7-5.5-7-10V6l7-3Z" />
+          <path d="M9.5 12l1.8 1.8 3.4-3.6" />
+        </svg>
+      );
+    case "full-stack":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className}>
+          <path d="m8 8-4 4 4 4" />
+          <path d="m16 8 4 4-4 4" />
+          <path d="m13.5 6-3 12" />
+        </svg>
+      );
+    case "ai":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.55} strokeLinecap="round" strokeLinejoin="round" className={className}>
+          <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z" />
+          <circle cx="12" cy="10" r="1.1" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "testing":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.55} strokeLinecap="round" strokeLinejoin="round" className={className}>
+          <rect x="4" y="4" width="16" height="16" rx="4" />
+          <path d="m8.5 12.2 2.3 2.3 4.7-4.8" />
+        </svg>
+      );
+  }
 }
 
 // ============================================================================
@@ -362,7 +219,6 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [triggerLanding, setTriggerLanding] = useState(0);
   const occludedRef = useRef<boolean[]>(new Array(7).fill(false));
   const activeIndexRef = useRef(activeIndex);
 
@@ -386,7 +242,6 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         }
         return (prev + 1) % courses.length;
       });
-      setTriggerLanding((prev) => prev + 1);
     }, 4500);
     return () => clearInterval(interval);
   }, [isPaused, courses.length]);
@@ -416,13 +271,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
     const scene = new THREE.Scene();
 
-    // Framed with extra canvas room on the right for billowing scattered wave particles
-    const camera = new THREE.PerspectiveCamera(35, W / H, 0.1, 100);
-    camera.position.set(0, 0, 19.6);
+    // Enlarged globe proportion inside canvas with crisp margin for right-side wave scatter
+    const camera = new THREE.PerspectiveCamera(34, W / H, 0.1, 100);
+    camera.position.set(0, 0, 21.6);
 
     // Helpers
-    const R = 3.75; // Dense sphere core radius (leaves room inside canvas for wave scatter)
-    const ORBIT_R = R * 1.16; // Course orbit radius ≈ 1.16 * R
+    const R = 4.55; // Larger, commanding particle globe core radius
+    const ORBIT_R = R * 1.13; // Balanced instrument orbit radius around enlarged globe
     function llToVec3(lat: number, lon: number, radius: number) {
       const phi = (90 - lat) * DEG;
       const theta = (lon + 180) * DEG;
@@ -686,9 +541,9 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
             float mouseDist = length(ptNorm - normalize(uMouseLocal));
             float hoverPush = uHover * exp(-mouseDist * 4.5);
 
-            // Scatter displacement matching particle cloud
+            // Scatter displacement matching particle cloud (frustum-safe)
             vec3 driftDir = normalize(vec3(1.15, -0.15 + 0.3 * (aSeed - 0.5), 0.14));
-            worldPos.xyz += driftDir * (scatterEff * (0.35 + 0.9 * aSeed) * uRadius * 0.55);
+            worldPos.xyz += driftDir * (scatterEff * (0.25 + 0.85 * aSeed) * uRadius * 0.24);
             worldPos.xyz += wp * (hoverPush * 0.14);
 
             vec4 mv = viewMatrix * worldPos;
@@ -714,7 +569,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
               vColor = mix(crispOverDark, wine, smoothstep(0.05, 0.45, scatterEff));
             }
 
-            float sz = (aIsGermany > 0.5 ? 2.35 : (1.35 + hoverPush * 0.7)) * uPR * (15.0 / -mv.z);
+            float sz = (aIsGermany > 0.5 ? 2.35 : (1.35 + hoverPush * 0.7)) * uPR * (16.5 / -mv.z);
             gl_PointSize = sz;
             gl_Position = projectionMatrix * mv;
           }
@@ -770,7 +625,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     // 2B. WAVY DISSOLVING PARTICLE SPHERE (Auros "dalgalı dağınık" effect in Clarusway palette)
     //     Dense micro-granular sphere crust -> S-wave crest -> swirling right-side scatter cloud
     // ------------------------------------------------------------------------
-    const CLOUD_COUNT = 26000;
+    const CLOUD_COUNT = 28000;
     const cloudPos = new Float32Array(CLOUD_COUNT * 3);
     const cloudRand = new Float32Array(CLOUD_COUNT * 3);
     const cloudSeed = new Float32Array(CLOUD_COUNT);
@@ -870,13 +725,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
             vec3(1.0, -0.14 + (aRand.y - 0.5) * 0.62, 0.12 + (aRand.z - 0.5) * 0.50),
             0.65
           ));
-          float travelDist = scatter * (0.24 + 1.25 * pow(max(aRand.x, 0.0001), 0.90)) * uRadius * 0.36;
+          float travelDist = scatter * (0.18 + 1.05 * pow(max(aRand.x, 0.0001), 0.88)) * uRadius * 0.22;
 
           vec3 swirl = vec3(
             sin(tSwirl * 0.92 + aRand.y * 16.0 + erode * 2.8),
             cos(tSwirl * 0.78 + aRand.z * 18.0 + wp.y * 3.0),
             sin(tSwirl * 0.85 + aRand.x * 14.0)
-          ) * (scatter * (0.14 + 0.38 * aRand.y));
+          ) * (scatter * (0.12 + 0.32 * aRand.y));
 
           // Cursor hover wave ripple
           float mouseDist = length(ptNorm - normalize(uMouseLocal));
@@ -933,7 +788,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           float powSeed = aSeed * aSeed;
           float szBase = 1.25 + powSeed * 2.45 + ridge * 0.65 + hoverInfluence * 0.85;
           float scatterShrink = 1.0 - scatter * 0.22 * (1.0 - aRand.z);
-          gl_PointSize = szBase * scatterShrink * uPR * (15.0 / -mv.z);
+          gl_PointSize = szBase * scatterShrink * uPR * (16.5 / -mv.z);
           gl_Position = projectionMatrix * mv;
         }
       `,
@@ -1086,7 +941,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     const ringGeom = new THREE.BufferGeometry();
     ringGeom.setAttribute("position", new THREE.BufferAttribute(ringPos, 3));
 
-    // Depth-aware ring shader (white on dark sphere, crimson outside)
+    // Depth-aware hairline orbit trace (ultra-subtle instrument aesthetic)
     const orbitRingMat = new THREE.ShaderMaterial({
       transparent: true,
       depthTest: true,
@@ -1105,10 +960,9 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         uniform float uRadius;
         varying vec3 vWorldPos;
         void main() {
-          // #FFFFFF at 25% when in front of dark globe, #E5254F at 20% outside
           float distToCenter = length(vWorldPos.xy);
-          vec3 c = distToCenter < uRadius ? vec3(1.0, 1.0, 1.0) : vec3(0.898, 0.145, 0.310);
-          float alpha = distToCenter < uRadius ? 0.25 : 0.20;
+          vec3 c = distToCenter < uRadius ? vec3(0.992, 0.914, 1.0) : vec3(0.541, 0.110, 0.290);
+          float alpha = distToCenter < uRadius ? 0.09 : 0.08;
           gl_FragColor = vec4(c, alpha);
         }
       `,
@@ -1116,92 +970,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     ringSpin.add(new THREE.Line(ringGeom, orbitRingMat));
 
     // ------------------------------------------------------------------------
-    // 6. SIGNATURE MOMENT: ELASTIC ARROW FLIGHT FROM GERMANY PIN TO ACTIVE NODE
-    // ------------------------------------------------------------------------
-    // Arrow Trail Ribbon
-    const TRAIL_LEN = 16;
-    const trailPositions = new Float32Array(TRAIL_LEN * 3);
-    const trailAlpha = new Float32Array(TRAIL_LEN);
-    for (let i = 0; i < TRAIL_LEN; i++) trailAlpha[i] = (1 - i / TRAIL_LEN) * 0.85;
-
-    const trailGeom = new THREE.BufferGeometry();
-    trailGeom.setAttribute("position", new THREE.BufferAttribute(trailPositions, 3));
-    trailGeom.setAttribute("aAlpha", new THREE.BufferAttribute(trailAlpha, 1));
-
-    const trailMat = new THREE.ShaderMaterial({
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-      vertexShader: `
-        attribute float aAlpha;
-        varying float vA;
-        void main() {
-          vA = aAlpha;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        varying float vA;
-        void main() {
-          vec3 crimson = vec3(0.898, 0.145, 0.310);
-          gl_FragColor = vec4(crimson * vA, vA);
-        }
-      `,
-    });
-    const trailLine = new THREE.Line(trailGeom, trailMat);
-    scene.add(trailLine);
-
-    // Flying Arrow Sprite
-    function makeArrowTexture() {
-      const c = document.createElement("canvas");
-      c.width = 128;
-      c.height = 128;
-      const ctx = c.getContext("2d");
-      if (ctx) {
-        ctx.fillStyle = "#E5254F";
-        ctx.shadowColor = "rgba(229, 37, 79, 0.8)";
-        ctx.shadowBlur = 12;
-        ctx.beginPath();
-        ctx.moveTo(35, 20);
-        ctx.lineTo(85, 64);
-        ctx.lineTo(35, 108);
-        ctx.lineTo(55, 108);
-        ctx.lineTo(105, 64);
-        ctx.lineTo(55, 20);
-        ctx.closePath();
-        ctx.fill();
-      }
-      return new THREE.CanvasTexture(c);
-    }
-
-    const flyingArrowSprite = new THREE.Sprite(
-      new THREE.SpriteMaterial({
-        map: makeArrowTexture(),
-        transparent: true,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
-      })
-    );
-    flyingArrowSprite.scale.set(0.85, 0.85, 1);
-    flyingArrowSprite.visible = false;
-    scene.add(flyingArrowSprite);
-
-    // Flight state
-    let flightProgress = 1.0; // 0 (at Germany) -> 1 (landed at node)
-    let flightP0 = new THREE.Vector3();
-    let flightP1 = new THREE.Vector3();
-    let flightP2 = new THREE.Vector3();
-    const trailHistory: THREE.Vector3[] = [];
-
-    // ------------------------------------------------------------------------
-    // 7. DRAG, POINTER RAY-SPHERE HOVER & ROTATION WITH INERTIA (Scroll does NOT hijack)
+    // 6. DRAG, POINTER RAY-SPHERE HOVER & ROTATION WITH INERTIA (Scroll does NOT hijack)
     // ------------------------------------------------------------------------
     let dragging = false;
     let lastPointerX = 0;
     let lastPointerY = 0;
     let velRotY = 0;
     let velRotX = 0;
-    let targetGerLerp = 0; // When course activates, ease to Germany
 
     // Fluid ray-sphere pointer hover state
     let hoverTarget = 0;
@@ -1287,9 +1062,8 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     window.addEventListener("mousemove", handleWindowMouseMove);
 
     // ------------------------------------------------------------------------
-    // 8. ANIMATION LOOP & ACTIVE NODE FLIGHT TRIGGER
+    // 7. ANIMATION LOOP & ORBITING COURSE NODES
     // ------------------------------------------------------------------------
-    let lastActive = -1;
     let animId = 0;
     let clock = new THREE.Clock();
     let time = 0;
@@ -1324,31 +1098,18 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       camera.position.y += (parallaxTargetY - camera.position.y) * 0.04;
       camera.lookAt(0, 0, 0);
 
-      // Globe auto-rotation (1 turn per ~70s = 0.0898 rad/s)
+      // Globe serene continuous rotation (1 turn per ~70s)
       if (!dragging && !REDUCED) {
         velRotY *= 0.94;
         velRotX *= 0.94;
-
-        if (targetGerLerp > 0) {
-          // Re-centering on Germany
-          targetGerLerp = Math.max(0, targetGerLerp - dt * 1.2);
-          const targetY = initialGerRotY;
-          let diffY = (targetY - globeSpin.rotation.y) % (Math.PI * 2);
-          if (diffY > Math.PI) diffY -= Math.PI * 2;
-          if (diffY < -Math.PI) diffY += Math.PI * 2;
-          globeSpin.rotation.y += diffY * 0.06;
-          globeSpin.rotation.x += (0.38 - globeSpin.rotation.x) * 0.06;
-        } else {
-          // Normal slow auto-spin
-          const autoSpeed = (Math.PI * 2) / 70;
-          globeSpin.rotation.y += autoSpeed * dt + velRotY;
-          globeSpin.rotation.x += velRotX;
-        }
+        const autoSpeed = (Math.PI * 2) / 70;
+        globeSpin.rotation.y += autoSpeed * dt + velRotY;
+        globeSpin.rotation.x += velRotX;
       }
 
-      // Course Orbit slow rotation (1 turn per 90s)
+      // Course Orbit slow rotation (1 turn per 95s)
       if (!REDUCED) {
-        const orbitSpeed = (Math.PI * 2) / 90;
+        const orbitSpeed = (Math.PI * 2) / 95;
         ringSpin.rotation.y += orbitSpeed * dt;
       }
 
@@ -1374,91 +1135,9 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         p.mesh.material.opacity = (1.0 - loop) * 0.92;
       });
 
-      // Check if active course changed -> Trigger Elastic Arrow flight!
-      const currentActive = activeIndexRef.current;
-      if (currentActive !== lastActive) {
-        lastActive = currentActive;
-        targetGerLerp = 1.0; // Ease globe to center Germany
-
-        // Launch brand arrow flight from Germany
-        flightProgress = 0.0;
-        trailHistory.length = 0;
-
-        // Origin: Germany pin in world space
-        globeSpin.updateMatrixWorld();
-        flightP0 = gerPos.clone().applyMatrix4(globeSpin.matrixWorld);
-
-        // Destination: active node in world space
-        ringSpin.updateMatrixWorld();
-        const activeAngle = nodeAngles[currentActive];
-        const localNodeVec = new THREE.Vector3(
-          Math.cos(activeAngle) * ORBIT_R,
-          0,
-          Math.sin(activeAngle) * ORBIT_R
-        );
-        flightP2 = localNodeVec.clone().applyMatrix4(ringSpin.matrixWorld);
-
-        // Curve control point lifting high above globe surface
-        flightP1 = flightP0
-          .clone()
-          .add(flightP2)
-          .multiplyScalar(0.5)
-          .add(flightP0.clone().normalize().multiplyScalar(R * 0.75));
-
-        flyingArrowSprite.visible = true;
-      }
-
-      // Animate Arrow Flight
-      if (flightProgress < 1.0) {
-        flightProgress = Math.min(1.0, flightProgress + dt / 0.85); // 0.85s flight
-        const u = flightProgress;
-
-        // Quadratic Bezier interpolation
-        const currentArrowPos = new THREE.Vector3()
-          .addScaledVector(flightP0, (1 - u) * (1 - u))
-          .addScaledVector(flightP1, 2 * (1 - u) * u)
-          .addScaledVector(flightP2, u * u);
-
-        flyingArrowSprite.position.copy(currentArrowPos);
-
-        // Orient arrow along tangent
-        const tangent = new THREE.Vector3()
-          .addScaledVector(flightP0, -2 * (1 - u))
-          .addScaledVector(flightP1, 2 - 4 * u)
-          .addScaledVector(flightP2, 2 * u)
-          .normalize();
-        flyingArrowSprite.material.rotation = Math.atan2(tangent.y, tangent.x);
-
-        // Squash on landing
-        if (flightProgress >= 0.9) {
-          flyingArrowSprite.scale.set(0.94, 1.05, 1);
-        } else {
-          flyingArrowSprite.scale.set(0.85, 0.85, 1);
-        }
-
-        // Record trail points
-        trailHistory.unshift(currentArrowPos.clone());
-        if (trailHistory.length > TRAIL_LEN) trailHistory.pop();
-
-        for (let i = 0; i < TRAIL_LEN; i++) {
-          const pt = trailHistory[i] || currentArrowPos;
-          trailPositions[i * 3 + 0] = pt.x;
-          trailPositions[i * 3 + 1] = pt.y;
-          trailPositions[i * 3 + 2] = pt.z;
-        }
-        trailGeom.attributes.position.needsUpdate = true;
-        trailLine.visible = true;
-
-        if (flightProgress >= 1.0) {
-          flyingArrowSprite.visible = false;
-          trailLine.visible = false;
-        }
-      }
-
       renderer.render(scene, camera);
 
-      // Position HTML Glass Nodes over 3D Orbit Ring
-      // Exact Ray-Sphere Occlusion: Nodes that pass behind the globe are hidden so there is no text clutter!
+      // Position HTML Instrument Nodes over 3D Orbit Ring (Exact Ray-Sphere Occlusion)
       if (nodesOverlayRef.current) {
         ringSpin.updateMatrixWorld();
         const nodeEls = nodesOverlayRef.current.children;
@@ -1489,24 +1168,21 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           let isOccluded = false;
           let occludeOpacity = 1.0;
 
-          // If node is behind sphere center plane along view ray
           if (tc > 0 && tc < rayLen) {
             const closest = camPos.clone().add(rayDir.clone().multiplyScalar(tc));
             const distFromCenter = closest.distanceTo(sphereCenter);
 
-            // Radius R is 4.2
-            if (distFromCenter < R * 0.98) {
+            if (distFromCenter < R * 0.97) {
               isOccluded = true;
               occludeOpacity = 0;
-            } else if (distFromCenter < R * 1.14) {
-              occludeOpacity = Math.max(0, Math.min(1, (distFromCenter - R * 0.98) / (R * 0.16)));
+            } else if (distFromCenter < R * 1.13) {
+              occludeOpacity = Math.max(0, Math.min(1, (distFromCenter - R * 0.97) / (R * 0.16)));
             }
           }
 
           occludedRef.current[k] = isOccluded;
 
           const isActive = k === activeIndexRef.current;
-          const baseScale = isActive ? 1.32 : 1.0;
 
           if (isOccluded || occludeOpacity <= 0.02) {
             el.style.opacity = "0";
@@ -1515,10 +1191,10 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           } else {
             el.style.visibility = "visible";
             el.style.pointerEvents = "auto";
-            el.style.opacity = (occludeOpacity * (isActive ? 1.0 : 0.92)).toFixed(3);
+            el.style.opacity = (occludeOpacity * (isActive ? 1.0 : 0.94)).toFixed(3);
           }
 
-          el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0) translate(-50%, -50%) scale(${baseScale})`;
+          el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0) translate(-50%, -50%)`;
           el.style.zIndex = isActive ? "50" : "20";
         }
       }
@@ -1561,10 +1237,6 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       if (dotsMat) dotsMat.dispose();
       ringGeom.dispose();
       orbitRingMat.dispose();
-      trailGeom.dispose();
-      trailMat.dispose();
-      if (flyingArrowSprite.material?.map) flyingArrowSprite.material.map.dispose();
-      flyingArrowSprite.material.dispose();
       renderer.dispose();
     };
   }, [courses.length]);
@@ -1574,10 +1246,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[480px] md:h-[480px] lg:w-[500px] lg:h-[500px] xl:w-[540px] xl:h-[540px] select-none flex items-center justify-center overflow-visible"
-      style={{
-        filter: "drop-shadow(0 20px 60px rgba(229, 37, 79, 0.16))",
-      }}
+      className="relative w-[340px] h-[340px] sm:w-[460px] sm:h-[460px] md:w-[520px] md:h-[520px] lg:w-[490px] lg:h-[490px] xl:w-[600px] xl:h-[600px] select-none flex items-center justify-center overflow-visible"
     >
       {/* 3D WebGL Canvas */}
       <canvas
@@ -1585,56 +1254,64 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         className="w-full h-full cursor-grab active:cursor-grabbing touch-none block"
       />
 
-      {/* 7 Orbiting Course Glass Nodes Overlay */}
+      {/* 7 Orbiting Auros-Inspired Precision Course Nodes */}
       <div
         ref={nodesOverlayRef}
         className="absolute inset-0 pointer-events-none overflow-visible z-30"
       >
         {courses.map((course, idx) => {
           const isActive = idx === activeIndex;
+          const microLabel = course.tags.slice(0, 2).join(" · ");
           return (
             <div
               key={course.id}
-              onClick={() => {
-                setActiveIndex(idx);
-                setTriggerLanding((prev) => prev + 1);
-              }}
-              style={{
-                animationDelay: `${idx * 60}ms`,
-              }}
-              className={`absolute top-0 left-0 pointer-events-auto cursor-pointer transition-all duration-300 flex items-center ${
-                isActive ? "orbit-node-active" : "orbit-node-idle"
-              }`}
+              className="absolute top-0 left-0 pointer-events-auto"
             >
-              {/* Circular Glass Button: 40px default, 56px active */}
-              <button
-                type="button"
-                aria-label={course.name}
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 relative ${
-                  isActive
-                    ? "w-14 h-14 bg-white ring-2 ring-[#E5254F] shadow-[0_0_24px_rgba(229,37,79,0.45)]"
-                    : "bg-white/92 border border-[#F3D3DC] hover:border-[#E5254F]/50 shadow-[0_4px_14px_rgba(20,27,45,0.08)] hover:scale-110"
-                }`}
-              >
-                <JellyIcon
-                  iconId={course.iconId}
-                  isActive={isActive}
-                  isEn={isEn}
-                  triggerLanding={triggerLanding}
-                />
-              </button>
-
-              {/* Attached Label Pill (ONLY shown for active course) */}
-              {isActive && (
+              {isActive ? (
+                /* Active Node: Engineered dark-plum frosted instrument capsule */
                 <Link
                   to={course.to}
-                  className="ml-3 px-3 py-1.5 bg-white/95 backdrop-blur-md border border-[#F3D3DC] text-[#141B2D] hover:text-[#E5254F] font-bold text-xs rounded-full shadow-[0_6px_20px_rgba(20,27,45,0.08)] whitespace-nowrap animate-fade-in flex items-center gap-1.5 transition-colors group cursor-pointer"
-                  style={{ animation: "labelSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1)" }}
+                  aria-label={course.name}
+                  className="group flex items-center gap-2 sm:gap-2.5 pl-1.5 pr-2.5 sm:pr-3 py-1.5 rounded-[10px] bg-[#160812]/90 backdrop-blur-xl border border-[#F2A6BC]/25 hover:border-[#E5254F]/60 shadow-[0_8px_24px_rgba(18,6,15,0.18)] transition-colors duration-300"
+                  style={{ animation: "instrumentReveal 0.35s cubic-bezier(0.16, 1, 0.3, 1)" }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5254F] animate-pulse" />
-                  <span>{course.name}</span>
-                  <span className="text-[#E5254F] text-[11px] group-hover:translate-x-0.5 transition-transform">→</span>
+                  <span className="w-6 h-6 rounded-[6px] bg-gradient-to-br from-[#E5254F]/25 to-[#8A1C4A]/35 border border-[#F2A6BC]/30 flex items-center justify-center text-[#FDE9FF] shrink-0">
+                    <CourseLineIcon iconId={course.iconId} className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="flex flex-col text-left">
+                    <span className="text-[8.5px] font-medium uppercase tracking-[0.14em] text-[#F2A6BC]/85 leading-none mb-0.5 whitespace-nowrap">
+                      {microLabel}
+                    </span>
+                    <span className="text-[11.5px] sm:text-xs font-medium tracking-[-0.015em] text-white leading-tight whitespace-nowrap">
+                      {course.name}
+                    </span>
+                  </span>
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-3 h-3 text-[#F2A6BC]/80 group-hover:text-white group-hover:translate-x-0.5 transition-all shrink-0 ml-0.5"
+                  >
+                    <path d="M5 11L11 5" />
+                    <path d="M6.5 5H11V9.5" />
+                  </svg>
                 </Link>
+              ) : (
+                /* Idle Node: Whisper-light frosted geometric badge with tracked hover label */
+                <button
+                  type="button"
+                  onClick={() => setActiveIndex(idx)}
+                  aria-label={course.name}
+                  className="group relative w-7 h-7 rounded-[8px] bg-white/85 backdrop-blur-md border border-[#141B2D]/12 text-[#141B2D]/70 hover:text-[#E5254F] hover:border-[#E5254F]/45 hover:bg-white hover:scale-105 shadow-[0_2px_10px_rgba(18,6,15,0.06)] flex items-center justify-center transition-all duration-200 cursor-pointer"
+                >
+                  <CourseLineIcon iconId={course.iconId} className="w-3.5 h-3.5" />
+                  <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-[5px] bg-[#160812]/90 text-[#FDE9FF] text-[9.5px] font-medium uppercase tracking-[0.10em] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 border border-[#F2A6BC]/20 shadow-sm">
+                    {course.name}
+                  </span>
+                </button>
               )}
             </div>
           );
@@ -1643,27 +1320,14 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
       {/* Micro-animations stylesheet */}
       <style>{`
-        @keyframes labelSlide {
+        @keyframes instrumentReveal {
           from {
             opacity: 0;
-            transform: translateX(-8px) scale(0.92);
+            transform: scale(0.92);
           }
           to {
             opacity: 1;
-            transform: translateX(0) scale(1);
-          }
-        }
-        .animate-fade-in-quick {
-          animation: fadeInQuick 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        @keyframes fadeInQuick {
-          from {
-            opacity: 0;
-            transform: translateY(6px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+            transform: scale(1);
           }
         }
       `}</style>
