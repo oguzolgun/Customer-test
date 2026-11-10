@@ -416,13 +416,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
     const scene = new THREE.Scene();
 
-    // Low-distortion orthographic feel using narrow FOV
-    const camera = new THREE.PerspectiveCamera(32, W / H, 0.1, 100);
-    camera.position.set(0, 0, 18);
+    // Framed with extra canvas room on the right for billowing scattered wave particles
+    const camera = new THREE.PerspectiveCamera(35, W / H, 0.1, 100);
+    camera.position.set(0, 0, 19.6);
 
     // Helpers
-    const R = 4.2; // Globe radius
-    const ORBIT_R = R * 1.13; // Course orbit radius ≈ 1.13 * R
+    const R = 3.75; // Dense sphere core radius (leaves room inside canvas for wave scatter)
+    const ORBIT_R = R * 1.16; // Course orbit radius ≈ 1.16 * R
     function llToVec3(lat: number, lon: number, radius: number) {
       const phi = (90 - lat) * DEG;
       const theta = (lon + 180) * DEG;
@@ -446,18 +446,33 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     globeSpin.rotation.x = 0.38;
     globeSpin.rotation.y = initialGerRotY;
 
-    // Declare interactive fluid uniforms driver shared across sphere, continents & swarm
+    // Shared interactive fluid uniforms & wave erosion field (Clarusway x Auros wave-scatter)
     const gGermanyPos = llToVec3(GERMANY_COORDS[0], GERMANY_COORDS[1], 1.0).normalize();
     const uMouseLocalShared = { value: gGermanyPos.clone() };
     const uHoverShared = { value: 0.0 };
     const uReducedVal = REDUCED ? 1.0 : 0.0;
 
+    // Shared 3D view-aligned S-wave dissolution boundary:
+    // intact dense left/upper-center -> curved concave wave bay -> billowing right scatter
+    const GLSL_WAVE_ERODE = `
+      float waveErode(vec3 wp, float t) {
+        float diag = wp.x - wp.y * 0.26 + wp.z * 0.14;
+        float bay = 0.24 * sin(wp.y * 3.1 - t * 0.85 + wp.z * 1.2)
+                  + 0.14 * cos(wp.y * 5.8 + t * 0.65 - wp.x * 2.1)
+                  + 0.07 * sin(wp.z * 4.8 - wp.y * 4.4 + t * 1.15);
+        return diag + bay - 0.18;
+      }
+    `;
+
     // ------------------------------------------------------------------------
-    // 1. SPHERE BODY: Liquid Abyss Plum Core (#12060F -> #2A0F24 -> #8A1C4A)
-    //    with dynamic fluid caustics & crimson/rose bioluminescent rim
+    // 1. SOFT PLUM INNER VOLUME GLOW (Dissolves along the exact same wave cut
+    //    so there is NO hard geometric circle outline on the broken particle side)
     // ------------------------------------------------------------------------
-    const sphereBodyGeom = new THREE.SphereGeometry(R * 0.992, 64, 64);
+    const sphereBodyGeom = new THREE.SphereGeometry(R * 0.965, 64, 64);
     const sphereBodyMat = new THREE.ShaderMaterial({
+      transparent: true,
+      blending: THREE.NormalBlending,
+      depthWrite: false,
       uniforms: {
         uTime: { value: 0 },
         uMouseLocal: uMouseLocalShared,
@@ -468,9 +483,12 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         varying vec3 vNormal;
         varying vec3 vView;
         varying vec3 vObjPos;
+        varying vec3 vWorldDir;
         void main() {
           vObjPos = normalize(position);
-          vec4 mv = modelViewMatrix * vec4(position, 1.0);
+          vec4 worldPos = modelMatrix * vec4(position, 1.0);
+          vWorldDir = normalize(worldPos.xyz);
+          vec4 mv = viewMatrix * worldPos;
           vNormal = normalize(normalMatrix * normal);
           vView = normalize(-mv.xyz);
           gl_Position = projectionMatrix * mv;
@@ -484,77 +502,52 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         varying vec3 vNormal;
         varying vec3 vView;
         varying vec3 vObjPos;
+        varying vec3 vWorldDir;
+        ${GLSL_WAVE_ERODE}
         void main() {
+          float t = uTime * 0.55 * (1.0 - uReduced);
+          float erode = waveErode(normalize(vWorldDir), t);
+          float intactMask = 1.0 - smoothstep(-0.14, 0.22, erode);
+          if (intactMask <= 0.005) discard;
+
           float ndotv = clamp(dot(vNormal, vView), 0.0, 1.0);
-          float t = uTime * 0.34 * (1.0 - uReduced);
+          // Feather edge softly so the outer silhouette is formed by dense particles
+          float rimFeather = smoothstep(0.05, 0.46, ndotv);
+          float alpha = 0.90 * rimFeather * intactMask;
 
           vec3 p = normalize(vObjPos);
           float mouseDist = length(p - normalize(uMouseLocal));
           float hoverInfluence = uHover * exp(-mouseDist * 4.2);
 
-          // Seam-free 3D trigonometric fluid advection inside the dark plum orb
+          // Organic liquid wine-plum interior currents
           vec3 q = vec3(
-            sin(p.y * 3.4 + p.z * 2.1 + t),
-            sin(p.z * 3.1 - p.x * 2.6 + t * 0.82),
-            sin(p.x * 2.9 + p.y * 2.4 - t * 0.74)
+            sin(p.y * 3.4 + p.z * 2.1 + t * 0.6),
+            sin(p.z * 3.1 - p.x * 2.6 + t * 0.5),
+            sin(p.x * 2.9 + p.y * 2.4 - t * 0.45)
           );
-          vec3 r = vec3(
-            cos(p.z * 4.8 + q.x * 1.9 - t * 0.95 + hoverInfluence * 1.4),
-            sin(p.x * 5.2 - q.y * 2.1 + t * 0.78),
-            cos(p.y * 4.5 + q.z * 1.7 + t * 0.63)
-          );
+          float flow = smoothstep(-0.4, 0.85, sin(p.x * 3.8 + q.y * 2.1 + t * 0.4) * cos(p.y * 3.4 - q.z * 1.9));
 
-          float flowA = sin(p.x * 4.0 + q.y * 2.1 + r.z * 0.8 + t * 0.7);
-          float flowB = cos(p.y * 3.8 - q.z * 1.8 + r.x * 0.9 - t * 0.55);
-          float liquidBand = smoothstep(-0.35, 0.85, 0.52 * flowA + 0.48 * flowB);
-
-          float ridgeRaw = clamp(1.0 - abs(flowA + 0.65 * flowB), 0.0, 1.0);
-          float r2 = ridgeRaw * ridgeRaw;
-          float caustic = r2 * r2 * r2;
-          float silkRaw = clamp(1.0 - abs(flowA - flowB), 0.0, 1.0);
-          float secondarySilk = silkRaw * silkRaw * silkRaw * silkRaw;
-
-          // Strictly Clarusway brand palette: #12060F -> #2A0F24 -> #8A1C4A -> #E5254F -> #F2A6BC / #FDE9FF
-          vec3 plumEdge    = vec3(0.071, 0.024, 0.059); // #12060F
+          vec3 plumAbyss   = vec3(0.071, 0.024, 0.059); // #12060F
           vec3 plumCenter  = vec3(0.175, 0.055, 0.145); // #2A0F24
           vec3 wineCurrent = vec3(0.541, 0.110, 0.290); // #8A1C4A
           vec3 crimsonGlow = vec3(0.898, 0.145, 0.310); // #E5254F
-          vec3 softRose    = vec3(0.949, 0.651, 0.737); // #F2A6BC
-          vec3 lavenderHi  = vec3(0.992, 0.914, 1.000); // #FDE9FF
 
           float ndotvSafe = max(ndotv, 0.0001);
-          float invNdotvSafe = max(1.0 - ndotv, 0.0001);
+          vec3 base = mix(plumAbyss, plumCenter, pow(ndotvSafe, 0.72));
+          base = mix(base, wineCurrent, flow * 0.55);
 
-          vec3 base = mix(plumEdge, plumCenter, pow(ndotvSafe, 0.72));
+          float waveEdge = smoothstep(-0.22, 0.08, erode) * (1.0 - smoothstep(0.08, 0.22, erode));
+          base += crimsonGlow * (waveEdge * 0.32 + hoverInfluence * 0.22);
 
-          float currentStrength = liquidBand * (0.28 + 0.42 * pow(ndotvSafe, 0.6));
-          base = mix(base, wineCurrent, currentStrength * 0.64);
-
-          base += crimsonGlow * caustic * (0.28 + 0.26 * hoverInfluence);
-          base += softRose * secondarySilk * (0.10 + 0.18 * ndotv);
-          base += lavenderHi * (caustic * caustic) * (0.16 + 0.24 * hoverInfluence);
-
-          // Upper-left crimson rim light + subtle pearlescent Fresnel rim
-          vec3 rimDir = normalize(vec3(-0.62, 0.70, 0.36));
-          float rimLight = pow(invNdotvSafe, 2.2) * max(0.0, dot(vNormal, rimDir));
-          base += crimsonGlow * (rimLight * 0.85);
-
-          float edgeGlow = pow(invNdotvSafe, 3.6);
-          base += mix(crimsonGlow, softRose, 0.52) * (edgeGlow * 0.36);
-
-          // Interactive cursor bioluminescence on sphere
-          base += mix(crimsonGlow, lavenderHi, 0.35) * hoverInfluence * 0.22;
-
-          gl_FragColor = vec4(base, 1.0);
+          gl_FragColor = vec4(base, alpha);
         }
       `,
-      depthWrite: true,
     });
     const sphereBody = new THREE.Mesh(sphereBodyGeom, sphereBodyMat);
     globeSpin.add(sphereBody);
 
-    // Atmosphere Glow Shell (Fluid Corona)
-    const atmoGeom = new THREE.SphereGeometry(R * 1.14, 48, 48);
+    // Subtle Atmosphere Glow Shell (only hugging intact wave hemisphere)
+    const atmoGeom = new THREE.SphereGeometry(R * 1.11, 48, 48);
     const atmoMat = new THREE.ShaderMaterial({
       side: THREE.BackSide,
       transparent: true,
@@ -568,9 +561,12 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       },
       vertexShader: `
         varying vec3 vNormal;
+        varying vec3 vWorldDir;
         void main() {
+          vec4 worldPos = modelMatrix * vec4(position, 1.0);
+          vWorldDir = normalize(worldPos.xyz);
           vNormal = normalize(normalMatrix * normal);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          gl_Position = projectionMatrix * viewMatrix * worldPos;
         }
       `,
       fragmentShader: `
@@ -579,13 +575,16 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         uniform float uHover;
         uniform float uReduced;
         varying vec3 vNormal;
+        varying vec3 vWorldDir;
+        ${GLSL_WAVE_ERODE}
         void main() {
-          float ang = atan(vNormal.y, vNormal.x);
-          float fluidPulse = 0.88 + 0.12 * sin(ang * 3.0 + uTime * 0.75 * (1.0 - uReduced));
+          float t = uTime * 0.55 * (1.0 - uReduced);
+          float erode = waveErode(normalize(vWorldDir), t);
+          float intactMask = 1.0 - smoothstep(-0.05, 0.45, erode);
           float rimBase = max(0.66 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 0.0);
-          float intensity = rimBase * rimBase * rimBase * 0.42 * fluidPulse;
+          float intensity = rimBase * rimBase * rimBase * 0.38 * intactMask;
           vec3 roseHalo = mix(uColor, vec3(0.949, 0.651, 0.737), 0.35);
-          gl_FragColor = vec4(roseHalo, intensity * (0.24 + 0.08 * uHover));
+          gl_FragColor = vec4(roseHalo, intensity * (0.20 + 0.08 * uHover));
         }
       `,
     });
@@ -593,7 +592,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     globeSpin.add(atmoSphere);
 
     // ------------------------------------------------------------------------
-    // 2. ORTHOGRAPHIC DOTTED GLOBE (Land-Only Dots with Fluid Wave & Limb Darkening)
+    // 2. ORTHOGRAPHIC DOTTED CONTINENTS (Synced with wavy wave-scatter boundary)
     // ------------------------------------------------------------------------
     let dotsPoints: any = null;
     let dotsMat: any = null;
@@ -629,7 +628,8 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           if (mask[(v * mw + u) * 4] > 110) continue;
         }
 
-        pos.push(x * R, y * R, z * R);
+        const rDot = R + 0.015;
+        pos.push(x * rDot, y * rDot, z * rDot);
 
         // Germany highlight region
         const dotVec = new THREE.Vector3(x, y, z).normalize();
@@ -654,6 +654,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           uMouseLocal: uMouseLocalShared,
           uHover: uHoverShared,
           uReduced: { value: uReducedVal },
+          uRadius: { value: R },
         },
         vertexShader: `
           attribute float aIsGermany;
@@ -665,50 +666,55 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           uniform vec3 uMouseLocal;
           uniform float uHover;
           uniform float uReduced;
+          uniform float uRadius;
           varying float vAlpha;
           varying vec3 vColor;
-          varying float vCrest;
+          ${GLSL_WAVE_ERODE}
           void main() {
             vec3 ptNorm = normalize(position);
-            float t = uTime * (1.0 - uReduced);
+            float t = uTime * 0.55 * (1.0 - uReduced);
 
-            // Harmonic fluid wave sweeping across continents (radial lift keeps continent shape crisp)
-            float wave = sin(ptNorm.x * 4.2 + t * 1.1 + sin(ptNorm.y * 3.1 - t * 0.7)) *
-                         cos(ptNorm.z * 3.8 - t * 0.85 + aSeed * 1.6);
-            float crest = smoothstep(-0.1, 0.85, wave);
-            vCrest = crest;
+            vec4 worldPos = modelMatrix * vec4(position, 1.0);
+            vec3 wp = normalize(worldPos.xyz);
+            float erode = waveErode(wp, t);
+            float scatter = smoothstep(-0.04, 0.85, erode);
+
+            // Keep Germany crisp; allow eastern continents to peel gently into the wave scatter
+            float gerLock = aIsGermany > 0.5 ? 0.15 : 1.0;
+            float scatterEff = scatter * gerLock;
 
             float mouseDist = length(ptNorm - normalize(uMouseLocal));
-            float hoverPush = uHover * exp(-mouseDist * 4.8);
+            float hoverPush = uHover * exp(-mouseDist * 4.5);
 
-            float radialLift = (0.01 + 0.032 * crest + 0.085 * hoverPush) * (1.0 - uReduced * 0.5);
-            vec3 displaced = ptNorm * (length(position) + radialLift);
+            // Scatter displacement matching particle cloud
+            vec3 driftDir = normalize(vec3(1.15, -0.15 + 0.3 * (aSeed - 0.5), 0.14));
+            worldPos.xyz += driftDir * (scatterEff * (0.35 + 0.9 * aSeed) * uRadius * 0.55);
+            worldPos.xyz += wp * (hoverPush * 0.14);
 
-            vec4 mv = modelViewMatrix * vec4(displaced, 1.0);
-            vec3 norm = normalize(normalMatrix * ptNorm);
-            float facing = clamp(dot(norm, normalize(-mv.xyz)), 0.0, 1.0);
-
-            // Limb darkening: 56% to 88% opacity based on facing angle
-            float limbAlpha = mix(0.56, 0.88, pow(max(facing, 0.0001), 0.68));
+            vec4 mv = viewMatrix * worldPos;
+            vec3 viewNorm = normalize(normalMatrix * ptNorm);
+            float facing = dot(viewNorm, normalize(-mv.xyz));
+            float frontMask = smoothstep(-0.18, 0.25, facing);
 
             // Radial sweep intro starting from Germany
             float angFromGer = acos(clamp(dot(ptNorm, uGermanyDir), -1.0, 1.0));
             float sweepFactor = 1.0 - smoothstep(uIntroSweep - 0.15, uIntroSweep + 0.25, angFromGer);
 
-            vAlpha = limbAlpha * sweepFactor * (0.86 + 0.22 * crest + 0.25 * hoverPush);
+            float limbAlpha = mix(0.50, 0.90, pow(max(facing, 0.0001), 0.65));
+            vAlpha = limbAlpha * frontMask * sweepFactor * (1.0 - scatterEff * 0.55);
 
             if (aIsGermany > 0.5) {
-              vColor = mix(vec3(0.898, 0.145, 0.310), vec3(1.0, 0.88, 0.94), 0.22 + 0.22 * sin(t * 3.2));
-              vAlpha *= (1.0 + 0.30 * sin(uTime * 3.5));
+              vColor = mix(vec3(0.898, 0.145, 0.310), vec3(1.0, 0.88, 0.94), 0.22 + 0.22 * sin(uTime * 3.2));
+              vAlpha = frontMask * sweepFactor * (0.92 + 0.08 * sin(uTime * 3.5));
             } else {
-              vec3 baseRose = vec3(0.949, 0.651, 0.737); // #F2A6BC
-              vec3 crimson  = vec3(0.898, 0.145, 0.310); // #E5254F
-              vec3 mistPink = vec3(0.992, 0.914, 1.000); // #FDE9FF
-              vColor = mix(mix(crimson, baseRose, 0.72), mistPink, crest * 0.55 + hoverPush * 0.45);
-              vColor = mix(vColor, crimson, crest * 0.18 * aSeed);
+              vec3 rose = vec3(0.949, 0.651, 0.737);     // #F2A6BC (over dark dome)
+              vec3 mist = vec3(0.992, 0.914, 1.000);     // #FDE9FF
+              vec3 wine = vec3(0.541, 0.110, 0.290);     // #8A1C4A (scattered over light canvas)
+              vec3 crispOverDark = mix(rose, mist, aSeed * 0.45 + hoverPush * 0.4);
+              vColor = mix(crispOverDark, wine, smoothstep(0.05, 0.45, scatterEff));
             }
 
-            float sz = (aIsGermany > 0.5 ? 2.4 : (1.38 + crest * 0.62 + hoverPush * 0.85)) * uPR * (15.0 / -mv.z);
+            float sz = (aIsGermany > 0.5 ? 2.35 : (1.35 + hoverPush * 0.7)) * uPR * (15.0 / -mv.z);
             gl_PointSize = sz;
             gl_Position = projectionMatrix * mv;
           }
@@ -716,15 +722,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         fragmentShader: `
           varying float vAlpha;
           varying vec3 vColor;
-          varying float vCrest;
           void main() {
+            if (vAlpha <= 0.01) discard;
             vec2 c = gl_PointCoord - vec2(0.5);
             float d = length(c);
             if (d > 0.5) discard;
-            float smoothEdge = 1.0 - smoothstep(0.14, 0.5, d);
-            float pinGlow = 1.0 - smoothstep(0.0, 0.24, d);
-            vec3 col = mix(vColor, vec3(1.0, 0.95, 0.98), pinGlow * 0.32 * vCrest);
-            gl_FragColor = vec4(col, vAlpha * smoothEdge);
+            float smoothEdge = 1.0 - smoothstep(0.16, 0.5, d);
+            gl_FragColor = vec4(vColor, vAlpha * smoothEdge);
           }
         `,
       });
@@ -763,100 +767,47 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     const maskFallbackTimer = window.setTimeout(() => processMask(null, 1024, 512), 2500);
 
     // ------------------------------------------------------------------------
-    // 2B. BIOLUMINESCENT FLUID PARTICLE STREAMS (Auros-Inspired Liquid Flow in Clarusway Palette)
+    // 2B. WAVY DISSOLVING PARTICLE SPHERE (Auros "dalgalı dağınık" effect in Clarusway palette)
+    //     Dense micro-granular sphere crust -> S-wave crest -> swirling right-side scatter cloud
     // ------------------------------------------------------------------------
-    const STREAM_COUNT = 3800;
-    const STREAM_AXES = [
-      new THREE.Vector3(0.18, 0.96, 0.21).normalize(),
-      new THREE.Vector3(-0.48, 0.78, 0.40).normalize(),
-      new THREE.Vector3(0.55, 0.64, -0.53).normalize(),
-      new THREE.Vector3(-0.62, 0.42, 0.66).normalize(),
-      new THREE.Vector3(0.32, -0.75, 0.58).normalize(),
-      new THREE.Vector3(-0.25, -0.84, -0.48).normalize(),
-    ];
+    const CLOUD_COUNT = 26000;
+    const cloudPos = new Float32Array(CLOUD_COUNT * 3);
+    const cloudRand = new Float32Array(CLOUD_COUNT * 3);
+    const cloudSeed = new Float32Array(CLOUD_COUNT);
 
-    const fluidPos = new Float32Array(STREAM_COUNT * 3);
-    const fluidAxis = new Float32Array(STREAM_COUNT * 3);
-    const fluidSeed = new Float32Array(STREAM_COUNT);
-    const fluidSpeed = new Float32Array(STREAM_COUNT);
-    const fluidLayer = new Float32Array(STREAM_COUNT);
-
-    let fSeedState = 88421;
-    const nextFluidRand = () => {
-      fSeedState = (fSeedState * 1664525 + 1013904223) >>> 0;
-      return fSeedState / 4294967296;
+    let cSeedState = 88421;
+    const nextCloudRand = () => {
+      cSeedState = (cSeedState * 1664525 + 1013904223) >>> 0;
+      return cSeedState / 4294967296;
     };
 
-    const upRefA = new THREE.Vector3(1, 0, 0);
-    const upRefB = new THREE.Vector3(0, 1, 0);
-    const streamBasisU: any[] = [];
-    const streamBasisV: any[] = [];
-    STREAM_AXES.forEach((ax) => {
-      const ref = Math.abs(ax.x) < 0.85 ? upRefA : upRefB;
-      const u = new THREE.Vector3().crossVectors(ax, ref).normalize();
-      const v = new THREE.Vector3().crossVectors(ax, u).normalize();
-      streamBasisU.push(u);
-      streamBasisV.push(v);
-    });
+    for (let i = 0; i < CLOUD_COUNT; i++) {
+      // Fibonacci sphere base + slight organic angular jitter so no grid moiré appears
+      const yBase = 1 - (i / (CLOUD_COUNT - 1)) * 2;
+      const yJit = Math.max(-0.999, Math.min(0.999, yBase + (nextCloudRand() - 0.5) * 0.015));
+      const rr = Math.sqrt(Math.max(0, 1 - yJit * yJit));
+      const theta = i * 2.399963229728653 + (nextCloudRand() - 0.5) * 0.08;
+      const x = Math.cos(theta) * rr;
+      const z = Math.sin(theta) * rr;
 
-    const RIBBON_CUTOFF = 2600;
-    for (let i = 0; i < STREAM_COUNT; i++) {
-      const sIdx = i % STREAM_AXES.length;
-      const ax = STREAM_AXES[sIdx];
-      const uVec = streamBasisU[sIdx];
-      const vVec = streamBasisV[sIdx];
-      const dir = new THREE.Vector3();
+      // Rich granular shell depth (0.94 .. 1.02 * R)
+      const rFactor = 0.94 + 0.08 * Math.pow(nextCloudRand(), 0.65);
+      const rad = R * rFactor;
 
-      let radius = R + 0.04;
-      let speed = 0.22;
-      let layer = 0.0;
+      cloudPos[i * 3 + 0] = x * rad;
+      cloudPos[i * 3 + 1] = yJit * rad;
+      cloudPos[i * 3 + 2] = z * rad;
 
-      if (i < RIBBON_CUTOFF) {
-        // Silky overlapping geodesic liquid currents wrapping around the globe
-        const phi = ((Math.floor(i / STREAM_AXES.length) / Math.ceil(RIBBON_CUTOFF / STREAM_AXES.length)) +
-          (nextFluidRand() - 0.5) * 0.04) * Math.PI * 2;
-        const spread = (nextFluidRand() + nextFluidRand() - 1.0) * 0.62;
-        const cosSpread = Math.cos(spread);
-        dir
-          .addScaledVector(uVec, Math.cos(phi) * cosSpread)
-          .addScaledVector(vVec, Math.sin(phi) * cosSpread)
-          .addScaledVector(ax, Math.sin(spread))
-          .normalize();
-        radius = R + 0.025 + nextFluidRand() * 0.14;
-        speed = 0.16 + nextFluidRand() * 0.22;
-        layer = 0.0;
-      } else {
-        // Outer bioluminescent fluid mist / limb motes bridging surface & corona
-        const outerIdx = i - RIBBON_CUTOFF;
-        const outerTotal = STREAM_COUNT - RIBBON_CUTOFF;
-        const y = 1 - (outerIdx / Math.max(1, outerTotal - 1)) * 2;
-        const rr = Math.sqrt(Math.max(0, 1 - y * y));
-        const theta = outerIdx * 2.399963229728653 + nextFluidRand() * 0.35;
-        dir.set(Math.cos(theta) * rr, y, Math.sin(theta) * rr).normalize();
-        radius = R + 0.11 + Math.pow(nextFluidRand(), 1.35) * 0.34;
-        speed = 0.09 + nextFluidRand() * 0.15;
-        layer = 1.0;
-      }
-
-      fluidPos[i * 3 + 0] = dir.x * radius;
-      fluidPos[i * 3 + 1] = dir.y * radius;
-      fluidPos[i * 3 + 2] = dir.z * radius;
-
-      fluidAxis[i * 3 + 0] = ax.x;
-      fluidAxis[i * 3 + 1] = ax.y;
-      fluidAxis[i * 3 + 2] = ax.z;
-
-      fluidSeed[i] = nextFluidRand();
-      fluidSpeed[i] = speed;
-      fluidLayer[i] = layer;
+      cloudRand[i * 3 + 0] = nextCloudRand();
+      cloudRand[i * 3 + 1] = nextCloudRand();
+      cloudRand[i * 3 + 2] = nextCloudRand();
+      cloudSeed[i] = nextCloudRand();
     }
 
     const fluidGeom = new THREE.BufferGeometry();
-    fluidGeom.setAttribute("position", new THREE.BufferAttribute(fluidPos, 3));
-    fluidGeom.setAttribute("aAxis", new THREE.BufferAttribute(fluidAxis, 3));
-    fluidGeom.setAttribute("aSeed", new THREE.BufferAttribute(fluidSeed, 1));
-    fluidGeom.setAttribute("aSpeed", new THREE.BufferAttribute(fluidSpeed, 1));
-    fluidGeom.setAttribute("aLayer", new THREE.BufferAttribute(fluidLayer, 1));
+    fluidGeom.setAttribute("position", new THREE.BufferAttribute(cloudPos, 3));
+    fluidGeom.setAttribute("aRand", new THREE.BufferAttribute(cloudRand, 3));
+    fluidGeom.setAttribute("aSeed", new THREE.BufferAttribute(cloudSeed, 1));
 
     const fluidSwarmMat = new THREE.ShaderMaterial({
       transparent: true,
@@ -870,12 +821,11 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         uMouseLocal: uMouseLocalShared,
         uHover: uHoverShared,
         uReduced: { value: uReducedVal },
+        uRadius: { value: R },
       },
       vertexShader: `
-        attribute vec3 aAxis;
+        attribute vec3 aRand;
         attribute float aSeed;
-        attribute float aSpeed;
-        attribute float aLayer;
 
         uniform float uTime;
         uniform float uPR;
@@ -884,104 +834,123 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         uniform vec3 uMouseLocal;
         uniform float uHover;
         uniform float uReduced;
+        uniform float uRadius;
 
         varying float vAlpha;
         varying vec3 vColor;
-        varying float vRimFade;
+        varying float vCoreMask;
 
-        vec3 rotateAroundAxis(vec3 v, vec3 k, float theta) {
-          float c = cos(theta);
-          float s = sin(theta);
-          return v * c + cross(k, v) * s + k * dot(k, v) * (1.0 - c);
-        }
+        ${GLSL_WAVE_ERODE}
 
         void main() {
-          float baseRadius = length(position);
-          vec3 dir0 = normalize(position);
-          vec3 axis = normalize(aAxis);
-          float t = uTime * (1.0 - uReduced);
+          vec3 ptNorm = normalize(position);
+          float tWave = uTime * 0.55 * (1.0 - uReduced);
+          float tSwirl = uTime * (1.0 - uReduced);
 
-          // Continuous geodesic advection along tilted stream axis
-          vec3 flowDir = rotateAroundAxis(dir0, axis, t * aSpeed);
+          vec4 worldPos = modelMatrix * vec4(position, 1.0);
+          vec3 wp = normalize(worldPos.xyz);
 
-          // Sinusoidal ribbon meander perpendicular to stream path (pole-safe)
-          vec3 crossVec = cross(axis, flowDir);
-          float crossLen = length(crossVec);
-          vec3 refFallback = abs(axis.x) < 0.88 ? vec3(1.0, 0.0, 0.0) : vec3(0.0, 1.0, 0.0);
-          vec3 secAxis = crossLen > 0.001
-            ? crossVec / crossLen
-            : normalize(cross(axis, refFallback));
+          float erode = waveErode(wp, tWave);
+          // Smooth transition across the breaking wave boundary
+          float scatter = smoothstep(-0.08, 0.90, erode);
 
-          float wavePhase = (flowDir.x * 3.1 + flowDir.y * 2.7 - flowDir.z * 2.3) + aSeed * 6.2831 - t * 1.35;
-          float wobble = sin(wavePhase) * mix(0.11, 0.17, aLayer) * (1.0 - uReduced);
-          flowDir = normalize(rotateAroundAxis(flowDir, secAxis, wobble));
+          // Luminous ridge right where dense sphere peels into dispersed particles
+          float ridgeDiff = (erode - 0.02) * 4.2;
+          float ridge = exp(-(ridgeDiff * ridgeDiff));
 
-          // Liquid radial breathing wave
-          float radialWave = sin(flowDir.x * 4.4 - t * 1.35 + aSeed * 6.2831) *
-                             cos(flowDir.y * 4.0 + t * 0.9);
-          float pulseLift = 0.042 * radialWave * (1.0 - uReduced);
+          // Micro jitter on intact crust + billowing 3D wave dispersion into right space
+          vec3 microJit = vec3(
+            sin(tSwirl * 1.2 + aRand.x * 24.0),
+            cos(tSwirl * 1.05 + aRand.y * 22.0),
+            sin(tSwirl * 1.15 + aRand.z * 26.0)
+          ) * (0.025 + ridge * 0.06) * (1.0 - uReduced);
 
-          // Pointer hover bioluminescent swell
-          float mouseDist = length(flowDir - normalize(uMouseLocal));
-          float hoverInfluence = uHover * exp(-mouseDist * 4.0);
-          float hoverLift = hoverInfluence * (0.20 + 0.08 * aLayer);
+          vec3 driftDir = normalize(mix(
+            wp,
+            vec3(1.0, -0.14 + (aRand.y - 0.5) * 0.62, 0.12 + (aRand.z - 0.5) * 0.50),
+            0.65
+          ));
+          float travelDist = scatter * (0.24 + 1.25 * pow(max(aRand.x, 0.0001), 0.90)) * uRadius * 0.36;
 
-          vec3 pos = flowDir * (baseRadius + pulseLift + hoverLift);
+          vec3 swirl = vec3(
+            sin(tSwirl * 0.92 + aRand.y * 16.0 + erode * 2.8),
+            cos(tSwirl * 0.78 + aRand.z * 18.0 + wp.y * 3.0),
+            sin(tSwirl * 0.85 + aRand.x * 14.0)
+          ) * (scatter * (0.14 + 0.38 * aRand.y));
 
-          vec4 mv = modelViewMatrix * vec4(pos, 1.0);
-          vec3 viewNormal = normalize(normalMatrix * flowDir);
-          vec3 viewDir = normalize(-mv.xyz);
-          float facing = dot(viewNormal, viewDir);
+          // Cursor hover wave ripple
+          float mouseDist = length(ptNorm - normalize(uMouseLocal));
+          float hoverInfluence = uHover * exp(-mouseDist * 3.8);
 
-          // Smoothly fade particles curving behind the globe limb
-          float hemMask = smoothstep(-0.24, 0.18, facing);
+          worldPos.xyz += microJit + driftDir * travelDist + swirl + wp * (ridge * 0.10 * aSeed + hoverInfluence * 0.22);
+
+          vec4 mv = viewMatrix * worldPos;
+          vec3 viewNorm = normalize(normalMatrix * ptNorm);
+          float facing = dot(viewNorm, normalize(-mv.xyz));
+
+          // Intact crust culls back hemisphere cleanly; scattered clouds swirl visibly in full 3D depth
+          float backCull = smoothstep(-0.22, 0.14, facing);
+          float hemMask = mix(backCull, 1.0, smoothstep(0.05, 0.40, scatter));
 
           // Reveal with page-load radial sweep from Germany
-          float angFromGer = acos(clamp(dot(flowDir, uGermanyDir), -1.0, 1.0));
-          float sweepFactor = 1.0 - smoothstep(uIntroSweep - 0.10, uIntroSweep + 0.35, angFromGer);
+          float angFromGer = acos(clamp(dot(ptNorm, uGermanyDir), -1.0, 1.0));
+          float sweepFactor = 1.0 - smoothstep(uIntroSweep - 0.15, uIntroSweep + 0.35, angFromGer);
 
-          float shimmer = 0.56 + 0.44 * sin(t * 2.1 + aSeed * 18.0 + dot(flowDir, axis) * 5.0);
+          float twinkle = 0.70 + 0.30 * sin(tSwirl * 2.4 + aSeed * 25.0 + erode * 4.0);
 
-          // Strictly Clarusway palette:
-          // Over dark plum interior -> luminous Lavender-Rose (#FDE9FF), Soft Rose (#F2A6BC), Crimson (#E5254F)
-          // Over bright #FFF4F6 outer rim -> saturated Crimson (#E5254F) & Deep Wine (#8A1C4A)
-          vec3 wine     = vec3(0.541, 0.110, 0.290); // #8A1C4A
-          vec3 crimson  = vec3(0.898, 0.145, 0.310); // #E5254F
-          vec3 rose     = vec3(0.949, 0.651, 0.737); // #F2A6BC
-          vec3 lavender = vec3(0.992, 0.914, 1.000); // #FDE9FF
+          // Determine whether particle lies over dark plum dome vs open light #FFF4F6 background
+          float overDome = (1.0 - smoothstep(-0.10, 0.22, erode)) * smoothstep(0.08, 0.45, max(facing, 0.0));
+          vCoreMask = overDome;
 
-          float brightMix = smoothstep(0.2, 0.9, shimmer) * mix(0.55, 0.85, aSeed);
-          vec3 innerColor = mix(mix(wine, crimson, 0.62), mix(rose, lavender, brightMix), 0.45 + 0.50 * shimmer);
-          vec3 outerColor = mix(wine, crimson, 0.62 + 0.38 * shimmer);
+          // Clarusway palette calibrated for BOTH surfaces:
+          // 1) Over dark dome: deep plum grain + crimson + soft rose + bright lavender-white glints
+          // 2) Over light #FFF4F6 scatter space: crisp dark wine, obsidian plum & crimson specks
+          vec3 deepPlum  = vec3(0.118, 0.035, 0.094); // #1E0918
+          vec3 darkWine  = vec3(0.541, 0.110, 0.290); // #8A1C4A
+          vec3 crimson   = vec3(0.898, 0.145, 0.310); // #E5254F
+          vec3 softRose  = vec3(0.949, 0.651, 0.737); // #F2A6BC
+          vec3 pearlPink = vec3(0.992, 0.914, 1.000); // #FDE9FF
 
-          float overSphere = smoothstep(-0.02, 0.28, facing);
-          vColor = mix(outerColor, innerColor, overSphere);
-          vColor = mix(vColor, lavender, hoverInfluence * 0.55 * overSphere);
+          vec3 domeTone = aSeed < 0.28
+            ? mix(deepPlum, darkWine, aSeed * 2.5)
+            : (aSeed < 0.78
+              ? mix(crimson, softRose, (aSeed - 0.28) * 2.0)
+              : mix(softRose, pearlPink, 0.55 + 0.45 * twinkle));
+          domeTone = mix(domeTone, pearlPink, ridge * 0.45 + hoverInfluence * 0.45);
 
-          float baseOpacity = mix(0.60, 0.42, aLayer) * shimmer;
-          vAlpha = hemMask * sweepFactor * baseOpacity * (1.0 + hoverInfluence * 0.55);
-          vRimFade = mix(0.55, 1.0, overSphere);
+          vec3 openTone = aRand.z < 0.36
+            ? mix(deepPlum, darkWine, aRand.y)
+            : mix(darkWine, crimson, 0.45 + 0.55 * aSeed);
 
-          float szBase = mix(1.75, 1.15, aLayer) * (0.72 + 0.56 * aSeed);
-          float crestScale = 0.85 + 0.45 * shimmer + hoverInfluence * 0.75;
-          gl_PointSize = szBase * crestScale * uPR * (15.0 / -mv.z);
+          vColor = mix(openTone, domeTone, overDome);
+
+          // Natural fading aerosol scatter tail on far right
+          float scatterFade = 1.0 - smoothstep(0.45, 1.0, scatter) * (0.35 + 0.40 * aRand.x);
+          float baseOp = mix(0.92, 0.78, scatter) * twinkle;
+          vAlpha = hemMask * sweepFactor * scatterFade * baseOp;
+
+          // Crisp varied micro-grain sizes (many fine dots + bright sparse foreground specks)
+          float powSeed = aSeed * aSeed;
+          float szBase = 1.25 + powSeed * 2.45 + ridge * 0.65 + hoverInfluence * 0.85;
+          float scatterShrink = 1.0 - scatter * 0.22 * (1.0 - aRand.z);
+          gl_PointSize = szBase * scatterShrink * uPR * (15.0 / -mv.z);
           gl_Position = projectionMatrix * mv;
         }
       `,
       fragmentShader: `
         varying float vAlpha;
         varying vec3 vColor;
-        varying float vRimFade;
+        varying float vCoreMask;
         void main() {
           if (vAlpha <= 0.01) discard;
           vec2 c = gl_PointCoord - vec2(0.5);
           float d = length(c);
           if (d > 0.5) discard;
-          float soft = 1.0 - smoothstep(0.0, 0.5, d);
-          float halo = soft * pow(max(soft, 0.001), 0.6);
+          // Crisp granular particle edge with soft core sparkle
+          float edge = 1.0 - smoothstep(0.18, 0.5, d);
           float core = 1.0 - smoothstep(0.0, 0.22, d);
-          vec3 col = mix(vColor, vec3(1.0, 0.95, 0.98), core * 0.45 * vRimFade);
-          gl_FragColor = vec4(col, vAlpha * halo);
+          vec3 col = mix(vColor, vec3(1.0, 0.94, 0.98), core * 0.35 * vCoreMask);
+          gl_FragColor = vec4(col, vAlpha * edge);
         }
       `,
     });
@@ -1055,8 +1024,11 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         vertexShader: `
           attribute float aProgress;
           varying float vProgress;
+          varying float vFacing;
           void main() {
             vProgress = aProgress;
+            vec3 viewNorm = normalize(normalMatrix * normalize(position));
+            vFacing = viewNorm.z;
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
           }
         `,
@@ -1065,16 +1037,18 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           uniform float uOffset;
           uniform float uSpeed;
           varying float vProgress;
+          varying float vFacing;
           void main() {
             // Travelling dot along arc
             float head = fract(uTime * uSpeed + uOffset);
             float d = head - vProgress;
             float trail = d > 0.0 ? exp(-d * 9.0) : 0.0;
 
-            // Thin crimson arc line (1.2px) fading towards origin
-            float lineAlpha = 0.12 * vProgress;
-            float dotAlpha = trail * 0.9;
-            float alpha = lineAlpha + dotAlpha;
+            float frontMask = smoothstep(-0.18, 0.22, vFacing);
+            // Thin crimson arc line fading towards origin & back hemisphere
+            float lineAlpha = 0.08 * vProgress;
+            float dotAlpha = trail * 0.85;
+            float alpha = (lineAlpha + dotAlpha) * frontMask;
 
             vec3 crimson = vec3(0.898, 0.145, 0.310);
             vec3 whiteLight = vec3(1.0, 0.85, 0.92);
@@ -1117,6 +1091,9 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       transparent: true,
       depthTest: true,
       depthWrite: false,
+      uniforms: {
+        uRadius: { value: R * 0.96 },
+      },
       vertexShader: `
         varying vec3 vWorldPos;
         void main() {
@@ -1125,12 +1102,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         }
       `,
       fragmentShader: `
+        uniform float uRadius;
         varying vec3 vWorldPos;
         void main() {
           // #FFFFFF at 25% when in front of dark globe, #E5254F at 20% outside
           float distToCenter = length(vWorldPos.xy);
-          vec3 c = distToCenter < 4.1 ? vec3(1.0, 1.0, 1.0) : vec3(0.898, 0.145, 0.310);
-          float alpha = distToCenter < 4.1 ? 0.25 : 0.20;
+          vec3 c = distToCenter < uRadius ? vec3(1.0, 1.0, 1.0) : vec3(0.898, 0.145, 0.310);
+          float alpha = distToCenter < uRadius ? 0.25 : 0.20;
           gl_FragColor = vec4(c, alpha);
         }
       `,
@@ -1385,7 +1363,10 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       if (dotsMat) dotsMat.uniforms.uTime.value = time;
       arcMaterials.forEach((m) => (m.uniforms.uTime.value = time));
 
-      // Update pulse rings at Germany pin
+      // Update pulse rings & front-hemisphere visibility at Germany pin
+      globeSpin.updateMatrixWorld();
+      const gerWorldPos = gerPos.clone().applyMatrix4(globeSpin.matrixWorld);
+      pinGroup.visible = gerWorldPos.z > -0.25;
       pulseRings.forEach((p) => {
         const loop = (time * 0.42 + p.offset) % 1.0;
         const scale = 1.0 + loop * 4.8;
@@ -1575,6 +1556,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       atmoMat.dispose();
       fluidGeom.dispose();
       fluidSwarmMat.dispose();
+      arcMaterials.forEach((m) => m.dispose());
       if (dotsPoints?.geometry) dotsPoints.geometry.dispose();
       if (dotsMat) dotsMat.dispose();
       ringGeom.dispose();
