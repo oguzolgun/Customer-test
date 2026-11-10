@@ -65,7 +65,7 @@ function ModuleChip({
   if (dark) {
     return (
       <div
-        className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold"
+        className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium"
         style={{
           background: active ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)",
           color: active ? "#fff" : "rgba(255,255,255,0.35)",
@@ -84,7 +84,7 @@ function ModuleChip({
   }
   return (
     <div
-      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold"
+      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium"
       style={{
         background: active ? mod.color : "#eee",
         color: active ? "#fff" : "#888",
@@ -161,7 +161,7 @@ function ProgramDetail({
 
           <div className="flex items-start justify-between gap-3 flex-wrap">
             <div className="flex-1 min-w-0">
-              <h3 className="text-white font-semibold text-base md:text-lg leading-snug">
+              <h3 className="text-white font-medium tracking-[-0.015em] text-base md:text-lg leading-snug">
                 {program.title}
                 {program.subtitle && (
                   <span className="font-normal text-white/85"> — {program.subtitle}</span>
@@ -170,7 +170,7 @@ function ProgramDetail({
               <p className="text-white/85 text-xs mt-2 leading-relaxed">{program.description}</p>
             </div>
             <div className="text-right flex-shrink-0">
-              <div className="text-white font-semibold text-xl">{program.duration}</div>
+              <div className="text-white font-medium tracking-[-0.02em] text-xl">{program.duration}</div>
               <div className="text-white/70 text-[11px] mt-0.5">{program.schedule}</div>
               <div className="text-white/70 text-[11px]">{program.capacity}</div>
             </div>
@@ -201,7 +201,7 @@ function ProgramDetail({
                       <ModuleChip mod={mod} active={included} dark />
                       {isStart && program.startsAt !== modules[0]?.id && (
                         <span
-                          className="absolute -top-2 -right-1 text-[8px] bg-white font-semibold px-1 rounded-full"
+                          className="absolute -top-2 -right-1 text-[8px] bg-white font-medium px-1 rounded-full"
                           style={{ color: PRIMARY }}
                         >
                           START
@@ -237,10 +237,19 @@ function ProgramDetail({
       >
         {modules.map((mod) => {
           const included = program.moduleIds.includes(mod.id);
+          const labelText = mod.label.trim();
+          const durationText = mod.duration.trim();
+          const headerMeta =
+            !durationText || durationText.toLowerCase() === labelText.toLowerCase()
+              ? labelText
+              : labelText.includes("·") &&
+                  (labelText.toLowerCase().includes("week") || labelText.toLowerCase().includes("woche"))
+                ? `${labelText.split("·")[0].trim()} · ${durationText}`
+                : `${labelText} · ${durationText}`;
           return (
             <div
               key={String(mod.id)}
-              className="rounded-xl p-4 border transition-all duration-200 relative overflow-hidden"
+              className="rounded-xl p-4 border transition-all duration-200 relative overflow-hidden flex flex-col"
               style={{
                 borderColor: included ? mod.color + "44" : "#e5e5e5",
                 background: included ? "#fff" : "#fafafa",
@@ -257,31 +266,33 @@ function ProgramDetail({
                   </span>
                 </div>
               )}
-              <div className="flex items-center gap-2 mb-2.5">
+              <div className="flex items-start gap-2.5 mb-3">
                 <div
-                  className="w-7 h-7 rounded-lg flex items-center justify-center text-white font-medium text-xs flex-shrink-0"
+                  className="w-7 h-7 rounded-lg flex items-center justify-center text-white font-medium text-xs flex-shrink-0 mt-0.5"
                   style={{ background: included ? mod.color : "#ccc" }}
                 >
                   {String(mod.id).slice(0, 2).toUpperCase()}
                 </div>
                 <div className="min-w-0">
                   <div
-                    className="text-[9px] font-semibold uppercase tracking-widest"
+                    className="text-[10px] font-medium uppercase tracking-[0.08em]"
                     style={{ color: included ? mod.color : "#999" }}
                   >
-                    {mod.label} · {mod.duration}
+                    {headerMeta}
                   </div>
-                  <div className="font-semibold text-xs text-gray-900 leading-tight">{mod.title}</div>
+                  <div className="font-medium text-[13px] text-[#1a1d2e] leading-[1.35] mt-0.5">
+                    {mod.title}
+                  </div>
                 </div>
               </div>
-              <ul className="space-y-1">
+              <ul className="space-y-2 pt-2.5 border-t border-gray-100/90">
                 {mod.topics.map((t) => (
-                  <li key={t} className="flex items-center gap-1.5 text-[11px] text-gray-600">
+                  <li key={t} className="flex items-start gap-2 text-[11.5px] leading-[1.45] text-gray-600">
                     <span
-                      className="w-1 h-1 rounded-full flex-shrink-0"
+                      className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[5.5px]"
                       style={{ background: included ? mod.color : "#ccc" }}
                     />
-                    {t}
+                    <span>{t}</span>
                   </li>
                 ))}
               </ul>
@@ -303,7 +314,7 @@ function ProgramDetail({
             >
               <CalIcon />
             </div>
-            <span className="font-semibold text-sm text-gray-900">
+            <span className="font-medium text-sm text-[#1a1d2e]">
               {lang === "de" ? "Nächste Starttermine" : "Upcoming start dates"}
             </span>
           </div>
@@ -331,7 +342,7 @@ function ProgramDetail({
           className="rounded-xl p-4 border flex flex-col gap-2.5"
           style={{ borderColor: "#e5e5e5", background: "#fff" }}
         >
-          <span className="font-semibold text-sm text-gray-900 mb-0.5">
+          <span className="font-medium text-sm text-[#1a1d2e] mb-0.5">
             {lang === "de" ? "Jetzt starten" : "Start your application"}
           </span>
           <Link
@@ -369,7 +380,7 @@ function ProgramDetail({
           <div className="text-center text-xs text-gray-500">
             <Link
               to={consultPath}
-              className="font-semibold hover:underline"
+              className="font-medium hover:underline"
               style={{ color: SECONDARY }}
             >
               {lang === "de" ? "Kostenlose Beratung vereinbaren →" : "Book a free consultation →"}
@@ -383,7 +394,7 @@ function ProgramDetail({
         <button
           type="button"
           onClick={onCloseMobile}
-          className="w-full py-2.5 rounded-xl border border-gray-300 bg-white hover:bg-gray-50 active:scale-[0.99] text-gray-700 text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-xs"
+          className="w-full py-2.5 rounded-xl border border-gray-300 bg-white hover:bg-gray-50 active:scale-[0.99] text-gray-700 text-xs font-medium flex items-center justify-center gap-2 transition-all shadow-xs"
         >
           <span>{lang === "de" ? "Diesen Kurs schließen" : "Close this course"}</span>
           <div className="w-4 h-4 rounded-full bg-[#fde8ef] text-[#e51a59] flex items-center justify-center">
@@ -439,7 +450,7 @@ function MobileProgramCard({
             )}
           </div>
 
-          <div className="font-semibold text-sm sm:text-base text-gray-900 leading-snug group-hover:text-[#e51a59] transition-colors">
+          <div className="font-medium text-sm sm:text-base text-[#1a1d2e] leading-snug group-hover:text-[#e51a59] transition-colors">
             {program.title}
           </div>
           {program.subtitle && (
@@ -529,12 +540,12 @@ function SidebarCard({
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-start gap-2">
-              <span className="font-semibold text-sm text-gray-900 leading-snug flex-1">
+              <span className="font-medium text-sm text-[#1a1d2e] leading-snug flex-1">
                 {program.title}
               </span>
               {program.recommended && (
                 <span
-                  className="text-[9px] font-semibold px-2 py-0.5 rounded-full text-white flex-shrink-0 mt-0.5"
+                  className="text-[9px] font-medium px-2 py-0.5 rounded-full text-white flex-shrink-0 mt-0.5"
                   style={{ background: PRIMARY }}
                 >
                   {lang === "de" ? "EMPFOHLEN" : "RECOMMENDED"}
@@ -555,7 +566,7 @@ function SidebarCard({
             </div>
             <div className="flex items-center justify-between gap-2 mt-2">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold" style={{ color: SECONDARY }}>
+                <span className="text-xs font-medium" style={{ color: SECONDARY }}>
                   {program.duration}
                 </span>
                 {program.startsAt !== modules[0]?.id && (
@@ -635,13 +646,13 @@ export default function ProgramSelector({
       {/* Header */}
       <div className="max-w-[1200px] mx-auto px-5 pt-14 pb-7 text-center">
         <div
-          className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+          className="inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
           style={{ background: `${PRIMARY}15`, color: PRIMARY }}
         >
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: PRIMARY }} />
           {lang === "de" ? "Programmübersicht" : "Program variants & start dates"}
         </div>
-        <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-gray-900 leading-tight mb-3">
+        <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.025em] text-[#1a1d2e] leading-tight mb-3">
           {resolvedTitle}
         </h2>
         <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
@@ -660,7 +671,7 @@ export default function ProgramSelector({
             chevron "Öffnen ▾" buttons.
           ===================================================================== */}
       <div className="flex flex-col gap-3 lg:hidden max-w-[1200px] mx-auto px-5 pb-12">
-        <div className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 px-1 mb-0.5">
+        <div className="text-[10px] font-medium uppercase tracking-widest text-gray-500 px-1 mb-0.5">
           {lang === "de"
             ? "Verfügbare Kombinationen (Tippen zum Öffnen)"
             : "Available tracks (Tap to view details)"}
@@ -696,7 +707,7 @@ export default function ProgramSelector({
           ===================================================================== */}
       <div className="hidden lg:grid lg:grid-cols-[340px_1fr] gap-6 max-w-[1200px] mx-auto px-5 pb-12">
         <div className="flex flex-col gap-3">
-          <div className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 px-1 mb-0.5">
+          <div className="text-[10px] font-medium uppercase tracking-widest text-gray-500 px-1 mb-0.5">
             {lang === "de" ? "Verfügbare Kombinationen" : "Available tracks"}
           </div>
           {programs.map((p) => (
@@ -711,7 +722,7 @@ export default function ProgramSelector({
         </div>
 
         <div className="flex flex-col gap-1">
-          <div className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 px-1 mb-2">
+          <div className="text-[10px] font-medium uppercase tracking-widest text-gray-500 px-1 mb-2">
             {lang === "de" ? "Programmdetails & Termine" : "Program details & schedule"}
           </div>
           {/* B4 SEO Requirement: All programs rendered in initial HTML DOM; non-selected hidden via CSS */}
@@ -735,7 +746,7 @@ export default function ProgramSelector({
       {directEntry && (
         <div className="max-w-[1200px] mx-auto px-5 pb-14">
           <div className="rounded-2xl bg-white border border-gray-200/80 p-6 md:p-7 shadow-sm">
-            <h3 className="font-semibold text-lg md:text-xl text-gray-900 mb-4">
+            <h3 className="font-medium tracking-[-0.015em] text-lg md:text-xl text-[#1a1d2e] mb-4">
               {directEntry.heading}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -750,7 +761,7 @@ export default function ProgramSelector({
                   >
                     {item.badge}
                   </span>
-                  <div className="font-semibold text-sm text-gray-900 mb-1">{item.title}</div>
+                  <div className="font-medium text-sm text-[#1a1d2e] mb-1">{item.title}</div>
                   <p className="text-xs text-gray-600 leading-relaxed">{item.prereqs}</p>
                 </div>
               ))}

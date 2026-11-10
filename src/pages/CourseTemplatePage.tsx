@@ -317,7 +317,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </div>
 
             <h1
-              className="font-semibold text-3xl sm:text-4xl md:text-5xl leading-[1.15] tracking-[-0.025em] mb-4"
+              className="font-medium text-3xl sm:text-4xl md:text-5xl leading-[1.15] tracking-[-0.025em] mb-4"
               style={{ color: DARK }}
             >
               {data.h1}
@@ -407,13 +407,13 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       <div className="text-gray-400 mb-0.5">
                         {lang === "en" ? "Hands-on Live Labs" : "Praxis-Labs & Projekte"}
                       </div>
-                      <div className="text-white font-semibold">100% Live</div>
+                      <div className="text-white font-medium">100% Live</div>
                     </div>
                     <div className="bg-white/5 rounded-xl p-3">
                       <div className="text-gray-400 mb-0.5">
                         {lang === "en" ? "Voucher Coverage" : "Bildungsgutschein"}
                       </div>
-                      <div className="text-[#fde8ef] font-semibold">100% (0 €)</div>
+                      <div className="text-[#fde8ef] font-medium">100% (0 €)</div>
                     </div>
                   </div>
                 </div>
@@ -465,12 +465,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="max-w-3xl mb-10">
             <div
-              className="text-xs font-semibold uppercase tracking-widest mb-2"
+              className="text-xs font-medium uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
             >
               {lang === "en" ? "Target Audience & Prerequisites" : "Zielgruppe & Voraussetzungen"}
             </div>
-            <h2 className="font-semibold tracking-[-0.02em] text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
+            <h2 className="font-medium tracking-[-0.02em] text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
               {data.audienceH2}
             </h2>
             <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
@@ -491,7 +491,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   >
                     {data.audienceCards[0].badge}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
+                  <h3 className="text-xl sm:text-2xl font-medium text-[#1a1d2e] mb-3">
                     {data.audienceCards[0].title}
                   </h3>
                   <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
@@ -542,7 +542,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   >
                     {data.audienceCards[1].badge}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
+                  <h3 className="text-xl sm:text-2xl font-medium text-[#1a1d2e] mb-3">
                     {data.audienceCards[1].title}
                   </h3>
                   <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
@@ -584,7 +584,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             <section className="py-10 bg-white border-b border-gray-100">
               <div className="max-w-[1200px] mx-auto px-5">
                 <div className="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[#e51a59] uppercase tracking-wider mb-2">
+                  <div className="flex items-center gap-2 text-xs font-medium text-[#e51a59] uppercase tracking-wider mb-2">
                     <AwardIcon className="w-4 h-4" />
                     <span>
                       {lang === "en"
@@ -592,7 +592,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                         : "Modularer Direkteinstieg (Einstufungsprüfung)"}
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-[#1a1d2e] mb-2">
+                  <h3 className="text-xl font-medium text-[#1a1d2e] mb-2">
                     {data.directEntryInfo.h3}
                   </h3>
                   <p className="text-sm text-gray-600 mb-5 leading-relaxed">
@@ -624,12 +624,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div
-              className="text-xs font-semibold uppercase tracking-widest mb-2"
+              className="text-xs font-medium uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
             >
               {lang === "en" ? "CURRICULUM" : "LEHRPLAN"}
             </div>
-            <h2 className="font-semibold tracking-[-0.02em] text-3xl md:text-4xl mb-3" style={{ color: DARK }}>
+            <h2 className="font-medium tracking-[-0.02em] text-3xl md:text-4xl mb-3" style={{ color: DARK }}>
               {data.curriculumH2}
             </h2>
             <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
@@ -651,12 +651,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       className="px-5 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3"
                       style={{ background: mod.color + "14", color: mod.color }}
                     >
-                      <div className="flex items-center gap-2.5">
+                      <div className="flex items-start gap-2.5">
                         <span
-                          className="w-2.5 h-2.5 rounded-full"
+                          className="w-2.5 h-2.5 rounded-full shrink-0 mt-[6px]"
                           style={{ background: mod.color }}
                         />
-                        <h3 className="font-semibold text-sm sm:text-base text-gray-900">
+                        <h3 className="font-medium text-sm sm:text-base text-[#1a1d2e] leading-snug">
                           {mod.title.startsWith("Modul") || mod.title.startsWith("Module")
                             ? mod.title
                             : `${mod.label} — ${mod.title}`}
@@ -693,7 +693,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                         style={{ background: SOFT_BG }}
                         className="px-5 sm:px-6 py-3 border-t border-gray-100 flex flex-wrap items-center gap-2 text-xs text-gray-600"
                       >
-                        <span className="font-semibold uppercase tracking-wider text-[#e51a59]">
+                        <span className="font-medium uppercase tracking-wider text-[#e51a59]">
                           {lang === "en" ? "Capstone Project:" : "Praxisprojekt:"}
                         </span>
                         <span className="font-medium text-gray-800">{mod.project}</span>
@@ -719,7 +719,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-semibold mb-2 leading-snug">
+                <h3 className="text-xl sm:text-2xl font-medium mb-2 leading-snug">
                   {lang === "en"
                     ? "Download the complete weekly syllabus (PDF)"
                     : "Vollständigen Lehrplan als PDF herunterladen"}
@@ -733,24 +733,24 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
 
                 {/* Trust & Content Highlights */}
                 <div className="space-y-2 py-3 my-4 border-y border-white/10 text-xs text-gray-200">
-                  <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0" />
+                  <div className="flex items-start gap-2">
+                    <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0 mt-0.5" />
                     <span>
                       {lang === "en"
                         ? "Complete weekly schedule & capstone projects"
                         : "Detaillierter Wochenplan & Praxisprojekte"}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0" />
+                  <div className="flex items-start gap-2">
+                    <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0 mt-0.5" />
                     <span>
                       {lang === "en"
                         ? "Official AZAV measure number for 100% funding"
                         : "Offizielle AZAV-Maßnahmenummer für 100% Förderung"}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0" />
+                  <div className="flex items-start gap-2">
+                    <CheckCircleIcon className="w-4 h-4 text-[#e51a59] shrink-0 mt-0.5" />
                     <span>
                       {lang === "en"
                         ? "Direct PDF download + email copy"
@@ -761,7 +761,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
 
                 {syllabusSubmitted ? (
                   <div className="bg-white/10 border border-[#e51a59]/40 rounded-xl p-5 text-sm mt-3">
-                    <p className="font-semibold text-pink-200 mb-1 flex items-center gap-1.5">
+                    <p className="font-medium text-pink-200 mb-1 flex items-center gap-1.5">
                       <CheckCircleIcon className="w-4 h-4 text-[#e51a59]" />
                       <span>
                         {lang === "en"
@@ -856,7 +856,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               style={{ background: SOFT_BG }}
               className="rounded-2xl p-7 sm:p-9 border border-gray-100 mb-12"
             >
-              <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
+              <h3 className="text-xl sm:text-2xl font-medium text-[#1a1d2e] mb-3">
                 {data.specialFeature.h2}
               </h3>
               <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-3xl leading-relaxed">
@@ -872,7 +872,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     <span className="inline-block text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59] mb-2">
                       {c.badge}
                     </span>
-                    <p className="font-semibold text-[#1a1d2e] text-base mb-1.5">{c.title}</p>
+                    <p className="font-medium text-[#1a1d2e] text-base mb-1.5">{c.title}</p>
                     <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{c.desc}</p>
                   </div>
                 ))}
@@ -901,10 +901,10 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         <section id="data-analyst" className="py-16 bg-[#FFF8FA] border-y border-[#F3D3DC]/60 scroll-mt-24">
           <div className="max-w-[1200px] mx-auto px-5">
             <div className="max-w-3xl mb-10">
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#e51a59] block mb-2">
+              <span className="text-xs font-medium uppercase tracking-widest text-[#e51a59] block mb-2">
                 {lang === "en" ? "STANDALONE MODULE 1 OPTION" : "MODUL 1 EIGENSTÄNDIG BUCHBAR"}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-3">
                 {lang === "en"
                   ? "Take Module 1 as a standalone Data Analytics course"
                   : "Data Analyst Weiterbildung als Modul 1 einzeln belegen"}
@@ -921,7 +921,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3 inline-block">
                   {lang === "en" ? "Foundation · 7 Weeks" : "Fundament · 7 Wochen"}
                 </span>
-                <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2">
+                <h3 className="text-lg font-medium text-[#1a1d2e] mb-2">
                   {lang === "en" ? "Data Analysis with Python and SQL" : "Datenanalyse mit Python und SQL"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -935,7 +935,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-3 inline-block">
                   {lang === "en" ? "BI & Dashboards · 6 Weeks" : "BI & Dashboards · 6 Wochen"}
                 </span>
-                <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2">
+                <h3 className="text-lg font-medium text-[#1a1d2e] mb-2">
                   {lang === "en" ? "Business Intelligence and Dashboards" : "Business Intelligence und Dashboards"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -950,7 +950,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                     {lang === "en" ? "Upgrade Path" : "Nahtloser Upgrade-Pfad"}
                   </span>
-                  <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2">
+                  <h3 className="text-lg font-medium text-[#1a1d2e] mb-2">
                     {lang === "en" ? "Continue from Module 1 to AI Engineer" : "Nach Modul 1 weiter zum AI Engineer"}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -981,12 +981,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             <div className="lg:col-span-6 flex flex-col justify-between">
               <div>
                 <div
-                  className="text-xs font-semibold uppercase tracking-widest mb-2"
+                  className="text-xs font-medium uppercase tracking-widest mb-2"
                   style={{ color: PRIMARY }}
                 >
                   {lang === "en" ? "COURSE OVERVIEW" : "KURSÜBERSICHT"}
                 </div>
-                <h2 className="font-semibold tracking-[-0.02em] text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
+                <h2 className="font-medium tracking-[-0.02em] text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
                   {data.formatH2}
                 </h2>
                 <p className="text-gray-600 text-sm leading-relaxed mb-5">
@@ -1000,7 +1000,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     key={idx}
                     className="bg-white rounded-2xl p-5 border border-gray-200/70 shadow-sm"
                   >
-                    <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e] mb-1">
+                    <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e] mb-1">
                       {item.title}
                     </h3>
                     <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
@@ -1025,7 +1025,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               <div className="lg:col-span-8 p-6 sm:p-7">
                 <div className="flex items-center justify-between gap-2 pb-4 mb-5 border-b border-gray-100">
                   <span
-                    className="text-xs font-semibold uppercase tracking-widest"
+                    className="text-xs font-medium uppercase tracking-widest"
                     style={{ color: PRIMARY }}
                   >
                     {lang === "en" ? "Program Key Facts" : "Eckdaten auf einen Blick"}
@@ -1061,7 +1061,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
               </div>
 
               <div className="lg:col-span-4 bg-[#FFF8FA] border-t lg:border-t-0 lg:border-l border-gray-100 p-6 sm:p-7 flex flex-col justify-center">
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#e51a59] mb-1.5">
+                <p className="text-xs font-medium uppercase tracking-wider text-[#e51a59] mb-1.5">
                   {lang === "en" ? "Personal Advisory" : "Persönliche Beratung"}
                 </p>
                 <p className="text-sm font-medium text-[#1a1d2e] mb-1.5 leading-snug">
@@ -1111,7 +1111,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   </span>
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
+                <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-3">
                   {data.fundingH2}
                 </h2>
 
@@ -1173,7 +1173,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 <p className="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">
                   {lang === "en" ? "Tuition with Voucher" : "Kursgebühr mit Gutschein"}
                 </p>
-                <p style={{ color: PRIMARY }} className="text-4xl font-semibold tracking-tight mb-1">
+                <p style={{ color: PRIMARY }} className="text-4xl font-medium tracking-tight mb-1">
                   0 €
                 </p>
                 <p className="text-xs text-gray-500 mb-5">
@@ -1215,7 +1215,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     <ShieldCheckIcon className="w-3.5 h-3.5" />
                     <span>{lang === "en" ? "AZAV Certified Process" : "AZAV-zertifizierter Ablauf"}</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
+                  <h3 className="text-xl sm:text-2xl font-medium text-[#1a1d2e] mb-3">
                     {lang === "en"
                       ? "Your Path to 100% Funding in 3 Simple Steps"
                       : "In 3 einfachen Schritten zu deiner 100 % Förderung"}
@@ -1228,19 +1228,19 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="bg-[#f6f7fb] p-3.5 rounded-xl border border-gray-100">
                       <span className="text-xs font-medium text-[#e51a59]">1. {lang === "en" ? "Step" : "Schritt"}</span>
-                      <p className="text-xs font-semibold text-gray-800 mt-1">
+                      <p className="text-xs font-medium text-gray-800 mt-1">
                         {lang === "en" ? "Free Consultation" : "Kostenlose Beratung"}
                       </p>
                     </div>
                     <div className="bg-[#f6f7fb] p-3.5 rounded-xl border border-gray-100">
                       <span className="text-xs font-medium text-[#e51a59]">2. {lang === "en" ? "Step" : "Schritt"}</span>
-                      <p className="text-xs font-semibold text-gray-800 mt-1">
+                      <p className="text-xs font-medium text-gray-800 mt-1">
                         {lang === "en" ? "Get Voucher" : "Gutschein erhalten"}
                       </p>
                     </div>
                     <div className="bg-[#f6f7fb] p-3.5 rounded-xl border border-gray-100">
                       <span className="text-xs font-medium text-[#e51a59]">3. {lang === "en" ? "Step" : "Schritt"}</span>
-                      <p className="text-xs font-semibold text-gray-800 mt-1">
+                      <p className="text-xs font-medium text-gray-800 mt-1">
                         {lang === "en" ? "Start Learning" : "Kurs starten"}
                       </p>
                     </div>
@@ -1259,12 +1259,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="max-w-3xl mb-10">
             <div
-              className="text-xs font-semibold uppercase tracking-widest mb-2"
+              className="text-xs font-medium uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
             >
               {lang === "en" ? "CAREER PATHS & ROLES" : "BERUFSBILDER & PERSPEKTIVEN"}
             </div>
-            <h2 className="font-semibold tracking-[-0.02em] text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
+            <h2 className="font-medium tracking-[-0.02em] text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
               {data.careerH2}
             </h2>
             <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
@@ -1304,7 +1304,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2">
+                  <h3 className="text-lg font-medium text-[#1a1d2e] mb-2">
                     <Link
                       to={role.guideUrl}
                       className="hover:text-[#e51a59] transition-colors"
@@ -1340,12 +1340,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
           <div className="max-w-[1200px] mx-auto px-5">
             <div className="max-w-3xl mb-10">
               <div
-                className="text-xs font-semibold uppercase tracking-widest mb-2"
+                className="text-xs font-medium uppercase tracking-widest mb-2"
                 style={{ color: PRIMARY }}
               >
                 {lang === "en" ? "KNOWLEDGE HUB & GUIDES" : "WISSENSDATENBANK & RATGEBER"}
               </div>
-              <h2 className="font-semibold tracking-[-0.02em] text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
+              <h2 className="font-medium tracking-[-0.02em] text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
                 {data.clusterH2}
               </h2>
               <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
@@ -1364,7 +1364,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       <BookOpenIcon className="w-3.5 h-3.5" />
                       <span>{g.badge}</span>
                     </span>
-                    <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 leading-snug">
+                    <h3 className="text-lg font-medium text-[#1a1d2e] mb-2 leading-snug">
                       <Link to={g.to} className="hover:text-[#e51a59] transition-colors">
                         {g.title}
                       </Link>
@@ -1395,12 +1395,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div
-              className="text-xs font-semibold uppercase tracking-widest mb-2"
+              className="text-xs font-medium uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
             >
               {lang === "en" ? "THE CLARUSWAY ADVANTAGE" : "DEINE VORTEILE"}
             </div>
-            <h2 className="font-semibold tracking-[-0.02em] text-3xl md:text-4xl mb-3" style={{ color: DARK }}>
+            <h2 className="font-medium tracking-[-0.02em] text-3xl md:text-4xl mb-3" style={{ color: DARK }}>
               {data.whyH2}
             </h2>
             <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
@@ -1428,7 +1428,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e51a59] text-white mb-2">
                   {data.partnerHighlight.badge}
                 </span>
-                <h3 className="text-xl font-semibold mb-1">{data.partnerHighlight.title}</h3>
+                <h3 className="text-xl font-medium mb-1">{data.partnerHighlight.title}</h3>
                 <p className="text-gray-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
                   {data.partnerHighlight.desc}
                 </p>
@@ -1449,7 +1449,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                 <div className="w-9 h-9 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center mb-3">
                   <CheckCircleIcon className="w-5 h-5" />
                 </div>
-                <h3 className="font-semibold text-base mb-1.5" style={{ color: DARK }}>
+                <h3 className="font-medium text-base mb-1.5" style={{ color: DARK }}>
                   {item.title}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
@@ -1467,12 +1467,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
               <div
-                className="text-xs font-semibold uppercase tracking-widest mb-2"
+                className="text-xs font-medium uppercase tracking-widest mb-2"
                 style={{ color: PRIMARY }}
               >
                 {lang === "en" ? "ALUMNI" : "ALUMNI"}
               </div>
-              <h2 className="font-semibold tracking-[-0.02em] text-3xl" style={{ color: DARK }}>
+              <h2 className="font-medium tracking-[-0.02em] text-3xl" style={{ color: DARK }}>
                 {data.reviewsH2}
               </h2>
             </div>
@@ -1507,7 +1507,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       {rev.initials}
                     </div>
                     <div>
-                      <div className="font-semibold text-sm" style={{ color: DARK }}>
+                      <div className="font-medium text-sm" style={{ color: DARK }}>
                         {rev.name}
                       </div>
                       <div className="text-xs text-gray-400">{rev.role}</div>
@@ -1536,12 +1536,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         <div className="max-w-[1200px] mx-auto px-5 grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-5">
             <div
-              className="text-xs font-semibold uppercase tracking-widest mb-2"
+              className="text-xs font-medium uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
             >
               FAQ
             </div>
-            <h2 className="font-semibold tracking-[-0.02em] text-3xl mb-4" style={{ color: DARK }}>
+            <h2 className="font-medium tracking-[-0.02em] text-3xl mb-4" style={{ color: DARK }}>
               {data.faqH2}
             </h2>
             <p className="text-gray-500 text-sm mb-6 leading-relaxed">
@@ -1551,15 +1551,15 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
             </p>
             <div className="space-y-2.5 text-sm text-gray-600 mb-6">
               <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
+                <span className="w-2 h-2 rounded-full bg-[#e51a59] shrink-0" />
                 <span>Bataver Str. 84, 41462 Neuss</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
+                <span className="w-2 h-2 rounded-full bg-[#e51a59] shrink-0" />
                 <span>info@clarusway.de</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59]" />
+                <span className="w-2 h-2 rounded-full bg-[#e51a59] shrink-0" />
                 <span>+49 2131 776 2749</span>
               </div>
             </div>
@@ -1620,12 +1620,12 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
           <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
             <div>
               <div
-                className="text-xs font-semibold uppercase tracking-widest mb-2"
+                className="text-xs font-medium uppercase tracking-widest mb-2"
                 style={{ color: PRIMARY }}
               >
                 {lang === "en" ? "OTHER COURSES" : "WEITERE KURSE"}
               </div>
-              <h2 className="font-semibold tracking-[-0.02em] text-3xl" style={{ color: DARK }}>
+              <h2 className="font-medium tracking-[-0.02em] text-3xl" style={{ color: DARK }}>
                 {data.relatedH2}
               </h2>
             </div>
@@ -1653,7 +1653,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   >
                     {rc.badge}
                   </span>
-                  <h3 className="font-semibold text-base mb-2" style={{ color: DARK }}>
+                  <h3 className="font-medium text-base mb-2" style={{ color: DARK }}>
                     <Link to={rc.to} className="hover:text-[#e51a59] transition-colors">
                       {rc.title}
                     </Link>
@@ -1695,7 +1695,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         style={{ background: `linear-gradient(135deg, ${DARK} 0%, #2d1b3d 100%)` }}
       >
         <div className="max-w-[800px] mx-auto px-5 text-center">
-          <h2 className="font-semibold tracking-[-0.02em] text-3xl text-white mb-4">{data.ctaH2}</h2>
+          <h2 className="font-medium tracking-[-0.02em] text-3xl text-white mb-4">{data.ctaH2}</h2>
           <p className="text-gray-300 text-base mb-8">{data.ctaText}</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

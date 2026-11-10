@@ -167,7 +167,7 @@ export default function Footer() {
             {columns.map((col) => (
               <div key={col.title} className="space-y-3">
                 <div
-                  className="text-xs font-semibold uppercase tracking-[0.12em]"
+                  className="text-xs font-medium uppercase tracking-[0.12em]"
                   style={{ color: "#f9a8c0" }}
                 >
                   {col.title}

@@ -214,7 +214,7 @@ export default function Navbar() {
                 {coursesGroups.map((grp) => (
                   <div key={grp.groupLabel} className="space-y-1.5">
                     <div
-                      className="text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1"
+                      className="text-[10px] font-medium uppercase tracking-[0.14em] px-2.5 py-1"
                       style={{ color: SECONDARY }}
                     >
                       {grp.groupLabel}
@@ -532,7 +532,7 @@ export default function Navbar() {
             <div className={`p-3 space-y-3 ${mobileAccordion === "courses" ? "block" : "hidden"}`}>
               {coursesGroups.map((grp) => (
                 <div key={grp.groupLabel} className="space-y-1">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.14em] px-2" style={{ color: SECONDARY }}>
+                  <div className="text-[10px] font-medium uppercase tracking-[0.14em] px-2" style={{ color: SECONDARY }}>
                     {grp.groupLabel}
                   </div>
                   {grp.items.map((item) => (

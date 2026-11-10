@@ -447,7 +447,7 @@ export function CoursesHubPage() {
             </div>
 
             {/* Exact H1: German SEO Plan Page 23 / English SEO Plan Page 13 */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-medium tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
               {isEn
                 ? "IT bootcamps in English, funded with a Bildungsgutschein"
                 : "Alle IT Kurse im Vergleich, gefördert mit Bildungsgutschein"}
@@ -501,11 +501,11 @@ export function CoursesHubPage() {
           <div className="max-w-3xl mb-8">
             <span
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+              className="text-xs font-medium uppercase tracking-widest block mb-2"
             >
               {isEn ? "Direct Comparison" : "Direkter Kursvergleich"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-2">
               {isEn ? "All IT courses at a glance" : "Alle IT-Kurse im Überblick"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base">
@@ -535,7 +535,7 @@ export function CoursesHubPage() {
                     className={idx % 2 === 0 ? "bg-white hover:bg-[#fde8ef]/25" : "bg-[#f6f7fb] hover:bg-[#fde8ef]/25"}
                   >
                     <td className="py-4 px-5">
-                      <Link to={row.to} className="font-semibold text-[#e51a59] hover:underline block">
+                      <Link to={row.to} className="font-medium text-[#e51a59] hover:underline block">
                         {row.title}
                       </Link>
                       <Link to={row.to} className="text-[11px] text-gray-500 hover:text-gray-700">
@@ -547,7 +547,7 @@ export function CoursesHubPage() {
                     <td className="py-4 px-5 text-gray-700 whitespace-nowrap">{row.modules}</td>
                     <td className="py-4 px-5 text-gray-700">{row.cert}</td>
                     <td className="py-4 px-5 font-medium text-[#1a1d2e] whitespace-nowrap">{row.start}</td>
-                    <td className="py-4 px-5 font-medium text-gray-900 whitespace-nowrap">{row.funding}</td>
+                    <td className="py-4 px-5 font-medium text-[#1a1d2e] whitespace-nowrap">{row.funding}</td>
                   </tr>
                 ))}
               </tbody>
@@ -564,11 +564,11 @@ export function CoursesHubPage() {
           <div className="max-w-3xl mb-10">
             <span
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+              className="text-xs font-medium uppercase tracking-widest block mb-2"
             >
               {isEn ? "Subject Areas" : "Fachgebiete"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-2">
               {isEn ? "IT courses by subject area" : "IT-Kurse nach Fachgebiet"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base">
@@ -586,7 +586,7 @@ export function CoursesHubPage() {
               >
                 <div>
                   <div className="mb-5 pb-3 border-b border-gray-100">
-                    <h3 className="text-xl font-semibold text-[#1a1d2e] mb-1">
+                    <h3 className="text-xl font-medium text-[#1a1d2e] mb-1">
                       {grp.groupH3}
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-600">{grp.desc}</p>
@@ -604,7 +604,7 @@ export function CoursesHubPage() {
                             {item.meta}
                           </span>
                         </div>
-                        <h4 className="text-base font-semibold text-[#1a1d2e] mb-1.5">
+                        <h4 className="text-base font-medium text-[#1a1d2e] mb-1.5">
                           <Link to={item.to} className="hover:text-[#e51a59] transition-colors">
                             {item.title}
                           </Link>
@@ -647,11 +647,11 @@ export function CoursesHubPage() {
           <div className="max-w-3xl mb-10">
             <span
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+              className="text-xs font-medium uppercase tracking-widest block mb-2"
             >
               {isEn ? "Goal-Oriented Pathways" : "Zielgerichtete Orientierung"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-2">
               {isEn
                 ? "Which IT course fits your goal?"
                 : "Welcher IT-Kurs passt zu welchem Ziel?"}
@@ -669,7 +669,7 @@ export function CoursesHubPage() {
                 <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                   {isEn ? "Complete Beginner" : "Quereinstieg"}
                 </span>
-                <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-lg font-medium text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   {isEn ? "Without prior knowledge" : "Ohne Vorkenntnisse"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -692,7 +692,7 @@ export function CoursesHubPage() {
                 <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                   {isEn ? "Experienced Professionals" : "Fachkräfte"}
                 </span>
-                <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-lg font-medium text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   {isEn ? "With IT experience" : "Mit IT-Erfahrung"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -715,7 +715,7 @@ export function CoursesHubPage() {
                 <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                   {isEn ? "Corporate Upskilling" : "Unternehmen"}
                 </span>
-                <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-lg font-medium text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   {isEn ? "For employers" : "Als Arbeitgeber"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -743,10 +743,10 @@ export function CoursesHubPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-2xs">
             <div className="max-w-3xl mb-8">
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#e51a59] block mb-2">
+              <span className="text-xs font-medium uppercase tracking-widest text-[#e51a59] block mb-2">
                 {isEn ? "100% Public Funding" : "100 % Staatliche Förderung"}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-3">
                 {isEn ? "IT courses funded with a Bildungsgutschein" : "IT-Kurse mit Bildungsgutschein"}
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -758,8 +758,8 @@ export function CoursesHubPage() {
 
             <div className="grid sm:grid-cols-3 gap-4 mb-8">
               <div className="bg-[#f6f7fb] p-5 rounded-xl border border-gray-100">
-                <span className="text-2xl font-semibold tracking-tight text-[#e51a59] block mb-1">0 €</span>
-                <span className="text-xs font-semibold text-gray-800 block mb-1">
+                <span className="text-2xl font-medium tracking-tight text-[#e51a59] block mb-1">0 €</span>
+                <span className="text-xs font-medium text-gray-800 block mb-1">
                   {isEn ? "Tuition Cost" : "Eigenanteil"}
                 </span>
                 <p className="text-[11px] text-gray-500">
@@ -768,8 +768,8 @@ export function CoursesHubPage() {
               </div>
 
               <div className="bg-[#f6f7fb] p-5 rounded-xl border border-gray-100">
-                <span className="text-2xl font-semibold tracking-tight text-[#1a1d2e] block mb-1">24h</span>
-                <span className="text-xs font-semibold text-gray-800 block mb-1">
+                <span className="text-2xl font-medium tracking-tight text-[#1a1d2e] block mb-1">24h</span>
+                <span className="text-xs font-medium text-gray-800 block mb-1">
                   {isEn ? "Offer Turnaround" : "Maßnahmeangebot"}
                 </span>
                 <p className="text-[11px] text-gray-500">
@@ -778,8 +778,8 @@ export function CoursesHubPage() {
               </div>
 
               <div className="bg-[#f6f7fb] p-5 rounded-xl border border-gray-100">
-                <span className="text-2xl font-semibold tracking-tight text-[#1a1d2e] block mb-1">100 %</span>
-                <span className="text-xs font-semibold text-gray-800 block mb-1">
+                <span className="text-2xl font-medium tracking-tight text-[#1a1d2e] block mb-1">100 %</span>
+                <span className="text-xs font-medium text-gray-800 block mb-1">
                   {isEn ? "Live Online" : "Live-Unterricht"}
                 </span>
                 <p className="text-[11px] text-gray-500">
@@ -811,11 +811,11 @@ export function CoursesHubPage() {
           <div className="text-center mb-10">
             <span
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+              className="text-xs font-medium uppercase tracking-widest block mb-2"
             >
               FAQ
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e]">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e]">
               {isEn ? "Frequently asked questions about IT courses" : "Häufige Fragen zu den IT-Kursen"}
             </h2>
           </div>
@@ -828,7 +828,7 @@ export function CoursesHubPage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
                   <span
                     style={{ color: PRIMARY }}
                     className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform"
@@ -853,7 +853,7 @@ export function CoursesHubPage() {
         style={{ background: `linear-gradient(135deg, ${DARK} 0%, #2d1b3d 100%)` }}
       >
         <div className="max-w-4xl mx-auto px-5 text-center text-white">
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] mb-4">
+          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-4">
             {isEn
               ? "Find the right IT course for your career"
               : "Finde den passenden IT-Kurs für deine Karriere"}

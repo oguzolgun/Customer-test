@@ -379,7 +379,7 @@ export function HomePage() {
                   {/* H1 Heading (Exact: no colon in German H1) */}
                   <h1
                     style={{ color: DARK, lineHeight: 1.15 }}
-                    className="text-[28px] sm:text-4xl lg:text-[40px] xl:text-[44px] font-semibold tracking-[-0.025em] mb-4"
+                    className="text-[28px] sm:text-4xl lg:text-[40px] xl:text-[44px] font-medium tracking-[-0.025em] mb-4"
                   >
                     {copy.h1Lead}
                     <span style={{ color: PRIMARY }}>{copy.h1Highlight}</span>
@@ -468,11 +468,11 @@ export function HomePage() {
           <div className="max-w-3xl mb-10">
             <span
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+              className="text-xs font-medium uppercase tracking-widest block mb-2"
             >
               {isEn ? "Orientation & Fields" : "Orientierung & Fachgebiete"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn ? "Which IT field is right for you?" : "Welcher IT-Bereich passt zu dir?"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -502,7 +502,7 @@ export function HomePage() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                  <h3 className="text-lg font-medium text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                     <Link to={area.to}>{area.title}</Link>
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -534,11 +534,11 @@ export function HomePage() {
           <div className="max-w-3xl mb-10">
             <span
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+              className="text-xs font-medium uppercase tracking-widest block mb-2"
             >
               {isEn ? "Funding Options" : "Finanzierungswege"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn
                 ? "Funding with Bildungsgutschein, AVGS or QCG"
                 : "Förderung mit Bildungsgutschein, AVGS oder QCG"}
@@ -569,7 +569,7 @@ export function HomePage() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-xl font-medium text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   <Link to="/bildungsgutschein/">
                     Bildungsgutschein
                   </Link>
@@ -583,7 +583,7 @@ export function HomePage() {
                 {/* Voucher Highlight Box */}
                 <div className="my-4 py-2.5 px-3 bg-white rounded-xl border border-gray-200/80 flex items-center justify-between text-xs">
                   <span className="text-gray-500">{isEn ? "Your Cost" : "Eigenanteil"}</span>
-                  <span className="font-semibold text-[#e51a59] text-sm">0 € ({isEn ? "100% funded" : "100 % gefördert"})</span>
+                  <span className="font-medium text-[#e51a59] text-sm">0 € ({isEn ? "100% funded" : "100 % gefördert"})</span>
                 </div>
               </div>
 
@@ -611,7 +611,7 @@ export function HomePage() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-xl font-medium text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   <Link to="/avgs/">
                     AVGS
                   </Link>
@@ -625,7 +625,7 @@ export function HomePage() {
                 {/* Voucher Highlight Box */}
                 <div className="my-4 py-2.5 px-3 bg-white rounded-xl border border-gray-200/80 flex items-center justify-between text-xs">
                   <span className="text-gray-500">{isEn ? "Format" : "Format & Dauer"}</span>
-                  <span className="font-semibold text-[#141b2d] text-sm">{isEn ? "4 Weeks · 100% Live" : "4 Wochen · 100 % Live"}</span>
+                  <span className="font-medium text-[#141b2d] text-sm">{isEn ? "4 Weeks · 100% Live" : "4 Wochen · 100 % Live"}</span>
                 </div>
               </div>
 
@@ -653,7 +653,7 @@ export function HomePage() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-xl font-medium text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   <Link to="/qualifizierungschancengesetz/">
                     Qualifizierungschancengesetz
                   </Link>
@@ -667,7 +667,7 @@ export function HomePage() {
                 {/* Voucher Highlight Box */}
                 <div className="my-4 py-2.5 px-3 bg-white rounded-xl border border-gray-200/80 flex items-center justify-between text-xs">
                   <span className="text-gray-500">{isEn ? "Wage Subsidy" : "Lohnzuschuss"}</span>
-                  <span className="font-semibold text-[#141b2d] text-sm">{isEn ? "Up to 75% for employers" : "Bis zu 75 % für Arbeitgeber"}</span>
+                  <span className="font-medium text-[#141b2d] text-sm">{isEn ? "Up to 75% for employers" : "Bis zu 75 % für Arbeitgeber"}</span>
                 </div>
               </div>
 
@@ -707,11 +707,11 @@ export function HomePage() {
           <div className="max-w-3xl mb-10">
             <span
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+              className="text-xs font-medium uppercase tracking-widest block mb-2"
             >
               {isEn ? "Admission Process" : "Ablauf & Beantragung"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn ? "In 3 steps to your IT training" : "In 3 Schritten zur IT Weiterbildung"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -742,7 +742,7 @@ export function HomePage() {
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2">{step.title}</h3>
+                    <h3 className="text-lg font-medium text-[#1a1d2e] mb-2">{step.title}</h3>
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
                       {step.desc}
                     </p>
@@ -789,11 +789,11 @@ export function HomePage() {
           <div className="max-w-3xl mb-10">
             <span
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+              className="text-xs font-medium uppercase tracking-widest block mb-2"
             >
               {isEn ? "Our Learning Model" : "Lernmodell"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn ? "How learning works at Clarusway" : "So funktioniert das Lernen bei Clarusway"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -814,7 +814,7 @@ export function HomePage() {
                   <div className="w-9 h-9 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center mb-3">
                     <CheckCircleIcon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{pillar.title}</h3>
+                  <h3 className="text-base font-medium text-[#1a1d2e] mb-2">{pillar.title}</h3>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{pillar.desc}</p>
                 </div>
               </div>
@@ -829,7 +829,7 @@ export function HomePage() {
       <section style={{ backgroundColor: SOFT_BG }} className="py-14 border-t border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-2">
+            <h2 className="text-xl sm:text-2xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-2">
               {isEn ? "Certified and recognized" : "Zertifiziert und anerkannt"}
             </h2>
             <p className="text-xs sm:text-sm text-gray-500">
@@ -841,21 +841,21 @@ export function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
-              <span className="block font-semibold text-[#e51a59] text-base mb-0.5">AZAV</span>
+              <span className="block font-medium text-[#e51a59] text-base mb-0.5">AZAV</span>
               <span className="text-xs text-gray-600 font-normal">
                 {isEn ? "Certified Provider" : "Zugelassener Träger"}
               </span>
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
-              <span className="block font-semibold text-[#1a1d2e] text-base mb-0.5">AWS Partner</span>
+              <span className="block font-medium text-[#1a1d2e] text-base mb-0.5">AWS Partner</span>
               <span className="text-xs text-gray-600 font-normal">Select Tier Consulting</span>
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
-              <span className="block font-semibold text-[#1a1d2e] text-base mb-0.5">KURSNET</span>
+              <span className="block font-medium text-[#1a1d2e] text-base mb-0.5">KURSNET</span>
               <span className="text-xs text-gray-600 font-normal">Bundesagentur für Arbeit</span>
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
-              <span className="block font-semibold text-[#1a1d2e] text-base mb-0.5">mein NOW</span>
+              <span className="block font-medium text-[#1a1d2e] text-base mb-0.5">mein NOW</span>
               <span className="text-xs text-gray-600 font-normal">Nationales Onlineportal</span>
             </div>
           </div>
@@ -871,11 +871,11 @@ export function HomePage() {
             <div>
               <span
                 style={{ color: PRIMARY }}
-                className="text-xs font-semibold uppercase tracking-widest block mb-2"
+                className="text-xs font-medium uppercase tracking-widest block mb-2"
               >
                 {isEn ? "Alumni Reviews" : "Absolventenstimmen"}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e]">
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e]">
                 {isEn ? "What graduates say" : "Erfahrungen von Clarusway Absolventen"}
               </h2>
             </div>
@@ -898,7 +898,7 @@ export function HomePage() {
               </p>
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div>
-                  <p className="font-semibold text-sm text-[#1a1d2e]">DH Kim</p>
+                  <p className="font-medium text-sm text-[#1a1d2e]">DH Kim</p>
                   <p className="text-xs text-gray-500">
                     {isEn ? "AWS & DevOps Graduate" : "AWS & DevOps Absolvent"}
                   </p>
@@ -923,7 +923,7 @@ export function HomePage() {
               </p>
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div>
-                  <p className="font-semibold text-sm text-[#1a1d2e]">Morad</p>
+                  <p className="font-medium text-sm text-[#1a1d2e]">Morad</p>
                   <p className="text-xs text-gray-500">
                     {isEn ? "Cyber Security Graduate" : "Cyber Security Absolvent"}
                   </p>
@@ -951,11 +951,11 @@ export function HomePage() {
           <div className="text-center mb-10">
             <span
               style={{ color: PRIMARY }}
-              className="text-xs font-semibold uppercase tracking-widest block mb-2"
+              className="text-xs font-medium uppercase tracking-widest block mb-2"
             >
               FAQ
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e]">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e]">
               {isEn
                 ? "Frequently asked questions about IT training"
                 : "Häufige Fragen zur IT Weiterbildung"}
@@ -995,7 +995,7 @@ export function HomePage() {
         style={{ background: `linear-gradient(135deg, ${DARK} 0%, #2d1b3d 100%)` }}
       >
         <div className="max-w-4xl mx-auto px-5 text-center text-white">
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] mb-4">
+          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-4">
             {isEn
               ? "Ready for your IT career? Book your free consultation now."
               : "Bereit für deine IT-Karriere? Vereinbare jetzt dein kostenloses Beratungsgespräch."}

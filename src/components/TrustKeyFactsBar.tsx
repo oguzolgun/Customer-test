@@ -117,7 +117,7 @@ export function TrustKeyFactsBar({
 
                 {/* Text Content */}
                 <div className="min-w-0">
-                  <div className="text-sm sm:text-[14.5px] font-semibold text-[#141B2D] tracking-tight leading-snug">
+                  <div className="text-sm sm:text-[14.5px] font-medium text-[#1a1d2e] tracking-tight leading-snug">
                     {item.title}
                   </div>
                   <p className="text-xs text-slate-500 font-normal leading-normal mt-0.5 truncate sm:whitespace-normal">

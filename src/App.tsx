@@ -82,7 +82,7 @@ function SeoSitemapDrawer() {
         <div className="w-[360px] sm:w-[420px] max-h-[82vh] overflow-y-auto bg-[#1a1d2e] text-white rounded-2xl shadow-2xl border border-white/15 p-5 text-xs">
           <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/15">
             <div>
-              <p className="font-semibold text-sm text-white">SEO & Sitemap Navigator</p>
+              <p className="font-medium text-sm text-white">SEO & Sitemap Navigator</p>
               <p className="text-[11px] text-gray-400">
                 Lang: <strong className="text-[#f472b6] font-medium uppercase">{lang}</strong> · Path:{" "}
                 <code className="text-emerald-300">{location.pathname}</code>
@@ -121,7 +121,7 @@ function SeoSitemapDrawer() {
 
           {/* Hreflang Pair Status */}
           <div className="bg-white/5 rounded-xl p-3 mb-4 border border-white/10">
-            <p className="font-semibold text-[#f472b6] mb-1">Hreflang Counterpart</p>
+            <p className="font-medium text-[#f472b6] mb-1">Hreflang Counterpart</p>
             {pair ? (
               <p className="text-[11px] text-gray-300">
                 DE: <code>{pair.de}</code>
@@ -137,7 +137,7 @@ function SeoSitemapDrawer() {
 
           {/* Quick Jump Sitemap */}
           <div className="mb-4">
-            <p className="font-semibold text-[#f472b6] mb-2">
+            <p className="font-medium text-[#f472b6] mb-2">
               Quick Jump ({lang === "en" ? "EN Sitemap" : "DE Sitemap"})
             </p>
             <div className="grid grid-cols-2 gap-1.5 text-[11px]">
@@ -200,7 +200,7 @@ function SeoSitemapDrawer() {
 
           {/* Live H1 / H2 / H3 Hierarchy Audit */}
           <div>
-            <p className="font-semibold text-[#f472b6] mb-1.5">
+            <p className="font-medium text-[#f472b6] mb-1.5">
               Live Heading Hierarchy ({headings.filter((h) => h.tag === "H1").length} H1 ·{" "}
               {headings.filter((h) => h.tag === "H2").length} H2 ·{" "}
               {headings.filter((h) => h.tag === "H3").length} H3)
@@ -211,7 +211,7 @@ function SeoSitemapDrawer() {
                   key={i}
                   className={`flex items-start gap-2 ${
                     h.tag === "H1"
-                      ? "text-emerald-300 font-semibold"
+                      ? "text-emerald-300 font-medium"
                       : h.tag === "H2"
                       ? "text-sky-300 pl-2"
                       : "text-gray-300 pl-5"

@@ -126,7 +126,7 @@ export function ModularPathHeroVisual({
         <div className="flex items-start justify-between gap-4">
           <div>
             <p
-              className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] font-semibold"
+              className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] font-medium"
               style={{ color: "#e0154b" }}
             >
               <span className="relative flex h-1.5 w-1.5">
@@ -142,7 +142,7 @@ export function ModularPathHeroVisual({
               {strings.eyebrow}
             </p>
             <div
-              className="mt-2.5 font-semibold text-[22px] sm:text-[24px] leading-[1.15] tracking-[-0.025em] text-white"
+              className="mt-2.5 font-medium text-[22px] sm:text-[24px] leading-[1.15] tracking-[-0.025em] text-white"
               style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
             >
               {strings.title}
@@ -182,7 +182,7 @@ export function ModularPathHeroVisual({
           key={`t-${courseId}`}
           className="cwmp-in mt-2 min-h-[38px] max-w-[36ch] text-[13px] leading-relaxed text-white/60"
         >
-          <span className="font-semibold text-white/95">{activeCourse.name}.</span>{" "}
+          <span className="font-medium text-white/95">{activeCourse.name}.</span>{" "}
           {activeCourse.tagline}
         </p>
 
@@ -292,7 +292,7 @@ export function ModularPathHeroVisual({
                   {activeModule?.eyebrow}
                 </p>
                 <div
-                  className="mt-1 font-semibold text-[16px] sm:text-[17px] leading-snug tracking-[-0.015em] text-white"
+                  className="mt-1 font-medium text-[16px] sm:text-[17px] leading-snug tracking-[-0.015em] text-white"
                   style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
                 >
                   {activeModule?.title}

@@ -60,7 +60,7 @@ export function GuidesHubPage() {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-medium tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
               {isEn
                 ? "Guides to IT careers, certifications, and funding in Germany"
                 : "Ratgeber für den Einstieg in die IT"}
@@ -80,7 +80,7 @@ export function GuidesHubPage() {
           {Object.entries(clusters).map(([clusterName, items]) => (
             <div key={clusterName}>
               <div className="mb-6 pb-3 border-b border-gray-200">
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e]">
+                <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e]">
                   {clusterName}
                 </h2>
               </div>
@@ -102,7 +102,7 @@ export function GuidesHubPage() {
                           <span className="text-[11px] text-gray-500">{article.readTime}</span>
                         </div>
 
-                        <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 leading-snug">
+                        <h3 className="text-lg font-medium text-[#1a1d2e] mb-2 leading-snug">
                           <Link to={url} className="hover:text-[#e51a59] transition-colors">
                             {article.h1}
                           </Link>
@@ -240,7 +240,7 @@ export function GuideArticlePage() {
             <span>{article.badge}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-5 leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-medium tracking-[-0.025em] text-[#1a1d2e] mb-5 leading-tight">
             {article.h1}
           </h1>
 
@@ -263,7 +263,7 @@ export function GuideArticlePage() {
             aria-label={isEn ? "Table of contents" : "Inhaltsverzeichnis"}
             className="bg-white rounded-2xl p-5 border border-gray-200"
           >
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#e51a59] mb-2.5">
+            <p className="text-xs font-medium uppercase tracking-wider text-[#e51a59] mb-2.5">
               {isEn ? "Table of contents" : "Inhaltsverzeichnis"}
             </p>
             <ul className="space-y-1.5 text-xs sm:text-sm text-gray-700">
@@ -319,7 +319,7 @@ export function GuideArticlePage() {
 
           {/* Component B10: HTML Table */}
           <div id="comparison-table" className="mb-12">
-            <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-4">
+            <h2 className="text-xl sm:text-2xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-4">
               {article.tableTitle}
             </h2>
             <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-2xs">
@@ -340,7 +340,7 @@ export function GuideArticlePage() {
                         <td
                           key={cIdx}
                           className={`py-3.5 px-5 ${
-                            cIdx === 0 ? "font-semibold text-[#1a1d2e]" : "text-gray-700"
+                            cIdx === 0 ? "font-medium text-[#1a1d2e]" : "text-gray-700"
                           }`}
                         >
                           {cell}
@@ -357,7 +357,7 @@ export function GuideArticlePage() {
           <div className="space-y-10 mb-12">
             {article.sections.map((sec) => (
               <section key={sec.id} id={sec.id}>
-                <h2 className="text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">{sec.h2}</h2>
+                <h2 className="text-2xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-3">{sec.h2}</h2>
                 <div className="space-y-3 text-gray-700 text-sm sm:text-base leading-relaxed">
                   {sec.paragraphs.map((p, i) => (
                     <p key={i}>{p}</p>
@@ -383,7 +383,7 @@ export function GuideArticlePage() {
                         style={{ backgroundColor: SOFT_BG }}
                         className="rounded-xl p-5 border border-gray-200"
                       >
-                        <h3 className="text-base font-semibold text-[#1a1d2e] mb-1.5">{c.title}</h3>
+                        <h3 className="text-base font-medium text-[#1a1d2e] mb-1.5">{c.title}</h3>
                         <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{c.desc}</p>
                       </div>
                     ))}
@@ -403,7 +403,7 @@ export function GuideArticlePage() {
                 <ShieldCheckIcon className="w-3.5 h-3.5" />
                 <span>{isEn ? "AZAV-Certified Program" : "AZAV-zertifiziertes Programm"}</span>
               </span>
-              <h3 className="text-xl sm:text-2xl font-semibold mb-2">
+              <h3 className="text-xl sm:text-2xl font-medium mb-2">
                 <Link to={article.ctaCourseTo} className="hover:text-[#f472b6]">
                   {article.ctaCourseTitle}
                 </Link>
@@ -432,7 +432,7 @@ export function GuideArticlePage() {
 
           {/* Component B13: FAQ */}
           <div id="guide-faq" className="mb-12">
-            <h2 className="text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-5">
+            <h2 className="text-2xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-5">
               {isEn ? "Frequently asked questions" : "Häufige Fragen zum Thema"}
             </h2>
             <div className="space-y-3">
@@ -443,7 +443,7 @@ export function GuideArticlePage() {
                   className="group bg-[#f6f7fb] rounded-2xl border border-gray-200 overflow-hidden"
                 >
                   <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer list-none">
-                    <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                    <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
                     <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform">
                       +
                     </span>
@@ -459,7 +459,7 @@ export function GuideArticlePage() {
           {/* Component B17: Related Cluster Guides */}
           {relatedArticles.length > 0 && (
             <div className="pt-8 border-t border-gray-200">
-              <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-5">
+              <h2 className="text-xl sm:text-2xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-5">
                 {isEn ? "Related guides" : "Weitere passende Ratgeber"}
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -475,7 +475,7 @@ export function GuideArticlePage() {
                         <span className="text-[11px] font-medium text-[#e51a59] block mb-1">
                           {rel.badge}
                         </span>
-                        <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e] mb-2">
+                        <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e] mb-2">
                           <Link to={relUrl} className="hover:text-[#e51a59]">
                             {rel.h1}
                           </Link>

@@ -245,7 +245,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-semibold text-[#141B2D] tracking-[-0.025em] mb-3">
+            <h2 className="text-3xl sm:text-4xl font-medium text-[#1a1d2e] tracking-[-0.025em] mb-3">
               {isEn ? "Funded IT Training Programs" : "Geförderte Weiterbildungsprogramme"}
             </h2>
 
@@ -280,7 +280,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                 {isEn ? "Option 1 · Career Track" : "Option 1 · IT-Weiterbildung"}
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-semibold text-[#141B2D] mb-3 leading-snug tracking-[-0.02em]">
+              <h3 className="text-2xl sm:text-3xl font-medium text-[#1a1d2e] mb-3 leading-snug tracking-[-0.02em]">
                 {isEn
                   ? "Direct Entry to Your Chosen IT Field"
                   : "Direkteinstieg in deinen IT-Fachbereich"}
@@ -340,7 +340,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                 {isEn ? "Option 2 · Free Orientation" : "Option 2 · IT-Orientierung"}
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-3 leading-snug tracking-[-0.02em]">
+              <h3 className="text-2xl sm:text-3xl font-medium text-white mb-3 leading-snug tracking-[-0.02em]">
                 {isEn
                   ? "Undecided? Test 4 IT Fields in 4 Weeks"
                   : "Noch unentschlossen? 4-Wochen Orientierung"}
@@ -396,10 +396,10 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
         <div id="career-tracks" className="pt-6 mb-8">
           <div className="flex flex-col gap-4 mb-6">
             <div>
-              <span className="text-xs font-semibold text-[#E51A59] uppercase tracking-wider block mb-1">
+              <span className="text-xs font-medium text-[#E51A59] uppercase tracking-wider block mb-1">
                 {isEn ? "Full & Modular Programs" : "Gesamt- & Modulprogramme"}
               </span>
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-[#141B2D]">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e]">
                 {isEn ? "Explore Specialized Bootcamps" : "Die 6 Weiterbildungsprogramme im Detail"}
               </h3>
             </div>
@@ -484,7 +484,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                 </div>
 
                 {/* Course Title: Dark Navy in resting -> Pure White in hover */}
-                <h3 className="text-xl font-semibold tracking-[-0.015em] text-[#141B2D] mb-2.5 leading-snug transition-colors duration-300 group-hover:text-white">
+                <h3 className="text-xl font-medium tracking-[-0.015em] text-[#1a1d2e] mb-2.5 leading-snug transition-colors duration-300 group-hover:text-white">
                   <Link to={course.to} className="focus:outline-none hover:underline">
                     {course.title}
                   </Link>
