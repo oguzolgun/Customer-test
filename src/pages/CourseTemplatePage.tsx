@@ -974,77 +974,108 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       {/* =====================================================================
           6. KURS ÖZETİ / ABLAUF UND LERNFORMAT (Component B7) — H2: formatH2
           ===================================================================== */}
-      <section className="py-16" style={{ background: SOFT_BG }}>
-        <div className="max-w-[1200px] mx-auto px-5 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          <div>
+      <section className="py-16 border-b border-gray-200/60" style={{ background: SOFT_BG }}>
+        <div className="max-w-[1200px] mx-auto px-5">
+          {/* Standardized Top Section Header */}
+          <div className="max-w-3xl mb-8 sm:mb-10">
             <div
               className="text-xs font-bold uppercase tracking-widest mb-2"
               style={{ color: PRIMARY }}
             >
               {lang === "en" ? "COURSE OVERVIEW" : "KURSÜBERSICHT"}
             </div>
-            <h2 className="font-bold text-3xl mb-4" style={{ color: DARK }}>
+            <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
               {data.formatH2}
             </h2>
-            <p className="text-gray-600 text-sm leading-relaxed mb-5">
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
               {data.formatIntro}
             </p>
+          </div>
 
-            <div className="space-y-3">
-              {data.formatHighlights.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm"
-                >
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e] mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+          {/* Balanced Row 1: Course Visual + Unified Program Facts & Consultation Card */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch mb-6">
+            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden shadow-sm border border-gray-200/80 bg-white">
+              <img
+                src={(courseImages?.squareOverview || courseImages.squareAudience1).src}
+                alt={(courseImages?.squareOverview || courseImages.squareAudience1).alt[lang]}
+                className="w-full aspect-[16/10] lg:aspect-auto lg:h-full lg:absolute lg:inset-0 object-cover block"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="lg:col-span-7 bg-white rounded-2xl border border-gray-200/80 p-6 sm:p-7 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 pb-3.5 border-b border-gray-100 mb-1">
+                  <span
+                    className="text-[11px] font-bold uppercase tracking-widest"
+                    style={{ color: PRIMARY }}
+                  >
+                    {lang === "en" ? "Program Facts" : "Eckdaten auf einen Blick"}
+                  </span>
+                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59]">
+                    {lang === "en" ? "100% Live Online" : "100 % Live-Online"}
+                  </span>
                 </div>
-              ))}
+
+                <dl className="divide-y divide-gray-100">
+                  {data.summaryTable.map(([label, val], idx) => (
+                    <div
+                      key={idx}
+                      className="py-3 grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-1 sm:gap-4 items-baseline"
+                    >
+                      <dt className="text-xs sm:text-sm font-semibold text-[#1a1d2e]">
+                        {label}
+                      </dt>
+                      <dd className="text-xs sm:text-sm text-gray-600 leading-snug">
+                        {val}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+              <div className="pt-5 mt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  {lang === "en"
+                    ? "Unsure which track or module fits best? We advise you individually."
+                    : "Unsicher bei Modulwahl oder Förderung? Wir beraten dich persönlich."}
+                </p>
+                <Link
+                  to={consultPath}
+                  onClick={() =>
+                    trackClaruswayEvent("beratung_angefragt", {
+                      source: `overview_${data.key}`,
+                      lang,
+                    })
+                  }
+                  style={{ background: PRIMARY }}
+                  className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-sm whitespace-nowrap"
+                >
+                  <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
+                  <ArrowRightIcon className="w-4 h-4 shrink-0" />
+                </Link>
+              </div>
             </div>
           </div>
 
-          <div className="space-y-6">
-            {courseImages?.squareOverview && (
-              <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-100">
-                <img
-                  src={courseImages.squareOverview.src}
-                  alt={courseImages.squareOverview.alt[lang]}
-                  className="w-full aspect-square object-cover"
-                  loading="lazy"
-                />
-              </div>
-            )}
-
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-              <table className="w-full text-left border-collapse mb-6">
-                <tbody>
-                  {data.summaryTable.map(([label, val], idx) => (
-                    <tr key={idx} className="border-b border-gray-100 last:border-b-0">
-                      <th className="py-2.5 pr-3 text-sm font-semibold text-gray-700 align-top min-w-[140px]">
-                        {label}:
-                      </th>
-                      <td className="py-2.5 text-sm text-gray-600 align-top">{val}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-              <Link
-                to={consultPath}
-                onClick={() =>
-                  trackClaruswayEvent("beratung_angefragt", {
-                    source: `overview_${data.key}`,
-                    lang,
-                  })
-                }
-                style={{ background: PRIMARY }}
-                className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
+          {/* Balanced Row 2: 3 Standardized Format Highlight Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {data.formatHighlights.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-6 border border-gray-200/80 shadow-xs flex flex-col"
               >
-                {lang === "en" ? "Free consultation" : "Kostenlose Beratung"}
-              </Link>
-            </div>
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#fde8ef] text-[#e51a59] font-bold text-xs mb-3">
+                  0{idx + 1}
+                </span>
+                <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e] mb-1.5 leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

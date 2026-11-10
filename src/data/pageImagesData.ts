@@ -208,12 +208,19 @@ export const COURSE_IMAGES: Record<string, CourseImageConfig> = {
         en: "Cyber security analysts collaborating on incident response and digital forensics",
       },
     },
-    // cyber-security has 1 square image; will use elegant fallback/repeat where needed
+    // cyber-security uses verified SOC & cloud-security imagery across overview and audience slots
     squareAudience2: {
       src: "/images/cyber-security/cyber-security-analysts-incident-response-discussion.webp",
       alt: {
         de: "Praxisnahe Security Audits, Penetration Testing und SIEM Analyse",
         en: "Hands-on security audits, penetration testing, and SIEM tool training",
+      },
+    },
+    squareOverview: {
+      src: "/images/cyber-security/cyber-security-analyst-soc-course-hero.webp",
+      alt: {
+        de: "Cyber Security Analyst bei der Live-Analyse im Security Operations Center (SOC)",
+        en: "Cyber Security Analyst performing live threat analysis in a security ops center",
       },
     },
   },
