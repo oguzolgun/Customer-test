@@ -418,7 +418,7 @@ export function CoursesHubPage() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={metaTitle}
         description={metaDescription}
@@ -437,7 +437,7 @@ export function CoursesHubPage() {
       >
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
               <ShieldCheckIcon className="w-4 h-4" />
               <span>
                 {isEn
@@ -447,7 +447,7 @@ export function CoursesHubPage() {
             </div>
 
             {/* Exact H1: German SEO Plan Page 23 / English SEO Plan Page 13 */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
               {isEn
                 ? "IT bootcamps in English, funded with a Bildungsgutschein"
                 : "Alle IT Kurse im Vergleich, gefördert mit Bildungsgutschein"}
@@ -466,14 +466,14 @@ export function CoursesHubPage() {
                   trackClaruswayEvent("beratung_angefragt", { source: "courses_hub_hero", lang })
                 }
                 style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl text-sm shadow-sm hover:opacity-90"
+                className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-xl text-sm shadow-sm hover:opacity-90"
               >
                 <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
                 <ArrowRightIcon className="w-4 h-4" />
               </Link>
               <Link
                 to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-                className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-bold px-6 py-3 rounded-xl text-sm hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center gap-2 border border-[#1a1d2e]/30 text-[#1a1d2e] font-medium px-6 py-3 rounded-xl text-sm hover:border-[#1a1d2e]/60 hover:bg-gray-50 transition-colors"
               >
                 <span>
                   {isEn ? "Not sure yet? IT Orientation Course" : "Noch unsicher? IT-Orientierungskurs"}
@@ -505,7 +505,7 @@ export function CoursesHubPage() {
             >
               {isEn ? "Direct Comparison" : "Direkter Kursvergleich"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-2">
               {isEn ? "All IT courses at a glance" : "Alle IT-Kurse im Überblick"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base">
@@ -519,13 +519,13 @@ export function CoursesHubPage() {
             <table className="w-full text-left border-collapse min-w-[820px]">
               <thead>
                 <tr style={{ backgroundColor: DARK }} className="text-white text-xs uppercase tracking-wider">
-                  <th className="py-4 px-5 font-semibold">{isEn ? "Program" : "Kurs"}</th>
-                  <th className="py-4 px-5 font-semibold">{isEn ? "Duration" : "Dauer"}</th>
-                  <th className="py-4 px-5 font-semibold">{isEn ? "Entry Level" : "Einstieg"}</th>
-                  <th className="py-4 px-5 font-semibold">{isEn ? "Modules" : "Module"}</th>
-                  <th className="py-4 px-5 font-semibold">{isEn ? "Credential / Certificate" : "Abschluss / Zertifikat"}</th>
-                  <th className="py-4 px-5 font-semibold">{isEn ? "Next Cohort" : "Nächster Start"}</th>
-                  <th className="py-4 px-5 font-semibold">{isEn ? "Funding" : "Förderung"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Program" : "Kurs"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Duration" : "Dauer"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Entry Level" : "Einstieg"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Modules" : "Module"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Credential / Certificate" : "Abschluss / Zertifikat"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Next Cohort" : "Nächster Start"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Funding" : "Förderung"}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 text-xs sm:text-sm">
@@ -535,7 +535,7 @@ export function CoursesHubPage() {
                     className={idx % 2 === 0 ? "bg-white hover:bg-[#fde8ef]/25" : "bg-[#f6f7fb] hover:bg-[#fde8ef]/25"}
                   >
                     <td className="py-4 px-5">
-                      <Link to={row.to} className="font-bold text-[#e51a59] hover:underline block">
+                      <Link to={row.to} className="font-semibold text-[#e51a59] hover:underline block">
                         {row.title}
                       </Link>
                       <Link to={row.to} className="text-[11px] text-gray-500 hover:text-gray-700">
@@ -546,8 +546,8 @@ export function CoursesHubPage() {
                     <td className="py-4 px-5 text-gray-700">{row.entry}</td>
                     <td className="py-4 px-5 text-gray-700 whitespace-nowrap">{row.modules}</td>
                     <td className="py-4 px-5 text-gray-700">{row.cert}</td>
-                    <td className="py-4 px-5 font-semibold text-[#1a1d2e] whitespace-nowrap">{row.start}</td>
-                    <td className="py-4 px-5 font-semibold text-gray-900 whitespace-nowrap">{row.funding}</td>
+                    <td className="py-4 px-5 font-medium text-[#1a1d2e] whitespace-nowrap">{row.start}</td>
+                    <td className="py-4 px-5 font-medium text-gray-900 whitespace-nowrap">{row.funding}</td>
                   </tr>
                 ))}
               </tbody>
@@ -568,7 +568,7 @@ export function CoursesHubPage() {
             >
               {isEn ? "Subject Areas" : "Fachgebiete"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-2">
               {isEn ? "IT courses by subject area" : "IT-Kurse nach Fachgebiet"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base">
@@ -586,7 +586,7 @@ export function CoursesHubPage() {
               >
                 <div>
                   <div className="mb-5 pb-3 border-b border-gray-100">
-                    <h3 className="text-xl font-bold text-[#1a1d2e] mb-1">
+                    <h3 className="text-xl font-semibold text-[#1a1d2e] mb-1">
                       {grp.groupH3}
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-600">{grp.desc}</p>
@@ -600,11 +600,11 @@ export function CoursesHubPage() {
                         className="rounded-2xl p-5 border border-gray-100 hover:border-[#e51a59] transition-colors"
                       >
                         <div className="flex items-center justify-between gap-2 mb-2">
-                          <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59]">
+                          <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59]">
                             {item.meta}
                           </span>
                         </div>
-                        <h4 className="text-base font-bold text-[#1a1d2e] mb-1.5">
+                        <h4 className="text-base font-semibold text-[#1a1d2e] mb-1.5">
                           <Link to={item.to} className="hover:text-[#e51a59] transition-colors">
                             {item.title}
                           </Link>
@@ -614,7 +614,7 @@ export function CoursesHubPage() {
                         </p>
                         <Link
                           to={item.to}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline"
+                          className="inline-flex items-center gap-1.5 text-xs font-medium text-[#e51a59] hover:underline"
                         >
                           <span>{item.subtitle}</span>
                           <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -651,7 +651,7 @@ export function CoursesHubPage() {
             >
               {isEn ? "Goal-Oriented Pathways" : "Zielgerichtete Orientierung"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-2">
               {isEn
                 ? "Which IT course fits your goal?"
                 : "Welcher IT-Kurs passt zu welchem Ziel?"}
@@ -666,10 +666,10 @@ export function CoursesHubPage() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
+                <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                   {isEn ? "Complete Beginner" : "Quereinstieg"}
                 </span>
-                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   {isEn ? "Without prior knowledge" : "Ohne Vorkenntnisse"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -680,7 +680,7 @@ export function CoursesHubPage() {
               </div>
               <Link
                 to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
+                className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
               >
                 <span>{isEn ? "IT Orientation Course" : "Zum IT-Orientierungskurs"}</span>
                 <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -689,10 +689,10 @@ export function CoursesHubPage() {
 
             <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
+                <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                   {isEn ? "Experienced Professionals" : "Fachkräfte"}
                 </span>
-                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   {isEn ? "With IT experience" : "Mit IT-Erfahrung"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -703,7 +703,7 @@ export function CoursesHubPage() {
               </div>
               <Link
                 to={isEn ? "/it-courses/kubernetes-ckad-certification-course/" : "/it-kurse/kubernetes-ckad-zertifikat-kurs/"}
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
+                className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
               >
                 <span>{isEn ? "Kubernetes CKAD Course" : "Zum Kubernetes CKAD Kurs"}</span>
                 <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -712,10 +712,10 @@ export function CoursesHubPage() {
 
             <div className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group">
               <div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
+                <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] border border-[#e51a59]/20 mb-3 inline-block">
                   {isEn ? "Corporate Upskilling" : "Unternehmen"}
                 </span>
-                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   {isEn ? "For employers" : "Als Arbeitgeber"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -726,7 +726,7 @@ export function CoursesHubPage() {
               </div>
               <Link
                 to="/qualifizierungschancengesetz/"
-                className="text-xs font-bold text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
+                className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1.5 pt-3 border-t border-gray-100"
               >
                 <span>{isEn ? "QCG for Employers" : "Qualifizierungschancengesetz"}</span>
                 <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -743,10 +743,10 @@ export function CoursesHubPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-2xs">
             <div className="max-w-3xl mb-8">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#e51a59] block mb-2">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#e51a59] block mb-2">
                 {isEn ? "100% Public Funding" : "100 % Staatliche Förderung"}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
                 {isEn ? "IT courses funded with a Bildungsgutschein" : "IT-Kurse mit Bildungsgutschein"}
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -758,8 +758,8 @@ export function CoursesHubPage() {
 
             <div className="grid sm:grid-cols-3 gap-4 mb-8">
               <div className="bg-[#f6f7fb] p-5 rounded-xl border border-gray-100">
-                <span className="text-2xl font-extrabold text-[#e51a59] block mb-1">0 €</span>
-                <span className="text-xs font-bold text-gray-800 block mb-1">
+                <span className="text-2xl font-semibold tracking-tight text-[#e51a59] block mb-1">0 €</span>
+                <span className="text-xs font-semibold text-gray-800 block mb-1">
                   {isEn ? "Tuition Cost" : "Eigenanteil"}
                 </span>
                 <p className="text-[11px] text-gray-500">
@@ -768,8 +768,8 @@ export function CoursesHubPage() {
               </div>
 
               <div className="bg-[#f6f7fb] p-5 rounded-xl border border-gray-100">
-                <span className="text-2xl font-extrabold text-[#1a1d2e] block mb-1">24h</span>
-                <span className="text-xs font-bold text-gray-800 block mb-1">
+                <span className="text-2xl font-semibold tracking-tight text-[#1a1d2e] block mb-1">24h</span>
+                <span className="text-xs font-semibold text-gray-800 block mb-1">
                   {isEn ? "Offer Turnaround" : "Maßnahmeangebot"}
                 </span>
                 <p className="text-[11px] text-gray-500">
@@ -778,8 +778,8 @@ export function CoursesHubPage() {
               </div>
 
               <div className="bg-[#f6f7fb] p-5 rounded-xl border border-gray-100">
-                <span className="text-2xl font-extrabold text-[#1a1d2e] block mb-1">100 %</span>
-                <span className="text-xs font-bold text-gray-800 block mb-1">
+                <span className="text-2xl font-semibold tracking-tight text-[#1a1d2e] block mb-1">100 %</span>
+                <span className="text-xs font-semibold text-gray-800 block mb-1">
                   {isEn ? "Live Online" : "Live-Unterricht"}
                 </span>
                 <p className="text-[11px] text-gray-500">
@@ -788,7 +788,7 @@ export function CoursesHubPage() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 text-xs font-bold text-[#e51a59]">
+            <div className="flex flex-wrap gap-4 text-xs font-medium text-[#e51a59]">
               <Link to="/bildungsgutschein/" className="hover:underline">
                 {isEn ? "→ Bildungsgutschein Step-by-Step Guide" : "→ Bildungsgutschein beantragen"}
               </Link>
@@ -815,7 +815,7 @@ export function CoursesHubPage() {
             >
               FAQ
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e]">
               {isEn ? "Frequently asked questions about IT courses" : "Häufige Fragen zu den IT-Kursen"}
             </h2>
           </div>
@@ -828,10 +828,10 @@ export function CoursesHubPage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
+                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
                   <span
                     style={{ color: PRIMARY }}
-                    className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm group-open:rotate-45 transition-transform"
+                    className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform"
                   >
                     +
                   </span>
@@ -853,7 +853,7 @@ export function CoursesHubPage() {
         style={{ background: `linear-gradient(135deg, ${DARK} 0%, #2d1b3d 100%)` }}
       >
         <div className="max-w-4xl mx-auto px-5 text-center text-white">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] mb-4">
             {isEn
               ? "Find the right IT course for your career"
               : "Finde den passenden IT-Kurs für deine Karriere"}
@@ -870,14 +870,14 @@ export function CoursesHubPage() {
                 trackClaruswayEvent("beratung_angefragt", { source: "courses_hub_bottom_cta", lang })
               }
               style={{ backgroundColor: PRIMARY }}
-              className="inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95"
+              className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95"
             >
               <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
               <ArrowRightIcon className="w-4 h-4" />
             </Link>
             <Link
               to={isEn ? "/financing-and-tuition/" : "/finanzierung/"}
-              className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-bold px-7 py-3.5 rounded-xl text-sm hover:border-white/70 transition-colors"
+              className="inline-flex items-center gap-2 border border-white/30 text-white font-medium px-7 py-3.5 rounded-xl text-sm hover:border-white/70 transition-colors"
             >
               <span>{isEn ? "Compare all funding options" : "Alle Förderwege im Vergleich"}</span>
             </Link>

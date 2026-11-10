@@ -10,7 +10,7 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
     <nav
       aria-label="Breadcrumb"
       className="w-full border-b border-gray-100 bg-white/90"
-      style={{ fontFamily: "'Poppins', sans-serif" }}
+      style={{ fontFamily: "'Inter', -apple-system, sans-serif" }}
     >
       <div className="max-w-[1200px] mx-auto px-5 py-2.5">
         <ol className="flex flex-wrap items-center gap-1.5 text-xs text-gray-500">
@@ -39,7 +39,7 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
                   </Link>
                 ) : (
                   <span
-                    className="font-semibold"
+                    className="font-medium"
                     style={{ color: isLast ? PRIMARY : "#374151" }}
                     aria-current={isLast ? "page" : undefined}
                   >

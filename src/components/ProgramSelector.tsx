@@ -73,7 +73,7 @@ function ModuleChip({
         }}
       >
         <span
-          className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[9px] font-bold"
+          className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[9px] font-medium"
           style={{ background: active ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.05)" }}
         >
           {String(mod.id).slice(0, 2).toUpperCase()}
@@ -92,7 +92,7 @@ function ModuleChip({
       }}
     >
       <span
-        className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[9px] font-bold"
+        className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[9px] font-medium"
         style={{
           background: active ? "rgba(255,255,255,0.25)" : "#ccc",
           color: active ? "#fff" : "#666",
@@ -138,7 +138,7 @@ function ProgramDetail({
         <div className="relative z-10">
           {/* Top header row with metadata and high-contrast mobile close button */}
           <div className="flex items-center justify-between gap-3 mb-2">
-            <div className="text-white/80 text-[10px] font-bold uppercase tracking-widest">
+            <div className="text-white/80 text-[10px] font-medium uppercase tracking-widest">
               {program.language} · {program.badge}
             </div>
 
@@ -147,11 +147,11 @@ function ProgramDetail({
                 type="button"
                 onClick={onCloseMobile}
                 aria-label={lang === "de" ? "Details schließen" : "Close details"}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 active:scale-95 text-white text-xs font-bold border border-white/35 backdrop-blur-md transition-all shadow-sm flex-shrink-0"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 active:scale-95 text-white text-xs font-medium border border-white/35 backdrop-blur-md transition-all shadow-sm flex-shrink-0"
               >
                 <span>{lang === "de" ? "Schließen" : "Close"}</span>
                 <div className="w-4 h-4 rounded-full bg-white text-[#e51a59] flex items-center justify-center">
-                  <svg className="w-3 h-3 stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <svg className="w-3 h-3 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
                   </svg>
                 </div>
@@ -161,7 +161,7 @@ function ProgramDetail({
 
           <div className="flex items-start justify-between gap-3 flex-wrap">
             <div className="flex-1 min-w-0">
-              <h3 className="text-white font-bold text-base md:text-lg leading-snug">
+              <h3 className="text-white font-semibold text-base md:text-lg leading-snug">
                 {program.title}
                 {program.subtitle && (
                   <span className="font-normal text-white/85"> — {program.subtitle}</span>
@@ -170,7 +170,7 @@ function ProgramDetail({
               <p className="text-white/85 text-xs mt-2 leading-relaxed">{program.description}</p>
             </div>
             <div className="text-right flex-shrink-0">
-              <div className="text-white font-bold text-xl">{program.duration}</div>
+              <div className="text-white font-semibold text-xl">{program.duration}</div>
               <div className="text-white/70 text-[11px] mt-0.5">{program.schedule}</div>
               <div className="text-white/70 text-[11px]">{program.capacity}</div>
             </div>
@@ -178,7 +178,7 @@ function ProgramDetail({
 
           {/* Learning path */}
           <div className="mt-4 pt-4 border-t border-white/20">
-            <div className="text-white/70 text-[10px] font-bold uppercase tracking-widest mb-2">
+            <div className="text-white/70 text-[10px] font-medium uppercase tracking-widest mb-2">
               {lang === "de" ? "Lernpfad" : "Learning path"}
             </div>
             <div className="flex items-center gap-2 flex-wrap">
@@ -201,7 +201,7 @@ function ProgramDetail({
                       <ModuleChip mod={mod} active={included} dark />
                       {isStart && program.startsAt !== modules[0]?.id && (
                         <span
-                          className="absolute -top-2 -right-1 text-[8px] bg-white font-bold px-1 rounded-full"
+                          className="absolute -top-2 -right-1 text-[8px] bg-white font-semibold px-1 rounded-full"
                           style={{ color: PRIMARY }}
                         >
                           START
@@ -250,7 +250,7 @@ function ProgramDetail({
               {!included && (
                 <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                   <span
-                    className="text-[10px] font-bold px-2.5 py-1 rounded-full"
+                    className="text-[10px] font-medium px-2.5 py-1 rounded-full"
                     style={{ background: "#e5e5e5", color: "#666" }}
                   >
                     {lang === "de" ? "Nicht enthalten" : "Not included"}
@@ -259,19 +259,19 @@ function ProgramDetail({
               )}
               <div className="flex items-center gap-2 mb-2.5">
                 <div
-                  className="w-7 h-7 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0"
+                  className="w-7 h-7 rounded-lg flex items-center justify-center text-white font-medium text-xs flex-shrink-0"
                   style={{ background: included ? mod.color : "#ccc" }}
                 >
                   {String(mod.id).slice(0, 2).toUpperCase()}
                 </div>
                 <div className="min-w-0">
                   <div
-                    className="text-[9px] font-bold uppercase tracking-widest"
+                    className="text-[9px] font-semibold uppercase tracking-widest"
                     style={{ color: included ? mod.color : "#999" }}
                   >
                     {mod.label} · {mod.duration}
                   </div>
-                  <div className="font-bold text-xs text-gray-900 leading-tight">{mod.title}</div>
+                  <div className="font-semibold text-xs text-gray-900 leading-tight">{mod.title}</div>
                 </div>
               </div>
               <ul className="space-y-1">
@@ -303,7 +303,7 @@ function ProgramDetail({
             >
               <CalIcon />
             </div>
-            <span className="font-bold text-sm text-gray-900">
+            <span className="font-semibold text-sm text-gray-900">
               {lang === "de" ? "Nächste Starttermine" : "Upcoming start dates"}
             </span>
           </div>
@@ -331,13 +331,13 @@ function ProgramDetail({
           className="rounded-xl p-4 border flex flex-col gap-2.5"
           style={{ borderColor: "#e5e5e5", background: "#fff" }}
         >
-          <span className="font-bold text-sm text-gray-900 mb-0.5">
+          <span className="font-semibold text-sm text-gray-900 mb-0.5">
             {lang === "de" ? "Jetzt starten" : "Start your application"}
           </span>
           <Link
             to={consultPath}
             onClick={() => trackGa4Event("beratung_angefragt", { course: program.title })}
-            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-white font-bold text-sm transition-all hover:opacity-90"
+            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-white font-medium text-sm transition-all hover:opacity-90"
             style={{ background: PRIMARY }}
           >
             {lang === "de" ? "Jetzt anmelden" : "Apply now"}
@@ -355,7 +355,7 @@ function ProgramDetail({
                 el?.scrollIntoView({ behavior: "smooth" });
               }
             }}
-            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm border-2 transition-all hover:bg-pink-50"
+            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm border transition-all hover:bg-pink-50"
             style={{ borderColor: PRIMARY, color: PRIMARY }}
           >
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -417,12 +417,12 @@ function MobileProgramCard({
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-1.5">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500">
+            <span className="text-[10px] font-medium uppercase tracking-wider text-gray-500">
               {program.duration}
             </span>
             {program.startsAt !== modules[0]?.id && (
               <span
-                className="text-[9px] px-2 py-0.5 rounded-full font-bold"
+                className="text-[9px] px-2 py-0.5 rounded-full font-medium"
                 style={{ background: `${SECONDARY}15`, color: SECONDARY }}
               >
                 {lang === "de" ? "ab " : "from "}
@@ -431,7 +431,7 @@ function MobileProgramCard({
             )}
             {program.recommended && (
               <span
-                className="text-[9px] font-bold px-2 py-0.5 rounded-full text-white"
+                className="text-[9px] font-medium px-2 py-0.5 rounded-full text-white"
                 style={{ background: PRIMARY }}
               >
                 {lang === "de" ? "EMPFOHLEN" : "RECOMMENDED"}
@@ -439,7 +439,7 @@ function MobileProgramCard({
             )}
           </div>
 
-          <div className="font-bold text-sm sm:text-base text-gray-900 leading-snug group-hover:text-[#e51a59] transition-colors">
+          <div className="font-semibold text-sm sm:text-base text-gray-900 leading-snug group-hover:text-[#e51a59] transition-colors">
             {program.title}
           </div>
           {program.subtitle && (
@@ -478,7 +478,7 @@ function MobileProgramCard({
             </svg>
           </div>
           <span
-            className="text-[10px] font-bold uppercase tracking-wider"
+            className="text-[10px] font-medium uppercase tracking-wider"
             style={{ color: PRIMARY }}
           >
             {lang === "de" ? "Öffnen" : "Open"}
@@ -509,11 +509,11 @@ function SidebarCard({
       style={{ outline: "none" }}
     >
       <div
-        className="rounded-2xl p-4 border-2 transition-all duration-200"
+        className="rounded-2xl p-4 border transition-all duration-200"
         style={{
           borderColor: selected ? PRIMARY : "transparent",
           background: selected ? "#fff" : CREAM,
-          boxShadow: selected ? `0 4px 20px ${PRIMARY}20` : "none",
+          boxShadow: selected ? `0 0 0 1px ${PRIMARY}40, 0 4px 20px ${PRIMARY}18` : "none",
         }}
       >
         <div className="flex items-start gap-3">
@@ -560,7 +560,7 @@ function SidebarCard({
                 </span>
                 {program.startsAt !== modules[0]?.id && (
                   <span
-                    className="text-[9px] px-2 py-0.5 rounded-full font-bold"
+                    className="text-[9px] px-2 py-0.5 rounded-full font-medium"
                     style={{ background: `${SECONDARY}15`, color: SECONDARY }}
                   >
                     {lang === "de" ? "ab " : "from "}
@@ -630,18 +630,18 @@ export default function ProgramSelector({
   return (
     <section
       className="w-full"
-      style={{ fontFamily: "'Poppins', sans-serif", background: CREAM }}
+      style={{ fontFamily: "'Inter', -apple-system, sans-serif", background: CREAM }}
     >
       {/* Header */}
       <div className="max-w-[1200px] mx-auto px-5 pt-14 pb-7 text-center">
         <div
-          className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
+          className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
           style={{ background: `${PRIMARY}15`, color: PRIMARY }}
         >
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: PRIMARY }} />
           {lang === "de" ? "Programmübersicht" : "Program variants & start dates"}
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3">
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-gray-900 leading-tight mb-3">
           {resolvedTitle}
         </h2>
         <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
@@ -735,7 +735,7 @@ export default function ProgramSelector({
       {directEntry && (
         <div className="max-w-[1200px] mx-auto px-5 pb-14">
           <div className="rounded-2xl bg-white border border-gray-200/80 p-6 md:p-7 shadow-sm">
-            <h3 className="font-bold text-lg md:text-xl text-gray-900 mb-4">
+            <h3 className="font-semibold text-lg md:text-xl text-gray-900 mb-4">
               {directEntry.heading}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -745,12 +745,12 @@ export default function ProgramSelector({
                   className="rounded-xl border border-gray-100 p-4 bg-gray-50/60"
                 >
                   <span
-                    className="inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-2"
+                    className="inline-block text-[10px] font-medium uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-2"
                     style={{ background: `${PRIMARY}15`, color: PRIMARY }}
                   >
                     {item.badge}
                   </span>
-                  <div className="font-bold text-sm text-gray-900 mb-1">{item.title}</div>
+                  <div className="font-semibold text-sm text-gray-900 mb-1">{item.title}</div>
                   <p className="text-xs text-gray-600 leading-relaxed">{item.prereqs}</p>
                 </div>
               ))}

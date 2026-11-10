@@ -344,7 +344,7 @@ export function HomePage() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead title={metaTitle} description={metaDescription} path="/" schema={schema} />
 
       {/* =====================================================================
@@ -371,7 +371,7 @@ export function HomePage() {
                 {/* Left Text Column */}
                 <div className="lg:col-span-6 max-w-[580px] z-20 flex flex-col justify-center">
                   {/* Pill Badge */}
-                  <div className="inline-flex items-center gap-2 self-start bg-[#FDE3E9] text-[#E5254F] text-[11px] sm:text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-full mb-4 tracking-tight shadow-xs">
+                  <div className="inline-flex items-center gap-2 self-start bg-[#FDE3E9] text-[#E5254F] text-[11px] sm:text-xs font-medium px-3 sm:px-3.5 py-1.5 rounded-full mb-4 tracking-tight shadow-xs">
                     <ShieldCheckIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E5254F] shrink-0" />
                     <span>{copy.badge}</span>
                   </div>
@@ -379,7 +379,7 @@ export function HomePage() {
                   {/* H1 Heading (Exact: no colon in German H1) */}
                   <h1
                     style={{ color: DARK, lineHeight: 1.15 }}
-                    className="text-[28px] sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold tracking-tight mb-4"
+                    className="text-[28px] sm:text-4xl lg:text-[40px] xl:text-[44px] font-semibold tracking-[-0.025em] mb-4"
                   >
                     {copy.h1Lead}
                     <span style={{ color: PRIMARY }}>{copy.h1Highlight}</span>
@@ -394,7 +394,7 @@ export function HomePage() {
                         </svg>
                       ))}
                     </div>
-                    <span className="text-sm font-semibold text-gray-700">
+                    <span className="text-sm font-medium text-gray-700">
                       {copy.rating}
                     </span>
                   </div>
@@ -412,7 +412,7 @@ export function HomePage() {
                         trackClaruswayEvent("beratung_angefragt", { source: "home_hero", lang })
                       }
                       style={{ backgroundColor: PRIMARY }}
-                      className="inline-flex items-center gap-2 text-white font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-sm shadow-[0_4px_16px_rgba(229,37,79,0.25)] hover:opacity-95 hover:shadow-[0_6px_22px_rgba(229,37,79,0.35)] transition-all"
+                      className="inline-flex items-center gap-2 text-white font-medium px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-sm shadow-[0_4px_16px_rgba(229,37,79,0.22)] hover:opacity-95 hover:shadow-[0_6px_22px_rgba(229,37,79,0.3)] transition-all"
                     >
                       <span>{copy.primaryBtn}</span>
                       <ArrowRightIcon className="w-4 h-4" />
@@ -420,7 +420,7 @@ export function HomePage() {
 
                     <Link
                       to={isEn ? "/it-courses/" : "/it-kurse/"}
-                      className="inline-flex items-center gap-2 border-2 border-[#141B2D] text-[#141B2D] font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-sm hover:bg-[#141B2D]/5 transition-colors"
+                      className="inline-flex items-center gap-2 border border-[#141B2D]/30 text-[#141B2D] font-medium px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-sm hover:border-[#141B2D]/60 hover:bg-[#141B2D]/5 transition-colors"
                     >
                       <span>{copy.secondaryBtn}</span>
                     </Link>
@@ -472,7 +472,7 @@ export function HomePage() {
             >
               {isEn ? "Orientation & Fields" : "Orientierung & Fachgebiete"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn ? "Which IT field is right for you?" : "Welcher IT-Bereich passt zu dir?"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -497,12 +497,12 @@ export function HomePage() {
                     <div className="w-11 h-11 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center transition-all duration-300 group-hover:bg-[#e51a59] group-hover:text-white group-hover:scale-105 shadow-2xs">
                       <AreaIcon type={area.iconType} />
                     </div>
-                    <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-full">
+                    <span className="text-[10px] font-medium text-gray-500 uppercase tracking-wider bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-full">
                       {area.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                  <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                     <Link to={area.to}>{area.title}</Link>
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
@@ -512,7 +512,7 @@ export function HomePage() {
 
                 <Link
                   to={area.to}
-                  className="inline-flex items-center justify-between w-full pt-3.5 border-t border-gray-100 text-xs font-semibold text-gray-700 group-hover:text-[#e51a59] transition-colors"
+                  className="inline-flex items-center justify-between w-full pt-3.5 border-t border-gray-100 text-xs font-medium text-gray-700 group-hover:text-[#e51a59] transition-colors"
                 >
                   <span>{isEn ? "Explore pathway" : "Bereich entdecken"}</span>
                   <div className="w-6 h-6 rounded-full bg-gray-50 group-hover:bg-[#fde8ef] group-hover:text-[#e51a59] flex items-center justify-center transition-colors">
@@ -538,7 +538,7 @@ export function HomePage() {
             >
               {isEn ? "Funding Options" : "Finanzierungswege"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn
                 ? "Funding with Bildungsgutschein, AVGS or QCG"
                 : "Förderung mit Bildungsgutschein, AVGS oder QCG"}
@@ -554,22 +554,22 @@ export function HomePage() {
             {/* Card 1: Bildungsgutschein */}
             <div className="bg-[#FCFBFA] rounded-2xl p-6 sm:p-7 border border-[#e51a59]/25 shadow-2xs hover:shadow-md hover:border-[#e51a59]/40 transition-all flex flex-col justify-between group relative overflow-hidden">
               <div className="absolute top-0 right-0">
-                <span className="text-[9px] font-bold uppercase tracking-wider bg-[#e51a59] text-white px-3 py-1 rounded-bl-xl shadow-xs">
+                <span className="text-[9px] font-medium uppercase tracking-wider bg-[#e51a59] text-white px-3 py-1 rounded-bl-xl shadow-xs">
                   {isEn ? "Most Popular" : "Häufigste Förderung"}
                 </span>
               </div>
 
               <div>
                 <div className="flex items-center gap-2 mb-3 pt-1">
-                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-white border border-gray-200 px-2.5 py-0.5 rounded-md">
+                  <span className="text-[10px] font-medium text-gray-500 uppercase tracking-widest bg-white border border-gray-200 px-2.5 py-0.5 rounded-md">
                     § 81 SGB III
                   </span>
-                  <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] px-2.5 py-0.5 rounded-full">
+                  <span className="text-xs font-medium text-[#e51a59] bg-[#fde8ef] px-2.5 py-0.5 rounded-full">
                     {isEn ? "100% Covered" : "100 % Kostenübernahme"}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-xl font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   <Link to="/bildungsgutschein/">
                     Bildungsgutschein
                   </Link>
@@ -583,7 +583,7 @@ export function HomePage() {
                 {/* Voucher Highlight Box */}
                 <div className="my-4 py-2.5 px-3 bg-white rounded-xl border border-gray-200/80 flex items-center justify-between text-xs">
                   <span className="text-gray-500">{isEn ? "Your Cost" : "Eigenanteil"}</span>
-                  <span className="font-bold text-[#e51a59] text-sm">0 € ({isEn ? "100% funded" : "100 % gefördert"})</span>
+                  <span className="font-semibold text-[#e51a59] text-sm">0 € ({isEn ? "100% funded" : "100 % gefördert"})</span>
                 </div>
               </div>
 
@@ -591,7 +591,7 @@ export function HomePage() {
                 <div className="border-t border-dashed border-gray-200 my-3" />
                 <Link
                   to="/bildungsgutschein/"
-                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold transition-all inline-flex items-center justify-center gap-1.5 bg-[#fde8ef] text-[#e51a59] hover:bg-[#e51a59] hover:text-white"
+                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-medium transition-all inline-flex items-center justify-center gap-1.5 bg-[#fde8ef] text-[#e51a59] hover:bg-[#e51a59] hover:text-white"
                 >
                   <span>{isEn ? "Bildungsgutschein Guide" : "Bildungsgutschein beantragen"}</span>
                   <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -603,15 +603,15 @@ export function HomePage() {
             <div className="bg-[#FCFBFA] rounded-2xl p-6 sm:p-7 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="flex items-center gap-2 mb-3 pt-1">
-                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-white border border-gray-200 px-2.5 py-0.5 rounded-md">
+                  <span className="text-[10px] font-medium text-gray-500 uppercase tracking-widest bg-white border border-gray-200 px-2.5 py-0.5 rounded-md">
                     § 45 SGB III
                   </span>
-                  <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] px-2.5 py-0.5 rounded-full">
+                  <span className="text-xs font-medium text-[#e51a59] bg-[#fde8ef] px-2.5 py-0.5 rounded-full">
                     {isEn ? "Free Coaching" : "Kostenloses Coaching"}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-xl font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   <Link to="/avgs/">
                     AVGS
                   </Link>
@@ -625,7 +625,7 @@ export function HomePage() {
                 {/* Voucher Highlight Box */}
                 <div className="my-4 py-2.5 px-3 bg-white rounded-xl border border-gray-200/80 flex items-center justify-between text-xs">
                   <span className="text-gray-500">{isEn ? "Format" : "Format & Dauer"}</span>
-                  <span className="font-bold text-[#141b2d] text-sm">{isEn ? "4 Weeks · 100% Live" : "4 Wochen · 100 % Live"}</span>
+                  <span className="font-semibold text-[#141b2d] text-sm">{isEn ? "4 Weeks · 100% Live" : "4 Wochen · 100 % Live"}</span>
                 </div>
               </div>
 
@@ -633,7 +633,7 @@ export function HomePage() {
                 <div className="border-t border-dashed border-gray-200 my-3" />
                 <Link
                   to="/avgs/"
-                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold transition-all inline-flex items-center justify-center gap-1.5 bg-white border border-gray-200 hover:border-[#e51a59] text-gray-800 hover:text-[#e51a59]"
+                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-medium transition-all inline-flex items-center justify-center gap-1.5 bg-white border border-gray-200 hover:border-[#e51a59] text-gray-800 hover:text-[#e51a59]"
                 >
                   <span>{isEn ? "AVGS Coaching Voucher" : "AVGS Gutschein nutzen"}</span>
                   <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -645,15 +645,15 @@ export function HomePage() {
             <div className="bg-[#FCFBFA] rounded-2xl p-6 sm:p-7 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/30 transition-all flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="flex items-center gap-2 mb-3 pt-1">
-                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-white border border-gray-200 px-2.5 py-0.5 rounded-md">
+                  <span className="text-[10px] font-medium text-gray-500 uppercase tracking-widest bg-white border border-gray-200 px-2.5 py-0.5 rounded-md">
                     § 82 SGB III
                   </span>
-                  <span className="text-xs font-semibold text-[#e51a59] bg-[#fde8ef] px-2.5 py-0.5 rounded-full">
+                  <span className="text-xs font-medium text-[#e51a59] bg-[#fde8ef] px-2.5 py-0.5 rounded-full">
                     {isEn ? "Up to 100% Grant" : "Bis zu 100 % Zuschuss"}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
+                <h3 className="text-xl font-semibold text-[#1a1d2e] mb-2 group-hover:text-[#e51a59] transition-colors">
                   <Link to="/qualifizierungschancengesetz/">
                     Qualifizierungschancengesetz
                   </Link>
@@ -667,7 +667,7 @@ export function HomePage() {
                 {/* Voucher Highlight Box */}
                 <div className="my-4 py-2.5 px-3 bg-white rounded-xl border border-gray-200/80 flex items-center justify-between text-xs">
                   <span className="text-gray-500">{isEn ? "Wage Subsidy" : "Lohnzuschuss"}</span>
-                  <span className="font-bold text-[#141b2d] text-sm">{isEn ? "Up to 75% for employers" : "Bis zu 75 % für Arbeitgeber"}</span>
+                  <span className="font-semibold text-[#141b2d] text-sm">{isEn ? "Up to 75% for employers" : "Bis zu 75 % für Arbeitgeber"}</span>
                 </div>
               </div>
 
@@ -675,7 +675,7 @@ export function HomePage() {
                 <div className="border-t border-dashed border-gray-200 my-3" />
                 <Link
                   to="/qualifizierungschancengesetz/"
-                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold transition-all inline-flex items-center justify-center gap-1.5 bg-white border border-gray-200 hover:border-[#e51a59] text-gray-800 hover:text-[#e51a59]"
+                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-medium transition-all inline-flex items-center justify-center gap-1.5 bg-white border border-gray-200 hover:border-[#e51a59] text-gray-800 hover:text-[#e51a59]"
                 >
                   <span>{isEn ? "QCG Employer Funding" : "QCG für Unternehmen"}</span>
                   <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -687,7 +687,7 @@ export function HomePage() {
           <div className="text-center">
             <Link
               to={isEn ? "/financing-and-tuition/" : "/finanzierung/"}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#e51a59] hover:underline"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#e51a59] hover:underline"
             >
               <span>
                 {isEn ? "Compare all funding options in detail" : "Alle Finanzierungswege im Vergleich ansehen"}
@@ -711,7 +711,7 @@ export function HomePage() {
             >
               {isEn ? "Admission Process" : "Ablauf & Beantragung"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn ? "In 3 steps to your IT training" : "In 3 Schritten zur IT Weiterbildung"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -734,15 +734,15 @@ export function HomePage() {
                   <div>
                     {/* Step number node + step pill */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-11 h-11 rounded-2xl bg-[#141B2D] text-white flex items-center justify-center font-bold text-base shadow-sm group-hover:bg-[#e51a59] group-hover:scale-105 transition-all">
+                      <div className="w-11 h-11 rounded-2xl bg-[#141B2D] text-white flex items-center justify-center font-medium text-base shadow-sm group-hover:bg-[#e51a59] group-hover:scale-105 transition-all">
                         {step.num}
                       </div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#e51a59] bg-[#fde8ef] px-3 py-1 rounded-full">
+                      <span className="text-[10px] font-medium uppercase tracking-wider text-[#e51a59] bg-[#fde8ef] px-3 py-1 rounded-full">
                         {isEn ? `Step 0${idx + 1}` : `Schritt 0${idx + 1}`}
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">{step.title}</h3>
+                    <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2">{step.title}</h3>
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
                       {step.desc}
                     </p>
@@ -767,7 +767,7 @@ export function HomePage() {
             <Link
               to={consultPath}
               style={{ backgroundColor: PRIMARY }}
-              className="inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95 transition-all active:scale-[0.99]"
+              className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95 transition-all active:scale-[0.99]"
             >
               <span>{isEn ? "Book free consultation now" : "Jetzt kostenlose Beratung buchen"}</span>
               <ArrowRightIcon className="w-4 h-4" />
@@ -793,7 +793,7 @@ export function HomePage() {
             >
               {isEn ? "Our Learning Model" : "Lernmodell"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn ? "How learning works at Clarusway" : "So funktioniert das Lernen bei Clarusway"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -814,7 +814,7 @@ export function HomePage() {
                   <div className="w-9 h-9 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center mb-3">
                     <CheckCircleIcon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{pillar.title}</h3>
+                  <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{pillar.title}</h3>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{pillar.desc}</p>
                 </div>
               </div>
@@ -829,7 +829,7 @@ export function HomePage() {
       <section style={{ backgroundColor: SOFT_BG }} className="py-14 border-t border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-2">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-2">
               {isEn ? "Certified and recognized" : "Zertifiziert und anerkannt"}
             </h2>
             <p className="text-xs sm:text-sm text-gray-500">
@@ -841,22 +841,22 @@ export function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
-              <span className="block font-extrabold text-[#e51a59] text-base mb-0.5">AZAV</span>
-              <span className="text-xs text-gray-600 font-medium">
+              <span className="block font-semibold text-[#e51a59] text-base mb-0.5">AZAV</span>
+              <span className="text-xs text-gray-600 font-normal">
                 {isEn ? "Certified Provider" : "Zugelassener Träger"}
               </span>
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
-              <span className="block font-extrabold text-[#1a1d2e] text-base mb-0.5">AWS Partner</span>
-              <span className="text-xs text-gray-600 font-medium">Select Tier Consulting</span>
+              <span className="block font-semibold text-[#1a1d2e] text-base mb-0.5">AWS Partner</span>
+              <span className="text-xs text-gray-600 font-normal">Select Tier Consulting</span>
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
-              <span className="block font-extrabold text-[#1a1d2e] text-base mb-0.5">KURSNET</span>
-              <span className="text-xs text-gray-600 font-medium">Bundesagentur für Arbeit</span>
+              <span className="block font-semibold text-[#1a1d2e] text-base mb-0.5">KURSNET</span>
+              <span className="text-xs text-gray-600 font-normal">Bundesagentur für Arbeit</span>
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-200 text-center shadow-2xs">
-              <span className="block font-extrabold text-[#1a1d2e] text-base mb-0.5">mein NOW</span>
-              <span className="text-xs text-gray-600 font-medium">Nationales Onlineportal</span>
+              <span className="block font-semibold text-[#1a1d2e] text-base mb-0.5">mein NOW</span>
+              <span className="text-xs text-gray-600 font-normal">Nationales Onlineportal</span>
             </div>
           </div>
         </div>
@@ -875,14 +875,14 @@ export function HomePage() {
               >
                 {isEn ? "Alumni Reviews" : "Absolventenstimmen"}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e]">
                 {isEn ? "What graduates say" : "Erfahrungen von Clarusway Absolventen"}
               </h2>
             </div>
 
             <Link
               to={isEn ? "/success-stories/" : "/erfolgsgeschichten/"}
-              className="text-xs sm:text-sm font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1.5"
+              className="text-xs sm:text-sm font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1.5"
             >
               <span>{isEn ? "Read all success stories" : "Alle Erfahrungsberichte lesen"}</span>
               <ArrowRightIcon className="w-4 h-4" />
@@ -898,7 +898,7 @@ export function HomePage() {
               </p>
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div>
-                  <p className="font-bold text-sm text-[#1a1d2e]">DH Kim</p>
+                  <p className="font-semibold text-sm text-[#1a1d2e]">DH Kim</p>
                   <p className="text-xs text-gray-500">
                     {isEn ? "AWS & DevOps Graduate" : "AWS & DevOps Absolvent"}
                   </p>
@@ -907,7 +907,7 @@ export function HomePage() {
                   href="https://www.google.com/maps"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1"
+                  className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1"
                 >
                   <span>{isEn ? "Google Reviews" : "Google Rezensionen"}</span>
                   <ExternalLinkIcon className="w-3 h-3" />
@@ -923,7 +923,7 @@ export function HomePage() {
               </p>
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div>
-                  <p className="font-bold text-sm text-[#1a1d2e]">Morad</p>
+                  <p className="font-semibold text-sm text-[#1a1d2e]">Morad</p>
                   <p className="text-xs text-gray-500">
                     {isEn ? "Cyber Security Graduate" : "Cyber Security Absolvent"}
                   </p>
@@ -932,7 +932,7 @@ export function HomePage() {
                   href="https://www.coursereport.com/schools/clarusway"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1"
+                  className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1"
                 >
                   <span>Course Report</span>
                   <ExternalLinkIcon className="w-3 h-3" />
@@ -955,7 +955,7 @@ export function HomePage() {
             >
               FAQ
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e]">
               {isEn
                 ? "Frequently asked questions about IT training"
                 : "Häufige Fragen zur IT Weiterbildung"}
@@ -970,10 +970,10 @@ export function HomePage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
+                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
                   <span
                     style={{ color: PRIMARY }}
-                    className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm group-open:rotate-45 transition-transform"
+                    className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform"
                   >
                     +
                   </span>
@@ -995,7 +995,7 @@ export function HomePage() {
         style={{ background: `linear-gradient(135deg, ${DARK} 0%, #2d1b3d 100%)` }}
       >
         <div className="max-w-4xl mx-auto px-5 text-center text-white">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] mb-4">
             {isEn
               ? "Ready for your IT career? Book your free consultation now."
               : "Bereit für deine IT-Karriere? Vereinbare jetzt dein kostenloses Beratungsgespräch."}
@@ -1012,14 +1012,14 @@ export function HomePage() {
                 trackClaruswayEvent("beratung_angefragt", { source: "home_bottom_cta", lang })
               }
               style={{ backgroundColor: PRIMARY }}
-              className="inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95"
+              className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-xl text-sm shadow-md hover:opacity-95"
             >
               <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
               <ArrowRightIcon className="w-4 h-4" />
             </Link>
             <Link
               to={isEn ? "/it-courses/" : "/it-kurse/"}
-              className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-bold px-7 py-3.5 rounded-xl text-sm hover:border-white/70 transition-colors"
+              className="inline-flex items-center gap-2 border border-white/35 text-white font-medium px-7 py-3.5 rounded-xl text-sm hover:border-white/75 hover:bg-white/5 transition-colors"
             >
               <span>{isEn ? "Compare all IT courses" : "Alle IT-Kurse vergleichen"}</span>
             </Link>

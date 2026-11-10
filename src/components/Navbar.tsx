@@ -149,7 +149,7 @@ export default function Navbar() {
     <header
       ref={navRef}
       className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-md"
-      style={{ fontFamily: "'Poppins', sans-serif" }}
+      style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
     >
       <div className="max-w-[1200px] mx-auto px-5 h-[74px] flex items-center justify-between gap-4">
         {/* Logo (no heading tag) */}
@@ -175,7 +175,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setOpenDropdown(openDropdown === "courses" ? null : "courses")}
               aria-expanded={openDropdown === "courses"}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold tracking-wide transition-colors hover:bg-gray-50"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-[14px] font-medium tracking-[-0.01em] transition-colors hover:bg-gray-50"
               style={{
                 color:
                   normPath.startsWith("/it-kurse/") ||
@@ -198,7 +198,7 @@ export default function Navbar() {
                   transition: "transform .2s",
                 }}
               >
-                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
 
@@ -214,7 +214,7 @@ export default function Navbar() {
                 {coursesGroups.map((grp) => (
                   <div key={grp.groupLabel} className="space-y-1.5">
                     <div
-                      className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1"
+                      className="text-[10px] font-semibold uppercase tracking-[0.14em] px-2.5 py-1"
                       style={{ color: SECONDARY }}
                     >
                       {grp.groupLabel}
@@ -231,7 +231,7 @@ export default function Navbar() {
                             borderLeft: active ? `3px solid ${PRIMARY}` : "3px solid transparent",
                           }}
                         >
-                          <div className="text-xs font-bold" style={{ color: active ? PRIMARY : DARK }}>
+                          <div className="text-[13px] font-medium" style={{ color: active ? PRIMARY : DARK }}>
                             {item.label}
                           </div>
                           <div className="text-[11px] text-gray-500">{item.sub}</div>
@@ -254,7 +254,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setOpenDropdown(openDropdown === "funding" ? null : "funding")}
               aria-expanded={openDropdown === "funding"}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold tracking-wide transition-colors hover:bg-gray-50"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-[14px] font-medium tracking-[-0.01em] transition-colors hover:bg-gray-50"
               style={{
                 color: [
                   "/finanzierung/",
@@ -281,7 +281,7 @@ export default function Navbar() {
                   transition: "transform .2s",
                 }}
               >
-                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
 
@@ -306,7 +306,7 @@ export default function Navbar() {
                         borderLeft: active ? `3px solid ${PRIMARY}` : "3px solid transparent",
                       }}
                     >
-                      <div className="text-xs font-bold" style={{ color: active ? PRIMARY : DARK }}>
+                      <div className="text-[13px] font-medium" style={{ color: active ? PRIMARY : DARK }}>
                         {item.label}
                       </div>
                       <div className="text-[11px] text-gray-500">{item.sub}</div>
@@ -327,7 +327,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setOpenDropdown(openDropdown === "guides" ? null : "guides")}
               aria-expanded={openDropdown === "guides"}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold tracking-wide transition-colors hover:bg-gray-50"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-[14px] font-medium tracking-[-0.01em] transition-colors hover:bg-gray-50"
               style={{
                 color: normPath.startsWith("/ratgeber/") || normPath.startsWith("/guides/") ? PRIMARY : DARK,
               }}
@@ -344,7 +344,7 @@ export default function Navbar() {
                   transition: "transform .2s",
                 }}
               >
-                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
 
@@ -369,7 +369,7 @@ export default function Navbar() {
                         borderLeft: active ? `3px solid ${PRIMARY}` : "3px solid transparent",
                       }}
                     >
-                      <div className="text-xs font-bold" style={{ color: active ? PRIMARY : DARK }}>
+                      <div className="text-[13px] font-medium" style={{ color: active ? PRIMARY : DARK }}>
                         {item.label}
                       </div>
                       <div className="text-[11px] text-gray-500">{item.sub}</div>
@@ -390,7 +390,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setOpenDropdown(openDropdown === "about" ? null : "about")}
               aria-expanded={openDropdown === "about"}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold tracking-wide transition-colors hover:bg-gray-50"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-[14px] font-medium tracking-[-0.01em] transition-colors hover:bg-gray-50"
               style={{
                 color: [
                   "/ueber-uns/",
@@ -417,7 +417,7 @@ export default function Navbar() {
                   transition: "transform .2s",
                 }}
               >
-                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
 
@@ -442,7 +442,7 @@ export default function Navbar() {
                         borderLeft: active ? `3px solid ${PRIMARY}` : "3px solid transparent",
                       }}
                     >
-                      <div className="text-xs font-bold" style={{ color: active ? PRIMARY : DARK }}>
+                      <div className="text-[13px] font-medium" style={{ color: active ? PRIMARY : DARK }}>
                         {item.label}
                       </div>
                       <div className="text-[11px] text-gray-500">{item.sub}</div>
@@ -466,7 +466,7 @@ export default function Navbar() {
               type="button"
               onClick={() => switchLanguage("de")}
               title={lang === "en" ? `Auf Deutsch wechseln (${counterpartPath})` : "Deutsch"}
-              className="px-2.5 py-1 rounded-lg text-xs font-bold transition-all"
+              className="px-2.5 py-1 rounded-lg text-[11px] font-medium tracking-wider transition-all"
               style={{
                 background: lang === "de" ? PRIMARY : "transparent",
                 color: lang === "de" ? "#fff" : DARK,
@@ -478,7 +478,7 @@ export default function Navbar() {
               type="button"
               onClick={() => switchLanguage("en")}
               title={lang === "de" ? `Switch to English (${counterpartPath})` : "English"}
-              className="px-2.5 py-1 rounded-lg text-xs font-bold transition-all"
+              className="px-2.5 py-1 rounded-lg text-[11px] font-medium tracking-wider transition-all"
               style={{
                 background: lang === "en" ? PRIMARY : "transparent",
                 color: lang === "en" ? "#fff" : DARK,
@@ -490,7 +490,7 @@ export default function Navbar() {
 
           <Link
             to={ctaLink}
-            className="hidden sm:inline-flex items-center px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white transition-all hover:opacity-90 shadow-sm"
+            className="hidden sm:inline-flex items-center px-4 py-2 rounded-xl text-[13px] font-medium tracking-[-0.01em] text-white transition-all hover:opacity-90 shadow-xs"
             style={{ background: PRIMARY }}
           >
             {ctaLabel}
@@ -523,7 +523,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileAccordion(mobileAccordion === "courses" ? "" : "courses")}
-              className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold bg-gray-50/70"
+              className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium bg-gray-50/70"
               style={{ color: DARK }}
             >
               <span>{lang === "de" ? "IT-Kurse" : "Courses"}</span>
@@ -532,14 +532,14 @@ export default function Navbar() {
             <div className={`p-3 space-y-3 ${mobileAccordion === "courses" ? "block" : "hidden"}`}>
               {coursesGroups.map((grp) => (
                 <div key={grp.groupLabel} className="space-y-1">
-                  <div className="text-[10px] font-bold uppercase tracking-widest px-2" style={{ color: SECONDARY }}>
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.14em] px-2" style={{ color: SECONDARY }}>
                     {grp.groupLabel}
                   </div>
                   {grp.items.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="block px-2 py-1.5 rounded-lg text-xs font-semibold hover:bg-pink-50"
+                      className="block px-2 py-1.5 rounded-lg text-xs font-medium hover:bg-pink-50"
                       style={{ color: normPath === item.to ? PRIMARY : DARK }}
                     >
                       {item.label}
@@ -555,7 +555,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileAccordion(mobileAccordion === "funding" ? "" : "funding")}
-              className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold bg-gray-50/70"
+              className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium bg-gray-50/70"
               style={{ color: DARK }}
             >
               <span>{lang === "de" ? "Finanzierung" : "Funding"}</span>
@@ -566,7 +566,7 @@ export default function Navbar() {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="block px-2 py-1.5 rounded-lg text-xs font-semibold hover:bg-pink-50"
+                  className="block px-2 py-1.5 rounded-lg text-xs font-medium hover:bg-pink-50"
                   style={{ color: normPath === item.to ? PRIMARY : DARK }}
                 >
                   {item.label}
@@ -580,7 +580,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileAccordion(mobileAccordion === "guides" ? "" : "guides")}
-              className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold bg-gray-50/70"
+              className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium bg-gray-50/70"
               style={{ color: DARK }}
             >
               <span>{lang === "de" ? "Ratgeber" : "Guides"}</span>
@@ -591,7 +591,7 @@ export default function Navbar() {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="block px-2 py-1.5 rounded-lg text-xs font-semibold hover:bg-pink-50"
+                  className="block px-2 py-1.5 rounded-lg text-xs font-medium hover:bg-pink-50"
                   style={{ color: normPath === item.to ? PRIMARY : DARK }}
                 >
                   {item.label}
@@ -605,7 +605,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileAccordion(mobileAccordion === "about" ? "" : "about")}
-              className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold bg-gray-50/70"
+              className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium bg-gray-50/70"
               style={{ color: DARK }}
             >
               <span>{lang === "de" ? "Über uns" : "About"}</span>
@@ -616,7 +616,7 @@ export default function Navbar() {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="block px-2 py-1.5 rounded-lg text-xs font-semibold hover:bg-pink-50"
+                  className="block px-2 py-1.5 rounded-lg text-xs font-medium hover:bg-pink-50"
                   style={{ color: normPath === item.to ? PRIMARY : DARK }}
                 >
                   {item.label}
@@ -627,7 +627,7 @@ export default function Navbar() {
 
           <Link
             to={ctaLink}
-            className="flex items-center justify-center w-full py-3 rounded-xl text-white font-bold text-xs uppercase tracking-wider"
+            className="flex items-center justify-center w-full py-3 rounded-xl text-white font-medium text-sm tracking-[-0.01em]"
             style={{ background: PRIMARY }}
           >
             {ctaLabel}

@@ -43,7 +43,7 @@ export function GuidesHubPage() {
     : "Ratgeber für den Einstieg in die IT: Berufsbilder, Voraussetzungen, geförderter Quereinstieg und Weiterbildung über Arbeitsagentur und Jobcenter.";
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
       <Breadcrumb items={[{ label: isEn ? "Guides" : "Ratgeber" }]} />
 
@@ -53,14 +53,14 @@ export function GuidesHubPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
               <BookOpenIcon className="w-4 h-4" />
               <span>
                 {isEn ? "IT Career & Certification Guides" : "Wissensdatenbank & Karriere-Kompass"}
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
               {isEn
                 ? "Guides to IT careers, certifications, and funding in Germany"
                 : "Ratgeber für den Einstieg in die IT"}
@@ -80,7 +80,7 @@ export function GuidesHubPage() {
           {Object.entries(clusters).map(([clusterName, items]) => (
             <div key={clusterName}>
               <div className="mb-6 pb-3 border-b border-gray-200">
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e]">
+                <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e]">
                   {clusterName}
                 </h2>
               </div>
@@ -96,13 +96,13 @@ export function GuidesHubPage() {
                     >
                       <div>
                         <div className="flex items-center justify-between gap-2 mb-3">
-                          <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59]">
+                          <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59]">
                             {article.badge}
                           </span>
                           <span className="text-[11px] text-gray-500">{article.readTime}</span>
                         </div>
 
-                        <h3 className="text-lg font-bold text-[#1a1d2e] mb-2 leading-snug">
+                        <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2 leading-snug">
                           <Link to={url} className="hover:text-[#e51a59] transition-colors">
                             {article.h1}
                           </Link>
@@ -115,7 +115,7 @@ export function GuidesHubPage() {
 
                       <Link
                         to={url}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e51a59] hover:underline pt-3 border-t border-gray-200/70"
+                        className="inline-flex items-center gap-1.5 text-xs font-medium text-[#e51a59] hover:underline pt-3 border-t border-gray-200/70"
                       >
                         <span>{article.h1}</span>
                         <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -217,7 +217,7 @@ export function GuideArticlePage() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={article.metaTitle}
         description={article.metaDescription}
@@ -235,18 +235,18 @@ export function GuideArticlePage() {
         className="py-12 border-b border-gray-100"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1 rounded-full mb-4">
             <BookOpenIcon className="w-3.5 h-3.5" />
             <span>{article.badge}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-5 leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-5 leading-tight">
             {article.h1}
           </h1>
 
           {/* Component B15: Author, Last Updated & Reading Time */}
           <div className="flex flex-wrap items-center gap-5 text-xs text-gray-600 bg-white rounded-xl px-4 py-3 border border-gray-200/80 mb-6">
-            <span className="font-semibold text-[#1a1d2e]">{article.author}</span>
+            <span className="font-medium text-[#1a1d2e]">{article.author}</span>
             <span className="inline-flex items-center gap-1.5">
               <CalendarIcon className="w-3.5 h-3.5 text-[#e51a59]" />
               {isEn ? "Updated: " : "Aktualisiert: "}
@@ -263,7 +263,7 @@ export function GuideArticlePage() {
             aria-label={isEn ? "Table of contents" : "Inhaltsverzeichnis"}
             className="bg-white rounded-2xl p-5 border border-gray-200"
           >
-            <p className="text-xs font-bold uppercase tracking-wider text-[#e51a59] mb-2.5">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#e51a59] mb-2.5">
               {isEn ? "Table of contents" : "Inhaltsverzeichnis"}
             </p>
             <ul className="space-y-1.5 text-xs sm:text-sm text-gray-700">
@@ -299,7 +299,7 @@ export function GuideArticlePage() {
               {isEn ? "In Clarusway's " : "In unserer "}
               <Link
                 to={article.introCourseLinkTo}
-                className="text-[#e51a59] font-semibold underline hover:opacity-80"
+                className="text-[#e51a59] font-medium underline hover:opacity-80"
               >
                 {article.introCourseLinkLabel}
               </Link>
@@ -308,7 +308,7 @@ export function GuideArticlePage() {
                 : " baust du genau diese Praxis-Skills auf — und erfährst in unserem Leitfaden alles zum Thema "}
               <Link
                 to={article.introFundingLinkTo}
-                className="text-[#e51a59] font-semibold underline hover:opacity-80"
+                className="text-[#e51a59] font-medium underline hover:opacity-80"
               >
                 {article.introFundingLinkLabel}
               </Link>
@@ -319,7 +319,7 @@ export function GuideArticlePage() {
 
           {/* Component B10: HTML Table */}
           <div id="comparison-table" className="mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-4">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-4">
               {article.tableTitle}
             </h2>
             <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-2xs">
@@ -327,7 +327,7 @@ export function GuideArticlePage() {
                 <thead>
                   <tr style={{ backgroundColor: DARK }} className="text-white text-xs uppercase">
                     {article.tableHeaders.map((h, i) => (
-                      <th key={i} className="py-3.5 px-5 font-semibold">
+                      <th key={i} className="py-3.5 px-5 font-medium">
                         {h}
                       </th>
                     ))}
@@ -340,7 +340,7 @@ export function GuideArticlePage() {
                         <td
                           key={cIdx}
                           className={`py-3.5 px-5 ${
-                            cIdx === 0 ? "font-bold text-[#1a1d2e]" : "text-gray-700"
+                            cIdx === 0 ? "font-semibold text-[#1a1d2e]" : "text-gray-700"
                           }`}
                         >
                           {cell}
@@ -357,7 +357,7 @@ export function GuideArticlePage() {
           <div className="space-y-10 mb-12">
             {article.sections.map((sec) => (
               <section key={sec.id} id={sec.id}>
-                <h2 className="text-2xl font-bold text-[#1a1d2e] mb-3">{sec.h2}</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">{sec.h2}</h2>
                 <div className="space-y-3 text-gray-700 text-sm sm:text-base leading-relaxed">
                   {sec.paragraphs.map((p, i) => (
                     <p key={i}>{p}</p>
@@ -383,7 +383,7 @@ export function GuideArticlePage() {
                         style={{ backgroundColor: SOFT_BG }}
                         className="rounded-xl p-5 border border-gray-200"
                       >
-                        <h3 className="text-base font-bold text-[#1a1d2e] mb-1.5">{c.title}</h3>
+                        <h3 className="text-base font-semibold text-[#1a1d2e] mb-1.5">{c.title}</h3>
                         <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{c.desc}</p>
                       </div>
                     ))}
@@ -399,11 +399,11 @@ export function GuideArticlePage() {
             className="rounded-3xl p-7 sm:p-9 text-white mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
           >
             <div>
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-[#e51a59] text-white mb-3">
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-[#e51a59] text-white mb-3">
                 <ShieldCheckIcon className="w-3.5 h-3.5" />
                 <span>{isEn ? "AZAV-Certified Program" : "AZAV-zertifiziertes Programm"}</span>
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold mb-2">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-2">
                 <Link to={article.ctaCourseTo} className="hover:text-[#f472b6]">
                   {article.ctaCourseTitle}
                 </Link>
@@ -416,14 +416,14 @@ export function GuideArticlePage() {
               <Link
                 to={article.ctaCourseTo}
                 style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-xs sm:text-sm hover:opacity-95"
+                className="inline-flex items-center justify-center gap-2 text-white font-medium px-6 py-3 rounded-full text-xs sm:text-sm hover:opacity-95"
               >
                 <span>{article.ctaCourseTitle}</span>
                 <ArrowRightIcon className="w-4 h-4" />
               </Link>
               <Link
                 to={consultPath}
-                className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-5 py-3 rounded-full text-xs sm:text-sm hover:bg-white/10"
+                className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-medium px-5 py-3 rounded-full text-xs sm:text-sm hover:bg-white/10"
               >
                 <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
               </Link>
@@ -432,7 +432,7 @@ export function GuideArticlePage() {
 
           {/* Component B13: FAQ */}
           <div id="guide-faq" className="mb-12">
-            <h2 className="text-2xl font-bold text-[#1a1d2e] mb-5">
+            <h2 className="text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-5">
               {isEn ? "Frequently asked questions" : "Häufige Fragen zum Thema"}
             </h2>
             <div className="space-y-3">
@@ -443,8 +443,8 @@ export function GuideArticlePage() {
                   className="group bg-[#f6f7fb] rounded-2xl border border-gray-200 overflow-hidden"
                 >
                   <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer list-none">
-                    <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
-                    <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                    <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                    <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform">
                       +
                     </span>
                   </summary>
@@ -459,7 +459,7 @@ export function GuideArticlePage() {
           {/* Component B17: Related Cluster Guides */}
           {relatedArticles.length > 0 && (
             <div className="pt-8 border-t border-gray-200">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-5">
+              <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-5">
                 {isEn ? "Related guides" : "Weitere passende Ratgeber"}
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -472,10 +472,10 @@ export function GuideArticlePage() {
                       className="rounded-2xl p-5 border border-gray-100 flex flex-col justify-between"
                     >
                       <div>
-                        <span className="text-[11px] font-bold text-[#e51a59] block mb-1">
+                        <span className="text-[11px] font-medium text-[#e51a59] block mb-1">
                           {rel.badge}
                         </span>
-                        <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e] mb-2">
+                        <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e] mb-2">
                           <Link to={relUrl} className="hover:text-[#e51a59]">
                             {rel.h1}
                           </Link>
@@ -483,7 +483,7 @@ export function GuideArticlePage() {
                       </div>
                       <Link
                         to={relUrl}
-                        className="text-xs font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1"
+                        className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1"
                       >
                         <span>{rel.h1}</span>
                         <ArrowRightIcon className="w-3 h-3" />

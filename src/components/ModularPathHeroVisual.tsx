@@ -97,7 +97,7 @@ export function ModularPathHeroVisual({
   return (
     <div
       className={`relative overflow-hidden rounded-[28px] bg-[#14151f] p-6 text-white shadow-[0_40px_90px_-40px_rgba(16,24,40,0.6)] sm:p-8 border border-white/10 ${className}`}
-      style={{ fontFamily: "'Poppins', -apple-system, sans-serif" }}
+      style={{ fontFamily: "'Inter', -apple-system, sans-serif" }}
     >
       <style>{`
         @keyframes cwmpIn {
@@ -142,8 +142,8 @@ export function ModularPathHeroVisual({
               {strings.eyebrow}
             </p>
             <div
-              className="mt-2.5 font-extrabold text-[22px] sm:text-[24px] leading-[1.15] tracking-[-0.03em] text-white"
-              style={{ fontFamily: "'Plus Jakarta Sans', 'Poppins', sans-serif" }}
+              className="mt-2.5 font-semibold text-[22px] sm:text-[24px] leading-[1.15] tracking-[-0.025em] text-white"
+              style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
             >
               {strings.title}
             </div>
@@ -286,14 +286,14 @@ export function ModularPathHeroVisual({
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p
-                  className="font-mono text-[10px] uppercase tracking-[0.2em] font-bold"
+                  className="font-mono text-[10px] uppercase tracking-[0.2em] font-medium"
                   style={{ color: "#e0154b" }}
                 >
                   {activeModule?.eyebrow}
                 </p>
                 <div
-                  className="mt-1 font-bold text-[16px] sm:text-[17px] leading-snug tracking-[-0.01em] text-white"
-                  style={{ fontFamily: "'Plus Jakarta Sans', 'Poppins', sans-serif" }}
+                  className="mt-1 font-semibold text-[16px] sm:text-[17px] leading-snug tracking-[-0.015em] text-white"
+                  style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
                 >
                   {activeModule?.title}
                 </div>

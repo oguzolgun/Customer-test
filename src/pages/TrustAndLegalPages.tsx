@@ -40,7 +40,7 @@ export function AboutPage() {
     : "Clarusway GmbH mit Sitz in Neuss ist ein AZAV-zertifizierter Bildungsträger und offizieller AWS Select Tier Partner für praxisnahe IT-Weiterbildungen.";
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
       <Breadcrumb items={[{ label: isEn ? "About Us" : "Über uns" }]} />
 
@@ -50,11 +50,11 @@ export function AboutPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
               <ShieldCheckIcon className="w-4 h-4" />
               <span>Clarusway GmbH · Neuss, Germany</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
               {isEn ? "About Clarusway" : "Über Clarusway"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
@@ -65,7 +65,7 @@ export function AboutPage() {
             <Link
               to={consultPath}
               style={{ backgroundColor: PRIMARY }}
-              className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm"
+              className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-full text-sm hover:opacity-95"
             >
               <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
               <ArrowRightIcon className="w-4 h-4" />
@@ -77,7 +77,7 @@ export function AboutPage() {
       {/* H2: AZAV certification */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "AZAV certification" : "AZAV-Zertifizierung"}
           </h2>
 
@@ -110,7 +110,7 @@ export function AboutPage() {
                 <div className="w-10 h-10 rounded-xl bg-[#fde8ef] text-[#e51a59] flex items-center justify-center mb-4">
                   <AwardIcon className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2">{item.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -121,7 +121,7 @@ export function AboutPage() {
       {/* H2: How teaching works (instructors, mentors) */}
       <section className="py-16 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn
               ? "How teaching works (instructors, mentors)"
               : "Wie das Lernen funktioniert (Dozenten und Mentoren)"}
@@ -149,7 +149,7 @@ export function AboutPage() {
               },
             ].map((card, idx) => (
               <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{card.title}</h3>
+                <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{card.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{card.desc}</p>
               </div>
             ))}
@@ -160,7 +160,7 @@ export function AboutPage() {
       {/* H2: Clarusway in numbers */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8 text-center">
             {isEn ? "Clarusway in numbers" : "Clarusway in Zahlen"}
           </h2>
 
@@ -172,7 +172,7 @@ export function AboutPage() {
               { number: "Max. 15", label: isEn ? "Participants per Live Cohort" : "Teilnehmende pro Live-Klasse" },
             ].map((stat, i) => (
               <div key={i} style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-7 border border-gray-200">
-                <div className="text-3xl sm:text-4xl font-extrabold text-[#e51a59] mb-2">{stat.number}</div>
+                <div className="text-3xl sm:text-4xl font-semibold tracking-tight text-[#e51a59] mb-2">{stat.number}</div>
                 <div className="text-xs sm:text-sm font-medium text-gray-600">{stat.label}</div>
               </div>
             ))}
@@ -183,23 +183,23 @@ export function AboutPage() {
       {/* H2: Location and contact */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "Location and contact" : "Standort und Kontakt"}
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
                 {isEn ? "Campus & Headquarters" : "Hauptsitz Deutschland"}
               </h3>
               <p className="text-sm text-gray-800 font-semibold mb-1">Clarusway GmbH</p>
               <p className="text-xs text-gray-600 leading-relaxed">Bataverstraße 84<br />41462 Neuss, Germany</p>
             </div>
             <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
                 {isEn ? "Email & Inquiries" : "E-Mail & Beratung"}
               </h3>
-              <a href="mailto:info@clarusway.de" className="text-sm text-[#e51a59] font-semibold hover:underline block mb-1">
+              <a href="mailto:info@clarusway.de" className="text-sm text-[#e51a59] font-medium hover:underline block mb-1">
                 info@clarusway.de
               </a>
               <p className="text-xs text-gray-600 leading-relaxed">
@@ -207,10 +207,10 @@ export function AboutPage() {
               </p>
             </div>
             <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
                 {isEn ? "Phone Support" : "Telefonische Beratung"}
               </h3>
-              <a href="tel:+4921317762749" className="text-sm text-[#e51a59] font-semibold hover:underline block mb-1">
+              <a href="tel:+4921317762749" className="text-sm text-[#e51a59] font-medium hover:underline block mb-1">
                 +49 2131 7762749
               </a>
               <p className="text-xs text-gray-600 leading-relaxed">
@@ -343,7 +343,7 @@ export function SuccessStoriesPage() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
       <Breadcrumb
         items={[{ label: isEn ? "Success Stories" : "Erfolgsgeschichten" }]}
@@ -355,7 +355,7 @@ export function SuccessStoriesPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
+            <h1 className="text-3xl sm:text-4xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4">
               {isEn ? "Clarusway success stories" : "Erfahrungen und Erfolgsgeschichten von Absolventen"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
@@ -369,7 +369,7 @@ export function SuccessStoriesPage() {
                   <StarIcon key={s} className="w-4 h-4" />
                 ))}
               </div>
-              <span className="text-xs font-bold text-[#1a1d2e]">
+              <span className="text-xs font-medium text-[#1a1d2e]">
                 4.9 / 5 · Course Report & Career Karma
               </span>
             </div>
@@ -380,7 +380,7 @@ export function SuccessStoriesPage() {
       {/* H2: Reviews on independent platforms */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "Reviews on independent platforms" : "Bewertungen auf unabhängigen Plattformen"}
           </h2>
           <div className="grid md:grid-cols-2 gap-6 mb-12">
@@ -395,14 +395,14 @@ export function SuccessStoriesPage() {
                 </p>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                   <div>
-                    <h3 className="text-sm font-bold text-[#1a1d2e]">{r.name}</h3>
+                    <h3 className="text-sm font-semibold text-[#1a1d2e]">{r.name}</h3>
                     <p className="text-xs text-gray-500">{r.track}</p>
                   </div>
                   <a
                     href={r.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1"
+                    className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1"
                   >
                     <span>{r.platform}</span>
                     <ExternalLinkIcon className="w-3 h-3" />
@@ -417,17 +417,17 @@ export function SuccessStoriesPage() {
       {/* H2: Graduate stories by program */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "Graduate stories by program" : "Erfolgsgeschichten nach Kurs"}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {programStories.map((item, idx) => (
               <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs flex flex-col justify-between">
                 <div>
-                  <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{item.program}</h3>
+                  <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{item.program}</h3>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">{item.story}</p>
                 </div>
-                <Link to={item.to} className="text-xs font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1">
+                <Link to={item.to} className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1">
                   <span>{isEn ? "View program" : "Zum Kurs"}</span>
                   <ArrowRightIcon className="w-3.5 h-3.5" />
                 </Link>
@@ -439,7 +439,7 @@ export function SuccessStoriesPage() {
             <Link
               to={consultPath}
               style={{ backgroundColor: PRIMARY }}
-              className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm"
+              className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-full text-sm hover:opacity-95"
             >
               <span>{isEn ? "Start your own IT story — Free consultation" : "Kostenlose Beratung buchen"}</span>
               <ArrowRightIcon className="w-4 h-4" />
@@ -499,7 +499,7 @@ export function CareerManagementPage() {
       ];
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
       <Breadcrumb
         items={[{ label: isEn ? "Career Management" : "Karriere-Management" }]}
@@ -511,7 +511,7 @@ export function CareerManagementPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
+            <h1 className="text-3xl sm:text-4xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4">
               {isEn ? "Career Management Service" : "Karriere-Management"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
@@ -522,7 +522,7 @@ export function CareerManagementPage() {
             <Link
               to={consultPath}
               style={{ backgroundColor: PRIMARY }}
-              className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm"
+              className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-full text-sm hover:opacity-95"
             >
               <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
               <ArrowRightIcon className="w-4 h-4" />
@@ -534,7 +534,7 @@ export function CareerManagementPage() {
       {/* H2: Support for graduates */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "Support for graduates" : "Support für Absolventen"}
           </h2>
 
@@ -560,7 +560,7 @@ export function CareerManagementPage() {
               },
             ].map((p, i) => (
               <div key={i} style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-6 border border-gray-200">
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{p.title}</h3>
+                <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{p.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{p.desc}</p>
               </div>
             ))}
@@ -571,7 +571,7 @@ export function CareerManagementPage() {
       {/* H2: Interview preparation */}
       <section className="py-16 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "Interview preparation" : "Vorbereitung auf Fachgespräche"}
           </h2>
 
@@ -597,7 +597,7 @@ export function CareerManagementPage() {
               },
             ].map((card, idx) => (
               <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{card.title}</h3>
+                <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{card.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{card.desc}</p>
               </div>
             ))}
@@ -608,7 +608,7 @@ export function CareerManagementPage() {
       {/* H2: Matching with employers */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "Matching with employers" : "Vermittlung an Arbeitgeber"}
           </h2>
 
@@ -622,7 +622,7 @@ export function CareerManagementPage() {
               <Link
                 to={consultPath}
                 style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-sm hover:opacity-95"
+                className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-full text-sm hover:opacity-95"
               >
                 <span>{isEn ? "Book free consultation" : "Kostenlose Beratung buchen"}</span>
                 <ArrowRightIcon className="w-4 h-4" />
@@ -635,7 +635,7 @@ export function CareerManagementPage() {
       {/* H2: Career Management FAQ */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
             {isEn ? "Career Management FAQ" : "Häufige Fragen zum Karriere-Management"}
           </h2>
           <div className="space-y-3.5">
@@ -646,8 +646,8 @@ export function CareerManagementPage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform">
                     +
                   </span>
                 </summary>
@@ -805,7 +805,7 @@ export function EventsPage() {
   }));
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={metaTitle}
         description={metaDescription}
@@ -820,7 +820,7 @@ export function EventsPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
+            <h1 className="text-3xl sm:text-4xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4">
               {isEn ? "Info sessions and events" : "Events und Infoveranstaltungen"}
             </h1>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -835,7 +835,7 @@ export function EventsPage() {
       {/* H2: Upcoming info sessions */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "Upcoming info sessions" : "Kommende Events"}
           </h2>
 
@@ -848,14 +848,14 @@ export function EventsPage() {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59]">
+                    <span className="text-[11px] font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59]">
                       {ev.tag}
                     </span>
                     <span className="text-xs font-medium text-gray-600">
                       {isEn ? "Free · Online" : "Kostenlos · Online"}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">{ev.title}</h3>
+                  <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2">{ev.title}</h3>
                   <p className="text-xs sm:text-sm text-gray-600 mb-4 leading-relaxed">
                     {ev.desc}
                   </p>
@@ -878,7 +878,7 @@ export function EventsPage() {
                     setRegSuccess(false);
                   }}
                   style={{ backgroundColor: PRIMARY }}
-                  className="w-full text-white font-semibold py-2.5 px-4 rounded-xl text-xs hover:opacity-95 transition-opacity cursor-pointer inline-flex items-center justify-center gap-2"
+                  className="w-full text-white font-medium py-2.5 px-4 rounded-xl text-xs hover:opacity-95 transition-opacity cursor-pointer inline-flex items-center justify-center gap-2"
                 >
                   <span>{isEn ? "Register for free" : "Kostenlos anmelden"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -889,12 +889,12 @@ export function EventsPage() {
 
           {selectedEvent && (
             <div className="mt-10 bg-[#1a1d2e] text-white rounded-2xl p-7 max-w-2xl">
-              <p className="text-xs font-bold text-[#f472b6] uppercase mb-1">
+              <p className="text-xs font-medium text-[#f472b6] uppercase tracking-wider mb-1">
                 {isEn ? "Event Registration" : "Event-Anmeldung"}
               </p>
-              <p className="text-lg font-bold mb-4">{selectedEvent}</p>
+              <p className="text-lg font-semibold mb-4">{selectedEvent}</p>
               {regSuccess ? (
-                <p className="text-pink-200 text-sm font-semibold">
+                <p className="text-pink-200 text-sm font-medium">
                   {isEn
                     ? "✓ You are registered! Check your email for the Zoom link."
                     : "✓ Du bist angemeldet! Der Zugangslink wurde an deine E-Mail gesendet."}
@@ -926,7 +926,7 @@ export function EventsPage() {
                   <button
                     type="submit"
                     style={{ backgroundColor: PRIMARY }}
-                    className="text-white font-semibold px-5 py-2.5 rounded-xl text-sm cursor-pointer"
+                    className="text-white font-medium px-5 py-2.5 rounded-xl text-sm cursor-pointer"
                   >
                     {isEn ? "Confirm seat" : "Platz sichern"}
                   </button>
@@ -940,15 +940,15 @@ export function EventsPage() {
       {/* H2: Past events */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "Past events" : "Vergangene Events"}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             {pastEvents.map((pe, idx) => (
               <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
-                <span className="text-xs font-semibold text-gray-500 mb-2 block">{pe.date}</span>
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{pe.title}</h3>
+                <span className="text-xs font-medium text-gray-500 mb-2 block">{pe.date}</span>
+                <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{pe.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{pe.desc}</p>
               </div>
             ))}
@@ -1024,7 +1024,7 @@ export function ConsultationPage() {
   };
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={metaTitle}
         description={metaDescription}
@@ -1045,7 +1045,7 @@ export function ConsultationPage() {
           <div className="grid lg:grid-cols-12 gap-10 items-start">
             {/* Left Info */}
             <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
                 <ShieldCheckIcon className="w-4 h-4" />
                 <span>
                   {isEn
@@ -1054,7 +1054,7 @@ export function ConsultationPage() {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
                 {isEn ? "Book a free consultation" : "Kostenlose Beratung zu Kurs und Förderung"}
               </h1>
 
@@ -1065,7 +1065,7 @@ export function ConsultationPage() {
               </p>
 
               {/* H2: What happens in the consultation */}
-              <h2 className="text-xl font-bold text-[#1a1d2e] mb-4">
+              <h2 className="text-xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-4">
                 {isEn
                   ? "What happens in the consultation"
                   : "So läuft die Beratung ab"}
@@ -1106,7 +1106,7 @@ export function ConsultationPage() {
                     key={i}
                     className="bg-white rounded-xl p-4 border border-gray-200/80 shadow-2xs"
                   >
-                    <h3 className="text-sm font-bold text-[#1a1d2e] mb-1">{item.title}</h3>
+                    <h3 className="text-sm font-semibold text-[#1a1d2e] mb-1">{item.title}</h3>
                     <p className="text-xs text-gray-600">{item.desc}</p>
                   </div>
                 ))}
@@ -1121,7 +1121,7 @@ export function ConsultationPage() {
                     <div className="w-12 h-12 rounded-full bg-[#fde8ef] text-[#e51a59] flex items-center justify-center mx-auto mb-4">
                       <CheckCircleIcon className="w-6 h-6" />
                     </div>
-                    <h2 className="text-2xl font-bold text-[#1a1d2e] mb-2">
+                    <h2 className="text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-2">
                       {isEn
                         ? "Thank you for your consultation request!"
                         : "Vielen Dank für deine Anfrage!"}
@@ -1133,7 +1133,7 @@ export function ConsultationPage() {
                     </p>
                     <Link
                       to={isEn ? "/it-courses/" : "/it-kurse/"}
-                      className="text-xs font-semibold text-[#e51a59] hover:underline"
+                      className="text-xs font-medium text-[#e51a59] hover:underline"
                     >
                       {isEn ? "← Browse all courses while you wait" : "← Alle IT-Kurse ansehen"}
                     </Link>
@@ -1141,7 +1141,7 @@ export function ConsultationPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                      <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
+                      <label className="block text-xs font-medium text-[#1a1d2e] mb-1.5">
                         {isEn ? "Full Name *" : "Vor- und Nachname *"}
                       </label>
                       <input
@@ -1156,7 +1156,7 @@ export function ConsultationPage() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
+                        <label className="block text-xs font-medium text-[#1a1d2e] mb-1.5">
                           {isEn ? "Email *" : "E-Mail-Adresse *"}
                         </label>
                         <input
@@ -1169,7 +1169,7 @@ export function ConsultationPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
+                        <label className="block text-xs font-medium text-[#1a1d2e] mb-1.5">
                           {isEn ? "Phone *" : "Telefonnummer *"}
                         </label>
                         <input
@@ -1184,7 +1184,7 @@ export function ConsultationPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
+                      <label className="block text-xs font-medium text-[#1a1d2e] mb-1.5">
                         {isEn ? "Course of Interest" : "Interessierender Fachbereich"}
                       </label>
                       <select
@@ -1217,7 +1217,7 @@ export function ConsultationPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#1a1d2e] uppercase mb-1">
+                      <label className="block text-xs font-medium text-[#1a1d2e] mb-1.5">
                         {isEn ? "Funding Status" : "Aktueller Förderstatus"}
                       </label>
                       <select
@@ -1243,7 +1243,7 @@ export function ConsultationPage() {
                     <button
                       type="submit"
                       style={{ backgroundColor: PRIMARY }}
-                      className="w-full text-white font-bold py-3.5 px-6 rounded-xl text-sm shadow-md hover:opacity-95 transition-opacity cursor-pointer inline-flex items-center justify-center gap-2"
+                      className="w-full text-white font-medium py-3.5 px-6 rounded-xl text-sm shadow-md hover:opacity-95 transition-opacity cursor-pointer inline-flex items-center justify-center gap-2"
                     >
                       <span>{isEn ? "Request free consultation & offer" : "Kostenlose Beratung anfordern"}</span>
                       <ArrowRightIcon className="w-4 h-4" />
@@ -1265,7 +1265,7 @@ export function ConsultationPage() {
       {/* H2: Consultation FAQ */}
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
             {isEn ? "Consultation FAQ" : "Häufige Fragen zur Beratung"}
           </h2>
           <div className="space-y-3.5">
@@ -1276,8 +1276,8 @@ export function ConsultationPage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm">
                     +
                   </span>
                 </summary>
@@ -1301,7 +1301,7 @@ export function ThankYouPage() {
   const { lang } = useLanguage();
   const isEn = lang === "en";
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white py-20">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white py-20">
       <SeoHead
         title={isEn ? "Thank You | Clarusway" : "Vielen Dank | Clarusway"}
         description="Confirmation page"
@@ -1309,7 +1309,7 @@ export function ThankYouPage() {
         noindex={true}
       />
       <div className="max-w-xl mx-auto px-4 text-center">
-        <h1 className="text-3xl font-bold text-[#1a1d2e] mb-3">
+        <h1 className="text-3xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-3">
           {isEn ? "Thank you for your request!" : "Vielen Dank für deine Anfrage!"}
         </h1>
         <p className="text-gray-600 text-sm sm:text-base mb-6">
@@ -1320,7 +1320,7 @@ export function ThankYouPage() {
         <Link
           to="/"
           style={{ backgroundColor: PRIMARY }}
-          className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-sm"
+          className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-full text-sm"
         >
           <span>{isEn ? "Back to homepage" : "Zurück zur Startseite"}</span>
         </Link>
@@ -1338,7 +1338,7 @@ export function ReferFriendPage() {
   const currentPath = isEn ? "/refer-a-friend/" : "/freunde-werben/";
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={
           isEn
@@ -1357,7 +1357,7 @@ export function ReferFriendPage() {
       />
       <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-4">
+          <h1 className="text-3xl sm:text-4xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4">
             {isEn
               ? "Refer a friend and earn a €250 reward"
               : "Freunde werben und bis zu 250 € Prämie sichern"}
@@ -1370,7 +1370,7 @@ export function ReferFriendPage() {
           <Link
             to={isEn ? "/contact/" : "/kontakt/"}
             style={{ backgroundColor: PRIMARY }}
-            className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-sm"
+            className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-full text-sm"
           >
             <span>{isEn ? "Submit a referral" : "Jetzt Empfehlung einreichen"}</span>
             <ArrowRightIcon className="w-4 h-4" />
@@ -1390,7 +1390,7 @@ export function ContactPage() {
   const currentPath = isEn ? "/contact/" : "/kontakt/";
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={isEn ? "Contact Clarusway Germany | Clarusway" : "Kontakt | Clarusway Deutschland"}
         description={
@@ -1404,14 +1404,14 @@ export function ContactPage() {
 
       <section style={{ backgroundColor: SOFT_BG }} className="py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#1a1d2e] mb-6">
+          <h1 className="text-3xl sm:text-4xl font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-6">
             {isEn ? "Contact Clarusway Germany" : "Kontakt zu Clarusway Deutschland"}
           </h1>
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-2xl p-6 border border-gray-200">
               <MapPinIcon className="w-6 h-6 text-[#e51a59] mb-3" />
-              <h2 className="text-lg font-bold text-[#1a1d2e] mb-1">
+              <h2 className="text-lg font-semibold text-[#1a1d2e] mb-1">
                 {isEn ? "Office Address" : "Standort Deutschland"}
               </h2>
               <p className="text-sm text-gray-600">
@@ -1425,11 +1425,11 @@ export function ContactPage() {
 
             <div className="bg-white rounded-2xl p-6 border border-gray-200">
               <PhoneIcon className="w-6 h-6 text-[#e51a59] mb-3" />
-              <h2 className="text-lg font-bold text-[#1a1d2e] mb-1">
+              <h2 className="text-lg font-semibold text-[#1a1d2e] mb-1">
                 {isEn ? "Phone & Advisory Hours" : "Telefon & Beratungszeiten"}
               </h2>
               <p className="text-sm text-gray-600 mb-2">
-                <a href="tel:+4921317762749" className="text-[#e51a59] font-semibold">
+                <a href="tel:+4921317762749" className="text-[#e51a59] font-medium">
                   +49 2131 776 2749
                 </a>
               </p>
@@ -1440,15 +1440,15 @@ export function ContactPage() {
 
             <div className="bg-white rounded-2xl p-6 border border-gray-200">
               <MailIcon className="w-6 h-6 text-[#e51a59] mb-3" />
-              <h2 className="text-lg font-bold text-[#1a1d2e] mb-1">E-Mail</h2>
+              <h2 className="text-lg font-semibold text-[#1a1d2e] mb-1">E-Mail</h2>
               <p className="text-sm text-gray-600 mb-3">
-                <a href="mailto:info@clarusway.de" className="text-[#e51a59] font-semibold">
+                <a href="mailto:info@clarusway.de" className="text-[#e51a59] font-medium">
                   info@clarusway.de
                 </a>
               </p>
               <Link
                 to={isEn ? "/application-form/" : "/beratung/"}
-                className="text-xs font-semibold text-[#1a1d2e] underline hover:text-[#e51a59]"
+                className="text-xs font-medium text-[#1a1d2e] underline hover:text-[#e51a59]"
               >
                 {isEn ? "→ Book a free consultation" : "→ Kostenlose Beratung buchen"}
               </Link>
@@ -1467,36 +1467,36 @@ export function ImprintPage() {
   const { lang } = useLanguage();
   const isEn = lang === "en";
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white py-14">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white py-14">
       <SeoHead
         title={isEn ? "Imprint (Impressum) | Clarusway" : "Impressum | Clarusway Deutschland"}
         description="Legal disclosure according to § 5 DDG for Clarusway GmbH, Neuss."
         path={isEn ? "/imprint/" : "/impressum/"}
       />
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h1 className="text-3xl font-bold mb-6">
+        <h1 className="text-3xl font-semibold tracking-[-0.025em] mb-6">
           {isEn ? "Imprint (Impressum)" : "Impressum"}
         </h1>
         <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
-          <h2 className="text-lg font-bold text-[#1a1d2e]">
+          <h2 className="text-lg font-semibold text-[#1a1d2e]">
             {isEn ? "Information pursuant to § 5 DDG" : "Angaben gemäß § 5 DDG"}
           </h2>
           <p>
-            <strong>Clarusway GmbH</strong>
+            <strong className="font-semibold text-[#1a1d2e]">Clarusway GmbH</strong>
             <br />
             Bataver Str. 84
             <br />
             41462 Neuss, Deutschland
           </p>
           <p>
-            <strong>{isEn ? "Contact:" : "Kontakt:"}</strong>
+            <strong className="font-semibold text-[#1a1d2e]">{isEn ? "Contact:" : "Kontakt:"}</strong>
             <br />
             Telefon: +49 2131 776 2749
             <br />
             E-Mail: info@clarusway.de
           </p>
           <p>
-            <strong>{isEn ? "Certification:" : "Zertifizierung:"}</strong>
+            <strong className="font-semibold text-[#1a1d2e]">{isEn ? "Certification:" : "Zertifizierung:"}</strong>
             <br />
             {isEn
               ? "AZAV-certified continuing education provider in Germany."
@@ -1512,24 +1512,24 @@ export function PrivacyPage() {
   const { lang } = useLanguage();
   const isEn = lang === "en";
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white py-14">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white py-14">
       <SeoHead
         title={isEn ? "Privacy Policy (Datenschutz) | Clarusway" : "Datenschutzerklärung | Clarusway"}
         description="GDPR / DSGVO Privacy Policy of Clarusway GmbH."
         path={isEn ? "/privacy-policy/" : "/datenschutz/"}
       />
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h1 className="text-3xl font-bold mb-6">
+        <h1 className="text-3xl font-semibold tracking-[-0.025em] mb-6">
           {isEn ? "Privacy Policy (GDPR / DSGVO)" : "Datenschutzerklärung"}
         </h1>
         <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
-          <h2 className="text-lg font-bold text-[#1a1d2e]">
+          <h2 className="text-lg font-semibold text-[#1a1d2e]">
             {isEn ? "1. Controller" : "1. Verantwortliche Stelle"}
           </h2>
           <p>
             Clarusway GmbH, Bataver Str. 84, 41462 Neuss, Deutschland (info@clarusway.de).
           </p>
-          <h2 className="text-lg font-bold text-[#1a1d2e]">
+          <h2 className="text-lg font-semibold text-[#1a1d2e]">
             {isEn
               ? "2. Consultation & Syllabus Requests"
               : "2. Beratungsanfragen und Lehrplan-Downloads"}

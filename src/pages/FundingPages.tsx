@@ -71,7 +71,7 @@ export function FinancingHubPage() {
       ];
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
       <Breadcrumb items={[{ label: isEn ? "Financing & Tuition" : "Finanzierung" }]} />
 
@@ -82,13 +82,13 @@ export function FinancingHubPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
                 <ShieldCheckIcon className="w-4 h-4" />
                 <span>
                   {isEn ? "AZAV-Certified State Funding" : "AZAV-zertifizierte Fördermöglichkeiten"}
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
                   ? "How to fund your IT course in Germany"
                   : "IT Weiterbildung finanzieren"}
@@ -101,7 +101,7 @@ export function FinancingHubPage() {
               <Link
                 to={consultPath}
                 style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+                className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
               >
                 <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
                 <ArrowRightIcon className="w-4 h-4" />
@@ -125,7 +125,7 @@ export function FinancingHubPage() {
       {/* Component B10: Comparison Table */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-6">
             {isEn
               ? "Funding options at a glance"
               : "Finanzierungswege im Vergleich"}
@@ -135,15 +135,15 @@ export function FinancingHubPage() {
             <table className="w-full text-left border-collapse min-w-[720px]">
               <thead>
                 <tr style={{ backgroundColor: DARK }} className="text-white text-xs uppercase tracking-wider">
-                  <th className="py-4 px-5">{isEn ? "Funding Program" : "Förderprogramm"}</th>
-                  <th className="py-4 px-5">{isEn ? "Target Group" : "Zielgruppe"}</th>
-                  <th className="py-4 px-5">{isEn ? "Coverage" : "Kostenübernahme"}</th>
-                  <th className="py-4 px-5">{isEn ? "Eligible Courses" : "Geeignete Kurse"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Funding Program" : "Förderprogramm"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Target Group" : "Zielgruppe"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Coverage" : "Kostenübernahme"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Eligible Courses" : "Geeignete Kurse"}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 text-xs sm:text-sm">
                 <tr className="bg-white">
-                  <td className="py-4 px-5 font-bold">
+                  <td className="py-4 px-5 font-semibold">
                     <Link to="/bildungsgutschein/" className="text-[#e51a59] hover:underline">
                       Bildungsgutschein
                     </Link>
@@ -153,13 +153,13 @@ export function FinancingHubPage() {
                       ? "Unemployed or job-seeking residents registered in Germany"
                       : "Arbeitsuchende & von Arbeitslosigkeit Bedrohte"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-[#e51a59]">100 %</td>
+                  <td className="py-4 px-5 font-semibold text-[#e51a59]">100 %</td>
                   <td className="py-4 px-5">
                     {isEn ? "All main IT bootcamps & modules" : "Alle IT-Weiterbildungen & Module"}
                   </td>
                 </tr>
                 <tr className="bg-[#f6f7fb]">
-                  <td className="py-4 px-5 font-bold">
+                  <td className="py-4 px-5 font-semibold">
                     <Link to="/avgs/" className="text-[#e51a59] hover:underline">
                       AVGS Voucher
                     </Link>
@@ -169,7 +169,7 @@ export function FinancingHubPage() {
                       ? "Undecided job seekers needing IT career orientation"
                       : "Unentschlossene Arbeitsuchende vor der Kurswahl"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-[#e51a59]">100 %</td>
+                  <td className="py-4 px-5 font-semibold text-[#e51a59]">100 %</td>
                   <td className="py-4 px-5">
                     <Link
                       to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
@@ -180,7 +180,7 @@ export function FinancingHubPage() {
                   </td>
                 </tr>
                 <tr className="bg-white">
-                  <td className="py-4 px-5 font-bold">
+                  <td className="py-4 px-5 font-semibold">
                     <Link to="/qualifizierungschancengesetz/" className="text-[#e51a59] hover:underline">
                       Qualifizierungschancengesetz (QCG)
                     </Link>
@@ -188,7 +188,7 @@ export function FinancingHubPage() {
                   <td className="py-4 px-5">
                     {isEn ? "Employed professionals & companies" : "Beschäftigte & Unternehmen"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-[#e51a59]">
+                  <td className="py-4 px-5 font-semibold text-[#e51a59]">
                     {isEn ? "Up to 100% tuition + 75% wage" : "Bis zu 100 % Kurs + 75 % Lohn"}
                   </td>
                   <td className="py-4 px-5">
@@ -196,7 +196,7 @@ export function FinancingHubPage() {
                   </td>
                 </tr>
                 <tr className="bg-[#f6f7fb]">
-                  <td className="py-4 px-5 font-bold">
+                  <td className="py-4 px-5 font-semibold">
                     {isEn ? "Self-Pay & Installments" : "Selbstzahler & Ratenzahlung"}
                   </td>
                   <td className="py-4 px-5">
@@ -213,7 +213,7 @@ export function FinancingHubPage() {
 
           {/* Which option fits your situation */}
           <div className="mb-10 text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn ? "Which option fits your situation?" : "Welche Förderung passt zu mir?"}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -231,10 +231,10 @@ export function FinancingHubPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Option 1: Job Seekers & Career Changers" : "Weg 1: Arbeitsuchende & Quereinsteiger"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   <Link to="/bildungsgutschein/" className="hover:text-[#e51a59]">
                     {isEn ? "Bildungsgutschein (100% Tuition Coverage)" : "Bildungsgutschein (100 % Kostenübernahme)"}
                   </Link>
@@ -268,7 +268,7 @@ export function FinancingHubPage() {
 
                 <Link
                   to="/bildungsgutschein/"
-                  className="inline-flex items-center gap-2 text-[#e51a59] font-bold text-sm hover:underline"
+                  className="inline-flex items-center gap-2 text-[#e51a59] font-medium text-sm hover:underline"
                 >
                   <span>{isEn ? "Explore Bildungsgutschein Guide" : "Zum Bildungsgutschein-Leitfaden"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -300,10 +300,10 @@ export function FinancingHubPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
                   {isEn ? "Option 2: Orientation & Career Coaching" : "Weg 2: Orientierung & Coaching"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   <Link to="/avgs/" className="hover:text-[#e51a59]">
                     {isEn ? "AVGS Voucher (Aktivierungs- und Vermittlungsgutschein)" : "AVGS Gutschein (Berufliche Orientierung)"}
                   </Link>
@@ -337,7 +337,7 @@ export function FinancingHubPage() {
 
                 <Link
                   to="/avgs/"
-                  className="inline-flex items-center gap-2 text-[#3949ab] font-bold text-sm hover:underline"
+                  className="inline-flex items-center gap-2 text-[#3949ab] font-medium text-sm hover:underline"
                 >
                   <span>{isEn ? "Learn more about AVGS" : "Mehr zum AVGS Gutschein"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -351,10 +351,10 @@ export function FinancingHubPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Option 3: Employed Professionals & Companies" : "Weg 3: Beschäftigte & Unternehmen"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   <Link to="/qualifizierungschancengesetz/" className="hover:text-[#e51a59]">
                     {isEn ? "Qualifizierungschancengesetz (QCG § 82 SGB III)" : "Qualifizierungschancengesetz (QCG)"}
                   </Link>
@@ -388,7 +388,7 @@ export function FinancingHubPage() {
 
                 <Link
                   to="/qualifizierungschancengesetz/"
-                  className="inline-flex items-center gap-2 text-[#e51a59] font-bold text-sm hover:underline"
+                  className="inline-flex items-center gap-2 text-[#e51a59] font-medium text-sm hover:underline"
                 >
                   <span>{isEn ? "Check QCG details" : "Details zum QCG erfahren"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -420,10 +420,10 @@ export function FinancingHubPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Application Assistance" : "Kostenlose Antragshilfe"}
                 </span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
                   {isEn
                     ? "From first call to course start"
                     : "In 4 Schritten zur geförderten Weiterbildung"}
@@ -458,7 +458,7 @@ export function FinancingHubPage() {
                 <Link
                   to={consultPath}
                   style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
                 >
                   <span>{isEn ? "Book Free Consultation" : "Kostenlose Beratung anfragen"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -482,7 +482,7 @@ export function FinancingHubPage() {
       {/* FAQ */}
       <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
             {isEn ? "Financing FAQ" : "Häufige Fragen zur Finanzierung"}
           </h2>
           <div className="space-y-3.5">
@@ -493,8 +493,8 @@ export function FinancingHubPage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform">
                     +
                   </span>
                 </summary>
@@ -638,7 +638,7 @@ export function BildungsgutscheinPage() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={metaTitle}
         description={metaDescription}
@@ -664,7 +664,7 @@ export function BildungsgutscheinPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
                 <ShieldCheckIcon className="w-4 h-4" />
                 <span>
                   {isEn
@@ -673,7 +673,7 @@ export function BildungsgutscheinPage() {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
                   ? "The Bildungsgutschein explained, and how to get one for an IT course"
                   : "Bildungsgutschein beantragen, Voraussetzungen und Ablauf"}
@@ -689,14 +689,14 @@ export function BildungsgutscheinPage() {
                 <Link
                   to={consultPath}
                   style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+                  className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
                 >
                   <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
                 </Link>
                 <Link
                   to={isEn ? "/it-courses/" : "/it-kurse/"}
-                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 border border-[#1a1d2e]/30 text-[#1a1d2e] font-medium px-6 py-3.5 rounded-full text-sm hover:border-[#1a1d2e]/60 hover:bg-gray-50 transition-colors"
                 >
                   <span>
                     {isEn ? "View eligible IT courses" : "Geförderte IT-Kurse ansehen"}
@@ -724,7 +724,7 @@ export function BildungsgutscheinPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-3">
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
                 {isEn ? "What is a Bildungsgutschein?" : "Was ist ein Bildungsgutschein?"}
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
@@ -738,7 +738,7 @@ export function BildungsgutscheinPage() {
                     To explore our approved IT training curricula and career outcomes, read our{" "}
                     <Link
                       to="/guides/"
-                      className="text-[#e51a59] font-semibold underline"
+                      className="text-[#e51a59] font-medium underline"
                     >
                       IT career and certification guides
                     </Link>{" "}
@@ -749,7 +749,7 @@ export function BildungsgutscheinPage() {
                     Vertiefende Tipps zur Antragstellung findest du auch in unserem Ratgeber{" "}
                     <Link
                       to="/ratgeber/weiterbildung-arbeitsagentur/"
-                      className="text-[#e51a59] font-semibold underline"
+                      className="text-[#e51a59] font-medium underline"
                     >
                       Weiterbildung über Arbeitsagentur und Jobcenter
                     </Link>
@@ -760,7 +760,7 @@ export function BildungsgutscheinPage() {
             </div>
 
             <div style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-7 border border-gray-200">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+              <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
                 {isEn
                   ? "Who can get a Bildungsgutschein?"
                   : "Wer bekommt einen Bildungsgutschein?"}
@@ -801,7 +801,7 @@ export function BildungsgutscheinPage() {
             >
               {isEn ? "Application Process" : "Der Weg zum Gutschein"}
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1a1d2e] mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
               {isEn
                 ? "How to apply, step by step"
                 : "Bildungsgutschein beantragen in 5 Schritten"}
@@ -817,10 +817,10 @@ export function BildungsgutscheinPage() {
             {/* Step 1: Text Left, Square Image Right */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm">
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Step 1: Agency Appointment" : "Schritt 1: Beratungstermin vereinbaren"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Appointment at Agentur für Arbeit or Jobcenter"
                     : "Gespräch bei der Agentur für Arbeit oder dem Jobcenter"}
@@ -875,10 +875,10 @@ export function BildungsgutscheinPage() {
               </div>
 
               <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2">
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
                   {isEn ? "Step 2: German Documentation" : "Schritt 2: AZAV-Maßnahmeangebot"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Official Course Offer & Certification Details"
                     : "Offizielles Maßnahmeangebot mit Zulassungsnummer"}
@@ -915,10 +915,10 @@ export function BildungsgutscheinPage() {
             {/* Step 3: Text Left, Square Image Right */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm">
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Step 3: Approval & Voucher" : "Schritt 3: Bewilligung & Gutschein"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Approval Letter & 100% Tuition Coverage"
                     : "Gutscheinbewilligung & Kostenübernahme"}
@@ -973,10 +973,10 @@ export function BildungsgutscheinPage() {
               </div>
 
               <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2">
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Step 4: Start Learning" : "Schritt 4: Kursstart & Karriere"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "First Day of Live Online IT Bootcamp"
                     : "Erster Kurstag & Einstieg in deine IT-Zukunft"}
@@ -1018,7 +1018,7 @@ export function BildungsgutscheinPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
             <div style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-7 border border-gray-200">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+              <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-3">
                 {isEn
                   ? "What to prepare for the meeting with your advisor"
                   : "Wer ist zuständig, Arbeitsagentur oder Jobcenter?"}
@@ -1053,10 +1053,10 @@ export function BildungsgutscheinPage() {
 
             <div style={{ backgroundColor: DARK }} className="rounded-2xl p-7 text-white flex flex-col justify-between">
               <div>
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e51a59] text-white mb-3">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e51a59] text-white mb-3">
                   {isEn ? "Instruction Languages & Support" : "Unterrichtssprachen & Förderung"}
                 </span>
-                <h2 className="text-xl sm:text-2xl font-bold mb-3">
+                <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] mb-3">
                   {isEn
                     ? "Do you need to speak German to get a Bildungsgutschein?"
                     : "So unterstützt Clarusway beim Antrag"}
@@ -1070,7 +1070,7 @@ export function BildungsgutscheinPage() {
               <Link
                 to={consultPath}
                 style={{ backgroundColor: PRIMARY }}
-                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3 rounded-full text-xs sm:text-sm hover:opacity-95"
+                className="inline-flex items-center justify-center gap-2 text-white font-medium px-6 py-3 rounded-full text-xs sm:text-sm hover:opacity-95"
               >
                 <span>
                   {isEn
@@ -1087,7 +1087,7 @@ export function BildungsgutscheinPage() {
       {/* SECTION 4: Eligible Courses (Component B14) */}
       <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-6">
             {isEn
               ? "Clarusway courses you can take with a Bildungsgutschein"
               : "IT-Kurse mit Bildungsgutschein"}
@@ -1116,15 +1116,15 @@ export function BildungsgutscheinPage() {
                 key={c.to}
                 className="bg-white rounded-2xl p-5 border border-gray-200 hover:border-[#e51a59] transition-colors"
               >
-                <span className="text-[11px] font-bold text-[#e51a59] block mb-1">{c.meta}</span>
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">
+                <span className="text-[11px] font-medium text-[#e51a59] block mb-1">{c.meta}</span>
+                <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">
                   <Link to={c.to} className="hover:text-[#e51a59]">
                     {c.title}
                   </Link>
                 </h3>
                 <Link
                   to={c.to}
-                  className="text-xs font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1"
+                  className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1"
                 >
                   <span>{c.title}</span>
                   <ArrowRightIcon className="w-3 h-3" />
@@ -1148,7 +1148,7 @@ export function BildungsgutscheinPage() {
       {/* SECTION 5: FAQ */}
       <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
             {isEn ? "Bildungsgutschein FAQ" : "Häufige Fragen zum Bildungsgutschein"}
           </h2>
           <div className="space-y-3.5">
@@ -1159,8 +1159,8 @@ export function BildungsgutscheinPage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform">
                     +
                   </span>
                 </summary>
@@ -1257,7 +1257,7 @@ export function AvgsPage() {
   };
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead title={metaTitle} description={metaDescription} path="/avgs/" schema={avgsSchema} />
       <Breadcrumb
         items={[
@@ -1277,7 +1277,7 @@ export function AvgsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
                 <ShieldCheckIcon className="w-4 h-4" />
                 <span>
                   {isEn
@@ -1285,7 +1285,7 @@ export function AvgsPage() {
                     : "100 % Kostenübernahme nach § 45 SGB III"}
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
                   ? "Free career coaching with an AVGS voucher"
                   : "Der AVGS Gutschein (Aktivierungs- und Vermittlungsgutschein) erklärt"}
@@ -1299,7 +1299,7 @@ export function AvgsPage() {
                 <Link
                   to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
                   style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+                  className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
                 >
                   <span>
                     {isEn ? "Explore the IT Orientation Course" : "Zum IT-Orientierungskurs"}
@@ -1308,7 +1308,7 @@ export function AvgsPage() {
                 </Link>
                 <Link
                   to={consultPath}
-                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 border border-[#1a1d2e]/30 text-[#1a1d2e] font-medium px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
                 >
                   <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
                 </Link>
@@ -1333,7 +1333,7 @@ export function AvgsPage() {
       <section className="py-12 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-4">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-4">
               {isEn ? "What is an AVGS?" : "Was ist ein AVGS?"}
             </h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
@@ -1353,7 +1353,7 @@ export function AvgsPage() {
       {/* H2: AVGS vs. Bildungsgutschein */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-6">
             {isEn
               ? "AVGS vs. Bildungsgutschein: what is the difference?"
               : "AVGS und Bildungsgutschein im Vergleich"}
@@ -1362,15 +1362,15 @@ export function AvgsPage() {
           <div className="overflow-x-auto rounded-2xl border border-gray-200">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr style={{ backgroundColor: DARK }} className="text-white text-xs uppercase">
-                  <th className="py-3.5 px-5">{isEn ? "Feature" : "Merkmal"}</th>
-                  <th className="py-3.5 px-5">AVGS (§ 45 SGB III)</th>
-                  <th className="py-3.5 px-5">Bildungsgutschein (§ 81 SGB III)</th>
+                <tr style={{ backgroundColor: DARK }} className="text-white text-xs uppercase tracking-wider">
+                  <th className="py-3.5 px-5 font-medium">{isEn ? "Feature" : "Merkmal"}</th>
+                  <th className="py-3.5 px-5 font-medium">AVGS (§ 45 SGB III)</th>
+                  <th className="py-3.5 px-5 font-medium">Bildungsgutschein (§ 81 SGB III)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 text-xs sm:text-sm">
                 <tr>
-                  <th className="py-3.5 px-5 font-semibold">{isEn ? "Purpose" : "Ziel"}</th>
+                  <th className="py-3.5 px-5 font-medium text-[#1a1d2e]">{isEn ? "Purpose" : "Ziel"}</th>
                   <td className="py-3.5 px-5">
                     {isEn ? "Career orientation, coaching & aptitude check" : "Orientierung, Eignungsfeststellung & Coaching"}
                   </td>
@@ -1379,11 +1379,11 @@ export function AvgsPage() {
                   </td>
                 </tr>
                 <tr className="bg-[#f6f7fb]">
-                  <th className="py-3.5 px-5 font-semibold">{isEn ? "Clarusway Program" : "Clarusway Kurs"}</th>
+                  <th className="py-3.5 px-5 font-medium text-[#1a1d2e]">{isEn ? "Clarusway Program" : "Clarusway Kurs"}</th>
                   <td className="py-3.5 px-5">
                     <Link
                       to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-                      className="text-[#e51a59] font-semibold underline"
+                      className="text-[#e51a59] font-medium underline"
                     >
                       {isEn ? "4-Week IT Orientation Course" : "4-Wochen IT-Orientierungskurs"}
                     </Link>
@@ -1391,15 +1391,15 @@ export function AvgsPage() {
                   <td className="py-3.5 px-5">
                     <Link
                       to={isEn ? "/it-courses/" : "/it-kurse/"}
-                      className="text-[#e51a59] font-semibold underline"
+                      className="text-[#e51a59] font-medium underline"
                     >
                       {isEn ? "All main IT bootcamps (3–8 months)" : "Alle IT-Hauptweiterbildungen (3–8 Monate)"}
                     </Link>
                   </td>
                 </tr>
                 <tr>
-                  <th className="py-3.5 px-5 font-semibold">{isEn ? "Can both be combined?" : "Kombinierbar?"}</th>
-                  <td colSpan={2} className="py-3.5 px-5 font-semibold text-[#8a1c4a]">
+                  <th className="py-3.5 px-5 font-medium text-[#1a1d2e]">{isEn ? "Can both be combined?" : "Kombinierbar?"}</th>
+                  <td colSpan={2} className="py-3.5 px-5 font-medium text-[#8a1c4a]">
                     {isEn
                       ? "Yes — you can first discover your IT path with an AVGS and then fund the main bootcamp with a Bildungsgutschein."
                       : "Ja — erst mit AVGS orientieren und danach nahtlos mit Bildungsgutschein die Hauptweiterbildung starten."}
@@ -1410,7 +1410,7 @@ export function AvgsPage() {
           </div>
 
           {/* H2: What the coaching covers */}
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mt-16 mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mt-16 mb-8">
             {isEn
               ? "What the coaching covers"
               : "IT-Orientierungskurs mit AVGS bei Clarusway"}
@@ -1424,10 +1424,10 @@ export function AvgsPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Step 1: Individual Guidance" : "Schritt 1: Individuelle Orientierung"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "1-on-1 Career Coaching via Video Call"
                     : "Persönliches 1-zu-1 Video-Coaching"}
@@ -1485,10 +1485,10 @@ export function AvgsPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
                   {isEn ? "Step 2: Profile Optimization" : "Schritt 2: Profil & Unterlagen"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Graduate Career Support & Portfolio Mentoring"
                     : "Deutscher Lebenslauf & LinkedIn-Präsenz"}
@@ -1528,10 +1528,10 @@ export function AvgsPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Step 3: Interview Training" : "Schritt 3: Interview-Training"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Mock Technical & HR Interviews"
                     : "Simulation von Vorstellungsgesprächen"}
@@ -1589,10 +1589,10 @@ export function AvgsPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Step 4: Transition to Tech" : "Schritt 4: Einstieg in die IT"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Career Placement & Contract Signing"
                     : "Erfolgreicher Einstieg in die Tech-Branche"}
@@ -1621,7 +1621,7 @@ export function AvgsPage() {
                 <Link
                   to={consultPath}
                   style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
                 >
                   <span>{isEn ? "Request AVGS Coaching" : "AVGS-Coaching anfragen"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -1645,7 +1645,7 @@ export function AvgsPage() {
       {/* H2: How to get an AVGS */}
       <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "How to get an AVGS" : "Wer bekommt einen AVGS?"}
           </h2>
 
@@ -1685,10 +1685,10 @@ export function AvgsPage() {
                 className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-xs font-extrabold text-[#e51a59] uppercase tracking-wider block mb-2">
+                  <span className="text-xs font-semibold text-[#e51a59] uppercase tracking-wider block mb-2">
                     {card.step}
                   </span>
-                  <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{card.title}</h3>
+                  <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{card.title}</h3>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{card.desc}</p>
                 </div>
               </div>
@@ -1700,7 +1700,7 @@ export function AvgsPage() {
       {/* H2: AVGS Coaching FAQ */}
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
             {isEn ? "AVGS Coaching FAQ" : "Häufige Fragen zum AVGS"}
           </h2>
           <div className="space-y-3.5">
@@ -1711,8 +1711,8 @@ export function AvgsPage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm">
                     +
                   </span>
                 </summary>
@@ -1819,7 +1819,7 @@ export function QcgPage() {
   };
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={metaTitle}
         description={metaDescription}
@@ -1844,7 +1844,7 @@ export function QcgPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
                 <ShieldCheckIcon className="w-4 h-4" />
                 <span>
                   {isEn
@@ -1852,7 +1852,7 @@ export function QcgPage() {
                     : "Staatliche Förderung für Arbeitgeber · § 82 SGB III"}
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
                   ? "IT training for employees, funded by the Qualifizierungschancengesetz"
                   : "Mitarbeitende mit dem Qualifizierungschancengesetz (QCG) gefördert weiterbilden"}
@@ -1867,14 +1867,14 @@ export function QcgPage() {
                 <a
                   href="#qcg-form"
                   style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+                  className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
                 >
                   <span>{isEn ? "Request QCG consultation" : "QCG-Förderung prüfen"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
                 </a>
                 <Link
                   to={isEn ? "/enterprise-corporate-training/" : "/fuer-unternehmen/"}
-                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 border border-[#1a1d2e]/30 text-[#1a1d2e] font-medium px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
                 >
                   <span>{isEn ? "Corporate IT training" : "B2B-Weiterbildung"}</span>
                 </Link>
@@ -1899,7 +1899,7 @@ export function QcgPage() {
       <section className="py-12 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-4">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-4">
               {isEn ? "What the law funds" : "Was ist das Qualifizierungschancengesetz?"}
             </h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
@@ -1914,7 +1914,7 @@ export function QcgPage() {
       {/* H2: Funding rates by company size (§ 82 SGB III) */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-6">
             {isEn
               ? "Funding rates by company size (§ 82 SGB III)"
               : "Förderhöhe für Arbeitgeber"}
@@ -1923,40 +1923,40 @@ export function QcgPage() {
           <div className="overflow-x-auto rounded-2xl border border-gray-200 mb-14">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr style={{ backgroundColor: DARK }} className="text-white text-xs uppercase">
-                  <th className="py-4 px-5">{isEn ? "Company Size" : "Unternehmensgröße"}</th>
-                  <th className="py-4 px-5">{isEn ? "Tuition Subsidy" : "Zuschuss Lehrgangskosten"}</th>
-                  <th className="py-4 px-5">{isEn ? "Wage Subsidy (AEZ)" : "Arbeitsentgeltzuschuss"}</th>
+                <tr style={{ backgroundColor: DARK }} className="text-white text-xs uppercase tracking-wider">
+                  <th className="py-4 px-5 font-medium">{isEn ? "Company Size" : "Unternehmensgröße"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Tuition Subsidy" : "Zuschuss Lehrgangskosten"}</th>
+                  <th className="py-4 px-5 font-medium">{isEn ? "Wage Subsidy (AEZ)" : "Arbeitsentgeltzuschuss"}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 text-xs sm:text-sm">
                 <tr>
-                  <td className="py-4 px-5 font-semibold">
+                  <td className="py-4 px-5 font-medium text-[#1a1d2e]">
                     {isEn ? "Under 50 employees (Small)" : "Unter 50 Mitarbeitende (Kleinunternehmen)"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-[#e51a59]">100 %</td>
-                  <td className="py-4 px-5 font-bold text-[#e51a59]">75 %</td>
+                  <td className="py-4 px-5 font-semibold text-[#e51a59]">100 %</td>
+                  <td className="py-4 px-5 font-semibold text-[#e51a59]">75 %</td>
                 </tr>
                 <tr className="bg-[#f6f7fb]">
-                  <td className="py-4 px-5 font-semibold">
+                  <td className="py-4 px-5 font-medium text-[#1a1d2e]">
                     {isEn ? "50 to 499 employees (Medium)" : "50 bis 499 Mitarbeitende (Mittelstand)"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-[#e51a59]">50 %</td>
-                  <td className="py-4 px-5 font-bold text-[#e51a59]">50 %</td>
+                  <td className="py-4 px-5 font-semibold text-[#e51a59]">50 %</td>
+                  <td className="py-4 px-5 font-semibold text-[#e51a59]">50 %</td>
                 </tr>
                 <tr>
-                  <td className="py-4 px-5 font-semibold">
+                  <td className="py-4 px-5 font-medium text-[#1a1d2e]">
                     {isEn ? "500+ employees (Large)" : "Ab 500 Mitarbeitende (Großunternehmen)"}
                   </td>
-                  <td className="py-4 px-5 font-bold text-[#e51a59]">25 %</td>
-                  <td className="py-4 px-5 font-bold text-[#e51a59]">25 %</td>
+                  <td className="py-4 px-5 font-semibold text-[#e51a59]">25 %</td>
+                  <td className="py-4 px-5 font-semibold text-[#e51a59]">25 %</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           {/* H2: Who qualifies */}
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-6">
             {isEn
               ? "Who qualifies"
               : "Voraussetzungen für Arbeitgeber und Mitarbeitende"}
@@ -1983,14 +1983,14 @@ export function QcgPage() {
               },
             ].map((v, i) => (
               <div key={i} style={{ backgroundColor: SOFT_BG }} className="rounded-2xl p-6 border border-gray-200">
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{v.title}</h3>
+                <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{v.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
 
           {/* H2: How employers apply */}
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-6">
             {isEn ? "How employers apply" : "Antrag in 4 Schritten"}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -2025,17 +2025,17 @@ export function QcgPage() {
               },
             ].map((s, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
-                <span className="text-xs font-extrabold text-[#e51a59] uppercase tracking-wider block mb-2">
+                <span className="text-xs font-semibold text-[#e51a59] uppercase tracking-wider block mb-2">
                   {s.step}
                 </span>
-                <h3 className="text-base font-bold text-[#1a1d2e] mb-2">{s.title}</h3>
+                <h3 className="text-base font-semibold text-[#1a1d2e] mb-2">{s.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
 
           {/* H2: IT courses with QCG funding */}
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-6">
             {isEn ? "IT courses with QCG funding" : "IT-Kurse mit QCG-Förderung"}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
@@ -2078,12 +2078,12 @@ export function QcgPage() {
                 className="group rounded-2xl p-5 border border-gray-200 hover:border-[#e51a59] transition-all flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="text-base font-bold text-[#1a1d2e] group-hover:text-[#e51a59] mb-1">
+                  <h3 className="text-base font-semibold text-[#1a1d2e] group-hover:text-[#e51a59] mb-1">
                     {c.title}
                   </h3>
                   <p className="text-xs text-gray-500 mb-3">{c.meta}</p>
                 </div>
-                <span className="text-xs font-semibold text-[#e51a59] inline-flex items-center gap-1">
+                <span className="text-xs font-medium text-[#e51a59] inline-flex items-center gap-1">
                   <span>{isEn ? "View curriculum" : "Zum Lehrplan"}</span>
                   <ArrowRightIcon className="w-3.5 h-3.5" />
                 </span>
@@ -2103,7 +2103,7 @@ export function QcgPage() {
 
           {/* QCG Inquiry Form */}
           <div id="qcg-form" style={{ backgroundColor: DARK }} className="rounded-3xl p-8 sm:p-10 text-white max-w-3xl mb-16">
-            <h2 className="text-2xl font-bold mb-2">
+            <h2 className="text-2xl font-semibold tracking-[-0.02em] mb-2">
               {isEn
                 ? "Request a QCG funding calculation for your team"
                 : "Unverbindliche QCG-Förderprüfung anfordern"}
@@ -2115,7 +2115,7 @@ export function QcgPage() {
             </p>
 
             {submitted ? (
-              <div className="bg-white/10 border border-[#e51a59]/40 rounded-xl p-5 text-sm text-[#fde8ef] font-semibold">
+              <div className="bg-white/10 border border-[#e51a59]/40 rounded-xl p-5 text-sm text-[#fde8ef] font-medium">
                 {isEn
                   ? "✓ Thank you! A Clarusway corporate QCG advisor will contact you within 24 hours."
                   : "✓ Vielen Dank! Unser QCG-Unternehmensberater meldet sich innerhalb von 24 Stunden bei Ihnen."}
@@ -2148,7 +2148,7 @@ export function QcgPage() {
                 <button
                   type="submit"
                   style={{ backgroundColor: PRIMARY }}
-                  className="text-white font-semibold px-6 py-3 rounded-xl text-sm hover:opacity-95 cursor-pointer"
+                  className="text-white font-medium px-6 py-3 rounded-xl text-sm hover:opacity-95 cursor-pointer"
                 >
                   {isEn ? "Request QCG consultation" : "QCG-Beratung anfordern"}
                 </button>
@@ -2157,7 +2157,7 @@ export function QcgPage() {
           </div>
 
           {/* H2: Qualifizierungschancengesetz FAQ */}
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
             {isEn ? "Qualifizierungschancengesetz FAQ" : "Häufige Fragen zum QCG"}
           </h2>
           <div className="max-w-4xl mx-auto space-y-3.5">
@@ -2168,8 +2168,8 @@ export function QcgPage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm">
                     +
                   </span>
                 </summary>
@@ -2259,7 +2259,7 @@ export function CorporateTrainingPage() {
   };
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK }} className="bg-white">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead title={metaTitle} description={metaDescription} path={currentPath} schema={corpSchema} />
       <Breadcrumb
         items={[{ label: isEn ? "For Companies" : "Für Unternehmen" }]}
@@ -2273,7 +2273,7 @@ export function CorporateTrainingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
                 <BuildingIcon className="w-4 h-4" />
                 <span>
                   {isEn
@@ -2281,7 +2281,7 @@ export function CorporateTrainingPage() {
                     : "B2B IT-Weiterbildung & Mitarbeiterqualifizierung"}
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1a1d2e] mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
                 {isEn
                   ? "IT training in English for your team"
                   : "IT Weiterbildung für Unternehmen"}
@@ -2295,14 +2295,14 @@ export function CorporateTrainingPage() {
                 <Link
                   to={consultPath}
                   style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
+                  className="inline-flex items-center gap-2 text-white font-medium px-7 py-3.5 rounded-full text-sm shadow-md hover:opacity-95"
                 >
                   <span>{isEn ? "Book corporate consultation" : "Unternehmensberatung buchen"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/qualifizierungschancengesetz/"
-                  className="inline-flex items-center gap-2 border-2 border-[#1a1d2e] text-[#1a1d2e] font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 border border-[#1a1d2e]/30 text-[#1a1d2e] font-medium px-6 py-3.5 rounded-full text-sm hover:bg-[#1a1d2e] hover:text-white transition-colors"
                 >
                   <span>{isEn ? "Check QCG Subsidies" : "QCG-Förderung prüfen"}</span>
                 </Link>
@@ -2326,7 +2326,7 @@ export function CorporateTrainingPage() {
       {/* H2: Programs for teams */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn
               ? "Programs for teams"
               : "Weiterbildungsprogramme für Teams"}
@@ -2369,7 +2369,7 @@ export function CorporateTrainingPage() {
                 className="rounded-2xl p-6 border border-gray-200 flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="text-lg font-bold text-[#1a1d2e] mb-2">
+                  <h3 className="text-lg font-semibold text-[#1a1d2e] mb-2">
                     <Link to={item.to} className="hover:text-[#e51a59]">
                       {item.title}
                     </Link>
@@ -2380,7 +2380,7 @@ export function CorporateTrainingPage() {
                 </div>
                 <Link
                   to={item.to}
-                  className="text-xs font-semibold text-[#e51a59] hover:underline inline-flex items-center gap-1"
+                  className="text-xs font-medium text-[#e51a59] hover:underline inline-flex items-center gap-1"
                 >
                   <span>{item.title}</span>
                   <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -2391,7 +2391,7 @@ export function CorporateTrainingPage() {
 
           {/* H2: Funding for employers */}
           <div className="bg-[#f6f7fb] rounded-3xl p-8 sm:p-10 border border-gray-200 mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-4">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-4">
               {isEn
                 ? "Funding for employers"
                 : "Gefördert mit dem Qualifizierungschancengesetz"}
@@ -2404,7 +2404,7 @@ export function CorporateTrainingPage() {
             <Link
               to="/qualifizierungschancengesetz/"
               style={{ backgroundColor: PRIMARY }}
-              className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-xl text-sm hover:opacity-95"
+              className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-xl text-sm hover:opacity-95"
             >
               <span>{isEn ? "Learn more about QCG funding" : "Mehr zur QCG-Förderung erfahren"}</span>
               <ArrowRightIcon className="w-4 h-4" />
@@ -2412,7 +2412,7 @@ export function CorporateTrainingPage() {
           </div>
 
           {/* H2: How it works */}
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn
               ? "How it works"
               : "Ablauf der Zusammenarbeit"}
@@ -2426,10 +2426,10 @@ export function CorporateTrainingPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Format 1: Tailored Bootcamps" : "Format 1: Maßgeschneiderte Bootcamps"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Interactive Corporate Workshops & Intensive Bootcamps"
                     : "Interaktive Firmen-Workshops & Intensiv-Bootcamps"}
@@ -2487,10 +2487,10 @@ export function CorporateTrainingPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
                   {isEn ? "Format 2: Remote & Hybrid" : "Format 2: International & Flexibel"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Global Teams & Seamless Hybrid Training"
                     : "Internationale Teams & Hybrides Lernen"}
@@ -2530,10 +2530,10 @@ export function CorporateTrainingPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Format 3: Mentorship" : "Format 3: Senior Mentoring"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Senior Engineering Mentorship & Practical Labs"
                     : "Senior Coaching & Praxis-Labs"}
@@ -2591,10 +2591,10 @@ export function CorporateTrainingPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Format 4: Strategic Roadmap" : "Format 4: Zukunfts-Roadmap"}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#1a1d2e] mb-3">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a1d2e] mb-3">
                   {isEn
                     ? "Custom Agile Curriculum & Enterprise Tech Roadmap"
                     : "Agile Trainings-Roadmap für Ihre Organisation"}
@@ -2629,7 +2629,7 @@ export function CorporateTrainingPage() {
                 <Link
                   to={consultPath}
                   style={{ backgroundColor: PRIMARY }}
-                  className="inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-xl text-sm hover:opacity-90 transition-opacity"
                 >
                   <span>{isEn ? "Request Corporate Roadmap" : "Unternehmensberatung anfragen"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -2639,21 +2639,21 @@ export function CorporateTrainingPage() {
           </div>
 
           {/* H2: References */}
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] mb-8">
             {isEn ? "References" : "Referenzen"}
           </h2>
           <div className="bg-[#f6f7fb] rounded-2xl p-7 sm:p-9 border border-gray-200 mb-16">
             <div className="grid sm:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-[#e51a59] mb-1">AWS Partner</div>
+                <div className="text-3xl font-semibold tracking-tight text-[#e51a59] mb-1">AWS Partner</div>
                 <div className="text-xs text-gray-600">{isEn ? "Select Tier Consulting Partner" : "Offizieller Consulting Partner"}</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-[#e51a59] mb-1">AZAV</div>
+                <div className="text-3xl font-semibold tracking-tight text-[#e51a59] mb-1">AZAV</div>
                 <div className="text-xs text-gray-600">{isEn ? "Staatlich geprüfte Qualität" : "Staatlich geprüfte Qualität"}</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-[#e51a59] mb-1">90%+</div>
+                <div className="text-3xl font-semibold tracking-tight text-[#e51a59] mb-1">90%+</div>
                 <div className="text-xs text-gray-600">{isEn ? "Training Completion Rate" : "Erfolgreiche Abschlussquote"}</div>
               </div>
             </div>
@@ -2670,7 +2670,7 @@ export function CorporateTrainingPage() {
           </div>
 
           {/* H2: Corporate Training FAQ */}
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a1d2e] text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
             {isEn ? "Corporate Training FAQ" : "Häufige Fragen"}
           </h2>
           <div className="max-w-4xl mx-auto space-y-3.5">
@@ -2681,8 +2681,8 @@ export function CorporateTrainingPage() {
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-bold text-sm">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#1a1d2e]">{f.q}</h3>
+                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm">
                     +
                   </span>
                 </summary>

@@ -238,14 +238,14 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             ===================================================================== */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDE8EF]/80 backdrop-blur-xs border border-[#E51A59]/30 text-[#E51A59] text-xs font-semibold tracking-wide uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDE8EF]/80 backdrop-blur-xs border border-[#E51A59]/30 text-[#E51A59] text-xs font-medium tracking-wide uppercase mb-3">
               <span className="w-2 h-2 rounded-full bg-[#E51A59] animate-pulse" />
               <span>
                 {isEn ? "AZAV-Certified IT Academy" : "AZAV-Zertifizierter Bildungsträger"}
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#141B2D] tracking-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-[#141B2D] tracking-[-0.025em] mb-3">
               {isEn ? "Funded IT Training Programs" : "Geförderte Weiterbildungsprogramme"}
             </h2>
 
@@ -259,7 +259,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               to={isEn ? "/it-courses/" : "/it-kurse/"}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-300 text-sm font-semibold text-[#141B2D] hover:text-[#E51A59] hover:border-[#E51A59]/50 shadow-xs active:scale-[0.98] transition-all group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-300 text-sm font-medium text-[#141B2D] hover:text-[#E51A59] hover:border-[#E51A59]/50 shadow-xs active:scale-[0.98] transition-all group"
             >
               <span>{isEn ? "Compare all IT courses" : "Alle IT-Kurse vergleichen"}</span>
               <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -273,14 +273,14 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             ===================================================================== */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-14">
           {/* OPTION 1: LIGHT / WHITE CARD */}
-          <div className="bg-white/90 backdrop-blur-md rounded-2xl p-7 sm:p-9 border-2 border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(20,27,45,0.06)] flex flex-col justify-between hover:border-[#141B2D]/40 transition-all duration-300 group">
+          <div className="bg-white/90 backdrop-blur-md rounded-2xl p-7 sm:p-9 border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(20,27,45,0.06)] flex flex-col justify-between hover:border-[#141B2D]/40 transition-all duration-300 group">
             <div>
               {/* Option 1 Badge (Dark Navy on White) */}
-              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[#141B2D] text-white text-xs font-semibold uppercase tracking-wider mb-5 shadow-xs">
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[#141B2D] text-white text-xs font-medium uppercase tracking-wider mb-5 shadow-xs">
                 {isEn ? "Option 1 · Career Track" : "Option 1 · IT-Weiterbildung"}
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#141B2D] mb-3 leading-snug tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-[#141B2D] mb-3 leading-snug tracking-[-0.02em]">
                 {isEn
                   ? "Direct Entry to Your Chosen IT Field"
                   : "Direkteinstieg in deinen IT-Fachbereich"}
@@ -292,7 +292,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                   : "Du weißt bereits, wo du hinwillst. Wähle aus 6 spezialisierten Fachbereichen (KI & Data, Full Stack, Cyber Security, Cloud, SDET, CKAD). 100 % finanziert mit Bildungsgutschein."}
               </p>
 
-              <div className="grid grid-cols-2 gap-3 mb-8 text-xs font-semibold text-slate-700">
+              <div className="grid grid-cols-2 gap-3 mb-8 text-xs font-medium text-slate-700">
                 <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50/90 backdrop-blur-xs border border-slate-200/80">
                   <CheckCircleIcon className="w-4 h-4 text-[#E51A59] shrink-0" />
                   <span>{isEn ? "0 € Tuition (BGS)" : "0 € Kosten mit BGS"}</span>
@@ -315,7 +315,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             {/* Button Option 1: Outlined Button with Dark Navy Border (Exact Image 2 Style) */}
             <a
               href="#career-tracks"
-              className="w-full py-3.5 px-6 rounded-xl border-2 border-[#141B2D] text-[#141B2D] font-semibold text-sm hover:bg-[#141B2D] hover:text-white transition-all duration-200 text-center flex items-center justify-center gap-2 shadow-xs active:scale-[0.98]"
+              className="w-full py-3.5 px-6 rounded-xl border border-[#141B2D]/35 text-[#141B2D] font-medium text-sm hover:bg-[#141B2D] hover:border-[#141B2D] hover:text-white transition-all duration-200 text-center flex items-center justify-center gap-2 shadow-xs active:scale-[0.98]"
             >
               <span>{isEn ? "Explore 6 IT Career Tracks" : "Zu den 6 Fachbereichen"}</span>
               <ArrowRightIcon className="w-4 h-4" />
@@ -336,11 +336,11 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
             <div className="relative z-10">
               {/* Option 2 Badge (Frosted White on Magenta - Exact Image 2 Style) */}
-              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-[#E51A59] text-xs font-semibold uppercase tracking-wider mb-5 shadow-xs border border-white/40">
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-[#E51A59] text-xs font-medium uppercase tracking-wider mb-5 shadow-xs border border-white/40">
                 {isEn ? "Option 2 · Free Orientation" : "Option 2 · IT-Orientierung"}
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 leading-snug tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-3 leading-snug tracking-[-0.02em]">
                 {isEn
                   ? "Undecided? Test 4 IT Fields in 4 Weeks"
                   : "Noch unentschlossen? 4-Wochen Orientierung"}
@@ -353,7 +353,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
               </p>
 
               {/* 4 Frosted Glass Benefit Chips */}
-              <div className="grid grid-cols-2 gap-3 mb-8 text-xs font-semibold text-white">
+              <div className="grid grid-cols-2 gap-3 mb-8 text-xs font-medium text-white">
                 <div className="flex items-center gap-2 p-2.5 rounded-lg backdrop-blur-md bg-white/15 border border-white/25 shadow-xs">
                   <CheckCircleIcon className="w-4 h-4 text-white shrink-0" />
                   <span>{isEn ? "0 € with AVGS Voucher" : "0 € Kosten mit AVGS"}</span>
@@ -376,7 +376,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             {/* Button Option 2: Solid White Button with Magenta Text (Exact Image 2 Style) */}
             <Link
               to={isEn ? "/it-orientation-course/" : "/it-orientierungskurs/"}
-              className="relative z-10 w-full py-3.5 px-6 rounded-xl bg-white text-[#E51A59] font-semibold text-sm hover:bg-slate-50 transition-all duration-200 text-center flex items-center justify-center gap-2 shadow-md active:scale-[0.98]"
+              className="relative z-10 w-full py-3.5 px-6 rounded-xl bg-white text-[#E51A59] font-medium text-sm hover:bg-slate-50 transition-all duration-200 text-center flex items-center justify-center gap-2 shadow-md active:scale-[0.98]"
             >
               <span>
                 {isEn
@@ -399,7 +399,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
               <span className="text-xs font-semibold text-[#E51A59] uppercase tracking-wider block mb-1">
                 {isEn ? "Full & Modular Programs" : "Gesamt- & Modulprogramme"}
               </span>
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#141B2D]">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-[#141B2D]">
                 {isEn ? "Explore Specialized Bootcamps" : "Die 6 Weiterbildungsprogramme im Detail"}
               </h3>
             </div>
@@ -465,7 +465,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                   </div>
 
                   {/* Funding Badge: Soft Rose in resting -> Solid White pill in hover (Option 2 style) */}
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[#FDE8EF] text-[#E51A59] border border-[#E51A59]/30 shadow-xs transition-all duration-300 group-hover:bg-white group-hover:text-[#E51A59] group-hover:border-transparent">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#FDE8EF] text-[#E51A59] border border-[#E51A59]/30 shadow-xs transition-all duration-300 group-hover:bg-white group-hover:text-[#E51A59] group-hover:border-transparent">
                     <span className="relative flex h-2 w-2 mr-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E51A59] opacity-75" />
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E51A59]" />
@@ -484,7 +484,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                 </div>
 
                 {/* Course Title: Dark Navy in resting -> Pure White in hover */}
-                <h3 className="text-xl font-bold text-[#141B2D] mb-2.5 leading-snug transition-colors duration-300 group-hover:text-white">
+                <h3 className="text-xl font-semibold tracking-[-0.015em] text-[#141B2D] mb-2.5 leading-snug transition-colors duration-300 group-hover:text-white">
                   <Link to={course.to} className="focus:outline-none hover:underline">
                     {course.title}
                   </Link>
@@ -498,7 +498,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                 {/* Milestone / Capstone Box: Slate in resting -> RICH FROSTED GLASS in hover */}
                 <div className="mb-5 p-3 rounded-xl bg-slate-50/90 border border-slate-200/80 text-slate-800 flex items-start gap-2.5 transition-all duration-300 group-hover:bg-white/15 group-hover:border-white/25 group-hover:text-white group-hover:backdrop-blur-md group-hover:shadow-xs">
                   <AwardIcon className="w-4 h-4 text-[#E51A59] shrink-0 mt-0.5 transition-colors duration-300 group-hover:text-white" />
-                  <p className="text-xs font-semibold leading-tight">
+                  <p className="text-xs font-medium leading-tight">
                     {course.milestone}
                   </p>
                 </div>
@@ -532,7 +532,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                 {/* CTA Button: Dark Navy in resting -> Pure Solid White Button with Magenta Text on Hover (Option 2 style!) */}
                 <Link
                   to={course.to}
-                  className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-[#141B2D] text-white text-xs font-semibold shadow-sm transition-all duration-300 group-hover:bg-white group-hover:text-[#E51A59] group-hover:shadow-md group/btn active:scale-[0.98]"
+                  className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-[#141B2D] text-white text-xs font-medium shadow-sm transition-all duration-300 group-hover:bg-white group-hover:text-[#E51A59] group-hover:shadow-md group/btn active:scale-[0.98]"
                 >
                   <span>{course.linkText}</span>
                   <ArrowRightIcon className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

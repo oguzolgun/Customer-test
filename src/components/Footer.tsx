@@ -124,7 +124,7 @@ export default function Footer() {
 
   return (
     <footer
-      style={{ background: DARK, fontFamily: "'Poppins', sans-serif" }}
+      style={{ background: DARK, fontFamily: "'Inter', -apple-system, sans-serif" }}
       className="text-white border-t border-white/10"
     >
       <div className="max-w-[1200px] mx-auto px-5 pt-16 pb-12">
@@ -154,7 +154,7 @@ export default function Footer() {
               ].map((b) => (
                 <span
                   key={b}
-                  className="text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/15 bg-white/5 text-gray-200"
+                  className="text-[10px] font-medium px-2.5 py-1 rounded-full border border-white/15 bg-white/5 text-gray-200"
                 >
                   {b}
                 </span>
@@ -167,7 +167,7 @@ export default function Footer() {
             {columns.map((col) => (
               <div key={col.title} className="space-y-3">
                 <div
-                  className="text-xs font-bold uppercase tracking-wider"
+                  className="text-xs font-semibold uppercase tracking-[0.12em]"
                   style={{ color: "#f9a8c0" }}
                 >
                   {col.title}

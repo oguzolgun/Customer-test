@@ -77,21 +77,21 @@ function SeoSitemapDrawer() {
   const pair = getHreflangPair(location.pathname);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 font-sans">
+    <div className="fixed bottom-4 right-4 z-50" style={{ fontFamily: "'Inter', -apple-system, sans-serif" }}>
       {open ? (
         <div className="w-[360px] sm:w-[420px] max-h-[82vh] overflow-y-auto bg-[#1a1d2e] text-white rounded-2xl shadow-2xl border border-white/15 p-5 text-xs">
           <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/15">
             <div>
-              <p className="font-bold text-sm text-white">SEO & Sitemap Navigator</p>
+              <p className="font-semibold text-sm text-white">SEO & Sitemap Navigator</p>
               <p className="text-[11px] text-gray-400">
-                Lang: <strong className="text-[#f472b6] uppercase">{lang}</strong> · Path:{" "}
+                Lang: <strong className="text-[#f472b6] font-medium uppercase">{lang}</strong> · Path:{" "}
                 <code className="text-emerald-300">{location.pathname}</code>
               </p>
             </div>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold cursor-pointer"
+              className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-medium cursor-pointer"
             >
               ✕
             </button>
@@ -102,7 +102,7 @@ function SeoSitemapDrawer() {
             <button
               type="button"
               onClick={() => setLang("de")}
-              className={`flex-1 py-1.5 rounded-lg font-bold cursor-pointer ${
+              className={`flex-1 py-1.5 rounded-lg font-medium cursor-pointer ${
                 lang === "de" ? "bg-[#e51a59] text-white" : "bg-white/10 text-gray-300"
               }`}
             >
@@ -111,7 +111,7 @@ function SeoSitemapDrawer() {
             <button
               type="button"
               onClick={() => setLang("en")}
-              className={`flex-1 py-1.5 rounded-lg font-bold cursor-pointer ${
+              className={`flex-1 py-1.5 rounded-lg font-medium cursor-pointer ${
                 lang === "en" ? "bg-[#e51a59] text-white" : "bg-white/10 text-gray-300"
               }`}
             >
@@ -211,7 +211,7 @@ function SeoSitemapDrawer() {
                   key={i}
                   className={`flex items-start gap-2 ${
                     h.tag === "H1"
-                      ? "text-emerald-300 font-bold"
+                      ? "text-emerald-300 font-semibold"
                       : h.tag === "H2"
                       ? "text-sky-300 pl-2"
                       : "text-gray-300 pl-5"
@@ -231,7 +231,7 @@ function SeoSitemapDrawer() {
           type="button"
           onClick={() => setOpen(true)}
           style={{ backgroundColor: "#1a1d2e" }}
-          className="flex items-center gap-2 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-xl border border-white/15 hover:border-[#e51a59] transition-colors cursor-pointer"
+          className="flex items-center gap-2 text-white text-xs font-medium px-4 py-2.5 rounded-full shadow-xl border border-white/15 hover:border-[#e51a59] transition-colors cursor-pointer"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-400" />
           <span>SEO & Sitemap ({lang.toUpperCase()})</span>
