@@ -976,69 +976,103 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
           ===================================================================== */}
       <section className="py-16 border-b border-gray-200/60" style={{ background: SOFT_BG }}>
         <div className="max-w-[1200px] mx-auto px-5">
-          {/* Standardized Top Section Header */}
-          <div className="max-w-3xl mb-8 sm:mb-10">
-            <div
-              className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: PRIMARY }}
-            >
-              {lang === "en" ? "COURSE OVERVIEW" : "KURSÜBERSICHT"}
-            </div>
-            <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
-              {data.formatH2}
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              {data.formatIntro}
-            </p>
-          </div>
+          {/* Top 2-Column Split: Header + 3 Vertical Highlight Cards (Left) & Matched Photo (Right) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+            <div className="lg:col-span-6 flex flex-col justify-between">
+              <div>
+                <div
+                  className="text-xs font-bold uppercase tracking-widest mb-2"
+                  style={{ color: PRIMARY }}
+                >
+                  {lang === "en" ? "COURSE OVERVIEW" : "KURSÜBERSICHT"}
+                </div>
+                <h2 className="font-bold text-2xl sm:text-3xl mb-3" style={{ color: DARK }}>
+                  {data.formatH2}
+                </h2>
+                <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                  {data.formatIntro}
+                </p>
+              </div>
 
-          {/* Balanced Row 1: Course Visual + Unified Program Facts & Consultation Card */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch mb-6">
-            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden shadow-sm border border-gray-200/80 bg-white">
+              <div className="space-y-3">
+                {data.formatHighlights.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white rounded-2xl p-5 border border-gray-200/70 shadow-sm"
+                  >
+                    <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e] mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-gray-200/70 bg-white lg:min-h-[380px]">
               <img
                 src={(courseImages?.squareOverview || courseImages.squareAudience1).src}
                 alt={(courseImages?.squareOverview || courseImages.squareAudience1).alt[lang]}
-                className="w-full aspect-[16/10] lg:aspect-auto lg:h-full lg:absolute lg:inset-0 object-cover block"
+                className="w-full aspect-[4/3] lg:aspect-auto lg:h-full lg:absolute lg:inset-0 object-cover block"
                 loading="lazy"
               />
             </div>
+          </div>
 
-            <div className="lg:col-span-7 bg-white rounded-2xl border border-gray-200/80 p-6 sm:p-7 shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between gap-2 pb-3.5 border-b border-gray-100 mb-1">
+          {/* Bottom Standardized Key-Facts & Consultation Strip */}
+          <div className="mt-8 bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+              <div className="lg:col-span-8 p-6 sm:p-7">
+                <div className="flex items-center justify-between gap-2 pb-4 mb-5 border-b border-gray-100">
                   <span
-                    className="text-[11px] font-bold uppercase tracking-widest"
+                    className="text-xs font-bold uppercase tracking-widest"
                     style={{ color: PRIMARY }}
                   >
-                    {lang === "en" ? "Program Facts" : "Eckdaten auf einen Blick"}
+                    {lang === "en" ? "Program Key Facts" : "Eckdaten auf einen Blick"}
                   </span>
                   <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#fde8ef] text-[#e51a59]">
                     {lang === "en" ? "100% Live Online" : "100 % Live-Online"}
                   </span>
                 </div>
 
-                <dl className="divide-y divide-gray-100">
-                  {data.summaryTable.map(([label, val], idx) => (
-                    <div
-                      key={idx}
-                      className="py-3 grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-1 sm:gap-4 items-baseline"
-                    >
-                      <dt className="text-xs sm:text-sm font-semibold text-[#1a1d2e]">
-                        {label}
-                      </dt>
-                      <dd className="text-xs sm:text-sm text-gray-600 leading-snug">
-                        {val}
-                      </dd>
-                    </div>
-                  ))}
+                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                  {data.summaryTable.map(([label, val], idx) => {
+                    const spanFull = data.summaryTable.length % 2 === 1 && idx === data.summaryTable.length - 1;
+                    return (
+                      <div
+                        key={idx}
+                        className={`flex items-start gap-2.5 ${
+                          spanFull ? "sm:col-span-2 pt-3 border-t border-gray-100" : ""
+                        }`}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#e51a59] mt-1.5 shrink-0" />
+                        <div className="min-w-0">
+                          <dt className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-0.5">
+                            {label}
+                          </dt>
+                          <dd className="text-xs sm:text-sm font-semibold text-[#1a1d2e] leading-snug">
+                            {val}
+                          </dd>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </dl>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <p className="text-xs text-gray-500 leading-relaxed">
+              <div className="lg:col-span-4 bg-[#FFF8FA] border-t lg:border-t-0 lg:border-l border-gray-100 p-6 sm:p-7 flex flex-col justify-center">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#e51a59] mb-1.5">
+                  {lang === "en" ? "Personal Advisory" : "Persönliche Beratung"}
+                </p>
+                <p className="text-sm font-semibold text-[#1a1d2e] mb-1.5 leading-snug">
                   {lang === "en"
-                    ? "Unsure which track or module fits best? We advise you individually."
-                    : "Unsicher bei Modulwahl oder Förderung? Wir beraten dich persönlich."}
+                    ? "Plan your schedule & funding path"
+                    : "Ablauf, Einstieg & Förderung klären"}
+                </p>
+                <p className="text-xs text-gray-600 mb-5 leading-relaxed">
+                  {lang === "en"
+                    ? "1-on-1 guidance on curriculum, prerequisites, and funding options."
+                    : "Individuelle 1:1-Beratung zu Zeitplan, Voraussetzungen und Förderwegen."}
                 </p>
                 <Link
                   to={consultPath}
@@ -1049,33 +1083,13 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                     })
                   }
                   style={{ background: PRIMARY }}
-                  className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-sm whitespace-nowrap"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-sm"
                 >
                   <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
                   <ArrowRightIcon className="w-4 h-4 shrink-0" />
                 </Link>
               </div>
             </div>
-          </div>
-
-          {/* Balanced Row 2: 3 Standardized Format Highlight Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {data.formatHighlights.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-6 border border-gray-200/80 shadow-xs flex flex-col"
-              >
-                <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#fde8ef] text-[#e51a59] font-bold text-xs mb-3">
-                  0{idx + 1}
-                </span>
-                <h3 className="text-sm sm:text-base font-bold text-[#1a1d2e] mb-1.5 leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
