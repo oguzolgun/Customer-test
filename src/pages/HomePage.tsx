@@ -355,7 +355,7 @@ export function HomePage() {
         const copy = isEn ? HERO_COPY.en : HERO_COPY.de;
         return (
           <section
-            className="relative py-10 sm:py-14 lg:py-16 overflow-hidden"
+            className="relative py-8 sm:py-12 lg:py-14 overflow-hidden"
             style={{
               backgroundColor: "#FFF4F6",
               backgroundImage: `
@@ -365,21 +365,21 @@ export function HomePage() {
               backgroundSize: "100% 100%, 24px 24px",
             }}
           >
-            <div className="max-w-[1360px] mx-auto px-5 sm:px-8 relative z-10">
-              <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
+            <div className="max-w-[1420px] mx-auto px-4 sm:px-8 relative z-10">
+              <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-6 xl:gap-8 items-center">
                 
                 {/* Left Text Column */}
-                <div className="lg:col-span-7 xl:col-span-6 max-w-[620px] z-20 flex flex-col justify-center">
+                <div className="lg:col-span-6 max-w-[580px] z-20 flex flex-col justify-center">
                   {/* Pill Badge */}
-                  <div className="inline-flex items-center gap-2 self-start bg-[#FDE3E9] text-[#E5254F] text-xs font-bold px-3.5 py-1.5 rounded-full mb-4 tracking-tight shadow-xs">
-                    <ShieldCheckIcon className="w-4 h-4 text-[#E5254F]" />
+                  <div className="inline-flex items-center gap-2 self-start bg-[#FDE3E9] text-[#E5254F] text-[11px] sm:text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-full mb-4 tracking-tight shadow-xs">
+                    <ShieldCheckIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E5254F] shrink-0" />
                     <span>{copy.badge}</span>
                   </div>
 
                   {/* H1 Heading (Exact: no colon in German H1) */}
                   <h1
                     style={{ color: DARK, lineHeight: 1.15 }}
-                    className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight mb-4"
+                    className="text-[28px] sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold tracking-tight mb-4"
                   >
                     {copy.h1Lead}
                     <span style={{ color: PRIMARY }}>{copy.h1Highlight}</span>
@@ -405,14 +405,14 @@ export function HomePage() {
                   </p>
 
                   {/* CTA Buttons */}
-                  <div className="flex flex-wrap gap-3.5 items-center mb-6">
+                  <div className="flex flex-wrap gap-3 sm:gap-3.5 items-center mb-5 sm:mb-6">
                     <Link
                       to={consultPath}
                       onClick={() =>
                         trackClaruswayEvent("beratung_angefragt", { source: "home_hero", lang })
                       }
                       style={{ backgroundColor: PRIMARY }}
-                      className="inline-flex items-center gap-2 text-white font-bold px-6 py-3.5 rounded-xl text-sm shadow-[0_4px_16px_rgba(229,37,79,0.25)] hover:opacity-95 hover:shadow-[0_6px_22px_rgba(229,37,79,0.35)] transition-all"
+                      className="inline-flex items-center gap-2 text-white font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-sm shadow-[0_4px_16px_rgba(229,37,79,0.25)] hover:opacity-95 hover:shadow-[0_6px_22px_rgba(229,37,79,0.35)] transition-all"
                     >
                       <span>{copy.primaryBtn}</span>
                       <ArrowRightIcon className="w-4 h-4" />
@@ -420,14 +420,14 @@ export function HomePage() {
 
                     <Link
                       to={isEn ? "/it-courses/" : "/it-kurse/"}
-                      className="inline-flex items-center gap-2 border-2 border-[#141B2D] text-[#141B2D] font-bold px-6 py-3.5 rounded-xl text-sm hover:bg-[#141B2D]/5 transition-colors"
+                      className="inline-flex items-center gap-2 border-2 border-[#141B2D] text-[#141B2D] font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-sm hover:bg-[#141B2D]/5 transition-colors"
                     >
                       <span>{copy.secondaryBtn}</span>
                     </Link>
                   </div>
 
                   {/* 3 Key Checklist Bullets */}
-                  <div className="flex flex-wrap gap-y-2.5 gap-x-5 text-xs text-gray-600">
+                  <div className="flex flex-wrap gap-y-2 gap-x-4 sm:gap-x-5 text-xs text-gray-600">
                     {copy.checklist.map((item, idx) => (
                       <span key={idx} className="inline-flex items-center gap-1.5 font-medium">
                         <CheckCircleIcon className="w-4 h-4 text-[#E5254F] shrink-0" />
@@ -437,8 +437,8 @@ export function HomePage() {
                   </div>
                 </div>
 
-                {/* Right Column / Centerpiece: Globe Showpiece (Unchanged) */}
-                <div className="lg:col-span-5 xl:col-span-6 flex justify-center lg:justify-end items-center relative overflow-visible z-10 pt-4 lg:pt-0">
+                {/* Right Column / Centerpiece: Enlarged Particle Globe Showpiece */}
+                <div className="lg:col-span-6 flex justify-center lg:justify-end items-center relative overflow-visible z-10 -mt-1 sm:mt-0">
                   <ClaruswayHeroShowpiece isEn={isEn} />
                 </div>
 

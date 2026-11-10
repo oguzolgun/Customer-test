@@ -271,13 +271,14 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
     const scene = new THREE.Scene();
 
-    // Enlarged globe proportion inside canvas with crisp margin for right-side wave scatter
+    // Enlarged globe proportion inside canvas with subtle left optical offset for right-side wave scatter
+    const CAM_X = 0.28;
     const camera = new THREE.PerspectiveCamera(34, W / H, 0.1, 100);
-    camera.position.set(0, 0, 21.6);
+    camera.position.set(CAM_X, 0, 18.8);
 
     // Helpers
-    const R = 4.55; // Larger, commanding particle globe core radius
-    const ORBIT_R = R * 1.13; // Balanced instrument orbit radius around enlarged globe
+    const R = 4.55; // Larger, commanding particle globe core radius (~79% canvas fill)
+    const ORBIT_R = R * 1.11; // Balanced instrument orbit radius around enlarged globe
     function llToVec3(lat: number, lon: number, radius: number) {
       const phi = (90 - lat) * DEG;
       const theta = (lon + 180) * DEG;
@@ -543,7 +544,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
             // Scatter displacement matching particle cloud (frustum-safe)
             vec3 driftDir = normalize(vec3(1.15, -0.15 + 0.3 * (aSeed - 0.5), 0.14));
-            worldPos.xyz += driftDir * (scatterEff * (0.25 + 0.85 * aSeed) * uRadius * 0.24);
+            worldPos.xyz += driftDir * (scatterEff * (0.22 + 0.78 * aSeed) * uRadius * 0.20);
             worldPos.xyz += wp * (hoverPush * 0.14);
 
             vec4 mv = viewMatrix * worldPos;
@@ -555,12 +556,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
             float angFromGer = acos(clamp(dot(ptNorm, uGermanyDir), -1.0, 1.0));
             float sweepFactor = 1.0 - smoothstep(uIntroSweep - 0.15, uIntroSweep + 0.25, angFromGer);
 
+            float rightEdgeFade = 1.0 - smoothstep(5.15, 5.88, worldPos.x);
             float limbAlpha = mix(0.50, 0.90, pow(max(facing, 0.0001), 0.65));
-            vAlpha = limbAlpha * frontMask * sweepFactor * (1.0 - scatterEff * 0.55);
+            vAlpha = limbAlpha * frontMask * sweepFactor * (1.0 - scatterEff * 0.55) * rightEdgeFade;
 
             if (aIsGermany > 0.5) {
               vColor = mix(vec3(0.898, 0.145, 0.310), vec3(1.0, 0.88, 0.94), 0.22 + 0.22 * sin(uTime * 3.2));
-              vAlpha = frontMask * sweepFactor * (0.92 + 0.08 * sin(uTime * 3.5));
+              vAlpha = frontMask * sweepFactor * (0.92 + 0.08 * sin(uTime * 3.5)) * rightEdgeFade;
             } else {
               vec3 rose = vec3(0.949, 0.651, 0.737);     // #F2A6BC (over dark dome)
               vec3 mist = vec3(0.992, 0.914, 1.000);     // #FDE9FF
@@ -569,7 +571,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
               vColor = mix(crispOverDark, wine, smoothstep(0.05, 0.45, scatterEff));
             }
 
-            float sz = (aIsGermany > 0.5 ? 2.35 : (1.35 + hoverPush * 0.7)) * uPR * (16.5 / -mv.z);
+            float sz = (aIsGermany > 0.5 ? 2.35 : (1.35 + hoverPush * 0.7)) * uPR * (14.5 / -mv.z);
             gl_PointSize = sz;
             gl_Position = projectionMatrix * mv;
           }
@@ -725,13 +727,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
             vec3(1.0, -0.14 + (aRand.y - 0.5) * 0.62, 0.12 + (aRand.z - 0.5) * 0.50),
             0.65
           ));
-          float travelDist = scatter * (0.18 + 1.05 * pow(max(aRand.x, 0.0001), 0.88)) * uRadius * 0.22;
+          float travelDist = scatter * (0.16 + 0.90 * pow(max(aRand.x, 0.0001), 0.90)) * uRadius * 0.19;
 
           vec3 swirl = vec3(
             sin(tSwirl * 0.92 + aRand.y * 16.0 + erode * 2.8),
             cos(tSwirl * 0.78 + aRand.z * 18.0 + wp.y * 3.0),
             sin(tSwirl * 0.85 + aRand.x * 14.0)
-          ) * (scatter * (0.12 + 0.32 * aRand.y));
+          ) * (scatter * (0.10 + 0.28 * aRand.y));
 
           // Cursor hover wave ripple
           float mouseDist = length(ptNorm - normalize(uMouseLocal));
@@ -779,16 +781,17 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
           vColor = mix(openTone, domeTone, overDome);
 
-          // Natural fading aerosol scatter tail on far right
+          // Natural fading aerosol scatter tail on far right (with frustum-safe fade)
+          float rightEdgeFade = 1.0 - smoothstep(5.15, 5.88, worldPos.x);
           float scatterFade = 1.0 - smoothstep(0.45, 1.0, scatter) * (0.35 + 0.40 * aRand.x);
           float baseOp = mix(0.92, 0.78, scatter) * twinkle;
-          vAlpha = hemMask * sweepFactor * scatterFade * baseOp;
+          vAlpha = hemMask * sweepFactor * scatterFade * baseOp * rightEdgeFade;
 
           // Crisp varied micro-grain sizes (many fine dots + bright sparse foreground specks)
           float powSeed = aSeed * aSeed;
           float szBase = 1.25 + powSeed * 2.45 + ridge * 0.65 + hoverInfluence * 0.85;
           float scatterShrink = 1.0 - scatter * 0.22 * (1.0 - aRand.z);
-          gl_PointSize = szBase * scatterShrink * uPR * (16.5 / -mv.z);
+          gl_PointSize = szBase * scatterShrink * uPR * (14.5 / -mv.z);
           gl_Position = projectionMatrix * mv;
         }
       `,
@@ -1078,7 +1081,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     }
 
     const NODE_COUNT = 7;
-    const nodeAngles = Array.from({ length: NODE_COUNT }, (_, i) => (i / NODE_COUNT) * Math.PI * 2);
+    const nodeAngles = Array.from({ length: NODE_COUNT }, (_, i) => (i / NODE_COUNT) * Math.PI * 2 + 0.92);
 
     const render = () => {
       animId = requestAnimationFrame(render);
@@ -1093,10 +1096,10 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         fluidSwarmMat.uniforms.uIntroSweep.value = sweepAngle;
       }
 
-      // Parallax easing
-      camera.position.x += (parallaxTargetX - camera.position.x) * 0.04;
+      // Parallax easing (preserves CAM_X right-side scatter clearance)
+      camera.position.x += (CAM_X + parallaxTargetX - camera.position.x) * 0.04;
       camera.position.y += (parallaxTargetY - camera.position.y) * 0.04;
-      camera.lookAt(0, 0, 0);
+      camera.lookAt(CAM_X, 0, 0);
 
       // Globe serene continuous rotation (1 turn per ~70s)
       if (!dragging && !REDUCED) {
@@ -1194,7 +1197,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
             el.style.opacity = (occludeOpacity * (isActive ? 1.0 : 0.94)).toFixed(3);
           }
 
-          el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0) translate(-50%, -50%)`;
+          // Responsive bounds clamping so active course capsules never clip on mobile edges
+          const halfNodeX = isActive ? (W < 460 ? 92 : 76) : 16;
+          const halfNodeY = isActive ? 22 : 16;
+          const cx = Math.max(halfNodeX, Math.min(W - halfNodeX, sx));
+          const cy = Math.max(halfNodeY, Math.min(H - halfNodeY, sy));
+
+          el.style.transform = `translate3d(${cx.toFixed(1)}px, ${cy.toFixed(1)}px, 0) translate(-50%, -50%)`;
           el.style.zIndex = isActive ? "50" : "20";
         }
       }
@@ -1246,7 +1255,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-[340px] h-[340px] sm:w-[460px] sm:h-[460px] md:w-[520px] md:h-[520px] lg:w-[490px] lg:h-[490px] xl:w-[600px] xl:h-[600px] select-none flex items-center justify-center overflow-visible"
+      className="relative w-[min(94vw,380px)] h-[min(94vw,380px)] sm:w-[480px] sm:h-[480px] md:w-[540px] md:h-[540px] lg:w-[490px] lg:h-[490px] xl:w-[600px] xl:h-[600px] min-[1440px]:w-[660px] min-[1440px]:h-[660px] select-none flex items-center justify-center overflow-visible"
     >
       {/* 3D WebGL Canvas */}
       <canvas
@@ -1272,17 +1281,17 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
                 <Link
                   to={course.to}
                   aria-label={course.name}
-                  className="group flex items-center gap-2 sm:gap-2.5 pl-1.5 pr-2.5 sm:pr-3 py-1.5 rounded-[10px] bg-[#160812]/90 backdrop-blur-xl border border-[#F2A6BC]/25 hover:border-[#E5254F]/60 shadow-[0_8px_24px_rgba(18,6,15,0.18)] transition-colors duration-300"
+                  className="group flex items-center gap-1.5 sm:gap-2.5 pl-1.5 pr-2 sm:pr-3 py-1 sm:py-1.5 max-w-[180px] sm:max-w-none rounded-[9px] sm:rounded-[10px] bg-[#160812]/90 backdrop-blur-xl border border-[#F2A6BC]/25 hover:border-[#E5254F]/60 shadow-[0_8px_24px_rgba(18,6,15,0.18)] transition-colors duration-300"
                   style={{ animation: "instrumentReveal 0.35s cubic-bezier(0.16, 1, 0.3, 1)" }}
                 >
                   <span className="w-6 h-6 rounded-[6px] bg-gradient-to-br from-[#E5254F]/25 to-[#8A1C4A]/35 border border-[#F2A6BC]/30 flex items-center justify-center text-[#FDE9FF] shrink-0">
                     <CourseLineIcon iconId={course.iconId} className="w-3.5 h-3.5" />
                   </span>
-                  <span className="flex flex-col text-left">
-                    <span className="text-[8.5px] font-medium uppercase tracking-[0.14em] text-[#F2A6BC]/85 leading-none mb-0.5 whitespace-nowrap">
+                  <span className="flex flex-col text-left min-w-0">
+                    <span className="text-[8px] sm:text-[8.5px] font-medium uppercase tracking-[0.12em] sm:tracking-[0.14em] text-[#F2A6BC]/85 leading-none mb-0.5 whitespace-nowrap max-w-[116px] sm:max-w-none truncate">
                       {microLabel}
                     </span>
-                    <span className="text-[11.5px] sm:text-xs font-medium tracking-[-0.015em] text-white leading-tight whitespace-nowrap">
+                    <span className="text-[11px] sm:text-xs font-medium tracking-[-0.015em] text-white leading-tight whitespace-nowrap">
                       {course.name}
                     </span>
                   </span>
@@ -1308,7 +1317,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
                   className="group relative w-7 h-7 rounded-[8px] bg-white/85 backdrop-blur-md border border-[#141B2D]/12 text-[#141B2D]/70 hover:text-[#E5254F] hover:border-[#E5254F]/45 hover:bg-white hover:scale-105 shadow-[0_2px_10px_rgba(18,6,15,0.06)] flex items-center justify-center transition-all duration-200 cursor-pointer"
                 >
                   <CourseLineIcon iconId={course.iconId} className="w-3.5 h-3.5" />
-                  <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-[5px] bg-[#160812]/90 text-[#FDE9FF] text-[9.5px] font-medium uppercase tracking-[0.10em] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 border border-[#F2A6BC]/20 shadow-sm">
+                  <span className="hidden sm:block pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-[5px] bg-[#160812]/90 text-[#FDE9FF] text-[9.5px] font-medium uppercase tracking-[0.10em] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 border border-[#F2A6BC]/20 shadow-sm">
                     {course.name}
                   </span>
                 </button>
