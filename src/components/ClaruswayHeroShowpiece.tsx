@@ -364,6 +364,11 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
   const [isPaused, setIsPaused] = useState(false);
   const [triggerLanding, setTriggerLanding] = useState(0);
   const occludedRef = useRef<boolean[]>(new Array(7).fill(false));
+  const activeIndexRef = useRef(activeIndex);
+
+  useEffect(() => {
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
 
   const courses = isEn ? HERO_COURSES.en : HERO_COURSES.de;
 
@@ -441,14 +446,30 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     globeSpin.rotation.x = 0.38;
     globeSpin.rotation.y = initialGerRotY;
 
+    // Declare interactive fluid uniforms driver shared across sphere, continents & swarm
+    const gGermanyPos = llToVec3(GERMANY_COORDS[0], GERMANY_COORDS[1], 1.0).normalize();
+    const uMouseLocalShared = { value: gGermanyPos.clone() };
+    const uHoverShared = { value: 0.0 };
+    const uReducedVal = REDUCED ? 1.0 : 0.0;
+
     // ------------------------------------------------------------------------
-    // 1. SPHERE BODY: Deep plum radial gradient (#2A0F24 -> #12060F) + Rim light
+    // 1. SPHERE BODY: Liquid Abyss Plum Core (#12060F -> #2A0F24 -> #8A1C4A)
+    //    with dynamic fluid caustics & crimson/rose bioluminescent rim
     // ------------------------------------------------------------------------
+    const sphereBodyGeom = new THREE.SphereGeometry(R * 0.992, 64, 64);
     const sphereBodyMat = new THREE.ShaderMaterial({
+      uniforms: {
+        uTime: { value: 0 },
+        uMouseLocal: uMouseLocalShared,
+        uHover: uHoverShared,
+        uReduced: { value: uReducedVal },
+      },
       vertexShader: `
         varying vec3 vNormal;
         varying vec3 vView;
+        varying vec3 vObjPos;
         void main() {
+          vObjPos = normalize(position);
           vec4 mv = modelViewMatrix * vec4(position, 1.0);
           vNormal = normalize(normalMatrix * normal);
           vView = normalize(-mv.xyz);
@@ -456,41 +477,94 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         }
       `,
       fragmentShader: `
+        uniform float uTime;
+        uniform vec3 uMouseLocal;
+        uniform float uHover;
+        uniform float uReduced;
         varying vec3 vNormal;
         varying vec3 vView;
+        varying vec3 vObjPos;
         void main() {
           float ndotv = clamp(dot(vNormal, vView), 0.0, 1.0);
-          // Radial deep plum gradient: #2A0F24 center -> #12060F edges
-          vec3 plumCenter = vec3(0.165, 0.059, 0.141);
-          vec3 plumEdge   = vec3(0.071, 0.024, 0.059);
-          vec3 base = mix(plumEdge, plumCenter, pow(ndotv, 0.75));
+          float t = uTime * 0.34 * (1.0 - uReduced);
 
-          // Soft crimson rim light on upper-left
-          vec3 rimDir = normalize(vec3(-0.65, 0.70, 0.35));
-          float rimLight = pow(1.0 - ndotv, 2.4) * max(0.0, dot(vNormal, rimDir));
-          vec3 crimson = vec3(0.898, 0.145, 0.310); // #E5254F
-          base += crimson * (rimLight * 0.75);
+          vec3 p = normalize(vObjPos);
+          float mouseDist = length(p - normalize(uMouseLocal));
+          float hoverInfluence = uHover * exp(-mouseDist * 4.2);
 
-          // Subtle ambient glow
-          float edgeGlow = pow(1.0 - ndotv, 4.0);
-          base += vec3(0.95, 0.45, 0.65) * (edgeGlow * 0.3);
+          // Seam-free 3D trigonometric fluid advection inside the dark plum orb
+          vec3 q = vec3(
+            sin(p.y * 3.4 + p.z * 2.1 + t),
+            sin(p.z * 3.1 - p.x * 2.6 + t * 0.82),
+            sin(p.x * 2.9 + p.y * 2.4 - t * 0.74)
+          );
+          vec3 r = vec3(
+            cos(p.z * 4.8 + q.x * 1.9 - t * 0.95 + hoverInfluence * 1.4),
+            sin(p.x * 5.2 - q.y * 2.1 + t * 0.78),
+            cos(p.y * 4.5 + q.z * 1.7 + t * 0.63)
+          );
+
+          float flowA = sin(p.x * 4.0 + q.y * 2.1 + r.z * 0.8 + t * 0.7);
+          float flowB = cos(p.y * 3.8 - q.z * 1.8 + r.x * 0.9 - t * 0.55);
+          float liquidBand = smoothstep(-0.35, 0.85, 0.52 * flowA + 0.48 * flowB);
+
+          float ridgeRaw = clamp(1.0 - abs(flowA + 0.65 * flowB), 0.0, 1.0);
+          float r2 = ridgeRaw * ridgeRaw;
+          float caustic = r2 * r2 * r2;
+          float silkRaw = clamp(1.0 - abs(flowA - flowB), 0.0, 1.0);
+          float secondarySilk = silkRaw * silkRaw * silkRaw * silkRaw;
+
+          // Strictly Clarusway brand palette: #12060F -> #2A0F24 -> #8A1C4A -> #E5254F -> #F2A6BC / #FDE9FF
+          vec3 plumEdge    = vec3(0.071, 0.024, 0.059); // #12060F
+          vec3 plumCenter  = vec3(0.175, 0.055, 0.145); // #2A0F24
+          vec3 wineCurrent = vec3(0.541, 0.110, 0.290); // #8A1C4A
+          vec3 crimsonGlow = vec3(0.898, 0.145, 0.310); // #E5254F
+          vec3 softRose    = vec3(0.949, 0.651, 0.737); // #F2A6BC
+          vec3 lavenderHi  = vec3(0.992, 0.914, 1.000); // #FDE9FF
+
+          float ndotvSafe = max(ndotv, 0.0001);
+          float invNdotvSafe = max(1.0 - ndotv, 0.0001);
+
+          vec3 base = mix(plumEdge, plumCenter, pow(ndotvSafe, 0.72));
+
+          float currentStrength = liquidBand * (0.28 + 0.42 * pow(ndotvSafe, 0.6));
+          base = mix(base, wineCurrent, currentStrength * 0.64);
+
+          base += crimsonGlow * caustic * (0.28 + 0.26 * hoverInfluence);
+          base += softRose * secondarySilk * (0.10 + 0.18 * ndotv);
+          base += lavenderHi * (caustic * caustic) * (0.16 + 0.24 * hoverInfluence);
+
+          // Upper-left crimson rim light + subtle pearlescent Fresnel rim
+          vec3 rimDir = normalize(vec3(-0.62, 0.70, 0.36));
+          float rimLight = pow(invNdotvSafe, 2.2) * max(0.0, dot(vNormal, rimDir));
+          base += crimsonGlow * (rimLight * 0.85);
+
+          float edgeGlow = pow(invNdotvSafe, 3.6);
+          base += mix(crimsonGlow, softRose, 0.52) * (edgeGlow * 0.36);
+
+          // Interactive cursor bioluminescence on sphere
+          base += mix(crimsonGlow, lavenderHi, 0.35) * hoverInfluence * 0.22;
 
           gl_FragColor = vec4(base, 1.0);
         }
       `,
       depthWrite: true,
     });
-    const sphereBody = new THREE.Mesh(new THREE.SphereGeometry(R * 0.992, 64, 64), sphereBodyMat);
+    const sphereBody = new THREE.Mesh(sphereBodyGeom, sphereBodyMat);
     globeSpin.add(sphereBody);
 
-    // Atmosphere Glow Shell
+    // Atmosphere Glow Shell (Fluid Corona)
+    const atmoGeom = new THREE.SphereGeometry(R * 1.14, 48, 48);
     const atmoMat = new THREE.ShaderMaterial({
       side: THREE.BackSide,
       transparent: true,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending,
       depthWrite: false,
       uniforms: {
         uColor: { value: new THREE.Color(0xe5254f) },
+        uTime: { value: 0 },
+        uHover: uHoverShared,
+        uReduced: { value: uReducedVal },
       },
       vertexShader: `
         varying vec3 vNormal;
@@ -501,28 +575,42 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       `,
       fragmentShader: `
         uniform vec3 uColor;
+        uniform float uTime;
+        uniform float uHover;
+        uniform float uReduced;
         varying vec3 vNormal;
         void main() {
-          float intensity = pow(max(0.65 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 0.0), 3.5) * 0.45;
-          gl_FragColor = vec4(uColor * intensity, intensity * 0.4);
+          float ang = atan(vNormal.y, vNormal.x);
+          float fluidPulse = 0.88 + 0.12 * sin(ang * 3.0 + uTime * 0.75 * (1.0 - uReduced));
+          float rimBase = max(0.66 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 0.0);
+          float intensity = rimBase * rimBase * rimBase * 0.42 * fluidPulse;
+          vec3 roseHalo = mix(uColor, vec3(0.949, 0.651, 0.737), 0.35);
+          gl_FragColor = vec4(roseHalo, intensity * (0.24 + 0.08 * uHover));
         }
       `,
     });
-    const atmoSphere = new THREE.Mesh(new THREE.SphereGeometry(R * 1.12, 48, 48), atmoMat);
+    const atmoSphere = new THREE.Mesh(atmoGeom, atmoMat);
     globeSpin.add(atmoSphere);
 
     // ------------------------------------------------------------------------
-    // 2. ORTHOGRAPHIC DOTTED GLOBE (~9,000 Land-Only Dots with Limb Darkening)
+    // 2. ORTHOGRAPHIC DOTTED GLOBE (Land-Only Dots with Fluid Wave & Limb Darkening)
     // ------------------------------------------------------------------------
     let dotsPoints: any = null;
     let dotsMat: any = null;
-
-    const gGermanyPos = llToVec3(GERMANY_COORDS[0], GERMANY_COORDS[1], 1.0).normalize();
+    let disposed = false;
 
     function createDots(mask: Uint8ClampedArray | null, mw: number, mh: number) {
+      if (disposed) return;
       const N = mask ? 16000 : 9000;
       const pos: number[] = [];
       const isGer: number[] = [];
+      const seeds: number[] = [];
+
+      let dotSeed = 1337;
+      const nextDotRand = () => {
+        dotSeed = (dotSeed * 1664525 + 1013904223) >>> 0;
+        return dotSeed / 4294967296;
+      };
 
       for (let i = 0; i < N; i++) {
         const y = 1 - (i / (N - 1)) * 2;
@@ -547,11 +635,13 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         const dotVec = new THREE.Vector3(x, y, z).normalize();
         const distToGer = Math.acos(Math.min(1, Math.max(-1, dotVec.dot(gGermanyPos)))) / DEG;
         isGer.push(distToGer < 12 ? 1.0 : 0.0);
+        seeds.push(nextDotRand());
       }
 
       const geom = new THREE.BufferGeometry();
       geom.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
       geom.setAttribute("aIsGermany", new THREE.Float32BufferAttribute(isGer, 1));
+      geom.setAttribute("aSeed", new THREE.Float32BufferAttribute(seeds, 1));
 
       dotsMat = new THREE.ShaderMaterial({
         transparent: true,
@@ -561,38 +651,64 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           uPR: { value: PR },
           uIntroSweep: { value: REDUCED ? Math.PI : 0.1 },
           uGermanyDir: { value: gGermanyPos },
+          uMouseLocal: uMouseLocalShared,
+          uHover: uHoverShared,
+          uReduced: { value: uReducedVal },
         },
         vertexShader: `
           attribute float aIsGermany;
+          attribute float aSeed;
           uniform float uPR;
           uniform float uTime;
           uniform float uIntroSweep;
           uniform vec3 uGermanyDir;
+          uniform vec3 uMouseLocal;
+          uniform float uHover;
+          uniform float uReduced;
           varying float vAlpha;
           varying vec3 vColor;
+          varying float vCrest;
           void main() {
-            vec4 mv = modelViewMatrix * vec4(position, 1.0);
-            vec3 norm = normalize(normalMatrix * normalize(position));
+            vec3 ptNorm = normalize(position);
+            float t = uTime * (1.0 - uReduced);
+
+            // Harmonic fluid wave sweeping across continents (radial lift keeps continent shape crisp)
+            float wave = sin(ptNorm.x * 4.2 + t * 1.1 + sin(ptNorm.y * 3.1 - t * 0.7)) *
+                         cos(ptNorm.z * 3.8 - t * 0.85 + aSeed * 1.6);
+            float crest = smoothstep(-0.1, 0.85, wave);
+            vCrest = crest;
+
+            float mouseDist = length(ptNorm - normalize(uMouseLocal));
+            float hoverPush = uHover * exp(-mouseDist * 4.8);
+
+            float radialLift = (0.01 + 0.032 * crest + 0.085 * hoverPush) * (1.0 - uReduced * 0.5);
+            vec3 displaced = ptNorm * (length(position) + radialLift);
+
+            vec4 mv = modelViewMatrix * vec4(displaced, 1.0);
+            vec3 norm = normalize(normalMatrix * ptNorm);
             float facing = clamp(dot(norm, normalize(-mv.xyz)), 0.0, 1.0);
 
-            // Limb darkening: 55% to 80% opacity based on facing angle
-            float limbAlpha = mix(0.55, 0.80, pow(facing, 0.7));
+            // Limb darkening: 56% to 88% opacity based on facing angle
+            float limbAlpha = mix(0.56, 0.88, pow(max(facing, 0.0001), 0.68));
 
             // Radial sweep intro starting from Germany
-            vec3 ptNorm = normalize(position);
             float angFromGer = acos(clamp(dot(ptNorm, uGermanyDir), -1.0, 1.0));
-            float sweepFactor = smoothstep(uIntroSweep + 0.25, uIntroSweep - 0.15, angFromGer);
+            float sweepFactor = 1.0 - smoothstep(uIntroSweep - 0.15, uIntroSweep + 0.25, angFromGer);
 
-            vAlpha = limbAlpha * sweepFactor;
+            vAlpha = limbAlpha * sweepFactor * (0.86 + 0.22 * crest + 0.25 * hoverPush);
 
             if (aIsGermany > 0.5) {
-              vColor = vec3(0.95, 0.18, 0.35); // #E5254F Germany highlight
-              vAlpha *= (1.0 + 0.35 * sin(uTime * 3.5));
+              vColor = mix(vec3(0.898, 0.145, 0.310), vec3(1.0, 0.88, 0.94), 0.22 + 0.22 * sin(t * 3.2));
+              vAlpha *= (1.0 + 0.30 * sin(uTime * 3.5));
             } else {
-              vColor = vec3(0.949, 0.651, 0.737); // #F2A6BC
+              vec3 baseRose = vec3(0.949, 0.651, 0.737); // #F2A6BC
+              vec3 crimson  = vec3(0.898, 0.145, 0.310); // #E5254F
+              vec3 mistPink = vec3(0.992, 0.914, 1.000); // #FDE9FF
+              vColor = mix(mix(crimson, baseRose, 0.72), mistPink, crest * 0.55 + hoverPush * 0.45);
+              vColor = mix(vColor, crimson, crest * 0.18 * aSeed);
             }
 
-            float sz = (aIsGermany > 0.5 ? 2.3 : 1.45) * uPR * (15.0 / -mv.z);
+            float sz = (aIsGermany > 0.5 ? 2.4 : (1.38 + crest * 0.62 + hoverPush * 0.85)) * uPR * (15.0 / -mv.z);
             gl_PointSize = sz;
             gl_Position = projectionMatrix * mv;
           }
@@ -600,12 +716,15 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         fragmentShader: `
           varying float vAlpha;
           varying vec3 vColor;
+          varying float vCrest;
           void main() {
             vec2 c = gl_PointCoord - vec2(0.5);
             float d = length(c);
             if (d > 0.5) discard;
-            float smoothEdge = smoothstep(0.5, 0.2, d);
-            gl_FragColor = vec4(vColor, vAlpha * smoothEdge);
+            float smoothEdge = 1.0 - smoothstep(0.14, 0.5, d);
+            float pinGlow = 1.0 - smoothstep(0.0, 0.24, d);
+            vec3 col = mix(vColor, vec3(1.0, 0.95, 0.98), pinGlow * 0.32 * vCrest);
+            gl_FragColor = vec4(col, vAlpha * smoothEdge);
           }
         `,
       });
@@ -619,7 +738,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     img.crossOrigin = "anonymous";
     let maskProcessed = false;
     const processMask = (data: Uint8ClampedArray | null, w: number, h: number) => {
-      if (maskProcessed) return;
+      if (maskProcessed || disposed) return;
       maskProcessed = true;
       createDots(data, w, h);
     };
@@ -641,7 +760,233 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     };
     img.onerror = () => processMask(null, 1024, 512);
     img.src = "/images/earth-water.png";
-    setTimeout(() => processMask(null, 1024, 512), 2500);
+    const maskFallbackTimer = window.setTimeout(() => processMask(null, 1024, 512), 2500);
+
+    // ------------------------------------------------------------------------
+    // 2B. BIOLUMINESCENT FLUID PARTICLE STREAMS (Auros-Inspired Liquid Flow in Clarusway Palette)
+    // ------------------------------------------------------------------------
+    const STREAM_COUNT = 3800;
+    const STREAM_AXES = [
+      new THREE.Vector3(0.18, 0.96, 0.21).normalize(),
+      new THREE.Vector3(-0.48, 0.78, 0.40).normalize(),
+      new THREE.Vector3(0.55, 0.64, -0.53).normalize(),
+      new THREE.Vector3(-0.62, 0.42, 0.66).normalize(),
+      new THREE.Vector3(0.32, -0.75, 0.58).normalize(),
+      new THREE.Vector3(-0.25, -0.84, -0.48).normalize(),
+    ];
+
+    const fluidPos = new Float32Array(STREAM_COUNT * 3);
+    const fluidAxis = new Float32Array(STREAM_COUNT * 3);
+    const fluidSeed = new Float32Array(STREAM_COUNT);
+    const fluidSpeed = new Float32Array(STREAM_COUNT);
+    const fluidLayer = new Float32Array(STREAM_COUNT);
+
+    let fSeedState = 88421;
+    const nextFluidRand = () => {
+      fSeedState = (fSeedState * 1664525 + 1013904223) >>> 0;
+      return fSeedState / 4294967296;
+    };
+
+    const upRefA = new THREE.Vector3(1, 0, 0);
+    const upRefB = new THREE.Vector3(0, 1, 0);
+    const streamBasisU: any[] = [];
+    const streamBasisV: any[] = [];
+    STREAM_AXES.forEach((ax) => {
+      const ref = Math.abs(ax.x) < 0.85 ? upRefA : upRefB;
+      const u = new THREE.Vector3().crossVectors(ax, ref).normalize();
+      const v = new THREE.Vector3().crossVectors(ax, u).normalize();
+      streamBasisU.push(u);
+      streamBasisV.push(v);
+    });
+
+    const RIBBON_CUTOFF = 2600;
+    for (let i = 0; i < STREAM_COUNT; i++) {
+      const sIdx = i % STREAM_AXES.length;
+      const ax = STREAM_AXES[sIdx];
+      const uVec = streamBasisU[sIdx];
+      const vVec = streamBasisV[sIdx];
+      const dir = new THREE.Vector3();
+
+      let radius = R + 0.04;
+      let speed = 0.22;
+      let layer = 0.0;
+
+      if (i < RIBBON_CUTOFF) {
+        // Silky overlapping geodesic liquid currents wrapping around the globe
+        const phi = ((Math.floor(i / STREAM_AXES.length) / Math.ceil(RIBBON_CUTOFF / STREAM_AXES.length)) +
+          (nextFluidRand() - 0.5) * 0.04) * Math.PI * 2;
+        const spread = (nextFluidRand() + nextFluidRand() - 1.0) * 0.62;
+        const cosSpread = Math.cos(spread);
+        dir
+          .addScaledVector(uVec, Math.cos(phi) * cosSpread)
+          .addScaledVector(vVec, Math.sin(phi) * cosSpread)
+          .addScaledVector(ax, Math.sin(spread))
+          .normalize();
+        radius = R + 0.025 + nextFluidRand() * 0.14;
+        speed = 0.16 + nextFluidRand() * 0.22;
+        layer = 0.0;
+      } else {
+        // Outer bioluminescent fluid mist / limb motes bridging surface & corona
+        const outerIdx = i - RIBBON_CUTOFF;
+        const outerTotal = STREAM_COUNT - RIBBON_CUTOFF;
+        const y = 1 - (outerIdx / Math.max(1, outerTotal - 1)) * 2;
+        const rr = Math.sqrt(Math.max(0, 1 - y * y));
+        const theta = outerIdx * 2.399963229728653 + nextFluidRand() * 0.35;
+        dir.set(Math.cos(theta) * rr, y, Math.sin(theta) * rr).normalize();
+        radius = R + 0.11 + Math.pow(nextFluidRand(), 1.35) * 0.34;
+        speed = 0.09 + nextFluidRand() * 0.15;
+        layer = 1.0;
+      }
+
+      fluidPos[i * 3 + 0] = dir.x * radius;
+      fluidPos[i * 3 + 1] = dir.y * radius;
+      fluidPos[i * 3 + 2] = dir.z * radius;
+
+      fluidAxis[i * 3 + 0] = ax.x;
+      fluidAxis[i * 3 + 1] = ax.y;
+      fluidAxis[i * 3 + 2] = ax.z;
+
+      fluidSeed[i] = nextFluidRand();
+      fluidSpeed[i] = speed;
+      fluidLayer[i] = layer;
+    }
+
+    const fluidGeom = new THREE.BufferGeometry();
+    fluidGeom.setAttribute("position", new THREE.BufferAttribute(fluidPos, 3));
+    fluidGeom.setAttribute("aAxis", new THREE.BufferAttribute(fluidAxis, 3));
+    fluidGeom.setAttribute("aSeed", new THREE.BufferAttribute(fluidSeed, 1));
+    fluidGeom.setAttribute("aSpeed", new THREE.BufferAttribute(fluidSpeed, 1));
+    fluidGeom.setAttribute("aLayer", new THREE.BufferAttribute(fluidLayer, 1));
+
+    const fluidSwarmMat = new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.NormalBlending,
+      uniforms: {
+        uTime: { value: 0 },
+        uPR: { value: PR },
+        uIntroSweep: { value: REDUCED ? Math.PI : 0.1 },
+        uGermanyDir: { value: gGermanyPos },
+        uMouseLocal: uMouseLocalShared,
+        uHover: uHoverShared,
+        uReduced: { value: uReducedVal },
+      },
+      vertexShader: `
+        attribute vec3 aAxis;
+        attribute float aSeed;
+        attribute float aSpeed;
+        attribute float aLayer;
+
+        uniform float uTime;
+        uniform float uPR;
+        uniform float uIntroSweep;
+        uniform vec3 uGermanyDir;
+        uniform vec3 uMouseLocal;
+        uniform float uHover;
+        uniform float uReduced;
+
+        varying float vAlpha;
+        varying vec3 vColor;
+        varying float vRimFade;
+
+        vec3 rotateAroundAxis(vec3 v, vec3 k, float theta) {
+          float c = cos(theta);
+          float s = sin(theta);
+          return v * c + cross(k, v) * s + k * dot(k, v) * (1.0 - c);
+        }
+
+        void main() {
+          float baseRadius = length(position);
+          vec3 dir0 = normalize(position);
+          vec3 axis = normalize(aAxis);
+          float t = uTime * (1.0 - uReduced);
+
+          // Continuous geodesic advection along tilted stream axis
+          vec3 flowDir = rotateAroundAxis(dir0, axis, t * aSpeed);
+
+          // Sinusoidal ribbon meander perpendicular to stream path (pole-safe)
+          vec3 crossVec = cross(axis, flowDir);
+          float crossLen = length(crossVec);
+          vec3 refFallback = abs(axis.x) < 0.88 ? vec3(1.0, 0.0, 0.0) : vec3(0.0, 1.0, 0.0);
+          vec3 secAxis = crossLen > 0.001
+            ? crossVec / crossLen
+            : normalize(cross(axis, refFallback));
+
+          float wavePhase = (flowDir.x * 3.1 + flowDir.y * 2.7 - flowDir.z * 2.3) + aSeed * 6.2831 - t * 1.35;
+          float wobble = sin(wavePhase) * mix(0.11, 0.17, aLayer) * (1.0 - uReduced);
+          flowDir = normalize(rotateAroundAxis(flowDir, secAxis, wobble));
+
+          // Liquid radial breathing wave
+          float radialWave = sin(flowDir.x * 4.4 - t * 1.35 + aSeed * 6.2831) *
+                             cos(flowDir.y * 4.0 + t * 0.9);
+          float pulseLift = 0.042 * radialWave * (1.0 - uReduced);
+
+          // Pointer hover bioluminescent swell
+          float mouseDist = length(flowDir - normalize(uMouseLocal));
+          float hoverInfluence = uHover * exp(-mouseDist * 4.0);
+          float hoverLift = hoverInfluence * (0.20 + 0.08 * aLayer);
+
+          vec3 pos = flowDir * (baseRadius + pulseLift + hoverLift);
+
+          vec4 mv = modelViewMatrix * vec4(pos, 1.0);
+          vec3 viewNormal = normalize(normalMatrix * flowDir);
+          vec3 viewDir = normalize(-mv.xyz);
+          float facing = dot(viewNormal, viewDir);
+
+          // Smoothly fade particles curving behind the globe limb
+          float hemMask = smoothstep(-0.24, 0.18, facing);
+
+          // Reveal with page-load radial sweep from Germany
+          float angFromGer = acos(clamp(dot(flowDir, uGermanyDir), -1.0, 1.0));
+          float sweepFactor = 1.0 - smoothstep(uIntroSweep - 0.10, uIntroSweep + 0.35, angFromGer);
+
+          float shimmer = 0.56 + 0.44 * sin(t * 2.1 + aSeed * 18.0 + dot(flowDir, axis) * 5.0);
+
+          // Strictly Clarusway palette:
+          // Over dark plum interior -> luminous Lavender-Rose (#FDE9FF), Soft Rose (#F2A6BC), Crimson (#E5254F)
+          // Over bright #FFF4F6 outer rim -> saturated Crimson (#E5254F) & Deep Wine (#8A1C4A)
+          vec3 wine     = vec3(0.541, 0.110, 0.290); // #8A1C4A
+          vec3 crimson  = vec3(0.898, 0.145, 0.310); // #E5254F
+          vec3 rose     = vec3(0.949, 0.651, 0.737); // #F2A6BC
+          vec3 lavender = vec3(0.992, 0.914, 1.000); // #FDE9FF
+
+          float brightMix = smoothstep(0.2, 0.9, shimmer) * mix(0.55, 0.85, aSeed);
+          vec3 innerColor = mix(mix(wine, crimson, 0.62), mix(rose, lavender, brightMix), 0.45 + 0.50 * shimmer);
+          vec3 outerColor = mix(wine, crimson, 0.62 + 0.38 * shimmer);
+
+          float overSphere = smoothstep(-0.02, 0.28, facing);
+          vColor = mix(outerColor, innerColor, overSphere);
+          vColor = mix(vColor, lavender, hoverInfluence * 0.55 * overSphere);
+
+          float baseOpacity = mix(0.60, 0.42, aLayer) * shimmer;
+          vAlpha = hemMask * sweepFactor * baseOpacity * (1.0 + hoverInfluence * 0.55);
+          vRimFade = mix(0.55, 1.0, overSphere);
+
+          float szBase = mix(1.75, 1.15, aLayer) * (0.72 + 0.56 * aSeed);
+          float crestScale = 0.85 + 0.45 * shimmer + hoverInfluence * 0.75;
+          gl_PointSize = szBase * crestScale * uPR * (15.0 / -mv.z);
+          gl_Position = projectionMatrix * mv;
+        }
+      `,
+      fragmentShader: `
+        varying float vAlpha;
+        varying vec3 vColor;
+        varying float vRimFade;
+        void main() {
+          if (vAlpha <= 0.01) discard;
+          vec2 c = gl_PointCoord - vec2(0.5);
+          float d = length(c);
+          if (d > 0.5) discard;
+          float soft = 1.0 - smoothstep(0.0, 0.5, d);
+          float halo = soft * pow(max(soft, 0.001), 0.6);
+          float core = 1.0 - smoothstep(0.0, 0.22, d);
+          vec3 col = mix(vColor, vec3(1.0, 0.95, 0.98), core * 0.45 * vRimFade);
+          gl_FragColor = vec4(col, vAlpha * halo);
+        }
+      `,
+    });
+    const fluidSwarmPoints = new THREE.Points(fluidGeom, fluidSwarmMat);
+    globeSpin.add(fluidSwarmPoints);
 
     // ------------------------------------------------------------------------
     // 3. GERMANY ANCHOR & PULSING PIN
@@ -871,7 +1216,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     const trailHistory: THREE.Vector3[] = [];
 
     // ------------------------------------------------------------------------
-    // 7. DRAG & ROTATION WITH INERTIA (Scroll does NOT hijack)
+    // 7. DRAG, POINTER RAY-SPHERE HOVER & ROTATION WITH INERTIA (Scroll does NOT hijack)
     // ------------------------------------------------------------------------
     let dragging = false;
     let lastPointerX = 0;
@@ -880,14 +1225,52 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     let velRotX = 0;
     let targetGerLerp = 0; // When course activates, ease to Germany
 
+    // Fluid ray-sphere pointer hover state
+    let hoverTarget = 0;
+    let hoverCurrent = 0;
+    const mouseLocalTarget = gGermanyPos.clone();
+    const rayNdc = new THREE.Vector3();
+    const rayDir = new THREE.Vector3();
+    const hitVec = new THREE.Vector3();
+
+    const updateHoverRay = (e: PointerEvent) => {
+      if (REDUCED) return;
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
+      const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      const ny = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+      rayNdc.set(nx, ny, 0.5).unproject(camera);
+      rayDir.copy(rayNdc).sub(camera.position).normalize();
+
+      const b = camera.position.dot(rayDir);
+      const c = camera.position.dot(camera.position) - R * R;
+      const disc = b * b - c;
+
+      if (disc >= 0) {
+        const tHit = -b - Math.sqrt(disc);
+        if (tHit > 0) {
+          hitVec.copy(camera.position).addScaledVector(rayDir, tHit);
+          globeSpin.updateMatrixWorld();
+          globeSpin.worldToLocal(hitVec);
+          mouseLocalTarget.copy(hitVec).normalize();
+          hoverTarget = 1.0;
+          return;
+        }
+      }
+      hoverTarget = 0.0;
+    };
+
     const handlePointerDown = (e: PointerEvent) => {
       dragging = true;
       lastPointerX = e.clientX;
       lastPointerY = e.clientY;
       canvas.setPointerCapture(e.pointerId);
+      updateHoverRay(e);
     };
 
     const handlePointerMove = (e: PointerEvent) => {
+      updateHoverRay(e);
       if (!dragging) return;
       const dx = e.clientX - lastPointerX;
       const dy = e.clientY - lastPointerY;
@@ -904,10 +1287,15 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       dragging = false;
     };
 
+    const handlePointerLeave = () => {
+      hoverTarget = 0.0;
+    };
+
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointermove", handlePointerMove);
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointercancel", handlePointerUp);
+    canvas.addEventListener("pointerleave", handlePointerLeave);
 
     // Parallax subtle shift with pointer
     let parallaxTargetX = 0;
@@ -927,7 +1315,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     let animId = 0;
     let clock = new THREE.Clock();
     let time = 0;
-    let introProgress = 0;
+    let introProgress = REDUCED ? 1.0 : 0;
 
     // Project 3D vector to screen (overlay coordinates)
     function projectToScreen(vec: THREE.Vector3): [number, number] {
@@ -950,6 +1338,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         introProgress = Math.min(1.0, introProgress + dt / 2.2);
         const sweepAngle = introProgress * Math.PI * 1.15;
         if (dotsMat) dotsMat.uniforms.uIntroSweep.value = sweepAngle;
+        fluidSwarmMat.uniforms.uIntroSweep.value = sweepAngle;
       }
 
       // Parallax easing
@@ -985,7 +1374,14 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
         ringSpin.rotation.y += orbitSpeed * dt;
       }
 
-      // Update shader uniforms
+      // Update shared hover & time fluid uniforms
+      hoverCurrent += (hoverTarget - hoverCurrent) * 0.08;
+      uHoverShared.value = hoverCurrent;
+      uMouseLocalShared.value.lerp(mouseLocalTarget, 0.14).normalize();
+
+      sphereBodyMat.uniforms.uTime.value = time;
+      atmoMat.uniforms.uTime.value = time;
+      fluidSwarmMat.uniforms.uTime.value = time;
       if (dotsMat) dotsMat.uniforms.uTime.value = time;
       arcMaterials.forEach((m) => (m.uniforms.uTime.value = time));
 
@@ -998,7 +1394,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       });
 
       // Check if active course changed -> Trigger Elastic Arrow flight!
-      const currentActive = activeIndex;
+      const currentActive = activeIndexRef.current;
       if (currentActive !== lastActive) {
         lastActive = currentActive;
         targetGerLerp = 1.0; // Ease globe to center Germany
@@ -1128,7 +1524,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
           occludedRef.current[k] = isOccluded;
 
-          const isActive = k === activeIndex;
+          const isActive = k === activeIndexRef.current;
           const baseScale = isActive ? 1.32 : 1.0;
 
           if (isOccluded || occludeOpacity <= 0.02) {
@@ -1163,16 +1559,33 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     ro.observe(containerRef.current);
 
     return () => {
+      disposed = true;
+      window.clearTimeout(maskFallbackTimer);
       cancelAnimationFrame(animId);
       ro.disconnect();
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("pointermove", handlePointerMove);
       canvas.removeEventListener("pointerup", handlePointerUp);
       canvas.removeEventListener("pointercancel", handlePointerUp);
+      canvas.removeEventListener("pointerleave", handlePointerLeave);
       window.removeEventListener("mousemove", handleWindowMouseMove);
+      sphereBodyGeom.dispose();
+      sphereBodyMat.dispose();
+      atmoGeom.dispose();
+      atmoMat.dispose();
+      fluidGeom.dispose();
+      fluidSwarmMat.dispose();
+      if (dotsPoints?.geometry) dotsPoints.geometry.dispose();
+      if (dotsMat) dotsMat.dispose();
+      ringGeom.dispose();
+      orbitRingMat.dispose();
+      trailGeom.dispose();
+      trailMat.dispose();
+      if (flyingArrowSprite.material?.map) flyingArrowSprite.material.map.dispose();
+      flyingArrowSprite.material.dispose();
       renderer.dispose();
     };
-  }, [activeIndex, courses.length]);
+  }, [courses.length]);
 
   return (
     <div
