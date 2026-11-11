@@ -96,7 +96,7 @@ export function ModularPathHeroVisual({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-[28px] bg-[#14151f] p-6 text-white shadow-[0_40px_90px_-40px_rgba(16,24,40,0.6)] sm:p-8 border border-white/10 ${className}`}
+      className={`relative overflow-hidden rounded-[22px] sm:rounded-[28px] bg-[#14151f] p-5 text-white shadow-[0_40px_90px_-40px_rgba(16,24,40,0.6)] sm:p-8 border border-white/10 ${className}`}
       style={{ fontFamily: "'Inter', -apple-system, sans-serif" }}
     >
       <style>{`
@@ -189,7 +189,7 @@ export function ModularPathHeroVisual({
         {/* Curved Path Animation */}
         <div
           key={`p-${courseId}`}
-          className="cwmp-in relative mt-4 h-[104px] w-full sm:h-[112px]"
+          className="cwmp-in relative mt-4 h-[112px] w-full sm:h-[118px]"
         >
           <svg
             viewBox="0 0 300 110"
@@ -265,7 +265,7 @@ export function ModularPathHeroVisual({
 
                 {/* Node Label Below Circle */}
                 <span
-                  className={`absolute top-[calc(100%+8px)] w-24 text-[10px] leading-tight transition-colors duration-300 font-medium ${
+                  className={`absolute top-[calc(100%+7px)] w-20 sm:w-24 text-[9.5px] sm:text-[10px] leading-tight transition-colors duration-300 font-medium ${
                     idx === 0
                       ? "left-0 text-left"
                       : idx === numModules - 1
@@ -281,7 +281,7 @@ export function ModularPathHeroVisual({
         </div>
 
         {/* Active Module Details Card */}
-        <div className="mt-6 min-h-[160px] rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm sm:p-5">
+        <div className="mt-8 sm:mt-7 min-h-[160px] rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm sm:p-5">
           <div key={`m-${courseId}-${currentModuleIndex}`} className="cwmp-in">
             <div className="flex items-start justify-between gap-3">
               <div>

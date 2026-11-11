@@ -273,7 +273,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             ===================================================================== */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12">
           {/* OPTION 1: LIGHT / WHITE CARD */}
-          <div className="bg-white/90 backdrop-blur-md rounded-2xl p-7 sm:p-9 border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(20,27,45,0.06)] flex flex-col justify-between hover:border-[#141B2D]/40 transition-all duration-300 group">
+          <div className="bg-white/90 backdrop-blur-md rounded-2xl p-5 sm:p-9 border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(20,27,45,0.06)] flex flex-col justify-between hover:border-[#141B2D]/40 transition-all duration-300 group">
             <div>
               {/* Option 1 Badge (Dark Navy on White) */}
               <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[#141B2D] text-white text-xs font-medium uppercase tracking-wider mb-5 shadow-xs">
@@ -292,7 +292,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
                   : "Du weißt bereits, wo du hinwillst. Wähle aus 6 spezialisierten Fachbereichen (KI & Data, Full Stack, Cyber Security, Cloud, SDET, CKAD). 100 % finanziert mit Bildungsgutschein."}
               </p>
 
-              <div className="grid grid-cols-2 gap-3 mb-8 text-xs font-medium text-slate-700">
+              <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-2.5 sm:gap-3 mb-7 sm:mb-8 text-xs font-medium text-slate-700">
                 <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50/90 backdrop-blur-xs border border-slate-200/80">
                   <CheckCircleIcon className="w-4 h-4 text-[#E51A59] shrink-0" />
                   <span>{isEn ? "0 € Tuition (BGS)" : "0 € Kosten mit BGS"}</span>
@@ -323,7 +323,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
           </div>
 
           {/* OPTION 2: OPPOSITE / MAGENTA CARD (RICH GLASSMORPHISM) */}
-          <div className="bg-[#E51A59] rounded-2xl p-7 sm:p-9 text-white shadow-[0_12px_32px_-6px_rgba(229,26,89,0.35)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div className="bg-[#E51A59] rounded-2xl p-5 sm:p-9 text-white shadow-[0_12px_32px_-6px_rgba(229,26,89,0.35)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
             {/* Ambient frosted glass light sheen */}
             <div
               className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-white/15 blur-2xl pointer-events-none"
@@ -353,7 +353,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
               </p>
 
               {/* 4 Frosted Glass Benefit Chips */}
-              <div className="grid grid-cols-2 gap-3 mb-8 text-xs font-medium text-white">
+              <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-2.5 sm:gap-3 mb-7 sm:mb-8 text-xs font-medium text-white">
                 <div className="flex items-center gap-2 p-2.5 rounded-lg backdrop-blur-md bg-white/15 border border-white/25 shadow-xs">
                   <CheckCircleIcon className="w-4 h-4 text-white shrink-0" />
                   <span>{isEn ? "0 € with AVGS Voucher" : "0 € Kosten mit AVGS"}</span>
@@ -445,7 +445,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
           {displayedCourses.map((course) => (
             <article
               key={course.id}
-              className="group relative bg-white hover:bg-[#E51A59] rounded-2xl border border-slate-300/80 hover:border-transparent p-6 sm:p-7 flex flex-col justify-between shadow-[0_2px_12px_rgba(20,27,45,0.04)] hover:shadow-[0_20px_40px_-8px_rgba(229,26,89,0.38)] hover:-translate-y-2 transition-all duration-300 ease-out overflow-hidden"
+              className="group relative bg-white hover:bg-[#E51A59] rounded-2xl border border-slate-300/80 hover:border-transparent p-5 sm:p-7 flex flex-col justify-between shadow-[0_2px_12px_rgba(20,27,45,0.04)] hover:shadow-[0_20px_40px_-8px_rgba(229,26,89,0.38)] hover:-translate-y-2 transition-all duration-300 ease-out overflow-hidden"
             >
               {/* Top Magenta Accent Line (fades on hover as whole card blooms into magenta) */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-[#E51A59] group-hover:opacity-0 transition-opacity duration-300" />
@@ -518,7 +518,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
               {/* Card Footer: Metadata & Button (Morphs to Solid White Button on Hover) */}
               <div className="pt-4 border-t border-slate-200 group-hover:border-white/20 flex flex-col gap-3 transition-colors duration-300 relative z-10">
-                <div className="flex items-center justify-between text-xs text-slate-500 font-medium transition-colors duration-300 group-hover:text-white/80">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 text-xs text-slate-500 font-medium transition-colors duration-300 group-hover:text-white/80">
                   <span className="inline-flex items-center gap-1.5">
                     <ClockIcon className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors duration-300" />
                     <span>{course.duration}</span>

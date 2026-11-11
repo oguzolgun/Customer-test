@@ -79,7 +79,7 @@ function SeoSitemapDrawer() {
   return (
     <div className="fixed bottom-4 right-4 z-50" style={{ fontFamily: "'Inter', -apple-system, sans-serif" }}>
       {open ? (
-        <div className="w-[360px] sm:w-[420px] max-h-[82vh] overflow-y-auto bg-[#1a1d2e] text-white rounded-2xl shadow-2xl border border-white/15 p-5 text-xs">
+        <div className="w-[calc(100vw-2rem)] sm:w-[420px] max-h-[82vh] overflow-y-auto bg-[#1a1d2e] text-white rounded-2xl shadow-2xl border border-white/15 p-5 text-xs">
           <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/15">
             <div>
               <p className="font-medium text-sm text-white">SEO & Sitemap Navigator</p>

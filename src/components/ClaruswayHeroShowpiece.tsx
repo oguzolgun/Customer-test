@@ -1030,7 +1030,9 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       dragging = true;
       lastPointerX = e.clientX;
       lastPointerY = e.clientY;
-      canvas.setPointerCapture(e.pointerId);
+      if (e.pointerType !== "touch") {
+        canvas.setPointerCapture(e.pointerId);
+      }
       updateHoverRay(e);
     };
 
@@ -1207,7 +1209,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
           }
 
           // Responsive bounds clamping so active course capsules never clip on mobile edges
-          const halfNodeX = isActive ? (W < 460 ? 92 : 76) : 16;
+          const halfNodeX = isActive ? (W < 460 ? 94 : 76) : 18;
           const halfNodeY = isActive ? 22 : 16;
           const cx = Math.max(halfNodeX, Math.min(W - halfNodeX, sx));
           const cy = Math.max(halfNodeY, Math.min(H - halfNodeY, sy));
@@ -1270,7 +1272,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       {/* 3D WebGL Canvas */}
       <canvas
         ref={canvasRef}
-        className="w-full h-full cursor-grab active:cursor-grabbing touch-none block"
+        className="w-full h-full cursor-grab active:cursor-grabbing touch-pan-y block"
       />
 
       {/* 7 Orbiting Auros-Inspired Precision Course Nodes */}
@@ -1291,7 +1293,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
                 <Link
                   to={course.to}
                   aria-label={course.name}
-                  className="group flex items-center gap-1.5 sm:gap-2.5 pl-1.5 pr-2 sm:pr-3 py-1 sm:py-1.5 max-w-[180px] sm:max-w-none rounded-[9px] sm:rounded-[10px] bg-[#160812]/90 backdrop-blur-xl border border-[#F2A6BC]/25 hover:border-[#E5254F]/60 shadow-[0_8px_24px_rgba(18,6,15,0.18)] transition-colors duration-300"
+                  className="group flex items-center gap-1.5 sm:gap-2.5 pl-1.5 pr-2 sm:pr-3 py-1 sm:py-1.5 max-w-[184px] sm:max-w-none rounded-[9px] sm:rounded-[10px] bg-[#160812]/90 backdrop-blur-xl border border-[#F2A6BC]/25 hover:border-[#E5254F]/60 shadow-[0_8px_24px_rgba(18,6,15,0.18)] transition-colors duration-300"
                   style={{ animation: "instrumentReveal 0.35s cubic-bezier(0.16, 1, 0.3, 1)" }}
                 >
                   <span className="w-6 h-6 rounded-[6px] bg-gradient-to-br from-[#E5254F]/25 to-[#8A1C4A]/35 border border-[#F2A6BC]/30 flex items-center justify-center text-[#FDE9FF] shrink-0">
@@ -1301,7 +1303,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
                     <span className="text-[8px] sm:text-[8.5px] font-medium uppercase tracking-[0.12em] sm:tracking-[0.14em] text-[#F2A6BC]/85 leading-none mb-0.5 whitespace-nowrap max-w-[116px] sm:max-w-none truncate">
                       {microLabel}
                     </span>
-                    <span className="text-[11px] sm:text-xs font-medium tracking-[-0.015em] text-white leading-tight whitespace-nowrap">
+                    <span className="text-[11px] sm:text-xs font-medium tracking-[-0.015em] text-white leading-tight whitespace-nowrap truncate">
                       {course.name}
                     </span>
                   </span>

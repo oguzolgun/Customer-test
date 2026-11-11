@@ -151,9 +151,9 @@ export default function Navbar() {
       className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-md"
       style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
     >
-      <div className="max-w-[1200px] mx-auto px-5 h-[74px] flex items-center justify-between gap-4">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-5 h-[68px] sm:h-[74px] flex items-center justify-between gap-2 sm:gap-4">
         {/* Logo (no heading tag) */}
-        <Link to="/" className="shrink-0 flex items-center h-[42px]">
+        <Link to="/" className="shrink-0 flex items-center h-[34px] sm:h-[42px]">
           <img
             src={imgLogo}
             alt="Clarusway Germany"
@@ -455,7 +455,7 @@ export default function Navbar() {
         </nav>
 
         {/* Right CTAs + Language Switcher (Matches header layout: [DE/EN] [CTA]) */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Bilateral Language Switcher (DE <-> EN counterpart page) */}
           <div
             className="inline-flex items-center rounded-xl border border-gray-200 p-0.5 bg-gray-50"
@@ -516,7 +516,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Accordion (All links always in HTML DOM, toggled with CSS class) */}
-      <div className={`lg:hidden border-t border-gray-100 bg-white ${mobileOpen ? "block" : "hidden"}`}>
+      <div className={`lg:hidden border-t border-gray-100 bg-white max-h-[calc(100dvh-68px)] sm:max-h-[calc(100dvh-74px)] overflow-y-auto ${mobileOpen ? "block" : "hidden"}`}>
         <div className="max-w-[1200px] mx-auto px-5 py-4 space-y-2">
           {/* Courses Accordion */}
           <div className="border border-gray-100 rounded-xl overflow-hidden">
