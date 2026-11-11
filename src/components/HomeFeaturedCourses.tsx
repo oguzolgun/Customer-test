@@ -227,7 +227,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
 
   return (
     <section
-      className="py-20 sm:py-24 relative overflow-hidden bg-[#FAF9F7]"
+      className="py-12 sm:py-14 relative overflow-hidden bg-[#FAF9F7]"
       style={{
         background: "linear-gradient(180deg, #FBFBFA 0%, #FFFFFF 50%, #FAF8F6 100%)",
       }}
@@ -236,7 +236,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
         {/* =====================================================================
             SECTION HEADER: Clean & Authoritative
             ===================================================================== */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDE8EF]/80 backdrop-blur-xs border border-[#E51A59]/30 text-[#E51A59] text-xs font-medium tracking-wide uppercase mb-3">
               <span className="w-2 h-2 rounded-full bg-[#E51A59] animate-pulse" />
@@ -271,7 +271,7 @@ export function HomeFeaturedCourses({ isEn }: HomeFeaturedCoursesProps) {
             OPPOSITE CARDS (IMAGE 2 ARCHITECTURE: OPTION 1 WHITE vs OPTION 2 MAGENTA)
             High-impact two-path decision structure with Glassmorphism
             ===================================================================== */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-14">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12">
           {/* OPTION 1: LIGHT / WHITE CARD */}
           <div className="bg-white/90 backdrop-blur-md rounded-2xl p-7 sm:p-9 border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(20,27,45,0.06)] flex flex-col justify-between hover:border-[#141B2D]/40 transition-all duration-300 group">
             <div>

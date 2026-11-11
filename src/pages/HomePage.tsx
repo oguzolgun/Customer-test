@@ -355,7 +355,7 @@ export function HomePage() {
         const copy = isEn ? HERO_COPY.en : HERO_COPY.de;
         return (
           <section
-            className="relative py-8 sm:py-12 lg:py-14 overflow-hidden"
+            className="relative pt-5 pb-6 sm:pt-7 sm:pb-8 lg:pt-8 lg:pb-10 overflow-hidden"
             style={{
               backgroundColor: "#FFF4F6",
               backgroundImage: `
@@ -366,7 +366,7 @@ export function HomePage() {
             }}
           >
             <div className="max-w-[1420px] mx-auto px-4 sm:px-8 relative z-10">
-              <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-6 xl:gap-8 items-center">
+              <div className="grid lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-6 xl:gap-8 items-center">
                 
                 {/* Left Text Column */}
                 <div className="lg:col-span-6 max-w-[580px] z-20 flex flex-col justify-center">
@@ -438,7 +438,7 @@ export function HomePage() {
                 </div>
 
                 {/* Right Column / Centerpiece: Enlarged Particle Globe Showpiece */}
-                <div className="lg:col-span-6 flex justify-center lg:justify-end items-center relative overflow-visible z-10 -mt-1 sm:mt-0">
+                <div className="lg:col-span-6 flex justify-center lg:justify-end items-center relative overflow-visible z-10 mt-0">
                   <ClaruswayHeroShowpiece isEn={isEn} />
                 </div>
 
@@ -463,7 +463,7 @@ export function HomePage() {
           B4: WELCHER IT-BEREICH PASST ZU DIR? (H2 per Page 21)
           Interactive Tech Career Explorer Cards with Field Icons
           ===================================================================== */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
+      <section style={{ backgroundColor: SOFT_BG }} className="py-12 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span
@@ -529,7 +529,7 @@ export function HomePage() {
           B5: FÖRDERUNG MIT BILDUNGSGUTSCHEIN, AVGS ODER QCG (H2 per Page 22)
           Official Statutory Voucher Passes
           ===================================================================== */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span
@@ -702,7 +702,7 @@ export function HomePage() {
           B6: IN 3 SCHRITTEN ZUR IT WEITERBILDUNG (H2 per Page 22)
           Connected Step-by-Step Roadmap / Process Stepper
           ===================================================================== */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
+      <section style={{ backgroundColor: SOFT_BG }} className="py-12 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span
@@ -784,7 +784,7 @@ export function HomePage() {
       {/* =====================================================================
           B7: SO FUNKTIONIERT DAS LERNEN BEI CLARUSWAY (H2 per Page 22)
           ===================================================================== */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span
@@ -865,7 +865,7 @@ export function HomePage() {
       {/* =====================================================================
           B9: ERFAHRUNGEN VON CLARUSWAY ABSOLVENTEN (H2 per Page 22)
           ===================================================================== */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
@@ -946,7 +946,7 @@ export function HomePage() {
       {/* =====================================================================
           B10: HÄUFIGE FRAGEN ZUR IT WEITERBILDUNG (H2 per Page 22)
           ===================================================================== */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
+      <section style={{ backgroundColor: SOFT_BG }} className="py-12 sm:py-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <span
@@ -991,7 +991,7 @@ export function HomePage() {
           B11 / B16: SON CTA BANDI (H2 per Page 22)
           ===================================================================== */}
       <section
-        className="py-16"
+        className="py-14"
         style={{ background: `linear-gradient(135deg, ${DARK} 0%, #2d1b3d 100%)` }}
       >
         <div className="max-w-4xl mx-auto px-5 text-center text-white">

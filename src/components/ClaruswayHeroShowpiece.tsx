@@ -271,10 +271,19 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
 
     const scene = new THREE.Scene();
 
-    // Enlarged globe proportion inside canvas with subtle left optical offset for right-side wave scatter
+    // Responsive aspect-aware framing: keeps enlarged globe + right-side wave scatter crisp inside compact vertical bounds
     const CAM_X = 0.28;
-    const camera = new THREE.PerspectiveCamera(34, W / H, 0.1, 100);
-    camera.position.set(CAM_X, 0, 18.8);
+    const FOV_DEG = 34;
+    const tanHalfFov = Math.tan((FOV_DEG * Math.PI) / 360);
+    const computeCamZ = (w: number, h: number) => {
+      const aspect = Math.max(0.75, w / Math.max(1, h));
+      const neededForHeight = 5.15 / tanHalfFov;
+      const neededForWidth = 5.85 / (aspect * tanHalfFov);
+      return Math.max(neededForHeight, neededForWidth);
+    };
+    const camera = new THREE.PerspectiveCamera(FOV_DEG, W / H, 0.1, 100);
+    camera.position.set(CAM_X, 0, computeCamZ(W, H));
+    camera.lookAt(CAM_X, 0, 0);
 
     // Helpers
     const R = 4.55; // Larger, commanding particle globe core radius (~79% canvas fill)
@@ -1218,6 +1227,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       H = containerRef.current.clientHeight || 800;
       renderer.setSize(W, H);
       camera.aspect = W / H;
+      camera.position.z = computeCamZ(W, H);
       camera.updateProjectionMatrix();
     };
 
@@ -1255,7 +1265,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-[min(94vw,380px)] h-[min(94vw,380px)] sm:w-[480px] sm:h-[480px] md:w-[540px] md:h-[540px] lg:w-[490px] lg:h-[490px] xl:w-[600px] xl:h-[600px] min-[1440px]:w-[660px] min-[1440px]:h-[660px] select-none flex items-center justify-center overflow-visible"
+      className="relative w-[min(94vw,380px)] h-[310px] sm:w-[490px] sm:h-[395px] md:w-[540px] md:h-[430px] lg:w-[520px] lg:h-[420px] xl:w-[600px] xl:h-[480px] min-[1440px]:w-[640px] min-[1440px]:h-[505px] select-none flex items-center justify-center overflow-visible"
     >
       {/* 3D WebGL Canvas */}
       <canvas

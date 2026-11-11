@@ -91,7 +91,7 @@ export function TrustKeyFactsBar({
   return (
     <section
       aria-label={isEn ? "Key facts and trust badges" : "Wichtigste Eckdaten und Qualitätsmerkmale"}
-      className={`bg-[#FAF8F5] border-y border-stone-200/90 py-5 sm:py-6 relative z-10 ${className}`}
+      className={`bg-[#FAF8F5] border-y border-stone-200/90 py-4 sm:py-5 relative z-10 ${className}`}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div

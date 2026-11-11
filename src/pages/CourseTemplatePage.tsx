@@ -302,7 +302,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         className="relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
       >
-        <div className="max-w-[1200px] mx-auto px-5 py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="max-w-[1200px] mx-auto px-5 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column — Hook, Heading, Badges, CTAs */}
           <div>
             <div className="flex flex-wrap gap-2 mb-5">
@@ -620,7 +620,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       {/* =====================================================================
           5. MÜFREDAT / CURRICULUM + PDF DOWNLOAD (Components B5 + B6) — H2: curriculumH2
           ===================================================================== */}
-      <section id="curriculum" className="py-20 bg-white">
+      <section id="curriculum" className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div
@@ -1255,7 +1255,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       {/* =====================================================================
           8. KARİYER / BERUFE NACH DER WEITERBILDUNG (Component B9) — H2: careerH2
           ===================================================================== */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="max-w-3xl mb-10">
             <div
@@ -1391,7 +1391,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       {/* =====================================================================
           9. NEDEN CLARUSWAY / WARUM CLARUSWAY (Component B10) — H2: whyH2
           ===================================================================== */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div
@@ -1462,7 +1462,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       {/* =====================================================================
           10. YORUMLAR / ALUMNI ERFAHRUNGEN (Component B12) — H2: reviewsH2
           ===================================================================== */}
-      <section className="py-20" style={{ background: SOFT_BG }}>
+      <section className="py-16" style={{ background: SOFT_BG }}>
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
@@ -1532,7 +1532,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       {/* =====================================================================
           11. FAQ (Component B13) — H2: faqH2
           ===================================================================== */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-5 grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-5">
             <div
