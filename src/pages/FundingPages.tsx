@@ -115,6 +115,8 @@ export function FinancingHubPage() {
                   alt={FUNDING_OVERVIEW_IMAGES.landscapeHero.alt[lang]}
                   className="w-full aspect-square object-cover"
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -712,6 +714,8 @@ export function BildungsgutscheinPage() {
                   alt={BILDUNGSGUTSCHEIN_IMAGES.landscapeHero.alt[lang]}
                   className="w-full aspect-square object-cover"
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -1322,6 +1326,8 @@ export function AvgsPage() {
                   alt={AVGS_IMAGES.landscapeHero.alt[lang]}
                   className="w-full aspect-square object-cover"
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -1888,6 +1894,8 @@ export function QcgPage() {
                   alt={QCG_IMAGES.landscapeHero.alt[lang]}
                   className="w-full aspect-square object-cover"
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -2125,6 +2133,7 @@ export function QcgPage() {
                 <input
                   type="text"
                   required
+                  autoComplete="name"
                   value={contactName}
                   onChange={(e) => setContactName(e.target.value)}
                   placeholder={isEn ? "Your name *" : "Ihr Name *"}
@@ -2132,6 +2141,7 @@ export function QcgPage() {
                 />
                 <input
                   type="text"
+                  autoComplete="organization"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                   placeholder={isEn ? "Company name" : "Unternehmen"}
@@ -2140,6 +2150,7 @@ export function QcgPage() {
                 <input
                   type="email"
                   required
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={isEn ? "Work email *" : "Geschäftliche E-Mail *"}
@@ -2316,6 +2327,8 @@ export function CorporateTrainingPage() {
                   alt={CORPORATE_TRAINING_IMAGES.landscapeHero.alt[lang]}
                   className="w-full aspect-square object-cover"
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
             </div>

@@ -910,6 +910,7 @@ export function EventsPage() {
                   <input
                     type="text"
                     required
+                    autoComplete="name"
                     value={regName}
                     onChange={(e) => setRegName(e.target.value)}
                     placeholder={isEn ? "Your name *" : "Dein Name *"}
@@ -918,6 +919,7 @@ export function EventsPage() {
                   <input
                     type="email"
                     required
+                    autoComplete="email"
                     value={regEmail}
                     onChange={(e) => setRegEmail(e.target.value)}
                     placeholder={isEn ? "Email *" : "E-Mail *"}
@@ -1147,6 +1149,7 @@ export function ConsultationPage() {
                       <input
                         type="text"
                         required
+                        autoComplete="name"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         placeholder={isEn ? "e.g. Alex Miller" : "z. B. Max Mustermann"}
@@ -1162,6 +1165,7 @@ export function ConsultationPage() {
                         <input
                           type="email"
                           required
+                          autoComplete="email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="name@example.com"
@@ -1175,6 +1179,8 @@ export function ConsultationPage() {
                         <input
                           type="tel"
                           required
+                          autoComplete="tel"
+                          inputMode="tel"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="+49 ..."

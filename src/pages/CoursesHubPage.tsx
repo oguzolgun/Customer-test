@@ -487,6 +487,7 @@ export function CoursesHubPage() {
                 alt={COURSES_HUB_IMAGES.landscapeHero.alt[lang]}
                 className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -634,6 +635,7 @@ export function CoursesHubPage() {
               alt={COURSES_HUB_IMAGES.landscapeAlumni.alt[lang]}
               className="w-full max-h-[380px] sm:max-h-[440px] object-cover"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

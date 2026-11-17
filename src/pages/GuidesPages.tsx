@@ -27,12 +27,8 @@ export function GuidesHubPage() {
   const guidesMap = isEn ? EN_GUIDES : DE_GUIDES;
   const allGuides = Object.values(guidesMap);
 
-  // Group guides by cluster
-  const clusters: Record<string, GuideArticleData[]> = {};
-  for (const g of allGuides) {
-    if (!clusters[g.cluster]) clusters[g.cluster] = [];
-    clusters[g.cluster].push(g);
-  }
+  // Group guides by cluster using modern Object.groupBy
+  const clusters = Object.groupBy(allGuides, (g) => g.cluster) as Record<string, GuideArticleData[]>;
 
   const metaTitle = isEn
     ? "Career Guides: IT Jobs, Certifications and Funding | Clarusway"

@@ -796,6 +796,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       <input
                         type="text"
                         required
+                        autoComplete="name"
                         value={syllabusName}
                         onChange={(e) => setSyllabusName(e.target.value)}
                         placeholder={lang === "en" ? "e.g. Alex Miller" : "z. B. Max Mustermann"}
@@ -809,6 +810,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       <input
                         type="email"
                         required
+                        autoComplete="email"
                         value={syllabusEmail}
                         onChange={(e) => setSyllabusEmail(e.target.value)}
                         placeholder={lang === "en" ? "alex@example.com" : "max@beispiel.de"}
@@ -821,6 +823,8 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                       </label>
                       <input
                         type="tel"
+                        autoComplete="tel"
+                        inputMode="tel"
                         value={syllabusPhone}
                         onChange={(e) => setSyllabusPhone(e.target.value)}
                         placeholder={lang === "en" ? "+49 170 1234567" : "+49 170 1234567"}
