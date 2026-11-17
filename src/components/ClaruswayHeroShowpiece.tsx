@@ -942,24 +942,73 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
     const ringSpin = new THREE.Group();
     ringGroup.add(ringSpin);
 
-    const RING_SEGS = 400;
-    const ringPos = new Float32Array(RING_SEGS * 3);
-    for (let i = 0; i < RING_SEGS; i++) {
-      const a = (i / (RING_SEGS - 1)) * Math.PI * 2;
-      ringPos[i * 3 + 0] = Math.cos(a) * ORBIT_R;
-      ringPos[i * 3 + 1] = 0;
-      ringPos[i * 3 + 2] = Math.sin(a) * ORBIT_R;
-    }
-    const ringGeom = new THREE.BufferGeometry();
-    ringGeom.setAttribute("position", new THREE.BufferAttribute(ringPos, 3));
+    // 5a. Primary sleek 3D orbital track (crisp anti-aliased ribbon with depth & contrast awareness)
+    const orbitTubeGeom = new THREE.TorusGeometry(ORBIT_R, 0.021, 10, 240);
+    orbitTubeGeom.rotateX(Math.PI / 2);
 
-    // Depth-aware hairline orbit trace (ultra-subtle instrument aesthetic)
     const orbitRingMat = new THREE.ShaderMaterial({
       transparent: true,
-      depthTest: true,
+      depthTest: false,
       depthWrite: false,
       uniforms: {
         uRadius: { value: R * 0.96 },
+        uOrbitR: { value: ORBIT_R },
+        uTime: { value: 0 },
+        uReduced: { value: uReducedVal },
+      },
+      vertexShader: `
+        varying vec3 vWorldPos;
+        varying float vAngle;
+        void main() {
+          vAngle = atan(position.z, position.x);
+          vWorldPos = (modelMatrix * vec4(position, 1.0)).xyz;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform float uRadius;
+        uniform float uOrbitR;
+        uniform float uTime;
+        uniform float uReduced;
+        varying vec3 vWorldPos;
+        varying float vAngle;
+        void main() {
+          float distToCenter = length(vWorldPos.xy);
+          float overGlobe = 1.0 - smoothstep(uRadius * 0.88, uRadius * 1.04, distToCenter);
+          float isBack = 1.0 - smoothstep(-0.35, 0.25, vWorldPos.z);
+          float occlusionMask = 1.0 - (isBack * overGlobe * 0.94);
+
+          float depthFactor = smoothstep(-uOrbitR * 0.85, uOrbitR * 0.75, vWorldPos.z);
+          float t = uTime * (1.0 - uReduced);
+          float shimmer = pow(0.5 + 0.5 * sin(vAngle * 2.0 - t * 1.1), 6.0);
+
+          vec3 onBgColor = vec3(0.69, 0.13, 0.35);
+          vec3 onGlobeColor = vec3(0.996, 0.906, 0.955);
+          vec3 baseColor = mix(onBgColor, onGlobeColor, overGlobe);
+          vec3 finalColor = mix(baseColor, vec3(1.0, 0.94, 0.97), shimmer * 0.45 * depthFactor);
+
+          float baseAlpha = mix(0.32, 0.42, overGlobe) * mix(0.52, 1.0, depthFactor);
+          float alpha = (baseAlpha + shimmer * 0.22 * depthFactor) * occlusionMask;
+          if (alpha < 0.01) discard;
+          gl_FragColor = vec4(finalColor, alpha);
+        }
+      `,
+    });
+    const orbitTubeMesh = new THREE.Mesh(orbitTubeGeom, orbitRingMat);
+    orbitTubeMesh.renderOrder = 8;
+    ringSpin.add(orbitTubeMesh);
+
+    // 5b. Ultra-soft atmospheric feather halo around primary track
+    const orbitGlowGeom = new THREE.TorusGeometry(ORBIT_R, 0.055, 8, 180);
+    orbitGlowGeom.rotateX(Math.PI / 2);
+
+    const orbitGlowMat = new THREE.ShaderMaterial({
+      transparent: true,
+      depthTest: false,
+      depthWrite: false,
+      uniforms: {
+        uRadius: { value: R * 0.96 },
+        uOrbitR: { value: ORBIT_R },
       },
       vertexShader: `
         varying vec3 vWorldPos;
@@ -970,16 +1019,81 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       `,
       fragmentShader: `
         uniform float uRadius;
+        uniform float uOrbitR;
         varying vec3 vWorldPos;
         void main() {
           float distToCenter = length(vWorldPos.xy);
-          vec3 c = distToCenter < uRadius ? vec3(0.992, 0.914, 1.0) : vec3(0.541, 0.110, 0.290);
-          float alpha = distToCenter < uRadius ? 0.09 : 0.08;
+          float overGlobe = 1.0 - smoothstep(uRadius * 0.88, uRadius * 1.04, distToCenter);
+          float isBack = 1.0 - smoothstep(-0.35, 0.25, vWorldPos.z);
+          float occlusionMask = 1.0 - (isBack * overGlobe * 0.96);
+          float depthFactor = smoothstep(-uOrbitR * 0.85, uOrbitR * 0.75, vWorldPos.z);
+
+          vec3 c = mix(vec3(0.898, 0.145, 0.310), vec3(0.996, 0.88, 0.94), overGlobe);
+          float alpha = mix(0.08, 0.11, overGlobe) * mix(0.45, 1.0, depthFactor) * occlusionMask;
+          if (alpha < 0.005) discard;
           gl_FragColor = vec4(c, alpha);
         }
       `,
     });
-    ringSpin.add(new THREE.Line(ringGeom, orbitRingMat));
+    const orbitGlowMesh = new THREE.Mesh(orbitGlowGeom, orbitGlowMat);
+    orbitGlowMesh.renderOrder = 7;
+    ringSpin.add(orbitGlowMesh);
+
+    // 5c. Delicate outer dashed companion hairline (precision instrument aesthetic)
+    const RING_SEGS = 420;
+    const outerOrbitR = ORBIT_R * 1.036;
+    const ringPos = new Float32Array(RING_SEGS * 3);
+    for (let i = 0; i < RING_SEGS; i++) {
+      const a = (i / (RING_SEGS - 1)) * Math.PI * 2;
+      ringPos[i * 3 + 0] = Math.cos(a) * outerOrbitR;
+      ringPos[i * 3 + 1] = 0;
+      ringPos[i * 3 + 2] = Math.sin(a) * outerOrbitR;
+    }
+    const ringGeom = new THREE.BufferGeometry();
+    ringGeom.setAttribute("position", new THREE.BufferAttribute(ringPos, 3));
+
+    const outerDashMat = new THREE.ShaderMaterial({
+      transparent: true,
+      depthTest: false,
+      depthWrite: false,
+      uniforms: {
+        uRadius: { value: R * 0.96 },
+        uOrbitR: { value: outerOrbitR },
+      },
+      vertexShader: `
+        varying vec3 vWorldPos;
+        varying float vAngle;
+        void main() {
+          vAngle = atan(position.z, position.x);
+          vWorldPos = (modelMatrix * vec4(position, 1.0)).xyz;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform float uRadius;
+        uniform float uOrbitR;
+        varying vec3 vWorldPos;
+        varying float vAngle;
+        void main() {
+          float dash = smoothstep(0.15, 0.35, sin(vAngle * 46.0));
+          if (dash < 0.05) discard;
+
+          float distToCenter = length(vWorldPos.xy);
+          float overGlobe = 1.0 - smoothstep(uRadius * 0.88, uRadius * 1.04, distToCenter);
+          float isBack = 1.0 - smoothstep(-0.35, 0.25, vWorldPos.z);
+          float occlusionMask = 1.0 - (isBack * overGlobe * 0.96);
+          float depthFactor = smoothstep(-uOrbitR * 0.85, uOrbitR * 0.75, vWorldPos.z);
+
+          vec3 c = mix(vec3(0.65, 0.14, 0.34), vec3(0.99, 0.90, 0.95), overGlobe);
+          float alpha = dash * mix(0.20, 0.24, overGlobe) * mix(0.42, 1.0, depthFactor) * occlusionMask;
+          if (alpha < 0.01) discard;
+          gl_FragColor = vec4(c, alpha);
+        }
+      `,
+    });
+    const outerDashLine = new THREE.Line(ringGeom, outerDashMat);
+    outerDashLine.renderOrder = 7;
+    ringSpin.add(outerDashLine);
 
     // ------------------------------------------------------------------------
     // 6. DRAG, POINTER RAY-SPHERE HOVER & ROTATION WITH INERTIA (Scroll does NOT hijack)
@@ -1135,6 +1249,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       sphereBodyMat.uniforms.uTime.value = time;
       atmoMat.uniforms.uTime.value = time;
       fluidSwarmMat.uniforms.uTime.value = time;
+      orbitRingMat.uniforms.uTime.value = time;
       if (dotsMat) dotsMat.uniforms.uTime.value = time;
       arcMaterials.forEach((m) => (m.uniforms.uTime.value = time));
 
@@ -1256,8 +1371,12 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       arcMaterials.forEach((m) => m.dispose());
       if (dotsPoints?.geometry) dotsPoints.geometry.dispose();
       if (dotsMat) dotsMat.dispose();
-      ringGeom.dispose();
+      orbitTubeGeom.dispose();
       orbitRingMat.dispose();
+      orbitGlowGeom.dispose();
+      orbitGlowMat.dispose();
+      ringGeom.dispose();
+      outerDashMat.dispose();
       renderer.dispose();
     };
   }, [courses.length]);
