@@ -423,6 +423,7 @@ export function CoursesHubPage() {
         title={metaTitle}
         description={metaDescription}
         path={currentPath}
+        breadcrumbs={[{ label: isEn ? "IT Courses" : "IT-Kurse" }]}
         schema={schema}
       />
 
@@ -435,7 +436,7 @@ export function CoursesHubPage() {
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
         className="py-14 md:py-18"
       >
-        <div className="max-w-[1200px] mx-auto px-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
               <ShieldCheckIcon className="w-4 h-4" />

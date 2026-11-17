@@ -39,10 +39,17 @@ export function AboutPage() {
     ? "Clarusway GmbH (Neuss, Germany) is an AZAV-certified IT training provider and AWS Select Tier Partner offering live online IT bootcamps."
     : "Clarusway GmbH mit Sitz in Neuss ist ein AZAV-zertifizierter Bildungsträger und offizieller AWS Select Tier Partner für praxisnahe IT-Weiterbildungen.";
 
+  const breadcrumbItems = [{ label: isEn ? "About Us" : "Über uns" }];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
-      <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
-      <Breadcrumb items={[{ label: isEn ? "About Us" : "Über uns" }]} />
+      <SeoHead
+        title={metaTitle}
+        description={metaDescription}
+        path={currentPath}
+        breadcrumbs={breadcrumbItems}
+      />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
@@ -342,12 +349,20 @@ export function SuccessStoriesPage() {
     },
   ];
 
+  const breadcrumbItems = [
+    { label: isEn ? "About Us" : "Über uns", to: isEn ? "/about/" : "/ueber-uns/" },
+    { label: isEn ? "Success Stories" : "Erfolgsgeschichten" },
+  ];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
-      <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
-      <Breadcrumb
-        items={[{ label: isEn ? "Success Stories" : "Erfolgsgeschichten" }]}
+      <SeoHead
+        title={metaTitle}
+        description={metaDescription}
+        path={currentPath}
+        breadcrumbs={breadcrumbItems}
       />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
@@ -498,12 +513,20 @@ export function CareerManagementPage() {
         },
       ];
 
+  const breadcrumbItems = [
+    { label: isEn ? "About Us" : "Über uns", to: isEn ? "/about/" : "/ueber-uns/" },
+    { label: isEn ? "Career Management" : "Karriere-Management" },
+  ];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
-      <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
-      <Breadcrumb
-        items={[{ label: isEn ? "Career Management" : "Karriere-Management" }]}
+      <SeoHead
+        title={metaTitle}
+        description={metaDescription}
+        path={currentPath}
+        breadcrumbs={breadcrumbItems}
       />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
@@ -804,15 +827,21 @@ export function EventsPage() {
     description: ev.desc,
   }));
 
+  const breadcrumbItems = [
+    { label: isEn ? "About Us" : "Über uns", to: isEn ? "/about/" : "/ueber-uns/" },
+    { label: "Events" },
+  ];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={metaTitle}
         description={metaDescription}
         path="/events/"
+        breadcrumbs={breadcrumbItems}
         schema={schema}
       />
-      <Breadcrumb items={[{ label: "Events" }]} />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
@@ -1025,19 +1054,20 @@ export function ConsultationPage() {
     setSubmitted(true);
   };
 
+  const breadcrumbItems = [
+    { label: isEn ? "Free Consultation" : "Kostenlose Beratung" },
+  ];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={metaTitle}
         description={metaDescription}
         path={currentPath}
+        breadcrumbs={breadcrumbItems}
         noindex={submitted}
       />
-      <Breadcrumb
-        items={[
-          { label: isEn ? "Free Consultation" : "Kostenlose Beratung" },
-        ]}
-      />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
@@ -1306,31 +1336,42 @@ export function ConsultationPage() {
 export function ThankYouPage() {
   const { lang } = useLanguage();
   const isEn = lang === "en";
+  const breadcrumbItems = [
+    {
+      label: isEn ? "Free Consultation" : "Kostenlose Beratung",
+      to: isEn ? "/application-form/" : "/beratung/",
+    },
+    { label: isEn ? "Thank You" : "Vielen Dank" },
+  ];
   return (
-    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white py-20">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={isEn ? "Thank You | Clarusway" : "Vielen Dank | Clarusway"}
         description="Confirmation page"
         path={isEn ? "/thank-you/" : "/danke/"}
+        breadcrumbs={breadcrumbItems}
         noindex={true}
       />
-      <div className="max-w-xl mx-auto px-4 text-center">
-        <h1 className="text-3xl font-medium tracking-[-0.025em] text-[#1a1d2e] mb-3">
-          {isEn ? "Thank you for your request!" : "Vielen Dank für deine Anfrage!"}
-        </h1>
-        <p className="text-gray-600 text-sm sm:text-base mb-6">
-          {isEn
-            ? "A Clarusway advisor will contact you within 24 hours."
-            : "Unsere Studienberatung meldet sich innerhalb von 24 Stunden bei dir."}
-        </p>
-        <Link
-          to="/"
-          style={{ backgroundColor: PRIMARY }}
-          className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-full text-sm"
-        >
-          <span>{isEn ? "Back to homepage" : "Zurück zur Startseite"}</span>
-        </Link>
-      </div>
+      <Breadcrumb items={breadcrumbItems} />
+      <section className="py-20">
+        <div className="max-w-xl mx-auto px-4 text-center">
+          <h1 className="text-3xl font-medium tracking-[-0.025em] text-[#1a1d2e] mb-3">
+            {isEn ? "Thank you for your request!" : "Vielen Dank für deine Anfrage!"}
+          </h1>
+          <p className="text-gray-600 text-sm sm:text-base mb-6">
+            {isEn
+              ? "A Clarusway advisor will contact you within 24 hours."
+              : "Unsere Studienberatung meldet sich innerhalb von 24 Stunden bei dir."}
+          </p>
+          <Link
+            to="/"
+            style={{ backgroundColor: PRIMARY }}
+            className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-full text-sm"
+          >
+            <span>{isEn ? "Back to homepage" : "Zurück zur Startseite"}</span>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
@@ -1342,6 +1383,7 @@ export function ReferFriendPage() {
   const { lang } = useLanguage();
   const isEn = lang === "en";
   const currentPath = isEn ? "/refer-a-friend/" : "/freunde-werben/";
+  const breadcrumbItems = [{ label: isEn ? "Refer a Friend" : "Freunde werben" }];
 
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
@@ -1357,9 +1399,11 @@ export function ReferFriendPage() {
             : "Empfiehl Clarusway weiter und sichere dir 250 € Prämie für jede erfolgreiche Kursteilnahme."
         }
         path={currentPath}
+        breadcrumbs={breadcrumbItems}
       />
       <Breadcrumb
-        items={[{ label: isEn ? "Refer a Friend" : "Freunde werben" }]}
+        items={breadcrumbItems}
+        containerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
       />
       <section style={{ backgroundColor: SOFT_BG }} className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1394,6 +1438,7 @@ export function ContactPage() {
   const { lang } = useLanguage();
   const isEn = lang === "en";
   const currentPath = isEn ? "/contact/" : "/kontakt/";
+  const breadcrumbItems = [{ label: isEn ? "Contact" : "Kontakt" }];
 
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
@@ -1405,8 +1450,9 @@ export function ContactPage() {
             : "Kontaktiere die Clarusway GmbH in Neuss: Telefon +49 2131 776 2749, E-Mail info@clarusway.de oder kostenlose Studienberatung."
         }
         path={currentPath}
+        breadcrumbs={breadcrumbItems}
       />
-      <Breadcrumb items={[{ label: isEn ? "Contact" : "Kontakt" }]} />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section style={{ backgroundColor: SOFT_BG }} className="py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1472,44 +1518,52 @@ export function ContactPage() {
 export function ImprintPage() {
   const { lang } = useLanguage();
   const isEn = lang === "en";
+  const breadcrumbItems = [{ label: isEn ? "Imprint" : "Impressum" }];
   return (
-    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white py-14">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={isEn ? "Imprint (Impressum) | Clarusway" : "Impressum | Clarusway Deutschland"}
         description="Legal disclosure according to § 5 DDG for Clarusway GmbH, Neuss."
         path={isEn ? "/imprint/" : "/impressum/"}
+        breadcrumbs={breadcrumbItems}
       />
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h1 className="text-3xl font-medium tracking-[-0.025em] mb-6">
-          {isEn ? "Imprint (Impressum)" : "Impressum"}
-        </h1>
-        <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
-          <h2 className="text-lg font-medium text-[#1a1d2e]">
-            {isEn ? "Information pursuant to § 5 DDG" : "Angaben gemäß § 5 DDG"}
-          </h2>
-          <p>
-            <strong className="font-medium text-[#1a1d2e]">Clarusway GmbH</strong>
-            <br />
-            Bataver Str. 84
-            <br />
-            41462 Neuss, Deutschland
-          </p>
-          <p>
-            <strong className="font-medium text-[#1a1d2e]">{isEn ? "Contact:" : "Kontakt:"}</strong>
-            <br />
-            Telefon: +49 2131 776 2749
-            <br />
-            E-Mail: info@clarusway.de
-          </p>
-          <p>
-            <strong className="font-medium text-[#1a1d2e]">{isEn ? "Certification:" : "Zertifizierung:"}</strong>
-            <br />
-            {isEn
-              ? "AZAV-certified continuing education provider in Germany."
-              : "Nach AZAV zugelassener Träger für die Förderung der beruflichen Weiterbildung."}
-          </p>
+      <Breadcrumb
+        items={breadcrumbItems}
+        containerClassName="max-w-3xl mx-auto px-4 sm:px-6"
+      />
+      <section className="py-14">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h1 className="text-3xl font-medium tracking-[-0.025em] mb-6">
+            {isEn ? "Imprint (Impressum)" : "Impressum"}
+          </h1>
+          <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
+            <h2 className="text-lg font-medium text-[#1a1d2e]">
+              {isEn ? "Information pursuant to § 5 DDG" : "Angaben gemäß § 5 DDG"}
+            </h2>
+            <p>
+              <strong className="font-medium text-[#1a1d2e]">Clarusway GmbH</strong>
+              <br />
+              Bataver Str. 84
+              <br />
+              41462 Neuss, Deutschland
+            </p>
+            <p>
+              <strong className="font-medium text-[#1a1d2e]">{isEn ? "Contact:" : "Kontakt:"}</strong>
+              <br />
+              Telefon: +49 2131 776 2749
+              <br />
+              E-Mail: info@clarusway.de
+            </p>
+            <p>
+              <strong className="font-medium text-[#1a1d2e]">{isEn ? "Certification:" : "Zertifizierung:"}</strong>
+              <br />
+              {isEn
+                ? "AZAV-certified continuing education provider in Germany."
+                : "Nach AZAV zugelassener Träger für die Förderung der beruflichen Weiterbildung."}
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
@@ -1517,36 +1571,46 @@ export function ImprintPage() {
 export function PrivacyPage() {
   const { lang } = useLanguage();
   const isEn = lang === "en";
+  const breadcrumbItems = [
+    { label: isEn ? "Privacy Policy" : "Datenschutzerklärung" },
+  ];
   return (
-    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white py-14">
+    <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={isEn ? "Privacy Policy (Datenschutz) | Clarusway" : "Datenschutzerklärung | Clarusway"}
         description="GDPR / DSGVO Privacy Policy of Clarusway GmbH."
         path={isEn ? "/privacy-policy/" : "/datenschutz/"}
+        breadcrumbs={breadcrumbItems}
       />
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h1 className="text-3xl font-medium tracking-[-0.025em] mb-6">
-          {isEn ? "Privacy Policy (GDPR / DSGVO)" : "Datenschutzerklärung"}
-        </h1>
-        <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
-          <h2 className="text-lg font-medium text-[#1a1d2e]">
-            {isEn ? "1. Controller" : "1. Verantwortliche Stelle"}
-          </h2>
-          <p>
-            Clarusway GmbH, Bataver Str. 84, 41462 Neuss, Deutschland (info@clarusway.de).
-          </p>
-          <h2 className="text-lg font-medium text-[#1a1d2e]">
-            {isEn
-              ? "2. Consultation & Syllabus Requests"
-              : "2. Beratungsanfragen und Lehrplan-Downloads"}
-          </h2>
-          <p>
-            {isEn
-              ? "Personal data submitted through consultation or syllabus forms is processed in accordance with Art. 6(1)(b) GDPR exclusively to prepare your course offer and advise you on state funding."
-              : "Die im Rahmen einer Beratungsanfrage oder eines Lehrplan-Downloads eingegebenen Daten werden gemäß Art. 6 Abs. 1 lit. b DSGVO ausschließlich zur Erstellung deines Maßnahmeangebots und zur Studienberatung verarbeitet."}
-          </p>
+      <Breadcrumb
+        items={breadcrumbItems}
+        containerClassName="max-w-3xl mx-auto px-4 sm:px-6"
+      />
+      <section className="py-14">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h1 className="text-3xl font-medium tracking-[-0.025em] mb-6">
+            {isEn ? "Privacy Policy (GDPR / DSGVO)" : "Datenschutzerklärung"}
+          </h1>
+          <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
+            <h2 className="text-lg font-medium text-[#1a1d2e]">
+              {isEn ? "1. Controller" : "1. Verantwortliche Stelle"}
+            </h2>
+            <p>
+              Clarusway GmbH, Bataver Str. 84, 41462 Neuss, Deutschland (info@clarusway.de).
+            </p>
+            <h2 className="text-lg font-medium text-[#1a1d2e]">
+              {isEn
+                ? "2. Consultation & Syllabus Requests"
+                : "2. Beratungsanfragen und Lehrplan-Downloads"}
+            </h2>
+            <p>
+              {isEn
+                ? "Personal data submitted through consultation or syllabus forms is processed in accordance with Art. 6(1)(b) GDPR exclusively to prepare your course offer and advise you on state funding."
+                : "Die im Rahmen einer Beratungsanfrage oder eines Lehrplan-Downloads eingegebenen Daten werden gemäß Art. 6 Abs. 1 lit. b DSGVO ausschließlich zur Erstellung deines Maßnahmeangebots und zur Studienberatung verarbeitet."}
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -119,41 +119,26 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
   );
 
   const canonicalPageUrl = `${origin}${currentPath}`;
-  const breadcrumbListElement = data.isOrientation
-    ? [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: lang === "en" ? "Home" : "Startseite",
-          item: `${origin}/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: data.breadcrumbLabel,
-          item: canonicalPageUrl,
-        },
-      ]
-    : [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: lang === "en" ? "Home" : "Startseite",
-          item: `${origin}/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: coursesHubLabel,
-          item: `${origin}${coursesHubPath}`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: data.breadcrumbLabel,
-          item: canonicalPageUrl,
-        },
-      ];
+  const breadcrumbListElement = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: lang === "en" ? "Home" : "Startseite",
+      item: `${origin}/`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: coursesHubLabel,
+      item: `${origin}${coursesHubPath}`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: data.breadcrumbLabel,
+      item: canonicalPageUrl,
+    },
+  ];
 
   const schemaOfficialMap: Record<string, { en: { name: string; alt: string; time: string }; de: { name: string; alt: string; time: string } }> = {
     "ai-engineering": {
@@ -278,9 +263,10 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
     ],
   };
 
-  const breadcrumbItems = data.isOrientation
-    ? [{ label: data.breadcrumbLabel }]
-    : [{ label: coursesHubLabel, to: coursesHubPath }, { label: data.breadcrumbLabel }];
+  const breadcrumbItems = [
+    { label: coursesHubLabel, to: coursesHubPath },
+    { label: data.breadcrumbLabel },
+  ];
 
   const modularPathConfig = mapCourseKeyToModularPath(data.key);
 
@@ -293,7 +279,10 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
         schema={schema}
       />
 
-      <Breadcrumb items={breadcrumbItems} />
+      <Breadcrumb
+        items={breadcrumbItems}
+        containerClassName="max-w-[1200px] mx-auto px-5"
+      />
 
       {/* =====================================================================
           1. HERO (Component B1) — Exact Figma Make Gradient & Layout

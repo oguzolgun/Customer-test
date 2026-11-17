@@ -38,10 +38,17 @@ export function GuidesHubPage() {
     ? "Practical guides in English on IT careers, cloud certifications, and funding with a Bildungsgutschein in Germany."
     : "Ratgeber für den Einstieg in die IT: Berufsbilder, Voraussetzungen, geförderter Quereinstieg und Weiterbildung über Arbeitsagentur und Jobcenter.";
 
+  const breadcrumbItems = [{ label: isEn ? "Guides" : "Ratgeber" }];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
-      <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
-      <Breadcrumb items={[{ label: isEn ? "Guides" : "Ratgeber" }]} />
+      <SeoHead
+        title={metaTitle}
+        description={metaDescription}
+        path={currentPath}
+        breadcrumbs={breadcrumbItems}
+      />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
@@ -223,6 +230,7 @@ export function GuideArticlePage() {
 
       <Breadcrumb
         items={[{ label: hubLabel, to: hubPath }, { label: article.h1 }]}
+        containerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
       />
 
       {/* ARTICLE HERO + AUTHOR/DATE/TOC BOX (Component B15) */}

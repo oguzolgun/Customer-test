@@ -129,14 +129,23 @@ export function SeoHead({
     const allSchemas: Record<string, unknown>[] = [...schemas, ...extraSchemaList];
 
     if (breadcrumbs.length > 0) {
+      const homeLabel = lang === "en" ? "Home" : "Startseite";
+      const hasHome =
+        breadcrumbs[0]?.to === "/" ||
+        breadcrumbs[0]?.label === "Home" ||
+        breadcrumbs[0]?.label === "Startseite";
+      const fullBreadcrumbs = hasHome
+        ? breadcrumbs
+        : [{ label: homeLabel, to: "/" }, ...breadcrumbs];
+
       allSchemas.push({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        itemListElement: breadcrumbs.map((b, idx) => ({
+        itemListElement: fullBreadcrumbs.map((b, idx) => ({
           "@type": "ListItem",
           position: idx + 1,
           name: b.label,
-          ...(b.to ? { item: `${domain}${normalizePath(b.to)}` } : {}),
+          item: b.to ? `${domain}${normalizePath(b.to)}` : canonicalUrl,
         })),
       });
     }

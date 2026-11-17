@@ -70,10 +70,17 @@ export function FinancingHubPage() {
         },
       ];
 
+  const breadcrumbItems = [{ label: isEn ? "Financing & Tuition" : "Finanzierung" }];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
-      <SeoHead title={metaTitle} description={metaDescription} path={currentPath} />
-      <Breadcrumb items={[{ label: isEn ? "Financing & Tuition" : "Finanzierung" }]} />
+      <SeoHead
+        title={metaTitle}
+        description={metaDescription}
+        path={currentPath}
+        breadcrumbs={breadcrumbItems}
+      />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section
         style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
@@ -639,24 +646,25 @@ export function BildungsgutscheinPage() {
     },
   ];
 
+  const breadcrumbItems = [
+    {
+      label: isEn ? "Financing & Tuition" : "Finanzierung",
+      to: isEn ? "/financing-and-tuition/" : "/finanzierung/",
+    },
+    { label: "Bildungsgutschein" },
+  ];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={metaTitle}
         description={metaDescription}
         path="/bildungsgutschein/"
+        breadcrumbs={breadcrumbItems}
         schema={schema}
       />
 
-      <Breadcrumb
-        items={[
-          {
-            label: isEn ? "Financing & Tuition" : "Finanzierung",
-            to: isEn ? "/financing-and-tuition/" : "/finanzierung/",
-          },
-          { label: "Bildungsgutschein" },
-        ]}
-      />
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* HERO */}
       <section
@@ -1260,18 +1268,24 @@ export function AvgsPage() {
     ],
   };
 
+  const breadcrumbItems = [
+    {
+      label: isEn ? "Financing & Tuition" : "Finanzierung",
+      to: isEn ? "/financing-and-tuition/" : "/finanzierung/",
+    },
+    { label: "AVGS" },
+  ];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
-      <SeoHead title={metaTitle} description={metaDescription} path="/avgs/" schema={avgsSchema} />
-      <Breadcrumb
-        items={[
-          {
-            label: isEn ? "Financing & Tuition" : "Finanzierung",
-            to: isEn ? "/financing-and-tuition/" : "/finanzierung/",
-          },
-          { label: "AVGS" },
-        ]}
+      <SeoHead
+        title={metaTitle}
+        description={metaDescription}
+        path="/avgs/"
+        breadcrumbs={breadcrumbItems}
+        schema={avgsSchema}
       />
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* Hero Section */}
       <section
@@ -1824,23 +1838,24 @@ export function QcgPage() {
     setSubmitted(true);
   };
 
+  const breadcrumbItems = [
+    {
+      label: isEn ? "Financing & Tuition" : "Finanzierung",
+      to: isEn ? "/financing-and-tuition/" : "/finanzierung/",
+    },
+    { label: "Qualifizierungschancengesetz" },
+  ];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
       <SeoHead
         title={metaTitle}
         description={metaDescription}
         path="/qualifizierungschancengesetz/"
+        breadcrumbs={breadcrumbItems}
         schema={qcgSchema}
       />
-      <Breadcrumb
-        items={[
-          {
-            label: isEn ? "Financing & Tuition" : "Finanzierung",
-            to: isEn ? "/financing-and-tuition/" : "/finanzierung/",
-          },
-          { label: "Qualifizierungschancengesetz" },
-        ]}
-      />
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* Hero Section */}
       <section
@@ -2269,12 +2284,24 @@ export function CorporateTrainingPage() {
     ],
   };
 
+  const breadcrumbItems = [
+    {
+      label: isEn ? "Financing & Tuition" : "Finanzierung",
+      to: isEn ? "/financing-and-tuition/" : "/finanzierung/",
+    },
+    { label: isEn ? "For Companies" : "Für Unternehmen" },
+  ];
+
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, sans-serif", color: DARK }} className="bg-white">
-      <SeoHead title={metaTitle} description={metaDescription} path={currentPath} schema={corpSchema} />
-      <Breadcrumb
-        items={[{ label: isEn ? "For Companies" : "Für Unternehmen" }]}
+      <SeoHead
+        title={metaTitle}
+        description={metaDescription}
+        path={currentPath}
+        breadcrumbs={breadcrumbItems}
+        schema={corpSchema}
       />
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* Hero Section */}
       <section
