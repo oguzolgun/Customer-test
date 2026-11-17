@@ -4,7 +4,6 @@ import imgLogo from "@/imports/1440WLight-1/cdb5267869f41011e947a0d52b23ac56676c
 import { useLanguage, normalizePath } from "@/context/LanguageContext";
 
 const PRIMARY = "#e51a59";
-const SECONDARY = "#8a1c4a";
 const DARK = "#1a1d2e";
 
 const deCoursesGroups = [
@@ -210,12 +209,12 @@ export default function Navbar() {
               }`}
               style={{ width: 680 }}
             >
-              <div className="rounded-2xl border border-gray-100 bg-white shadow-2xl p-5 grid grid-cols-2 gap-5">
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-2xl p-5 grid grid-cols-2 gap-x-6 gap-y-5">
                 {coursesGroups.map((grp) => (
-                  <div key={grp.groupLabel} className="space-y-1.5">
+                  <div key={grp.groupLabel} className="space-y-1">
                     <div
-                      className="text-[10px] font-medium uppercase tracking-[0.14em] px-2.5 py-1"
-                      style={{ color: SECONDARY }}
+                      className="text-[11px] font-semibold uppercase tracking-[0.09em] mx-3 pb-1.5 mb-1.5 border-b border-gray-100"
+                      style={{ color: PRIMARY }}
                     >
                       {grp.groupLabel}
                     </div>
@@ -225,16 +224,20 @@ export default function Navbar() {
                         <Link
                           key={item.to}
                           to={item.to}
-                          className="block rounded-xl px-3 py-2 transition-colors hover:bg-pink-50/70"
+                          className="group block rounded-xl px-3 py-2 transition-colors hover:bg-pink-50/70"
                           style={{
                             background: active ? `${PRIMARY}10` : undefined,
                             borderLeft: active ? `3px solid ${PRIMARY}` : "3px solid transparent",
                           }}
                         >
-                          <div className="text-[13px] font-medium" style={{ color: active ? PRIMARY : DARK }}>
+                          <div
+                            className={`text-[13.5px] font-medium leading-snug transition-colors ${
+                              active ? "text-[#e51a59]" : "text-[#1a1d2e] group-hover:text-[#e51a59]"
+                            }`}
+                          >
                             {item.label}
                           </div>
-                          <div className="text-[11px] text-gray-500">{item.sub}</div>
+                          <div className="text-[12px] text-gray-500 leading-snug mt-0.5">{item.sub}</div>
                         </Link>
                       );
                     })}
@@ -300,16 +303,20 @@ export default function Navbar() {
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="block rounded-xl px-3.5 py-2.5 transition-colors hover:bg-pink-50/70"
+                      className="group block rounded-xl px-3.5 py-2.5 transition-colors hover:bg-pink-50/70"
                       style={{
                         background: active ? `${PRIMARY}10` : undefined,
                         borderLeft: active ? `3px solid ${PRIMARY}` : "3px solid transparent",
                       }}
                     >
-                      <div className="text-[13px] font-medium" style={{ color: active ? PRIMARY : DARK }}>
+                      <div
+                        className={`text-[13.5px] font-medium leading-snug transition-colors ${
+                          active ? "text-[#e51a59]" : "text-[#1a1d2e] group-hover:text-[#e51a59]"
+                        }`}
+                      >
                         {item.label}
                       </div>
-                      <div className="text-[11px] text-gray-500">{item.sub}</div>
+                      <div className="text-[12px] text-gray-500 leading-snug mt-0.5">{item.sub}</div>
                     </Link>
                   );
                 })}
@@ -363,16 +370,20 @@ export default function Navbar() {
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="block rounded-xl px-3.5 py-2.5 transition-colors hover:bg-pink-50/70"
+                      className="group block rounded-xl px-3.5 py-2.5 transition-colors hover:bg-pink-50/70"
                       style={{
                         background: active ? `${PRIMARY}10` : undefined,
                         borderLeft: active ? `3px solid ${PRIMARY}` : "3px solid transparent",
                       }}
                     >
-                      <div className="text-[13px] font-medium" style={{ color: active ? PRIMARY : DARK }}>
+                      <div
+                        className={`text-[13.5px] font-medium leading-snug transition-colors ${
+                          active ? "text-[#e51a59]" : "text-[#1a1d2e] group-hover:text-[#e51a59]"
+                        }`}
+                      >
                         {item.label}
                       </div>
-                      <div className="text-[11px] text-gray-500">{item.sub}</div>
+                      <div className="text-[12px] text-gray-500 leading-snug mt-0.5">{item.sub}</div>
                     </Link>
                   );
                 })}
@@ -436,16 +447,20 @@ export default function Navbar() {
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="block rounded-xl px-3.5 py-2.5 transition-colors hover:bg-pink-50/70"
+                      className="group block rounded-xl px-3.5 py-2.5 transition-colors hover:bg-pink-50/70"
                       style={{
                         background: active ? `${PRIMARY}10` : undefined,
                         borderLeft: active ? `3px solid ${PRIMARY}` : "3px solid transparent",
                       }}
                     >
-                      <div className="text-[13px] font-medium" style={{ color: active ? PRIMARY : DARK }}>
+                      <div
+                        className={`text-[13.5px] font-medium leading-snug transition-colors ${
+                          active ? "text-[#e51a59]" : "text-[#1a1d2e] group-hover:text-[#e51a59]"
+                        }`}
+                      >
                         {item.label}
                       </div>
-                      <div className="text-[11px] text-gray-500">{item.sub}</div>
+                      <div className="text-[12px] text-gray-500 leading-snug mt-0.5">{item.sub}</div>
                     </Link>
                   );
                 })}
@@ -532,7 +547,10 @@ export default function Navbar() {
             <div className={`p-3 space-y-3 ${mobileAccordion === "courses" ? "block" : "hidden"}`}>
               {coursesGroups.map((grp) => (
                 <div key={grp.groupLabel} className="space-y-1">
-                  <div className="text-[10px] font-medium uppercase tracking-[0.14em] px-2" style={{ color: SECONDARY }}>
+                  <div
+                    className="text-[11px] font-semibold uppercase tracking-[0.09em] px-2 pt-1 pb-1 border-b border-gray-100"
+                    style={{ color: PRIMARY }}
+                  >
                     {grp.groupLabel}
                   </div>
                   {grp.items.map((item) => (
