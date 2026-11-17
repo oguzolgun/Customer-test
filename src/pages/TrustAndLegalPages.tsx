@@ -1401,30 +1401,71 @@ export function ReferFriendPage() {
         path={currentPath}
         breadcrumbs={breadcrumbItems}
       />
-      <Breadcrumb
-        items={breadcrumbItems}
-        containerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
-      />
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl font-medium tracking-[-0.025em] text-[#1a1d2e] mb-4">
-            {isEn
-              ? "Refer a friend and earn a €250 reward"
-              : "Freunde werben und bis zu 250 € Prämie sichern"}
-          </h1>
-          <p className="text-gray-700 text-base leading-relaxed mb-8">
-            {isEn
-              ? "Know someone in Germany who wants to launch an IT career with a Bildungsgutschein? Refer them to Clarusway and receive a €250 referral reward after they enroll."
-              : "Du kennst jemanden, der mit einem Bildungsgutschein in die IT starten möchte? Empfiehl Clarusway weiter und erhalte nach erfolgreichem Kursstart eine Empfehlungsprämie von 250 €."}
-          </p>
-          <Link
-            to={isEn ? "/contact/" : "/kontakt/"}
-            style={{ backgroundColor: PRIMARY }}
-            className="inline-flex items-center gap-2 text-white font-medium px-6 py-3 rounded-full text-sm"
-          >
-            <span>{isEn ? "Submit a referral" : "Jetzt Empfehlung einreichen"}</span>
-            <ArrowRightIcon className="w-4 h-4" />
-          </Link>
+      <Breadcrumb items={breadcrumbItems} />
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-14 border-b border-gray-100"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 bg-[#fde8ef] text-[#e51a59] text-xs font-medium px-3.5 py-1.5 rounded-full mb-4">
+                <ShieldCheckIcon className="w-4 h-4" />
+                <span>{isEn ? "Clarusway Referral Program" : "Clarusway Empfehlungsprogramm"}</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-medium tracking-[-0.025em] text-[#1a1d2e] mb-4 leading-tight">
+                {isEn
+                  ? "Refer a friend and earn a €250 reward"
+                  : "Freunde werben und bis zu 250 € Prämie sichern"}
+              </h1>
+              <p className="text-gray-700 text-base leading-relaxed mb-8 max-w-2xl">
+                {isEn
+                  ? "Know someone in Germany who wants to launch an IT career with a Bildungsgutschein? Refer them to Clarusway and receive a €250 referral reward after they enroll."
+                  : "Du kennst jemanden, der mit einem Bildungsgutschein in die IT starten möchte? Empfiehl Clarusway weiter und erhalte nach erfolgreichem Kursstart eine Empfehlungsprämie von 250 €."}
+              </p>
+              <Link
+                to={isEn ? "/contact/" : "/kontakt/"}
+                style={{ backgroundColor: PRIMARY }}
+                className="inline-flex items-center gap-2 text-white font-medium px-6 py-3.5 rounded-full text-sm shadow-sm hover:opacity-95 transition-opacity"
+              >
+                <span>{isEn ? "Submit a referral" : "Jetzt Empfehlung einreichen"}</span>
+                <ArrowRightIcon className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-xs space-y-4">
+                <p className="text-xs font-medium uppercase tracking-wider text-[#e51a59]">
+                  {isEn ? "How it works" : "So funktioniert es"}
+                </p>
+                <ol className="space-y-3 text-sm text-gray-700">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#fde8ef] text-[#e51a59] text-xs font-medium flex items-center justify-center shrink-0 mt-0.5">1</span>
+                    <span>
+                      {isEn
+                        ? "Recommend Clarusway to a friend interested in an AZAV-certified IT course."
+                        : "Empfiehl Clarusway einer Freundin oder einem Freund für eine AZAV-zertifizierte IT-Weiterbildung."}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#fde8ef] text-[#e51a59] text-xs font-medium flex items-center justify-center shrink-0 mt-0.5">2</span>
+                    <span>
+                      {isEn
+                        ? "Your friend mentions your name during their free consultation."
+                        : "Deine Empfehlung nennt deinen Namen im kostenlosen Beratungsgespräch."}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#fde8ef] text-[#e51a59] text-xs font-medium flex items-center justify-center shrink-0 mt-0.5">3</span>
+                    <span>
+                      {isEn
+                        ? "Once their course starts, you receive your €250 referral bonus."
+                        : "Nach erfolgreichem Kursstart erhältst du deine Empfehlungsprämie von 250 €."}
+                    </span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -1527,16 +1568,20 @@ export function ImprintPage() {
         path={isEn ? "/imprint/" : "/impressum/"}
         breadcrumbs={breadcrumbItems}
       />
-      <Breadcrumb
-        items={breadcrumbItems}
-        containerClassName="max-w-3xl mx-auto px-4 sm:px-6"
-      />
-      <section className="py-14">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <h1 className="text-3xl font-medium tracking-[-0.025em] mb-6">
+      <Breadcrumb items={breadcrumbItems} />
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-12 border-b border-gray-100"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl font-medium tracking-[-0.025em] text-[#1a1d2e]">
             {isEn ? "Imprint (Impressum)" : "Impressum"}
           </h1>
-          <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        </div>
+      </section>
+      <section className="py-14 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl space-y-5 text-sm sm:text-base text-gray-700 leading-relaxed">
             <h2 className="text-lg font-medium text-[#1a1d2e]">
               {isEn ? "Information pursuant to § 5 DDG" : "Angaben gemäß § 5 DDG"}
             </h2>
@@ -1582,16 +1627,20 @@ export function PrivacyPage() {
         path={isEn ? "/privacy-policy/" : "/datenschutz/"}
         breadcrumbs={breadcrumbItems}
       />
-      <Breadcrumb
-        items={breadcrumbItems}
-        containerClassName="max-w-3xl mx-auto px-4 sm:px-6"
-      />
-      <section className="py-14">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <h1 className="text-3xl font-medium tracking-[-0.025em] mb-6">
+      <Breadcrumb items={breadcrumbItems} />
+      <section
+        style={{ background: "linear-gradient(135deg, #fff8f9 0%, #fff 60%)" }}
+        className="py-12 border-b border-gray-100"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl font-medium tracking-[-0.025em] text-[#1a1d2e]">
             {isEn ? "Privacy Policy (GDPR / DSGVO)" : "Datenschutzerklärung"}
           </h1>
-          <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        </div>
+      </section>
+      <section className="py-14 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl space-y-5 text-sm sm:text-base text-gray-700 leading-relaxed">
             <h2 className="text-lg font-medium text-[#1a1d2e]">
               {isEn ? "1. Controller" : "1. Verantwortliche Stelle"}
             </h2>
