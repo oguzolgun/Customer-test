@@ -127,7 +127,7 @@ export default function Footer() {
       style={{ background: DARK, fontFamily: "'Inter', -apple-system, sans-serif" }}
       className="text-white border-t border-white/10"
     >
-      <div className="max-w-[1200px] mx-auto px-5 pt-16 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         {/* Top Row: Brand + Trust Badges + Contact */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           <div className="lg:col-span-4 space-y-4">

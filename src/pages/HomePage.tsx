@@ -365,11 +365,11 @@ export function HomePage() {
               backgroundSize: "100% 100%, 24px 24px",
             }}
           >
-            <div className="max-w-[1420px] mx-auto px-4 sm:px-8 relative z-10">
-              <div className="grid lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-6 xl:gap-8 items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
                 
                 {/* Left Text Column */}
-                <div className="lg:col-span-6 max-w-[580px] z-20 flex flex-col justify-center">
+                <div className="lg:col-span-6 max-w-[560px] z-20 flex flex-col justify-center">
                   {/* Pill Badge */}
                   <div className="inline-flex items-center gap-2 self-start bg-[#FDE3E9] text-[#E5254F] text-[11px] sm:text-xs font-medium px-3 sm:px-3.5 py-1.5 rounded-full mb-4 tracking-tight shadow-xs">
                     <ShieldCheckIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E5254F] shrink-0" />

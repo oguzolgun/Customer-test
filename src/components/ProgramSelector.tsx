@@ -643,7 +643,7 @@ export default function ProgramSelector({
       style={{ fontFamily: "'Inter', -apple-system, sans-serif", background: CREAM }}
     >
       {/* Header */}
-      <div className="max-w-[1200px] mx-auto px-5 pt-14 pb-7 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-7 text-center">
         <div
           className="inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
           style={{ background: `${PRIMARY}15`, color: PRIMARY }}
@@ -669,7 +669,7 @@ export default function ProgramSelector({
           - Closed programs display clean, actionable cards with prominent circular
             chevron "Öffnen ▾" buttons.
           ===================================================================== */}
-      <div className="flex flex-col gap-3 lg:hidden max-w-[1200px] mx-auto px-5 pb-12">
+      <div className="flex flex-col gap-3 lg:hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="text-[10px] font-medium uppercase tracking-widest text-gray-500 px-1 mb-0.5">
           {lang === "de"
             ? "Verfügbare Kombinationen (Tippen zum Öffnen)"
@@ -704,7 +704,7 @@ export default function ProgramSelector({
       {/* =====================================================================
           DESKTOP LAYOUT (>= lg): 2-COLUMN SIDEBAR + DETAIL VIEW
           ===================================================================== */}
-      <div className="hidden lg:grid lg:grid-cols-[340px_1fr] gap-6 max-w-[1200px] mx-auto px-5 pb-12">
+      <div className="hidden lg:grid lg:grid-cols-[340px_1fr] gap-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="flex flex-col gap-3">
           <div className="text-[10px] font-medium uppercase tracking-widest text-gray-500 px-1 mb-0.5">
             {lang === "de" ? "Verfügbare Kombinationen" : "Available tracks"}
@@ -743,7 +743,7 @@ export default function ProgramSelector({
 
       {/* Optional Direct Entry / Technical Assessment H3 subsection inside B4 */}
       {directEntry && (
-        <div className="max-w-[1200px] mx-auto px-5 pb-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
           <div className="rounded-2xl bg-white border border-gray-200/80 p-6 md:p-7 shadow-sm">
             <h3 className="font-medium tracking-[-0.015em] text-lg md:text-xl text-[#1a1d2e] mb-4">
               {directEntry.heading}

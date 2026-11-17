@@ -1267,7 +1267,7 @@ export function ClaruswayHeroShowpiece({ isEn = true }: { isEn?: boolean }) {
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-[min(94vw,380px)] h-[310px] sm:w-[490px] sm:h-[395px] md:w-[540px] md:h-[430px] lg:w-[520px] lg:h-[420px] xl:w-[600px] xl:h-[480px] min-[1440px]:w-[640px] min-[1440px]:h-[505px] select-none flex items-center justify-center overflow-visible"
+      className="relative w-[min(94vw,380px)] h-[310px] sm:w-[490px] sm:h-[395px] md:w-[540px] md:h-[430px] lg:w-[490px] lg:h-[400px] xl:w-[570px] xl:h-[460px] min-[1440px]:w-[590px] min-[1440px]:h-[475px] select-none flex items-center justify-center overflow-visible"
     >
       {/* 3D WebGL Canvas */}
       <canvas

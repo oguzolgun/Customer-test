@@ -151,7 +151,7 @@ export default function Navbar() {
       className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-md"
       style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
     >
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-5 h-[68px] sm:h-[74px] flex items-center justify-between gap-2 sm:gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[68px] sm:h-[74px] flex items-center justify-between gap-2 sm:gap-4">
         {/* Logo (no heading tag) */}
         <Link to="/" className="shrink-0 flex items-center h-[34px] sm:h-[42px]">
           <img
@@ -517,7 +517,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Accordion (All links always in HTML DOM, toggled with CSS class) */}
       <div className={`lg:hidden border-t border-gray-100 bg-white max-h-[calc(100dvh-68px)] sm:max-h-[calc(100dvh-74px)] overflow-y-auto ${mobileOpen ? "block" : "hidden"}`}>
-        <div className="max-w-[1200px] mx-auto px-5 py-4 space-y-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-2">
           {/* Courses Accordion */}
           <div className="border border-gray-100 rounded-xl overflow-hidden">
             <button
