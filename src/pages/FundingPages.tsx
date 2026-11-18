@@ -309,7 +309,7 @@ export function FinancingHubPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
-                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Option 2: Orientation & Career Coaching" : "Weg 2: Orientierung & Coaching"}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-medium text-[#1a1d2e] mb-3">
@@ -325,19 +325,19 @@ export function FinancingHubPage() {
 
                 <ul className="space-y-3 pt-5 border-t border-gray-200/70 mb-6">
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "4-week hands-on orientation in Coding, Cloud & AI" : "4 Wochen praktische Einblicke in Coding, Cloud & KI"}</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "1-on-1 coaching session with certified career mentors" : "1-zu-1 Karrierecoaching und persönliche Potenzialanalyse"}</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "Seamless transition to a fully funded main bootcamp" : "Nahtloser Übergang in deine geförderte Hauptweiterbildung"}</span>
@@ -346,7 +346,7 @@ export function FinancingHubPage() {
 
                 <Link
                   to="/avgs/"
-                  className="inline-flex items-center gap-2 text-[#3949ab] font-medium text-sm hover:underline"
+                  className="inline-flex items-center gap-2 text-[#e51a59] font-medium text-sm hover:underline"
                 >
                   <span>{isEn ? "Learn more about AVGS" : "Mehr zum AVGS Gutschein"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
@@ -887,7 +887,7 @@ export function BildungsgutscheinPage() {
               </div>
 
               <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2">
-                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Step 2: German Documentation" : "Schritt 2: AZAV-Maßnahmeangebot"}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-medium text-[#1a1d2e] mb-3">
@@ -903,19 +903,19 @@ export function BildungsgutscheinPage() {
 
                 <ul className="space-y-3 pt-5 border-t border-gray-100">
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "Delivered within 24 hours of your initial consultation" : "Zustellung innerhalb von 24 Stunden nach deinem Erstgespräch"}</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "100% compliant with Bundesagentur für Arbeit requirements" : "Vollständig konform mit den Richtlinien der Bundesagentur für Arbeit"}</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "Flexible cohorts and modular paths suited to your background" : "Modulare Lehrgangswahl passend zu deinen Vorkenntnissen"}</span>
@@ -1419,7 +1419,7 @@ export function AvgsPage() {
                 </tr>
                 <tr>
                   <th className="py-3.5 px-5 font-medium text-[#1a1d2e]">{isEn ? "Can both be combined?" : "Kombinierbar?"}</th>
-                  <td colSpan={2} className="py-3.5 px-5 font-medium text-[#8a1c4a]">
+                  <td colSpan={2} className="py-3.5 px-5 font-medium text-[#e51a59]">
                     {isEn
                       ? "Yes — you can first discover your IT path with an AVGS and then fund the main bootcamp with a Bildungsgutschein."
                       : "Ja — erst mit AVGS orientieren und danach nahtlos mit Bildungsgutschein die Hauptweiterbildung starten."}
@@ -1505,7 +1505,7 @@ export function AvgsPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
-                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Step 2: Profile Optimization" : "Schritt 2: Profil & Unterlagen"}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-medium text-[#1a1d2e] mb-3">
@@ -1521,19 +1521,19 @@ export function AvgsPage() {
 
                 <ul className="space-y-3 pt-5 border-t border-gray-200/70">
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "ATS-compliant German and English CV formats" : "ATS-optimierte deutsche und englische Lebensläufe"}</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "Highlighting transferable skills and tech certifications" : "Hervorhebung übertragbarer Stärken und IT-Zertifikate"}</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "Polished GitHub profile and project showcases" : "Aussagekräftiges GitHub-Profil und Portfolio-Projekte"}</span>
@@ -2527,7 +2527,7 @@ export function CorporateTrainingPage() {
                 style={{ backgroundColor: SOFT_BG }}
                 className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
               >
-                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] mb-4">
+                <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[#fde8ef] text-[#e51a59] mb-4">
                   {isEn ? "Format 2: Remote & Hybrid" : "Format 2: International & Flexibel"}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-medium text-[#1a1d2e] mb-3">
@@ -2543,19 +2543,19 @@ export function CorporateTrainingPage() {
 
                 <ul className="space-y-3 pt-5 border-t border-gray-200/70">
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "Pre-configured cloud sandboxes: zero local installation setup" : "Vorkonfigurierte Cloud-Sandboxes ohne lokalen Installationsaufwand"}</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "Flexible part-time and full-time schedules around sprints" : "Flexible Schulungszeiten passend zu Ihren Sprint-Zyklen"}</span>
                   </li>
                   <li className="flex items-start gap-3 text-sm text-gray-700">
-                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                    <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                       <CheckCircleIcon className="w-3.5 h-3.5" />
                     </div>
                     <span>{isEn ? "Enterprise attendance tracking and certification records" : "Detailliertes Reporting für HR und Management"}</span>

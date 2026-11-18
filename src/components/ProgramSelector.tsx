@@ -4,7 +4,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { trackGa4Event } from "@/components/SeoHead";
 
 const PRIMARY = "#e51a59";
-const SECONDARY = "#8a1c4a";
+const SECONDARY = "#b52252";
 const CREAM = "#f8f5f1";
 
 export interface CourseModule {
@@ -327,7 +327,7 @@ function ProgramDetail({
                   style={{ borderColor: `${PRIMARY}33`, background: `${PRIMARY}08` }}
                 >
                   <CalIcon />
-                  <span style={{ color: SECONDARY }}>
+                  <span className="text-[#1a1d2e] font-medium">
                     {parts[0]} {parts[1]}
                   </span>
                   <span className="text-gray-500">{parts[2]}</span>
@@ -379,8 +379,7 @@ function ProgramDetail({
           <div className="text-center text-xs text-gray-500">
             <Link
               to={consultPath}
-              className="font-medium hover:underline"
-              style={{ color: SECONDARY }}
+              className="font-medium hover:underline text-[#e51a59]"
             >
               {lang === "de" ? "Kostenlose Beratung vereinbaren →" : "Book a free consultation →"}
             </Link>
@@ -432,8 +431,7 @@ function MobileProgramCard({
             </span>
             {program.startsAt !== modules[0]?.id && (
               <span
-                className="text-[9px] px-2 py-0.5 rounded-full font-medium"
-                style={{ background: `${SECONDARY}15`, color: SECONDARY }}
+                className="text-[9px] px-2 py-0.5 rounded-full font-medium bg-[#fde8ef] text-[#e51a59]"
               >
                 {lang === "de" ? "ab " : "from "}
                 {modules.find((m) => m.id === program.startsAt)?.label ?? "Module 2"}
@@ -565,13 +563,12 @@ function SidebarCard({
             </div>
             <div className="flex items-center justify-between gap-2 mt-2">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-medium" style={{ color: SECONDARY }}>
+                <span className="text-xs font-medium text-gray-700">
                   {program.duration}
                 </span>
                 {program.startsAt !== modules[0]?.id && (
                   <span
-                    className="text-[9px] px-2 py-0.5 rounded-full font-medium"
-                    style={{ background: `${SECONDARY}15`, color: SECONDARY }}
+                    className="text-[9px] px-2 py-0.5 rounded-full font-medium bg-[#fde8ef] text-[#e51a59]"
                   >
                     {lang === "de" ? "ab " : "from "}
                     {modules.find((m) => m.id === program.startsAt)?.label ?? "Module 2"}

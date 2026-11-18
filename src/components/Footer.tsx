@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import imgLogo from "@/imports/1440WLight-1/cdb5267869f41011e947a0d52b23ac56676c7902.png";
 import { useLanguage } from "@/context/LanguageContext";
-import { IconMapPin, IconMail, IconPhone } from "@/components/Icons";
+import { MapPinIcon, MailIcon, PhoneIcon } from "@/components/Icons";
 
 const PRIMARY = "#e51a59";
 const DARK = "#1a1d2e";
@@ -198,21 +198,21 @@ export default function Footer() {
               rel="noreferrer"
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
-              <IconMapPin color={PRIMARY} size={14} />
+              <MapPinIcon className="w-3.5 h-3.5 text-[#e51a59] shrink-0" />
               <span>Bataverstraße 84, 41462 Neuss, Germany</span>
             </a>
             <a
               href="mailto:info@clarusway.de"
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
-              <IconMail color={PRIMARY} size={14} />
+              <MailIcon className="w-3.5 h-3.5 text-[#e51a59] shrink-0" />
               <span>info@clarusway.de</span>
             </a>
             <a
               href="tel:+4921317762749"
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
-              <IconPhone color={PRIMARY} size={14} />
+              <PhoneIcon className="w-3.5 h-3.5 text-[#e51a59] shrink-0" />
               <span>+49 2131 7762749</span>
             </a>
           </div>

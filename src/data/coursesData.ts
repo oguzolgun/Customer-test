@@ -125,7 +125,7 @@ export interface CoursePageData {
 }
 
 const PRIMARY = "#e51a59";
-const SECONDARY = "#8a1c4a";
+const SECONDARY = "#b52252";
 const ACCENT = "#b52252";
 const SOFT_ROSE = "#c73a6a";
 
@@ -2926,7 +2926,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         label: "Module 4",
         title: "AI-Powered Full Stack Team Project",
         duration: "Module 4",
-        color: "#0f766e",
+        color: SOFT_ROSE,
         prerequisite: "Completion of Frontend and Backend modules.",
         project: "Full-Stack Enterprise Web Platform Built in an Agile Scrum Team",
         topics: [
@@ -3264,7 +3264,7 @@ export const EN_COURSES: Record<CourseKey, CoursePageData> = {
         label: "Module 4",
         title: "Cloud Security (AWS) and AI Security Basics",
         duration: "Module 4",
-        color: "#0f766e",
+        color: SOFT_ROSE,
         prerequisite: "Module 2.",
         project: "Securing an AWS Production Environment & LLM Application Audit",
         topics: [

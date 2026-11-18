@@ -523,7 +523,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   className="rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-gray-100 shadow-sm order-1 lg:order-2"
                 >
                   <span
-                    style={{ backgroundColor: "#e8eaf6", color: "#3949ab" }}
+                    style={{ backgroundColor: "#fde8ef", color: PRIMARY }}
                     className="text-xs font-medium px-3 py-1 rounded-full inline-block mb-4"
                   >
                     {data.audienceCards[1].badge}
@@ -538,7 +538,7 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
                   <ul className="space-y-3 pt-5 border-t border-gray-200/70">
                     {data.audienceCards[1].bullets.map((b, j) => (
                       <li key={j} className="flex items-start gap-3 text-sm sm:text-base text-gray-700">
-                        <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#3949ab]">
+                        <div className="w-5 h-5 rounded-md bg-white shadow-xs border border-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-[#e51a59]">
                           <CheckCircleIcon className="w-3.5 h-3.5" />
                         </div>
                         <span className="leading-snug">{b}</span>

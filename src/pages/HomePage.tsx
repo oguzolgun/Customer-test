@@ -489,7 +489,7 @@ export function HomePage() {
                 className="bg-white rounded-2xl p-6 border border-gray-200/90 shadow-2xs hover:shadow-md hover:border-[#e51a59]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
               >
                 {/* Top subtle hover accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8a1c4a] to-[#e51a59] opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#b52252] to-[#e51a59] opacity-0 group-hover:opacity-100 transition-opacity" />
 
                 <div>
                   {/* Top Icon + Role Tag Header */}
