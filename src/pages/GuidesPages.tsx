@@ -448,15 +448,33 @@ export function GuideArticlePage() {
                     <details
                       key={idx}
                       open={idx === 0}
-                      className="group bg-[#f6f7fb] rounded-2xl border border-gray-200 overflow-hidden"
+                      className="group rounded-xl overflow-hidden border border-gray-200 bg-white"
                     >
-                      <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer list-none">
-                        <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                        <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform">
-                          +
+                      <summary
+                        style={{ background: PRIMARY }}
+                        className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none select-none text-white hover:opacity-95 transition-opacity"
+                      >
+                        <span className="text-sm font-medium text-white text-left leading-snug">
+                          {f.q}
                         </span>
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          aria-hidden="true"
+                          className="shrink-0 transition-transform duration-200 group-open:rotate-180"
+                        >
+                          <path
+                            d="M2 4l4 4 4-4"
+                            stroke="white"
+                            strokeWidth="1.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </summary>
-                      <div className="px-6 pb-4 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-200/70">
+                      <div className="px-5 py-4 text-sm text-gray-600 leading-relaxed bg-white">
                         {f.a}
                       </div>
                     </details>

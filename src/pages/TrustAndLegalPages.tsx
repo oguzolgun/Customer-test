@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { FaqSection } from "../components/FaqSection";
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -656,32 +657,18 @@ export function CareerManagementPage() {
       </section>
 
       {/* H2: Career Management FAQ */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
-            {isEn ? "Career Management FAQ" : "Häufige Fragen zum Karriere-Management"}
-          </h2>
-          <div className="space-y-3.5">
-            {careerFaqs.map((f, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform">
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {f.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title={isEn ? "Career Management FAQ" : "Häufige Fragen zum Karriere-Management"}
+        items={careerFaqs}
+        consultPath={isEn ? "/application-form/" : "/beratung/"}
+        consultText={isEn ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          isEn
+            ? "Learn how our dedicated career management mentors support you with German IT CV reviews, LinkedIn optimization, and interview preparation."
+            : "Erfahre, wie unsere Karriere-Mentoren dich bei IT-Lebenslauf, LinkedIn-Profil, Vorstellungsgesprächen und Bewerbungsprozessen in Deutschland unterstützen."
+        }
+        trackingSource="career_service_faq"
+      />
     </div>
   );
 }
@@ -1299,32 +1286,18 @@ export function ConsultationPage() {
       </section>
 
       {/* H2: Consultation FAQ */}
-      <section className="py-16 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
-            {isEn ? "Consultation FAQ" : "Häufige Fragen zur Beratung"}
-          </h2>
-          <div className="space-y-3.5">
-            {consultFaqs.map((f, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm">
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {f.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title={isEn ? "Consultation FAQ" : "Häufige Fragen zur Beratung"}
+        items={consultFaqs}
+        consultPath={isEn ? "/application-form/" : "/beratung/"}
+        consultText={isEn ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          isEn
+            ? "Have questions before booking your consultation? Here are the most important details about our free advisory sessions."
+            : "Hast du vor deinem Termin noch offene Fragen? Hier findest du alle wichtigen Details zu unserem kostenlosen Beratungsgespräch."
+        }
+        trackingSource="consultation_faq"
+      />
     </div>
   );
 }

@@ -9,6 +9,7 @@ import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { ProgramSelector } from "../components/ProgramSelector";
 import { TrustKeyFactsBar, getIconForCourseInfoStrip } from "../components/TrustKeyFactsBar";
+import { FaqSection } from "../components/FaqSection";
 import {
   CheckCircleIcon,
   ArrowRightIcon,
@@ -1522,85 +1523,18 @@ export function CourseTemplatePage({ courseKey }: CourseTemplatePageProps) {
       {/* =====================================================================
           11. FAQ (Component B13) — H2: faqH2
           ===================================================================== */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
-          <div className="md:col-span-5">
-            <div
-              className="text-xs font-medium uppercase tracking-widest mb-2"
-              style={{ color: PRIMARY }}
-            >
-              FAQ
-            </div>
-            <h2 className="font-medium tracking-[-0.02em] text-3xl mb-4" style={{ color: DARK }}>
-              {data.faqH2}
-            </h2>
-            <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-              {lang === "en"
-                ? "Have questions about the curriculum, English live classes, or how to apply for your Bildungsgutschein in Germany? Our advisory team is happy to help."
-                : "Hast du Fragen zum Lehrplan, zum Live-Unterricht oder zur Förderung mit Bildungsgutschein? Unsere Studienberatung hilft dir gerne persönlich weiter."}
-            </p>
-            <div className="space-y-2.5 text-sm text-gray-600 mb-6">
-              <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59] shrink-0" />
-                <span>Bataver Str. 84, 41462 Neuss</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59] shrink-0" />
-                <span>info@clarusway.de</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-[#e51a59] shrink-0" />
-                <span>+49 2131 776 2749</span>
-              </div>
-            </div>
-            <Link
-              to={consultPath}
-              style={{ background: PRIMARY }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-medium text-sm hover:opacity-90 transition-opacity"
-            >
-              <span>{lang === "en" ? "Free consultation" : "Kostenlose Beratung"}</span>
-              <ArrowRightIcon className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="md:col-span-7 space-y-3">
-            {data.faqs.map((faq, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group rounded-xl overflow-hidden border border-gray-200 bg-white"
-              >
-                <summary
-                  style={{ background: PRIMARY }}
-                  className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none select-none text-white hover:opacity-95 transition-opacity"
-                >
-                  <h3 className="text-sm font-medium text-white text-left">
-                    {faq.q}
-                  </h3>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    className="shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  >
-                    <path
-                      d="M2 4l4 4 4-4"
-                      stroke="white"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </summary>
-                <div className="px-5 py-4 text-sm text-gray-600 leading-relaxed bg-white">
-                  {faq.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title={data.faqH2}
+        items={data.faqs}
+        consultPath={consultPath}
+        consultText={lang === "en" ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          lang === "en"
+            ? "Have questions about the curriculum, English live classes, or how to apply for your Bildungsgutschein in Germany? Our advisory team is happy to help."
+            : "Hast du Fragen zum Lehrplan, zum Live-Unterricht oder zur Förderung mit Bildungsgutschein? Unsere Studienberatung hilft dir gerne persönlich weiter."
+        }
+        trackingSource="course_template_faq"
+      />
 
       {/* =====================================================================
           12. WEITERE IT-KURSE (Component B14) — H2: relatedH2

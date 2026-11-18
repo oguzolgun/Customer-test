@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { FaqSection } from "../components/FaqSection";
 import {
   FUNDING_OVERVIEW_IMAGES,
   BILDUNGSGUTSCHEIN_IMAGES,
@@ -489,32 +490,18 @@ export function FinancingHubPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
-            {isEn ? "Financing FAQ" : "Häufige Fragen zur Finanzierung"}
-          </h2>
-          <div className="space-y-3.5">
-            {faqs.map((f, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform">
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {f.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title={isEn ? "Financing FAQ" : "Häufige Fragen zur Finanzierung"}
+        items={faqs}
+        consultPath={isEn ? "/application-form/" : "/beratung/"}
+        consultText={isEn ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          isEn
+            ? "Questions about Bildungsgutschein, AVGS coaching, or QCG employer subsidies? Our funding specialists are here to guide you."
+            : "Fragen zu Bildungsgutschein, AVGS-Coaching oder Arbeitgeberförderung über das QCG? Unsere Förderexperten unterstützen dich bei jedem Schritt."
+        }
+        trackingSource="financing_faq"
+      />
     </div>
   );
 }
@@ -1158,32 +1145,18 @@ export function BildungsgutscheinPage() {
       </section>
 
       {/* SECTION 5: FAQ */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
-            {isEn ? "Bildungsgutschein FAQ" : "Häufige Fragen zum Bildungsgutschein"}
-          </h2>
-          <div className="space-y-3.5">
-            {faqs.map((f, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform">
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {f.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title={isEn ? "Bildungsgutschein FAQ" : "Häufige Fragen zum Bildungsgutschein"}
+        items={faqs}
+        consultPath={isEn ? "/application-form/" : "/beratung/"}
+        consultText={isEn ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          isEn
+            ? "Need help with the application process at your local Agentur für Arbeit or Jobcenter? We prepare your official offer within 24 hours."
+            : "Brauchst du Unterstützung beim Antrag bei der Agentur für Arbeit oder dem Jobcenter? Wir erstellen dein Maßnahmeangebot innerhalb von 24 Stunden."
+        }
+        trackingSource="bildungsgutschein_faq"
+      />
     </div>
   );
 }
@@ -1718,32 +1691,18 @@ export function AvgsPage() {
       </section>
 
       {/* H2: AVGS Coaching FAQ */}
-      <section className="py-16 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
-            {isEn ? "AVGS Coaching FAQ" : "Häufige Fragen zum AVGS"}
-          </h2>
-          <div className="space-y-3.5">
-            {avgsFaqs.map((f, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm">
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {f.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title={isEn ? "AVGS Coaching FAQ" : "Häufige Fragen zum AVGS"}
+        items={avgsFaqs}
+        consultPath={isEn ? "/application-form/" : "/beratung/"}
+        consultText={isEn ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          isEn
+            ? "Our 1-on-1 career coaching under § 45 SGB III is 100% free with an AVGS voucher. Get personal advice on your application."
+            : "Unser 1-zu-1 Karriere-Coaching nach § 45 SGB III ist mit AVGS-Gutschein zu 100 % kostenlos. Wir beraten dich gerne unverbindlich."
+        }
+        trackingSource="avgs_faq"
+      />
     </div>
   );
 }
@@ -2181,32 +2140,22 @@ export function QcgPage() {
               </form>
             )}
           </div>
-
-          {/* H2: Qualifizierungschancengesetz FAQ */}
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
-            {isEn ? "Qualifizierungschancengesetz FAQ" : "Häufige Fragen zum QCG"}
-          </h2>
-          <div className="max-w-4xl mx-auto space-y-3.5">
-            {qcgFaqs.map((f, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm">
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {f.a}
-                </div>
-              </details>
-            ))}
-          </div>
         </div>
       </section>
+
+      {/* H2: Qualifizierungschancengesetz FAQ */}
+      <FaqSection
+        title={isEn ? "Qualifizierungschancengesetz FAQ" : "Häufige Fragen zum QCG"}
+        items={qcgFaqs}
+        consultPath={isEn ? "/application-form/" : "/beratung/"}
+        consultText={isEn ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          isEn
+            ? "Learn how companies can fund employee upskilling with up to 100% government wage and training cost subsidies."
+            : "Erfahre, wie Unternehmen die Weiterbildung ihrer Mitarbeiter mit bis zu 100 % Zuschuss zu Lehrgangs- und Lohnkosten fördern lassen können."
+        }
+        trackingSource="qcg_faq"
+      />
     </div>
   );
 }
@@ -2700,7 +2649,7 @@ export function CorporateTrainingPage() {
           </div>
 
           {/* Landscape Team Leader Banner */}
-          <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100 mb-16">
+          <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-100">
             <img
               src={CORPORATE_TRAINING_IMAGES.landscapeTeamLeader.src}
               alt={CORPORATE_TRAINING_IMAGES.landscapeTeamLeader.alt[lang]}
@@ -2708,32 +2657,22 @@ export function CorporateTrainingPage() {
               loading="lazy"
             />
           </div>
-
-          {/* H2: Corporate Training FAQ */}
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] text-center mb-8">
-            {isEn ? "Corporate Training FAQ" : "Häufige Fragen"}
-          </h2>
-          <div className="max-w-4xl mx-auto space-y-3.5">
-            {corpFaqs.map((f, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                  <span style={{ color: PRIMARY }} className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm">
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {f.a}
-                </div>
-              </details>
-            ))}
-          </div>
         </div>
       </section>
+
+      {/* H2: Corporate Training FAQ */}
+      <FaqSection
+        title={isEn ? "Corporate Training FAQ" : "Häufige Fragen zu Firmenschulungen"}
+        items={corpFaqs}
+        consultPath={isEn ? "/application-form/" : "/beratung/"}
+        consultText={isEn ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          isEn
+            ? "Upskill your tech teams in AI, Cloud, Cyber Security, and Software Engineering. Contact our corporate training advisors."
+            : "Bilde deine Tech-Teams in KI, Cloud, Cyber Security und Softwareentwicklung weiter. Kontaktiere unsere Firmenkundenberatung."
+        }
+        trackingSource="corporate_faq"
+      />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { FaqSection } from "../components/FaqSection";
 import { COURSES_HUB_IMAGES } from "../data/pageImagesData";
 import {
   ArrowRightIcon,
@@ -807,46 +808,20 @@ export function CoursesHubPage() {
       </section>
 
       {/* =====================================================================
-          B13: HÄUFIGE FRAGEN ZU DEN IT-KURSEN (6 Exact FAQ Questions per Page 24)
+          B13: HÄUFIGE FRAGEN ZU DEN IT-KURSEN (2-Column Standard FAQ)
           ===================================================================== */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <span
-              style={{ color: PRIMARY }}
-              className="text-xs font-medium uppercase tracking-widest block mb-2"
-            >
-              FAQ
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e]">
-              {isEn ? "Frequently asked questions about IT courses" : "Häufige Fragen zu den IT-Kursen"}
-            </h2>
-          </div>
-
-          <div className="space-y-3.5">
-            {faqs.map((f, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                  <span
-                    style={{ color: PRIMARY }}
-                    className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform"
-                  >
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {f.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title={isEn ? "Frequently asked questions about IT courses" : "Häufige Fragen zu den IT-Kursen"}
+        items={faqs}
+        consultPath={consultPath}
+        consultText={isEn ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          isEn
+            ? "Have questions about choosing between AI Engineering, Cyber Security, Cloud, or SDET? We help you choose the right track and module entry point."
+            : "Hast du Fragen zur Auswahl zwischen AI Engineering, Cyber Security, Cloud oder SDET? Wir beraten dich gerne bei der Kurswahl und dem passenden Einstiegsmodul."
+        }
+        trackingSource="courses_hub_faq"
+      />
 
       {/* =====================================================================
           B16: SON CTA BANDI (Final Call to Action Banner per Page 23)

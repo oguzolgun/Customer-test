@@ -5,6 +5,7 @@ import { SeoHead, trackClaruswayEvent } from "../components/SeoHead";
 import { ClaruswayHeroShowpiece } from "../components/ClaruswayHeroShowpiece";
 import { HomeFeaturedCourses } from "../components/HomeFeaturedCourses";
 import { TrustKeyFactsBar } from "../components/TrustKeyFactsBar";
+import { FaqSection } from "../components/FaqSection";
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -944,48 +945,24 @@ export function HomePage() {
       </section>
 
       {/* =====================================================================
-          B10: HÄUFIGE FRAGEN ZUR IT WEITERBILDUNG (H2 per Page 22)
+          B10 / B13: HÄUFIGE FRAGEN ZUR IT WEITERBILDUNG (2-Column Standard FAQ)
           ===================================================================== */}
-      <section style={{ backgroundColor: SOFT_BG }} className="py-12 sm:py-14">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <span
-              style={{ color: PRIMARY }}
-              className="text-xs font-medium uppercase tracking-widest block mb-2"
-            >
-              FAQ
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e]">
-              {isEn
-                ? "Frequently asked questions about IT training"
-                : "Häufige Fragen zur IT Weiterbildung"}
-            </h2>
-          </div>
-
-          <div className="space-y-3.5">
-            {faqs.map((f, idx) => (
-              <details
-                key={idx}
-                open={idx === 0}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <h3 className="text-sm sm:text-base font-medium text-[#1a1d2e]">{f.q}</h3>
-                  <span
-                    style={{ color: PRIMARY }}
-                    className="w-7 h-7 rounded-full bg-[#fde8ef] flex items-center justify-center shrink-0 font-medium text-sm group-open:rotate-45 transition-transform"
-                  >
-                    +
-                  </span>
-                </summary>
-                <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
-                  {f.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title={
+          isEn
+            ? "Frequently asked questions about IT training"
+            : "Häufige Fragen zur IT Weiterbildung"
+        }
+        items={faqs}
+        consultPath={consultPath}
+        consultText={isEn ? "Free consultation" : "Kostenlose Beratung"}
+        description={
+          isEn
+            ? "Have questions about our modular programs, 100% Bildungsgutschein funding, or live online classes? Our team is happy to advise you personally."
+            : "Hast du Fragen zum modularen Lehrplan, zur 100 % Förderung mit Bildungsgutschein oder zum Live-Unterricht? Unsere Studienberatung hilft dir gerne persönlich weiter."
+        }
+        trackingSource="home_faq"
+      />
 
       {/* =====================================================================
           B11 / B16: SON CTA BANDI (H2 per Page 22)
