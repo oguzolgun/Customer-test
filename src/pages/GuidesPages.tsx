@@ -403,58 +403,90 @@ export function GuideArticlePage() {
 
               {/* Component B14: Owning Course CTA Box */}
               <div
-                style={{ backgroundColor: DARK }}
-                className="rounded-3xl p-7 sm:p-9 text-white mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+                style={{
+                  background: `linear-gradient(135deg, ${DARK} 0%, #24142e 100%)`,
+                  boxShadow: "0 10px 30px -10px rgba(20, 27, 45, 0.3)",
+                }}
+                className="rounded-3xl p-7 sm:p-9 text-white mb-14 border border-white/10 relative overflow-hidden"
               >
-                <div>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-[#e51a59] text-white mb-3">
-                    <ShieldCheckIcon className="w-3.5 h-3.5" />
-                    <span>{isEn ? "AZAV-Certified Program" : "AZAV-zertifiziertes Programm"}</span>
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-medium mb-2">
-                    <Link to={article.ctaCourseTo} className="hover:text-[#f472b6]">
+                {/* Subtle atmospheric glow */}
+                <div
+                  className="absolute -top-24 -right-24 w-60 h-60 rounded-full pointer-events-none opacity-20 blur-3xl"
+                  style={{ backgroundColor: PRIMARY }}
+                  aria-hidden="true"
+                />
+
+                <div className="relative z-10">
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-1.5 rounded-full bg-[#e51a59] text-white shadow-xs">
+                      <ShieldCheckIcon className="w-3.5 h-3.5" />
+                      <span>{isEn ? "AZAV-Certified Program" : "AZAV-zertifiziertes Programm"}</span>
+                    </span>
+                    <span className="text-xs text-gray-300 font-medium">
+                      {isEn ? "100% funded with Bildungsgutschein" : "100 % mit Bildungsgutschein förderbar"}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-medium tracking-tight mb-3 text-white leading-snug">
+                    <Link to={article.ctaCourseTo} className="hover:text-[#f472b6] transition-colors">
                       {article.ctaCourseTitle}
                     </Link>
                   </h3>
-                  <p className="text-gray-300 text-xs sm:text-sm max-w-xl leading-relaxed">
+
+                  <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
                     {article.ctaCourseDesc}
                   </p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                  <Link
-                    to={article.ctaCourseTo}
-                    style={{ backgroundColor: PRIMARY }}
-                    className="inline-flex items-center justify-center gap-2 text-white font-medium px-6 py-3 rounded-full text-xs sm:text-sm hover:opacity-95"
-                  >
-                    <span>{article.ctaCourseTitle}</span>
-                    <ArrowRightIcon className="w-4 h-4" />
-                  </Link>
-                  <Link
-                    to={consultPath}
-                    className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-medium px-5 py-3 rounded-full text-xs sm:text-sm hover:bg-white/10"
-                  >
-                    <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
-                  </Link>
+
+                  <div className="flex flex-wrap items-center gap-3.5 pt-1">
+                    <Link
+                      to={article.ctaCourseTo}
+                      style={{ backgroundColor: PRIMARY }}
+                      className="inline-flex items-center justify-center gap-2 text-white font-medium px-6 py-3 rounded-xl text-sm hover:opacity-95 shadow-sm transition-opacity"
+                    >
+                      <span>{isEn ? "Explore program & curriculum" : "Zum Kursprogramm & Lehrplan"}</span>
+                      <ArrowRightIcon className="w-4 h-4" />
+                    </Link>
+                    <Link
+                      to={consultPath}
+                      className="inline-flex items-center justify-center gap-2 border border-white/25 bg-white/5 text-white font-medium px-5 py-3 rounded-xl text-sm hover:bg-white/10 transition-colors"
+                    >
+                      <span>{isEn ? "Free consultation" : "Kostenlose Beratung"}</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
 
               {/* Component B13: FAQ */}
-              <div id="guide-faq" className="scroll-mt-24">
-                <h2 className="text-2xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-5">
-                  {isEn ? "Frequently asked questions" : "Häufige Fragen zum Thema"}
-                </h2>
+              <div id="guide-faq" className="scroll-mt-24 mb-14">
+                <div className="mb-6">
+                  <span
+                    style={{ color: PRIMARY }}
+                    className="text-xs font-medium uppercase tracking-widest block mb-2"
+                  >
+                    FAQ
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-[#1a1d2e] mb-2.5">
+                    {isEn ? "Frequently asked questions" : "Häufige Fragen zum Thema"}
+                  </h2>
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    {isEn
+                      ? "Answers to the most important questions about prerequisites, Bildungsgutschein funding, and career prospects."
+                      : "Antworten auf die wichtigsten Fragen zu Voraussetzungen, Bildungsgutschein-Förderung und Berufsaussichten."}
+                  </p>
+                </div>
+
                 <div className="space-y-3">
                   {article.faqs.map((f, idx) => (
                     <details
                       key={idx}
                       open={idx === 0}
-                      className="group rounded-xl overflow-hidden border border-gray-200 bg-white"
+                      className="group rounded-xl overflow-hidden border border-gray-200 bg-white shadow-2xs"
                     >
                       <summary
                         style={{ background: PRIMARY }}
                         className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none select-none text-white hover:opacity-95 transition-opacity"
                       >
-                        <span className="text-sm font-medium text-white text-left leading-snug">
+                        <span className="text-sm sm:text-base font-medium text-white text-left leading-snug">
                           {f.q}
                         </span>
                         <svg
@@ -474,11 +506,35 @@ export function GuideArticlePage() {
                           />
                         </svg>
                       </summary>
-                      <div className="px-5 py-4 text-sm text-gray-600 leading-relaxed bg-white">
+                      <div className="px-5 sm:px-6 py-4 sm:py-5 text-sm text-gray-600 leading-relaxed bg-white">
                         {f.a}
                       </div>
                     </details>
                   ))}
+                </div>
+
+                {/* Direct Consultation Help Strip */}
+                <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-[#f6f7fb] border border-gray-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <h4 className="text-sm font-medium text-[#1a1d2e] mb-1">
+                      {isEn
+                        ? "Still have questions about your career transition?"
+                        : "Noch Fragen zum Quereinstieg oder zur Förderung?"}
+                    </h4>
+                    <p className="text-xs text-gray-500 leading-relaxed">
+                      {isEn
+                        ? "Our education team is happy to review your Bildungsgutschein eligibility personally."
+                        : "Unsere Studienberatung prüft deine Fördermöglichkeiten unverbindlich im persönlichen Gespräch."}
+                    </p>
+                  </div>
+                  <Link
+                    to={consultPath}
+                    style={{ backgroundColor: PRIMARY }}
+                    className="inline-flex items-center justify-center gap-2 text-white font-medium px-5 py-2.5 rounded-xl text-xs sm:text-sm hover:opacity-95 shadow-xs shrink-0 transition-opacity"
+                  >
+                    <span>{isEn ? "Book free consultation" : "Kostenlose Beratung"}</span>
+                    <ArrowRightIcon className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
             </div>
